@@ -1,0 +1,33 @@
+{
+    "name": "klaviyo/api",
+    "version": "1.0.0",
+    "description": "PHP SDK for Klaviyo's API.",
+    "keywords": [
+        "openapitools",
+        "openapi-generator",
+        "openapi",
+        "php",
+        "sdk",
+        "rest",
+        "api"
+    ],
+    "homepage": "https://developers.klaviyo.com",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Klaviyo",
+            "homepage": "https://www.klaviyo.com/"
+        }
+    ],
+    "require": {
+        "php": "^7.4 || ^8.0",
+        "ext-curl": "*",
+        "ext-json": "*",
+        "ext-mbstring": "*",
+        "guzzlehttp/guzzle": "^7.3",
+        "guzzlehttp/psr7": "^1.7 || ^2.0"
+    },
+    "autoload": {
+        "psr-4": { "KlaviyoAPI\\" : "lib/" }
+    }
+}
