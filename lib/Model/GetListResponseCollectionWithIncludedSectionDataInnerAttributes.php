@@ -1,6 +1,6 @@
 <?php
 /**
- * PatchListResponse
+ * GetListResponseCollectionWithIncludedSectionDataInnerAttributes
  *
  * PHP version 7.4
  *
@@ -33,7 +33,7 @@ use \ArrayAccess;
 use \KlaviyoAPI\ObjectSerializer;
 
 /**
- * PatchListResponse Class Doc Comment
+ * GetListResponseCollectionWithIncludedSectionDataInnerAttributes Class Doc Comment
  *
  * @category Class
  * @package  KlaviyoAPI
@@ -41,7 +41,7 @@ use \KlaviyoAPI\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class PatchListResponse implements ModelInterface, ArrayAccess, \JsonSerializable
+class GetListResponseCollectionWithIncludedSectionDataInnerAttributes implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class PatchListResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
       *
       * @var string
       */
-    protected static $openAPIModelName = 'PatchListResponse';
+    protected static $openAPIModelName = 'GetListResponseCollectionWithIncludedSection_data_inner_attributes';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,7 +58,9 @@ class PatchListResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
       * @var string[]
       */
     protected static $openAPITypes = [
-        'data' => '\KlaviyoAPI\Model\GetListResponseCollectionWithIncludedSectionDataInner'
+        'name' => 'string',
+        'created' => '\DateTime',
+        'updated' => '\DateTime'
     ];
 
     /**
@@ -69,7 +71,9 @@ class PatchListResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'data' => null
+        'name' => null,
+        'created' => 'date-time',
+        'updated' => 'date-time'
     ];
 
     /**
@@ -99,7 +103,9 @@ class PatchListResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
      * @var string[]
      */
     protected static $attributeMap = [
-        'data' => 'data'
+        'name' => 'name',
+        'created' => 'created',
+        'updated' => 'updated'
     ];
 
     /**
@@ -108,7 +114,9 @@ class PatchListResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
      * @var string[]
      */
     protected static $setters = [
-        'data' => 'setData'
+        'name' => 'setName',
+        'created' => 'setCreated',
+        'updated' => 'setUpdated'
     ];
 
     /**
@@ -117,7 +125,9 @@ class PatchListResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
      * @var string[]
      */
     protected static $getters = [
-        'data' => 'getData'
+        'name' => 'getName',
+        'created' => 'getCreated',
+        'updated' => 'getUpdated'
     ];
 
     /**
@@ -177,7 +187,9 @@ class PatchListResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
      */
     public function __construct(array $data = null)
     {
-        $this->container['data'] = $data['data'] ?? null;
+        $this->container['name'] = $data['name'] ?? null;
+        $this->container['created'] = $data['created'] ?? null;
+        $this->container['updated'] = $data['updated'] ?? null;
     }
 
     /**
@@ -189,9 +201,6 @@ class PatchListResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
     {
         $invalidProperties = [];
 
-        if ($this->container['data'] === null) {
-            $invalidProperties[] = "'data' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -208,25 +217,73 @@ class PatchListResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
 
 
     /**
-     * Gets data
+     * Gets name
      *
-     * @return \KlaviyoAPI\Model\GetListResponseCollectionWithIncludedSectionDataInner
+     * @return string|null
      */
-    public function getData()
+    public function getName()
     {
-        return $this->container['data'];
+        return $this->container['name'];
     }
 
     /**
-     * Sets data
+     * Sets name
      *
-     * @param \KlaviyoAPI\Model\GetListResponseCollectionWithIncludedSectionDataInner $data data
+     * @param string|null $name name
      *
      * @return self
      */
-    public function setData($data)
+    public function setName($name)
     {
-        $this->container['data'] = $data;
+        $this->container['name'] = $name;
+
+        return $this;
+    }
+
+    /**
+     * Gets created
+     *
+     * @return \DateTime|null
+     */
+    public function getCreated()
+    {
+        return $this->container['created'];
+    }
+
+    /**
+     * Sets created
+     *
+     * @param \DateTime|null $created created
+     *
+     * @return self
+     */
+    public function setCreated($created)
+    {
+        $this->container['created'] = $created;
+
+        return $this;
+    }
+
+    /**
+     * Gets updated
+     *
+     * @return \DateTime|null
+     */
+    public function getUpdated()
+    {
+        return $this->container['updated'];
+    }
+
+    /**
+     * Sets updated
+     *
+     * @param \DateTime|null $updated updated
+     *
+     * @return self
+     */
+    public function setUpdated($updated)
+    {
+        $this->container['updated'] = $updated;
 
         return $this;
     }

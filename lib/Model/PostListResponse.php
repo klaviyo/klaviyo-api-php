@@ -58,7 +58,7 @@ class PostListResponse implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'data' => '\KlaviyoAPI\Model\GetListResponseCollectionDataInner'
+        'data' => '\KlaviyoAPI\Model\GetListResponseCollectionWithIncludedSectionDataInner'
     ];
 
     /**
@@ -210,7 +210,7 @@ class PostListResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets data
      *
-     * @return \KlaviyoAPI\Model\GetListResponseCollectionDataInner
+     * @return \KlaviyoAPI\Model\GetListResponseCollectionWithIncludedSectionDataInner
      */
     public function getData()
     {
@@ -220,7 +220,7 @@ class PostListResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets data
      *
-     * @param \KlaviyoAPI\Model\GetListResponseCollectionDataInner $data data
+     * @param \KlaviyoAPI\Model\GetListResponseCollectionWithIncludedSectionDataInner $data data
      *
      * @return self
      */

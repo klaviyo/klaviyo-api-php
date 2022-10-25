@@ -60,7 +60,7 @@ class GetProfileResponseWithIncludedSectionDataIncludedInner implements ModelInt
     protected static $openAPITypes = [
         'type' => 'string',
         'id' => 'string',
-        'attributes' => '\KlaviyoAPI\Model\GetListResponseCollectionDataInnerAttributes',
+        'attributes' => '\KlaviyoAPI\Model\GetListResponseCollectionWithIncludedSectionDataInnerAttributes',
         'links' => '\KlaviyoAPI\Model\GetCatalogItemResponseCollectionWithIncludedSectionDataInnerLinks'
     ];
 
@@ -317,7 +317,7 @@ class GetProfileResponseWithIncludedSectionDataIncludedInner implements ModelInt
     /**
      * Gets attributes
      *
-     * @return \KlaviyoAPI\Model\GetListResponseCollectionDataInnerAttributes
+     * @return \KlaviyoAPI\Model\GetListResponseCollectionWithIncludedSectionDataInnerAttributes
      */
     public function getAttributes()
     {
@@ -327,7 +327,7 @@ class GetProfileResponseWithIncludedSectionDataIncludedInner implements ModelInt
     /**
      * Sets attributes
      *
-     * @param \KlaviyoAPI\Model\GetListResponseCollectionDataInnerAttributes $attributes attributes
+     * @param \KlaviyoAPI\Model\GetListResponseCollectionWithIncludedSectionDataInnerAttributes $attributes attributes
      *
      * @return self
      */

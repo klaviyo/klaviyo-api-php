@@ -58,7 +58,7 @@ class GetSegmentResponseCollection implements ModelInterface, ArrayAccess, \Json
       * @var string[]
       */
     protected static $openAPITypes = [
-        'data' => '\KlaviyoAPI\Model\GetSegmentResponseCollectionDataInner[]',
+        'data' => '\KlaviyoAPI\Model\GetSegmentResponseCollectionWithIncludedSectionDataInner[]',
         'links' => '\KlaviyoAPI\Model\GetCatalogItemResponseCollectionWithIncludedSectionLinks'
     ];
 
@@ -219,7 +219,7 @@ class GetSegmentResponseCollection implements ModelInterface, ArrayAccess, \Json
     /**
      * Gets data
      *
-     * @return \KlaviyoAPI\Model\GetSegmentResponseCollectionDataInner[]
+     * @return \KlaviyoAPI\Model\GetSegmentResponseCollectionWithIncludedSectionDataInner[]
      */
     public function getData()
     {
@@ -229,7 +229,7 @@ class GetSegmentResponseCollection implements ModelInterface, ArrayAccess, \Json
     /**
      * Sets data
      *
-     * @param \KlaviyoAPI\Model\GetSegmentResponseCollectionDataInner[] $data data
+     * @param \KlaviyoAPI\Model\GetSegmentResponseCollectionWithIncludedSectionDataInner[] $data data
      *
      * @return self
      */

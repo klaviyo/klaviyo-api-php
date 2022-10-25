@@ -1,6 +1,6 @@
 <?php
 /**
- * PatchListResponse
+ * GetSegmentResponseWithIncludedSection
  *
  * PHP version 7.4
  *
@@ -33,7 +33,7 @@ use \ArrayAccess;
 use \KlaviyoAPI\ObjectSerializer;
 
 /**
- * PatchListResponse Class Doc Comment
+ * GetSegmentResponseWithIncludedSection Class Doc Comment
  *
  * @category Class
  * @package  KlaviyoAPI
@@ -41,7 +41,7 @@ use \KlaviyoAPI\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class PatchListResponse implements ModelInterface, ArrayAccess, \JsonSerializable
+class GetSegmentResponseWithIncludedSection implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class PatchListResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
       *
       * @var string
       */
-    protected static $openAPIModelName = 'PatchListResponse';
+    protected static $openAPIModelName = 'GetSegmentResponseWithIncludedSection';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,7 +58,7 @@ class PatchListResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
       * @var string[]
       */
     protected static $openAPITypes = [
-        'data' => '\KlaviyoAPI\Model\GetListResponseCollectionWithIncludedSectionDataInner'
+        'data' => '\KlaviyoAPI\Model\GetSegmentResponseCollectionWithIncludedSectionDataInner'
     ];
 
     /**
@@ -210,7 +210,7 @@ class PatchListResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Gets data
      *
-     * @return \KlaviyoAPI\Model\GetListResponseCollectionWithIncludedSectionDataInner
+     * @return \KlaviyoAPI\Model\GetSegmentResponseCollectionWithIncludedSectionDataInner
      */
     public function getData()
     {
@@ -220,7 +220,7 @@ class PatchListResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Sets data
      *
-     * @param \KlaviyoAPI\Model\GetListResponseCollectionWithIncludedSectionDataInner $data data
+     * @param \KlaviyoAPI\Model\GetSegmentResponseCollectionWithIncludedSectionDataInner $data data
      *
      * @return self
      */

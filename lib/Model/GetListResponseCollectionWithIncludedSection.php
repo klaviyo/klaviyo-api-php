@@ -1,6 +1,6 @@
 <?php
 /**
- * PatchListResponse
+ * GetListResponseCollectionWithIncludedSection
  *
  * PHP version 7.4
  *
@@ -33,7 +33,7 @@ use \ArrayAccess;
 use \KlaviyoAPI\ObjectSerializer;
 
 /**
- * PatchListResponse Class Doc Comment
+ * GetListResponseCollectionWithIncludedSection Class Doc Comment
  *
  * @category Class
  * @package  KlaviyoAPI
@@ -41,7 +41,7 @@ use \KlaviyoAPI\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class PatchListResponse implements ModelInterface, ArrayAccess, \JsonSerializable
+class GetListResponseCollectionWithIncludedSection implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class PatchListResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
       *
       * @var string
       */
-    protected static $openAPIModelName = 'PatchListResponse';
+    protected static $openAPIModelName = 'GetListResponseCollectionWithIncludedSection';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,7 +58,8 @@ class PatchListResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
       * @var string[]
       */
     protected static $openAPITypes = [
-        'data' => '\KlaviyoAPI\Model\GetListResponseCollectionWithIncludedSectionDataInner'
+        'data' => '\KlaviyoAPI\Model\GetListResponseCollectionWithIncludedSectionDataInner[]',
+        'links' => '\KlaviyoAPI\Model\GetCatalogItemResponseCollectionWithIncludedSectionLinks'
     ];
 
     /**
@@ -69,7 +70,8 @@ class PatchListResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'data' => null
+        'data' => null,
+        'links' => null
     ];
 
     /**
@@ -99,7 +101,8 @@ class PatchListResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
      * @var string[]
      */
     protected static $attributeMap = [
-        'data' => 'data'
+        'data' => 'data',
+        'links' => 'links'
     ];
 
     /**
@@ -108,7 +111,8 @@ class PatchListResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
      * @var string[]
      */
     protected static $setters = [
-        'data' => 'setData'
+        'data' => 'setData',
+        'links' => 'setLinks'
     ];
 
     /**
@@ -117,7 +121,8 @@ class PatchListResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
      * @var string[]
      */
     protected static $getters = [
-        'data' => 'getData'
+        'data' => 'getData',
+        'links' => 'getLinks'
     ];
 
     /**
@@ -178,6 +183,7 @@ class PatchListResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
     public function __construct(array $data = null)
     {
         $this->container['data'] = $data['data'] ?? null;
+        $this->container['links'] = $data['links'] ?? null;
     }
 
     /**
@@ -191,6 +197,9 @@ class PatchListResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
 
         if ($this->container['data'] === null) {
             $invalidProperties[] = "'data' can't be null";
+        }
+        if ($this->container['links'] === null) {
+            $invalidProperties[] = "'links' can't be null";
         }
         return $invalidProperties;
     }
@@ -210,7 +219,7 @@ class PatchListResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Gets data
      *
-     * @return \KlaviyoAPI\Model\GetListResponseCollectionWithIncludedSectionDataInner
+     * @return \KlaviyoAPI\Model\GetListResponseCollectionWithIncludedSectionDataInner[]
      */
     public function getData()
     {
@@ -220,13 +229,37 @@ class PatchListResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Sets data
      *
-     * @param \KlaviyoAPI\Model\GetListResponseCollectionWithIncludedSectionDataInner $data data
+     * @param \KlaviyoAPI\Model\GetListResponseCollectionWithIncludedSectionDataInner[] $data data
      *
      * @return self
      */
     public function setData($data)
     {
         $this->container['data'] = $data;
+
+        return $this;
+    }
+
+    /**
+     * Gets links
+     *
+     * @return \KlaviyoAPI\Model\GetCatalogItemResponseCollectionWithIncludedSectionLinks
+     */
+    public function getLinks()
+    {
+        return $this->container['links'];
+    }
+
+    /**
+     * Sets links
+     *
+     * @param \KlaviyoAPI\Model\GetCatalogItemResponseCollectionWithIncludedSectionLinks $links links
+     *
+     * @return self
+     */
+    public function setLinks($links)
+    {
+        $this->container['links'] = $links;
 
         return $this;
     }

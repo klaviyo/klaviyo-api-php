@@ -2500,7 +2500,7 @@ class ListsApi
      * Get Lists
      *
      * @param  string[] $fields_list For more information please visit https://developers.klaviyo.com/en/v2022-10-17/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string $filter For more information please visit https://developers.klaviyo.com/en/v2022-10-17/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;name&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;created&#x60;: &#x60;greater-than&#x60;&lt;br&gt;&#x60;updated&#x60;: &#x60;greater-than&#x60; (optional)
+     * @param  string $filter For more information please visit https://developers.klaviyo.com/en/v2022-10-17/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;name&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;id&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;created&#x60;: &#x60;greater-than&#x60;&lt;br&gt;&#x60;updated&#x60;: &#x60;greater-than&#x60; (optional)
      * @param  string $page_cursor For more information please visit https://developers.klaviyo.com/en/v2022-10-17/reference/api-overview#pagination (optional)
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response
@@ -2519,7 +2519,7 @@ class ListsApi
      * Get Lists
      *
      * @param  string[] $fields_list For more information please visit https://developers.klaviyo.com/en/v2022-10-17/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string $filter For more information please visit https://developers.klaviyo.com/en/v2022-10-17/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;name&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;created&#x60;: &#x60;greater-than&#x60;&lt;br&gt;&#x60;updated&#x60;: &#x60;greater-than&#x60; (optional)
+     * @param  string $filter For more information please visit https://developers.klaviyo.com/en/v2022-10-17/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;name&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;id&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;created&#x60;: &#x60;greater-than&#x60;&lt;br&gt;&#x60;updated&#x60;: &#x60;greater-than&#x60; (optional)
      * @param  string $page_cursor For more information please visit https://developers.klaviyo.com/en/v2022-10-17/reference/api-overview#pagination (optional)
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response
@@ -2689,7 +2689,7 @@ class ListsApi
      * Get Lists
      *
      * @param  string[] $fields_list For more information please visit https://developers.klaviyo.com/en/v2022-10-17/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string $filter For more information please visit https://developers.klaviyo.com/en/v2022-10-17/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;name&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;created&#x60;: &#x60;greater-than&#x60;&lt;br&gt;&#x60;updated&#x60;: &#x60;greater-than&#x60; (optional)
+     * @param  string $filter For more information please visit https://developers.klaviyo.com/en/v2022-10-17/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;name&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;id&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;created&#x60;: &#x60;greater-than&#x60;&lt;br&gt;&#x60;updated&#x60;: &#x60;greater-than&#x60; (optional)
      * @param  string $page_cursor For more information please visit https://developers.klaviyo.com/en/v2022-10-17/reference/api-overview#pagination (optional)
      *
      * @throws \InvalidArgumentException
@@ -2711,7 +2711,7 @@ class ListsApi
      * Get Lists
      *
      * @param  string[] $fields_list For more information please visit https://developers.klaviyo.com/en/v2022-10-17/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string $filter For more information please visit https://developers.klaviyo.com/en/v2022-10-17/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;name&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;created&#x60;: &#x60;greater-than&#x60;&lt;br&gt;&#x60;updated&#x60;: &#x60;greater-than&#x60; (optional)
+     * @param  string $filter For more information please visit https://developers.klaviyo.com/en/v2022-10-17/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;name&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;id&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;created&#x60;: &#x60;greater-than&#x60;&lt;br&gt;&#x60;updated&#x60;: &#x60;greater-than&#x60; (optional)
      * @param  string $page_cursor For more information please visit https://developers.klaviyo.com/en/v2022-10-17/reference/api-overview#pagination (optional)
      *
      * @throws \InvalidArgumentException
@@ -2767,7 +2767,7 @@ class ListsApi
      * Create request for operation 'getLists'
      *
      * @param  string[] $fields_list For more information please visit https://developers.klaviyo.com/en/v2022-10-17/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string $filter For more information please visit https://developers.klaviyo.com/en/v2022-10-17/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;name&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;created&#x60;: &#x60;greater-than&#x60;&lt;br&gt;&#x60;updated&#x60;: &#x60;greater-than&#x60; (optional)
+     * @param  string $filter For more information please visit https://developers.klaviyo.com/en/v2022-10-17/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;name&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;id&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;created&#x60;: &#x60;greater-than&#x60;&lt;br&gt;&#x60;updated&#x60;: &#x60;greater-than&#x60; (optional)
      * @param  string $page_cursor For more information please visit https://developers.klaviyo.com/en/v2022-10-17/reference/api-overview#pagination (optional)
      *
      * @throws \InvalidArgumentException

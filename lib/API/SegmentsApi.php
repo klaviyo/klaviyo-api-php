@@ -501,16 +501,18 @@ class SegmentsApi
      * Get Segment Profiles
      *
      * @param  string $segment_id  (required)
+     * @param  string[] $fields_profile For more information please visit https://developers.klaviyo.com/en/v2022-10-17/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $filter For more information please visit https://developers.klaviyo.com/en/v2022-10-17/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;email&#x60;: &#x60;any&#x60;&lt;br&gt;&#x60;phone_number&#x60;: &#x60;any&#x60;&lt;br&gt;&#x60;push_token&#x60;: &#x60;any&#x60;&lt;br&gt;&#x60;_kx&#x60;: &#x60;equals&#x60; (optional)
      * @param  string $page_cursor For more information please visit https://developers.klaviyo.com/en/v2022-10-17/reference/api-overview#pagination (optional)
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return void
+     * @return array<string,mixed>|\KlaviyoAPI\Model\GetCatalogItems400Response|\KlaviyoAPI\Model\GetCatalogItems400Response
      */
-    public function getSegmentProfiles($segment_id, $filter = null, $page_cursor = null, $apiKey = null)
+    public function getSegmentProfiles($segment_id, $fields_profile = null, $filter = null, $page_cursor = null, $apiKey = null)
     {
-        $this->getSegmentProfilesWithHttpInfo($segment_id, $filter, $page_cursor, $apiKey);
+        list($response) = $this->getSegmentProfilesWithHttpInfo($segment_id, $fields_profile, $filter, $page_cursor, $apiKey);
+        return $response;
     }
 
     /**
@@ -519,16 +521,17 @@ class SegmentsApi
      * Get Segment Profiles
      *
      * @param  string $segment_id  (required)
+     * @param  string[] $fields_profile For more information please visit https://developers.klaviyo.com/en/v2022-10-17/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $filter For more information please visit https://developers.klaviyo.com/en/v2022-10-17/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;email&#x60;: &#x60;any&#x60;&lt;br&gt;&#x60;phone_number&#x60;: &#x60;any&#x60;&lt;br&gt;&#x60;push_token&#x60;: &#x60;any&#x60;&lt;br&gt;&#x60;_kx&#x60;: &#x60;equals&#x60; (optional)
      * @param  string $page_cursor For more information please visit https://developers.klaviyo.com/en/v2022-10-17/reference/api-overview#pagination (optional)
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     * @return array of array<string,mixed>|\KlaviyoAPI\Model\GetCatalogItems400Response|\KlaviyoAPI\Model\GetCatalogItems400Response, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getSegmentProfilesWithHttpInfo($segment_id, $filter = null, $page_cursor = null, $apiKey = null)
+    public function getSegmentProfilesWithHttpInfo($segment_id, $fields_profile = null, $filter = null, $page_cursor = null, $apiKey = null)
     {
-        $request = $this->getSegmentProfilesRequest($segment_id, $filter, $page_cursor, $apiKey);
+        $request = $this->getSegmentProfilesRequest($segment_id, $fields_profile, $filter, $page_cursor, $apiKey);
 
         try {
             $options = $this->createHttpClientOption();
@@ -565,10 +568,103 @@ class SegmentsApi
                 );
             }
 
-            return [null, $statusCode, $response->getHeaders()];
+            switch($statusCode) {
+                case 200:
+                    if ('array<string,mixed>' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('array&lt;string,mixed&gt;' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+
+                    $parsed_content = json_decode(json_encode($content), TRUE);
+                    if (json_last_error() != JSON_ERROR_NONE) {
+                        $parsed_content = $content;
+                    }
+
+                    return [
+                        $parsed_content,
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 400:
+                    if ('\KlaviyoAPI\Model\GetCatalogItems400Response' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\KlaviyoAPI\Model\GetCatalogItems400Response' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+
+                    $parsed_content = json_decode(json_encode($content), TRUE);
+                    if (json_last_error() != JSON_ERROR_NONE) {
+                        $parsed_content = $content;
+                    }
+
+                    return [
+                        $parsed_content,
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 500:
+                    if ('\KlaviyoAPI\Model\GetCatalogItems400Response' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\KlaviyoAPI\Model\GetCatalogItems400Response' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+
+                    $parsed_content = json_decode(json_encode($content), TRUE);
+                    if (json_last_error() != JSON_ERROR_NONE) {
+                        $parsed_content = $content;
+                    }
+
+                    return [
+                        $parsed_content,
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = 'array<string,mixed>';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            $parsed_content = json_decode(json_encode($content), TRUE);
+            if (json_last_error() != JSON_ERROR_NONE) {
+                $parsed_content = $content;
+            }
+
+            return [
+                $parsed_content,
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
 
         } catch (ApiException $e) {
             switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        'array<string,mixed>',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
@@ -596,15 +692,16 @@ class SegmentsApi
      * Get Segment Profiles
      *
      * @param  string $segment_id  (required)
+     * @param  string[] $fields_profile For more information please visit https://developers.klaviyo.com/en/v2022-10-17/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $filter For more information please visit https://developers.klaviyo.com/en/v2022-10-17/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;email&#x60;: &#x60;any&#x60;&lt;br&gt;&#x60;phone_number&#x60;: &#x60;any&#x60;&lt;br&gt;&#x60;push_token&#x60;: &#x60;any&#x60;&lt;br&gt;&#x60;_kx&#x60;: &#x60;equals&#x60; (optional)
      * @param  string $page_cursor For more information please visit https://developers.klaviyo.com/en/v2022-10-17/reference/api-overview#pagination (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getSegmentProfilesAsync($segment_id, $filter = null, $page_cursor = null, $apiKey = null)
+    public function getSegmentProfilesAsync($segment_id, $fields_profile = null, $filter = null, $page_cursor = null, $apiKey = null)
     {
-        return $this->getSegmentProfilesAsyncWithHttpInfo($segment_id, $filter, $page_cursor, $apiKey)
+        return $this->getSegmentProfilesAsyncWithHttpInfo($segment_id, $fields_profile, $filter, $page_cursor, $apiKey)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -618,22 +715,41 @@ class SegmentsApi
      * Get Segment Profiles
      *
      * @param  string $segment_id  (required)
+     * @param  string[] $fields_profile For more information please visit https://developers.klaviyo.com/en/v2022-10-17/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $filter For more information please visit https://developers.klaviyo.com/en/v2022-10-17/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;email&#x60;: &#x60;any&#x60;&lt;br&gt;&#x60;phone_number&#x60;: &#x60;any&#x60;&lt;br&gt;&#x60;push_token&#x60;: &#x60;any&#x60;&lt;br&gt;&#x60;_kx&#x60;: &#x60;equals&#x60; (optional)
      * @param  string $page_cursor For more information please visit https://developers.klaviyo.com/en/v2022-10-17/reference/api-overview#pagination (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getSegmentProfilesAsyncWithHttpInfo($segment_id, $filter = null, $page_cursor = null, $apiKey = null)
+    public function getSegmentProfilesAsyncWithHttpInfo($segment_id, $fields_profile = null, $filter = null, $page_cursor = null, $apiKey = null)
     {
-        $returnType = '';
-        $request = $this->getSegmentProfilesRequest($segment_id, $filter, $page_cursor, $apiKey);
+        $returnType = 'array<string,mixed>';
+        $request = $this->getSegmentProfilesRequest($segment_id, $fields_profile, $filter, $page_cursor, $apiKey);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    return [null, $response->getStatusCode(), $response->getHeaders()];
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    $parsed_content = json_decode(json_encode($content), TRUE);
+                    if (json_last_error() != JSON_ERROR_NONE) {
+                        $parsed_content = $content;
+                    }
+
+                    return [
+                        $parsed_content,
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
                 },
                 function ($exception) {
                     $response = $exception->getResponse();
@@ -656,13 +772,14 @@ class SegmentsApi
      * Create request for operation 'getSegmentProfiles'
      *
      * @param  string $segment_id  (required)
+     * @param  string[] $fields_profile For more information please visit https://developers.klaviyo.com/en/v2022-10-17/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $filter For more information please visit https://developers.klaviyo.com/en/v2022-10-17/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;email&#x60;: &#x60;any&#x60;&lt;br&gt;&#x60;phone_number&#x60;: &#x60;any&#x60;&lt;br&gt;&#x60;push_token&#x60;: &#x60;any&#x60;&lt;br&gt;&#x60;_kx&#x60;: &#x60;equals&#x60; (optional)
      * @param  string $page_cursor For more information please visit https://developers.klaviyo.com/en/v2022-10-17/reference/api-overview#pagination (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getSegmentProfilesRequest($segment_id, $filter = null, $page_cursor = null, $apiKey = null)
+    public function getSegmentProfilesRequest($segment_id, $fields_profile = null, $filter = null, $page_cursor = null, $apiKey = null)
     {
         // verify the required parameter 'segment_id' is set
         if ($segment_id === null || (is_array($segment_id) && count($segment_id) === 0)) {
@@ -678,6 +795,15 @@ class SegmentsApi
         $httpBody = '';
         $multipart = false;
 
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $fields_profile,
+            'fields[profile]', // param base name
+            'array', // openApiType
+            'form', // style
+            false, // explode
+            false // required
+        ) ?? []);
         // query params
         $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
             $filter,
@@ -1180,7 +1306,7 @@ class SegmentsApi
      * Get Segments
      *
      * @param  string[] $fields_segment For more information please visit https://developers.klaviyo.com/en/v2022-10-17/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string $filter For more information please visit https://developers.klaviyo.com/en/v2022-10-17/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;name&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;created&#x60;: &#x60;greater-than&#x60;&lt;br&gt;&#x60;updated&#x60;: &#x60;greater-than&#x60; (optional)
+     * @param  string $filter For more information please visit https://developers.klaviyo.com/en/v2022-10-17/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;name&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;id&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;created&#x60;: &#x60;greater-than&#x60;&lt;br&gt;&#x60;updated&#x60;: &#x60;greater-than&#x60; (optional)
      * @param  string $page_cursor For more information please visit https://developers.klaviyo.com/en/v2022-10-17/reference/api-overview#pagination (optional)
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response
@@ -1199,7 +1325,7 @@ class SegmentsApi
      * Get Segments
      *
      * @param  string[] $fields_segment For more information please visit https://developers.klaviyo.com/en/v2022-10-17/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string $filter For more information please visit https://developers.klaviyo.com/en/v2022-10-17/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;name&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;created&#x60;: &#x60;greater-than&#x60;&lt;br&gt;&#x60;updated&#x60;: &#x60;greater-than&#x60; (optional)
+     * @param  string $filter For more information please visit https://developers.klaviyo.com/en/v2022-10-17/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;name&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;id&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;created&#x60;: &#x60;greater-than&#x60;&lt;br&gt;&#x60;updated&#x60;: &#x60;greater-than&#x60; (optional)
      * @param  string $page_cursor For more information please visit https://developers.klaviyo.com/en/v2022-10-17/reference/api-overview#pagination (optional)
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response
@@ -1369,7 +1495,7 @@ class SegmentsApi
      * Get Segments
      *
      * @param  string[] $fields_segment For more information please visit https://developers.klaviyo.com/en/v2022-10-17/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string $filter For more information please visit https://developers.klaviyo.com/en/v2022-10-17/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;name&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;created&#x60;: &#x60;greater-than&#x60;&lt;br&gt;&#x60;updated&#x60;: &#x60;greater-than&#x60; (optional)
+     * @param  string $filter For more information please visit https://developers.klaviyo.com/en/v2022-10-17/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;name&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;id&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;created&#x60;: &#x60;greater-than&#x60;&lt;br&gt;&#x60;updated&#x60;: &#x60;greater-than&#x60; (optional)
      * @param  string $page_cursor For more information please visit https://developers.klaviyo.com/en/v2022-10-17/reference/api-overview#pagination (optional)
      *
      * @throws \InvalidArgumentException
@@ -1391,7 +1517,7 @@ class SegmentsApi
      * Get Segments
      *
      * @param  string[] $fields_segment For more information please visit https://developers.klaviyo.com/en/v2022-10-17/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string $filter For more information please visit https://developers.klaviyo.com/en/v2022-10-17/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;name&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;created&#x60;: &#x60;greater-than&#x60;&lt;br&gt;&#x60;updated&#x60;: &#x60;greater-than&#x60; (optional)
+     * @param  string $filter For more information please visit https://developers.klaviyo.com/en/v2022-10-17/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;name&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;id&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;created&#x60;: &#x60;greater-than&#x60;&lt;br&gt;&#x60;updated&#x60;: &#x60;greater-than&#x60; (optional)
      * @param  string $page_cursor For more information please visit https://developers.klaviyo.com/en/v2022-10-17/reference/api-overview#pagination (optional)
      *
      * @throws \InvalidArgumentException
@@ -1447,7 +1573,7 @@ class SegmentsApi
      * Create request for operation 'getSegments'
      *
      * @param  string[] $fields_segment For more information please visit https://developers.klaviyo.com/en/v2022-10-17/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string $filter For more information please visit https://developers.klaviyo.com/en/v2022-10-17/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;name&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;created&#x60;: &#x60;greater-than&#x60;&lt;br&gt;&#x60;updated&#x60;: &#x60;greater-than&#x60; (optional)
+     * @param  string $filter For more information please visit https://developers.klaviyo.com/en/v2022-10-17/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;name&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;id&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;created&#x60;: &#x60;greater-than&#x60;&lt;br&gt;&#x60;updated&#x60;: &#x60;greater-than&#x60; (optional)
      * @param  string $page_cursor For more information please visit https://developers.klaviyo.com/en/v2022-10-17/reference/api-overview#pagination (optional)
      *
      * @throws \InvalidArgumentException
