@@ -201,6 +201,7 @@ class GetCatalogItemCreateJobResponseCollectionWithIncludedSectionDataInnerAttri
         return self::$openAPIModelName;
     }
 
+    public const STATUS_CANCELLED = 'cancelled';
     public const STATUS_COMPLETE = 'complete';
     public const STATUS_PROCESSING = 'processing';
     public const STATUS_QUEUED = 'queued';
@@ -213,6 +214,7 @@ class GetCatalogItemCreateJobResponseCollectionWithIncludedSectionDataInnerAttri
     public function getStatusAllowableValues()
     {
         return [
+            self::STATUS_CANCELLED,
             self::STATUS_COMPLETE,
             self::STATUS_PROCESSING,
             self::STATUS_QUEUED,

@@ -1,6 +1,6 @@
 <?php
 /**
- * PatchListResponse
+ * GetListResponseCollectionWithIncludedSectionDataInner
  *
  * PHP version 7.4
  *
@@ -33,7 +33,7 @@ use \ArrayAccess;
 use \KlaviyoAPI\ObjectSerializer;
 
 /**
- * PatchListResponse Class Doc Comment
+ * GetListResponseCollectionWithIncludedSectionDataInner Class Doc Comment
  *
  * @category Class
  * @package  KlaviyoAPI
@@ -41,7 +41,7 @@ use \KlaviyoAPI\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class PatchListResponse implements ModelInterface, ArrayAccess, \JsonSerializable
+class GetListResponseCollectionWithIncludedSectionDataInner implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class PatchListResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
       *
       * @var string
       */
-    protected static $openAPIModelName = 'PatchListResponse';
+    protected static $openAPIModelName = 'GetListResponseCollectionWithIncludedSection_data_inner';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,7 +58,10 @@ class PatchListResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
       * @var string[]
       */
     protected static $openAPITypes = [
-        'data' => '\KlaviyoAPI\Model\GetListResponseCollectionWithIncludedSectionDataInner'
+        'type' => 'string',
+        'id' => 'string',
+        'attributes' => '\KlaviyoAPI\Model\GetListResponseCollectionWithIncludedSectionDataInnerAttributes',
+        'links' => '\KlaviyoAPI\Model\GetCatalogItemResponseCollectionWithIncludedSectionDataInnerLinks'
     ];
 
     /**
@@ -69,7 +72,10 @@ class PatchListResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'data' => null
+        'type' => null,
+        'id' => null,
+        'attributes' => null,
+        'links' => null
     ];
 
     /**
@@ -99,7 +105,10 @@ class PatchListResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
      * @var string[]
      */
     protected static $attributeMap = [
-        'data' => 'data'
+        'type' => 'type',
+        'id' => 'id',
+        'attributes' => 'attributes',
+        'links' => 'links'
     ];
 
     /**
@@ -108,7 +117,10 @@ class PatchListResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
      * @var string[]
      */
     protected static $setters = [
-        'data' => 'setData'
+        'type' => 'setType',
+        'id' => 'setId',
+        'attributes' => 'setAttributes',
+        'links' => 'setLinks'
     ];
 
     /**
@@ -117,7 +129,10 @@ class PatchListResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
      * @var string[]
      */
     protected static $getters = [
-        'data' => 'getData'
+        'type' => 'getType',
+        'id' => 'getId',
+        'attributes' => 'getAttributes',
+        'links' => 'getLinks'
     ];
 
     /**
@@ -161,6 +176,19 @@ class PatchListResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
         return self::$openAPIModelName;
     }
 
+    public const TYPE__LIST = 'list';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getTypeAllowableValues()
+    {
+        return [
+            self::TYPE__LIST,
+        ];
+    }
 
     /**
      * Associative array for storing property values
@@ -177,7 +205,10 @@ class PatchListResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
      */
     public function __construct(array $data = null)
     {
-        $this->container['data'] = $data['data'] ?? null;
+        $this->container['type'] = $data['type'] ?? null;
+        $this->container['id'] = $data['id'] ?? null;
+        $this->container['attributes'] = $data['attributes'] ?? null;
+        $this->container['links'] = $data['links'] ?? null;
     }
 
     /**
@@ -189,8 +220,26 @@ class PatchListResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
     {
         $invalidProperties = [];
 
-        if ($this->container['data'] === null) {
-            $invalidProperties[] = "'data' can't be null";
+        if ($this->container['type'] === null) {
+            $invalidProperties[] = "'type' can't be null";
+        }
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!is_null($this->container['type']) && !in_array($this->container['type'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'type', must be one of '%s'",
+                $this->container['type'],
+                implode("', '", $allowedValues)
+            );
+        }
+
+        if ($this->container['id'] === null) {
+            $invalidProperties[] = "'id' can't be null";
+        }
+        if ($this->container['attributes'] === null) {
+            $invalidProperties[] = "'attributes' can't be null";
+        }
+        if ($this->container['links'] === null) {
+            $invalidProperties[] = "'links' can't be null";
         }
         return $invalidProperties;
     }
@@ -208,25 +257,107 @@ class PatchListResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
 
 
     /**
-     * Gets data
+     * Gets type
      *
-     * @return \KlaviyoAPI\Model\GetListResponseCollectionWithIncludedSectionDataInner
+     * @return string
      */
-    public function getData()
+    public function getType()
     {
-        return $this->container['data'];
+        return $this->container['type'];
     }
 
     /**
-     * Sets data
+     * Sets type
      *
-     * @param \KlaviyoAPI\Model\GetListResponseCollectionWithIncludedSectionDataInner $data data
+     * @param string $type type
      *
      * @return self
      */
-    public function setData($data)
+    public function setType($type)
     {
-        $this->container['data'] = $data;
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!in_array($type, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'type', must be one of '%s'",
+                    $type,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['type'] = $type;
+
+        return $this;
+    }
+
+    /**
+     * Gets id
+     *
+     * @return string
+     */
+    public function getId()
+    {
+        return $this->container['id'];
+    }
+
+    /**
+     * Sets id
+     *
+     * @param string $id id
+     *
+     * @return self
+     */
+    public function setId($id)
+    {
+        $this->container['id'] = $id;
+
+        return $this;
+    }
+
+    /**
+     * Gets attributes
+     *
+     * @return \KlaviyoAPI\Model\GetListResponseCollectionWithIncludedSectionDataInnerAttributes
+     */
+    public function getAttributes()
+    {
+        return $this->container['attributes'];
+    }
+
+    /**
+     * Sets attributes
+     *
+     * @param \KlaviyoAPI\Model\GetListResponseCollectionWithIncludedSectionDataInnerAttributes $attributes attributes
+     *
+     * @return self
+     */
+    public function setAttributes($attributes)
+    {
+        $this->container['attributes'] = $attributes;
+
+        return $this;
+    }
+
+    /**
+     * Gets links
+     *
+     * @return \KlaviyoAPI\Model\GetCatalogItemResponseCollectionWithIncludedSectionDataInnerLinks
+     */
+    public function getLinks()
+    {
+        return $this->container['links'];
+    }
+
+    /**
+     * Sets links
+     *
+     * @param \KlaviyoAPI\Model\GetCatalogItemResponseCollectionWithIncludedSectionDataInnerLinks $links links
+     *
+     * @return self
+     */
+    public function setLinks($links)
+    {
+        $this->container['links'] = $links;
 
         return $this;
     }

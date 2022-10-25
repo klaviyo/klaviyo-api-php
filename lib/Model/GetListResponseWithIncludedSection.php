@@ -1,6 +1,6 @@
 <?php
 /**
- * PatchListResponse
+ * GetListResponseWithIncludedSection
  *
  * PHP version 7.4
  *
@@ -33,7 +33,7 @@ use \ArrayAccess;
 use \KlaviyoAPI\ObjectSerializer;
 
 /**
- * PatchListResponse Class Doc Comment
+ * GetListResponseWithIncludedSection Class Doc Comment
  *
  * @category Class
  * @package  KlaviyoAPI
@@ -41,7 +41,7 @@ use \KlaviyoAPI\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class PatchListResponse implements ModelInterface, ArrayAccess, \JsonSerializable
+class GetListResponseWithIncludedSection implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class PatchListResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
       *
       * @var string
       */
-    protected static $openAPIModelName = 'PatchListResponse';
+    protected static $openAPIModelName = 'GetListResponseWithIncludedSection';
 
     /**
       * Array of property to type mappings. Used for (de)serialization

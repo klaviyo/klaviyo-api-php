@@ -1,6 +1,6 @@
 # Klaviyo PHP SDK
 
-- SDK version: 1.0.0
+- SDK version: 1.0.1
 - API Revision: 2022-10-17
 
 ## Helpful Resources
@@ -1735,10 +1735,11 @@ klaviyo->Segments->getSegment($id, $fields_segment=$fields_segment);
 
 ## Keyword Arguments
 
+# $fields_profile | string[]
 # $filter | string
 # $page_cursor | string
 
-klaviyo->Segments->getSegmentProfiles($segment_id, $filter=$filter, $page_cursor=$page_cursor);
+klaviyo->Segments->getSegmentProfiles($segment_id, $fields_profile=$fields_profile, $filter=$filter, $page_cursor=$page_cursor);
 ```
 
 
