@@ -141,7 +141,7 @@ try {
 
 # $body | associative array
 
-klaviyo->Catalogs->createCatalogCategory($body);
+$klaviyo->Catalogs->createCatalogCategory($body);
 ```
 
 
@@ -156,7 +156,7 @@ klaviyo->Catalogs->createCatalogCategory($body);
 # $related_resource | string
 # $body | associative array
 
-klaviyo->Catalogs->createCatalogCategoryRelationships($id, $related_resource, $body);
+$klaviyo->Catalogs->createCatalogCategoryRelationships($id, $related_resource, $body);
 ```
 
 
@@ -169,7 +169,7 @@ klaviyo->Catalogs->createCatalogCategoryRelationships($id, $related_resource, $b
 
 # $body | associative array
 
-klaviyo->Catalogs->createCatalogItem($body);
+$klaviyo->Catalogs->createCatalogItem($body);
 ```
 
 
@@ -184,7 +184,7 @@ klaviyo->Catalogs->createCatalogItem($body);
 # $related_resource | string
 # $body | associative array
 
-klaviyo->Catalogs->createCatalogItemRelationships($id, $related_resource, $body);
+$klaviyo->Catalogs->createCatalogItemRelationships($id, $related_resource, $body);
 ```
 
 
@@ -197,7 +197,7 @@ klaviyo->Catalogs->createCatalogItemRelationships($id, $related_resource, $body)
 
 # $body | associative array
 
-klaviyo->Catalogs->createCatalogVariant($body);
+$klaviyo->Catalogs->createCatalogVariant($body);
 ```
 
 
@@ -210,7 +210,7 @@ klaviyo->Catalogs->createCatalogVariant($body);
 
 # $id | string
 
-klaviyo->Catalogs->deleteCatalogCategory($id);
+$klaviyo->Catalogs->deleteCatalogCategory($id);
 ```
 
 
@@ -225,7 +225,7 @@ klaviyo->Catalogs->deleteCatalogCategory($id);
 # $related_resource | string
 # $body | associative array
 
-klaviyo->Catalogs->deleteCatalogCategoryRelationships($id, $related_resource, $body);
+$klaviyo->Catalogs->deleteCatalogCategoryRelationships($id, $related_resource, $body);
 ```
 
 
@@ -238,7 +238,7 @@ klaviyo->Catalogs->deleteCatalogCategoryRelationships($id, $related_resource, $b
 
 # $id | string
 
-klaviyo->Catalogs->deleteCatalogItem($id);
+$klaviyo->Catalogs->deleteCatalogItem($id);
 ```
 
 
@@ -253,7 +253,7 @@ klaviyo->Catalogs->deleteCatalogItem($id);
 # $related_resource | string
 # $body | associative array
 
-klaviyo->Catalogs->deleteCatalogItemRelationships($id, $related_resource, $body);
+$klaviyo->Catalogs->deleteCatalogItemRelationships($id, $related_resource, $body);
 ```
 
 
@@ -266,7 +266,7 @@ klaviyo->Catalogs->deleteCatalogItemRelationships($id, $related_resource, $body)
 
 # $id | string
 
-klaviyo->Catalogs->deleteCatalogVariant($id);
+$klaviyo->Catalogs->deleteCatalogVariant($id);
 ```
 
 
@@ -283,7 +283,7 @@ klaviyo->Catalogs->deleteCatalogVariant($id);
 # $page_cursor | string
 # $sort | string
 
-klaviyo->Catalogs->getCatalogCategories($fields_catalog_category=$fields_catalog_category, $filter=$filter, $page_cursor=$page_cursor, $sort=$sort);
+$klaviyo->Catalogs->getCatalogCategories($fields_catalog_category=$fields_catalog_category, $filter=$filter, $page_cursor=$page_cursor, $sort=$sort);
 ```
 
 
@@ -300,7 +300,7 @@ klaviyo->Catalogs->getCatalogCategories($fields_catalog_category=$fields_catalog
 
 # $fields_catalog_category | string[]
 
-klaviyo->Catalogs->getCatalogCategory($id, $fields_catalog_category=$fields_catalog_category);
+$klaviyo->Catalogs->getCatalogCategory($id, $fields_catalog_category=$fields_catalog_category);
 ```
 
 
@@ -322,7 +322,7 @@ klaviyo->Catalogs->getCatalogCategory($id, $fields_catalog_category=$fields_cata
 # $page_cursor | string
 # $sort | string
 
-klaviyo->Catalogs->getCatalogCategoryItems($category_id, $fields_catalog_item=$fields_catalog_item, $fields_catalog_variant=$fields_catalog_variant, $filter=$filter, $include=$include, $page_cursor=$page_cursor, $sort=$sort);
+$klaviyo->Catalogs->getCatalogCategoryItems($category_id, $fields_catalog_item=$fields_catalog_item, $fields_catalog_variant=$fields_catalog_variant, $filter=$filter, $include=$include, $page_cursor=$page_cursor, $sort=$sort);
 ```
 
 
@@ -340,7 +340,7 @@ klaviyo->Catalogs->getCatalogCategoryItems($category_id, $fields_catalog_item=$f
 
 # $page_cursor | string
 
-klaviyo->Catalogs->getCatalogCategoryRelationships($id, $related_resource, $page_cursor=$page_cursor);
+$klaviyo->Catalogs->getCatalogCategoryRelationships($id, $related_resource, $page_cursor=$page_cursor);
 ```
 
 
@@ -359,7 +359,7 @@ klaviyo->Catalogs->getCatalogCategoryRelationships($id, $related_resource, $page
 # $fields_catalog_variant | string[]
 # $include | string[]
 
-klaviyo->Catalogs->getCatalogItem($id, $fields_catalog_item=$fields_catalog_item, $fields_catalog_variant=$fields_catalog_variant, $include=$include);
+$klaviyo->Catalogs->getCatalogItem($id, $fields_catalog_item=$fields_catalog_item, $fields_catalog_variant=$fields_catalog_variant, $include=$include);
 ```
 
 
@@ -379,7 +379,7 @@ klaviyo->Catalogs->getCatalogItem($id, $fields_catalog_item=$fields_catalog_item
 # $page_cursor | string
 # $sort | string
 
-klaviyo->Catalogs->getCatalogItemCategories($item_id, $fields_catalog_category=$fields_catalog_category, $filter=$filter, $page_cursor=$page_cursor, $sort=$sort);
+$klaviyo->Catalogs->getCatalogItemCategories($item_id, $fields_catalog_category=$fields_catalog_category, $filter=$filter, $page_cursor=$page_cursor, $sort=$sort);
 ```
 
 
@@ -397,7 +397,7 @@ klaviyo->Catalogs->getCatalogItemCategories($item_id, $fields_catalog_category=$
 
 # $page_cursor | string
 
-klaviyo->Catalogs->getCatalogItemRelationships($id, $related_resource, $page_cursor=$page_cursor);
+$klaviyo->Catalogs->getCatalogItemRelationships($id, $related_resource, $page_cursor=$page_cursor);
 ```
 
 
@@ -417,7 +417,7 @@ klaviyo->Catalogs->getCatalogItemRelationships($id, $related_resource, $page_cur
 # $page_cursor | string
 # $sort | string
 
-klaviyo->Catalogs->getCatalogItemVariants($item_id, $fields_catalog_variant=$fields_catalog_variant, $filter=$filter, $page_cursor=$page_cursor, $sort=$sort);
+$klaviyo->Catalogs->getCatalogItemVariants($item_id, $fields_catalog_variant=$fields_catalog_variant, $filter=$filter, $page_cursor=$page_cursor, $sort=$sort);
 ```
 
 
@@ -436,7 +436,7 @@ klaviyo->Catalogs->getCatalogItemVariants($item_id, $fields_catalog_variant=$fie
 # $page_cursor | string
 # $sort | string
 
-klaviyo->Catalogs->getCatalogItems($fields_catalog_item=$fields_catalog_item, $fields_catalog_variant=$fields_catalog_variant, $filter=$filter, $include=$include, $page_cursor=$page_cursor, $sort=$sort);
+$klaviyo->Catalogs->getCatalogItems($fields_catalog_item=$fields_catalog_item, $fields_catalog_variant=$fields_catalog_variant, $filter=$filter, $include=$include, $page_cursor=$page_cursor, $sort=$sort);
 ```
 
 
@@ -453,7 +453,7 @@ klaviyo->Catalogs->getCatalogItems($fields_catalog_item=$fields_catalog_item, $f
 
 # $fields_catalog_variant | string[]
 
-klaviyo->Catalogs->getCatalogVariant($id, $fields_catalog_variant=$fields_catalog_variant);
+$klaviyo->Catalogs->getCatalogVariant($id, $fields_catalog_variant=$fields_catalog_variant);
 ```
 
 
@@ -470,7 +470,7 @@ klaviyo->Catalogs->getCatalogVariant($id, $fields_catalog_variant=$fields_catalo
 # $page_cursor | string
 # $sort | string
 
-klaviyo->Catalogs->getCatalogVariants($fields_catalog_variant=$fields_catalog_variant, $filter=$filter, $page_cursor=$page_cursor, $sort=$sort);
+$klaviyo->Catalogs->getCatalogVariants($fields_catalog_variant=$fields_catalog_variant, $filter=$filter, $page_cursor=$page_cursor, $sort=$sort);
 ```
 
 
@@ -489,7 +489,7 @@ klaviyo->Catalogs->getCatalogVariants($fields_catalog_variant=$fields_catalog_va
 # $fields_catalog_category | string[]
 # $include | string[]
 
-klaviyo->Catalogs->getCreateCategoriesJob($job_id, $fields_catalog_category_bulk_create_job=$fields_catalog_category_bulk_create_job, $fields_catalog_category=$fields_catalog_category, $include=$include);
+$klaviyo->Catalogs->getCreateCategoriesJob($job_id, $fields_catalog_category_bulk_create_job=$fields_catalog_category_bulk_create_job, $fields_catalog_category=$fields_catalog_category, $include=$include);
 ```
 
 
@@ -505,7 +505,7 @@ klaviyo->Catalogs->getCreateCategoriesJob($job_id, $fields_catalog_category_bulk
 # $filter | string
 # $page_cursor | string
 
-klaviyo->Catalogs->getCreateCategoriesJobs($fields_catalog_category_bulk_create_job=$fields_catalog_category_bulk_create_job, $filter=$filter, $page_cursor=$page_cursor);
+$klaviyo->Catalogs->getCreateCategoriesJobs($fields_catalog_category_bulk_create_job=$fields_catalog_category_bulk_create_job, $filter=$filter, $page_cursor=$page_cursor);
 ```
 
 
@@ -524,7 +524,7 @@ klaviyo->Catalogs->getCreateCategoriesJobs($fields_catalog_category_bulk_create_
 # $fields_catalog_item | string[]
 # $include | string[]
 
-klaviyo->Catalogs->getCreateItemsJob($job_id, $fields_catalog_item_bulk_create_job=$fields_catalog_item_bulk_create_job, $fields_catalog_item=$fields_catalog_item, $include=$include);
+$klaviyo->Catalogs->getCreateItemsJob($job_id, $fields_catalog_item_bulk_create_job=$fields_catalog_item_bulk_create_job, $fields_catalog_item=$fields_catalog_item, $include=$include);
 ```
 
 
@@ -540,7 +540,7 @@ klaviyo->Catalogs->getCreateItemsJob($job_id, $fields_catalog_item_bulk_create_j
 # $filter | string
 # $page_cursor | string
 
-klaviyo->Catalogs->getCreateItemsJobs($fields_catalog_item_bulk_create_job=$fields_catalog_item_bulk_create_job, $filter=$filter, $page_cursor=$page_cursor);
+$klaviyo->Catalogs->getCreateItemsJobs($fields_catalog_item_bulk_create_job=$fields_catalog_item_bulk_create_job, $filter=$filter, $page_cursor=$page_cursor);
 ```
 
 
@@ -559,7 +559,7 @@ klaviyo->Catalogs->getCreateItemsJobs($fields_catalog_item_bulk_create_job=$fiel
 # $fields_catalog_variant | string[]
 # $include | string[]
 
-klaviyo->Catalogs->getCreateVariantsJob($job_id, $fields_catalog_variant_bulk_create_job=$fields_catalog_variant_bulk_create_job, $fields_catalog_variant=$fields_catalog_variant, $include=$include);
+$klaviyo->Catalogs->getCreateVariantsJob($job_id, $fields_catalog_variant_bulk_create_job=$fields_catalog_variant_bulk_create_job, $fields_catalog_variant=$fields_catalog_variant, $include=$include);
 ```
 
 
@@ -575,7 +575,7 @@ klaviyo->Catalogs->getCreateVariantsJob($job_id, $fields_catalog_variant_bulk_cr
 # $filter | string
 # $page_cursor | string
 
-klaviyo->Catalogs->getCreateVariantsJobs($fields_catalog_variant_bulk_create_job=$fields_catalog_variant_bulk_create_job, $filter=$filter, $page_cursor=$page_cursor);
+$klaviyo->Catalogs->getCreateVariantsJobs($fields_catalog_variant_bulk_create_job=$fields_catalog_variant_bulk_create_job, $filter=$filter, $page_cursor=$page_cursor);
 ```
 
 
@@ -592,7 +592,7 @@ klaviyo->Catalogs->getCreateVariantsJobs($fields_catalog_variant_bulk_create_job
 
 # $fields_catalog_category_bulk_delete_job | string[]
 
-klaviyo->Catalogs->getDeleteCategoriesJob($job_id, $fields_catalog_category_bulk_delete_job=$fields_catalog_category_bulk_delete_job);
+$klaviyo->Catalogs->getDeleteCategoriesJob($job_id, $fields_catalog_category_bulk_delete_job=$fields_catalog_category_bulk_delete_job);
 ```
 
 
@@ -608,7 +608,7 @@ klaviyo->Catalogs->getDeleteCategoriesJob($job_id, $fields_catalog_category_bulk
 # $filter | string
 # $page_cursor | string
 
-klaviyo->Catalogs->getDeleteCategoriesJobs($fields_catalog_category_bulk_delete_job=$fields_catalog_category_bulk_delete_job, $filter=$filter, $page_cursor=$page_cursor);
+$klaviyo->Catalogs->getDeleteCategoriesJobs($fields_catalog_category_bulk_delete_job=$fields_catalog_category_bulk_delete_job, $filter=$filter, $page_cursor=$page_cursor);
 ```
 
 
@@ -625,7 +625,7 @@ klaviyo->Catalogs->getDeleteCategoriesJobs($fields_catalog_category_bulk_delete_
 
 # $fields_catalog_item_bulk_delete_job | string[]
 
-klaviyo->Catalogs->getDeleteItemsJob($job_id, $fields_catalog_item_bulk_delete_job=$fields_catalog_item_bulk_delete_job);
+$klaviyo->Catalogs->getDeleteItemsJob($job_id, $fields_catalog_item_bulk_delete_job=$fields_catalog_item_bulk_delete_job);
 ```
 
 
@@ -641,7 +641,7 @@ klaviyo->Catalogs->getDeleteItemsJob($job_id, $fields_catalog_item_bulk_delete_j
 # $filter | string
 # $page_cursor | string
 
-klaviyo->Catalogs->getDeleteItemsJobs($fields_catalog_item_bulk_delete_job=$fields_catalog_item_bulk_delete_job, $filter=$filter, $page_cursor=$page_cursor);
+$klaviyo->Catalogs->getDeleteItemsJobs($fields_catalog_item_bulk_delete_job=$fields_catalog_item_bulk_delete_job, $filter=$filter, $page_cursor=$page_cursor);
 ```
 
 
@@ -658,7 +658,7 @@ klaviyo->Catalogs->getDeleteItemsJobs($fields_catalog_item_bulk_delete_job=$fiel
 
 # $fields_catalog_variant_bulk_delete_job | string[]
 
-klaviyo->Catalogs->getDeleteVariantsJob($job_id, $fields_catalog_variant_bulk_delete_job=$fields_catalog_variant_bulk_delete_job);
+$klaviyo->Catalogs->getDeleteVariantsJob($job_id, $fields_catalog_variant_bulk_delete_job=$fields_catalog_variant_bulk_delete_job);
 ```
 
 
@@ -674,7 +674,7 @@ klaviyo->Catalogs->getDeleteVariantsJob($job_id, $fields_catalog_variant_bulk_de
 # $filter | string
 # $page_cursor | string
 
-klaviyo->Catalogs->getDeleteVariantsJobs($fields_catalog_variant_bulk_delete_job=$fields_catalog_variant_bulk_delete_job, $filter=$filter, $page_cursor=$page_cursor);
+$klaviyo->Catalogs->getDeleteVariantsJobs($fields_catalog_variant_bulk_delete_job=$fields_catalog_variant_bulk_delete_job, $filter=$filter, $page_cursor=$page_cursor);
 ```
 
 
@@ -693,7 +693,7 @@ klaviyo->Catalogs->getDeleteVariantsJobs($fields_catalog_variant_bulk_delete_job
 # $fields_catalog_category | string[]
 # $include | string[]
 
-klaviyo->Catalogs->getUpdateCategoriesJob($job_id, $fields_catalog_category_bulk_update_job=$fields_catalog_category_bulk_update_job, $fields_catalog_category=$fields_catalog_category, $include=$include);
+$klaviyo->Catalogs->getUpdateCategoriesJob($job_id, $fields_catalog_category_bulk_update_job=$fields_catalog_category_bulk_update_job, $fields_catalog_category=$fields_catalog_category, $include=$include);
 ```
 
 
@@ -709,7 +709,7 @@ klaviyo->Catalogs->getUpdateCategoriesJob($job_id, $fields_catalog_category_bulk
 # $filter | string
 # $page_cursor | string
 
-klaviyo->Catalogs->getUpdateCategoriesJobs($fields_catalog_category_bulk_update_job=$fields_catalog_category_bulk_update_job, $filter=$filter, $page_cursor=$page_cursor);
+$klaviyo->Catalogs->getUpdateCategoriesJobs($fields_catalog_category_bulk_update_job=$fields_catalog_category_bulk_update_job, $filter=$filter, $page_cursor=$page_cursor);
 ```
 
 
@@ -728,7 +728,7 @@ klaviyo->Catalogs->getUpdateCategoriesJobs($fields_catalog_category_bulk_update_
 # $fields_catalog_item | string[]
 # $include | string[]
 
-klaviyo->Catalogs->getUpdateItemsJob($job_id, $fields_catalog_item_bulk_update_job=$fields_catalog_item_bulk_update_job, $fields_catalog_item=$fields_catalog_item, $include=$include);
+$klaviyo->Catalogs->getUpdateItemsJob($job_id, $fields_catalog_item_bulk_update_job=$fields_catalog_item_bulk_update_job, $fields_catalog_item=$fields_catalog_item, $include=$include);
 ```
 
 
@@ -744,7 +744,7 @@ klaviyo->Catalogs->getUpdateItemsJob($job_id, $fields_catalog_item_bulk_update_j
 # $filter | string
 # $page_cursor | string
 
-klaviyo->Catalogs->getUpdateItemsJobs($fields_catalog_item_bulk_update_job=$fields_catalog_item_bulk_update_job, $filter=$filter, $page_cursor=$page_cursor);
+$klaviyo->Catalogs->getUpdateItemsJobs($fields_catalog_item_bulk_update_job=$fields_catalog_item_bulk_update_job, $filter=$filter, $page_cursor=$page_cursor);
 ```
 
 
@@ -763,7 +763,7 @@ klaviyo->Catalogs->getUpdateItemsJobs($fields_catalog_item_bulk_update_job=$fiel
 # $fields_catalog_variant | string[]
 # $include | string[]
 
-klaviyo->Catalogs->getUpdateVariantsJob($job_id, $fields_catalog_variant_bulk_update_job=$fields_catalog_variant_bulk_update_job, $fields_catalog_variant=$fields_catalog_variant, $include=$include);
+$klaviyo->Catalogs->getUpdateVariantsJob($job_id, $fields_catalog_variant_bulk_update_job=$fields_catalog_variant_bulk_update_job, $fields_catalog_variant=$fields_catalog_variant, $include=$include);
 ```
 
 
@@ -779,7 +779,7 @@ klaviyo->Catalogs->getUpdateVariantsJob($job_id, $fields_catalog_variant_bulk_up
 # $filter | string
 # $page_cursor | string
 
-klaviyo->Catalogs->getUpdateVariantsJobs($fields_catalog_variant_bulk_update_job=$fields_catalog_variant_bulk_update_job, $filter=$filter, $page_cursor=$page_cursor);
+$klaviyo->Catalogs->getUpdateVariantsJobs($fields_catalog_variant_bulk_update_job=$fields_catalog_variant_bulk_update_job, $filter=$filter, $page_cursor=$page_cursor);
 ```
 
 
@@ -792,7 +792,7 @@ klaviyo->Catalogs->getUpdateVariantsJobs($fields_catalog_variant_bulk_update_job
 
 # $body | associative array
 
-klaviyo->Catalogs->spawnCreateCategoriesJob($body);
+$klaviyo->Catalogs->spawnCreateCategoriesJob($body);
 ```
 
 
@@ -805,7 +805,7 @@ klaviyo->Catalogs->spawnCreateCategoriesJob($body);
 
 # $body | associative array
 
-klaviyo->Catalogs->spawnCreateItemsJob($body);
+$klaviyo->Catalogs->spawnCreateItemsJob($body);
 ```
 
 
@@ -818,7 +818,7 @@ klaviyo->Catalogs->spawnCreateItemsJob($body);
 
 # $body | associative array
 
-klaviyo->Catalogs->spawnCreateVariantsJob($body);
+$klaviyo->Catalogs->spawnCreateVariantsJob($body);
 ```
 
 
@@ -831,7 +831,7 @@ klaviyo->Catalogs->spawnCreateVariantsJob($body);
 
 # $body | associative array
 
-klaviyo->Catalogs->spawnDeleteCategoriesJob($body);
+$klaviyo->Catalogs->spawnDeleteCategoriesJob($body);
 ```
 
 
@@ -844,7 +844,7 @@ klaviyo->Catalogs->spawnDeleteCategoriesJob($body);
 
 # $body | associative array
 
-klaviyo->Catalogs->spawnDeleteItemsJob($body);
+$klaviyo->Catalogs->spawnDeleteItemsJob($body);
 ```
 
 
@@ -857,7 +857,7 @@ klaviyo->Catalogs->spawnDeleteItemsJob($body);
 
 # $body | associative array
 
-klaviyo->Catalogs->spawnDeleteVariantsJob($body);
+$klaviyo->Catalogs->spawnDeleteVariantsJob($body);
 ```
 
 
@@ -870,7 +870,7 @@ klaviyo->Catalogs->spawnDeleteVariantsJob($body);
 
 # $body | associative array
 
-klaviyo->Catalogs->spawnUpdateCategoriesJob($body);
+$klaviyo->Catalogs->spawnUpdateCategoriesJob($body);
 ```
 
 
@@ -883,7 +883,7 @@ klaviyo->Catalogs->spawnUpdateCategoriesJob($body);
 
 # $body | associative array
 
-klaviyo->Catalogs->spawnUpdateItemsJob($body);
+$klaviyo->Catalogs->spawnUpdateItemsJob($body);
 ```
 
 
@@ -896,7 +896,7 @@ klaviyo->Catalogs->spawnUpdateItemsJob($body);
 
 # $body | associative array
 
-klaviyo->Catalogs->spawnUpdateVariantsJob($body);
+$klaviyo->Catalogs->spawnUpdateVariantsJob($body);
 ```
 
 
@@ -910,7 +910,7 @@ klaviyo->Catalogs->spawnUpdateVariantsJob($body);
 # $id | string
 # $body | associative array
 
-klaviyo->Catalogs->updateCatalogCategory($id, $body);
+$klaviyo->Catalogs->updateCatalogCategory($id, $body);
 ```
 
 
@@ -925,7 +925,7 @@ klaviyo->Catalogs->updateCatalogCategory($id, $body);
 # $related_resource | string
 # $body | associative array
 
-klaviyo->Catalogs->updateCatalogCategoryRelationships($id, $related_resource, $body);
+$klaviyo->Catalogs->updateCatalogCategoryRelationships($id, $related_resource, $body);
 ```
 
 
@@ -939,7 +939,7 @@ klaviyo->Catalogs->updateCatalogCategoryRelationships($id, $related_resource, $b
 # $id | string
 # $body | associative array
 
-klaviyo->Catalogs->updateCatalogItem($id, $body);
+$klaviyo->Catalogs->updateCatalogItem($id, $body);
 ```
 
 
@@ -954,7 +954,7 @@ klaviyo->Catalogs->updateCatalogItem($id, $body);
 # $related_resource | string
 # $body | associative array
 
-klaviyo->Catalogs->updateCatalogItemRelationships($id, $related_resource, $body);
+$klaviyo->Catalogs->updateCatalogItemRelationships($id, $related_resource, $body);
 ```
 
 
@@ -968,7 +968,7 @@ klaviyo->Catalogs->updateCatalogItemRelationships($id, $related_resource, $body)
 # $id | string
 # $body | associative array
 
-klaviyo->Catalogs->updateCatalogVariant($id, $body);
+$klaviyo->Catalogs->updateCatalogVariant($id, $body);
 ```
 
 
@@ -986,7 +986,7 @@ klaviyo->Catalogs->updateCatalogVariant($id, $body);
 # $company_id | string
 # $body | associative array
 
-klaviyo->Client->createClientEvent($company_id, $body);
+$klaviyo->Client->createClientEvent($company_id, $body);
 ```
 
 
@@ -1000,7 +1000,7 @@ klaviyo->Client->createClientEvent($company_id, $body);
 # $company_id | string
 # $body | associative array
 
-klaviyo->Client->createClientProfile($company_id, $body);
+$klaviyo->Client->createClientProfile($company_id, $body);
 ```
 
 
@@ -1014,7 +1014,7 @@ klaviyo->Client->createClientProfile($company_id, $body);
 # $company_id | string
 # $body | associative array
 
-klaviyo->Client->createClientSubscription($company_id, $body);
+$klaviyo->Client->createClientSubscription($company_id, $body);
 ```
 
 
@@ -1031,7 +1031,7 @@ klaviyo->Client->createClientSubscription($company_id, $body);
 
 # $body | associative array
 
-klaviyo->Events->createEvent($body);
+$klaviyo->Events->createEvent($body);
 ```
 
 
@@ -1051,7 +1051,7 @@ klaviyo->Events->createEvent($body);
 # $fields_profile | string[]
 # $include | string[]
 
-klaviyo->Events->getEvent($id, $fields_event=$fields_event, $fields_metric=$fields_metric, $fields_profile=$fields_profile, $include=$include);
+$klaviyo->Events->getEvent($id, $fields_event=$fields_event, $fields_metric=$fields_metric, $fields_profile=$fields_profile, $include=$include);
 ```
 
 
@@ -1068,7 +1068,7 @@ klaviyo->Events->getEvent($id, $fields_event=$fields_event, $fields_metric=$fiel
 
 # $fields_metric | string[]
 
-klaviyo->Events->getEventMetrics($id, $fields_metric=$fields_metric);
+$klaviyo->Events->getEventMetrics($id, $fields_metric=$fields_metric);
 ```
 
 
@@ -1085,7 +1085,7 @@ klaviyo->Events->getEventMetrics($id, $fields_metric=$fields_metric);
 
 # $fields_profile | string[]
 
-klaviyo->Events->getEventProfiles($id, $fields_profile=$fields_profile);
+$klaviyo->Events->getEventProfiles($id, $fields_profile=$fields_profile);
 ```
 
 
@@ -1099,7 +1099,7 @@ klaviyo->Events->getEventProfiles($id, $fields_profile=$fields_profile);
 # $id | string
 # $related_resource | string
 
-klaviyo->Events->getEventRelationships($id, $related_resource);
+$klaviyo->Events->getEventRelationships($id, $related_resource);
 ```
 
 
@@ -1119,7 +1119,7 @@ klaviyo->Events->getEventRelationships($id, $related_resource);
 # $page_cursor | string
 # $sort | string
 
-klaviyo->Events->getEvents($fields_event=$fields_event, $fields_metric=$fields_metric, $fields_profile=$fields_profile, $filter=$filter, $include=$include, $page_cursor=$page_cursor, $sort=$sort);
+$klaviyo->Events->getEvents($fields_event=$fields_event, $fields_metric=$fields_metric, $fields_profile=$fields_profile, $filter=$filter, $include=$include, $page_cursor=$page_cursor, $sort=$sort);
 ```
 
 
@@ -1142,7 +1142,7 @@ klaviyo->Events->getEvents($fields_event=$fields_event, $fields_metric=$fields_m
 # $fields_flow | string[]
 # $include | string[]
 
-klaviyo->Flows->getFlow($id, $fields_flow_action=$fields_flow_action, $fields_flow=$fields_flow, $include=$include);
+$klaviyo->Flows->getFlow($id, $fields_flow_action=$fields_flow_action, $fields_flow=$fields_flow, $include=$include);
 ```
 
 
@@ -1162,7 +1162,7 @@ klaviyo->Flows->getFlow($id, $fields_flow_action=$fields_flow_action, $fields_fl
 # $fields_flow | string[]
 # $include | string[]
 
-klaviyo->Flows->getFlowAction($id, $fields_flow_action=$fields_flow_action, $fields_flow_message=$fields_flow_message, $fields_flow=$fields_flow, $include=$include);
+$klaviyo->Flows->getFlowAction($id, $fields_flow_action=$fields_flow_action, $fields_flow_message=$fields_flow_message, $fields_flow=$fields_flow, $include=$include);
 ```
 
 
@@ -1179,7 +1179,7 @@ klaviyo->Flows->getFlowAction($id, $fields_flow_action=$fields_flow_action, $fie
 
 # $fields_flow | string[]
 
-klaviyo->Flows->getFlowActionFlow($action_id, $fields_flow=$fields_flow);
+$klaviyo->Flows->getFlowActionFlow($action_id, $fields_flow=$fields_flow);
 ```
 
 
@@ -1198,7 +1198,7 @@ klaviyo->Flows->getFlowActionFlow($action_id, $fields_flow=$fields_flow);
 # $filter | string
 # $sort | string
 
-klaviyo->Flows->getFlowActionMessages($action_id, $fields_flow_message=$fields_flow_message, $filter=$filter, $sort=$sort);
+$klaviyo->Flows->getFlowActionMessages($action_id, $fields_flow_message=$fields_flow_message, $filter=$filter, $sort=$sort);
 ```
 
 
@@ -1217,7 +1217,7 @@ klaviyo->Flows->getFlowActionMessages($action_id, $fields_flow_message=$fields_f
 # $filter | string
 # $sort | string
 
-klaviyo->Flows->getFlowActionRelationships($id, $related_resource, $filter=$filter, $sort=$sort);
+$klaviyo->Flows->getFlowActionRelationships($id, $related_resource, $filter=$filter, $sort=$sort);
 ```
 
 
@@ -1236,7 +1236,7 @@ klaviyo->Flows->getFlowActionRelationships($id, $related_resource, $filter=$filt
 # $filter | string
 # $sort | string
 
-klaviyo->Flows->getFlowFlowActions($flow_id, $fields_flow_action=$fields_flow_action, $filter=$filter, $sort=$sort);
+$klaviyo->Flows->getFlowFlowActions($flow_id, $fields_flow_action=$fields_flow_action, $filter=$filter, $sort=$sort);
 ```
 
 
@@ -1255,7 +1255,7 @@ klaviyo->Flows->getFlowFlowActions($flow_id, $fields_flow_action=$fields_flow_ac
 # $fields_flow_message | string[]
 # $include | string[]
 
-klaviyo->Flows->getFlowMessage($id, $fields_flow_action=$fields_flow_action, $fields_flow_message=$fields_flow_message, $include=$include);
+$klaviyo->Flows->getFlowMessage($id, $fields_flow_action=$fields_flow_action, $fields_flow_message=$fields_flow_message, $include=$include);
 ```
 
 
@@ -1272,7 +1272,7 @@ klaviyo->Flows->getFlowMessage($id, $fields_flow_action=$fields_flow_action, $fi
 
 # $fields_flow_action | string[]
 
-klaviyo->Flows->getFlowMessageAction($message_id, $fields_flow_action=$fields_flow_action);
+$klaviyo->Flows->getFlowMessageAction($message_id, $fields_flow_action=$fields_flow_action);
 ```
 
 
@@ -1286,7 +1286,7 @@ klaviyo->Flows->getFlowMessageAction($message_id, $fields_flow_action=$fields_fl
 # $id | string
 # $related_resource | string
 
-klaviyo->Flows->getFlowMessageRelationships($id, $related_resource);
+$klaviyo->Flows->getFlowMessageRelationships($id, $related_resource);
 ```
 
 
@@ -1305,7 +1305,7 @@ klaviyo->Flows->getFlowMessageRelationships($id, $related_resource);
 # $filter | string
 # $sort | string
 
-klaviyo->Flows->getFlowRelationships($id, $related_resource, $filter=$filter, $sort=$sort);
+$klaviyo->Flows->getFlowRelationships($id, $related_resource, $filter=$filter, $sort=$sort);
 ```
 
 
@@ -1323,7 +1323,7 @@ klaviyo->Flows->getFlowRelationships($id, $related_resource, $filter=$filter, $s
 # $include | string[]
 # $sort | string
 
-klaviyo->Flows->getFlows($fields_flow_action=$fields_flow_action, $fields_flow=$fields_flow, $filter=$filter, $include=$include, $sort=$sort);
+$klaviyo->Flows->getFlows($fields_flow_action=$fields_flow_action, $fields_flow=$fields_flow, $filter=$filter, $include=$include, $sort=$sort);
 ```
 
 
@@ -1337,7 +1337,7 @@ klaviyo->Flows->getFlows($fields_flow_action=$fields_flow_action, $fields_flow=$
 # $id | string
 # $body | associative array
 
-klaviyo->Flows->updateFlow($id, $body);
+$klaviyo->Flows->updateFlow($id, $body);
 ```
 
 
@@ -1354,7 +1354,7 @@ klaviyo->Flows->updateFlow($id, $body);
 
 # $body | associative array
 
-klaviyo->Lists->createList($body);
+$klaviyo->Lists->createList($body);
 ```
 
 
@@ -1369,7 +1369,7 @@ klaviyo->Lists->createList($body);
 # $related_resource | string
 # $body | associative array
 
-klaviyo->Lists->createListRelationships($id, $related_resource, $body);
+$klaviyo->Lists->createListRelationships($id, $related_resource, $body);
 ```
 
 
@@ -1382,7 +1382,7 @@ klaviyo->Lists->createListRelationships($id, $related_resource, $body);
 
 # $id | string
 
-klaviyo->Lists->deleteList($id);
+$klaviyo->Lists->deleteList($id);
 ```
 
 
@@ -1397,7 +1397,7 @@ klaviyo->Lists->deleteList($id);
 # $related_resource | string
 # $body | associative array
 
-klaviyo->Lists->deleteListRelationships($id, $related_resource, $body);
+$klaviyo->Lists->deleteListRelationships($id, $related_resource, $body);
 ```
 
 
@@ -1414,7 +1414,7 @@ klaviyo->Lists->deleteListRelationships($id, $related_resource, $body);
 
 # $fields_list | string[]
 
-klaviyo->Lists->getList($id, $fields_list=$fields_list);
+$klaviyo->Lists->getList($id, $fields_list=$fields_list);
 ```
 
 
@@ -1433,7 +1433,7 @@ klaviyo->Lists->getList($id, $fields_list=$fields_list);
 # $filter | string
 # $page_cursor | string
 
-klaviyo->Lists->getListProfiles($list_id, $fields_profile=$fields_profile, $filter=$filter, $page_cursor=$page_cursor);
+$klaviyo->Lists->getListProfiles($list_id, $fields_profile=$fields_profile, $filter=$filter, $page_cursor=$page_cursor);
 ```
 
 
@@ -1451,7 +1451,7 @@ klaviyo->Lists->getListProfiles($list_id, $fields_profile=$fields_profile, $filt
 
 # $page_cursor | string
 
-klaviyo->Lists->getListRelationships($id, $related_resource, $page_cursor=$page_cursor);
+$klaviyo->Lists->getListRelationships($id, $related_resource, $page_cursor=$page_cursor);
 ```
 
 
@@ -1467,7 +1467,7 @@ klaviyo->Lists->getListRelationships($id, $related_resource, $page_cursor=$page_
 # $filter | string
 # $page_cursor | string
 
-klaviyo->Lists->getLists($fields_list=$fields_list, $filter=$filter, $page_cursor=$page_cursor);
+$klaviyo->Lists->getLists($fields_list=$fields_list, $filter=$filter, $page_cursor=$page_cursor);
 ```
 
 
@@ -1481,7 +1481,7 @@ klaviyo->Lists->getLists($fields_list=$fields_list, $filter=$filter, $page_curso
 # $id | string
 # $body | associative array
 
-klaviyo->Lists->updateList($id, $body);
+$klaviyo->Lists->updateList($id, $body);
 ```
 
 
@@ -1502,7 +1502,7 @@ klaviyo->Lists->updateList($id, $body);
 
 # $fields_metric | string[]
 
-klaviyo->Metrics->getMetric($id, $fields_metric=$fields_metric);
+$klaviyo->Metrics->getMetric($id, $fields_metric=$fields_metric);
 ```
 
 
@@ -1518,7 +1518,7 @@ klaviyo->Metrics->getMetric($id, $fields_metric=$fields_metric);
 # $filter | string
 # $page_cursor | string
 
-klaviyo->Metrics->getMetrics($fields_metric=$fields_metric, $filter=$filter, $page_cursor=$page_cursor);
+$klaviyo->Metrics->getMetrics($fields_metric=$fields_metric, $filter=$filter, $page_cursor=$page_cursor);
 ```
 
 
@@ -1531,7 +1531,7 @@ klaviyo->Metrics->getMetrics($fields_metric=$fields_metric, $filter=$filter, $pa
 
 # $body | associative array
 
-klaviyo->Metrics->queryMetricAggregates($body);
+$klaviyo->Metrics->queryMetricAggregates($body);
 ```
 
 
@@ -1548,7 +1548,7 @@ klaviyo->Metrics->queryMetricAggregates($body);
 
 # $body | associative array
 
-klaviyo->Profiles->createProfile($body);
+$klaviyo->Profiles->createProfile($body);
 ```
 
 
@@ -1568,7 +1568,7 @@ klaviyo->Profiles->createProfile($body);
 # $fields_segment | string[]
 # $include | string[]
 
-klaviyo->Profiles->getProfile($id, $fields_list=$fields_list, $fields_profile=$fields_profile, $fields_segment=$fields_segment, $include=$include);
+$klaviyo->Profiles->getProfile($id, $fields_list=$fields_list, $fields_profile=$fields_profile, $fields_segment=$fields_segment, $include=$include);
 ```
 
 
@@ -1585,7 +1585,7 @@ klaviyo->Profiles->getProfile($id, $fields_list=$fields_list, $fields_profile=$f
 
 # $fields_list | string[]
 
-klaviyo->Profiles->getProfileLists($profile_id, $fields_list=$fields_list);
+$klaviyo->Profiles->getProfileLists($profile_id, $fields_list=$fields_list);
 ```
 
 
@@ -1599,7 +1599,7 @@ klaviyo->Profiles->getProfileLists($profile_id, $fields_list=$fields_list);
 # $id | string
 # $related_resource | string
 
-klaviyo->Profiles->getProfileRelationships($id, $related_resource);
+$klaviyo->Profiles->getProfileRelationships($id, $related_resource);
 ```
 
 
@@ -1616,7 +1616,7 @@ klaviyo->Profiles->getProfileRelationships($id, $related_resource);
 
 # $fields_segment | string[]
 
-klaviyo->Profiles->getProfileSegments($profile_id, $fields_segment=$fields_segment);
+$klaviyo->Profiles->getProfileSegments($profile_id, $fields_segment=$fields_segment);
 ```
 
 
@@ -1633,7 +1633,7 @@ klaviyo->Profiles->getProfileSegments($profile_id, $fields_segment=$fields_segme
 # $page_cursor | string
 # $sort | string
 
-klaviyo->Profiles->getProfiles($fields_profile=$fields_profile, $filter=$filter, $page_cursor=$page_cursor, $sort=$sort);
+$klaviyo->Profiles->getProfiles($fields_profile=$fields_profile, $filter=$filter, $page_cursor=$page_cursor, $sort=$sort);
 ```
 
 
@@ -1646,7 +1646,7 @@ klaviyo->Profiles->getProfiles($fields_profile=$fields_profile, $filter=$filter,
 
 # $body | associative array
 
-klaviyo->Profiles->subscribeProfiles($body);
+$klaviyo->Profiles->subscribeProfiles($body);
 ```
 
 
@@ -1659,7 +1659,7 @@ klaviyo->Profiles->subscribeProfiles($body);
 
 # $body | associative array
 
-klaviyo->Profiles->suppressProfiles($body);
+$klaviyo->Profiles->suppressProfiles($body);
 ```
 
 
@@ -1672,7 +1672,7 @@ klaviyo->Profiles->suppressProfiles($body);
 
 # $body | associative array
 
-klaviyo->Profiles->unsubscribeProfiles($body);
+$klaviyo->Profiles->unsubscribeProfiles($body);
 ```
 
 
@@ -1685,7 +1685,7 @@ klaviyo->Profiles->unsubscribeProfiles($body);
 
 # $body | associative array
 
-klaviyo->Profiles->unsuppressProfiles($body);
+$klaviyo->Profiles->unsuppressProfiles($body);
 ```
 
 
@@ -1699,7 +1699,7 @@ klaviyo->Profiles->unsuppressProfiles($body);
 # $id | string
 # $body | associative array
 
-klaviyo->Profiles->updateProfile($id, $body);
+$klaviyo->Profiles->updateProfile($id, $body);
 ```
 
 
@@ -1720,7 +1720,7 @@ klaviyo->Profiles->updateProfile($id, $body);
 
 # $fields_segment | string[]
 
-klaviyo->Segments->getSegment($id, $fields_segment=$fields_segment);
+$klaviyo->Segments->getSegment($id, $fields_segment=$fields_segment);
 ```
 
 
@@ -1739,7 +1739,7 @@ klaviyo->Segments->getSegment($id, $fields_segment=$fields_segment);
 # $filter | string
 # $page_cursor | string
 
-klaviyo->Segments->getSegmentProfiles($segment_id, $fields_profile=$fields_profile, $filter=$filter, $page_cursor=$page_cursor);
+$klaviyo->Segments->getSegmentProfiles($segment_id, $fields_profile=$fields_profile, $filter=$filter, $page_cursor=$page_cursor);
 ```
 
 
@@ -1757,7 +1757,7 @@ klaviyo->Segments->getSegmentProfiles($segment_id, $fields_profile=$fields_profi
 
 # $page_cursor | string
 
-klaviyo->Segments->getSegmentRelationships($id, $related_resource, $page_cursor=$page_cursor);
+$klaviyo->Segments->getSegmentRelationships($id, $related_resource, $page_cursor=$page_cursor);
 ```
 
 
@@ -1773,7 +1773,7 @@ klaviyo->Segments->getSegmentRelationships($id, $related_resource, $page_cursor=
 # $filter | string
 # $page_cursor | string
 
-klaviyo->Segments->getSegments($fields_segment=$fields_segment, $filter=$filter, $page_cursor=$page_cursor);
+$klaviyo->Segments->getSegments($fields_segment=$fields_segment, $filter=$filter, $page_cursor=$page_cursor);
 ```
 
 
@@ -1787,7 +1787,7 @@ klaviyo->Segments->getSegments($fields_segment=$fields_segment, $filter=$filter,
 # $id | string
 # $body | associative array
 
-klaviyo->Segments->updateSegment($id, $body);
+$klaviyo->Segments->updateSegment($id, $body);
 ```
 
 
@@ -1804,7 +1804,7 @@ klaviyo->Segments->updateSegment($id, $body);
 
 # $body | associative array
 
-klaviyo->Templates->createTemplate($body);
+$klaviyo->Templates->createTemplate($body);
 ```
 
 
@@ -1818,7 +1818,7 @@ klaviyo->Templates->createTemplate($body);
 # $id | string
 # $body | associative array
 
-klaviyo->Templates->createTemplateClone($id, $body);
+$klaviyo->Templates->createTemplateClone($id, $body);
 ```
 
 
@@ -1832,7 +1832,7 @@ klaviyo->Templates->createTemplateClone($id, $body);
 # $id | string
 # $body | associative array
 
-klaviyo->Templates->createTemplateRender($id, $body);
+$klaviyo->Templates->createTemplateRender($id, $body);
 ```
 
 
@@ -1845,7 +1845,7 @@ klaviyo->Templates->createTemplateRender($id, $body);
 
 # $id | string
 
-klaviyo->Templates->deleteTemplate($id);
+$klaviyo->Templates->deleteTemplate($id);
 ```
 
 
@@ -1862,7 +1862,7 @@ klaviyo->Templates->deleteTemplate($id);
 
 # $fields_template | string[]
 
-klaviyo->Templates->getTemplate($id, $fields_template=$fields_template);
+$klaviyo->Templates->getTemplate($id, $fields_template=$fields_template);
 ```
 
 
@@ -1879,7 +1879,7 @@ klaviyo->Templates->getTemplate($id, $fields_template=$fields_template);
 # $page_cursor | string
 # $sort | string
 
-klaviyo->Templates->getTemplates($fields_template=$fields_template, $filter=$filter, $page_cursor=$page_cursor, $sort=$sort);
+$klaviyo->Templates->getTemplates($fields_template=$fields_template, $filter=$filter, $page_cursor=$page_cursor, $sort=$sort);
 ```
 
 
@@ -1893,7 +1893,7 @@ klaviyo->Templates->getTemplates($fields_template=$fields_template, $filter=$fil
 # $id | string
 # $body | associative array
 
-klaviyo->Templates->updateTemplate($id, $body);
+$klaviyo->Templates->updateTemplate($id, $body);
 ```
 
 
