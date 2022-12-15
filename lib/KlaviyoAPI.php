@@ -7,6 +7,7 @@ use KlaviyoAPI\Configuration;
 
 use KlaviyoAPI\API\CatalogsApi;
 use KlaviyoAPI\API\ClientApi;
+use KlaviyoAPI\API\DataPrivacyApi;
 use KlaviyoAPI\API\EventsApi;
 use KlaviyoAPI\API\FlowsApi;
 use KlaviyoAPI\API\ListsApi;
@@ -24,6 +25,7 @@ class KlaviyoAPI {
     public $num_retries;
     public $Catalogs;
     public $Client;
+    public $DataPrivacy;
     public $Events;
     public $Flows;
     public $Lists;
@@ -60,6 +62,12 @@ class KlaviyoAPI {
         
         $this->Client = new Subclient(
                 new ClientApi(new GuzzleClient(),$this->config),
+                $wait_seconds = 3,
+                $num_retries = 3,
+            );
+        
+        $this->DataPrivacy = new Subclient(
+                new DataPrivacyApi(new GuzzleClient(),$this->config),
                 $wait_seconds = 3,
                 $num_retries = 3,
             );
