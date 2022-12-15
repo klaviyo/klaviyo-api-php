@@ -102,9 +102,7 @@ class Subclient {
                 $suffix = substr($link, $start);
                 $end = strpos($suffix, "&");
                 $new_cursor = substr($suffix, 0, $end);
-                echo $suffix . $end . $new_cursor;
-                return $new_cursor;
-                
+                return $new_cursor;                
             } else {
                 return $link;
             }
