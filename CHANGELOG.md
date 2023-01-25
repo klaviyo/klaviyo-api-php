@@ -18,4 +18,9 @@ NOTE: For more granular API-specific changes, please see our [API Changelog](htt
 
 ## 1.1.0
 
-  - added Data Privacy endpoint (previously in beta)
+  - Added the following endpoints (which were previously in our Beta API/SDKs):
+    - Data Privacy
+    - All Tags endpoints, as well as the following related resource-specific endpoints:
+      - Get Flow Tags
+      - Get List Tags
+      - Get Segment Tags
