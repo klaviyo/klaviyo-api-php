@@ -1,12 +1,12 @@
 # Klaviyo PHP SDK
 
-- SDK version: 1.0.1
-- API Revision: 2022-10-17
+- SDK version: 1.2.0
+- API Revision: 2023-01-24
 
 ## Helpful Resources
 
-- [API Reference](https://developers.klaviyo.com/en/v2022-10-17/reference)
-- [API Guides](https://developers.klaviyo.com/en/v2022-10-17/docs)
+- [API Reference](https://developers.klaviyo.com/en/v2023-01-24/reference)
+- [API Guides](https://developers.klaviyo.com/en/v2023-01-24/docs)
 - [Postman Workspace](https://www.postman.com/klaviyo/workspace/klaviyo-developers)
 
 ## Design & Approach
@@ -26,6 +26,10 @@ This SDK is organized into the following resources:
 
 
 - Client
+
+
+
+- DataPrivacy
 
 
 
@@ -50,6 +54,10 @@ This SDK is organized into the following resources:
 
 
 - Segments
+
+
+
+- Tags
 
 
 
@@ -116,7 +124,7 @@ try {
 ## Important Notes
 
 - The main difference between this SDK and the language-agnostic API Docs that the below endpoints link to is that this SDK automatically adds the `revision` header corresponding to the SDK version.
-- Organization: Resource groups and functions are listed in alphabetical order, first by Resource name, then by **OpenAPI Summary**. Operation summaries are those listed in the right side bar of the [API Reference](https://developers.klaviyo.com/en/v2022-10-17/reference/get_events). These summaries link directly to the corresponding section of the API reference.
+- Organization: Resource groups and functions are listed in alphabetical order, first by Resource name, then by **OpenAPI Summary**. Operation summaries are those listed in the right side bar of the [API Reference](https://developers.klaviyo.com/en/v2023-01-24/reference/get_events). These summaries link directly to the corresponding section of the API reference.
 - For example values / data types, as well as whether parameters are required/optional, please reference the corresponding API Reference link.
 - Some keyword args are required for the API call to succeed, the API docs above are the source of truth regarding which keyword args are required.
 - JSON payloads should be passed in as associative arrays
@@ -134,7 +142,7 @@ try {
 
 ## Catalogs
 
-#### [Create Catalog Category](https://developers.klaviyo.com/en/v2022-10-17/reference/create_catalog_category)
+#### [Create Catalog Category](https://developers.klaviyo.com/en/v2023-01-24/reference/create_catalog_category)
 
 ```python
 ## Positional Arguments
@@ -147,7 +155,7 @@ $klaviyo->Catalogs->createCatalogCategory($body);
 
 
 
-#### [Create Catalog Category Relationships](https://developers.klaviyo.com/en/v2022-10-17/reference/create_catalog_category_relationships)
+#### [Create Catalog Category Relationships](https://developers.klaviyo.com/en/v2023-01-24/reference/create_catalog_category_relationships)
 
 ```python
 ## Positional Arguments
@@ -162,7 +170,7 @@ $klaviyo->Catalogs->createCatalogCategoryRelationships($id, $related_resource, $
 
 
 
-#### [Create Catalog Item](https://developers.klaviyo.com/en/v2022-10-17/reference/create_catalog_item)
+#### [Create Catalog Item](https://developers.klaviyo.com/en/v2023-01-24/reference/create_catalog_item)
 
 ```python
 ## Positional Arguments
@@ -175,7 +183,7 @@ $klaviyo->Catalogs->createCatalogItem($body);
 
 
 
-#### [Create Catalog Item Relationships](https://developers.klaviyo.com/en/v2022-10-17/reference/create_catalog_item_relationships)
+#### [Create Catalog Item Relationships](https://developers.klaviyo.com/en/v2023-01-24/reference/create_catalog_item_relationships)
 
 ```python
 ## Positional Arguments
@@ -190,7 +198,7 @@ $klaviyo->Catalogs->createCatalogItemRelationships($id, $related_resource, $body
 
 
 
-#### [Create Catalog Variant](https://developers.klaviyo.com/en/v2022-10-17/reference/create_catalog_variant)
+#### [Create Catalog Variant](https://developers.klaviyo.com/en/v2023-01-24/reference/create_catalog_variant)
 
 ```python
 ## Positional Arguments
@@ -203,7 +211,7 @@ $klaviyo->Catalogs->createCatalogVariant($body);
 
 
 
-#### [Delete Catalog Category](https://developers.klaviyo.com/en/v2022-10-17/reference/delete_catalog_category)
+#### [Delete Catalog Category](https://developers.klaviyo.com/en/v2023-01-24/reference/delete_catalog_category)
 
 ```python
 ## Positional Arguments
@@ -216,7 +224,7 @@ $klaviyo->Catalogs->deleteCatalogCategory($id);
 
 
 
-#### [Delete Catalog Category Relationships](https://developers.klaviyo.com/en/v2022-10-17/reference/delete_catalog_category_relationships)
+#### [Delete Catalog Category Relationships](https://developers.klaviyo.com/en/v2023-01-24/reference/delete_catalog_category_relationships)
 
 ```python
 ## Positional Arguments
@@ -231,7 +239,7 @@ $klaviyo->Catalogs->deleteCatalogCategoryRelationships($id, $related_resource, $
 
 
 
-#### [Delete Catalog Item](https://developers.klaviyo.com/en/v2022-10-17/reference/delete_catalog_item)
+#### [Delete Catalog Item](https://developers.klaviyo.com/en/v2023-01-24/reference/delete_catalog_item)
 
 ```python
 ## Positional Arguments
@@ -244,7 +252,7 @@ $klaviyo->Catalogs->deleteCatalogItem($id);
 
 
 
-#### [Delete Catalog Item Relationships](https://developers.klaviyo.com/en/v2022-10-17/reference/delete_catalog_item_relationships)
+#### [Delete Catalog Item Relationships](https://developers.klaviyo.com/en/v2023-01-24/reference/delete_catalog_item_relationships)
 
 ```python
 ## Positional Arguments
@@ -259,7 +267,7 @@ $klaviyo->Catalogs->deleteCatalogItemRelationships($id, $related_resource, $body
 
 
 
-#### [Delete Catalog Variant](https://developers.klaviyo.com/en/v2022-10-17/reference/delete_catalog_variant)
+#### [Delete Catalog Variant](https://developers.klaviyo.com/en/v2023-01-24/reference/delete_catalog_variant)
 
 ```python
 ## Positional Arguments
@@ -272,7 +280,7 @@ $klaviyo->Catalogs->deleteCatalogVariant($id);
 
 
 
-#### [Get Catalog Categories](https://developers.klaviyo.com/en/v2022-10-17/reference/get_catalog_categories)
+#### [Get Catalog Categories](https://developers.klaviyo.com/en/v2023-01-24/reference/get_catalog_categories)
 
 ```python
 
@@ -289,7 +297,7 @@ $klaviyo->Catalogs->getCatalogCategories($fields_catalog_category=$fields_catalo
 
 
 
-#### [Get Catalog Category](https://developers.klaviyo.com/en/v2022-10-17/reference/get_catalog_category)
+#### [Get Catalog Category](https://developers.klaviyo.com/en/v2023-01-24/reference/get_catalog_category)
 
 ```python
 ## Positional Arguments
@@ -306,7 +314,7 @@ $klaviyo->Catalogs->getCatalogCategory($id, $fields_catalog_category=$fields_cat
 
 
 
-#### [Get Catalog Category Items](https://developers.klaviyo.com/en/v2022-10-17/reference/get_catalog_category_items)
+#### [Get Catalog Category Items](https://developers.klaviyo.com/en/v2023-01-24/reference/get_catalog_category_items)
 
 ```python
 ## Positional Arguments
@@ -328,7 +336,7 @@ $klaviyo->Catalogs->getCatalogCategoryItems($category_id, $fields_catalog_item=$
 
 
 
-#### [Get Catalog Category Relationships](https://developers.klaviyo.com/en/v2022-10-17/reference/get_catalog_category_relationships)
+#### [Get Catalog Category Relationships](https://developers.klaviyo.com/en/v2023-01-24/reference/get_catalog_category_relationships)
 
 ```python
 ## Positional Arguments
@@ -346,7 +354,7 @@ $klaviyo->Catalogs->getCatalogCategoryRelationships($id, $related_resource, $pag
 
 
 
-#### [Get Catalog Item](https://developers.klaviyo.com/en/v2022-10-17/reference/get_catalog_item)
+#### [Get Catalog Item](https://developers.klaviyo.com/en/v2023-01-24/reference/get_catalog_item)
 
 ```python
 ## Positional Arguments
@@ -365,7 +373,7 @@ $klaviyo->Catalogs->getCatalogItem($id, $fields_catalog_item=$fields_catalog_ite
 
 
 
-#### [Get Catalog Item Categories](https://developers.klaviyo.com/en/v2022-10-17/reference/get_catalog_item_categories)
+#### [Get Catalog Item Categories](https://developers.klaviyo.com/en/v2023-01-24/reference/get_catalog_item_categories)
 
 ```python
 ## Positional Arguments
@@ -385,7 +393,7 @@ $klaviyo->Catalogs->getCatalogItemCategories($item_id, $fields_catalog_category=
 
 
 
-#### [Get Catalog Item Relationships](https://developers.klaviyo.com/en/v2022-10-17/reference/get_catalog_item_relationships)
+#### [Get Catalog Item Relationships](https://developers.klaviyo.com/en/v2023-01-24/reference/get_catalog_item_relationships)
 
 ```python
 ## Positional Arguments
@@ -403,7 +411,7 @@ $klaviyo->Catalogs->getCatalogItemRelationships($id, $related_resource, $page_cu
 
 
 
-#### [Get Catalog Item Variants](https://developers.klaviyo.com/en/v2022-10-17/reference/get_catalog_item_variants)
+#### [Get Catalog Item Variants](https://developers.klaviyo.com/en/v2023-01-24/reference/get_catalog_item_variants)
 
 ```python
 ## Positional Arguments
@@ -423,7 +431,7 @@ $klaviyo->Catalogs->getCatalogItemVariants($item_id, $fields_catalog_variant=$fi
 
 
 
-#### [Get Catalog Items](https://developers.klaviyo.com/en/v2022-10-17/reference/get_catalog_items)
+#### [Get Catalog Items](https://developers.klaviyo.com/en/v2023-01-24/reference/get_catalog_items)
 
 ```python
 
@@ -442,7 +450,7 @@ $klaviyo->Catalogs->getCatalogItems($fields_catalog_item=$fields_catalog_item, $
 
 
 
-#### [Get Catalog Variant](https://developers.klaviyo.com/en/v2022-10-17/reference/get_catalog_variant)
+#### [Get Catalog Variant](https://developers.klaviyo.com/en/v2023-01-24/reference/get_catalog_variant)
 
 ```python
 ## Positional Arguments
@@ -459,7 +467,7 @@ $klaviyo->Catalogs->getCatalogVariant($id, $fields_catalog_variant=$fields_catal
 
 
 
-#### [Get Catalog Variants](https://developers.klaviyo.com/en/v2022-10-17/reference/get_catalog_variants)
+#### [Get Catalog Variants](https://developers.klaviyo.com/en/v2023-01-24/reference/get_catalog_variants)
 
 ```python
 
@@ -476,7 +484,7 @@ $klaviyo->Catalogs->getCatalogVariants($fields_catalog_variant=$fields_catalog_v
 
 
 
-#### [Get Create Categories Job](https://developers.klaviyo.com/en/v2022-10-17/reference/get_create_categories_job)
+#### [Get Create Categories Job](https://developers.klaviyo.com/en/v2023-01-24/reference/get_create_categories_job)
 
 ```python
 ## Positional Arguments
@@ -495,7 +503,7 @@ $klaviyo->Catalogs->getCreateCategoriesJob($job_id, $fields_catalog_category_bul
 
 
 
-#### [Get Create Categories Jobs](https://developers.klaviyo.com/en/v2022-10-17/reference/get_create_categories_jobs)
+#### [Get Create Categories Jobs](https://developers.klaviyo.com/en/v2023-01-24/reference/get_create_categories_jobs)
 
 ```python
 
@@ -511,7 +519,7 @@ $klaviyo->Catalogs->getCreateCategoriesJobs($fields_catalog_category_bulk_create
 
 
 
-#### [Get Create Items Job](https://developers.klaviyo.com/en/v2022-10-17/reference/get_create_items_job)
+#### [Get Create Items Job](https://developers.klaviyo.com/en/v2023-01-24/reference/get_create_items_job)
 
 ```python
 ## Positional Arguments
@@ -530,7 +538,7 @@ $klaviyo->Catalogs->getCreateItemsJob($job_id, $fields_catalog_item_bulk_create_
 
 
 
-#### [Get Create Items Jobs](https://developers.klaviyo.com/en/v2022-10-17/reference/get_create_items_jobs)
+#### [Get Create Items Jobs](https://developers.klaviyo.com/en/v2023-01-24/reference/get_create_items_jobs)
 
 ```python
 
@@ -546,7 +554,7 @@ $klaviyo->Catalogs->getCreateItemsJobs($fields_catalog_item_bulk_create_job=$fie
 
 
 
-#### [Get Create Variants Job](https://developers.klaviyo.com/en/v2022-10-17/reference/get_create_variants_job)
+#### [Get Create Variants Job](https://developers.klaviyo.com/en/v2023-01-24/reference/get_create_variants_job)
 
 ```python
 ## Positional Arguments
@@ -565,7 +573,7 @@ $klaviyo->Catalogs->getCreateVariantsJob($job_id, $fields_catalog_variant_bulk_c
 
 
 
-#### [Get Create Variants Jobs](https://developers.klaviyo.com/en/v2022-10-17/reference/get_create_variants_jobs)
+#### [Get Create Variants Jobs](https://developers.klaviyo.com/en/v2023-01-24/reference/get_create_variants_jobs)
 
 ```python
 
@@ -581,7 +589,7 @@ $klaviyo->Catalogs->getCreateVariantsJobs($fields_catalog_variant_bulk_create_jo
 
 
 
-#### [Get Delete Categories Job](https://developers.klaviyo.com/en/v2022-10-17/reference/get_delete_categories_job)
+#### [Get Delete Categories Job](https://developers.klaviyo.com/en/v2023-01-24/reference/get_delete_categories_job)
 
 ```python
 ## Positional Arguments
@@ -598,7 +606,7 @@ $klaviyo->Catalogs->getDeleteCategoriesJob($job_id, $fields_catalog_category_bul
 
 
 
-#### [Get Delete Categories Jobs](https://developers.klaviyo.com/en/v2022-10-17/reference/get_delete_categories_jobs)
+#### [Get Delete Categories Jobs](https://developers.klaviyo.com/en/v2023-01-24/reference/get_delete_categories_jobs)
 
 ```python
 
@@ -614,7 +622,7 @@ $klaviyo->Catalogs->getDeleteCategoriesJobs($fields_catalog_category_bulk_delete
 
 
 
-#### [Get Delete Items Job](https://developers.klaviyo.com/en/v2022-10-17/reference/get_delete_items_job)
+#### [Get Delete Items Job](https://developers.klaviyo.com/en/v2023-01-24/reference/get_delete_items_job)
 
 ```python
 ## Positional Arguments
@@ -631,7 +639,7 @@ $klaviyo->Catalogs->getDeleteItemsJob($job_id, $fields_catalog_item_bulk_delete_
 
 
 
-#### [Get Delete Items Jobs](https://developers.klaviyo.com/en/v2022-10-17/reference/get_delete_items_jobs)
+#### [Get Delete Items Jobs](https://developers.klaviyo.com/en/v2023-01-24/reference/get_delete_items_jobs)
 
 ```python
 
@@ -647,7 +655,7 @@ $klaviyo->Catalogs->getDeleteItemsJobs($fields_catalog_item_bulk_delete_job=$fie
 
 
 
-#### [Get Delete Variants Job](https://developers.klaviyo.com/en/v2022-10-17/reference/get_delete_variants_job)
+#### [Get Delete Variants Job](https://developers.klaviyo.com/en/v2023-01-24/reference/get_delete_variants_job)
 
 ```python
 ## Positional Arguments
@@ -664,7 +672,7 @@ $klaviyo->Catalogs->getDeleteVariantsJob($job_id, $fields_catalog_variant_bulk_d
 
 
 
-#### [Get Delete Variants Jobs](https://developers.klaviyo.com/en/v2022-10-17/reference/get_delete_variants_jobs)
+#### [Get Delete Variants Jobs](https://developers.klaviyo.com/en/v2023-01-24/reference/get_delete_variants_jobs)
 
 ```python
 
@@ -680,7 +688,7 @@ $klaviyo->Catalogs->getDeleteVariantsJobs($fields_catalog_variant_bulk_delete_jo
 
 
 
-#### [Get Update Categories Job](https://developers.klaviyo.com/en/v2022-10-17/reference/get_update_categories_job)
+#### [Get Update Categories Job](https://developers.klaviyo.com/en/v2023-01-24/reference/get_update_categories_job)
 
 ```python
 ## Positional Arguments
@@ -699,7 +707,7 @@ $klaviyo->Catalogs->getUpdateCategoriesJob($job_id, $fields_catalog_category_bul
 
 
 
-#### [Get Update Categories Jobs](https://developers.klaviyo.com/en/v2022-10-17/reference/get_update_categories_jobs)
+#### [Get Update Categories Jobs](https://developers.klaviyo.com/en/v2023-01-24/reference/get_update_categories_jobs)
 
 ```python
 
@@ -715,7 +723,7 @@ $klaviyo->Catalogs->getUpdateCategoriesJobs($fields_catalog_category_bulk_update
 
 
 
-#### [Get Update Items Job](https://developers.klaviyo.com/en/v2022-10-17/reference/get_update_items_job)
+#### [Get Update Items Job](https://developers.klaviyo.com/en/v2023-01-24/reference/get_update_items_job)
 
 ```python
 ## Positional Arguments
@@ -734,7 +742,7 @@ $klaviyo->Catalogs->getUpdateItemsJob($job_id, $fields_catalog_item_bulk_update_
 
 
 
-#### [Get Update Items Jobs](https://developers.klaviyo.com/en/v2022-10-17/reference/get_update_items_jobs)
+#### [Get Update Items Jobs](https://developers.klaviyo.com/en/v2023-01-24/reference/get_update_items_jobs)
 
 ```python
 
@@ -750,7 +758,7 @@ $klaviyo->Catalogs->getUpdateItemsJobs($fields_catalog_item_bulk_update_job=$fie
 
 
 
-#### [Get Update Variants Job](https://developers.klaviyo.com/en/v2022-10-17/reference/get_update_variants_job)
+#### [Get Update Variants Job](https://developers.klaviyo.com/en/v2023-01-24/reference/get_update_variants_job)
 
 ```python
 ## Positional Arguments
@@ -769,7 +777,7 @@ $klaviyo->Catalogs->getUpdateVariantsJob($job_id, $fields_catalog_variant_bulk_u
 
 
 
-#### [Get Update Variants Jobs](https://developers.klaviyo.com/en/v2022-10-17/reference/get_update_variants_jobs)
+#### [Get Update Variants Jobs](https://developers.klaviyo.com/en/v2023-01-24/reference/get_update_variants_jobs)
 
 ```python
 
@@ -785,7 +793,7 @@ $klaviyo->Catalogs->getUpdateVariantsJobs($fields_catalog_variant_bulk_update_jo
 
 
 
-#### [Spawn Create Categories Job](https://developers.klaviyo.com/en/v2022-10-17/reference/spawn_create_categories_job)
+#### [Spawn Create Categories Job](https://developers.klaviyo.com/en/v2023-01-24/reference/spawn_create_categories_job)
 
 ```python
 ## Positional Arguments
@@ -798,7 +806,7 @@ $klaviyo->Catalogs->spawnCreateCategoriesJob($body);
 
 
 
-#### [Spawn Create Items Job](https://developers.klaviyo.com/en/v2022-10-17/reference/spawn_create_items_job)
+#### [Spawn Create Items Job](https://developers.klaviyo.com/en/v2023-01-24/reference/spawn_create_items_job)
 
 ```python
 ## Positional Arguments
@@ -811,7 +819,7 @@ $klaviyo->Catalogs->spawnCreateItemsJob($body);
 
 
 
-#### [Spawn Create Variants Job](https://developers.klaviyo.com/en/v2022-10-17/reference/spawn_create_variants_job)
+#### [Spawn Create Variants Job](https://developers.klaviyo.com/en/v2023-01-24/reference/spawn_create_variants_job)
 
 ```python
 ## Positional Arguments
@@ -824,7 +832,7 @@ $klaviyo->Catalogs->spawnCreateVariantsJob($body);
 
 
 
-#### [Spawn Delete Categories Job](https://developers.klaviyo.com/en/v2022-10-17/reference/spawn_delete_categories_job)
+#### [Spawn Delete Categories Job](https://developers.klaviyo.com/en/v2023-01-24/reference/spawn_delete_categories_job)
 
 ```python
 ## Positional Arguments
@@ -837,7 +845,7 @@ $klaviyo->Catalogs->spawnDeleteCategoriesJob($body);
 
 
 
-#### [Spawn Delete Items Job](https://developers.klaviyo.com/en/v2022-10-17/reference/spawn_delete_items_job)
+#### [Spawn Delete Items Job](https://developers.klaviyo.com/en/v2023-01-24/reference/spawn_delete_items_job)
 
 ```python
 ## Positional Arguments
@@ -850,7 +858,7 @@ $klaviyo->Catalogs->spawnDeleteItemsJob($body);
 
 
 
-#### [Spawn Delete Variants Job](https://developers.klaviyo.com/en/v2022-10-17/reference/spawn_delete_variants_job)
+#### [Spawn Delete Variants Job](https://developers.klaviyo.com/en/v2023-01-24/reference/spawn_delete_variants_job)
 
 ```python
 ## Positional Arguments
@@ -863,7 +871,7 @@ $klaviyo->Catalogs->spawnDeleteVariantsJob($body);
 
 
 
-#### [Spawn Update Categories Job](https://developers.klaviyo.com/en/v2022-10-17/reference/spawn_update_categories_job)
+#### [Spawn Update Categories Job](https://developers.klaviyo.com/en/v2023-01-24/reference/spawn_update_categories_job)
 
 ```python
 ## Positional Arguments
@@ -876,7 +884,7 @@ $klaviyo->Catalogs->spawnUpdateCategoriesJob($body);
 
 
 
-#### [Spawn Update Items Job](https://developers.klaviyo.com/en/v2022-10-17/reference/spawn_update_items_job)
+#### [Spawn Update Items Job](https://developers.klaviyo.com/en/v2023-01-24/reference/spawn_update_items_job)
 
 ```python
 ## Positional Arguments
@@ -889,7 +897,7 @@ $klaviyo->Catalogs->spawnUpdateItemsJob($body);
 
 
 
-#### [Spawn Update Variants Job](https://developers.klaviyo.com/en/v2022-10-17/reference/spawn_update_variants_job)
+#### [Spawn Update Variants Job](https://developers.klaviyo.com/en/v2023-01-24/reference/spawn_update_variants_job)
 
 ```python
 ## Positional Arguments
@@ -902,7 +910,7 @@ $klaviyo->Catalogs->spawnUpdateVariantsJob($body);
 
 
 
-#### [Update Catalog Category](https://developers.klaviyo.com/en/v2022-10-17/reference/update_catalog_category)
+#### [Update Catalog Category](https://developers.klaviyo.com/en/v2023-01-24/reference/update_catalog_category)
 
 ```python
 ## Positional Arguments
@@ -916,7 +924,7 @@ $klaviyo->Catalogs->updateCatalogCategory($id, $body);
 
 
 
-#### [Update Catalog Category Relationships](https://developers.klaviyo.com/en/v2022-10-17/reference/update_catalog_category_relationships)
+#### [Update Catalog Category Relationships](https://developers.klaviyo.com/en/v2023-01-24/reference/update_catalog_category_relationships)
 
 ```python
 ## Positional Arguments
@@ -931,7 +939,7 @@ $klaviyo->Catalogs->updateCatalogCategoryRelationships($id, $related_resource, $
 
 
 
-#### [Update Catalog Item](https://developers.klaviyo.com/en/v2022-10-17/reference/update_catalog_item)
+#### [Update Catalog Item](https://developers.klaviyo.com/en/v2023-01-24/reference/update_catalog_item)
 
 ```python
 ## Positional Arguments
@@ -945,7 +953,7 @@ $klaviyo->Catalogs->updateCatalogItem($id, $body);
 
 
 
-#### [Update Catalog Item Relationships](https://developers.klaviyo.com/en/v2022-10-17/reference/update_catalog_item_relationships)
+#### [Update Catalog Item Relationships](https://developers.klaviyo.com/en/v2023-01-24/reference/update_catalog_item_relationships)
 
 ```python
 ## Positional Arguments
@@ -960,7 +968,7 @@ $klaviyo->Catalogs->updateCatalogItemRelationships($id, $related_resource, $body
 
 
 
-#### [Update Catalog Variant](https://developers.klaviyo.com/en/v2022-10-17/reference/update_catalog_variant)
+#### [Update Catalog Variant](https://developers.klaviyo.com/en/v2023-01-24/reference/update_catalog_variant)
 
 ```python
 ## Positional Arguments
@@ -978,7 +986,7 @@ $klaviyo->Catalogs->updateCatalogVariant($id, $body);
 
 ## Client
 
-#### [Create Client Event](https://developers.klaviyo.com/en/v2022-10-17/reference/create_client_event)
+#### [Create Client Event](https://developers.klaviyo.com/en/v2023-01-24/reference/create_client_event)
 
 ```python
 ## Positional Arguments
@@ -992,7 +1000,7 @@ $klaviyo->Client->createClientEvent($company_id, $body);
 
 
 
-#### [Create Client Profile](https://developers.klaviyo.com/en/v2022-10-17/reference/create_client_profile)
+#### [Create Client Profile](https://developers.klaviyo.com/en/v2023-01-24/reference/create_client_profile)
 
 ```python
 ## Positional Arguments
@@ -1006,7 +1014,7 @@ $klaviyo->Client->createClientProfile($company_id, $body);
 
 
 
-#### [Create Client Subscription](https://developers.klaviyo.com/en/v2022-10-17/reference/create_client_subscription)
+#### [Create Client Subscription](https://developers.klaviyo.com/en/v2023-01-24/reference/create_client_subscription)
 
 ```python
 ## Positional Arguments
@@ -1022,9 +1030,26 @@ $klaviyo->Client->createClientSubscription($company_id, $body);
 
 
 
+## DataPrivacy
+
+#### [Request Profile Deletion](https://developers.klaviyo.com/en/v2023-01-24/reference/request_profile_deletion)
+
+```python
+## Positional Arguments
+
+# $body | associative array
+
+$klaviyo->DataPrivacy->requestProfileDeletion($body);
+```
+
+
+
+
+
+
 ## Events
 
-#### [Create Event](https://developers.klaviyo.com/en/v2022-10-17/reference/create_event)
+#### [Create Event](https://developers.klaviyo.com/en/v2023-01-24/reference/create_event)
 
 ```python
 ## Positional Arguments
@@ -1037,7 +1062,7 @@ $klaviyo->Events->createEvent($body);
 
 
 
-#### [Get Event](https://developers.klaviyo.com/en/v2022-10-17/reference/get_event)
+#### [Get Event](https://developers.klaviyo.com/en/v2023-01-24/reference/get_event)
 
 ```python
 ## Positional Arguments
@@ -1057,7 +1082,7 @@ $klaviyo->Events->getEvent($id, $fields_event=$fields_event, $fields_metric=$fie
 
 
 
-#### [Get Event Metrics](https://developers.klaviyo.com/en/v2022-10-17/reference/get_event_metrics)
+#### [Get Event Metrics](https://developers.klaviyo.com/en/v2023-01-24/reference/get_event_metrics)
 
 ```python
 ## Positional Arguments
@@ -1074,7 +1099,7 @@ $klaviyo->Events->getEventMetrics($id, $fields_metric=$fields_metric);
 
 
 
-#### [Get Event Profiles](https://developers.klaviyo.com/en/v2022-10-17/reference/get_event_profiles)
+#### [Get Event Profiles](https://developers.klaviyo.com/en/v2023-01-24/reference/get_event_profiles)
 
 ```python
 ## Positional Arguments
@@ -1091,7 +1116,7 @@ $klaviyo->Events->getEventProfiles($id, $fields_profile=$fields_profile);
 
 
 
-#### [Get Event Relationships](https://developers.klaviyo.com/en/v2022-10-17/reference/get_event_relationships)
+#### [Get Event Relationships](https://developers.klaviyo.com/en/v2023-01-24/reference/get_event_relationships)
 
 ```python
 ## Positional Arguments
@@ -1105,7 +1130,7 @@ $klaviyo->Events->getEventRelationships($id, $related_resource);
 
 
 
-#### [Get Events](https://developers.klaviyo.com/en/v2022-10-17/reference/get_events)
+#### [Get Events](https://developers.klaviyo.com/en/v2023-01-24/reference/get_events)
 
 ```python
 
@@ -1129,7 +1154,7 @@ $klaviyo->Events->getEvents($fields_event=$fields_event, $fields_metric=$fields_
 
 ## Flows
 
-#### [Get Flow](https://developers.klaviyo.com/en/v2022-10-17/reference/get_flow)
+#### [Get Flow](https://developers.klaviyo.com/en/v2023-01-24/reference/get_flow)
 
 ```python
 ## Positional Arguments
@@ -1148,7 +1173,7 @@ $klaviyo->Flows->getFlow($id, $fields_flow_action=$fields_flow_action, $fields_f
 
 
 
-#### [Get Flow Action](https://developers.klaviyo.com/en/v2022-10-17/reference/get_flow_action)
+#### [Get Flow Action](https://developers.klaviyo.com/en/v2023-01-24/reference/get_flow_action)
 
 ```python
 ## Positional Arguments
@@ -1168,7 +1193,7 @@ $klaviyo->Flows->getFlowAction($id, $fields_flow_action=$fields_flow_action, $fi
 
 
 
-#### [Get Flow For Flow Action](https://developers.klaviyo.com/en/v2022-10-17/reference/get_flow_action_flow)
+#### [Get Flow For Flow Action](https://developers.klaviyo.com/en/v2023-01-24/reference/get_flow_action_flow)
 
 ```python
 ## Positional Arguments
@@ -1185,7 +1210,7 @@ $klaviyo->Flows->getFlowActionFlow($action_id, $fields_flow=$fields_flow);
 
 
 
-#### [Get Messages For Flow Action](https://developers.klaviyo.com/en/v2022-10-17/reference/get_flow_action_messages)
+#### [Get Messages For Flow Action](https://developers.klaviyo.com/en/v2023-01-24/reference/get_flow_action_messages)
 
 ```python
 ## Positional Arguments
@@ -1204,7 +1229,7 @@ $klaviyo->Flows->getFlowActionMessages($action_id, $fields_flow_message=$fields_
 
 
 
-#### [Get Flow Action Relationships](https://developers.klaviyo.com/en/v2022-10-17/reference/get_flow_action_relationships)
+#### [Get Flow Action Relationships](https://developers.klaviyo.com/en/v2023-01-24/reference/get_flow_action_relationships)
 
 ```python
 ## Positional Arguments
@@ -1223,7 +1248,7 @@ $klaviyo->Flows->getFlowActionRelationships($id, $related_resource, $filter=$fil
 
 
 
-#### [Get Flow Actions For Flow](https://developers.klaviyo.com/en/v2022-10-17/reference/get_flow_flow_actions)
+#### [Get Flow Actions For Flow](https://developers.klaviyo.com/en/v2023-01-24/reference/get_flow_flow_actions)
 
 ```python
 ## Positional Arguments
@@ -1242,7 +1267,7 @@ $klaviyo->Flows->getFlowFlowActions($flow_id, $fields_flow_action=$fields_flow_a
 
 
 
-#### [Get Flow Message](https://developers.klaviyo.com/en/v2022-10-17/reference/get_flow_message)
+#### [Get Flow Message](https://developers.klaviyo.com/en/v2023-01-24/reference/get_flow_message)
 
 ```python
 ## Positional Arguments
@@ -1261,7 +1286,7 @@ $klaviyo->Flows->getFlowMessage($id, $fields_flow_action=$fields_flow_action, $f
 
 
 
-#### [Get Flow Action For Message](https://developers.klaviyo.com/en/v2022-10-17/reference/get_flow_message_action)
+#### [Get Flow Action For Message](https://developers.klaviyo.com/en/v2023-01-24/reference/get_flow_message_action)
 
 ```python
 ## Positional Arguments
@@ -1278,7 +1303,7 @@ $klaviyo->Flows->getFlowMessageAction($message_id, $fields_flow_action=$fields_f
 
 
 
-#### [Get Flow Message Relationships](https://developers.klaviyo.com/en/v2022-10-17/reference/get_flow_message_relationships)
+#### [Get Flow Message Relationships](https://developers.klaviyo.com/en/v2023-01-24/reference/get_flow_message_relationships)
 
 ```python
 ## Positional Arguments
@@ -1292,7 +1317,7 @@ $klaviyo->Flows->getFlowMessageRelationships($id, $related_resource);
 
 
 
-#### [Get Flow Relationships](https://developers.klaviyo.com/en/v2022-10-17/reference/get_flow_relationships)
+#### [Get Flow Relationships](https://developers.klaviyo.com/en/v2023-01-24/reference/get_flow_relationships)
 
 ```python
 ## Positional Arguments
@@ -1300,18 +1325,30 @@ $klaviyo->Flows->getFlowMessageRelationships($id, $related_resource);
 # $id | string
 # $related_resource | string
 
-## Keyword Arguments
-
-# $filter | string
-# $sort | string
-
-$klaviyo->Flows->getFlowRelationships($id, $related_resource, $filter=$filter, $sort=$sort);
+$klaviyo->Flows->getFlowRelationships($id, $related_resource);
 ```
 
 
 
 
-#### [Get Flows](https://developers.klaviyo.com/en/v2022-10-17/reference/get_flows)
+#### [Get Flow Tags](https://developers.klaviyo.com/en/v2023-01-24/reference/get_flow_tags)
+
+```python
+## Positional Arguments
+
+# $flow_id | string
+
+## Keyword Arguments
+
+# $fields_tag | string[]
+
+$klaviyo->Flows->getFlowTags($flow_id, $fields_tag=$fields_tag);
+```
+
+
+
+
+#### [Get Flows](https://developers.klaviyo.com/en/v2023-01-24/reference/get_flows)
 
 ```python
 
@@ -1329,7 +1366,7 @@ $klaviyo->Flows->getFlows($fields_flow_action=$fields_flow_action, $fields_flow=
 
 
 
-#### [Update Flow Status](https://developers.klaviyo.com/en/v2022-10-17/reference/update_flow)
+#### [Update Flow Status](https://developers.klaviyo.com/en/v2023-01-24/reference/update_flow)
 
 ```python
 ## Positional Arguments
@@ -1347,7 +1384,7 @@ $klaviyo->Flows->updateFlow($id, $body);
 
 ## Lists
 
-#### [Create List](https://developers.klaviyo.com/en/v2022-10-17/reference/create_list)
+#### [Create List](https://developers.klaviyo.com/en/v2023-01-24/reference/create_list)
 
 ```python
 ## Positional Arguments
@@ -1360,7 +1397,7 @@ $klaviyo->Lists->createList($body);
 
 
 
-#### [Add Profile to List](https://developers.klaviyo.com/en/v2022-10-17/reference/create_list_relationships)
+#### [Add Profile to List](https://developers.klaviyo.com/en/v2023-01-24/reference/create_list_relationships)
 
 ```python
 ## Positional Arguments
@@ -1375,7 +1412,7 @@ $klaviyo->Lists->createListRelationships($id, $related_resource, $body);
 
 
 
-#### [Delete List](https://developers.klaviyo.com/en/v2022-10-17/reference/delete_list)
+#### [Delete List](https://developers.klaviyo.com/en/v2023-01-24/reference/delete_list)
 
 ```python
 ## Positional Arguments
@@ -1388,7 +1425,7 @@ $klaviyo->Lists->deleteList($id);
 
 
 
-#### [Remove Profile from List](https://developers.klaviyo.com/en/v2022-10-17/reference/delete_list_relationships)
+#### [Remove Profile from List](https://developers.klaviyo.com/en/v2023-01-24/reference/delete_list_relationships)
 
 ```python
 ## Positional Arguments
@@ -1403,7 +1440,7 @@ $klaviyo->Lists->deleteListRelationships($id, $related_resource, $body);
 
 
 
-#### [Get List](https://developers.klaviyo.com/en/v2022-10-17/reference/get_list)
+#### [Get List](https://developers.klaviyo.com/en/v2023-01-24/reference/get_list)
 
 ```python
 ## Positional Arguments
@@ -1420,7 +1457,7 @@ $klaviyo->Lists->getList($id, $fields_list=$fields_list);
 
 
 
-#### [Get List Profiles](https://developers.klaviyo.com/en/v2022-10-17/reference/get_list_profiles)
+#### [Get List Profiles](https://developers.klaviyo.com/en/v2023-01-24/reference/get_list_profiles)
 
 ```python
 ## Positional Arguments
@@ -1439,7 +1476,7 @@ $klaviyo->Lists->getListProfiles($list_id, $fields_profile=$fields_profile, $fil
 
 
 
-#### [Get List Profile Relationships](https://developers.klaviyo.com/en/v2022-10-17/reference/get_list_relationships)
+#### [Get List Relationships](https://developers.klaviyo.com/en/v2023-01-24/reference/get_list_relationships)
 
 ```python
 ## Positional Arguments
@@ -1457,7 +1494,24 @@ $klaviyo->Lists->getListRelationships($id, $related_resource, $page_cursor=$page
 
 
 
-#### [Get Lists](https://developers.klaviyo.com/en/v2022-10-17/reference/get_lists)
+#### [Get List Tags](https://developers.klaviyo.com/en/v2023-01-24/reference/get_list_tags)
+
+```python
+## Positional Arguments
+
+# $list_id | string
+
+## Keyword Arguments
+
+# $fields_tag | string[]
+
+$klaviyo->Lists->getListTags($list_id, $fields_tag=$fields_tag);
+```
+
+
+
+
+#### [Get Lists](https://developers.klaviyo.com/en/v2023-01-24/reference/get_lists)
 
 ```python
 
@@ -1473,7 +1527,7 @@ $klaviyo->Lists->getLists($fields_list=$fields_list, $filter=$filter, $page_curs
 
 
 
-#### [Update List](https://developers.klaviyo.com/en/v2022-10-17/reference/update_list)
+#### [Update List](https://developers.klaviyo.com/en/v2023-01-24/reference/update_list)
 
 ```python
 ## Positional Arguments
@@ -1491,7 +1545,7 @@ $klaviyo->Lists->updateList($id, $body);
 
 ## Metrics
 
-#### [Get Metric](https://developers.klaviyo.com/en/v2022-10-17/reference/get_metric)
+#### [Get Metric](https://developers.klaviyo.com/en/v2023-01-24/reference/get_metric)
 
 ```python
 ## Positional Arguments
@@ -1508,7 +1562,7 @@ $klaviyo->Metrics->getMetric($id, $fields_metric=$fields_metric);
 
 
 
-#### [Get Metrics](https://developers.klaviyo.com/en/v2022-10-17/reference/get_metrics)
+#### [Get Metrics](https://developers.klaviyo.com/en/v2023-01-24/reference/get_metrics)
 
 ```python
 
@@ -1524,7 +1578,7 @@ $klaviyo->Metrics->getMetrics($fields_metric=$fields_metric, $filter=$filter, $p
 
 
 
-#### [Query Metric Aggregates](https://developers.klaviyo.com/en/v2022-10-17/reference/query_metric_aggregates)
+#### [Query Metric Aggregates](https://developers.klaviyo.com/en/v2023-01-24/reference/query_metric_aggregates)
 
 ```python
 ## Positional Arguments
@@ -1541,7 +1595,7 @@ $klaviyo->Metrics->queryMetricAggregates($body);
 
 ## Profiles
 
-#### [Create Profile](https://developers.klaviyo.com/en/v2022-10-17/reference/create_profile)
+#### [Create Profile](https://developers.klaviyo.com/en/v2023-01-24/reference/create_profile)
 
 ```python
 ## Positional Arguments
@@ -1554,7 +1608,7 @@ $klaviyo->Profiles->createProfile($body);
 
 
 
-#### [Get Profile](https://developers.klaviyo.com/en/v2022-10-17/reference/get_profile)
+#### [Get Profile](https://developers.klaviyo.com/en/v2023-01-24/reference/get_profile)
 
 ```python
 ## Positional Arguments
@@ -1574,7 +1628,7 @@ $klaviyo->Profiles->getProfile($id, $fields_list=$fields_list, $fields_profile=$
 
 
 
-#### [Get Profile Lists](https://developers.klaviyo.com/en/v2022-10-17/reference/get_profile_lists)
+#### [Get Profile Lists](https://developers.klaviyo.com/en/v2023-01-24/reference/get_profile_lists)
 
 ```python
 ## Positional Arguments
@@ -1591,7 +1645,7 @@ $klaviyo->Profiles->getProfileLists($profile_id, $fields_list=$fields_list);
 
 
 
-#### [Get Profile Relationships](https://developers.klaviyo.com/en/v2022-10-17/reference/get_profile_relationships)
+#### [Get Profile Relationships](https://developers.klaviyo.com/en/v2023-01-24/reference/get_profile_relationships)
 
 ```python
 ## Positional Arguments
@@ -1605,7 +1659,7 @@ $klaviyo->Profiles->getProfileRelationships($id, $related_resource);
 
 
 
-#### [Get Profile Segments](https://developers.klaviyo.com/en/v2022-10-17/reference/get_profile_segments)
+#### [Get Profile Segments](https://developers.klaviyo.com/en/v2023-01-24/reference/get_profile_segments)
 
 ```python
 ## Positional Arguments
@@ -1622,7 +1676,7 @@ $klaviyo->Profiles->getProfileSegments($profile_id, $fields_segment=$fields_segm
 
 
 
-#### [Get Profiles](https://developers.klaviyo.com/en/v2022-10-17/reference/get_profiles)
+#### [Get Profiles](https://developers.klaviyo.com/en/v2023-01-24/reference/get_profiles)
 
 ```python
 
@@ -1639,7 +1693,7 @@ $klaviyo->Profiles->getProfiles($fields_profile=$fields_profile, $filter=$filter
 
 
 
-#### [Subscribe Profiles](https://developers.klaviyo.com/en/v2022-10-17/reference/subscribe_profiles)
+#### [Subscribe Profiles](https://developers.klaviyo.com/en/v2023-01-24/reference/subscribe_profiles)
 
 ```python
 ## Positional Arguments
@@ -1652,7 +1706,7 @@ $klaviyo->Profiles->subscribeProfiles($body);
 
 
 
-#### [Suppress Profiles](https://developers.klaviyo.com/en/v2022-10-17/reference/suppress_profiles)
+#### [Suppress Profiles](https://developers.klaviyo.com/en/v2023-01-24/reference/suppress_profiles)
 
 ```python
 ## Positional Arguments
@@ -1665,7 +1719,7 @@ $klaviyo->Profiles->suppressProfiles($body);
 
 
 
-#### [Unsubscribe Profiles](https://developers.klaviyo.com/en/v2022-10-17/reference/unsubscribe_profiles)
+#### [Unsubscribe Profiles](https://developers.klaviyo.com/en/v2023-01-24/reference/unsubscribe_profiles)
 
 ```python
 ## Positional Arguments
@@ -1678,7 +1732,7 @@ $klaviyo->Profiles->unsubscribeProfiles($body);
 
 
 
-#### [Unsuppress Profiles](https://developers.klaviyo.com/en/v2022-10-17/reference/unsuppress_profiles)
+#### [Unsuppress Profiles](https://developers.klaviyo.com/en/v2023-01-24/reference/unsuppress_profiles)
 
 ```python
 ## Positional Arguments
@@ -1691,7 +1745,7 @@ $klaviyo->Profiles->unsuppressProfiles($body);
 
 
 
-#### [Update Profile](https://developers.klaviyo.com/en/v2022-10-17/reference/update_profile)
+#### [Update Profile](https://developers.klaviyo.com/en/v2023-01-24/reference/update_profile)
 
 ```python
 ## Positional Arguments
@@ -1709,7 +1763,7 @@ $klaviyo->Profiles->updateProfile($id, $body);
 
 ## Segments
 
-#### [Get Segment](https://developers.klaviyo.com/en/v2022-10-17/reference/get_segment)
+#### [Get Segment](https://developers.klaviyo.com/en/v2023-01-24/reference/get_segment)
 
 ```python
 ## Positional Arguments
@@ -1726,7 +1780,7 @@ $klaviyo->Segments->getSegment($id, $fields_segment=$fields_segment);
 
 
 
-#### [Get Segment Profiles](https://developers.klaviyo.com/en/v2022-10-17/reference/get_segment_profiles)
+#### [Get Segment Profiles](https://developers.klaviyo.com/en/v2023-01-24/reference/get_segment_profiles)
 
 ```python
 ## Positional Arguments
@@ -1745,7 +1799,7 @@ $klaviyo->Segments->getSegmentProfiles($segment_id, $fields_profile=$fields_prof
 
 
 
-#### [Get Segment Relationships](https://developers.klaviyo.com/en/v2022-10-17/reference/get_segment_relationships)
+#### [Get Segment Relationships](https://developers.klaviyo.com/en/v2023-01-24/reference/get_segment_relationships)
 
 ```python
 ## Positional Arguments
@@ -1763,7 +1817,24 @@ $klaviyo->Segments->getSegmentRelationships($id, $related_resource, $page_cursor
 
 
 
-#### [Get Segments](https://developers.klaviyo.com/en/v2022-10-17/reference/get_segments)
+#### [Get Segment Tags](https://developers.klaviyo.com/en/v2023-01-24/reference/get_segment_tags)
+
+```python
+## Positional Arguments
+
+# $segment_id | string
+
+## Keyword Arguments
+
+# $fields_tag | string[]
+
+$klaviyo->Segments->getSegmentTags($segment_id, $fields_tag=$fields_tag);
+```
+
+
+
+
+#### [Get Segments](https://developers.klaviyo.com/en/v2023-01-24/reference/get_segments)
 
 ```python
 
@@ -1779,7 +1850,7 @@ $klaviyo->Segments->getSegments($fields_segment=$fields_segment, $filter=$filter
 
 
 
-#### [Update Segment](https://developers.klaviyo.com/en/v2022-10-17/reference/update_segment)
+#### [Update Segment](https://developers.klaviyo.com/en/v2023-01-24/reference/update_segment)
 
 ```python
 ## Positional Arguments
@@ -1795,9 +1866,253 @@ $klaviyo->Segments->updateSegment($id, $body);
 
 
 
+## Tags
+
+#### [Create Tag](https://developers.klaviyo.com/en/v2023-01-24/reference/create_tag)
+
+```python
+## Positional Arguments
+
+# $body | associative array
+
+$klaviyo->Tags->createTag($body);
+```
+
+
+
+
+#### [Create Tag Group](https://developers.klaviyo.com/en/v2023-01-24/reference/create_tag_group)
+
+```python
+## Positional Arguments
+
+# $body | associative array
+
+$klaviyo->Tags->createTagGroup($body);
+```
+
+
+
+
+#### [Create Tag Relationships](https://developers.klaviyo.com/en/v2023-01-24/reference/create_tag_relationships)
+
+```python
+## Positional Arguments
+
+# $id | string
+# $related_resource | string
+# $body | associative array
+
+$klaviyo->Tags->createTagRelationships($id, $related_resource, $body);
+```
+
+
+
+
+#### [Delete Tag](https://developers.klaviyo.com/en/v2023-01-24/reference/delete_tag)
+
+```python
+## Positional Arguments
+
+# $id | string
+
+$klaviyo->Tags->deleteTag($id);
+```
+
+
+
+
+#### [Delete Tag Group](https://developers.klaviyo.com/en/v2023-01-24/reference/delete_tag_group)
+
+```python
+## Positional Arguments
+
+# $id | string
+
+$klaviyo->Tags->deleteTagGroup($id);
+```
+
+
+
+
+#### [Delete Tag Relationships](https://developers.klaviyo.com/en/v2023-01-24/reference/delete_tag_relationships)
+
+```python
+## Positional Arguments
+
+# $id | string
+# $related_resource | string
+# $body | associative array
+
+$klaviyo->Tags->deleteTagRelationships($id, $related_resource, $body);
+```
+
+
+
+
+#### [Get Tag](https://developers.klaviyo.com/en/v2023-01-24/reference/get_tag)
+
+```python
+## Positional Arguments
+
+# $id | string
+
+## Keyword Arguments
+
+# $fields_tag | string[]
+
+$klaviyo->Tags->getTag($id, $fields_tag=$fields_tag);
+```
+
+
+
+
+#### [Get Tag Group](https://developers.klaviyo.com/en/v2023-01-24/reference/get_tag_group)
+
+```python
+## Positional Arguments
+
+# $id | string
+
+## Keyword Arguments
+
+# $fields_tag_group | string[]
+
+$klaviyo->Tags->getTagGroup($id, $fields_tag_group=$fields_tag_group);
+```
+
+
+
+
+#### [Get Tag Group Relationships](https://developers.klaviyo.com/en/v2023-01-24/reference/get_tag_group_relationships)
+
+```python
+## Positional Arguments
+
+# $id | string
+# $related_resource | string
+
+$klaviyo->Tags->getTagGroupRelationships($id, $related_resource);
+```
+
+
+
+
+#### [Get Tag Group Tags](https://developers.klaviyo.com/en/v2023-01-24/reference/get_tag_group_tags)
+
+```python
+## Positional Arguments
+
+# $id | string
+
+## Keyword Arguments
+
+# $fields_tag | string[]
+
+$klaviyo->Tags->getTagGroupTags($id, $fields_tag=$fields_tag);
+```
+
+
+
+
+#### [Get Tag Groups](https://developers.klaviyo.com/en/v2023-01-24/reference/get_tag_groups)
+
+```python
+
+## Keyword Arguments
+
+# $fields_tag_group | string[]
+# $filter | string
+# $page_cursor | string
+# $sort | string
+
+$klaviyo->Tags->getTagGroups($fields_tag_group=$fields_tag_group, $filter=$filter, $page_cursor=$page_cursor, $sort=$sort);
+```
+
+
+
+
+#### [Get Tag Relationships](https://developers.klaviyo.com/en/v2023-01-24/reference/get_tag_relationships)
+
+```python
+## Positional Arguments
+
+# $id | string
+# $related_resource | string
+
+$klaviyo->Tags->getTagRelationships($id, $related_resource);
+```
+
+
+
+
+#### [Get Tag Tag Group](https://developers.klaviyo.com/en/v2023-01-24/reference/get_tag_tag_group)
+
+```python
+## Positional Arguments
+
+# $id | string
+
+## Keyword Arguments
+
+# $fields_tag_group | string[]
+
+$klaviyo->Tags->getTagTagGroup($id, $fields_tag_group=$fields_tag_group);
+```
+
+
+
+
+#### [Get Tags](https://developers.klaviyo.com/en/v2023-01-24/reference/get_tags)
+
+```python
+
+## Keyword Arguments
+
+# $fields_tag | string[]
+# $filter | string
+# $page_cursor | string
+# $sort | string
+
+$klaviyo->Tags->getTags($fields_tag=$fields_tag, $filter=$filter, $page_cursor=$page_cursor, $sort=$sort);
+```
+
+
+
+
+#### [Update Tag](https://developers.klaviyo.com/en/v2023-01-24/reference/update_tag)
+
+```python
+## Positional Arguments
+
+# $id | string
+# $body | associative array
+
+$klaviyo->Tags->updateTag($id, $body);
+```
+
+
+
+
+#### [Update Tag Group](https://developers.klaviyo.com/en/v2023-01-24/reference/update_tag_group)
+
+```python
+## Positional Arguments
+
+# $id | string
+# $body | associative array
+
+$klaviyo->Tags->updateTagGroup($id, $body);
+```
+
+
+
+
+
+
 ## Templates
 
-#### [Create Template](https://developers.klaviyo.com/en/v2022-10-17/reference/create_template)
+#### [Create Template](https://developers.klaviyo.com/en/v2023-01-24/reference/create_template)
 
 ```python
 ## Positional Arguments
@@ -1810,7 +2125,7 @@ $klaviyo->Templates->createTemplate($body);
 
 
 
-#### [Create Template Clone](https://developers.klaviyo.com/en/v2022-10-17/reference/create_template_clone)
+#### [Create Template Clone](https://developers.klaviyo.com/en/v2023-01-24/reference/create_template_clone)
 
 ```python
 ## Positional Arguments
@@ -1824,7 +2139,7 @@ $klaviyo->Templates->createTemplateClone($id, $body);
 
 
 
-#### [Create Template Render](https://developers.klaviyo.com/en/v2022-10-17/reference/create_template_render)
+#### [Create Template Render](https://developers.klaviyo.com/en/v2023-01-24/reference/create_template_render)
 
 ```python
 ## Positional Arguments
@@ -1838,7 +2153,7 @@ $klaviyo->Templates->createTemplateRender($id, $body);
 
 
 
-#### [Delete Template](https://developers.klaviyo.com/en/v2022-10-17/reference/delete_template)
+#### [Delete Template](https://developers.klaviyo.com/en/v2023-01-24/reference/delete_template)
 
 ```python
 ## Positional Arguments
@@ -1851,7 +2166,7 @@ $klaviyo->Templates->deleteTemplate($id);
 
 
 
-#### [Get Template](https://developers.klaviyo.com/en/v2022-10-17/reference/get_template)
+#### [Get Template](https://developers.klaviyo.com/en/v2023-01-24/reference/get_template)
 
 ```python
 ## Positional Arguments
@@ -1868,7 +2183,7 @@ $klaviyo->Templates->getTemplate($id, $fields_template=$fields_template);
 
 
 
-#### [Get Templates](https://developers.klaviyo.com/en/v2022-10-17/reference/get_templates)
+#### [Get Templates](https://developers.klaviyo.com/en/v2023-01-24/reference/get_templates)
 
 ```python
 
@@ -1885,7 +2200,7 @@ $klaviyo->Templates->getTemplates($fields_template=$fields_template, $filter=$fi
 
 
 
-#### [Update Template](https://developers.klaviyo.com/en/v2022-10-17/reference/update_template)
+#### [Update Template](https://developers.klaviyo.com/en/v2023-01-24/reference/update_template)
 
 ```python
 ## Positional Arguments
