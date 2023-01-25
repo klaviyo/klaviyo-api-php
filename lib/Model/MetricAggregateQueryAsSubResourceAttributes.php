@@ -551,7 +551,7 @@ class MetricAggregateQueryAsSubResourceAttributes implements ModelInterface, Arr
     /**
      * Sets metric_id
      *
-     * @param string $metric_id The metric ID used in the aggregation. A metric ID is the `id` field for a metric, as returned by the [Get Metrics endpoint](https://developers.klaviyo.com/en/reference/get_metrics).
+     * @param string $metric_id The metric ID used in the aggregation.
      *
      * @return self
      */

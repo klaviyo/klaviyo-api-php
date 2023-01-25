@@ -381,7 +381,7 @@ class ClientApi
     /**
      * Operation createClientProfile
      *
-     * Create Client Profile
+     * Create or Update Client Profile
      *
      * @param  string $company_id  (required)
      * @param  \KlaviyoAPI\Model\OnsiteProfileCreateQuery $onsite_profile_create_query onsite_profile_create_query (required)
@@ -398,7 +398,7 @@ class ClientApi
     /**
      * Operation createClientProfileWithHttpInfo
      *
-     * Create Client Profile
+     * Create or Update Client Profile
      *
      * @param  string $company_id  (required)
      * @param  \KlaviyoAPI\Model\OnsiteProfileCreateQuery $onsite_profile_create_query (required)
@@ -474,7 +474,7 @@ class ClientApi
     /**
      * Operation createClientProfileAsync
      *
-     * Create Client Profile
+     * Create or Update Client Profile
      *
      * @param  string $company_id  (required)
      * @param  \KlaviyoAPI\Model\OnsiteProfileCreateQuery $onsite_profile_create_query (required)
@@ -495,7 +495,7 @@ class ClientApi
     /**
      * Operation createClientProfileAsyncWithHttpInfo
      *
-     * Create Client Profile
+     * Create or Update Client Profile
      *
      * @param  string $company_id  (required)
      * @param  \KlaviyoAPI\Model\OnsiteProfileCreateQuery $onsite_profile_create_query (required)

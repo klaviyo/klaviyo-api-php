@@ -484,16 +484,15 @@ class TemplatesApi
      *
      * Create Template Clone
      *
-     * @param  string $id The ID of template to be cloned (required)
      * @param  \KlaviyoAPI\Model\TemplateCloneQuery $template_clone_query template_clone_query (required)
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array<string,mixed>|\KlaviyoAPI\Model\GetCatalogItems400Response|\KlaviyoAPI\Model\GetCatalogItems400Response
      */
-    public function createTemplateClone($id, $template_clone_query, $apiKey = null)
+    public function createTemplateClone($template_clone_query, $apiKey = null)
     {
-        list($response) = $this->createTemplateCloneWithHttpInfo($id, $template_clone_query, $apiKey);
+        list($response) = $this->createTemplateCloneWithHttpInfo($template_clone_query, $apiKey);
         return $response;
     }
 
@@ -502,16 +501,15 @@ class TemplatesApi
      *
      * Create Template Clone
      *
-     * @param  string $id The ID of template to be cloned (required)
      * @param  \KlaviyoAPI\Model\TemplateCloneQuery $template_clone_query (required)
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of array<string,mixed>|\KlaviyoAPI\Model\GetCatalogItems400Response|\KlaviyoAPI\Model\GetCatalogItems400Response, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createTemplateCloneWithHttpInfo($id, $template_clone_query, $apiKey = null)
+    public function createTemplateCloneWithHttpInfo($template_clone_query, $apiKey = null)
     {
-        $request = $this->createTemplateCloneRequest($id, $template_clone_query, $apiKey);
+        $request = $this->createTemplateCloneRequest($template_clone_query, $apiKey);
 
         try {
             $options = $this->createHttpClientOption();
@@ -671,15 +669,14 @@ class TemplatesApi
      *
      * Create Template Clone
      *
-     * @param  string $id The ID of template to be cloned (required)
      * @param  \KlaviyoAPI\Model\TemplateCloneQuery $template_clone_query (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createTemplateCloneAsync($id, $template_clone_query, $apiKey = null)
+    public function createTemplateCloneAsync($template_clone_query, $apiKey = null)
     {
-        return $this->createTemplateCloneAsyncWithHttpInfo($id, $template_clone_query, $apiKey)
+        return $this->createTemplateCloneAsyncWithHttpInfo($template_clone_query, $apiKey)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -692,16 +689,15 @@ class TemplatesApi
      *
      * Create Template Clone
      *
-     * @param  string $id The ID of template to be cloned (required)
      * @param  \KlaviyoAPI\Model\TemplateCloneQuery $template_clone_query (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createTemplateCloneAsyncWithHttpInfo($id, $template_clone_query, $apiKey = null)
+    public function createTemplateCloneAsyncWithHttpInfo($template_clone_query, $apiKey = null)
     {
         $returnType = 'array<string,mixed>';
-        $request = $this->createTemplateCloneRequest($id, $template_clone_query, $apiKey);
+        $request = $this->createTemplateCloneRequest($template_clone_query, $apiKey);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -747,20 +743,13 @@ class TemplatesApi
     /**
      * Create request for operation 'createTemplateClone'
      *
-     * @param  string $id The ID of template to be cloned (required)
      * @param  \KlaviyoAPI\Model\TemplateCloneQuery $template_clone_query (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function createTemplateCloneRequest($id, $template_clone_query, $apiKey = null)
+    public function createTemplateCloneRequest($template_clone_query, $apiKey = null)
     {
-        // verify the required parameter 'id' is set
-        if ($id === null || (is_array($id) && count($id) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $id when calling createTemplateClone'
-            );
-        }
         // verify the required parameter 'template_clone_query' is set
         if ($template_clone_query === null || (is_array($template_clone_query) && count($template_clone_query) === 0)) {
             throw new \InvalidArgumentException(
@@ -768,7 +757,7 @@ class TemplatesApi
             );
         }
 
-        $resourcePath = '/api/templates/{id}/clone/';
+        $resourcePath = '/api/template-clone/';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -777,14 +766,6 @@ class TemplatesApi
 
 
 
-        // path params
-        if ($id !== null) {
-            $resourcePath = str_replace(
-                '{' . 'id' . '}',
-                ObjectSerializer::toPathValue($id),
-                $resourcePath
-            );
-        }
 
 
         if ($multipart) {
@@ -866,16 +847,15 @@ class TemplatesApi
      *
      * Create Template Render
      *
-     * @param  string $id The ID of template (required)
      * @param  \KlaviyoAPI\Model\TemplateRenderQuery $template_render_query template_render_query (required)
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array<string,mixed>|\KlaviyoAPI\Model\GetCatalogItems400Response|\KlaviyoAPI\Model\GetCatalogItems400Response
      */
-    public function createTemplateRender($id, $template_render_query, $apiKey = null)
+    public function createTemplateRender($template_render_query, $apiKey = null)
     {
-        list($response) = $this->createTemplateRenderWithHttpInfo($id, $template_render_query, $apiKey);
+        list($response) = $this->createTemplateRenderWithHttpInfo($template_render_query, $apiKey);
         return $response;
     }
 
@@ -884,16 +864,15 @@ class TemplatesApi
      *
      * Create Template Render
      *
-     * @param  string $id The ID of template (required)
      * @param  \KlaviyoAPI\Model\TemplateRenderQuery $template_render_query (required)
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of array<string,mixed>|\KlaviyoAPI\Model\GetCatalogItems400Response|\KlaviyoAPI\Model\GetCatalogItems400Response, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createTemplateRenderWithHttpInfo($id, $template_render_query, $apiKey = null)
+    public function createTemplateRenderWithHttpInfo($template_render_query, $apiKey = null)
     {
-        $request = $this->createTemplateRenderRequest($id, $template_render_query, $apiKey);
+        $request = $this->createTemplateRenderRequest($template_render_query, $apiKey);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1053,15 +1032,14 @@ class TemplatesApi
      *
      * Create Template Render
      *
-     * @param  string $id The ID of template (required)
      * @param  \KlaviyoAPI\Model\TemplateRenderQuery $template_render_query (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createTemplateRenderAsync($id, $template_render_query, $apiKey = null)
+    public function createTemplateRenderAsync($template_render_query, $apiKey = null)
     {
-        return $this->createTemplateRenderAsyncWithHttpInfo($id, $template_render_query, $apiKey)
+        return $this->createTemplateRenderAsyncWithHttpInfo($template_render_query, $apiKey)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1074,16 +1052,15 @@ class TemplatesApi
      *
      * Create Template Render
      *
-     * @param  string $id The ID of template (required)
      * @param  \KlaviyoAPI\Model\TemplateRenderQuery $template_render_query (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createTemplateRenderAsyncWithHttpInfo($id, $template_render_query, $apiKey = null)
+    public function createTemplateRenderAsyncWithHttpInfo($template_render_query, $apiKey = null)
     {
         $returnType = 'array<string,mixed>';
-        $request = $this->createTemplateRenderRequest($id, $template_render_query, $apiKey);
+        $request = $this->createTemplateRenderRequest($template_render_query, $apiKey);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1129,20 +1106,13 @@ class TemplatesApi
     /**
      * Create request for operation 'createTemplateRender'
      *
-     * @param  string $id The ID of template (required)
      * @param  \KlaviyoAPI\Model\TemplateRenderQuery $template_render_query (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function createTemplateRenderRequest($id, $template_render_query, $apiKey = null)
+    public function createTemplateRenderRequest($template_render_query, $apiKey = null)
     {
-        // verify the required parameter 'id' is set
-        if ($id === null || (is_array($id) && count($id) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $id when calling createTemplateRender'
-            );
-        }
         // verify the required parameter 'template_render_query' is set
         if ($template_render_query === null || (is_array($template_render_query) && count($template_render_query) === 0)) {
             throw new \InvalidArgumentException(
@@ -1150,7 +1120,7 @@ class TemplatesApi
             );
         }
 
-        $resourcePath = '/api/templates/{id}/render/';
+        $resourcePath = '/api/template-render/';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1159,14 +1129,6 @@ class TemplatesApi
 
 
 
-        // path params
-        if ($id !== null) {
-            $resourcePath = str_replace(
-                '{' . 'id' . '}',
-                ObjectSerializer::toPathValue($id),
-                $resourcePath
-            );
-        }
 
 
         if ($multipart) {

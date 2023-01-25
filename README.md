@@ -1000,7 +1000,7 @@ $klaviyo->Client->createClientEvent($company_id, $body);
 
 
 
-#### [Create Client Profile](https://developers.klaviyo.com/en/v2023-01-24/reference/create_client_profile)
+#### [Create or Update Client Profile](https://developers.klaviyo.com/en/v2023-01-24/reference/create_client_profile)
 
 ```python
 ## Positional Arguments
@@ -2130,10 +2130,9 @@ $klaviyo->Templates->createTemplate($body);
 ```python
 ## Positional Arguments
 
-# $id | string
 # $body | associative array
 
-$klaviyo->Templates->createTemplateClone($id, $body);
+$klaviyo->Templates->createTemplateClone($body);
 ```
 
 
@@ -2144,10 +2143,9 @@ $klaviyo->Templates->createTemplateClone($id, $body);
 ```python
 ## Positional Arguments
 
-# $id | string
 # $body | associative array
 
-$klaviyo->Templates->createTemplateRender($id, $body);
+$klaviyo->Templates->createTemplateRender($body);
 ```
 
 

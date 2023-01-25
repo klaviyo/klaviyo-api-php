@@ -229,7 +229,7 @@ class DataPrivacyCreateDeletionJobQueryAsSubResourceAttributes implements ModelI
     /**
      * Sets profile_id
      *
-     * @param string|null $profile_id The profile ID of the profile to delete. This is the `id` field on the profile, as it is returned by the [Get Profiles endpoint](https://developers.klaviyo.com/en/reference/get_profiles).
+     * @param string|null $profile_id The ID of the profile to delete. This is the `id` field on the profile object.
      *
      * @return self
      */
