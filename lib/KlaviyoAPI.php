@@ -7,12 +7,14 @@ use KlaviyoAPI\Configuration;
 
 use KlaviyoAPI\API\CatalogsApi;
 use KlaviyoAPI\API\ClientApi;
+use KlaviyoAPI\API\DataPrivacyApi;
 use KlaviyoAPI\API\EventsApi;
 use KlaviyoAPI\API\FlowsApi;
 use KlaviyoAPI\API\ListsApi;
 use KlaviyoAPI\API\MetricsApi;
 use KlaviyoAPI\API\ProfilesApi;
 use KlaviyoAPI\API\SegmentsApi;
+use KlaviyoAPI\API\TagsApi;
 use KlaviyoAPI\API\TemplatesApi;
 
 
@@ -24,12 +26,14 @@ class KlaviyoAPI {
     public $num_retries;
     public $Catalogs;
     public $Client;
+    public $DataPrivacy;
     public $Events;
     public $Flows;
     public $Lists;
     public $Metrics;
     public $Profiles;
     public $Segments;
+    public $Tags;
     public $Templates;
     
 
@@ -60,6 +64,12 @@ class KlaviyoAPI {
         
         $this->Client = new Subclient(
                 new ClientApi(new GuzzleClient(),$this->config),
+                $wait_seconds = 3,
+                $num_retries = 3,
+            );
+        
+        $this->DataPrivacy = new Subclient(
+                new DataPrivacyApi(new GuzzleClient(),$this->config),
                 $wait_seconds = 3,
                 $num_retries = 3,
             );
@@ -96,6 +106,12 @@ class KlaviyoAPI {
         
         $this->Segments = new Subclient(
                 new SegmentsApi(new GuzzleClient(),$this->config),
+                $wait_seconds = 3,
+                $num_retries = 3,
+            );
+        
+        $this->Tags = new Subclient(
+                new TagsApi(new GuzzleClient(),$this->config),
                 $wait_seconds = 3,
                 $num_retries = 3,
             );
