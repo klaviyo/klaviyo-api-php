@@ -24,3 +24,12 @@ NOTE: For more granular API-specific changes, please see our [API Changelog](htt
       - Get Flow Tags
       - Get List Tags
       - Get Segment Tags
+
+## 1.2.0
+
+### Added
+- Campaigns (which were previously in our Beta API/SDKs)
+
+### Changes
+- Flows
+    - Pagination changed from page offset to cursor
