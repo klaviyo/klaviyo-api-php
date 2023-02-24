@@ -39,11 +39,10 @@ class Subclient {
 
                 $page_cursor = $args[$param_position];
                 if ($page_cursor != NULL) {
-                    if ($this->is_url($page_cursor)) {
-                        $page_cursor = $this->new_page_cursor($page_cursor);
+                    $page_cursor = $this->new_page_cursor($page_cursor);
 
-                        $args[$param_position] = $page_cursor;
-                    }
+                    $args[$param_position] = $page_cursor;
+                    
                 }
 
 
@@ -79,18 +78,16 @@ class Subclient {
     }
 
 
-    protected function is_url($link) {
-        return (is_string($link) && preg_match('/^https?:\/\//',$link));
+    protected function is_url($string) {
+        return (is_string($string) && preg_match('/^https?:\/\//',$string));
     }
 
-    protected function new_page_cursor($link) {
-        if (!$this->is_url($link)) {
-            return $link;
-        } else {
-            $link = $link . "&";
+    protected function new_page_cursor($cursor) {
+        if ($this->is_url($cursor)) {
+            $cursor = $cursor;
             $found_token = NULL;
             foreach ($this->_CURSOR_SEARCH_TOKENS as $search_token) {
-                $strpos = strpos($link, $search_token);
+                $strpos = strpos($cursor, $search_token);
                 if ($strpos != False) {
                     $found_token = $search_token;
                     break;
@@ -98,15 +95,13 @@ class Subclient {
             }
 
             if ($found_token != NULL) {
-                $start = $strpos+strlen($found_token)+1;
-                $suffix = substr($link, $start);
-                $end = strpos($suffix, "&");
-                $new_cursor = substr($suffix, 0, $end);
-                return $new_cursor;                
-            } else {
-                return $link;
-            }
 
+                $cursor = explode($found_token, $cursor)[1];
+                $cursor = explode("&", $cursor)[0];
+            }
         }
+
+        $cursor = urldecode($cursor);
+        return $cursor;                
     }
 }
