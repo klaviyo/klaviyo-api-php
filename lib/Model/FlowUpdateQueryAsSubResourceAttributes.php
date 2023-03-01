@@ -220,7 +220,7 @@ class FlowUpdateQueryAsSubResourceAttributes implements ModelInterface, ArrayAcc
     /**
      * Sets status
      *
-     * @param string $status status
+     * @param string $status Status you want to update the flow to. ['draft', 'manual', or 'live']
      *
      * @return self
      */

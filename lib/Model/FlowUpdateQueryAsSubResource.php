@@ -294,7 +294,7 @@ class FlowUpdateQueryAsSubResource implements ModelInterface, ArrayAccess, \Json
     /**
      * Sets id
      *
-     * @param string $id id
+     * @param string $id ID of the Flow to update. Ex: XVTP5Q
      *
      * @return self
      */

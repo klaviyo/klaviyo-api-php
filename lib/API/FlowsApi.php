@@ -4959,7 +4959,7 @@ class FlowsApi
      *
      * Update Flow Status
      *
-     * @param  string $id  (required)
+     * @param  string $id ID of the Flow to update. Ex: XVTP5Q (required)
      * @param  \KlaviyoAPI\Model\FlowUpdateQuery $flow_update_query flow_update_query (required)
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response
@@ -4977,7 +4977,7 @@ class FlowsApi
      *
      * Update Flow Status
      *
-     * @param  string $id  (required)
+     * @param  string $id ID of the Flow to update. Ex: XVTP5Q (required)
      * @param  \KlaviyoAPI\Model\FlowUpdateQuery $flow_update_query (required)
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response
@@ -5146,7 +5146,7 @@ class FlowsApi
      *
      * Update Flow Status
      *
-     * @param  string $id  (required)
+     * @param  string $id ID of the Flow to update. Ex: XVTP5Q (required)
      * @param  \KlaviyoAPI\Model\FlowUpdateQuery $flow_update_query (required)
      *
      * @throws \InvalidArgumentException
@@ -5167,7 +5167,7 @@ class FlowsApi
      *
      * Update Flow Status
      *
-     * @param  string $id  (required)
+     * @param  string $id ID of the Flow to update. Ex: XVTP5Q (required)
      * @param  \KlaviyoAPI\Model\FlowUpdateQuery $flow_update_query (required)
      *
      * @throws \InvalidArgumentException
@@ -5222,7 +5222,7 @@ class FlowsApi
     /**
      * Create request for operation 'updateFlow'
      *
-     * @param  string $id  (required)
+     * @param  string $id ID of the Flow to update. Ex: XVTP5Q (required)
      * @param  \KlaviyoAPI\Model\FlowUpdateQuery $flow_update_query (required)
      *
      * @throws \InvalidArgumentException
