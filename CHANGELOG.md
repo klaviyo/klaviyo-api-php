@@ -2,7 +2,7 @@
 
 NOTE: For more granular API-specific changes, please see our [API Changelog](https://developers.klaviyo.com/en/docs/changelog_)
 
-## 2.0.0
+## 1.3.0
 
 ### Added
 - `page_size`:  you can now set page_size when paging through endpoints that return profiles
