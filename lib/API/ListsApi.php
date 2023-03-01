@@ -1698,14 +1698,15 @@ class ListsApi
      * @param  string[] $fields_profile For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $filter For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;email&#x60;: &#x60;any&#x60;&lt;br&gt;&#x60;phone_number&#x60;: &#x60;any&#x60;&lt;br&gt;&#x60;push_token&#x60;: &#x60;any&#x60;&lt;br&gt;&#x60;_kx&#x60;: &#x60;equals&#x60; (optional)
      * @param  string $page_cursor For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#pagination (optional)
+     * @param  int $page_size page_size (optional)
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array<string,mixed>|\KlaviyoAPI\Model\GetCampaigns400Response|\KlaviyoAPI\Model\GetCampaigns400Response
      */
-    public function getListProfiles($list_id, $fields_profile = null, $filter = null, $page_cursor = null, $apiKey = null)
+    public function getListProfiles($list_id, $fields_profile = null, $filter = null, $page_cursor = null, $page_size = null, $apiKey = null)
     {
-        list($response) = $this->getListProfilesWithHttpInfo($list_id, $fields_profile, $filter, $page_cursor, $apiKey);
+        list($response) = $this->getListProfilesWithHttpInfo($list_id, $fields_profile, $filter, $page_cursor, $page_size, $apiKey);
         return $response;
     }
 
@@ -1718,14 +1719,15 @@ class ListsApi
      * @param  string[] $fields_profile For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $filter For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;email&#x60;: &#x60;any&#x60;&lt;br&gt;&#x60;phone_number&#x60;: &#x60;any&#x60;&lt;br&gt;&#x60;push_token&#x60;: &#x60;any&#x60;&lt;br&gt;&#x60;_kx&#x60;: &#x60;equals&#x60; (optional)
      * @param  string $page_cursor For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#pagination (optional)
+     * @param  int $page_size (optional)
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of array<string,mixed>|\KlaviyoAPI\Model\GetCampaigns400Response|\KlaviyoAPI\Model\GetCampaigns400Response, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getListProfilesWithHttpInfo($list_id, $fields_profile = null, $filter = null, $page_cursor = null, $apiKey = null)
+    public function getListProfilesWithHttpInfo($list_id, $fields_profile = null, $filter = null, $page_cursor = null, $page_size = null, $apiKey = null)
     {
-        $request = $this->getListProfilesRequest($list_id, $fields_profile, $filter, $page_cursor, $apiKey);
+        $request = $this->getListProfilesRequest($list_id, $fields_profile, $filter, $page_cursor, $page_size, $apiKey);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1889,13 +1891,14 @@ class ListsApi
      * @param  string[] $fields_profile For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $filter For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;email&#x60;: &#x60;any&#x60;&lt;br&gt;&#x60;phone_number&#x60;: &#x60;any&#x60;&lt;br&gt;&#x60;push_token&#x60;: &#x60;any&#x60;&lt;br&gt;&#x60;_kx&#x60;: &#x60;equals&#x60; (optional)
      * @param  string $page_cursor For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#pagination (optional)
+     * @param  int $page_size (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getListProfilesAsync($list_id, $fields_profile = null, $filter = null, $page_cursor = null, $apiKey = null)
+    public function getListProfilesAsync($list_id, $fields_profile = null, $filter = null, $page_cursor = null, $page_size = null, $apiKey = null)
     {
-        return $this->getListProfilesAsyncWithHttpInfo($list_id, $fields_profile, $filter, $page_cursor, $apiKey)
+        return $this->getListProfilesAsyncWithHttpInfo($list_id, $fields_profile, $filter, $page_cursor, $page_size, $apiKey)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1912,14 +1915,15 @@ class ListsApi
      * @param  string[] $fields_profile For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $filter For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;email&#x60;: &#x60;any&#x60;&lt;br&gt;&#x60;phone_number&#x60;: &#x60;any&#x60;&lt;br&gt;&#x60;push_token&#x60;: &#x60;any&#x60;&lt;br&gt;&#x60;_kx&#x60;: &#x60;equals&#x60; (optional)
      * @param  string $page_cursor For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#pagination (optional)
+     * @param  int $page_size (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getListProfilesAsyncWithHttpInfo($list_id, $fields_profile = null, $filter = null, $page_cursor = null, $apiKey = null)
+    public function getListProfilesAsyncWithHttpInfo($list_id, $fields_profile = null, $filter = null, $page_cursor = null, $page_size = null, $apiKey = null)
     {
         $returnType = 'array<string,mixed>';
-        $request = $this->getListProfilesRequest($list_id, $fields_profile, $filter, $page_cursor, $apiKey);
+        $request = $this->getListProfilesRequest($list_id, $fields_profile, $filter, $page_cursor, $page_size, $apiKey);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1969,11 +1973,12 @@ class ListsApi
      * @param  string[] $fields_profile For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $filter For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;email&#x60;: &#x60;any&#x60;&lt;br&gt;&#x60;phone_number&#x60;: &#x60;any&#x60;&lt;br&gt;&#x60;push_token&#x60;: &#x60;any&#x60;&lt;br&gt;&#x60;_kx&#x60;: &#x60;equals&#x60; (optional)
      * @param  string $page_cursor For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#pagination (optional)
+     * @param  int $page_size (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getListProfilesRequest($list_id, $fields_profile = null, $filter = null, $page_cursor = null, $apiKey = null)
+    public function getListProfilesRequest($list_id, $fields_profile = null, $filter = null, $page_cursor = null, $page_size = null, $apiKey = null)
     {
         // verify the required parameter 'list_id' is set
         if ($list_id === null || (is_array($list_id) && count($list_id) === 0)) {
@@ -2012,6 +2017,15 @@ class ListsApi
             $page_cursor,
             'page[cursor]', // param base name
             'string', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $page_size,
+            'page[size]', // param base name
+            'integer', // openApiType
             'form', // style
             true, // explode
             false // required

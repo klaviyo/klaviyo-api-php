@@ -845,7 +845,7 @@ class CampaignsApi
     /**
      * Operation createCampaignMessageAssignTemplate
      *
-     * Create Campaign Message Assign Template
+     * Assign Campaign Message Template
      *
      * @param  \KlaviyoAPI\Model\CampaignMessageAssignTemplateQuery $campaign_message_assign_template_query Takes a reusable template, clones it, and assigns the non-reusable clone to the message. (required)
      *
@@ -862,7 +862,7 @@ class CampaignsApi
     /**
      * Operation createCampaignMessageAssignTemplateWithHttpInfo
      *
-     * Create Campaign Message Assign Template
+     * Assign Campaign Message Template
      *
      * @param  \KlaviyoAPI\Model\CampaignMessageAssignTemplateQuery $campaign_message_assign_template_query Takes a reusable template, clones it, and assigns the non-reusable clone to the message. (required)
      *
@@ -1030,7 +1030,7 @@ class CampaignsApi
     /**
      * Operation createCampaignMessageAssignTemplateAsync
      *
-     * Create Campaign Message Assign Template
+     * Assign Campaign Message Template
      *
      * @param  \KlaviyoAPI\Model\CampaignMessageAssignTemplateQuery $campaign_message_assign_template_query Takes a reusable template, clones it, and assigns the non-reusable clone to the message. (required)
      *
@@ -1050,7 +1050,7 @@ class CampaignsApi
     /**
      * Operation createCampaignMessageAssignTemplateAsyncWithHttpInfo
      *
-     * Create Campaign Message Assign Template
+     * Assign Campaign Message Template
      *
      * @param  \KlaviyoAPI\Model\CampaignMessageAssignTemplateQuery $campaign_message_assign_template_query Takes a reusable template, clones it, and assigns the non-reusable clone to the message. (required)
      *

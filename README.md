@@ -1,6 +1,6 @@
 # Klaviyo PHP SDK
 
-- SDK version: 1.2.1
+- SDK version: 2.0.0
 - API Revision: 2023-02-22
 
 ## Helpful Resources
@@ -172,7 +172,7 @@ $klaviyo->Campaigns->createCampaignClone($body);
 
 
 
-#### [Create Campaign Message Assign Template](https://developers.klaviyo.com/en/v2023-02-22/reference/create_campaign_message_assign_template)
+#### [Assign Campaign Message Template](https://developers.klaviyo.com/en/v2023-02-22/reference/create_campaign_message_assign_template)
 
 ```python
 ## Positional Arguments
@@ -1738,8 +1738,9 @@ $klaviyo->Lists->getList($id, $fields_list=$fields_list);
 # $fields_profile | string[]
 # $filter | string
 # $page_cursor | string
+# $page_size | int
 
-$klaviyo->Lists->getListProfiles($list_id, $fields_profile=$fields_profile, $filter=$filter, $page_cursor=$page_cursor);
+$klaviyo->Lists->getListProfiles($list_id, $fields_profile=$fields_profile, $filter=$filter, $page_cursor=$page_cursor, $page_size=$page_size);
 ```
 
 
@@ -1955,8 +1956,9 @@ $klaviyo->Profiles->getProfileSegments($profile_id, $fields_segment=$fields_segm
 # $filter | string
 # $page_cursor | string
 # $sort | string
+# $page_size | int
 
-$klaviyo->Profiles->getProfiles($fields_profile=$fields_profile, $filter=$filter, $page_cursor=$page_cursor, $sort=$sort);
+$klaviyo->Profiles->getProfiles($fields_profile=$fields_profile, $filter=$filter, $page_cursor=$page_cursor, $sort=$sort, $page_size=$page_size);
 ```
 
 
@@ -2061,8 +2063,9 @@ $klaviyo->Segments->getSegment($id, $fields_segment=$fields_segment);
 # $fields_profile | string[]
 # $filter | string
 # $page_cursor | string
+# $page_size | int
 
-$klaviyo->Segments->getSegmentProfiles($segment_id, $fields_profile=$fields_profile, $filter=$filter, $page_cursor=$page_cursor);
+$klaviyo->Segments->getSegmentProfiles($segment_id, $fields_profile=$fields_profile, $filter=$filter, $page_cursor=$page_cursor, $page_size=$page_size);
 ```
 
 
