@@ -58,10 +58,10 @@ class PostMetricAggregateResponseData implements ModelInterface, ArrayAccess, \J
       * @var string[]
       */
     protected static $openAPITypes = [
-        'type' => 'string',
+        'type' => '\KlaviyoAPI\Model\MetricAggregateEnum',
         'id' => 'string',
         'attributes' => '\KlaviyoAPI\Model\PostMetricAggregateResponseDataAttributes',
-        'links' => '\KlaviyoAPI\Model\GetCatalogItemResponseCollectionWithIncludedSectionDataInnerLinks'
+        'links' => '\KlaviyoAPI\Model\ObjectLinks'
     ];
 
     /**
@@ -176,19 +176,6 @@ class PostMetricAggregateResponseData implements ModelInterface, ArrayAccess, \J
         return self::$openAPIModelName;
     }
 
-    public const TYPE_METRIC_AGGREGATE = 'metric-aggregate';
-
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getTypeAllowableValues()
-    {
-        return [
-            self::TYPE_METRIC_AGGREGATE,
-        ];
-    }
 
     /**
      * Associative array for storing property values
@@ -223,15 +210,6 @@ class PostMetricAggregateResponseData implements ModelInterface, ArrayAccess, \J
         if ($this->container['type'] === null) {
             $invalidProperties[] = "'type' can't be null";
         }
-        $allowedValues = $this->getTypeAllowableValues();
-        if (!is_null($this->container['type']) && !in_array($this->container['type'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value '%s' for 'type', must be one of '%s'",
-                $this->container['type'],
-                implode("', '", $allowedValues)
-            );
-        }
-
         if ($this->container['id'] === null) {
             $invalidProperties[] = "'id' can't be null";
         }
@@ -259,7 +237,7 @@ class PostMetricAggregateResponseData implements ModelInterface, ArrayAccess, \J
     /**
      * Gets type
      *
-     * @return string
+     * @return \KlaviyoAPI\Model\MetricAggregateEnum
      */
     public function getType()
     {
@@ -269,22 +247,12 @@ class PostMetricAggregateResponseData implements ModelInterface, ArrayAccess, \J
     /**
      * Sets type
      *
-     * @param string $type type
+     * @param \KlaviyoAPI\Model\MetricAggregateEnum $type type
      *
      * @return self
      */
     public function setType($type)
     {
-        $allowedValues = $this->getTypeAllowableValues();
-        if (!in_array($type, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value '%s' for 'type', must be one of '%s'",
-                    $type,
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
         $this->container['type'] = $type;
 
         return $this;
@@ -341,7 +309,7 @@ class PostMetricAggregateResponseData implements ModelInterface, ArrayAccess, \J
     /**
      * Gets links
      *
-     * @return \KlaviyoAPI\Model\GetCatalogItemResponseCollectionWithIncludedSectionDataInnerLinks
+     * @return \KlaviyoAPI\Model\ObjectLinks
      */
     public function getLinks()
     {
@@ -351,7 +319,7 @@ class PostMetricAggregateResponseData implements ModelInterface, ArrayAccess, \J
     /**
      * Sets links
      *
-     * @param \KlaviyoAPI\Model\GetCatalogItemResponseCollectionWithIncludedSectionDataInnerLinks $links links
+     * @param \KlaviyoAPI\Model\ObjectLinks $links links
      *
      * @return self
      */

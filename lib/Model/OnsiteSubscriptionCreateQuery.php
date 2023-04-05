@@ -58,7 +58,7 @@ class OnsiteSubscriptionCreateQuery implements ModelInterface, ArrayAccess, \Jso
       * @var string[]
       */
     protected static $openAPITypes = [
-        'data' => '\KlaviyoAPI\Model\OnsiteSubscriptionCreateQueryAsSubResource'
+        'data' => '\KlaviyoAPI\Model\OnsiteSubscriptionCreateQueryResourceObject'
     ];
 
     /**
@@ -210,7 +210,7 @@ class OnsiteSubscriptionCreateQuery implements ModelInterface, ArrayAccess, \Jso
     /**
      * Gets data
      *
-     * @return \KlaviyoAPI\Model\OnsiteSubscriptionCreateQueryAsSubResource
+     * @return \KlaviyoAPI\Model\OnsiteSubscriptionCreateQueryResourceObject
      */
     public function getData()
     {
@@ -220,7 +220,7 @@ class OnsiteSubscriptionCreateQuery implements ModelInterface, ArrayAccess, \Jso
     /**
      * Sets data
      *
-     * @param \KlaviyoAPI\Model\OnsiteSubscriptionCreateQueryAsSubResource $data data
+     * @param \KlaviyoAPI\Model\OnsiteSubscriptionCreateQueryResourceObject $data data
      *
      * @return self
      */

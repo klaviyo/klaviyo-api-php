@@ -58,7 +58,7 @@ class CatalogVariantUpdateQuery implements ModelInterface, ArrayAccess, \JsonSer
       * @var string[]
       */
     protected static $openAPITypes = [
-        'data' => '\KlaviyoAPI\Model\CatalogVariantUpdateQueryAsSubResource'
+        'data' => '\KlaviyoAPI\Model\CatalogVariantUpdateQueryResourceObject'
     ];
 
     /**
@@ -210,7 +210,7 @@ class CatalogVariantUpdateQuery implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Gets data
      *
-     * @return \KlaviyoAPI\Model\CatalogVariantUpdateQueryAsSubResource
+     * @return \KlaviyoAPI\Model\CatalogVariantUpdateQueryResourceObject
      */
     public function getData()
     {
@@ -220,7 +220,7 @@ class CatalogVariantUpdateQuery implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Sets data
      *
-     * @param \KlaviyoAPI\Model\CatalogVariantUpdateQueryAsSubResource $data data
+     * @param \KlaviyoAPI\Model\CatalogVariantUpdateQueryResourceObject $data data
      *
      * @return self
      */

@@ -58,10 +58,10 @@ class GetCatalogItemDeleteJobResponseCollectionDataInner implements ModelInterfa
       * @var string[]
       */
     protected static $openAPITypes = [
-        'type' => 'string',
-        'attributes' => '\KlaviyoAPI\Model\GetCatalogItemCreateJobResponseCollectionWithIncludedSectionDataInnerAttributes',
-        'relationships' => '\KlaviyoAPI\Model\GetCatalogItemCreateJobResponseCollectionWithIncludedSectionDataInnerRelationships',
-        'links' => '\KlaviyoAPI\Model\GetCatalogItemResponseCollectionWithIncludedSectionDataInnerLinks'
+        'type' => '\KlaviyoAPI\Model\CatalogItemBulkDeleteJobEnum',
+        'attributes' => '\KlaviyoAPI\Model\CatalogItemCreateJobResponseObjectResourceAttributes',
+        'links' => '\KlaviyoAPI\Model\ObjectLinks',
+        'relationships' => '\KlaviyoAPI\Model\GetCatalogItemCreateJobResponseCollectionCompoundDocumentDataInnerAllOfRelationships'
     ];
 
     /**
@@ -74,8 +74,8 @@ class GetCatalogItemDeleteJobResponseCollectionDataInner implements ModelInterfa
     protected static $openAPIFormats = [
         'type' => null,
         'attributes' => null,
-        'relationships' => null,
-        'links' => null
+        'links' => null,
+        'relationships' => null
     ];
 
     /**
@@ -107,8 +107,8 @@ class GetCatalogItemDeleteJobResponseCollectionDataInner implements ModelInterfa
     protected static $attributeMap = [
         'type' => 'type',
         'attributes' => 'attributes',
-        'relationships' => 'relationships',
-        'links' => 'links'
+        'links' => 'links',
+        'relationships' => 'relationships'
     ];
 
     /**
@@ -119,8 +119,8 @@ class GetCatalogItemDeleteJobResponseCollectionDataInner implements ModelInterfa
     protected static $setters = [
         'type' => 'setType',
         'attributes' => 'setAttributes',
-        'relationships' => 'setRelationships',
-        'links' => 'setLinks'
+        'links' => 'setLinks',
+        'relationships' => 'setRelationships'
     ];
 
     /**
@@ -131,8 +131,8 @@ class GetCatalogItemDeleteJobResponseCollectionDataInner implements ModelInterfa
     protected static $getters = [
         'type' => 'getType',
         'attributes' => 'getAttributes',
-        'relationships' => 'getRelationships',
-        'links' => 'getLinks'
+        'links' => 'getLinks',
+        'relationships' => 'getRelationships'
     ];
 
     /**
@@ -176,19 +176,6 @@ class GetCatalogItemDeleteJobResponseCollectionDataInner implements ModelInterfa
         return self::$openAPIModelName;
     }
 
-    public const TYPE_CATALOG_ITEM_BULK_DELETE_JOB = 'catalog-item-bulk-delete-job';
-
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getTypeAllowableValues()
-    {
-        return [
-            self::TYPE_CATALOG_ITEM_BULK_DELETE_JOB,
-        ];
-    }
 
     /**
      * Associative array for storing property values
@@ -207,8 +194,8 @@ class GetCatalogItemDeleteJobResponseCollectionDataInner implements ModelInterfa
     {
         $this->container['type'] = $data['type'] ?? null;
         $this->container['attributes'] = $data['attributes'] ?? null;
-        $this->container['relationships'] = $data['relationships'] ?? null;
         $this->container['links'] = $data['links'] ?? null;
+        $this->container['relationships'] = $data['relationships'] ?? null;
     }
 
     /**
@@ -223,15 +210,6 @@ class GetCatalogItemDeleteJobResponseCollectionDataInner implements ModelInterfa
         if ($this->container['type'] === null) {
             $invalidProperties[] = "'type' can't be null";
         }
-        $allowedValues = $this->getTypeAllowableValues();
-        if (!is_null($this->container['type']) && !in_array($this->container['type'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value '%s' for 'type', must be one of '%s'",
-                $this->container['type'],
-                implode("', '", $allowedValues)
-            );
-        }
-
         if ($this->container['attributes'] === null) {
             $invalidProperties[] = "'attributes' can't be null";
         }
@@ -256,7 +234,7 @@ class GetCatalogItemDeleteJobResponseCollectionDataInner implements ModelInterfa
     /**
      * Gets type
      *
-     * @return string
+     * @return \KlaviyoAPI\Model\CatalogItemBulkDeleteJobEnum
      */
     public function getType()
     {
@@ -266,22 +244,12 @@ class GetCatalogItemDeleteJobResponseCollectionDataInner implements ModelInterfa
     /**
      * Sets type
      *
-     * @param string $type type
+     * @param \KlaviyoAPI\Model\CatalogItemBulkDeleteJobEnum $type type
      *
      * @return self
      */
     public function setType($type)
     {
-        $allowedValues = $this->getTypeAllowableValues();
-        if (!in_array($type, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value '%s' for 'type', must be one of '%s'",
-                    $type,
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
         $this->container['type'] = $type;
 
         return $this;
@@ -290,7 +258,7 @@ class GetCatalogItemDeleteJobResponseCollectionDataInner implements ModelInterfa
     /**
      * Gets attributes
      *
-     * @return \KlaviyoAPI\Model\GetCatalogItemCreateJobResponseCollectionWithIncludedSectionDataInnerAttributes
+     * @return \KlaviyoAPI\Model\CatalogItemCreateJobResponseObjectResourceAttributes
      */
     public function getAttributes()
     {
@@ -300,7 +268,7 @@ class GetCatalogItemDeleteJobResponseCollectionDataInner implements ModelInterfa
     /**
      * Sets attributes
      *
-     * @param \KlaviyoAPI\Model\GetCatalogItemCreateJobResponseCollectionWithIncludedSectionDataInnerAttributes $attributes attributes
+     * @param \KlaviyoAPI\Model\CatalogItemCreateJobResponseObjectResourceAttributes $attributes attributes
      *
      * @return self
      */
@@ -312,33 +280,9 @@ class GetCatalogItemDeleteJobResponseCollectionDataInner implements ModelInterfa
     }
 
     /**
-     * Gets relationships
-     *
-     * @return \KlaviyoAPI\Model\GetCatalogItemCreateJobResponseCollectionWithIncludedSectionDataInnerRelationships|null
-     */
-    public function getRelationships()
-    {
-        return $this->container['relationships'];
-    }
-
-    /**
-     * Sets relationships
-     *
-     * @param \KlaviyoAPI\Model\GetCatalogItemCreateJobResponseCollectionWithIncludedSectionDataInnerRelationships|null $relationships relationships
-     *
-     * @return self
-     */
-    public function setRelationships($relationships)
-    {
-        $this->container['relationships'] = $relationships;
-
-        return $this;
-    }
-
-    /**
      * Gets links
      *
-     * @return \KlaviyoAPI\Model\GetCatalogItemResponseCollectionWithIncludedSectionDataInnerLinks
+     * @return \KlaviyoAPI\Model\ObjectLinks
      */
     public function getLinks()
     {
@@ -348,13 +292,37 @@ class GetCatalogItemDeleteJobResponseCollectionDataInner implements ModelInterfa
     /**
      * Sets links
      *
-     * @param \KlaviyoAPI\Model\GetCatalogItemResponseCollectionWithIncludedSectionDataInnerLinks $links links
+     * @param \KlaviyoAPI\Model\ObjectLinks $links links
      *
      * @return self
      */
     public function setLinks($links)
     {
         $this->container['links'] = $links;
+
+        return $this;
+    }
+
+    /**
+     * Gets relationships
+     *
+     * @return \KlaviyoAPI\Model\GetCatalogItemCreateJobResponseCollectionCompoundDocumentDataInnerAllOfRelationships|null
+     */
+    public function getRelationships()
+    {
+        return $this->container['relationships'];
+    }
+
+    /**
+     * Sets relationships
+     *
+     * @param \KlaviyoAPI\Model\GetCatalogItemCreateJobResponseCollectionCompoundDocumentDataInnerAllOfRelationships|null $relationships relationships
+     *
+     * @return self
+     */
+    public function setRelationships($relationships)
+    {
+        $this->container['relationships'] = $relationships;
 
         return $this;
     }

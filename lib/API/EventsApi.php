@@ -1173,15 +1173,16 @@ class EventsApi
      * Get Event Profiles
      *
      * @param  string $id ID of the event (required)
+     * @param  string[] $additional_fields_profile Request additional fields not included by default in the response. Supported values: &#39;predictive_analytics&#39; (optional)
      * @param  string[] $fields_profile For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#sparse-fieldsets (optional)
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array<string,mixed>|\KlaviyoAPI\Model\GetCampaigns400Response|\KlaviyoAPI\Model\GetCampaigns400Response
      */
-    public function getEventProfiles($id, $fields_profile = null, $apiKey = null)
+    public function getEventProfiles($id, $additional_fields_profile = null, $fields_profile = null, $apiKey = null)
     {
-        list($response) = $this->getEventProfilesWithHttpInfo($id, $fields_profile, $apiKey);
+        list($response) = $this->getEventProfilesWithHttpInfo($id, $additional_fields_profile, $fields_profile, $apiKey);
         return $response;
     }
 
@@ -1191,15 +1192,16 @@ class EventsApi
      * Get Event Profiles
      *
      * @param  string $id ID of the event (required)
+     * @param  string[] $additional_fields_profile Request additional fields not included by default in the response. Supported values: &#39;predictive_analytics&#39; (optional)
      * @param  string[] $fields_profile For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#sparse-fieldsets (optional)
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of array<string,mixed>|\KlaviyoAPI\Model\GetCampaigns400Response|\KlaviyoAPI\Model\GetCampaigns400Response, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getEventProfilesWithHttpInfo($id, $fields_profile = null, $apiKey = null)
+    public function getEventProfilesWithHttpInfo($id, $additional_fields_profile = null, $fields_profile = null, $apiKey = null)
     {
-        $request = $this->getEventProfilesRequest($id, $fields_profile, $apiKey);
+        $request = $this->getEventProfilesRequest($id, $additional_fields_profile, $fields_profile, $apiKey);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1360,14 +1362,15 @@ class EventsApi
      * Get Event Profiles
      *
      * @param  string $id ID of the event (required)
+     * @param  string[] $additional_fields_profile Request additional fields not included by default in the response. Supported values: &#39;predictive_analytics&#39; (optional)
      * @param  string[] $fields_profile For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#sparse-fieldsets (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getEventProfilesAsync($id, $fields_profile = null, $apiKey = null)
+    public function getEventProfilesAsync($id, $additional_fields_profile = null, $fields_profile = null, $apiKey = null)
     {
-        return $this->getEventProfilesAsyncWithHttpInfo($id, $fields_profile, $apiKey)
+        return $this->getEventProfilesAsyncWithHttpInfo($id, $additional_fields_profile, $fields_profile, $apiKey)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1381,15 +1384,16 @@ class EventsApi
      * Get Event Profiles
      *
      * @param  string $id ID of the event (required)
+     * @param  string[] $additional_fields_profile Request additional fields not included by default in the response. Supported values: &#39;predictive_analytics&#39; (optional)
      * @param  string[] $fields_profile For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#sparse-fieldsets (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getEventProfilesAsyncWithHttpInfo($id, $fields_profile = null, $apiKey = null)
+    public function getEventProfilesAsyncWithHttpInfo($id, $additional_fields_profile = null, $fields_profile = null, $apiKey = null)
     {
         $returnType = 'array<string,mixed>';
-        $request = $this->getEventProfilesRequest($id, $fields_profile, $apiKey);
+        $request = $this->getEventProfilesRequest($id, $additional_fields_profile, $fields_profile, $apiKey);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1436,12 +1440,13 @@ class EventsApi
      * Create request for operation 'getEventProfiles'
      *
      * @param  string $id ID of the event (required)
+     * @param  string[] $additional_fields_profile Request additional fields not included by default in the response. Supported values: &#39;predictive_analytics&#39; (optional)
      * @param  string[] $fields_profile For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#sparse-fieldsets (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getEventProfilesRequest($id, $fields_profile = null, $apiKey = null)
+    public function getEventProfilesRequest($id, $additional_fields_profile = null, $fields_profile = null, $apiKey = null)
     {
         // verify the required parameter 'id' is set
         if ($id === null || (is_array($id) && count($id) === 0)) {
@@ -1457,6 +1462,15 @@ class EventsApi
         $httpBody = '';
         $multipart = false;
 
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $additional_fields_profile,
+            'additional-fields[profile]', // param base name
+            'array', // openApiType
+            'form', // style
+            false, // explode
+            false // required
+        ) ?? []);
         // query params
         $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
             $fields_profile,
@@ -1547,38 +1561,36 @@ class EventsApi
     }
 
     /**
-     * Operation getEventRelationships
+     * Operation getEventRelationshipsMetrics
      *
-     * Get Event Relationships
+     * Get Event Relationships Metrics
      *
      * @param  string $id  (required)
-     * @param  string $related_resource  (required)
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array<string,mixed>|\KlaviyoAPI\Model\GetCampaigns400Response|\KlaviyoAPI\Model\GetCampaigns400Response
      */
-    public function getEventRelationships($id, $related_resource, $apiKey = null)
+    public function getEventRelationshipsMetrics($id, $apiKey = null)
     {
-        list($response) = $this->getEventRelationshipsWithHttpInfo($id, $related_resource, $apiKey);
+        list($response) = $this->getEventRelationshipsMetricsWithHttpInfo($id, $apiKey);
         return $response;
     }
 
     /**
-     * Operation getEventRelationshipsWithHttpInfo
+     * Operation getEventRelationshipsMetricsWithHttpInfo
      *
-     * Get Event Relationships
+     * Get Event Relationships Metrics
      *
      * @param  string $id  (required)
-     * @param  string $related_resource  (required)
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of array<string,mixed>|\KlaviyoAPI\Model\GetCampaigns400Response|\KlaviyoAPI\Model\GetCampaigns400Response, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getEventRelationshipsWithHttpInfo($id, $related_resource, $apiKey = null)
+    public function getEventRelationshipsMetricsWithHttpInfo($id, $apiKey = null)
     {
-        $request = $this->getEventRelationshipsRequest($id, $related_resource, $apiKey);
+        $request = $this->getEventRelationshipsMetricsRequest($id, $apiKey);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1734,19 +1746,18 @@ class EventsApi
     }
 
     /**
-     * Operation getEventRelationshipsAsync
+     * Operation getEventRelationshipsMetricsAsync
      *
-     * Get Event Relationships
+     * Get Event Relationships Metrics
      *
      * @param  string $id  (required)
-     * @param  string $related_resource  (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getEventRelationshipsAsync($id, $related_resource, $apiKey = null)
+    public function getEventRelationshipsMetricsAsync($id, $apiKey = null)
     {
-        return $this->getEventRelationshipsAsyncWithHttpInfo($id, $related_resource, $apiKey)
+        return $this->getEventRelationshipsMetricsAsyncWithHttpInfo($id, $apiKey)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1755,20 +1766,19 @@ class EventsApi
     }
 
     /**
-     * Operation getEventRelationshipsAsyncWithHttpInfo
+     * Operation getEventRelationshipsMetricsAsyncWithHttpInfo
      *
-     * Get Event Relationships
+     * Get Event Relationships Metrics
      *
      * @param  string $id  (required)
-     * @param  string $related_resource  (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getEventRelationshipsAsyncWithHttpInfo($id, $related_resource, $apiKey = null)
+    public function getEventRelationshipsMetricsAsyncWithHttpInfo($id, $apiKey = null)
     {
         $returnType = 'array<string,mixed>';
-        $request = $this->getEventRelationshipsRequest($id, $related_resource, $apiKey);
+        $request = $this->getEventRelationshipsMetricsRequest($id, $apiKey);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1812,30 +1822,23 @@ class EventsApi
     }
 
     /**
-     * Create request for operation 'getEventRelationships'
+     * Create request for operation 'getEventRelationshipsMetrics'
      *
      * @param  string $id  (required)
-     * @param  string $related_resource  (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getEventRelationshipsRequest($id, $related_resource, $apiKey = null)
+    public function getEventRelationshipsMetricsRequest($id, $apiKey = null)
     {
         // verify the required parameter 'id' is set
         if ($id === null || (is_array($id) && count($id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $id when calling getEventRelationships'
-            );
-        }
-        // verify the required parameter 'related_resource' is set
-        if ($related_resource === null || (is_array($related_resource) && count($related_resource) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $related_resource when calling getEventRelationships'
+                'Missing the required parameter $id when calling getEventRelationshipsMetrics'
             );
         }
 
-        $resourcePath = '/api/events/{id}/relationships/{related_resource}/';
+        $resourcePath = '/api/events/{id}/relationships/metrics/';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1852,11 +1855,368 @@ class EventsApi
                 $resourcePath
             );
         }
+
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                []
+            );
+        }
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        if ($apiKey == null) {
+            $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        } else {
+            $apiKey = 'Klaviyo-API-Key '.$apiKey;
+        }
+
+        $headers['Authorization'] = $apiKey;
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $defaultHeaders['revision'] = ['2023-02-22'];
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation getEventRelationshipsProfiles
+     *
+     * Get Event Relationships Profiles
+     *
+     * @param  string $id  (required)
+     *
+     * @throws \KlaviyoAPI\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array<string,mixed>|\KlaviyoAPI\Model\GetCampaigns400Response|\KlaviyoAPI\Model\GetCampaigns400Response
+     */
+    public function getEventRelationshipsProfiles($id, $apiKey = null)
+    {
+        list($response) = $this->getEventRelationshipsProfilesWithHttpInfo($id, $apiKey);
+        return $response;
+    }
+
+    /**
+     * Operation getEventRelationshipsProfilesWithHttpInfo
+     *
+     * Get Event Relationships Profiles
+     *
+     * @param  string $id  (required)
+     *
+     * @throws \KlaviyoAPI\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of array<string,mixed>|\KlaviyoAPI\Model\GetCampaigns400Response|\KlaviyoAPI\Model\GetCampaigns400Response, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getEventRelationshipsProfilesWithHttpInfo($id, $apiKey = null)
+    {
+        $request = $this->getEventRelationshipsProfilesRequest($id, $apiKey);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('array<string,mixed>' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('array&lt;string,mixed&gt;' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+
+                    $parsed_content = json_decode(json_encode($content), TRUE);
+                    if (json_last_error() != JSON_ERROR_NONE) {
+                        $parsed_content = $content;
+                    }
+
+                    return [
+                        $parsed_content,
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 400:
+                    if ('\KlaviyoAPI\Model\GetCampaigns400Response' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\KlaviyoAPI\Model\GetCampaigns400Response' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+
+                    $parsed_content = json_decode(json_encode($content), TRUE);
+                    if (json_last_error() != JSON_ERROR_NONE) {
+                        $parsed_content = $content;
+                    }
+
+                    return [
+                        $parsed_content,
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 500:
+                    if ('\KlaviyoAPI\Model\GetCampaigns400Response' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\KlaviyoAPI\Model\GetCampaigns400Response' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+
+                    $parsed_content = json_decode(json_encode($content), TRUE);
+                    if (json_last_error() != JSON_ERROR_NONE) {
+                        $parsed_content = $content;
+                    }
+
+                    return [
+                        $parsed_content,
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = 'array<string,mixed>';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            $parsed_content = json_decode(json_encode($content), TRUE);
+            if (json_last_error() != JSON_ERROR_NONE) {
+                $parsed_content = $content;
+            }
+
+            return [
+                $parsed_content,
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        'array<string,mixed>',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\KlaviyoAPI\Model\GetCampaigns400Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 500:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\KlaviyoAPI\Model\GetCampaigns400Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation getEventRelationshipsProfilesAsync
+     *
+     * Get Event Relationships Profiles
+     *
+     * @param  string $id  (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getEventRelationshipsProfilesAsync($id, $apiKey = null)
+    {
+        return $this->getEventRelationshipsProfilesAsyncWithHttpInfo($id, $apiKey)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation getEventRelationshipsProfilesAsyncWithHttpInfo
+     *
+     * Get Event Relationships Profiles
+     *
+     * @param  string $id  (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getEventRelationshipsProfilesAsyncWithHttpInfo($id, $apiKey = null)
+    {
+        $returnType = 'array<string,mixed>';
+        $request = $this->getEventRelationshipsProfilesRequest($id, $apiKey);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    $parsed_content = json_decode(json_encode($content), TRUE);
+                    if (json_last_error() != JSON_ERROR_NONE) {
+                        $parsed_content = $content;
+                    }
+
+                    return [
+                        $parsed_content,
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'getEventRelationshipsProfiles'
+     *
+     * @param  string $id  (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function getEventRelationshipsProfilesRequest($id, $apiKey = null)
+    {
+        // verify the required parameter 'id' is set
+        if ($id === null || (is_array($id) && count($id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $id when calling getEventRelationshipsProfiles'
+            );
+        }
+
+        $resourcePath = '/api/events/{id}/relationships/profiles/';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
         // path params
-        if ($related_resource !== null) {
+        if ($id !== null) {
             $resourcePath = str_replace(
-                '{' . 'related_resource' . '}',
-                ObjectSerializer::toPathValue($related_resource),
+                '{' . 'id' . '}',
+                ObjectSerializer::toPathValue($id),
                 $resourcePath
             );
         }
@@ -1938,7 +2298,7 @@ class EventsApi
      * @param  string[] $fields_event For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#sparse-fieldsets (optional)
      * @param  string[] $fields_metric For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#sparse-fieldsets (optional)
      * @param  string[] $fields_profile For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string $filter For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;metric_id&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;datetime&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60;&lt;br&gt;&#x60;timestamp&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60; (optional)
+     * @param  string $filter For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;metric_id&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;profile_id&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;datetime&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60;&lt;br&gt;&#x60;timestamp&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60; (optional)
      * @param  string[] $include For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#relationships (optional)
      * @param  string $page_cursor For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#pagination (optional)
      * @param  string $sort For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#sorting (optional)
@@ -1961,7 +2321,7 @@ class EventsApi
      * @param  string[] $fields_event For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#sparse-fieldsets (optional)
      * @param  string[] $fields_metric For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#sparse-fieldsets (optional)
      * @param  string[] $fields_profile For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string $filter For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;metric_id&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;datetime&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60;&lt;br&gt;&#x60;timestamp&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60; (optional)
+     * @param  string $filter For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;metric_id&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;profile_id&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;datetime&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60;&lt;br&gt;&#x60;timestamp&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60; (optional)
      * @param  string[] $include For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#relationships (optional)
      * @param  string $page_cursor For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#pagination (optional)
      * @param  string $sort For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#sorting (optional)
@@ -2135,7 +2495,7 @@ class EventsApi
      * @param  string[] $fields_event For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#sparse-fieldsets (optional)
      * @param  string[] $fields_metric For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#sparse-fieldsets (optional)
      * @param  string[] $fields_profile For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string $filter For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;metric_id&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;datetime&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60;&lt;br&gt;&#x60;timestamp&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60; (optional)
+     * @param  string $filter For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;metric_id&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;profile_id&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;datetime&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60;&lt;br&gt;&#x60;timestamp&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60; (optional)
      * @param  string[] $include For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#relationships (optional)
      * @param  string $page_cursor For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#pagination (optional)
      * @param  string $sort For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#sorting (optional)
@@ -2161,7 +2521,7 @@ class EventsApi
      * @param  string[] $fields_event For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#sparse-fieldsets (optional)
      * @param  string[] $fields_metric For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#sparse-fieldsets (optional)
      * @param  string[] $fields_profile For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string $filter For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;metric_id&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;datetime&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60;&lt;br&gt;&#x60;timestamp&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60; (optional)
+     * @param  string $filter For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;metric_id&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;profile_id&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;datetime&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60;&lt;br&gt;&#x60;timestamp&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60; (optional)
      * @param  string[] $include For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#relationships (optional)
      * @param  string $page_cursor For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#pagination (optional)
      * @param  string $sort For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#sorting (optional)
@@ -2221,7 +2581,7 @@ class EventsApi
      * @param  string[] $fields_event For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#sparse-fieldsets (optional)
      * @param  string[] $fields_metric For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#sparse-fieldsets (optional)
      * @param  string[] $fields_profile For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string $filter For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;metric_id&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;datetime&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60;&lt;br&gt;&#x60;timestamp&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60; (optional)
+     * @param  string $filter For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;metric_id&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;profile_id&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;datetime&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60;&lt;br&gt;&#x60;timestamp&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60; (optional)
      * @param  string[] $include For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#relationships (optional)
      * @param  string $page_cursor For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#pagination (optional)
      * @param  string $sort For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#sorting (optional)

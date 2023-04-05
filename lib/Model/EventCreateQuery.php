@@ -58,7 +58,7 @@ class EventCreateQuery implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'data' => '\KlaviyoAPI\Model\EventCreateQueryAsSubResource'
+        'data' => '\KlaviyoAPI\Model\EventCreateQueryResourceObject'
     ];
 
     /**
@@ -210,7 +210,7 @@ class EventCreateQuery implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets data
      *
-     * @return \KlaviyoAPI\Model\EventCreateQueryAsSubResource
+     * @return \KlaviyoAPI\Model\EventCreateQueryResourceObject
      */
     public function getData()
     {
@@ -220,7 +220,7 @@ class EventCreateQuery implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets data
      *
-     * @param \KlaviyoAPI\Model\EventCreateQueryAsSubResource $data data
+     * @param \KlaviyoAPI\Model\EventCreateQueryResourceObject $data data
      *
      * @return self
      */

@@ -58,7 +58,7 @@ class MetricAggregateQuery implements ModelInterface, ArrayAccess, \JsonSerializ
       * @var string[]
       */
     protected static $openAPITypes = [
-        'data' => '\KlaviyoAPI\Model\MetricAggregateQueryAsSubResource'
+        'data' => '\KlaviyoAPI\Model\MetricAggregateQueryResourceObject'
     ];
 
     /**
@@ -210,7 +210,7 @@ class MetricAggregateQuery implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Gets data
      *
-     * @return \KlaviyoAPI\Model\MetricAggregateQueryAsSubResource
+     * @return \KlaviyoAPI\Model\MetricAggregateQueryResourceObject
      */
     public function getData()
     {
@@ -220,7 +220,7 @@ class MetricAggregateQuery implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Sets data
      *
-     * @param \KlaviyoAPI\Model\MetricAggregateQueryAsSubResource $data data
+     * @param \KlaviyoAPI\Model\MetricAggregateQueryResourceObject $data data
      *
      * @return self
      */

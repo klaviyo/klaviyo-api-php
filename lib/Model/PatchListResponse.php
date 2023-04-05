@@ -58,7 +58,7 @@ class PatchListResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
       * @var string[]
       */
     protected static $openAPITypes = [
-        'data' => '\KlaviyoAPI\Model\GetListResponseCollectionWithIncludedSectionDataInner'
+        'data' => '\KlaviyoAPI\Model\PostListResponseData'
     ];
 
     /**
@@ -210,7 +210,7 @@ class PatchListResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Gets data
      *
-     * @return \KlaviyoAPI\Model\GetListResponseCollectionWithIncludedSectionDataInner
+     * @return \KlaviyoAPI\Model\PostListResponseData
      */
     public function getData()
     {
@@ -220,7 +220,7 @@ class PatchListResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Sets data
      *
-     * @param \KlaviyoAPI\Model\GetListResponseCollectionWithIncludedSectionDataInner $data data
+     * @param \KlaviyoAPI\Model\PostListResponseData $data data
      *
      * @return self
      */

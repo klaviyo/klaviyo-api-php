@@ -58,7 +58,7 @@ class CatalogVariantUpdateJobCreateQuery implements ModelInterface, ArrayAccess,
       * @var string[]
       */
     protected static $openAPITypes = [
-        'data' => '\KlaviyoAPI\Model\CatalogVariantUpdateJobCreateQueryAsSubResource'
+        'data' => '\KlaviyoAPI\Model\CatalogVariantUpdateJobCreateQueryResourceObject'
     ];
 
     /**
@@ -210,7 +210,7 @@ class CatalogVariantUpdateJobCreateQuery implements ModelInterface, ArrayAccess,
     /**
      * Gets data
      *
-     * @return \KlaviyoAPI\Model\CatalogVariantUpdateJobCreateQueryAsSubResource
+     * @return \KlaviyoAPI\Model\CatalogVariantUpdateJobCreateQueryResourceObject
      */
     public function getData()
     {
@@ -220,7 +220,7 @@ class CatalogVariantUpdateJobCreateQuery implements ModelInterface, ArrayAccess,
     /**
      * Sets data
      *
-     * @param \KlaviyoAPI\Model\CatalogVariantUpdateJobCreateQueryAsSubResource $data data
+     * @param \KlaviyoAPI\Model\CatalogVariantUpdateJobCreateQueryResourceObject $data data
      *
      * @return self
      */

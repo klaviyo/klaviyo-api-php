@@ -58,7 +58,7 @@ class GetFlowResponse implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'data' => '\KlaviyoAPI\Model\GetFlowResponseData'
+        'data' => '\KlaviyoAPI\Model\FlowResponseObjectResource'
     ];
 
     /**
@@ -210,7 +210,7 @@ class GetFlowResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets data
      *
-     * @return \KlaviyoAPI\Model\GetFlowResponseData
+     * @return \KlaviyoAPI\Model\FlowResponseObjectResource
      */
     public function getData()
     {
@@ -220,7 +220,7 @@ class GetFlowResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets data
      *
-     * @param \KlaviyoAPI\Model\GetFlowResponseData $data data
+     * @param \KlaviyoAPI\Model\FlowResponseObjectResource $data data
      *
      * @return self
      */

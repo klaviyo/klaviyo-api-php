@@ -58,8 +58,8 @@ class GetCatalogVariantResponseCollection implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'data' => '\KlaviyoAPI\Model\GetCatalogVariantResponseCollectionDataInner[]',
-        'links' => '\KlaviyoAPI\Model\GetCatalogItemResponseCollectionWithIncludedSectionLinks'
+        'data' => '\KlaviyoAPI\Model\CatalogVariantResponseObjectResource[]',
+        'links' => '\KlaviyoAPI\Model\CollectionLinks'
     ];
 
     /**
@@ -219,7 +219,7 @@ class GetCatalogVariantResponseCollection implements ModelInterface, ArrayAccess
     /**
      * Gets data
      *
-     * @return \KlaviyoAPI\Model\GetCatalogVariantResponseCollectionDataInner[]
+     * @return \KlaviyoAPI\Model\CatalogVariantResponseObjectResource[]
      */
     public function getData()
     {
@@ -229,7 +229,7 @@ class GetCatalogVariantResponseCollection implements ModelInterface, ArrayAccess
     /**
      * Sets data
      *
-     * @param \KlaviyoAPI\Model\GetCatalogVariantResponseCollectionDataInner[] $data data
+     * @param \KlaviyoAPI\Model\CatalogVariantResponseObjectResource[] $data data
      *
      * @return self
      */
@@ -243,7 +243,7 @@ class GetCatalogVariantResponseCollection implements ModelInterface, ArrayAccess
     /**
      * Gets links
      *
-     * @return \KlaviyoAPI\Model\GetCatalogItemResponseCollectionWithIncludedSectionLinks
+     * @return \KlaviyoAPI\Model\CollectionLinks
      */
     public function getLinks()
     {
@@ -253,7 +253,7 @@ class GetCatalogVariantResponseCollection implements ModelInterface, ArrayAccess
     /**
      * Sets links
      *
-     * @param \KlaviyoAPI\Model\GetCatalogItemResponseCollectionWithIncludedSectionLinks $links links
+     * @param \KlaviyoAPI\Model\CollectionLinks $links links
      *
      * @return self
      */

@@ -58,7 +58,7 @@ class UnsubscriptionCreateJobCreateQuery implements ModelInterface, ArrayAccess,
       * @var string[]
       */
     protected static $openAPITypes = [
-        'data' => '\KlaviyoAPI\Model\UnsubscriptionCreateJobCreateQueryAsSubResource'
+        'data' => '\KlaviyoAPI\Model\UnsubscriptionCreateJobCreateQueryResourceObject'
     ];
 
     /**
@@ -210,7 +210,7 @@ class UnsubscriptionCreateJobCreateQuery implements ModelInterface, ArrayAccess,
     /**
      * Gets data
      *
-     * @return \KlaviyoAPI\Model\UnsubscriptionCreateJobCreateQueryAsSubResource
+     * @return \KlaviyoAPI\Model\UnsubscriptionCreateJobCreateQueryResourceObject
      */
     public function getData()
     {
@@ -220,7 +220,7 @@ class UnsubscriptionCreateJobCreateQuery implements ModelInterface, ArrayAccess,
     /**
      * Sets data
      *
-     * @param \KlaviyoAPI\Model\UnsubscriptionCreateJobCreateQueryAsSubResource $data data
+     * @param \KlaviyoAPI\Model\UnsubscriptionCreateJobCreateQueryResourceObject $data data
      *
      * @return self
      */

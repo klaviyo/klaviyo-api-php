@@ -58,7 +58,7 @@ class CampaignMessageAssignTemplateQuery implements ModelInterface, ArrayAccess,
       * @var string[]
       */
     protected static $openAPITypes = [
-        'data' => '\KlaviyoAPI\Model\CampaignMessageAssignTemplateQueryAsSubResource'
+        'data' => '\KlaviyoAPI\Model\CampaignMessageAssignTemplateQueryResourceObject'
     ];
 
     /**
@@ -210,7 +210,7 @@ class CampaignMessageAssignTemplateQuery implements ModelInterface, ArrayAccess,
     /**
      * Gets data
      *
-     * @return \KlaviyoAPI\Model\CampaignMessageAssignTemplateQueryAsSubResource
+     * @return \KlaviyoAPI\Model\CampaignMessageAssignTemplateQueryResourceObject
      */
     public function getData()
     {
@@ -220,7 +220,7 @@ class CampaignMessageAssignTemplateQuery implements ModelInterface, ArrayAccess,
     /**
      * Sets data
      *
-     * @param \KlaviyoAPI\Model\CampaignMessageAssignTemplateQueryAsSubResource $data data
+     * @param \KlaviyoAPI\Model\CampaignMessageAssignTemplateQueryResourceObject $data data
      *
      * @return self
      */

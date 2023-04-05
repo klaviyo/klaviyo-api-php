@@ -501,18 +501,19 @@ class SegmentsApi
      * Get Segment Profiles
      *
      * @param  string $segment_id  (required)
+     * @param  string[] $additional_fields_profile Request additional fields not included by default in the response. Supported values: &#39;predictive_analytics&#39; (optional)
      * @param  string[] $fields_profile For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $filter For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;email&#x60;: &#x60;any&#x60;&lt;br&gt;&#x60;phone_number&#x60;: &#x60;any&#x60;&lt;br&gt;&#x60;push_token&#x60;: &#x60;any&#x60;&lt;br&gt;&#x60;_kx&#x60;: &#x60;equals&#x60; (optional)
      * @param  string $page_cursor For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#pagination (optional)
-     * @param  int $page_size page_size (optional)
+     * @param  int $page_size The number of results to return per page. Default &#x3D; 20. Max &#x3D; 100 (optional)
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array<string,mixed>|\KlaviyoAPI\Model\GetCampaigns400Response|\KlaviyoAPI\Model\GetCampaigns400Response
      */
-    public function getSegmentProfiles($segment_id, $fields_profile = null, $filter = null, $page_cursor = null, $page_size = null, $apiKey = null)
+    public function getSegmentProfiles($segment_id, $additional_fields_profile = null, $fields_profile = null, $filter = null, $page_cursor = null, $page_size = null, $apiKey = null)
     {
-        list($response) = $this->getSegmentProfilesWithHttpInfo($segment_id, $fields_profile, $filter, $page_cursor, $page_size, $apiKey);
+        list($response) = $this->getSegmentProfilesWithHttpInfo($segment_id, $additional_fields_profile, $fields_profile, $filter, $page_cursor, $page_size, $apiKey);
         return $response;
     }
 
@@ -522,18 +523,19 @@ class SegmentsApi
      * Get Segment Profiles
      *
      * @param  string $segment_id  (required)
+     * @param  string[] $additional_fields_profile Request additional fields not included by default in the response. Supported values: &#39;predictive_analytics&#39; (optional)
      * @param  string[] $fields_profile For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $filter For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;email&#x60;: &#x60;any&#x60;&lt;br&gt;&#x60;phone_number&#x60;: &#x60;any&#x60;&lt;br&gt;&#x60;push_token&#x60;: &#x60;any&#x60;&lt;br&gt;&#x60;_kx&#x60;: &#x60;equals&#x60; (optional)
      * @param  string $page_cursor For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#pagination (optional)
-     * @param  int $page_size (optional)
+     * @param  int $page_size The number of results to return per page. Default &#x3D; 20. Max &#x3D; 100 (optional)
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of array<string,mixed>|\KlaviyoAPI\Model\GetCampaigns400Response|\KlaviyoAPI\Model\GetCampaigns400Response, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getSegmentProfilesWithHttpInfo($segment_id, $fields_profile = null, $filter = null, $page_cursor = null, $page_size = null, $apiKey = null)
+    public function getSegmentProfilesWithHttpInfo($segment_id, $additional_fields_profile = null, $fields_profile = null, $filter = null, $page_cursor = null, $page_size = null, $apiKey = null)
     {
-        $request = $this->getSegmentProfilesRequest($segment_id, $fields_profile, $filter, $page_cursor, $page_size, $apiKey);
+        $request = $this->getSegmentProfilesRequest($segment_id, $additional_fields_profile, $fields_profile, $filter, $page_cursor, $page_size, $apiKey);
 
         try {
             $options = $this->createHttpClientOption();
@@ -694,17 +696,18 @@ class SegmentsApi
      * Get Segment Profiles
      *
      * @param  string $segment_id  (required)
+     * @param  string[] $additional_fields_profile Request additional fields not included by default in the response. Supported values: &#39;predictive_analytics&#39; (optional)
      * @param  string[] $fields_profile For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $filter For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;email&#x60;: &#x60;any&#x60;&lt;br&gt;&#x60;phone_number&#x60;: &#x60;any&#x60;&lt;br&gt;&#x60;push_token&#x60;: &#x60;any&#x60;&lt;br&gt;&#x60;_kx&#x60;: &#x60;equals&#x60; (optional)
      * @param  string $page_cursor For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#pagination (optional)
-     * @param  int $page_size (optional)
+     * @param  int $page_size The number of results to return per page. Default &#x3D; 20. Max &#x3D; 100 (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getSegmentProfilesAsync($segment_id, $fields_profile = null, $filter = null, $page_cursor = null, $page_size = null, $apiKey = null)
+    public function getSegmentProfilesAsync($segment_id, $additional_fields_profile = null, $fields_profile = null, $filter = null, $page_cursor = null, $page_size = null, $apiKey = null)
     {
-        return $this->getSegmentProfilesAsyncWithHttpInfo($segment_id, $fields_profile, $filter, $page_cursor, $page_size, $apiKey)
+        return $this->getSegmentProfilesAsyncWithHttpInfo($segment_id, $additional_fields_profile, $fields_profile, $filter, $page_cursor, $page_size, $apiKey)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -718,18 +721,19 @@ class SegmentsApi
      * Get Segment Profiles
      *
      * @param  string $segment_id  (required)
+     * @param  string[] $additional_fields_profile Request additional fields not included by default in the response. Supported values: &#39;predictive_analytics&#39; (optional)
      * @param  string[] $fields_profile For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $filter For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;email&#x60;: &#x60;any&#x60;&lt;br&gt;&#x60;phone_number&#x60;: &#x60;any&#x60;&lt;br&gt;&#x60;push_token&#x60;: &#x60;any&#x60;&lt;br&gt;&#x60;_kx&#x60;: &#x60;equals&#x60; (optional)
      * @param  string $page_cursor For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#pagination (optional)
-     * @param  int $page_size (optional)
+     * @param  int $page_size The number of results to return per page. Default &#x3D; 20. Max &#x3D; 100 (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getSegmentProfilesAsyncWithHttpInfo($segment_id, $fields_profile = null, $filter = null, $page_cursor = null, $page_size = null, $apiKey = null)
+    public function getSegmentProfilesAsyncWithHttpInfo($segment_id, $additional_fields_profile = null, $fields_profile = null, $filter = null, $page_cursor = null, $page_size = null, $apiKey = null)
     {
         $returnType = 'array<string,mixed>';
-        $request = $this->getSegmentProfilesRequest($segment_id, $fields_profile, $filter, $page_cursor, $page_size, $apiKey);
+        $request = $this->getSegmentProfilesRequest($segment_id, $additional_fields_profile, $fields_profile, $filter, $page_cursor, $page_size, $apiKey);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -776,15 +780,16 @@ class SegmentsApi
      * Create request for operation 'getSegmentProfiles'
      *
      * @param  string $segment_id  (required)
+     * @param  string[] $additional_fields_profile Request additional fields not included by default in the response. Supported values: &#39;predictive_analytics&#39; (optional)
      * @param  string[] $fields_profile For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $filter For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;email&#x60;: &#x60;any&#x60;&lt;br&gt;&#x60;phone_number&#x60;: &#x60;any&#x60;&lt;br&gt;&#x60;push_token&#x60;: &#x60;any&#x60;&lt;br&gt;&#x60;_kx&#x60;: &#x60;equals&#x60; (optional)
      * @param  string $page_cursor For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#pagination (optional)
-     * @param  int $page_size (optional)
+     * @param  int $page_size The number of results to return per page. Default &#x3D; 20. Max &#x3D; 100 (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getSegmentProfilesRequest($segment_id, $fields_profile = null, $filter = null, $page_cursor = null, $page_size = null, $apiKey = null)
+    public function getSegmentProfilesRequest($segment_id, $additional_fields_profile = null, $fields_profile = null, $filter = null, $page_cursor = null, $page_size = null, $apiKey = null)
     {
         // verify the required parameter 'segment_id' is set
         if ($segment_id === null || (is_array($segment_id) && count($segment_id) === 0)) {
@@ -800,6 +805,15 @@ class SegmentsApi
         $httpBody = '';
         $multipart = false;
 
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $additional_fields_profile,
+            'additional-fields[profile]', // param base name
+            'array', // openApiType
+            'form', // style
+            false, // explode
+            false // required
+        ) ?? []);
         // query params
         $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
             $fields_profile,
@@ -917,40 +931,38 @@ class SegmentsApi
     }
 
     /**
-     * Operation getSegmentRelationships
+     * Operation getSegmentRelationshipsProfiles
      *
-     * Get Segment Relationships
+     * Get Segment Relationships Profiles
      *
      * @param  string $id  (required)
-     * @param  string $related_resource  (required)
      * @param  string $page_cursor For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#pagination (optional)
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array<string,mixed>|\KlaviyoAPI\Model\GetCampaigns400Response|\KlaviyoAPI\Model\GetCampaigns400Response
      */
-    public function getSegmentRelationships($id, $related_resource, $page_cursor = null, $apiKey = null)
+    public function getSegmentRelationshipsProfiles($id, $page_cursor = null, $apiKey = null)
     {
-        list($response) = $this->getSegmentRelationshipsWithHttpInfo($id, $related_resource, $page_cursor, $apiKey);
+        list($response) = $this->getSegmentRelationshipsProfilesWithHttpInfo($id, $page_cursor, $apiKey);
         return $response;
     }
 
     /**
-     * Operation getSegmentRelationshipsWithHttpInfo
+     * Operation getSegmentRelationshipsProfilesWithHttpInfo
      *
-     * Get Segment Relationships
+     * Get Segment Relationships Profiles
      *
      * @param  string $id  (required)
-     * @param  string $related_resource  (required)
      * @param  string $page_cursor For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#pagination (optional)
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of array<string,mixed>|\KlaviyoAPI\Model\GetCampaigns400Response|\KlaviyoAPI\Model\GetCampaigns400Response, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getSegmentRelationshipsWithHttpInfo($id, $related_resource, $page_cursor = null, $apiKey = null)
+    public function getSegmentRelationshipsProfilesWithHttpInfo($id, $page_cursor = null, $apiKey = null)
     {
-        $request = $this->getSegmentRelationshipsRequest($id, $related_resource, $page_cursor, $apiKey);
+        $request = $this->getSegmentRelationshipsProfilesRequest($id, $page_cursor, $apiKey);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1106,20 +1118,19 @@ class SegmentsApi
     }
 
     /**
-     * Operation getSegmentRelationshipsAsync
+     * Operation getSegmentRelationshipsProfilesAsync
      *
-     * Get Segment Relationships
+     * Get Segment Relationships Profiles
      *
      * @param  string $id  (required)
-     * @param  string $related_resource  (required)
      * @param  string $page_cursor For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#pagination (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getSegmentRelationshipsAsync($id, $related_resource, $page_cursor = null, $apiKey = null)
+    public function getSegmentRelationshipsProfilesAsync($id, $page_cursor = null, $apiKey = null)
     {
-        return $this->getSegmentRelationshipsAsyncWithHttpInfo($id, $related_resource, $page_cursor, $apiKey)
+        return $this->getSegmentRelationshipsProfilesAsyncWithHttpInfo($id, $page_cursor, $apiKey)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1128,21 +1139,20 @@ class SegmentsApi
     }
 
     /**
-     * Operation getSegmentRelationshipsAsyncWithHttpInfo
+     * Operation getSegmentRelationshipsProfilesAsyncWithHttpInfo
      *
-     * Get Segment Relationships
+     * Get Segment Relationships Profiles
      *
      * @param  string $id  (required)
-     * @param  string $related_resource  (required)
      * @param  string $page_cursor For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#pagination (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getSegmentRelationshipsAsyncWithHttpInfo($id, $related_resource, $page_cursor = null, $apiKey = null)
+    public function getSegmentRelationshipsProfilesAsyncWithHttpInfo($id, $page_cursor = null, $apiKey = null)
     {
         $returnType = 'array<string,mixed>';
-        $request = $this->getSegmentRelationshipsRequest($id, $related_resource, $page_cursor, $apiKey);
+        $request = $this->getSegmentRelationshipsProfilesRequest($id, $page_cursor, $apiKey);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1186,31 +1196,24 @@ class SegmentsApi
     }
 
     /**
-     * Create request for operation 'getSegmentRelationships'
+     * Create request for operation 'getSegmentRelationshipsProfiles'
      *
      * @param  string $id  (required)
-     * @param  string $related_resource  (required)
      * @param  string $page_cursor For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#pagination (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getSegmentRelationshipsRequest($id, $related_resource, $page_cursor = null, $apiKey = null)
+    public function getSegmentRelationshipsProfilesRequest($id, $page_cursor = null, $apiKey = null)
     {
         // verify the required parameter 'id' is set
         if ($id === null || (is_array($id) && count($id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $id when calling getSegmentRelationships'
-            );
-        }
-        // verify the required parameter 'related_resource' is set
-        if ($related_resource === null || (is_array($related_resource) && count($related_resource) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $related_resource when calling getSegmentRelationships'
+                'Missing the required parameter $id when calling getSegmentRelationshipsProfiles'
             );
         }
 
-        $resourcePath = '/api/segments/{id}/relationships/{related_resource}/';
+        $resourcePath = '/api/segments/{id}/relationships/profiles/';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1236,11 +1239,368 @@ class SegmentsApi
                 $resourcePath
             );
         }
+
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                []
+            );
+        }
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        if ($apiKey == null) {
+            $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        } else {
+            $apiKey = 'Klaviyo-API-Key '.$apiKey;
+        }
+
+        $headers['Authorization'] = $apiKey;
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $defaultHeaders['revision'] = ['2023-02-22'];
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation getSegmentRelationshipsTags
+     *
+     * Get Segment Relationships Tags
+     *
+     * @param  string $id  (required)
+     *
+     * @throws \KlaviyoAPI\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array<string,mixed>|\KlaviyoAPI\Model\GetCampaigns400Response|\KlaviyoAPI\Model\GetCampaigns400Response
+     */
+    public function getSegmentRelationshipsTags($id, $apiKey = null)
+    {
+        list($response) = $this->getSegmentRelationshipsTagsWithHttpInfo($id, $apiKey);
+        return $response;
+    }
+
+    /**
+     * Operation getSegmentRelationshipsTagsWithHttpInfo
+     *
+     * Get Segment Relationships Tags
+     *
+     * @param  string $id  (required)
+     *
+     * @throws \KlaviyoAPI\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of array<string,mixed>|\KlaviyoAPI\Model\GetCampaigns400Response|\KlaviyoAPI\Model\GetCampaigns400Response, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getSegmentRelationshipsTagsWithHttpInfo($id, $apiKey = null)
+    {
+        $request = $this->getSegmentRelationshipsTagsRequest($id, $apiKey);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('array<string,mixed>' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('array&lt;string,mixed&gt;' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+
+                    $parsed_content = json_decode(json_encode($content), TRUE);
+                    if (json_last_error() != JSON_ERROR_NONE) {
+                        $parsed_content = $content;
+                    }
+
+                    return [
+                        $parsed_content,
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 400:
+                    if ('\KlaviyoAPI\Model\GetCampaigns400Response' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\KlaviyoAPI\Model\GetCampaigns400Response' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+
+                    $parsed_content = json_decode(json_encode($content), TRUE);
+                    if (json_last_error() != JSON_ERROR_NONE) {
+                        $parsed_content = $content;
+                    }
+
+                    return [
+                        $parsed_content,
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 500:
+                    if ('\KlaviyoAPI\Model\GetCampaigns400Response' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\KlaviyoAPI\Model\GetCampaigns400Response' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+
+                    $parsed_content = json_decode(json_encode($content), TRUE);
+                    if (json_last_error() != JSON_ERROR_NONE) {
+                        $parsed_content = $content;
+                    }
+
+                    return [
+                        $parsed_content,
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = 'array<string,mixed>';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            $parsed_content = json_decode(json_encode($content), TRUE);
+            if (json_last_error() != JSON_ERROR_NONE) {
+                $parsed_content = $content;
+            }
+
+            return [
+                $parsed_content,
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        'array<string,mixed>',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\KlaviyoAPI\Model\GetCampaigns400Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 500:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\KlaviyoAPI\Model\GetCampaigns400Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation getSegmentRelationshipsTagsAsync
+     *
+     * Get Segment Relationships Tags
+     *
+     * @param  string $id  (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getSegmentRelationshipsTagsAsync($id, $apiKey = null)
+    {
+        return $this->getSegmentRelationshipsTagsAsyncWithHttpInfo($id, $apiKey)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation getSegmentRelationshipsTagsAsyncWithHttpInfo
+     *
+     * Get Segment Relationships Tags
+     *
+     * @param  string $id  (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getSegmentRelationshipsTagsAsyncWithHttpInfo($id, $apiKey = null)
+    {
+        $returnType = 'array<string,mixed>';
+        $request = $this->getSegmentRelationshipsTagsRequest($id, $apiKey);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    $parsed_content = json_decode(json_encode($content), TRUE);
+                    if (json_last_error() != JSON_ERROR_NONE) {
+                        $parsed_content = $content;
+                    }
+
+                    return [
+                        $parsed_content,
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'getSegmentRelationshipsTags'
+     *
+     * @param  string $id  (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function getSegmentRelationshipsTagsRequest($id, $apiKey = null)
+    {
+        // verify the required parameter 'id' is set
+        if ($id === null || (is_array($id) && count($id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $id when calling getSegmentRelationshipsTags'
+            );
+        }
+
+        $resourcePath = '/api/segments/{id}/relationships/tags/';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
         // path params
-        if ($related_resource !== null) {
+        if ($id !== null) {
             $resourcePath = str_replace(
-                '{' . 'related_resource' . '}',
-                ObjectSerializer::toPathValue($related_resource),
+                '{' . 'id' . '}',
+                ObjectSerializer::toPathValue($id),
                 $resourcePath
             );
         }

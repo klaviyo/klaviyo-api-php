@@ -58,7 +58,7 @@ class FlowUpdateQuery implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'data' => '\KlaviyoAPI\Model\FlowUpdateQueryAsSubResource'
+        'data' => '\KlaviyoAPI\Model\FlowUpdateQueryResourceObject'
     ];
 
     /**
@@ -210,7 +210,7 @@ class FlowUpdateQuery implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets data
      *
-     * @return \KlaviyoAPI\Model\FlowUpdateQueryAsSubResource
+     * @return \KlaviyoAPI\Model\FlowUpdateQueryResourceObject
      */
     public function getData()
     {
@@ -220,7 +220,7 @@ class FlowUpdateQuery implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets data
      *
-     * @param \KlaviyoAPI\Model\FlowUpdateQueryAsSubResource $data data
+     * @param \KlaviyoAPI\Model\FlowUpdateQueryResourceObject $data data
      *
      * @return self
      */

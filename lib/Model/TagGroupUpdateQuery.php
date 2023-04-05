@@ -58,7 +58,7 @@ class TagGroupUpdateQuery implements ModelInterface, ArrayAccess, \JsonSerializa
       * @var string[]
       */
     protected static $openAPITypes = [
-        'data' => '\KlaviyoAPI\Model\TagGroupUpdateQueryAsSubResource'
+        'data' => '\KlaviyoAPI\Model\TagGroupUpdateQueryResourceObject'
     ];
 
     /**
@@ -210,7 +210,7 @@ class TagGroupUpdateQuery implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Gets data
      *
-     * @return \KlaviyoAPI\Model\TagGroupUpdateQueryAsSubResource
+     * @return \KlaviyoAPI\Model\TagGroupUpdateQueryResourceObject
      */
     public function getData()
     {
@@ -220,7 +220,7 @@ class TagGroupUpdateQuery implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets data
      *
-     * @param \KlaviyoAPI\Model\TagGroupUpdateQueryAsSubResource $data data
+     * @param \KlaviyoAPI\Model\TagGroupUpdateQueryResourceObject $data data
      *
      * @return self
      */

@@ -58,7 +58,7 @@ class GetCampaignRecipientEstimationResponse implements ModelInterface, ArrayAcc
       * @var string[]
       */
     protected static $openAPITypes = [
-        'data' => '\KlaviyoAPI\Model\GetCampaignRecipientEstimationResponseData'
+        'data' => '\KlaviyoAPI\Model\CampaignRecipientEstimationResponseObjectResource'
     ];
 
     /**
@@ -210,7 +210,7 @@ class GetCampaignRecipientEstimationResponse implements ModelInterface, ArrayAcc
     /**
      * Gets data
      *
-     * @return \KlaviyoAPI\Model\GetCampaignRecipientEstimationResponseData
+     * @return \KlaviyoAPI\Model\CampaignRecipientEstimationResponseObjectResource
      */
     public function getData()
     {
@@ -220,7 +220,7 @@ class GetCampaignRecipientEstimationResponse implements ModelInterface, ArrayAcc
     /**
      * Sets data
      *
-     * @param \KlaviyoAPI\Model\GetCampaignRecipientEstimationResponseData $data data
+     * @param \KlaviyoAPI\Model\CampaignRecipientEstimationResponseObjectResource $data data
      *
      * @return self
      */

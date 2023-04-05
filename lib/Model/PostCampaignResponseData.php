@@ -58,10 +58,10 @@ class PostCampaignResponseData implements ModelInterface, ArrayAccess, \JsonSeri
       * @var string[]
       */
     protected static $openAPITypes = [
-        'type' => 'string',
+        'type' => '\KlaviyoAPI\Model\CampaignEnum',
         'id' => 'string',
-        'attributes' => '\KlaviyoAPI\Model\GetCampaignResponseCollectionWithIncludedSectionDataInnerAttributes',
-        'links' => '\KlaviyoAPI\Model\GetCatalogItemResponseCollectionWithIncludedSectionDataInnerLinks'
+        'attributes' => '\KlaviyoAPI\Model\CampaignResponseObjectResourceAttributes',
+        'links' => '\KlaviyoAPI\Model\ObjectLinks'
     ];
 
     /**
@@ -176,19 +176,6 @@ class PostCampaignResponseData implements ModelInterface, ArrayAccess, \JsonSeri
         return self::$openAPIModelName;
     }
 
-    public const TYPE_CAMPAIGN = 'campaign';
-
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getTypeAllowableValues()
-    {
-        return [
-            self::TYPE_CAMPAIGN,
-        ];
-    }
 
     /**
      * Associative array for storing property values
@@ -223,15 +210,6 @@ class PostCampaignResponseData implements ModelInterface, ArrayAccess, \JsonSeri
         if ($this->container['type'] === null) {
             $invalidProperties[] = "'type' can't be null";
         }
-        $allowedValues = $this->getTypeAllowableValues();
-        if (!is_null($this->container['type']) && !in_array($this->container['type'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value '%s' for 'type', must be one of '%s'",
-                $this->container['type'],
-                implode("', '", $allowedValues)
-            );
-        }
-
         if ($this->container['id'] === null) {
             $invalidProperties[] = "'id' can't be null";
         }
@@ -259,7 +237,7 @@ class PostCampaignResponseData implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Gets type
      *
-     * @return string
+     * @return \KlaviyoAPI\Model\CampaignEnum
      */
     public function getType()
     {
@@ -269,22 +247,12 @@ class PostCampaignResponseData implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets type
      *
-     * @param string $type type
+     * @param \KlaviyoAPI\Model\CampaignEnum $type type
      *
      * @return self
      */
     public function setType($type)
     {
-        $allowedValues = $this->getTypeAllowableValues();
-        if (!in_array($type, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value '%s' for 'type', must be one of '%s'",
-                    $type,
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
         $this->container['type'] = $type;
 
         return $this;
@@ -317,7 +285,7 @@ class PostCampaignResponseData implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Gets attributes
      *
-     * @return \KlaviyoAPI\Model\GetCampaignResponseCollectionWithIncludedSectionDataInnerAttributes
+     * @return \KlaviyoAPI\Model\CampaignResponseObjectResourceAttributes
      */
     public function getAttributes()
     {
@@ -327,7 +295,7 @@ class PostCampaignResponseData implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets attributes
      *
-     * @param \KlaviyoAPI\Model\GetCampaignResponseCollectionWithIncludedSectionDataInnerAttributes $attributes attributes
+     * @param \KlaviyoAPI\Model\CampaignResponseObjectResourceAttributes $attributes attributes
      *
      * @return self
      */
@@ -341,7 +309,7 @@ class PostCampaignResponseData implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Gets links
      *
-     * @return \KlaviyoAPI\Model\GetCatalogItemResponseCollectionWithIncludedSectionDataInnerLinks
+     * @return \KlaviyoAPI\Model\ObjectLinks
      */
     public function getLinks()
     {
@@ -351,7 +319,7 @@ class PostCampaignResponseData implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets links
      *
-     * @param \KlaviyoAPI\Model\GetCatalogItemResponseCollectionWithIncludedSectionDataInnerLinks $links links
+     * @param \KlaviyoAPI\Model\ObjectLinks $links links
      *
      * @return self
      */

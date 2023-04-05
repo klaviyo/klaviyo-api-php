@@ -58,7 +58,7 @@ class CatalogCategoryDeleteJobCreateQuery implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'data' => '\KlaviyoAPI\Model\CatalogCategoryDeleteJobCreateQueryAsSubResource'
+        'data' => '\KlaviyoAPI\Model\CatalogCategoryDeleteJobCreateQueryResourceObject'
     ];
 
     /**
@@ -210,7 +210,7 @@ class CatalogCategoryDeleteJobCreateQuery implements ModelInterface, ArrayAccess
     /**
      * Gets data
      *
-     * @return \KlaviyoAPI\Model\CatalogCategoryDeleteJobCreateQueryAsSubResource
+     * @return \KlaviyoAPI\Model\CatalogCategoryDeleteJobCreateQueryResourceObject
      */
     public function getData()
     {
@@ -220,7 +220,7 @@ class CatalogCategoryDeleteJobCreateQuery implements ModelInterface, ArrayAccess
     /**
      * Sets data
      *
-     * @param \KlaviyoAPI\Model\CatalogCategoryDeleteJobCreateQueryAsSubResource $data data
+     * @param \KlaviyoAPI\Model\CatalogCategoryDeleteJobCreateQueryResourceObject $data data
      *
      * @return self
      */

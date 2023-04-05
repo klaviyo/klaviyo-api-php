@@ -58,8 +58,8 @@ class GetFlowActionResponseCollection implements ModelInterface, ArrayAccess, \J
       * @var string[]
       */
     protected static $openAPITypes = [
-        'data' => '\KlaviyoAPI\Model\GetFlowActionResponseCollectionDataInner[]',
-        'links' => '\KlaviyoAPI\Model\GetCatalogItemResponseCollectionWithIncludedSectionLinks'
+        'data' => '\KlaviyoAPI\Model\FlowActionResponseObjectResource[]',
+        'links' => '\KlaviyoAPI\Model\CollectionLinks'
     ];
 
     /**
@@ -219,7 +219,7 @@ class GetFlowActionResponseCollection implements ModelInterface, ArrayAccess, \J
     /**
      * Gets data
      *
-     * @return \KlaviyoAPI\Model\GetFlowActionResponseCollectionDataInner[]
+     * @return \KlaviyoAPI\Model\FlowActionResponseObjectResource[]
      */
     public function getData()
     {
@@ -229,7 +229,7 @@ class GetFlowActionResponseCollection implements ModelInterface, ArrayAccess, \J
     /**
      * Sets data
      *
-     * @param \KlaviyoAPI\Model\GetFlowActionResponseCollectionDataInner[] $data data
+     * @param \KlaviyoAPI\Model\FlowActionResponseObjectResource[] $data data
      *
      * @return self
      */
@@ -243,7 +243,7 @@ class GetFlowActionResponseCollection implements ModelInterface, ArrayAccess, \J
     /**
      * Gets links
      *
-     * @return \KlaviyoAPI\Model\GetCatalogItemResponseCollectionWithIncludedSectionLinks
+     * @return \KlaviyoAPI\Model\CollectionLinks
      */
     public function getLinks()
     {
@@ -253,7 +253,7 @@ class GetFlowActionResponseCollection implements ModelInterface, ArrayAccess, \J
     /**
      * Sets links
      *
-     * @param \KlaviyoAPI\Model\GetCatalogItemResponseCollectionWithIncludedSectionLinks $links links
+     * @param \KlaviyoAPI\Model\CollectionLinks $links links
      *
      * @return self
      */

@@ -58,7 +58,7 @@ class SuppressionCreateJobCreateQuery implements ModelInterface, ArrayAccess, \J
       * @var string[]
       */
     protected static $openAPITypes = [
-        'data' => '\KlaviyoAPI\Model\SuppressionCreateJobCreateQueryAsSubResource'
+        'data' => '\KlaviyoAPI\Model\SuppressionCreateJobCreateQueryResourceObject'
     ];
 
     /**
@@ -210,7 +210,7 @@ class SuppressionCreateJobCreateQuery implements ModelInterface, ArrayAccess, \J
     /**
      * Gets data
      *
-     * @return \KlaviyoAPI\Model\SuppressionCreateJobCreateQueryAsSubResource
+     * @return \KlaviyoAPI\Model\SuppressionCreateJobCreateQueryResourceObject
      */
     public function getData()
     {
@@ -220,7 +220,7 @@ class SuppressionCreateJobCreateQuery implements ModelInterface, ArrayAccess, \J
     /**
      * Sets data
      *
-     * @param \KlaviyoAPI\Model\SuppressionCreateJobCreateQueryAsSubResource $data data
+     * @param \KlaviyoAPI\Model\SuppressionCreateJobCreateQueryResourceObject $data data
      *
      * @return self
      */

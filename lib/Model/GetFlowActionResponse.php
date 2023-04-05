@@ -58,7 +58,7 @@ class GetFlowActionResponse implements ModelInterface, ArrayAccess, \JsonSeriali
       * @var string[]
       */
     protected static $openAPITypes = [
-        'data' => '\KlaviyoAPI\Model\GetFlowActionResponseCollectionDataInner'
+        'data' => '\KlaviyoAPI\Model\FlowActionResponseObjectResource'
     ];
 
     /**
@@ -210,7 +210,7 @@ class GetFlowActionResponse implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Gets data
      *
-     * @return \KlaviyoAPI\Model\GetFlowActionResponseCollectionDataInner
+     * @return \KlaviyoAPI\Model\FlowActionResponseObjectResource
      */
     public function getData()
     {
@@ -220,7 +220,7 @@ class GetFlowActionResponse implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Sets data
      *
-     * @param \KlaviyoAPI\Model\GetFlowActionResponseCollectionDataInner $data data
+     * @param \KlaviyoAPI\Model\FlowActionResponseObjectResource $data data
      *
      * @return self
      */

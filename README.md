@@ -294,15 +294,14 @@ $klaviyo->Campaigns->getCampaignRecipientEstimationJob($id, $fields_campaign_rec
 
 
 
-#### [Get Campaign Relationships](https://developers.klaviyo.com/en/v2023-02-22/reference/get_campaign_relationships)
+#### [Get Campaign Relationships Tags](https://developers.klaviyo.com/en/v2023-02-22/reference/get_campaign_relationships_tags)
 
 ```python
 ## Positional Arguments
 
 # $id | string
-# $related_resource | string
 
-$klaviyo->Campaigns->getCampaignRelationships($id, $related_resource);
+$klaviyo->Campaigns->getCampaignRelationshipsTags($id);
 ```
 
 
@@ -420,16 +419,15 @@ $klaviyo->Catalogs->createCatalogCategory($body);
 
 
 
-#### [Create Catalog Category Relationships](https://developers.klaviyo.com/en/v2023-02-22/reference/create_catalog_category_relationships)
+#### [Create Catalog Category Relationships Items](https://developers.klaviyo.com/en/v2023-02-22/reference/create_catalog_category_relationships_items)
 
 ```python
 ## Positional Arguments
 
 # $id | string
-# $related_resource | string
 # $body | associative array
 
-$klaviyo->Catalogs->createCatalogCategoryRelationships($id, $related_resource, $body);
+$klaviyo->Catalogs->createCatalogCategoryRelationshipsItems($id, $body);
 ```
 
 
@@ -448,16 +446,15 @@ $klaviyo->Catalogs->createCatalogItem($body);
 
 
 
-#### [Create Catalog Item Relationships](https://developers.klaviyo.com/en/v2023-02-22/reference/create_catalog_item_relationships)
+#### [Create Catalog Item Relationships Categories](https://developers.klaviyo.com/en/v2023-02-22/reference/create_catalog_item_relationships_categories)
 
 ```python
 ## Positional Arguments
 
 # $id | string
-# $related_resource | string
 # $body | associative array
 
-$klaviyo->Catalogs->createCatalogItemRelationships($id, $related_resource, $body);
+$klaviyo->Catalogs->createCatalogItemRelationshipsCategories($id, $body);
 ```
 
 
@@ -489,16 +486,15 @@ $klaviyo->Catalogs->deleteCatalogCategory($id);
 
 
 
-#### [Delete Catalog Category Relationships](https://developers.klaviyo.com/en/v2023-02-22/reference/delete_catalog_category_relationships)
+#### [Delete Catalog Category Relationships Items](https://developers.klaviyo.com/en/v2023-02-22/reference/delete_catalog_category_relationships_items)
 
 ```python
 ## Positional Arguments
 
 # $id | string
-# $related_resource | string
 # $body | associative array
 
-$klaviyo->Catalogs->deleteCatalogCategoryRelationships($id, $related_resource, $body);
+$klaviyo->Catalogs->deleteCatalogCategoryRelationshipsItems($id, $body);
 ```
 
 
@@ -517,16 +513,15 @@ $klaviyo->Catalogs->deleteCatalogItem($id);
 
 
 
-#### [Delete Catalog Item Relationships](https://developers.klaviyo.com/en/v2023-02-22/reference/delete_catalog_item_relationships)
+#### [Delete Catalog Item Relationships Categories](https://developers.klaviyo.com/en/v2023-02-22/reference/delete_catalog_item_relationships_categories)
 
 ```python
 ## Positional Arguments
 
 # $id | string
-# $related_resource | string
 # $body | associative array
 
-$klaviyo->Catalogs->deleteCatalogItemRelationships($id, $related_resource, $body);
+$klaviyo->Catalogs->deleteCatalogItemRelationshipsCategories($id, $body);
 ```
 
 
@@ -601,19 +596,18 @@ $klaviyo->Catalogs->getCatalogCategoryItems($category_id, $fields_catalog_item=$
 
 
 
-#### [Get Catalog Category Relationships](https://developers.klaviyo.com/en/v2023-02-22/reference/get_catalog_category_relationships)
+#### [Get Catalog Category Relationships Items](https://developers.klaviyo.com/en/v2023-02-22/reference/get_catalog_category_relationships_items)
 
 ```python
 ## Positional Arguments
 
 # $id | string
-# $related_resource | string
 
 ## Keyword Arguments
 
 # $page_cursor | string
 
-$klaviyo->Catalogs->getCatalogCategoryRelationships($id, $related_resource, $page_cursor=$page_cursor);
+$klaviyo->Catalogs->getCatalogCategoryRelationshipsItems($id, $page_cursor=$page_cursor);
 ```
 
 
@@ -658,19 +652,18 @@ $klaviyo->Catalogs->getCatalogItemCategories($item_id, $fields_catalog_category=
 
 
 
-#### [Get Catalog Item Relationships](https://developers.klaviyo.com/en/v2023-02-22/reference/get_catalog_item_relationships)
+#### [Get Catalog Item Relationships Categories](https://developers.klaviyo.com/en/v2023-02-22/reference/get_catalog_item_relationships_categories)
 
 ```python
 ## Positional Arguments
 
 # $id | string
-# $related_resource | string
 
 ## Keyword Arguments
 
 # $page_cursor | string
 
-$klaviyo->Catalogs->getCatalogItemRelationships($id, $related_resource, $page_cursor=$page_cursor);
+$klaviyo->Catalogs->getCatalogItemRelationshipsCategories($id, $page_cursor=$page_cursor);
 ```
 
 
@@ -1189,16 +1182,15 @@ $klaviyo->Catalogs->updateCatalogCategory($id, $body);
 
 
 
-#### [Update Catalog Category Relationships](https://developers.klaviyo.com/en/v2023-02-22/reference/update_catalog_category_relationships)
+#### [Update Catalog Category Relationships Items](https://developers.klaviyo.com/en/v2023-02-22/reference/update_catalog_category_relationships_items)
 
 ```python
 ## Positional Arguments
 
 # $id | string
-# $related_resource | string
 # $body | associative array
 
-$klaviyo->Catalogs->updateCatalogCategoryRelationships($id, $related_resource, $body);
+$klaviyo->Catalogs->updateCatalogCategoryRelationshipsItems($id, $body);
 ```
 
 
@@ -1218,16 +1210,15 @@ $klaviyo->Catalogs->updateCatalogItem($id, $body);
 
 
 
-#### [Update Catalog Item Relationships](https://developers.klaviyo.com/en/v2023-02-22/reference/update_catalog_item_relationships)
+#### [Update Catalog Item Relationships Categories](https://developers.klaviyo.com/en/v2023-02-22/reference/update_catalog_item_relationships_categories)
 
 ```python
 ## Positional Arguments
 
 # $id | string
-# $related_resource | string
 # $body | associative array
 
-$klaviyo->Catalogs->updateCatalogItemRelationships($id, $related_resource, $body);
+$klaviyo->Catalogs->updateCatalogItemRelationshipsCategories($id, $body);
 ```
 
 
@@ -1373,23 +1364,36 @@ $klaviyo->Events->getEventMetrics($id, $fields_metric=$fields_metric);
 
 ## Keyword Arguments
 
+# $additional_fields_profile | string[]
 # $fields_profile | string[]
 
-$klaviyo->Events->getEventProfiles($id, $fields_profile=$fields_profile);
+$klaviyo->Events->getEventProfiles($id, $additional_fields_profile=$additional_fields_profile, $fields_profile=$fields_profile);
 ```
 
 
 
 
-#### [Get Event Relationships](https://developers.klaviyo.com/en/v2023-02-22/reference/get_event_relationships)
+#### [Get Event Relationships Metrics](https://developers.klaviyo.com/en/v2023-02-22/reference/get_event_relationships_metrics)
 
 ```python
 ## Positional Arguments
 
 # $id | string
-# $related_resource | string
 
-$klaviyo->Events->getEventRelationships($id, $related_resource);
+$klaviyo->Events->getEventRelationshipsMetrics($id);
+```
+
+
+
+
+#### [Get Event Relationships Profiles](https://developers.klaviyo.com/en/v2023-02-22/reference/get_event_relationships_profiles)
+
+```python
+## Positional Arguments
+
+# $id | string
+
+$klaviyo->Events->getEventRelationshipsProfiles($id);
 ```
 
 
@@ -1495,13 +1499,25 @@ $klaviyo->Flows->getFlowActionMessages($action_id, $fields_flow_message=$fields_
 
 
 
-#### [Get Flow Action Relationships](https://developers.klaviyo.com/en/v2023-02-22/reference/get_flow_action_relationships)
+#### [Get Flow Action Relationships Flow](https://developers.klaviyo.com/en/v2023-02-22/reference/get_flow_action_relationships_flow)
 
 ```python
 ## Positional Arguments
 
 # $id | string
-# $related_resource | string
+
+$klaviyo->Flows->getFlowActionRelationshipsFlow($id);
+```
+
+
+
+
+#### [Get Flow Action Relationships Messages](https://developers.klaviyo.com/en/v2023-02-22/reference/get_flow_action_relationships_messages)
+
+```python
+## Positional Arguments
+
+# $id | string
 
 ## Keyword Arguments
 
@@ -1509,7 +1525,7 @@ $klaviyo->Flows->getFlowActionMessages($action_id, $fields_flow_message=$fields_
 # $page_cursor | string
 # $sort | string
 
-$klaviyo->Flows->getFlowActionRelationships($id, $related_resource, $filter=$filter, $page_cursor=$page_cursor, $sort=$sort);
+$klaviyo->Flows->getFlowActionRelationshipsMessages($id, $filter=$filter, $page_cursor=$page_cursor, $sort=$sort);
 ```
 
 
@@ -1571,29 +1587,45 @@ $klaviyo->Flows->getFlowMessageAction($message_id, $fields_flow_action=$fields_f
 
 
 
-#### [Get Flow Message Relationships](https://developers.klaviyo.com/en/v2023-02-22/reference/get_flow_message_relationships)
+#### [Get Flow Message Relationships Action](https://developers.klaviyo.com/en/v2023-02-22/reference/get_flow_message_relationships_action)
 
 ```python
 ## Positional Arguments
 
 # $id | string
-# $related_resource | string
 
-$klaviyo->Flows->getFlowMessageRelationships($id, $related_resource);
+$klaviyo->Flows->getFlowMessageRelationshipsAction($id);
 ```
 
 
 
 
-#### [Get Flow Relationships](https://developers.klaviyo.com/en/v2023-02-22/reference/get_flow_relationships)
+#### [Get Flow Relationships Flow Actions](https://developers.klaviyo.com/en/v2023-02-22/reference/get_flow_relationships_flow_actions)
 
 ```python
 ## Positional Arguments
 
 # $id | string
-# $related_resource | string
 
-$klaviyo->Flows->getFlowRelationships($id, $related_resource);
+## Keyword Arguments
+
+# $filter | string
+# $sort | string
+
+$klaviyo->Flows->getFlowRelationshipsFlowActions($id, $filter=$filter, $sort=$sort);
+```
+
+
+
+
+#### [Get Flow Relationships Tags](https://developers.klaviyo.com/en/v2023-02-22/reference/get_flow_relationships_tags)
+
+```python
+## Positional Arguments
+
+# $id | string
+
+$klaviyo->Flows->getFlowRelationshipsTags($id);
 ```
 
 
@@ -1666,16 +1698,15 @@ $klaviyo->Lists->createList($body);
 
 
 
-#### [Add Profile to List](https://developers.klaviyo.com/en/v2023-02-22/reference/create_list_relationships)
+#### [Add Profile To List](https://developers.klaviyo.com/en/v2023-02-22/reference/create_list_relationships)
 
 ```python
 ## Positional Arguments
 
 # $id | string
-# $related_resource | string
 # $body | associative array
 
-$klaviyo->Lists->createListRelationships($id, $related_resource, $body);
+$klaviyo->Lists->createListRelationships($id, $body);
 ```
 
 
@@ -1694,16 +1725,15 @@ $klaviyo->Lists->deleteList($id);
 
 
 
-#### [Remove Profile from List](https://developers.klaviyo.com/en/v2023-02-22/reference/delete_list_relationships)
+#### [Remove Profile From List](https://developers.klaviyo.com/en/v2023-02-22/reference/delete_list_relationships)
 
 ```python
 ## Positional Arguments
 
 # $id | string
-# $related_resource | string
 # $body | associative array
 
-$klaviyo->Lists->deleteListRelationships($id, $related_resource, $body);
+$klaviyo->Lists->deleteListRelationships($id, $body);
 ```
 
 
@@ -1735,30 +1765,43 @@ $klaviyo->Lists->getList($id, $fields_list=$fields_list);
 
 ## Keyword Arguments
 
+# $additional_fields_profile | string[]
 # $fields_profile | string[]
 # $filter | string
 # $page_cursor | string
 # $page_size | int
 
-$klaviyo->Lists->getListProfiles($list_id, $fields_profile=$fields_profile, $filter=$filter, $page_cursor=$page_cursor, $page_size=$page_size);
+$klaviyo->Lists->getListProfiles($list_id, $additional_fields_profile=$additional_fields_profile, $fields_profile=$fields_profile, $filter=$filter, $page_cursor=$page_cursor, $page_size=$page_size);
 ```
 
 
 
 
-#### [Get List Relationships](https://developers.klaviyo.com/en/v2023-02-22/reference/get_list_relationships)
+#### [Get List Relationships Profiles](https://developers.klaviyo.com/en/v2023-02-22/reference/get_list_relationships_profiles)
 
 ```python
 ## Positional Arguments
 
 # $id | string
-# $related_resource | string
 
 ## Keyword Arguments
 
 # $page_cursor | string
 
-$klaviyo->Lists->getListRelationships($id, $related_resource, $page_cursor=$page_cursor);
+$klaviyo->Lists->getListRelationshipsProfiles($id, $page_cursor=$page_cursor);
+```
+
+
+
+
+#### [Get List Relationships Tags](https://developers.klaviyo.com/en/v2023-02-22/reference/get_list_relationships_tags)
+
+```python
+## Positional Arguments
+
+# $id | string
+
+$klaviyo->Lists->getListRelationshipsTags($id);
 ```
 
 
@@ -1872,7 +1915,11 @@ $klaviyo->Metrics->queryMetricAggregates($body);
 
 # $body | associative array
 
-$klaviyo->Profiles->createProfile($body);
+## Keyword Arguments
+
+# $additional_fields_profile | string[]
+
+$klaviyo->Profiles->createProfile($body, $additional_fields_profile=$additional_fields_profile);
 ```
 
 
@@ -1887,12 +1934,13 @@ $klaviyo->Profiles->createProfile($body);
 
 ## Keyword Arguments
 
+# $additional_fields_profile | string[]
 # $fields_list | string[]
 # $fields_profile | string[]
 # $fields_segment | string[]
 # $include | string[]
 
-$klaviyo->Profiles->getProfile($id, $fields_list=$fields_list, $fields_profile=$fields_profile, $fields_segment=$fields_segment, $include=$include);
+$klaviyo->Profiles->getProfile($id, $additional_fields_profile=$additional_fields_profile, $fields_list=$fields_list, $fields_profile=$fields_profile, $fields_segment=$fields_segment, $include=$include);
 ```
 
 
@@ -1915,15 +1963,27 @@ $klaviyo->Profiles->getProfileLists($profile_id, $fields_list=$fields_list);
 
 
 
-#### [Get Profile Relationships](https://developers.klaviyo.com/en/v2023-02-22/reference/get_profile_relationships)
+#### [Get Profile Relationships Lists](https://developers.klaviyo.com/en/v2023-02-22/reference/get_profile_relationships_lists)
 
 ```python
 ## Positional Arguments
 
 # $id | string
-# $related_resource | string
 
-$klaviyo->Profiles->getProfileRelationships($id, $related_resource);
+$klaviyo->Profiles->getProfileRelationshipsLists($id);
+```
+
+
+
+
+#### [Get Profile Relationships Segments](https://developers.klaviyo.com/en/v2023-02-22/reference/get_profile_relationships_segments)
+
+```python
+## Positional Arguments
+
+# $id | string
+
+$klaviyo->Profiles->getProfileRelationshipsSegments($id);
 ```
 
 
@@ -1952,13 +2012,14 @@ $klaviyo->Profiles->getProfileSegments($profile_id, $fields_segment=$fields_segm
 
 ## Keyword Arguments
 
+# $additional_fields_profile | string[]
 # $fields_profile | string[]
 # $filter | string
 # $page_cursor | string
 # $sort | string
 # $page_size | int
 
-$klaviyo->Profiles->getProfiles($fields_profile=$fields_profile, $filter=$filter, $page_cursor=$page_cursor, $sort=$sort, $page_size=$page_size);
+$klaviyo->Profiles->getProfiles($additional_fields_profile=$additional_fields_profile, $fields_profile=$fields_profile, $filter=$filter, $page_cursor=$page_cursor, $sort=$sort, $page_size=$page_size);
 ```
 
 
@@ -2024,7 +2085,11 @@ $klaviyo->Profiles->unsuppressProfiles($body);
 # $id | string
 # $body | associative array
 
-$klaviyo->Profiles->updateProfile($id, $body);
+## Keyword Arguments
+
+# $additional_fields_profile | string[]
+
+$klaviyo->Profiles->updateProfile($id, $body, $additional_fields_profile=$additional_fields_profile);
 ```
 
 
@@ -2060,30 +2125,43 @@ $klaviyo->Segments->getSegment($id, $fields_segment=$fields_segment);
 
 ## Keyword Arguments
 
+# $additional_fields_profile | string[]
 # $fields_profile | string[]
 # $filter | string
 # $page_cursor | string
 # $page_size | int
 
-$klaviyo->Segments->getSegmentProfiles($segment_id, $fields_profile=$fields_profile, $filter=$filter, $page_cursor=$page_cursor, $page_size=$page_size);
+$klaviyo->Segments->getSegmentProfiles($segment_id, $additional_fields_profile=$additional_fields_profile, $fields_profile=$fields_profile, $filter=$filter, $page_cursor=$page_cursor, $page_size=$page_size);
 ```
 
 
 
 
-#### [Get Segment Relationships](https://developers.klaviyo.com/en/v2023-02-22/reference/get_segment_relationships)
+#### [Get Segment Relationships Profiles](https://developers.klaviyo.com/en/v2023-02-22/reference/get_segment_relationships_profiles)
 
 ```python
 ## Positional Arguments
 
 # $id | string
-# $related_resource | string
 
 ## Keyword Arguments
 
 # $page_cursor | string
 
-$klaviyo->Segments->getSegmentRelationships($id, $related_resource, $page_cursor=$page_cursor);
+$klaviyo->Segments->getSegmentRelationshipsProfiles($id, $page_cursor=$page_cursor);
+```
+
+
+
+
+#### [Get Segment Relationships Tags](https://developers.klaviyo.com/en/v2023-02-22/reference/get_segment_relationships_tags)
+
+```python
+## Positional Arguments
+
+# $id | string
+
+$klaviyo->Segments->getSegmentRelationshipsTags($id);
 ```
 
 
@@ -2166,16 +2244,57 @@ $klaviyo->Tags->createTagGroup($body);
 
 
 
-#### [Create Tag Relationships](https://developers.klaviyo.com/en/v2023-02-22/reference/create_tag_relationships)
+#### [Create Tag Relationships Campaigns](https://developers.klaviyo.com/en/v2023-02-22/reference/create_tag_relationships_campaigns)
 
 ```python
 ## Positional Arguments
 
 # $id | string
-# $related_resource | string
 # $body | associative array
 
-$klaviyo->Tags->createTagRelationships($id, $related_resource, $body);
+$klaviyo->Tags->createTagRelationshipsCampaigns($id, $body);
+```
+
+
+
+
+#### [Create Tag Relationships Flows](https://developers.klaviyo.com/en/v2023-02-22/reference/create_tag_relationships_flows)
+
+```python
+## Positional Arguments
+
+# $id | string
+# $body | associative array
+
+$klaviyo->Tags->createTagRelationshipsFlows($id, $body);
+```
+
+
+
+
+#### [Create Tag Relationships Lists](https://developers.klaviyo.com/en/v2023-02-22/reference/create_tag_relationships_lists)
+
+```python
+## Positional Arguments
+
+# $id | string
+# $body | associative array
+
+$klaviyo->Tags->createTagRelationshipsLists($id, $body);
+```
+
+
+
+
+#### [Create Tag Relationships Segments](https://developers.klaviyo.com/en/v2023-02-22/reference/create_tag_relationships_segments)
+
+```python
+## Positional Arguments
+
+# $id | string
+# $body | associative array
+
+$klaviyo->Tags->createTagRelationshipsSegments($id, $body);
 ```
 
 
@@ -2207,16 +2326,57 @@ $klaviyo->Tags->deleteTagGroup($id);
 
 
 
-#### [Delete Tag Relationships](https://developers.klaviyo.com/en/v2023-02-22/reference/delete_tag_relationships)
+#### [Delete Tag Relationships Campaigns](https://developers.klaviyo.com/en/v2023-02-22/reference/delete_tag_relationships_campaigns)
 
 ```python
 ## Positional Arguments
 
 # $id | string
-# $related_resource | string
 # $body | associative array
 
-$klaviyo->Tags->deleteTagRelationships($id, $related_resource, $body);
+$klaviyo->Tags->deleteTagRelationshipsCampaigns($id, $body);
+```
+
+
+
+
+#### [Delete Tag Relationships Flows](https://developers.klaviyo.com/en/v2023-02-22/reference/delete_tag_relationships_flows)
+
+```python
+## Positional Arguments
+
+# $id | string
+# $body | associative array
+
+$klaviyo->Tags->deleteTagRelationshipsFlows($id, $body);
+```
+
+
+
+
+#### [Delete Tag Relationships Lists](https://developers.klaviyo.com/en/v2023-02-22/reference/delete_tag_relationships_lists)
+
+```python
+## Positional Arguments
+
+# $id | string
+# $body | associative array
+
+$klaviyo->Tags->deleteTagRelationshipsLists($id, $body);
+```
+
+
+
+
+#### [Delete Tag Relationships Segments](https://developers.klaviyo.com/en/v2023-02-22/reference/delete_tag_relationships_segments)
+
+```python
+## Positional Arguments
+
+# $id | string
+# $body | associative array
+
+$klaviyo->Tags->deleteTagRelationshipsSegments($id, $body);
 ```
 
 
@@ -2256,15 +2416,14 @@ $klaviyo->Tags->getTagGroup($id, $fields_tag_group=$fields_tag_group);
 
 
 
-#### [Get Tag Group Relationships](https://developers.klaviyo.com/en/v2023-02-22/reference/get_tag_group_relationships)
+#### [Get Tag Group Relationships Tags](https://developers.klaviyo.com/en/v2023-02-22/reference/get_tag_group_relationships_tags)
 
 ```python
 ## Positional Arguments
 
 # $id | string
-# $related_resource | string
 
-$klaviyo->Tags->getTagGroupRelationships($id, $related_resource);
+$klaviyo->Tags->getTagGroupRelationshipsTags($id);
 ```
 
 
@@ -2304,15 +2463,66 @@ $klaviyo->Tags->getTagGroups($fields_tag_group=$fields_tag_group, $filter=$filte
 
 
 
-#### [Get Tag Relationships](https://developers.klaviyo.com/en/v2023-02-22/reference/get_tag_relationships)
+#### [Get Tag Relationships Campaigns](https://developers.klaviyo.com/en/v2023-02-22/reference/get_tag_relationships_campaigns)
 
 ```python
 ## Positional Arguments
 
 # $id | string
-# $related_resource | string
 
-$klaviyo->Tags->getTagRelationships($id, $related_resource);
+$klaviyo->Tags->getTagRelationshipsCampaigns($id);
+```
+
+
+
+
+#### [Get Tag Relationships Flows](https://developers.klaviyo.com/en/v2023-02-22/reference/get_tag_relationships_flows)
+
+```python
+## Positional Arguments
+
+# $id | string
+
+$klaviyo->Tags->getTagRelationshipsFlows($id);
+```
+
+
+
+
+#### [Get Tag Relationships Lists](https://developers.klaviyo.com/en/v2023-02-22/reference/get_tag_relationships_lists)
+
+```python
+## Positional Arguments
+
+# $id | string
+
+$klaviyo->Tags->getTagRelationshipsLists($id);
+```
+
+
+
+
+#### [Get Tag Relationships Segments](https://developers.klaviyo.com/en/v2023-02-22/reference/get_tag_relationships_segments)
+
+```python
+## Positional Arguments
+
+# $id | string
+
+$klaviyo->Tags->getTagRelationshipsSegments($id);
+```
+
+
+
+
+#### [Get Tag Relationships Tag Group](https://developers.klaviyo.com/en/v2023-02-22/reference/get_tag_relationships_tag_group)
+
+```python
+## Positional Arguments
+
+# $id | string
+
+$klaviyo->Tags->getTagRelationshipsTagGroup($id);
 ```
 
 

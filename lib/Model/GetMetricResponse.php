@@ -58,7 +58,7 @@ class GetMetricResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
       * @var string[]
       */
     protected static $openAPITypes = [
-        'data' => '\KlaviyoAPI\Model\GetMetricResponseCollectionDataInner'
+        'data' => '\KlaviyoAPI\Model\MetricResponseObjectResource'
     ];
 
     /**
@@ -210,7 +210,7 @@ class GetMetricResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Gets data
      *
-     * @return \KlaviyoAPI\Model\GetMetricResponseCollectionDataInner
+     * @return \KlaviyoAPI\Model\MetricResponseObjectResource
      */
     public function getData()
     {
@@ -220,7 +220,7 @@ class GetMetricResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Sets data
      *
-     * @param \KlaviyoAPI\Model\GetMetricResponseCollectionDataInner $data data
+     * @param \KlaviyoAPI\Model\MetricResponseObjectResource $data data
      *
      * @return self
      */

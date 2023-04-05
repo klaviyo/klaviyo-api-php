@@ -58,7 +58,7 @@ class ProfilePartialUpdateQuery implements ModelInterface, ArrayAccess, \JsonSer
       * @var string[]
       */
     protected static $openAPITypes = [
-        'data' => '\KlaviyoAPI\Model\ProfilePartialUpdateQueryAsSubResource'
+        'data' => '\KlaviyoAPI\Model\ProfilePartialUpdateQueryResourceObject'
     ];
 
     /**
@@ -210,7 +210,7 @@ class ProfilePartialUpdateQuery implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Gets data
      *
-     * @return \KlaviyoAPI\Model\ProfilePartialUpdateQueryAsSubResource
+     * @return \KlaviyoAPI\Model\ProfilePartialUpdateQueryResourceObject
      */
     public function getData()
     {
@@ -220,7 +220,7 @@ class ProfilePartialUpdateQuery implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Sets data
      *
-     * @param \KlaviyoAPI\Model\ProfilePartialUpdateQueryAsSubResource $data data
+     * @param \KlaviyoAPI\Model\ProfilePartialUpdateQueryResourceObject $data data
      *
      * @return self
      */

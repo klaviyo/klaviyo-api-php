@@ -58,7 +58,7 @@ class PatchFlowResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
       * @var string[]
       */
     protected static $openAPITypes = [
-        'data' => '\KlaviyoAPI\Model\GetFlowResponseData'
+        'data' => '\KlaviyoAPI\Model\PatchFlowResponseData'
     ];
 
     /**
@@ -210,7 +210,7 @@ class PatchFlowResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Gets data
      *
-     * @return \KlaviyoAPI\Model\GetFlowResponseData
+     * @return \KlaviyoAPI\Model\PatchFlowResponseData
      */
     public function getData()
     {
@@ -220,7 +220,7 @@ class PatchFlowResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Sets data
      *
-     * @param \KlaviyoAPI\Model\GetFlowResponseData $data data
+     * @param \KlaviyoAPI\Model\PatchFlowResponseData $data data
      *
      * @return self
      */

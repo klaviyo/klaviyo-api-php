@@ -58,8 +58,8 @@ class GetMetricResponseCollection implements ModelInterface, ArrayAccess, \JsonS
       * @var string[]
       */
     protected static $openAPITypes = [
-        'data' => '\KlaviyoAPI\Model\GetMetricResponseCollectionDataInner[]',
-        'links' => '\KlaviyoAPI\Model\GetCatalogItemResponseCollectionWithIncludedSectionLinks'
+        'data' => '\KlaviyoAPI\Model\MetricResponseObjectResource[]',
+        'links' => '\KlaviyoAPI\Model\CollectionLinks'
     ];
 
     /**
@@ -219,7 +219,7 @@ class GetMetricResponseCollection implements ModelInterface, ArrayAccess, \JsonS
     /**
      * Gets data
      *
-     * @return \KlaviyoAPI\Model\GetMetricResponseCollectionDataInner[]
+     * @return \KlaviyoAPI\Model\MetricResponseObjectResource[]
      */
     public function getData()
     {
@@ -229,7 +229,7 @@ class GetMetricResponseCollection implements ModelInterface, ArrayAccess, \JsonS
     /**
      * Sets data
      *
-     * @param \KlaviyoAPI\Model\GetMetricResponseCollectionDataInner[] $data data
+     * @param \KlaviyoAPI\Model\MetricResponseObjectResource[] $data data
      *
      * @return self
      */
@@ -243,7 +243,7 @@ class GetMetricResponseCollection implements ModelInterface, ArrayAccess, \JsonS
     /**
      * Gets links
      *
-     * @return \KlaviyoAPI\Model\GetCatalogItemResponseCollectionWithIncludedSectionLinks
+     * @return \KlaviyoAPI\Model\CollectionLinks
      */
     public function getLinks()
     {
@@ -253,7 +253,7 @@ class GetMetricResponseCollection implements ModelInterface, ArrayAccess, \JsonS
     /**
      * Sets links
      *
-     * @param \KlaviyoAPI\Model\GetCatalogItemResponseCollectionWithIncludedSectionLinks $links links
+     * @param \KlaviyoAPI\Model\CollectionLinks $links links
      *
      * @return self
      */

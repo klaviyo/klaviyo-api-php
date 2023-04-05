@@ -58,7 +58,7 @@ class CatalogVariantCreateQuery implements ModelInterface, ArrayAccess, \JsonSer
       * @var string[]
       */
     protected static $openAPITypes = [
-        'data' => '\KlaviyoAPI\Model\CatalogVariantCreateQueryAsSubResource'
+        'data' => '\KlaviyoAPI\Model\CatalogVariantCreateQueryResourceObject'
     ];
 
     /**
@@ -210,7 +210,7 @@ class CatalogVariantCreateQuery implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Gets data
      *
-     * @return \KlaviyoAPI\Model\CatalogVariantCreateQueryAsSubResource
+     * @return \KlaviyoAPI\Model\CatalogVariantCreateQueryResourceObject
      */
     public function getData()
     {
@@ -220,7 +220,7 @@ class CatalogVariantCreateQuery implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Sets data
      *
-     * @param \KlaviyoAPI\Model\CatalogVariantCreateQueryAsSubResource $data data
+     * @param \KlaviyoAPI\Model\CatalogVariantCreateQueryResourceObject $data data
      *
      * @return self
      */

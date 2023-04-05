@@ -58,7 +58,7 @@ class CampaignSendJobCreateQuery implements ModelInterface, ArrayAccess, \JsonSe
       * @var string[]
       */
     protected static $openAPITypes = [
-        'data' => '\KlaviyoAPI\Model\CampaignSendJobCreateQueryAsSubResource'
+        'data' => '\KlaviyoAPI\Model\CampaignSendJobCreateQueryResourceObject'
     ];
 
     /**
@@ -210,7 +210,7 @@ class CampaignSendJobCreateQuery implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Gets data
      *
-     * @return \KlaviyoAPI\Model\CampaignSendJobCreateQueryAsSubResource
+     * @return \KlaviyoAPI\Model\CampaignSendJobCreateQueryResourceObject
      */
     public function getData()
     {
@@ -220,7 +220,7 @@ class CampaignSendJobCreateQuery implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Sets data
      *
-     * @param \KlaviyoAPI\Model\CampaignSendJobCreateQueryAsSubResource $data data
+     * @param \KlaviyoAPI\Model\CampaignSendJobCreateQueryResourceObject $data data
      *
      * @return self
      */

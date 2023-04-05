@@ -58,7 +58,7 @@ class PostCampaignSendJobResponse implements ModelInterface, ArrayAccess, \JsonS
       * @var string[]
       */
     protected static $openAPITypes = [
-        'data' => '\KlaviyoAPI\Model\GetCampaignSendJobResponseData'
+        'data' => '\KlaviyoAPI\Model\PostCampaignSendJobResponseData'
     ];
 
     /**
@@ -210,7 +210,7 @@ class PostCampaignSendJobResponse implements ModelInterface, ArrayAccess, \JsonS
     /**
      * Gets data
      *
-     * @return \KlaviyoAPI\Model\GetCampaignSendJobResponseData
+     * @return \KlaviyoAPI\Model\PostCampaignSendJobResponseData
      */
     public function getData()
     {
@@ -220,7 +220,7 @@ class PostCampaignSendJobResponse implements ModelInterface, ArrayAccess, \JsonS
     /**
      * Sets data
      *
-     * @param \KlaviyoAPI\Model\GetCampaignSendJobResponseData $data data
+     * @param \KlaviyoAPI\Model\PostCampaignSendJobResponseData $data data
      *
      * @return self
      */

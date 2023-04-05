@@ -58,8 +58,8 @@ class GetSegmentResponseCollection implements ModelInterface, ArrayAccess, \Json
       * @var string[]
       */
     protected static $openAPITypes = [
-        'data' => '\KlaviyoAPI\Model\GetSegmentResponseCollectionWithIncludedSectionDataInner[]',
-        'links' => '\KlaviyoAPI\Model\GetCatalogItemResponseCollectionWithIncludedSectionLinks'
+        'data' => '\KlaviyoAPI\Model\SegmentResponseObjectResource[]',
+        'links' => '\KlaviyoAPI\Model\CollectionLinks'
     ];
 
     /**
@@ -219,7 +219,7 @@ class GetSegmentResponseCollection implements ModelInterface, ArrayAccess, \Json
     /**
      * Gets data
      *
-     * @return \KlaviyoAPI\Model\GetSegmentResponseCollectionWithIncludedSectionDataInner[]
+     * @return \KlaviyoAPI\Model\SegmentResponseObjectResource[]
      */
     public function getData()
     {
@@ -229,7 +229,7 @@ class GetSegmentResponseCollection implements ModelInterface, ArrayAccess, \Json
     /**
      * Sets data
      *
-     * @param \KlaviyoAPI\Model\GetSegmentResponseCollectionWithIncludedSectionDataInner[] $data data
+     * @param \KlaviyoAPI\Model\SegmentResponseObjectResource[] $data data
      *
      * @return self
      */
@@ -243,7 +243,7 @@ class GetSegmentResponseCollection implements ModelInterface, ArrayAccess, \Json
     /**
      * Gets links
      *
-     * @return \KlaviyoAPI\Model\GetCatalogItemResponseCollectionWithIncludedSectionLinks
+     * @return \KlaviyoAPI\Model\CollectionLinks
      */
     public function getLinks()
     {
@@ -253,7 +253,7 @@ class GetSegmentResponseCollection implements ModelInterface, ArrayAccess, \Json
     /**
      * Sets links
      *
-     * @param \KlaviyoAPI\Model\GetCatalogItemResponseCollectionWithIncludedSectionLinks $links links
+     * @param \KlaviyoAPI\Model\CollectionLinks $links links
      *
      * @return self
      */

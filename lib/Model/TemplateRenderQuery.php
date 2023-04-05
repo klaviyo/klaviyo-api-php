@@ -58,7 +58,7 @@ class TemplateRenderQuery implements ModelInterface, ArrayAccess, \JsonSerializa
       * @var string[]
       */
     protected static $openAPITypes = [
-        'data' => '\KlaviyoAPI\Model\TemplateRenderQueryAsSubResource'
+        'data' => '\KlaviyoAPI\Model\TemplateRenderQueryResourceObject'
     ];
 
     /**
@@ -210,7 +210,7 @@ class TemplateRenderQuery implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Gets data
      *
-     * @return \KlaviyoAPI\Model\TemplateRenderQueryAsSubResource
+     * @return \KlaviyoAPI\Model\TemplateRenderQueryResourceObject
      */
     public function getData()
     {
@@ -220,7 +220,7 @@ class TemplateRenderQuery implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets data
      *
-     * @param \KlaviyoAPI\Model\TemplateRenderQueryAsSubResource $data data
+     * @param \KlaviyoAPI\Model\TemplateRenderQueryResourceObject $data data
      *
      * @return self
      */

@@ -58,7 +58,7 @@ class GetFlowTagRelationshipListResponseCollection implements ModelInterface, Ar
       * @var string[]
       */
     protected static $openAPITypes = [
-        'data' => '\KlaviyoAPI\Model\GetFlowTagRelationshipListResponseCollectionDataInner[]'
+        'data' => '\KlaviyoAPI\Model\GetListTagRelationshipListResponseCollectionDataInner[]'
     ];
 
     /**
@@ -210,7 +210,7 @@ class GetFlowTagRelationshipListResponseCollection implements ModelInterface, Ar
     /**
      * Gets data
      *
-     * @return \KlaviyoAPI\Model\GetFlowTagRelationshipListResponseCollectionDataInner[]
+     * @return \KlaviyoAPI\Model\GetListTagRelationshipListResponseCollectionDataInner[]
      */
     public function getData()
     {
@@ -220,7 +220,7 @@ class GetFlowTagRelationshipListResponseCollection implements ModelInterface, Ar
     /**
      * Sets data
      *
-     * @param \KlaviyoAPI\Model\GetFlowTagRelationshipListResponseCollectionDataInner[] $data data
+     * @param \KlaviyoAPI\Model\GetListTagRelationshipListResponseCollectionDataInner[] $data data
      *
      * @return self
      */

@@ -58,7 +58,7 @@ class GetCatalogCategoryResponse implements ModelInterface, ArrayAccess, \JsonSe
       * @var string[]
       */
     protected static $openAPITypes = [
-        'data' => '\KlaviyoAPI\Model\GetCatalogCategoryResponseCollectionDataInner'
+        'data' => '\KlaviyoAPI\Model\CatalogCategoryResponseObjectResource'
     ];
 
     /**
@@ -210,7 +210,7 @@ class GetCatalogCategoryResponse implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Gets data
      *
-     * @return \KlaviyoAPI\Model\GetCatalogCategoryResponseCollectionDataInner
+     * @return \KlaviyoAPI\Model\CatalogCategoryResponseObjectResource
      */
     public function getData()
     {
@@ -220,7 +220,7 @@ class GetCatalogCategoryResponse implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Sets data
      *
-     * @param \KlaviyoAPI\Model\GetCatalogCategoryResponseCollectionDataInner $data data
+     * @param \KlaviyoAPI\Model\CatalogCategoryResponseObjectResource $data data
      *
      * @return self
      */

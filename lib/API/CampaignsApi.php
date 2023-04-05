@@ -3729,38 +3729,36 @@ class CampaignsApi
     }
 
     /**
-     * Operation getCampaignRelationships
+     * Operation getCampaignRelationshipsTags
      *
-     * Get Campaign Relationships
+     * Get Campaign Relationships Tags
      *
      * @param  string $id  (required)
-     * @param  string $related_resource  (required)
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array<string,mixed>|\KlaviyoAPI\Model\GetCampaigns400Response|\KlaviyoAPI\Model\GetCampaigns400Response
      */
-    public function getCampaignRelationships($id, $related_resource, $apiKey = null)
+    public function getCampaignRelationshipsTags($id, $apiKey = null)
     {
-        list($response) = $this->getCampaignRelationshipsWithHttpInfo($id, $related_resource, $apiKey);
+        list($response) = $this->getCampaignRelationshipsTagsWithHttpInfo($id, $apiKey);
         return $response;
     }
 
     /**
-     * Operation getCampaignRelationshipsWithHttpInfo
+     * Operation getCampaignRelationshipsTagsWithHttpInfo
      *
-     * Get Campaign Relationships
+     * Get Campaign Relationships Tags
      *
      * @param  string $id  (required)
-     * @param  string $related_resource  (required)
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of array<string,mixed>|\KlaviyoAPI\Model\GetCampaigns400Response|\KlaviyoAPI\Model\GetCampaigns400Response, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getCampaignRelationshipsWithHttpInfo($id, $related_resource, $apiKey = null)
+    public function getCampaignRelationshipsTagsWithHttpInfo($id, $apiKey = null)
     {
-        $request = $this->getCampaignRelationshipsRequest($id, $related_resource, $apiKey);
+        $request = $this->getCampaignRelationshipsTagsRequest($id, $apiKey);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3916,19 +3914,18 @@ class CampaignsApi
     }
 
     /**
-     * Operation getCampaignRelationshipsAsync
+     * Operation getCampaignRelationshipsTagsAsync
      *
-     * Get Campaign Relationships
+     * Get Campaign Relationships Tags
      *
      * @param  string $id  (required)
-     * @param  string $related_resource  (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getCampaignRelationshipsAsync($id, $related_resource, $apiKey = null)
+    public function getCampaignRelationshipsTagsAsync($id, $apiKey = null)
     {
-        return $this->getCampaignRelationshipsAsyncWithHttpInfo($id, $related_resource, $apiKey)
+        return $this->getCampaignRelationshipsTagsAsyncWithHttpInfo($id, $apiKey)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3937,20 +3934,19 @@ class CampaignsApi
     }
 
     /**
-     * Operation getCampaignRelationshipsAsyncWithHttpInfo
+     * Operation getCampaignRelationshipsTagsAsyncWithHttpInfo
      *
-     * Get Campaign Relationships
+     * Get Campaign Relationships Tags
      *
      * @param  string $id  (required)
-     * @param  string $related_resource  (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getCampaignRelationshipsAsyncWithHttpInfo($id, $related_resource, $apiKey = null)
+    public function getCampaignRelationshipsTagsAsyncWithHttpInfo($id, $apiKey = null)
     {
         $returnType = 'array<string,mixed>';
-        $request = $this->getCampaignRelationshipsRequest($id, $related_resource, $apiKey);
+        $request = $this->getCampaignRelationshipsTagsRequest($id, $apiKey);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3994,30 +3990,23 @@ class CampaignsApi
     }
 
     /**
-     * Create request for operation 'getCampaignRelationships'
+     * Create request for operation 'getCampaignRelationshipsTags'
      *
      * @param  string $id  (required)
-     * @param  string $related_resource  (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getCampaignRelationshipsRequest($id, $related_resource, $apiKey = null)
+    public function getCampaignRelationshipsTagsRequest($id, $apiKey = null)
     {
         // verify the required parameter 'id' is set
         if ($id === null || (is_array($id) && count($id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $id when calling getCampaignRelationships'
-            );
-        }
-        // verify the required parameter 'related_resource' is set
-        if ($related_resource === null || (is_array($related_resource) && count($related_resource) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $related_resource when calling getCampaignRelationships'
+                'Missing the required parameter $id when calling getCampaignRelationshipsTags'
             );
         }
 
-        $resourcePath = '/api/campaigns/{id}/relationships/{related_resource}/';
+        $resourcePath = '/api/campaigns/{id}/relationships/tags/';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -4031,14 +4020,6 @@ class CampaignsApi
             $resourcePath = str_replace(
                 '{' . 'id' . '}',
                 ObjectSerializer::toPathValue($id),
-                $resourcePath
-            );
-        }
-        // path params
-        if ($related_resource !== null) {
-            $resourcePath = str_replace(
-                '{' . 'related_resource' . '}',
-                ObjectSerializer::toPathValue($related_resource),
                 $resourcePath
             );
         }

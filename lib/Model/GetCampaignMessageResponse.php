@@ -58,7 +58,7 @@ class GetCampaignMessageResponse implements ModelInterface, ArrayAccess, \JsonSe
       * @var string[]
       */
     protected static $openAPITypes = [
-        'data' => '\KlaviyoAPI\Model\GetCampaignMessageResponseData'
+        'data' => '\KlaviyoAPI\Model\CampaignMessageResponseObjectResource'
     ];
 
     /**
@@ -210,7 +210,7 @@ class GetCampaignMessageResponse implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Gets data
      *
-     * @return \KlaviyoAPI\Model\GetCampaignMessageResponseData
+     * @return \KlaviyoAPI\Model\CampaignMessageResponseObjectResource
      */
     public function getData()
     {
@@ -220,7 +220,7 @@ class GetCampaignMessageResponse implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Sets data
      *
-     * @param \KlaviyoAPI\Model\GetCampaignMessageResponseData $data data
+     * @param \KlaviyoAPI\Model\CampaignMessageResponseObjectResource $data data
      *
      * @return self
      */
