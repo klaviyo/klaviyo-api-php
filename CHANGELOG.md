@@ -9,8 +9,8 @@ NOTE: For more granular API-specific changes, please see our [API Changelog](htt
 
 ## [2.0.0] - 2023-04-06
 ### Changed
-- Relationship endpoints that were previously grouped together are now split into related-resource-specific endpoints.
-- Profiles API can now return predictive analytics when calling `getProfile` and `getProfiles`, by passing in `$additional_fields_profile="predictive_analytics"`.
+- Relationship endpoints that were previously grouped together are now split into related-resource-specific endpoints. This means that all relationship endpoints have new function names.
+- Profiles API can now return predictive analytics when calling `getProfile` and `getProfiles`, by passing in `$additional_fields_profile=["predictive_analytics"]`.
 
 ### Migration Guide
 - To migrate to this latest version, all calls to relationship endpoints need to be updated, as in the following example:
