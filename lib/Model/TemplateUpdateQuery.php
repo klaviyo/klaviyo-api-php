@@ -58,7 +58,7 @@ class TemplateUpdateQuery implements ModelInterface, ArrayAccess, \JsonSerializa
       * @var string[]
       */
     protected static $openAPITypes = [
-        'data' => '\KlaviyoAPI\Model\TemplateUpdateQueryAsSubResource'
+        'data' => '\KlaviyoAPI\Model\TemplateUpdateQueryResourceObject'
     ];
 
     /**
@@ -210,7 +210,7 @@ class TemplateUpdateQuery implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Gets data
      *
-     * @return \KlaviyoAPI\Model\TemplateUpdateQueryAsSubResource
+     * @return \KlaviyoAPI\Model\TemplateUpdateQueryResourceObject
      */
     public function getData()
     {
@@ -220,7 +220,7 @@ class TemplateUpdateQuery implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets data
      *
-     * @param \KlaviyoAPI\Model\TemplateUpdateQueryAsSubResource $data data
+     * @param \KlaviyoAPI\Model\TemplateUpdateQueryResourceObject $data data
      *
      * @return self
      */

@@ -843,39 +843,37 @@ class TagsApi
     }
 
     /**
-     * Operation createTagRelationships
+     * Operation createTagRelationshipsCampaigns
      *
-     * Create Tag Relationships
+     * Create Tag Relationships Campaigns
      *
      * @param  string $id  (required)
-     * @param  string $related_resource  (required)
-     * @param  \KlaviyoAPI\Model\TagSegmentOp $tag_segment_op tag_segment_op (required)
+     * @param  \KlaviyoAPI\Model\TagCampaignOp $tag_campaign_op tag_campaign_op (required)
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function createTagRelationships($id, $related_resource, $tag_segment_op, $apiKey = null)
+    public function createTagRelationshipsCampaigns($id, $tag_campaign_op, $apiKey = null)
     {
-        $this->createTagRelationshipsWithHttpInfo($id, $related_resource, $tag_segment_op, $apiKey);
+        $this->createTagRelationshipsCampaignsWithHttpInfo($id, $tag_campaign_op, $apiKey);
     }
 
     /**
-     * Operation createTagRelationshipsWithHttpInfo
+     * Operation createTagRelationshipsCampaignsWithHttpInfo
      *
-     * Create Tag Relationships
+     * Create Tag Relationships Campaigns
      *
      * @param  string $id  (required)
-     * @param  string $related_resource  (required)
-     * @param  \KlaviyoAPI\Model\TagSegmentOp $tag_segment_op (required)
+     * @param  \KlaviyoAPI\Model\TagCampaignOp $tag_campaign_op (required)
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createTagRelationshipsWithHttpInfo($id, $related_resource, $tag_segment_op, $apiKey = null)
+    public function createTagRelationshipsCampaignsWithHttpInfo($id, $tag_campaign_op, $apiKey = null)
     {
-        $request = $this->createTagRelationshipsRequest($id, $related_resource, $tag_segment_op, $apiKey);
+        $request = $this->createTagRelationshipsCampaignsRequest($id, $tag_campaign_op, $apiKey);
 
         try {
             $options = $this->createHttpClientOption();
@@ -938,20 +936,19 @@ class TagsApi
     }
 
     /**
-     * Operation createTagRelationshipsAsync
+     * Operation createTagRelationshipsCampaignsAsync
      *
-     * Create Tag Relationships
+     * Create Tag Relationships Campaigns
      *
      * @param  string $id  (required)
-     * @param  string $related_resource  (required)
-     * @param  \KlaviyoAPI\Model\TagSegmentOp $tag_segment_op (required)
+     * @param  \KlaviyoAPI\Model\TagCampaignOp $tag_campaign_op (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createTagRelationshipsAsync($id, $related_resource, $tag_segment_op, $apiKey = null)
+    public function createTagRelationshipsCampaignsAsync($id, $tag_campaign_op, $apiKey = null)
     {
-        return $this->createTagRelationshipsAsyncWithHttpInfo($id, $related_resource, $tag_segment_op, $apiKey)
+        return $this->createTagRelationshipsCampaignsAsyncWithHttpInfo($id, $tag_campaign_op, $apiKey)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -960,21 +957,20 @@ class TagsApi
     }
 
     /**
-     * Operation createTagRelationshipsAsyncWithHttpInfo
+     * Operation createTagRelationshipsCampaignsAsyncWithHttpInfo
      *
-     * Create Tag Relationships
+     * Create Tag Relationships Campaigns
      *
      * @param  string $id  (required)
-     * @param  string $related_resource  (required)
-     * @param  \KlaviyoAPI\Model\TagSegmentOp $tag_segment_op (required)
+     * @param  \KlaviyoAPI\Model\TagCampaignOp $tag_campaign_op (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createTagRelationshipsAsyncWithHttpInfo($id, $related_resource, $tag_segment_op, $apiKey = null)
+    public function createTagRelationshipsCampaignsAsyncWithHttpInfo($id, $tag_campaign_op, $apiKey = null)
     {
         $returnType = '';
-        $request = $this->createTagRelationshipsRequest($id, $related_resource, $tag_segment_op, $apiKey);
+        $request = $this->createTagRelationshipsCampaignsRequest($id, $tag_campaign_op, $apiKey);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1000,37 +996,30 @@ class TagsApi
     }
 
     /**
-     * Create request for operation 'createTagRelationships'
+     * Create request for operation 'createTagRelationshipsCampaigns'
      *
      * @param  string $id  (required)
-     * @param  string $related_resource  (required)
-     * @param  \KlaviyoAPI\Model\TagSegmentOp $tag_segment_op (required)
+     * @param  \KlaviyoAPI\Model\TagCampaignOp $tag_campaign_op (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function createTagRelationshipsRequest($id, $related_resource, $tag_segment_op, $apiKey = null)
+    public function createTagRelationshipsCampaignsRequest($id, $tag_campaign_op, $apiKey = null)
     {
         // verify the required parameter 'id' is set
         if ($id === null || (is_array($id) && count($id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $id when calling createTagRelationships'
+                'Missing the required parameter $id when calling createTagRelationshipsCampaigns'
             );
         }
-        // verify the required parameter 'related_resource' is set
-        if ($related_resource === null || (is_array($related_resource) && count($related_resource) === 0)) {
+        // verify the required parameter 'tag_campaign_op' is set
+        if ($tag_campaign_op === null || (is_array($tag_campaign_op) && count($tag_campaign_op) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $related_resource when calling createTagRelationships'
-            );
-        }
-        // verify the required parameter 'tag_segment_op' is set
-        if ($tag_segment_op === null || (is_array($tag_segment_op) && count($tag_segment_op) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $tag_segment_op when calling createTagRelationships'
+                'Missing the required parameter $tag_campaign_op when calling createTagRelationshipsCampaigns'
             );
         }
 
-        $resourcePath = '/api/tags/{id}/relationships/{related_resource}/';
+        $resourcePath = '/api/tags/{id}/relationships/campaigns/';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1047,11 +1036,813 @@ class TagsApi
                 $resourcePath
             );
         }
+
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                ['application/json']
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($tag_campaign_op)) {
+            if ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($tag_campaign_op));
+            } else {
+                $httpBody = $tag_campaign_op;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        if ($apiKey == null) {
+            $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        } else {
+            $apiKey = 'Klaviyo-API-Key '.$apiKey;
+        }
+
+        $headers['Authorization'] = $apiKey;
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $defaultHeaders['revision'] = ['2023-02-22'];
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'POST',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation createTagRelationshipsFlows
+     *
+     * Create Tag Relationships Flows
+     *
+     * @param  string $id  (required)
+     * @param  \KlaviyoAPI\Model\TagFlowOp $tag_flow_op tag_flow_op (required)
+     *
+     * @throws \KlaviyoAPI\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return void
+     */
+    public function createTagRelationshipsFlows($id, $tag_flow_op, $apiKey = null)
+    {
+        $this->createTagRelationshipsFlowsWithHttpInfo($id, $tag_flow_op, $apiKey);
+    }
+
+    /**
+     * Operation createTagRelationshipsFlowsWithHttpInfo
+     *
+     * Create Tag Relationships Flows
+     *
+     * @param  string $id  (required)
+     * @param  \KlaviyoAPI\Model\TagFlowOp $tag_flow_op (required)
+     *
+     * @throws \KlaviyoAPI\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function createTagRelationshipsFlowsWithHttpInfo($id, $tag_flow_op, $apiKey = null)
+    {
+        $request = $this->createTagRelationshipsFlowsRequest($id, $tag_flow_op, $apiKey);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            return [null, $statusCode, $response->getHeaders()];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\KlaviyoAPI\Model\GetCampaigns400Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 500:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\KlaviyoAPI\Model\GetCampaigns400Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation createTagRelationshipsFlowsAsync
+     *
+     * Create Tag Relationships Flows
+     *
+     * @param  string $id  (required)
+     * @param  \KlaviyoAPI\Model\TagFlowOp $tag_flow_op (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function createTagRelationshipsFlowsAsync($id, $tag_flow_op, $apiKey = null)
+    {
+        return $this->createTagRelationshipsFlowsAsyncWithHttpInfo($id, $tag_flow_op, $apiKey)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation createTagRelationshipsFlowsAsyncWithHttpInfo
+     *
+     * Create Tag Relationships Flows
+     *
+     * @param  string $id  (required)
+     * @param  \KlaviyoAPI\Model\TagFlowOp $tag_flow_op (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function createTagRelationshipsFlowsAsyncWithHttpInfo($id, $tag_flow_op, $apiKey = null)
+    {
+        $returnType = '';
+        $request = $this->createTagRelationshipsFlowsRequest($id, $tag_flow_op, $apiKey);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    return [null, $response->getStatusCode(), $response->getHeaders()];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'createTagRelationshipsFlows'
+     *
+     * @param  string $id  (required)
+     * @param  \KlaviyoAPI\Model\TagFlowOp $tag_flow_op (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function createTagRelationshipsFlowsRequest($id, $tag_flow_op, $apiKey = null)
+    {
+        // verify the required parameter 'id' is set
+        if ($id === null || (is_array($id) && count($id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $id when calling createTagRelationshipsFlows'
+            );
+        }
+        // verify the required parameter 'tag_flow_op' is set
+        if ($tag_flow_op === null || (is_array($tag_flow_op) && count($tag_flow_op) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $tag_flow_op when calling createTagRelationshipsFlows'
+            );
+        }
+
+        $resourcePath = '/api/tags/{id}/relationships/flows/';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
         // path params
-        if ($related_resource !== null) {
+        if ($id !== null) {
             $resourcePath = str_replace(
-                '{' . 'related_resource' . '}',
-                ObjectSerializer::toPathValue($related_resource),
+                '{' . 'id' . '}',
+                ObjectSerializer::toPathValue($id),
+                $resourcePath
+            );
+        }
+
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                ['application/json']
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($tag_flow_op)) {
+            if ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($tag_flow_op));
+            } else {
+                $httpBody = $tag_flow_op;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        if ($apiKey == null) {
+            $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        } else {
+            $apiKey = 'Klaviyo-API-Key '.$apiKey;
+        }
+
+        $headers['Authorization'] = $apiKey;
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $defaultHeaders['revision'] = ['2023-02-22'];
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'POST',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation createTagRelationshipsLists
+     *
+     * Create Tag Relationships Lists
+     *
+     * @param  string $id  (required)
+     * @param  \KlaviyoAPI\Model\TagListOp $tag_list_op tag_list_op (required)
+     *
+     * @throws \KlaviyoAPI\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return void
+     */
+    public function createTagRelationshipsLists($id, $tag_list_op, $apiKey = null)
+    {
+        $this->createTagRelationshipsListsWithHttpInfo($id, $tag_list_op, $apiKey);
+    }
+
+    /**
+     * Operation createTagRelationshipsListsWithHttpInfo
+     *
+     * Create Tag Relationships Lists
+     *
+     * @param  string $id  (required)
+     * @param  \KlaviyoAPI\Model\TagListOp $tag_list_op (required)
+     *
+     * @throws \KlaviyoAPI\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function createTagRelationshipsListsWithHttpInfo($id, $tag_list_op, $apiKey = null)
+    {
+        $request = $this->createTagRelationshipsListsRequest($id, $tag_list_op, $apiKey);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            return [null, $statusCode, $response->getHeaders()];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\KlaviyoAPI\Model\GetCampaigns400Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 500:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\KlaviyoAPI\Model\GetCampaigns400Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation createTagRelationshipsListsAsync
+     *
+     * Create Tag Relationships Lists
+     *
+     * @param  string $id  (required)
+     * @param  \KlaviyoAPI\Model\TagListOp $tag_list_op (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function createTagRelationshipsListsAsync($id, $tag_list_op, $apiKey = null)
+    {
+        return $this->createTagRelationshipsListsAsyncWithHttpInfo($id, $tag_list_op, $apiKey)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation createTagRelationshipsListsAsyncWithHttpInfo
+     *
+     * Create Tag Relationships Lists
+     *
+     * @param  string $id  (required)
+     * @param  \KlaviyoAPI\Model\TagListOp $tag_list_op (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function createTagRelationshipsListsAsyncWithHttpInfo($id, $tag_list_op, $apiKey = null)
+    {
+        $returnType = '';
+        $request = $this->createTagRelationshipsListsRequest($id, $tag_list_op, $apiKey);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    return [null, $response->getStatusCode(), $response->getHeaders()];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'createTagRelationshipsLists'
+     *
+     * @param  string $id  (required)
+     * @param  \KlaviyoAPI\Model\TagListOp $tag_list_op (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function createTagRelationshipsListsRequest($id, $tag_list_op, $apiKey = null)
+    {
+        // verify the required parameter 'id' is set
+        if ($id === null || (is_array($id) && count($id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $id when calling createTagRelationshipsLists'
+            );
+        }
+        // verify the required parameter 'tag_list_op' is set
+        if ($tag_list_op === null || (is_array($tag_list_op) && count($tag_list_op) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $tag_list_op when calling createTagRelationshipsLists'
+            );
+        }
+
+        $resourcePath = '/api/tags/{id}/relationships/lists/';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'id' . '}',
+                ObjectSerializer::toPathValue($id),
+                $resourcePath
+            );
+        }
+
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                ['application/json']
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($tag_list_op)) {
+            if ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($tag_list_op));
+            } else {
+                $httpBody = $tag_list_op;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        if ($apiKey == null) {
+            $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        } else {
+            $apiKey = 'Klaviyo-API-Key '.$apiKey;
+        }
+
+        $headers['Authorization'] = $apiKey;
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $defaultHeaders['revision'] = ['2023-02-22'];
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'POST',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation createTagRelationshipsSegments
+     *
+     * Create Tag Relationships Segments
+     *
+     * @param  string $id  (required)
+     * @param  \KlaviyoAPI\Model\TagSegmentOp $tag_segment_op tag_segment_op (required)
+     *
+     * @throws \KlaviyoAPI\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return void
+     */
+    public function createTagRelationshipsSegments($id, $tag_segment_op, $apiKey = null)
+    {
+        $this->createTagRelationshipsSegmentsWithHttpInfo($id, $tag_segment_op, $apiKey);
+    }
+
+    /**
+     * Operation createTagRelationshipsSegmentsWithHttpInfo
+     *
+     * Create Tag Relationships Segments
+     *
+     * @param  string $id  (required)
+     * @param  \KlaviyoAPI\Model\TagSegmentOp $tag_segment_op (required)
+     *
+     * @throws \KlaviyoAPI\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function createTagRelationshipsSegmentsWithHttpInfo($id, $tag_segment_op, $apiKey = null)
+    {
+        $request = $this->createTagRelationshipsSegmentsRequest($id, $tag_segment_op, $apiKey);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            return [null, $statusCode, $response->getHeaders()];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\KlaviyoAPI\Model\GetCampaigns400Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 500:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\KlaviyoAPI\Model\GetCampaigns400Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation createTagRelationshipsSegmentsAsync
+     *
+     * Create Tag Relationships Segments
+     *
+     * @param  string $id  (required)
+     * @param  \KlaviyoAPI\Model\TagSegmentOp $tag_segment_op (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function createTagRelationshipsSegmentsAsync($id, $tag_segment_op, $apiKey = null)
+    {
+        return $this->createTagRelationshipsSegmentsAsyncWithHttpInfo($id, $tag_segment_op, $apiKey)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation createTagRelationshipsSegmentsAsyncWithHttpInfo
+     *
+     * Create Tag Relationships Segments
+     *
+     * @param  string $id  (required)
+     * @param  \KlaviyoAPI\Model\TagSegmentOp $tag_segment_op (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function createTagRelationshipsSegmentsAsyncWithHttpInfo($id, $tag_segment_op, $apiKey = null)
+    {
+        $returnType = '';
+        $request = $this->createTagRelationshipsSegmentsRequest($id, $tag_segment_op, $apiKey);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    return [null, $response->getStatusCode(), $response->getHeaders()];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'createTagRelationshipsSegments'
+     *
+     * @param  string $id  (required)
+     * @param  \KlaviyoAPI\Model\TagSegmentOp $tag_segment_op (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function createTagRelationshipsSegmentsRequest($id, $tag_segment_op, $apiKey = null)
+    {
+        // verify the required parameter 'id' is set
+        if ($id === null || (is_array($id) && count($id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $id when calling createTagRelationshipsSegments'
+            );
+        }
+        // verify the required parameter 'tag_segment_op' is set
+        if ($tag_segment_op === null || (is_array($tag_segment_op) && count($tag_segment_op) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $tag_segment_op when calling createTagRelationshipsSegments'
+            );
+        }
+
+        $resourcePath = '/api/tags/{id}/relationships/segments/';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'id' . '}',
+                ObjectSerializer::toPathValue($id),
                 $resourcePath
             );
         }
@@ -1862,39 +2653,37 @@ class TagsApi
     }
 
     /**
-     * Operation deleteTagRelationships
+     * Operation deleteTagRelationshipsCampaigns
      *
-     * Delete Tag Relationships
+     * Delete Tag Relationships Campaigns
      *
      * @param  string $id  (required)
-     * @param  string $related_resource  (required)
-     * @param  \KlaviyoAPI\Model\TagSegmentOp $tag_segment_op tag_segment_op (required)
+     * @param  \KlaviyoAPI\Model\TagCampaignOp $tag_campaign_op tag_campaign_op (required)
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function deleteTagRelationships($id, $related_resource, $tag_segment_op, $apiKey = null)
+    public function deleteTagRelationshipsCampaigns($id, $tag_campaign_op, $apiKey = null)
     {
-        $this->deleteTagRelationshipsWithHttpInfo($id, $related_resource, $tag_segment_op, $apiKey);
+        $this->deleteTagRelationshipsCampaignsWithHttpInfo($id, $tag_campaign_op, $apiKey);
     }
 
     /**
-     * Operation deleteTagRelationshipsWithHttpInfo
+     * Operation deleteTagRelationshipsCampaignsWithHttpInfo
      *
-     * Delete Tag Relationships
+     * Delete Tag Relationships Campaigns
      *
      * @param  string $id  (required)
-     * @param  string $related_resource  (required)
-     * @param  \KlaviyoAPI\Model\TagSegmentOp $tag_segment_op (required)
+     * @param  \KlaviyoAPI\Model\TagCampaignOp $tag_campaign_op (required)
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function deleteTagRelationshipsWithHttpInfo($id, $related_resource, $tag_segment_op, $apiKey = null)
+    public function deleteTagRelationshipsCampaignsWithHttpInfo($id, $tag_campaign_op, $apiKey = null)
     {
-        $request = $this->deleteTagRelationshipsRequest($id, $related_resource, $tag_segment_op, $apiKey);
+        $request = $this->deleteTagRelationshipsCampaignsRequest($id, $tag_campaign_op, $apiKey);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1957,20 +2746,19 @@ class TagsApi
     }
 
     /**
-     * Operation deleteTagRelationshipsAsync
+     * Operation deleteTagRelationshipsCampaignsAsync
      *
-     * Delete Tag Relationships
+     * Delete Tag Relationships Campaigns
      *
      * @param  string $id  (required)
-     * @param  string $related_resource  (required)
-     * @param  \KlaviyoAPI\Model\TagSegmentOp $tag_segment_op (required)
+     * @param  \KlaviyoAPI\Model\TagCampaignOp $tag_campaign_op (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteTagRelationshipsAsync($id, $related_resource, $tag_segment_op, $apiKey = null)
+    public function deleteTagRelationshipsCampaignsAsync($id, $tag_campaign_op, $apiKey = null)
     {
-        return $this->deleteTagRelationshipsAsyncWithHttpInfo($id, $related_resource, $tag_segment_op, $apiKey)
+        return $this->deleteTagRelationshipsCampaignsAsyncWithHttpInfo($id, $tag_campaign_op, $apiKey)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1979,21 +2767,20 @@ class TagsApi
     }
 
     /**
-     * Operation deleteTagRelationshipsAsyncWithHttpInfo
+     * Operation deleteTagRelationshipsCampaignsAsyncWithHttpInfo
      *
-     * Delete Tag Relationships
+     * Delete Tag Relationships Campaigns
      *
      * @param  string $id  (required)
-     * @param  string $related_resource  (required)
-     * @param  \KlaviyoAPI\Model\TagSegmentOp $tag_segment_op (required)
+     * @param  \KlaviyoAPI\Model\TagCampaignOp $tag_campaign_op (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteTagRelationshipsAsyncWithHttpInfo($id, $related_resource, $tag_segment_op, $apiKey = null)
+    public function deleteTagRelationshipsCampaignsAsyncWithHttpInfo($id, $tag_campaign_op, $apiKey = null)
     {
         $returnType = '';
-        $request = $this->deleteTagRelationshipsRequest($id, $related_resource, $tag_segment_op, $apiKey);
+        $request = $this->deleteTagRelationshipsCampaignsRequest($id, $tag_campaign_op, $apiKey);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2019,37 +2806,30 @@ class TagsApi
     }
 
     /**
-     * Create request for operation 'deleteTagRelationships'
+     * Create request for operation 'deleteTagRelationshipsCampaigns'
      *
      * @param  string $id  (required)
-     * @param  string $related_resource  (required)
-     * @param  \KlaviyoAPI\Model\TagSegmentOp $tag_segment_op (required)
+     * @param  \KlaviyoAPI\Model\TagCampaignOp $tag_campaign_op (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function deleteTagRelationshipsRequest($id, $related_resource, $tag_segment_op, $apiKey = null)
+    public function deleteTagRelationshipsCampaignsRequest($id, $tag_campaign_op, $apiKey = null)
     {
         // verify the required parameter 'id' is set
         if ($id === null || (is_array($id) && count($id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $id when calling deleteTagRelationships'
+                'Missing the required parameter $id when calling deleteTagRelationshipsCampaigns'
             );
         }
-        // verify the required parameter 'related_resource' is set
-        if ($related_resource === null || (is_array($related_resource) && count($related_resource) === 0)) {
+        // verify the required parameter 'tag_campaign_op' is set
+        if ($tag_campaign_op === null || (is_array($tag_campaign_op) && count($tag_campaign_op) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $related_resource when calling deleteTagRelationships'
-            );
-        }
-        // verify the required parameter 'tag_segment_op' is set
-        if ($tag_segment_op === null || (is_array($tag_segment_op) && count($tag_segment_op) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $tag_segment_op when calling deleteTagRelationships'
+                'Missing the required parameter $tag_campaign_op when calling deleteTagRelationshipsCampaigns'
             );
         }
 
-        $resourcePath = '/api/tags/{id}/relationships/{related_resource}/';
+        $resourcePath = '/api/tags/{id}/relationships/campaigns/';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -2066,11 +2846,813 @@ class TagsApi
                 $resourcePath
             );
         }
+
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                ['application/json']
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($tag_campaign_op)) {
+            if ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($tag_campaign_op));
+            } else {
+                $httpBody = $tag_campaign_op;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        if ($apiKey == null) {
+            $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        } else {
+            $apiKey = 'Klaviyo-API-Key '.$apiKey;
+        }
+
+        $headers['Authorization'] = $apiKey;
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $defaultHeaders['revision'] = ['2023-02-22'];
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'DELETE',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation deleteTagRelationshipsFlows
+     *
+     * Delete Tag Relationships Flows
+     *
+     * @param  string $id  (required)
+     * @param  \KlaviyoAPI\Model\TagFlowOp $tag_flow_op tag_flow_op (required)
+     *
+     * @throws \KlaviyoAPI\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return void
+     */
+    public function deleteTagRelationshipsFlows($id, $tag_flow_op, $apiKey = null)
+    {
+        $this->deleteTagRelationshipsFlowsWithHttpInfo($id, $tag_flow_op, $apiKey);
+    }
+
+    /**
+     * Operation deleteTagRelationshipsFlowsWithHttpInfo
+     *
+     * Delete Tag Relationships Flows
+     *
+     * @param  string $id  (required)
+     * @param  \KlaviyoAPI\Model\TagFlowOp $tag_flow_op (required)
+     *
+     * @throws \KlaviyoAPI\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function deleteTagRelationshipsFlowsWithHttpInfo($id, $tag_flow_op, $apiKey = null)
+    {
+        $request = $this->deleteTagRelationshipsFlowsRequest($id, $tag_flow_op, $apiKey);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            return [null, $statusCode, $response->getHeaders()];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\KlaviyoAPI\Model\GetCampaigns400Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 500:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\KlaviyoAPI\Model\GetCampaigns400Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation deleteTagRelationshipsFlowsAsync
+     *
+     * Delete Tag Relationships Flows
+     *
+     * @param  string $id  (required)
+     * @param  \KlaviyoAPI\Model\TagFlowOp $tag_flow_op (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function deleteTagRelationshipsFlowsAsync($id, $tag_flow_op, $apiKey = null)
+    {
+        return $this->deleteTagRelationshipsFlowsAsyncWithHttpInfo($id, $tag_flow_op, $apiKey)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation deleteTagRelationshipsFlowsAsyncWithHttpInfo
+     *
+     * Delete Tag Relationships Flows
+     *
+     * @param  string $id  (required)
+     * @param  \KlaviyoAPI\Model\TagFlowOp $tag_flow_op (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function deleteTagRelationshipsFlowsAsyncWithHttpInfo($id, $tag_flow_op, $apiKey = null)
+    {
+        $returnType = '';
+        $request = $this->deleteTagRelationshipsFlowsRequest($id, $tag_flow_op, $apiKey);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    return [null, $response->getStatusCode(), $response->getHeaders()];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'deleteTagRelationshipsFlows'
+     *
+     * @param  string $id  (required)
+     * @param  \KlaviyoAPI\Model\TagFlowOp $tag_flow_op (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function deleteTagRelationshipsFlowsRequest($id, $tag_flow_op, $apiKey = null)
+    {
+        // verify the required parameter 'id' is set
+        if ($id === null || (is_array($id) && count($id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $id when calling deleteTagRelationshipsFlows'
+            );
+        }
+        // verify the required parameter 'tag_flow_op' is set
+        if ($tag_flow_op === null || (is_array($tag_flow_op) && count($tag_flow_op) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $tag_flow_op when calling deleteTagRelationshipsFlows'
+            );
+        }
+
+        $resourcePath = '/api/tags/{id}/relationships/flows/';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
         // path params
-        if ($related_resource !== null) {
+        if ($id !== null) {
             $resourcePath = str_replace(
-                '{' . 'related_resource' . '}',
-                ObjectSerializer::toPathValue($related_resource),
+                '{' . 'id' . '}',
+                ObjectSerializer::toPathValue($id),
+                $resourcePath
+            );
+        }
+
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                ['application/json']
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($tag_flow_op)) {
+            if ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($tag_flow_op));
+            } else {
+                $httpBody = $tag_flow_op;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        if ($apiKey == null) {
+            $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        } else {
+            $apiKey = 'Klaviyo-API-Key '.$apiKey;
+        }
+
+        $headers['Authorization'] = $apiKey;
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $defaultHeaders['revision'] = ['2023-02-22'];
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'DELETE',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation deleteTagRelationshipsLists
+     *
+     * Delete Tag Relationships Lists
+     *
+     * @param  string $id  (required)
+     * @param  \KlaviyoAPI\Model\TagListOp $tag_list_op tag_list_op (required)
+     *
+     * @throws \KlaviyoAPI\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return void
+     */
+    public function deleteTagRelationshipsLists($id, $tag_list_op, $apiKey = null)
+    {
+        $this->deleteTagRelationshipsListsWithHttpInfo($id, $tag_list_op, $apiKey);
+    }
+
+    /**
+     * Operation deleteTagRelationshipsListsWithHttpInfo
+     *
+     * Delete Tag Relationships Lists
+     *
+     * @param  string $id  (required)
+     * @param  \KlaviyoAPI\Model\TagListOp $tag_list_op (required)
+     *
+     * @throws \KlaviyoAPI\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function deleteTagRelationshipsListsWithHttpInfo($id, $tag_list_op, $apiKey = null)
+    {
+        $request = $this->deleteTagRelationshipsListsRequest($id, $tag_list_op, $apiKey);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            return [null, $statusCode, $response->getHeaders()];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\KlaviyoAPI\Model\GetCampaigns400Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 500:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\KlaviyoAPI\Model\GetCampaigns400Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation deleteTagRelationshipsListsAsync
+     *
+     * Delete Tag Relationships Lists
+     *
+     * @param  string $id  (required)
+     * @param  \KlaviyoAPI\Model\TagListOp $tag_list_op (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function deleteTagRelationshipsListsAsync($id, $tag_list_op, $apiKey = null)
+    {
+        return $this->deleteTagRelationshipsListsAsyncWithHttpInfo($id, $tag_list_op, $apiKey)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation deleteTagRelationshipsListsAsyncWithHttpInfo
+     *
+     * Delete Tag Relationships Lists
+     *
+     * @param  string $id  (required)
+     * @param  \KlaviyoAPI\Model\TagListOp $tag_list_op (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function deleteTagRelationshipsListsAsyncWithHttpInfo($id, $tag_list_op, $apiKey = null)
+    {
+        $returnType = '';
+        $request = $this->deleteTagRelationshipsListsRequest($id, $tag_list_op, $apiKey);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    return [null, $response->getStatusCode(), $response->getHeaders()];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'deleteTagRelationshipsLists'
+     *
+     * @param  string $id  (required)
+     * @param  \KlaviyoAPI\Model\TagListOp $tag_list_op (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function deleteTagRelationshipsListsRequest($id, $tag_list_op, $apiKey = null)
+    {
+        // verify the required parameter 'id' is set
+        if ($id === null || (is_array($id) && count($id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $id when calling deleteTagRelationshipsLists'
+            );
+        }
+        // verify the required parameter 'tag_list_op' is set
+        if ($tag_list_op === null || (is_array($tag_list_op) && count($tag_list_op) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $tag_list_op when calling deleteTagRelationshipsLists'
+            );
+        }
+
+        $resourcePath = '/api/tags/{id}/relationships/lists/';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'id' . '}',
+                ObjectSerializer::toPathValue($id),
+                $resourcePath
+            );
+        }
+
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                ['application/json']
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($tag_list_op)) {
+            if ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($tag_list_op));
+            } else {
+                $httpBody = $tag_list_op;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        if ($apiKey == null) {
+            $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        } else {
+            $apiKey = 'Klaviyo-API-Key '.$apiKey;
+        }
+
+        $headers['Authorization'] = $apiKey;
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $defaultHeaders['revision'] = ['2023-02-22'];
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'DELETE',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation deleteTagRelationshipsSegments
+     *
+     * Delete Tag Relationships Segments
+     *
+     * @param  string $id  (required)
+     * @param  \KlaviyoAPI\Model\TagSegmentOp $tag_segment_op tag_segment_op (required)
+     *
+     * @throws \KlaviyoAPI\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return void
+     */
+    public function deleteTagRelationshipsSegments($id, $tag_segment_op, $apiKey = null)
+    {
+        $this->deleteTagRelationshipsSegmentsWithHttpInfo($id, $tag_segment_op, $apiKey);
+    }
+
+    /**
+     * Operation deleteTagRelationshipsSegmentsWithHttpInfo
+     *
+     * Delete Tag Relationships Segments
+     *
+     * @param  string $id  (required)
+     * @param  \KlaviyoAPI\Model\TagSegmentOp $tag_segment_op (required)
+     *
+     * @throws \KlaviyoAPI\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function deleteTagRelationshipsSegmentsWithHttpInfo($id, $tag_segment_op, $apiKey = null)
+    {
+        $request = $this->deleteTagRelationshipsSegmentsRequest($id, $tag_segment_op, $apiKey);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            return [null, $statusCode, $response->getHeaders()];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\KlaviyoAPI\Model\GetCampaigns400Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 500:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\KlaviyoAPI\Model\GetCampaigns400Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation deleteTagRelationshipsSegmentsAsync
+     *
+     * Delete Tag Relationships Segments
+     *
+     * @param  string $id  (required)
+     * @param  \KlaviyoAPI\Model\TagSegmentOp $tag_segment_op (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function deleteTagRelationshipsSegmentsAsync($id, $tag_segment_op, $apiKey = null)
+    {
+        return $this->deleteTagRelationshipsSegmentsAsyncWithHttpInfo($id, $tag_segment_op, $apiKey)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation deleteTagRelationshipsSegmentsAsyncWithHttpInfo
+     *
+     * Delete Tag Relationships Segments
+     *
+     * @param  string $id  (required)
+     * @param  \KlaviyoAPI\Model\TagSegmentOp $tag_segment_op (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function deleteTagRelationshipsSegmentsAsyncWithHttpInfo($id, $tag_segment_op, $apiKey = null)
+    {
+        $returnType = '';
+        $request = $this->deleteTagRelationshipsSegmentsRequest($id, $tag_segment_op, $apiKey);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    return [null, $response->getStatusCode(), $response->getHeaders()];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'deleteTagRelationshipsSegments'
+     *
+     * @param  string $id  (required)
+     * @param  \KlaviyoAPI\Model\TagSegmentOp $tag_segment_op (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function deleteTagRelationshipsSegmentsRequest($id, $tag_segment_op, $apiKey = null)
+    {
+        // verify the required parameter 'id' is set
+        if ($id === null || (is_array($id) && count($id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $id when calling deleteTagRelationshipsSegments'
+            );
+        }
+        // verify the required parameter 'tag_segment_op' is set
+        if ($tag_segment_op === null || (is_array($tag_segment_op) && count($tag_segment_op) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $tag_segment_op when calling deleteTagRelationshipsSegments'
+            );
+        }
+
+        $resourcePath = '/api/tags/{id}/relationships/segments/';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'id' . '}',
+                ObjectSerializer::toPathValue($id),
                 $resourcePath
             );
         }
@@ -2909,38 +4491,36 @@ class TagsApi
     }
 
     /**
-     * Operation getTagGroupRelationships
+     * Operation getTagGroupRelationshipsTags
      *
-     * Get Tag Group Relationships
+     * Get Tag Group Relationships Tags
      *
      * @param  string $id  (required)
-     * @param  string $related_resource  (required)
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array<string,mixed>|\KlaviyoAPI\Model\GetCampaigns400Response|\KlaviyoAPI\Model\GetCampaigns400Response
      */
-    public function getTagGroupRelationships($id, $related_resource, $apiKey = null)
+    public function getTagGroupRelationshipsTags($id, $apiKey = null)
     {
-        list($response) = $this->getTagGroupRelationshipsWithHttpInfo($id, $related_resource, $apiKey);
+        list($response) = $this->getTagGroupRelationshipsTagsWithHttpInfo($id, $apiKey);
         return $response;
     }
 
     /**
-     * Operation getTagGroupRelationshipsWithHttpInfo
+     * Operation getTagGroupRelationshipsTagsWithHttpInfo
      *
-     * Get Tag Group Relationships
+     * Get Tag Group Relationships Tags
      *
      * @param  string $id  (required)
-     * @param  string $related_resource  (required)
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of array<string,mixed>|\KlaviyoAPI\Model\GetCampaigns400Response|\KlaviyoAPI\Model\GetCampaigns400Response, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getTagGroupRelationshipsWithHttpInfo($id, $related_resource, $apiKey = null)
+    public function getTagGroupRelationshipsTagsWithHttpInfo($id, $apiKey = null)
     {
-        $request = $this->getTagGroupRelationshipsRequest($id, $related_resource, $apiKey);
+        $request = $this->getTagGroupRelationshipsTagsRequest($id, $apiKey);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3096,19 +4676,18 @@ class TagsApi
     }
 
     /**
-     * Operation getTagGroupRelationshipsAsync
+     * Operation getTagGroupRelationshipsTagsAsync
      *
-     * Get Tag Group Relationships
+     * Get Tag Group Relationships Tags
      *
      * @param  string $id  (required)
-     * @param  string $related_resource  (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getTagGroupRelationshipsAsync($id, $related_resource, $apiKey = null)
+    public function getTagGroupRelationshipsTagsAsync($id, $apiKey = null)
     {
-        return $this->getTagGroupRelationshipsAsyncWithHttpInfo($id, $related_resource, $apiKey)
+        return $this->getTagGroupRelationshipsTagsAsyncWithHttpInfo($id, $apiKey)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3117,20 +4696,19 @@ class TagsApi
     }
 
     /**
-     * Operation getTagGroupRelationshipsAsyncWithHttpInfo
+     * Operation getTagGroupRelationshipsTagsAsyncWithHttpInfo
      *
-     * Get Tag Group Relationships
+     * Get Tag Group Relationships Tags
      *
      * @param  string $id  (required)
-     * @param  string $related_resource  (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getTagGroupRelationshipsAsyncWithHttpInfo($id, $related_resource, $apiKey = null)
+    public function getTagGroupRelationshipsTagsAsyncWithHttpInfo($id, $apiKey = null)
     {
         $returnType = 'array<string,mixed>';
-        $request = $this->getTagGroupRelationshipsRequest($id, $related_resource, $apiKey);
+        $request = $this->getTagGroupRelationshipsTagsRequest($id, $apiKey);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3174,30 +4752,23 @@ class TagsApi
     }
 
     /**
-     * Create request for operation 'getTagGroupRelationships'
+     * Create request for operation 'getTagGroupRelationshipsTags'
      *
      * @param  string $id  (required)
-     * @param  string $related_resource  (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getTagGroupRelationshipsRequest($id, $related_resource, $apiKey = null)
+    public function getTagGroupRelationshipsTagsRequest($id, $apiKey = null)
     {
         // verify the required parameter 'id' is set
         if ($id === null || (is_array($id) && count($id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $id when calling getTagGroupRelationships'
-            );
-        }
-        // verify the required parameter 'related_resource' is set
-        if ($related_resource === null || (is_array($related_resource) && count($related_resource) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $related_resource when calling getTagGroupRelationships'
+                'Missing the required parameter $id when calling getTagGroupRelationshipsTags'
             );
         }
 
-        $resourcePath = '/api/tag-groups/{id}/relationships/{related_resource}/';
+        $resourcePath = '/api/tag-groups/{id}/relationships/tags/';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -3211,14 +4782,6 @@ class TagsApi
             $resourcePath = str_replace(
                 '{' . 'id' . '}',
                 ObjectSerializer::toPathValue($id),
-                $resourcePath
-            );
-        }
-        // path params
-        if ($related_resource !== null) {
-            $resourcePath = str_replace(
-                '{' . 'related_resource' . '}',
-                ObjectSerializer::toPathValue($related_resource),
                 $resourcePath
             );
         }
@@ -4074,38 +5637,36 @@ class TagsApi
     }
 
     /**
-     * Operation getTagRelationships
+     * Operation getTagRelationshipsCampaigns
      *
-     * Get Tag Relationships
+     * Get Tag Relationships Campaigns
      *
      * @param  string $id  (required)
-     * @param  string $related_resource  (required)
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array<string,mixed>|\KlaviyoAPI\Model\GetCampaigns400Response|\KlaviyoAPI\Model\GetCampaigns400Response
      */
-    public function getTagRelationships($id, $related_resource, $apiKey = null)
+    public function getTagRelationshipsCampaigns($id, $apiKey = null)
     {
-        list($response) = $this->getTagRelationshipsWithHttpInfo($id, $related_resource, $apiKey);
+        list($response) = $this->getTagRelationshipsCampaignsWithHttpInfo($id, $apiKey);
         return $response;
     }
 
     /**
-     * Operation getTagRelationshipsWithHttpInfo
+     * Operation getTagRelationshipsCampaignsWithHttpInfo
      *
-     * Get Tag Relationships
+     * Get Tag Relationships Campaigns
      *
      * @param  string $id  (required)
-     * @param  string $related_resource  (required)
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of array<string,mixed>|\KlaviyoAPI\Model\GetCampaigns400Response|\KlaviyoAPI\Model\GetCampaigns400Response, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getTagRelationshipsWithHttpInfo($id, $related_resource, $apiKey = null)
+    public function getTagRelationshipsCampaignsWithHttpInfo($id, $apiKey = null)
     {
-        $request = $this->getTagRelationshipsRequest($id, $related_resource, $apiKey);
+        $request = $this->getTagRelationshipsCampaignsRequest($id, $apiKey);
 
         try {
             $options = $this->createHttpClientOption();
@@ -4261,19 +5822,18 @@ class TagsApi
     }
 
     /**
-     * Operation getTagRelationshipsAsync
+     * Operation getTagRelationshipsCampaignsAsync
      *
-     * Get Tag Relationships
+     * Get Tag Relationships Campaigns
      *
      * @param  string $id  (required)
-     * @param  string $related_resource  (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getTagRelationshipsAsync($id, $related_resource, $apiKey = null)
+    public function getTagRelationshipsCampaignsAsync($id, $apiKey = null)
     {
-        return $this->getTagRelationshipsAsyncWithHttpInfo($id, $related_resource, $apiKey)
+        return $this->getTagRelationshipsCampaignsAsyncWithHttpInfo($id, $apiKey)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -4282,20 +5842,19 @@ class TagsApi
     }
 
     /**
-     * Operation getTagRelationshipsAsyncWithHttpInfo
+     * Operation getTagRelationshipsCampaignsAsyncWithHttpInfo
      *
-     * Get Tag Relationships
+     * Get Tag Relationships Campaigns
      *
      * @param  string $id  (required)
-     * @param  string $related_resource  (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getTagRelationshipsAsyncWithHttpInfo($id, $related_resource, $apiKey = null)
+    public function getTagRelationshipsCampaignsAsyncWithHttpInfo($id, $apiKey = null)
     {
         $returnType = 'array<string,mixed>';
-        $request = $this->getTagRelationshipsRequest($id, $related_resource, $apiKey);
+        $request = $this->getTagRelationshipsCampaignsRequest($id, $apiKey);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -4339,30 +5898,23 @@ class TagsApi
     }
 
     /**
-     * Create request for operation 'getTagRelationships'
+     * Create request for operation 'getTagRelationshipsCampaigns'
      *
      * @param  string $id  (required)
-     * @param  string $related_resource  (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getTagRelationshipsRequest($id, $related_resource, $apiKey = null)
+    public function getTagRelationshipsCampaignsRequest($id, $apiKey = null)
     {
         // verify the required parameter 'id' is set
         if ($id === null || (is_array($id) && count($id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $id when calling getTagRelationships'
-            );
-        }
-        // verify the required parameter 'related_resource' is set
-        if ($related_resource === null || (is_array($related_resource) && count($related_resource) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $related_resource when calling getTagRelationships'
+                'Missing the required parameter $id when calling getTagRelationshipsCampaigns'
             );
         }
 
-        $resourcePath = '/api/tags/{id}/relationships/{related_resource}/';
+        $resourcePath = '/api/tags/{id}/relationships/campaigns/';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -4379,11 +5931,1463 @@ class TagsApi
                 $resourcePath
             );
         }
+
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                []
+            );
+        }
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        if ($apiKey == null) {
+            $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        } else {
+            $apiKey = 'Klaviyo-API-Key '.$apiKey;
+        }
+
+        $headers['Authorization'] = $apiKey;
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $defaultHeaders['revision'] = ['2023-02-22'];
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation getTagRelationshipsFlows
+     *
+     * Get Tag Relationships Flows
+     *
+     * @param  string $id  (required)
+     *
+     * @throws \KlaviyoAPI\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array<string,mixed>|\KlaviyoAPI\Model\GetCampaigns400Response|\KlaviyoAPI\Model\GetCampaigns400Response
+     */
+    public function getTagRelationshipsFlows($id, $apiKey = null)
+    {
+        list($response) = $this->getTagRelationshipsFlowsWithHttpInfo($id, $apiKey);
+        return $response;
+    }
+
+    /**
+     * Operation getTagRelationshipsFlowsWithHttpInfo
+     *
+     * Get Tag Relationships Flows
+     *
+     * @param  string $id  (required)
+     *
+     * @throws \KlaviyoAPI\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of array<string,mixed>|\KlaviyoAPI\Model\GetCampaigns400Response|\KlaviyoAPI\Model\GetCampaigns400Response, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getTagRelationshipsFlowsWithHttpInfo($id, $apiKey = null)
+    {
+        $request = $this->getTagRelationshipsFlowsRequest($id, $apiKey);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('array<string,mixed>' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('array&lt;string,mixed&gt;' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+
+                    $parsed_content = json_decode(json_encode($content), TRUE);
+                    if (json_last_error() != JSON_ERROR_NONE) {
+                        $parsed_content = $content;
+                    }
+
+                    return [
+                        $parsed_content,
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 400:
+                    if ('\KlaviyoAPI\Model\GetCampaigns400Response' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\KlaviyoAPI\Model\GetCampaigns400Response' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+
+                    $parsed_content = json_decode(json_encode($content), TRUE);
+                    if (json_last_error() != JSON_ERROR_NONE) {
+                        $parsed_content = $content;
+                    }
+
+                    return [
+                        $parsed_content,
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 500:
+                    if ('\KlaviyoAPI\Model\GetCampaigns400Response' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\KlaviyoAPI\Model\GetCampaigns400Response' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+
+                    $parsed_content = json_decode(json_encode($content), TRUE);
+                    if (json_last_error() != JSON_ERROR_NONE) {
+                        $parsed_content = $content;
+                    }
+
+                    return [
+                        $parsed_content,
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = 'array<string,mixed>';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            $parsed_content = json_decode(json_encode($content), TRUE);
+            if (json_last_error() != JSON_ERROR_NONE) {
+                $parsed_content = $content;
+            }
+
+            return [
+                $parsed_content,
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        'array<string,mixed>',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\KlaviyoAPI\Model\GetCampaigns400Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 500:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\KlaviyoAPI\Model\GetCampaigns400Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation getTagRelationshipsFlowsAsync
+     *
+     * Get Tag Relationships Flows
+     *
+     * @param  string $id  (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getTagRelationshipsFlowsAsync($id, $apiKey = null)
+    {
+        return $this->getTagRelationshipsFlowsAsyncWithHttpInfo($id, $apiKey)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation getTagRelationshipsFlowsAsyncWithHttpInfo
+     *
+     * Get Tag Relationships Flows
+     *
+     * @param  string $id  (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getTagRelationshipsFlowsAsyncWithHttpInfo($id, $apiKey = null)
+    {
+        $returnType = 'array<string,mixed>';
+        $request = $this->getTagRelationshipsFlowsRequest($id, $apiKey);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    $parsed_content = json_decode(json_encode($content), TRUE);
+                    if (json_last_error() != JSON_ERROR_NONE) {
+                        $parsed_content = $content;
+                    }
+
+                    return [
+                        $parsed_content,
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'getTagRelationshipsFlows'
+     *
+     * @param  string $id  (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function getTagRelationshipsFlowsRequest($id, $apiKey = null)
+    {
+        // verify the required parameter 'id' is set
+        if ($id === null || (is_array($id) && count($id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $id when calling getTagRelationshipsFlows'
+            );
+        }
+
+        $resourcePath = '/api/tags/{id}/relationships/flows/';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
         // path params
-        if ($related_resource !== null) {
+        if ($id !== null) {
             $resourcePath = str_replace(
-                '{' . 'related_resource' . '}',
-                ObjectSerializer::toPathValue($related_resource),
+                '{' . 'id' . '}',
+                ObjectSerializer::toPathValue($id),
+                $resourcePath
+            );
+        }
+
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                []
+            );
+        }
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        if ($apiKey == null) {
+            $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        } else {
+            $apiKey = 'Klaviyo-API-Key '.$apiKey;
+        }
+
+        $headers['Authorization'] = $apiKey;
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $defaultHeaders['revision'] = ['2023-02-22'];
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation getTagRelationshipsLists
+     *
+     * Get Tag Relationships Lists
+     *
+     * @param  string $id  (required)
+     *
+     * @throws \KlaviyoAPI\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array<string,mixed>|\KlaviyoAPI\Model\GetCampaigns400Response|\KlaviyoAPI\Model\GetCampaigns400Response
+     */
+    public function getTagRelationshipsLists($id, $apiKey = null)
+    {
+        list($response) = $this->getTagRelationshipsListsWithHttpInfo($id, $apiKey);
+        return $response;
+    }
+
+    /**
+     * Operation getTagRelationshipsListsWithHttpInfo
+     *
+     * Get Tag Relationships Lists
+     *
+     * @param  string $id  (required)
+     *
+     * @throws \KlaviyoAPI\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of array<string,mixed>|\KlaviyoAPI\Model\GetCampaigns400Response|\KlaviyoAPI\Model\GetCampaigns400Response, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getTagRelationshipsListsWithHttpInfo($id, $apiKey = null)
+    {
+        $request = $this->getTagRelationshipsListsRequest($id, $apiKey);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('array<string,mixed>' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('array&lt;string,mixed&gt;' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+
+                    $parsed_content = json_decode(json_encode($content), TRUE);
+                    if (json_last_error() != JSON_ERROR_NONE) {
+                        $parsed_content = $content;
+                    }
+
+                    return [
+                        $parsed_content,
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 400:
+                    if ('\KlaviyoAPI\Model\GetCampaigns400Response' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\KlaviyoAPI\Model\GetCampaigns400Response' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+
+                    $parsed_content = json_decode(json_encode($content), TRUE);
+                    if (json_last_error() != JSON_ERROR_NONE) {
+                        $parsed_content = $content;
+                    }
+
+                    return [
+                        $parsed_content,
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 500:
+                    if ('\KlaviyoAPI\Model\GetCampaigns400Response' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\KlaviyoAPI\Model\GetCampaigns400Response' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+
+                    $parsed_content = json_decode(json_encode($content), TRUE);
+                    if (json_last_error() != JSON_ERROR_NONE) {
+                        $parsed_content = $content;
+                    }
+
+                    return [
+                        $parsed_content,
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = 'array<string,mixed>';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            $parsed_content = json_decode(json_encode($content), TRUE);
+            if (json_last_error() != JSON_ERROR_NONE) {
+                $parsed_content = $content;
+            }
+
+            return [
+                $parsed_content,
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        'array<string,mixed>',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\KlaviyoAPI\Model\GetCampaigns400Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 500:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\KlaviyoAPI\Model\GetCampaigns400Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation getTagRelationshipsListsAsync
+     *
+     * Get Tag Relationships Lists
+     *
+     * @param  string $id  (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getTagRelationshipsListsAsync($id, $apiKey = null)
+    {
+        return $this->getTagRelationshipsListsAsyncWithHttpInfo($id, $apiKey)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation getTagRelationshipsListsAsyncWithHttpInfo
+     *
+     * Get Tag Relationships Lists
+     *
+     * @param  string $id  (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getTagRelationshipsListsAsyncWithHttpInfo($id, $apiKey = null)
+    {
+        $returnType = 'array<string,mixed>';
+        $request = $this->getTagRelationshipsListsRequest($id, $apiKey);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    $parsed_content = json_decode(json_encode($content), TRUE);
+                    if (json_last_error() != JSON_ERROR_NONE) {
+                        $parsed_content = $content;
+                    }
+
+                    return [
+                        $parsed_content,
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'getTagRelationshipsLists'
+     *
+     * @param  string $id  (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function getTagRelationshipsListsRequest($id, $apiKey = null)
+    {
+        // verify the required parameter 'id' is set
+        if ($id === null || (is_array($id) && count($id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $id when calling getTagRelationshipsLists'
+            );
+        }
+
+        $resourcePath = '/api/tags/{id}/relationships/lists/';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'id' . '}',
+                ObjectSerializer::toPathValue($id),
+                $resourcePath
+            );
+        }
+
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                []
+            );
+        }
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        if ($apiKey == null) {
+            $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        } else {
+            $apiKey = 'Klaviyo-API-Key '.$apiKey;
+        }
+
+        $headers['Authorization'] = $apiKey;
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $defaultHeaders['revision'] = ['2023-02-22'];
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation getTagRelationshipsSegments
+     *
+     * Get Tag Relationships Segments
+     *
+     * @param  string $id  (required)
+     *
+     * @throws \KlaviyoAPI\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array<string,mixed>|\KlaviyoAPI\Model\GetCampaigns400Response|\KlaviyoAPI\Model\GetCampaigns400Response
+     */
+    public function getTagRelationshipsSegments($id, $apiKey = null)
+    {
+        list($response) = $this->getTagRelationshipsSegmentsWithHttpInfo($id, $apiKey);
+        return $response;
+    }
+
+    /**
+     * Operation getTagRelationshipsSegmentsWithHttpInfo
+     *
+     * Get Tag Relationships Segments
+     *
+     * @param  string $id  (required)
+     *
+     * @throws \KlaviyoAPI\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of array<string,mixed>|\KlaviyoAPI\Model\GetCampaigns400Response|\KlaviyoAPI\Model\GetCampaigns400Response, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getTagRelationshipsSegmentsWithHttpInfo($id, $apiKey = null)
+    {
+        $request = $this->getTagRelationshipsSegmentsRequest($id, $apiKey);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('array<string,mixed>' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('array&lt;string,mixed&gt;' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+
+                    $parsed_content = json_decode(json_encode($content), TRUE);
+                    if (json_last_error() != JSON_ERROR_NONE) {
+                        $parsed_content = $content;
+                    }
+
+                    return [
+                        $parsed_content,
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 400:
+                    if ('\KlaviyoAPI\Model\GetCampaigns400Response' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\KlaviyoAPI\Model\GetCampaigns400Response' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+
+                    $parsed_content = json_decode(json_encode($content), TRUE);
+                    if (json_last_error() != JSON_ERROR_NONE) {
+                        $parsed_content = $content;
+                    }
+
+                    return [
+                        $parsed_content,
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 500:
+                    if ('\KlaviyoAPI\Model\GetCampaigns400Response' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\KlaviyoAPI\Model\GetCampaigns400Response' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+
+                    $parsed_content = json_decode(json_encode($content), TRUE);
+                    if (json_last_error() != JSON_ERROR_NONE) {
+                        $parsed_content = $content;
+                    }
+
+                    return [
+                        $parsed_content,
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = 'array<string,mixed>';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            $parsed_content = json_decode(json_encode($content), TRUE);
+            if (json_last_error() != JSON_ERROR_NONE) {
+                $parsed_content = $content;
+            }
+
+            return [
+                $parsed_content,
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        'array<string,mixed>',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\KlaviyoAPI\Model\GetCampaigns400Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 500:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\KlaviyoAPI\Model\GetCampaigns400Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation getTagRelationshipsSegmentsAsync
+     *
+     * Get Tag Relationships Segments
+     *
+     * @param  string $id  (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getTagRelationshipsSegmentsAsync($id, $apiKey = null)
+    {
+        return $this->getTagRelationshipsSegmentsAsyncWithHttpInfo($id, $apiKey)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation getTagRelationshipsSegmentsAsyncWithHttpInfo
+     *
+     * Get Tag Relationships Segments
+     *
+     * @param  string $id  (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getTagRelationshipsSegmentsAsyncWithHttpInfo($id, $apiKey = null)
+    {
+        $returnType = 'array<string,mixed>';
+        $request = $this->getTagRelationshipsSegmentsRequest($id, $apiKey);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    $parsed_content = json_decode(json_encode($content), TRUE);
+                    if (json_last_error() != JSON_ERROR_NONE) {
+                        $parsed_content = $content;
+                    }
+
+                    return [
+                        $parsed_content,
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'getTagRelationshipsSegments'
+     *
+     * @param  string $id  (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function getTagRelationshipsSegmentsRequest($id, $apiKey = null)
+    {
+        // verify the required parameter 'id' is set
+        if ($id === null || (is_array($id) && count($id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $id when calling getTagRelationshipsSegments'
+            );
+        }
+
+        $resourcePath = '/api/tags/{id}/relationships/segments/';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'id' . '}',
+                ObjectSerializer::toPathValue($id),
+                $resourcePath
+            );
+        }
+
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                []
+            );
+        }
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        if ($apiKey == null) {
+            $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        } else {
+            $apiKey = 'Klaviyo-API-Key '.$apiKey;
+        }
+
+        $headers['Authorization'] = $apiKey;
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $defaultHeaders['revision'] = ['2023-02-22'];
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation getTagRelationshipsTagGroup
+     *
+     * Get Tag Relationships Tag Group
+     *
+     * @param  string $id  (required)
+     *
+     * @throws \KlaviyoAPI\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array<string,mixed>|\KlaviyoAPI\Model\GetCampaigns400Response|\KlaviyoAPI\Model\GetCampaigns400Response
+     */
+    public function getTagRelationshipsTagGroup($id, $apiKey = null)
+    {
+        list($response) = $this->getTagRelationshipsTagGroupWithHttpInfo($id, $apiKey);
+        return $response;
+    }
+
+    /**
+     * Operation getTagRelationshipsTagGroupWithHttpInfo
+     *
+     * Get Tag Relationships Tag Group
+     *
+     * @param  string $id  (required)
+     *
+     * @throws \KlaviyoAPI\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of array<string,mixed>|\KlaviyoAPI\Model\GetCampaigns400Response|\KlaviyoAPI\Model\GetCampaigns400Response, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getTagRelationshipsTagGroupWithHttpInfo($id, $apiKey = null)
+    {
+        $request = $this->getTagRelationshipsTagGroupRequest($id, $apiKey);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('array<string,mixed>' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('array&lt;string,mixed&gt;' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+
+                    $parsed_content = json_decode(json_encode($content), TRUE);
+                    if (json_last_error() != JSON_ERROR_NONE) {
+                        $parsed_content = $content;
+                    }
+
+                    return [
+                        $parsed_content,
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 400:
+                    if ('\KlaviyoAPI\Model\GetCampaigns400Response' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\KlaviyoAPI\Model\GetCampaigns400Response' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+
+                    $parsed_content = json_decode(json_encode($content), TRUE);
+                    if (json_last_error() != JSON_ERROR_NONE) {
+                        $parsed_content = $content;
+                    }
+
+                    return [
+                        $parsed_content,
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 500:
+                    if ('\KlaviyoAPI\Model\GetCampaigns400Response' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\KlaviyoAPI\Model\GetCampaigns400Response' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+
+                    $parsed_content = json_decode(json_encode($content), TRUE);
+                    if (json_last_error() != JSON_ERROR_NONE) {
+                        $parsed_content = $content;
+                    }
+
+                    return [
+                        $parsed_content,
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = 'array<string,mixed>';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            $parsed_content = json_decode(json_encode($content), TRUE);
+            if (json_last_error() != JSON_ERROR_NONE) {
+                $parsed_content = $content;
+            }
+
+            return [
+                $parsed_content,
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        'array<string,mixed>',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\KlaviyoAPI\Model\GetCampaigns400Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 500:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\KlaviyoAPI\Model\GetCampaigns400Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation getTagRelationshipsTagGroupAsync
+     *
+     * Get Tag Relationships Tag Group
+     *
+     * @param  string $id  (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getTagRelationshipsTagGroupAsync($id, $apiKey = null)
+    {
+        return $this->getTagRelationshipsTagGroupAsyncWithHttpInfo($id, $apiKey)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation getTagRelationshipsTagGroupAsyncWithHttpInfo
+     *
+     * Get Tag Relationships Tag Group
+     *
+     * @param  string $id  (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getTagRelationshipsTagGroupAsyncWithHttpInfo($id, $apiKey = null)
+    {
+        $returnType = 'array<string,mixed>';
+        $request = $this->getTagRelationshipsTagGroupRequest($id, $apiKey);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    $parsed_content = json_decode(json_encode($content), TRUE);
+                    if (json_last_error() != JSON_ERROR_NONE) {
+                        $parsed_content = $content;
+                    }
+
+                    return [
+                        $parsed_content,
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'getTagRelationshipsTagGroup'
+     *
+     * @param  string $id  (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function getTagRelationshipsTagGroupRequest($id, $apiKey = null)
+    {
+        // verify the required parameter 'id' is set
+        if ($id === null || (is_array($id) && count($id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $id when calling getTagRelationshipsTagGroup'
+            );
+        }
+
+        $resourcePath = '/api/tags/{id}/relationships/tag-group/';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'id' . '}',
+                ObjectSerializer::toPathValue($id),
                 $resourcePath
             );
         }

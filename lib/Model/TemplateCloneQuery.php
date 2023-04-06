@@ -58,7 +58,7 @@ class TemplateCloneQuery implements ModelInterface, ArrayAccess, \JsonSerializab
       * @var string[]
       */
     protected static $openAPITypes = [
-        'data' => '\KlaviyoAPI\Model\TemplateCloneQueryAsSubResource'
+        'data' => '\KlaviyoAPI\Model\TemplateCloneQueryResourceObject'
     ];
 
     /**
@@ -210,7 +210,7 @@ class TemplateCloneQuery implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Gets data
      *
-     * @return \KlaviyoAPI\Model\TemplateCloneQueryAsSubResource
+     * @return \KlaviyoAPI\Model\TemplateCloneQueryResourceObject
      */
     public function getData()
     {
@@ -220,7 +220,7 @@ class TemplateCloneQuery implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets data
      *
-     * @param \KlaviyoAPI\Model\TemplateCloneQueryAsSubResource $data data
+     * @param \KlaviyoAPI\Model\TemplateCloneQueryResourceObject $data data
      *
      * @return self
      */

@@ -58,7 +58,7 @@ class GetFlowMessageFlowActionRelationshipResponseCollection implements ModelInt
       * @var string[]
       */
     protected static $openAPITypes = [
-        'data' => '\KlaviyoAPI\Model\GetFlowResponseCollectionWithIncludedSectionDataInnerRelationshipsFlowActionsDataInner'
+        'data' => '\KlaviyoAPI\Model\GetFlowResponseCollectionCompoundDocumentDataInnerAllOfRelationshipsFlowActionsDataInner'
     ];
 
     /**
@@ -210,7 +210,7 @@ class GetFlowMessageFlowActionRelationshipResponseCollection implements ModelInt
     /**
      * Gets data
      *
-     * @return \KlaviyoAPI\Model\GetFlowResponseCollectionWithIncludedSectionDataInnerRelationshipsFlowActionsDataInner
+     * @return \KlaviyoAPI\Model\GetFlowResponseCollectionCompoundDocumentDataInnerAllOfRelationshipsFlowActionsDataInner
      */
     public function getData()
     {
@@ -220,7 +220,7 @@ class GetFlowMessageFlowActionRelationshipResponseCollection implements ModelInt
     /**
      * Sets data
      *
-     * @param \KlaviyoAPI\Model\GetFlowResponseCollectionWithIncludedSectionDataInnerRelationshipsFlowActionsDataInner $data data
+     * @param \KlaviyoAPI\Model\GetFlowResponseCollectionCompoundDocumentDataInnerAllOfRelationshipsFlowActionsDataInner $data data
      *
      * @return self
      */

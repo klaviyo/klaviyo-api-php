@@ -59,7 +59,7 @@ class GetProfileResponseCollection implements ModelInterface, ArrayAccess, \Json
       */
     protected static $openAPITypes = [
         'data' => '\KlaviyoAPI\Model\GetProfileResponseCollectionDataInner[]',
-        'links' => '\KlaviyoAPI\Model\GetCatalogItemResponseCollectionWithIncludedSectionLinks'
+        'links' => '\KlaviyoAPI\Model\CollectionLinks'
     ];
 
     /**
@@ -243,7 +243,7 @@ class GetProfileResponseCollection implements ModelInterface, ArrayAccess, \Json
     /**
      * Gets links
      *
-     * @return \KlaviyoAPI\Model\GetCatalogItemResponseCollectionWithIncludedSectionLinks
+     * @return \KlaviyoAPI\Model\CollectionLinks
      */
     public function getLinks()
     {
@@ -253,7 +253,7 @@ class GetProfileResponseCollection implements ModelInterface, ArrayAccess, \Json
     /**
      * Sets links
      *
-     * @param \KlaviyoAPI\Model\GetCatalogItemResponseCollectionWithIncludedSectionLinks $links links
+     * @param \KlaviyoAPI\Model\CollectionLinks $links links
      *
      * @return self
      */

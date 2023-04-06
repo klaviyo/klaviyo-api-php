@@ -58,7 +58,7 @@ class PostCatalogVariantCreateJobResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'data' => '\KlaviyoAPI\Model\GetCatalogVariantCreateJobResponseCollectionWithIncludedSectionDataInner'
+        'data' => '\KlaviyoAPI\Model\PostCatalogVariantCreateJobResponseData'
     ];
 
     /**
@@ -210,7 +210,7 @@ class PostCatalogVariantCreateJobResponse implements ModelInterface, ArrayAccess
     /**
      * Gets data
      *
-     * @return \KlaviyoAPI\Model\GetCatalogVariantCreateJobResponseCollectionWithIncludedSectionDataInner
+     * @return \KlaviyoAPI\Model\PostCatalogVariantCreateJobResponseData
      */
     public function getData()
     {
@@ -220,7 +220,7 @@ class PostCatalogVariantCreateJobResponse implements ModelInterface, ArrayAccess
     /**
      * Sets data
      *
-     * @param \KlaviyoAPI\Model\GetCatalogVariantCreateJobResponseCollectionWithIncludedSectionDataInner $data data
+     * @param \KlaviyoAPI\Model\PostCatalogVariantCreateJobResponseData $data data
      *
      * @return self
      */

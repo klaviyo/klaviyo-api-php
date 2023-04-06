@@ -1745,44 +1745,36 @@ class FlowsApi
     }
 
     /**
-     * Operation getFlowActionRelationships
+     * Operation getFlowActionRelationshipsFlow
      *
-     * Get Flow Action Relationships
+     * Get Flow Action Relationships Flow
      *
      * @param  string $id  (required)
-     * @param  string $related_resource  (required)
-     * @param  string $filter For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;name&#x60;: &#x60;contains&#x60;, &#x60;ends-with&#x60;, &#x60;equals&#x60;, &#x60;starts-with&#x60;&lt;br&gt;&#x60;created&#x60;: &#x60;equals&#x60;, &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60;&lt;br&gt;&#x60;updated&#x60;: &#x60;equals&#x60;, &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60; (optional)
-     * @param  string $page_cursor For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#pagination (optional)
-     * @param  string $sort For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#sorting (optional)
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array<string,mixed>|\KlaviyoAPI\Model\GetCampaigns400Response|\KlaviyoAPI\Model\GetCampaigns400Response
      */
-    public function getFlowActionRelationships($id, $related_resource, $filter = null, $page_cursor = null, $sort = null, $apiKey = null)
+    public function getFlowActionRelationshipsFlow($id, $apiKey = null)
     {
-        list($response) = $this->getFlowActionRelationshipsWithHttpInfo($id, $related_resource, $filter, $page_cursor, $sort, $apiKey);
+        list($response) = $this->getFlowActionRelationshipsFlowWithHttpInfo($id, $apiKey);
         return $response;
     }
 
     /**
-     * Operation getFlowActionRelationshipsWithHttpInfo
+     * Operation getFlowActionRelationshipsFlowWithHttpInfo
      *
-     * Get Flow Action Relationships
+     * Get Flow Action Relationships Flow
      *
      * @param  string $id  (required)
-     * @param  string $related_resource  (required)
-     * @param  string $filter For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;name&#x60;: &#x60;contains&#x60;, &#x60;ends-with&#x60;, &#x60;equals&#x60;, &#x60;starts-with&#x60;&lt;br&gt;&#x60;created&#x60;: &#x60;equals&#x60;, &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60;&lt;br&gt;&#x60;updated&#x60;: &#x60;equals&#x60;, &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60; (optional)
-     * @param  string $page_cursor For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#pagination (optional)
-     * @param  string $sort For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#sorting (optional)
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of array<string,mixed>|\KlaviyoAPI\Model\GetCampaigns400Response|\KlaviyoAPI\Model\GetCampaigns400Response, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getFlowActionRelationshipsWithHttpInfo($id, $related_resource, $filter = null, $page_cursor = null, $sort = null, $apiKey = null)
+    public function getFlowActionRelationshipsFlowWithHttpInfo($id, $apiKey = null)
     {
-        $request = $this->getFlowActionRelationshipsRequest($id, $related_resource, $filter, $page_cursor, $sort, $apiKey);
+        $request = $this->getFlowActionRelationshipsFlowRequest($id, $apiKey);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1938,22 +1930,18 @@ class FlowsApi
     }
 
     /**
-     * Operation getFlowActionRelationshipsAsync
+     * Operation getFlowActionRelationshipsFlowAsync
      *
-     * Get Flow Action Relationships
+     * Get Flow Action Relationships Flow
      *
      * @param  string $id  (required)
-     * @param  string $related_resource  (required)
-     * @param  string $filter For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;name&#x60;: &#x60;contains&#x60;, &#x60;ends-with&#x60;, &#x60;equals&#x60;, &#x60;starts-with&#x60;&lt;br&gt;&#x60;created&#x60;: &#x60;equals&#x60;, &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60;&lt;br&gt;&#x60;updated&#x60;: &#x60;equals&#x60;, &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60; (optional)
-     * @param  string $page_cursor For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#pagination (optional)
-     * @param  string $sort For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#sorting (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getFlowActionRelationshipsAsync($id, $related_resource, $filter = null, $page_cursor = null, $sort = null, $apiKey = null)
+    public function getFlowActionRelationshipsFlowAsync($id, $apiKey = null)
     {
-        return $this->getFlowActionRelationshipsAsyncWithHttpInfo($id, $related_resource, $filter, $page_cursor, $sort, $apiKey)
+        return $this->getFlowActionRelationshipsFlowAsyncWithHttpInfo($id, $apiKey)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1962,23 +1950,19 @@ class FlowsApi
     }
 
     /**
-     * Operation getFlowActionRelationshipsAsyncWithHttpInfo
+     * Operation getFlowActionRelationshipsFlowAsyncWithHttpInfo
      *
-     * Get Flow Action Relationships
+     * Get Flow Action Relationships Flow
      *
      * @param  string $id  (required)
-     * @param  string $related_resource  (required)
-     * @param  string $filter For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;name&#x60;: &#x60;contains&#x60;, &#x60;ends-with&#x60;, &#x60;equals&#x60;, &#x60;starts-with&#x60;&lt;br&gt;&#x60;created&#x60;: &#x60;equals&#x60;, &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60;&lt;br&gt;&#x60;updated&#x60;: &#x60;equals&#x60;, &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60; (optional)
-     * @param  string $page_cursor For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#pagination (optional)
-     * @param  string $sort For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#sorting (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getFlowActionRelationshipsAsyncWithHttpInfo($id, $related_resource, $filter = null, $page_cursor = null, $sort = null, $apiKey = null)
+    public function getFlowActionRelationshipsFlowAsyncWithHttpInfo($id, $apiKey = null)
     {
         $returnType = 'array<string,mixed>';
-        $request = $this->getFlowActionRelationshipsRequest($id, $related_resource, $filter, $page_cursor, $sort, $apiKey);
+        $request = $this->getFlowActionRelationshipsFlowRequest($id, $apiKey);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2022,10 +2006,386 @@ class FlowsApi
     }
 
     /**
-     * Create request for operation 'getFlowActionRelationships'
+     * Create request for operation 'getFlowActionRelationshipsFlow'
      *
      * @param  string $id  (required)
-     * @param  string $related_resource  (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function getFlowActionRelationshipsFlowRequest($id, $apiKey = null)
+    {
+        // verify the required parameter 'id' is set
+        if ($id === null || (is_array($id) && count($id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $id when calling getFlowActionRelationshipsFlow'
+            );
+        }
+
+        $resourcePath = '/api/flow-actions/{id}/relationships/flow/';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'id' . '}',
+                ObjectSerializer::toPathValue($id),
+                $resourcePath
+            );
+        }
+
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                []
+            );
+        }
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        if ($apiKey == null) {
+            $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        } else {
+            $apiKey = 'Klaviyo-API-Key '.$apiKey;
+        }
+
+        $headers['Authorization'] = $apiKey;
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $defaultHeaders['revision'] = ['2023-02-22'];
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation getFlowActionRelationshipsMessages
+     *
+     * Get Flow Action Relationships Messages
+     *
+     * @param  string $id  (required)
+     * @param  string $filter For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;name&#x60;: &#x60;contains&#x60;, &#x60;ends-with&#x60;, &#x60;equals&#x60;, &#x60;starts-with&#x60;&lt;br&gt;&#x60;created&#x60;: &#x60;equals&#x60;, &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60;&lt;br&gt;&#x60;updated&#x60;: &#x60;equals&#x60;, &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60; (optional)
+     * @param  string $page_cursor For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#pagination (optional)
+     * @param  string $sort For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#sorting (optional)
+     *
+     * @throws \KlaviyoAPI\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array<string,mixed>|\KlaviyoAPI\Model\GetCampaigns400Response|\KlaviyoAPI\Model\GetCampaigns400Response
+     */
+    public function getFlowActionRelationshipsMessages($id, $filter = null, $page_cursor = null, $sort = null, $apiKey = null)
+    {
+        list($response) = $this->getFlowActionRelationshipsMessagesWithHttpInfo($id, $filter, $page_cursor, $sort, $apiKey);
+        return $response;
+    }
+
+    /**
+     * Operation getFlowActionRelationshipsMessagesWithHttpInfo
+     *
+     * Get Flow Action Relationships Messages
+     *
+     * @param  string $id  (required)
+     * @param  string $filter For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;name&#x60;: &#x60;contains&#x60;, &#x60;ends-with&#x60;, &#x60;equals&#x60;, &#x60;starts-with&#x60;&lt;br&gt;&#x60;created&#x60;: &#x60;equals&#x60;, &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60;&lt;br&gt;&#x60;updated&#x60;: &#x60;equals&#x60;, &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60; (optional)
+     * @param  string $page_cursor For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#pagination (optional)
+     * @param  string $sort For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#sorting (optional)
+     *
+     * @throws \KlaviyoAPI\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of array<string,mixed>|\KlaviyoAPI\Model\GetCampaigns400Response|\KlaviyoAPI\Model\GetCampaigns400Response, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getFlowActionRelationshipsMessagesWithHttpInfo($id, $filter = null, $page_cursor = null, $sort = null, $apiKey = null)
+    {
+        $request = $this->getFlowActionRelationshipsMessagesRequest($id, $filter, $page_cursor, $sort, $apiKey);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('array<string,mixed>' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('array&lt;string,mixed&gt;' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+
+                    $parsed_content = json_decode(json_encode($content), TRUE);
+                    if (json_last_error() != JSON_ERROR_NONE) {
+                        $parsed_content = $content;
+                    }
+
+                    return [
+                        $parsed_content,
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 400:
+                    if ('\KlaviyoAPI\Model\GetCampaigns400Response' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\KlaviyoAPI\Model\GetCampaigns400Response' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+
+                    $parsed_content = json_decode(json_encode($content), TRUE);
+                    if (json_last_error() != JSON_ERROR_NONE) {
+                        $parsed_content = $content;
+                    }
+
+                    return [
+                        $parsed_content,
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 500:
+                    if ('\KlaviyoAPI\Model\GetCampaigns400Response' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\KlaviyoAPI\Model\GetCampaigns400Response' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+
+                    $parsed_content = json_decode(json_encode($content), TRUE);
+                    if (json_last_error() != JSON_ERROR_NONE) {
+                        $parsed_content = $content;
+                    }
+
+                    return [
+                        $parsed_content,
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = 'array<string,mixed>';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            $parsed_content = json_decode(json_encode($content), TRUE);
+            if (json_last_error() != JSON_ERROR_NONE) {
+                $parsed_content = $content;
+            }
+
+            return [
+                $parsed_content,
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        'array<string,mixed>',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\KlaviyoAPI\Model\GetCampaigns400Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 500:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\KlaviyoAPI\Model\GetCampaigns400Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation getFlowActionRelationshipsMessagesAsync
+     *
+     * Get Flow Action Relationships Messages
+     *
+     * @param  string $id  (required)
+     * @param  string $filter For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;name&#x60;: &#x60;contains&#x60;, &#x60;ends-with&#x60;, &#x60;equals&#x60;, &#x60;starts-with&#x60;&lt;br&gt;&#x60;created&#x60;: &#x60;equals&#x60;, &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60;&lt;br&gt;&#x60;updated&#x60;: &#x60;equals&#x60;, &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60; (optional)
+     * @param  string $page_cursor For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#pagination (optional)
+     * @param  string $sort For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#sorting (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getFlowActionRelationshipsMessagesAsync($id, $filter = null, $page_cursor = null, $sort = null, $apiKey = null)
+    {
+        return $this->getFlowActionRelationshipsMessagesAsyncWithHttpInfo($id, $filter, $page_cursor, $sort, $apiKey)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation getFlowActionRelationshipsMessagesAsyncWithHttpInfo
+     *
+     * Get Flow Action Relationships Messages
+     *
+     * @param  string $id  (required)
+     * @param  string $filter For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;name&#x60;: &#x60;contains&#x60;, &#x60;ends-with&#x60;, &#x60;equals&#x60;, &#x60;starts-with&#x60;&lt;br&gt;&#x60;created&#x60;: &#x60;equals&#x60;, &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60;&lt;br&gt;&#x60;updated&#x60;: &#x60;equals&#x60;, &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60; (optional)
+     * @param  string $page_cursor For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#pagination (optional)
+     * @param  string $sort For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#sorting (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getFlowActionRelationshipsMessagesAsyncWithHttpInfo($id, $filter = null, $page_cursor = null, $sort = null, $apiKey = null)
+    {
+        $returnType = 'array<string,mixed>';
+        $request = $this->getFlowActionRelationshipsMessagesRequest($id, $filter, $page_cursor, $sort, $apiKey);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    $parsed_content = json_decode(json_encode($content), TRUE);
+                    if (json_last_error() != JSON_ERROR_NONE) {
+                        $parsed_content = $content;
+                    }
+
+                    return [
+                        $parsed_content,
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'getFlowActionRelationshipsMessages'
+     *
+     * @param  string $id  (required)
      * @param  string $filter For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;name&#x60;: &#x60;contains&#x60;, &#x60;ends-with&#x60;, &#x60;equals&#x60;, &#x60;starts-with&#x60;&lt;br&gt;&#x60;created&#x60;: &#x60;equals&#x60;, &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60;&lt;br&gt;&#x60;updated&#x60;: &#x60;equals&#x60;, &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60; (optional)
      * @param  string $page_cursor For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#pagination (optional)
      * @param  string $sort For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#sorting (optional)
@@ -2033,22 +2393,16 @@ class FlowsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getFlowActionRelationshipsRequest($id, $related_resource, $filter = null, $page_cursor = null, $sort = null, $apiKey = null)
+    public function getFlowActionRelationshipsMessagesRequest($id, $filter = null, $page_cursor = null, $sort = null, $apiKey = null)
     {
         // verify the required parameter 'id' is set
         if ($id === null || (is_array($id) && count($id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $id when calling getFlowActionRelationships'
-            );
-        }
-        // verify the required parameter 'related_resource' is set
-        if ($related_resource === null || (is_array($related_resource) && count($related_resource) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $related_resource when calling getFlowActionRelationships'
+                'Missing the required parameter $id when calling getFlowActionRelationshipsMessages'
             );
         }
 
-        $resourcePath = '/api/flow-actions/{id}/relationships/{related_resource}/';
+        $resourcePath = '/api/flow-actions/{id}/relationships/flow-messages/';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -2089,14 +2443,6 @@ class FlowsApi
             $resourcePath = str_replace(
                 '{' . 'id' . '}',
                 ObjectSerializer::toPathValue($id),
-                $resourcePath
-            );
-        }
-        // path params
-        if ($related_resource !== null) {
-            $resourcePath = str_replace(
-                '{' . 'related_resource' . '}',
-                ObjectSerializer::toPathValue($related_resource),
                 $resourcePath
             );
         }
@@ -3378,38 +3724,36 @@ class FlowsApi
     }
 
     /**
-     * Operation getFlowMessageRelationships
+     * Operation getFlowMessageRelationshipsAction
      *
-     * Get Flow Message Relationships
+     * Get Flow Message Relationships Action
      *
      * @param  string $id  (required)
-     * @param  string $related_resource  (required)
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array<string,mixed>|\KlaviyoAPI\Model\GetCampaigns400Response|\KlaviyoAPI\Model\GetCampaigns400Response
      */
-    public function getFlowMessageRelationships($id, $related_resource, $apiKey = null)
+    public function getFlowMessageRelationshipsAction($id, $apiKey = null)
     {
-        list($response) = $this->getFlowMessageRelationshipsWithHttpInfo($id, $related_resource, $apiKey);
+        list($response) = $this->getFlowMessageRelationshipsActionWithHttpInfo($id, $apiKey);
         return $response;
     }
 
     /**
-     * Operation getFlowMessageRelationshipsWithHttpInfo
+     * Operation getFlowMessageRelationshipsActionWithHttpInfo
      *
-     * Get Flow Message Relationships
+     * Get Flow Message Relationships Action
      *
      * @param  string $id  (required)
-     * @param  string $related_resource  (required)
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of array<string,mixed>|\KlaviyoAPI\Model\GetCampaigns400Response|\KlaviyoAPI\Model\GetCampaigns400Response, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getFlowMessageRelationshipsWithHttpInfo($id, $related_resource, $apiKey = null)
+    public function getFlowMessageRelationshipsActionWithHttpInfo($id, $apiKey = null)
     {
-        $request = $this->getFlowMessageRelationshipsRequest($id, $related_resource, $apiKey);
+        $request = $this->getFlowMessageRelationshipsActionRequest($id, $apiKey);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3565,19 +3909,18 @@ class FlowsApi
     }
 
     /**
-     * Operation getFlowMessageRelationshipsAsync
+     * Operation getFlowMessageRelationshipsActionAsync
      *
-     * Get Flow Message Relationships
+     * Get Flow Message Relationships Action
      *
      * @param  string $id  (required)
-     * @param  string $related_resource  (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getFlowMessageRelationshipsAsync($id, $related_resource, $apiKey = null)
+    public function getFlowMessageRelationshipsActionAsync($id, $apiKey = null)
     {
-        return $this->getFlowMessageRelationshipsAsyncWithHttpInfo($id, $related_resource, $apiKey)
+        return $this->getFlowMessageRelationshipsActionAsyncWithHttpInfo($id, $apiKey)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3586,20 +3929,19 @@ class FlowsApi
     }
 
     /**
-     * Operation getFlowMessageRelationshipsAsyncWithHttpInfo
+     * Operation getFlowMessageRelationshipsActionAsyncWithHttpInfo
      *
-     * Get Flow Message Relationships
+     * Get Flow Message Relationships Action
      *
      * @param  string $id  (required)
-     * @param  string $related_resource  (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getFlowMessageRelationshipsAsyncWithHttpInfo($id, $related_resource, $apiKey = null)
+    public function getFlowMessageRelationshipsActionAsyncWithHttpInfo($id, $apiKey = null)
     {
         $returnType = 'array<string,mixed>';
-        $request = $this->getFlowMessageRelationshipsRequest($id, $related_resource, $apiKey);
+        $request = $this->getFlowMessageRelationshipsActionRequest($id, $apiKey);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3643,30 +3985,23 @@ class FlowsApi
     }
 
     /**
-     * Create request for operation 'getFlowMessageRelationships'
+     * Create request for operation 'getFlowMessageRelationshipsAction'
      *
      * @param  string $id  (required)
-     * @param  string $related_resource  (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getFlowMessageRelationshipsRequest($id, $related_resource, $apiKey = null)
+    public function getFlowMessageRelationshipsActionRequest($id, $apiKey = null)
     {
         // verify the required parameter 'id' is set
         if ($id === null || (is_array($id) && count($id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $id when calling getFlowMessageRelationships'
-            );
-        }
-        // verify the required parameter 'related_resource' is set
-        if ($related_resource === null || (is_array($related_resource) && count($related_resource) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $related_resource when calling getFlowMessageRelationships'
+                'Missing the required parameter $id when calling getFlowMessageRelationshipsAction'
             );
         }
 
-        $resourcePath = '/api/flow-messages/{id}/relationships/{related_resource}/';
+        $resourcePath = '/api/flow-messages/{id}/relationships/flow-action/';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -3680,14 +4015,6 @@ class FlowsApi
             $resourcePath = str_replace(
                 '{' . 'id' . '}',
                 ObjectSerializer::toPathValue($id),
-                $resourcePath
-            );
-        }
-        // path params
-        if ($related_resource !== null) {
-            $resourcePath = str_replace(
-                '{' . 'related_resource' . '}',
-                ObjectSerializer::toPathValue($related_resource),
                 $resourcePath
             );
         }
@@ -3762,38 +4089,40 @@ class FlowsApi
     }
 
     /**
-     * Operation getFlowRelationships
+     * Operation getFlowRelationshipsFlowActions
      *
-     * Get Flow Relationships
+     * Get Flow Relationships Flow Actions
      *
      * @param  string $id  (required)
-     * @param  string $related_resource  (required)
+     * @param  string $filter For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;action_type&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;status&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;created&#x60;: &#x60;equals&#x60;, &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60;&lt;br&gt;&#x60;updated&#x60;: &#x60;equals&#x60;, &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60; (optional)
+     * @param  string $sort For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#sorting (optional)
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array<string,mixed>|\KlaviyoAPI\Model\GetCampaigns400Response|\KlaviyoAPI\Model\GetCampaigns400Response
      */
-    public function getFlowRelationships($id, $related_resource, $apiKey = null)
+    public function getFlowRelationshipsFlowActions($id, $filter = null, $sort = null, $apiKey = null)
     {
-        list($response) = $this->getFlowRelationshipsWithHttpInfo($id, $related_resource, $apiKey);
+        list($response) = $this->getFlowRelationshipsFlowActionsWithHttpInfo($id, $filter, $sort, $apiKey);
         return $response;
     }
 
     /**
-     * Operation getFlowRelationshipsWithHttpInfo
+     * Operation getFlowRelationshipsFlowActionsWithHttpInfo
      *
-     * Get Flow Relationships
+     * Get Flow Relationships Flow Actions
      *
      * @param  string $id  (required)
-     * @param  string $related_resource  (required)
+     * @param  string $filter For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;action_type&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;status&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;created&#x60;: &#x60;equals&#x60;, &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60;&lt;br&gt;&#x60;updated&#x60;: &#x60;equals&#x60;, &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60; (optional)
+     * @param  string $sort For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#sorting (optional)
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of array<string,mixed>|\KlaviyoAPI\Model\GetCampaigns400Response|\KlaviyoAPI\Model\GetCampaigns400Response, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getFlowRelationshipsWithHttpInfo($id, $related_resource, $apiKey = null)
+    public function getFlowRelationshipsFlowActionsWithHttpInfo($id, $filter = null, $sort = null, $apiKey = null)
     {
-        $request = $this->getFlowRelationshipsRequest($id, $related_resource, $apiKey);
+        $request = $this->getFlowRelationshipsFlowActionsRequest($id, $filter, $sort, $apiKey);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3949,19 +4278,20 @@ class FlowsApi
     }
 
     /**
-     * Operation getFlowRelationshipsAsync
+     * Operation getFlowRelationshipsFlowActionsAsync
      *
-     * Get Flow Relationships
+     * Get Flow Relationships Flow Actions
      *
      * @param  string $id  (required)
-     * @param  string $related_resource  (required)
+     * @param  string $filter For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;action_type&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;status&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;created&#x60;: &#x60;equals&#x60;, &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60;&lt;br&gt;&#x60;updated&#x60;: &#x60;equals&#x60;, &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60; (optional)
+     * @param  string $sort For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#sorting (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getFlowRelationshipsAsync($id, $related_resource, $apiKey = null)
+    public function getFlowRelationshipsFlowActionsAsync($id, $filter = null, $sort = null, $apiKey = null)
     {
-        return $this->getFlowRelationshipsAsyncWithHttpInfo($id, $related_resource, $apiKey)
+        return $this->getFlowRelationshipsFlowActionsAsyncWithHttpInfo($id, $filter, $sort, $apiKey)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3970,20 +4300,21 @@ class FlowsApi
     }
 
     /**
-     * Operation getFlowRelationshipsAsyncWithHttpInfo
+     * Operation getFlowRelationshipsFlowActionsAsyncWithHttpInfo
      *
-     * Get Flow Relationships
+     * Get Flow Relationships Flow Actions
      *
      * @param  string $id  (required)
-     * @param  string $related_resource  (required)
+     * @param  string $filter For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;action_type&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;status&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;created&#x60;: &#x60;equals&#x60;, &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60;&lt;br&gt;&#x60;updated&#x60;: &#x60;equals&#x60;, &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60; (optional)
+     * @param  string $sort For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#sorting (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getFlowRelationshipsAsyncWithHttpInfo($id, $related_resource, $apiKey = null)
+    public function getFlowRelationshipsFlowActionsAsyncWithHttpInfo($id, $filter = null, $sort = null, $apiKey = null)
     {
         $returnType = 'array<string,mixed>';
-        $request = $this->getFlowRelationshipsRequest($id, $related_resource, $apiKey);
+        $request = $this->getFlowRelationshipsFlowActionsRequest($id, $filter, $sort, $apiKey);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -4027,30 +4358,408 @@ class FlowsApi
     }
 
     /**
-     * Create request for operation 'getFlowRelationships'
+     * Create request for operation 'getFlowRelationshipsFlowActions'
      *
      * @param  string $id  (required)
-     * @param  string $related_resource  (required)
+     * @param  string $filter For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;action_type&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;status&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;created&#x60;: &#x60;equals&#x60;, &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60;&lt;br&gt;&#x60;updated&#x60;: &#x60;equals&#x60;, &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60; (optional)
+     * @param  string $sort For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#sorting (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getFlowRelationshipsRequest($id, $related_resource, $apiKey = null)
+    public function getFlowRelationshipsFlowActionsRequest($id, $filter = null, $sort = null, $apiKey = null)
     {
         // verify the required parameter 'id' is set
         if ($id === null || (is_array($id) && count($id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $id when calling getFlowRelationships'
-            );
-        }
-        // verify the required parameter 'related_resource' is set
-        if ($related_resource === null || (is_array($related_resource) && count($related_resource) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $related_resource when calling getFlowRelationships'
+                'Missing the required parameter $id when calling getFlowRelationshipsFlowActions'
             );
         }
 
-        $resourcePath = '/api/flows/{id}/relationships/{related_resource}/';
+        $resourcePath = '/api/flows/{id}/relationships/flow-actions/';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $filter,
+            'filter', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $sort,
+            'sort', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+
+
+        // path params
+        if ($id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'id' . '}',
+                ObjectSerializer::toPathValue($id),
+                $resourcePath
+            );
+        }
+
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                []
+            );
+        }
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        if ($apiKey == null) {
+            $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        } else {
+            $apiKey = 'Klaviyo-API-Key '.$apiKey;
+        }
+
+        $headers['Authorization'] = $apiKey;
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $defaultHeaders['revision'] = ['2023-02-22'];
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation getFlowRelationshipsTags
+     *
+     * Get Flow Relationships Tags
+     *
+     * @param  string $id  (required)
+     *
+     * @throws \KlaviyoAPI\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array<string,mixed>|\KlaviyoAPI\Model\GetCampaigns400Response|\KlaviyoAPI\Model\GetCampaigns400Response
+     */
+    public function getFlowRelationshipsTags($id, $apiKey = null)
+    {
+        list($response) = $this->getFlowRelationshipsTagsWithHttpInfo($id, $apiKey);
+        return $response;
+    }
+
+    /**
+     * Operation getFlowRelationshipsTagsWithHttpInfo
+     *
+     * Get Flow Relationships Tags
+     *
+     * @param  string $id  (required)
+     *
+     * @throws \KlaviyoAPI\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of array<string,mixed>|\KlaviyoAPI\Model\GetCampaigns400Response|\KlaviyoAPI\Model\GetCampaigns400Response, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getFlowRelationshipsTagsWithHttpInfo($id, $apiKey = null)
+    {
+        $request = $this->getFlowRelationshipsTagsRequest($id, $apiKey);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('array<string,mixed>' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('array&lt;string,mixed&gt;' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+
+                    $parsed_content = json_decode(json_encode($content), TRUE);
+                    if (json_last_error() != JSON_ERROR_NONE) {
+                        $parsed_content = $content;
+                    }
+
+                    return [
+                        $parsed_content,
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 400:
+                    if ('\KlaviyoAPI\Model\GetCampaigns400Response' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\KlaviyoAPI\Model\GetCampaigns400Response' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+
+                    $parsed_content = json_decode(json_encode($content), TRUE);
+                    if (json_last_error() != JSON_ERROR_NONE) {
+                        $parsed_content = $content;
+                    }
+
+                    return [
+                        $parsed_content,
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 500:
+                    if ('\KlaviyoAPI\Model\GetCampaigns400Response' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\KlaviyoAPI\Model\GetCampaigns400Response' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+
+                    $parsed_content = json_decode(json_encode($content), TRUE);
+                    if (json_last_error() != JSON_ERROR_NONE) {
+                        $parsed_content = $content;
+                    }
+
+                    return [
+                        $parsed_content,
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = 'array<string,mixed>';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            $parsed_content = json_decode(json_encode($content), TRUE);
+            if (json_last_error() != JSON_ERROR_NONE) {
+                $parsed_content = $content;
+            }
+
+            return [
+                $parsed_content,
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        'array<string,mixed>',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\KlaviyoAPI\Model\GetCampaigns400Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 500:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\KlaviyoAPI\Model\GetCampaigns400Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation getFlowRelationshipsTagsAsync
+     *
+     * Get Flow Relationships Tags
+     *
+     * @param  string $id  (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getFlowRelationshipsTagsAsync($id, $apiKey = null)
+    {
+        return $this->getFlowRelationshipsTagsAsyncWithHttpInfo($id, $apiKey)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation getFlowRelationshipsTagsAsyncWithHttpInfo
+     *
+     * Get Flow Relationships Tags
+     *
+     * @param  string $id  (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getFlowRelationshipsTagsAsyncWithHttpInfo($id, $apiKey = null)
+    {
+        $returnType = 'array<string,mixed>';
+        $request = $this->getFlowRelationshipsTagsRequest($id, $apiKey);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    $parsed_content = json_decode(json_encode($content), TRUE);
+                    if (json_last_error() != JSON_ERROR_NONE) {
+                        $parsed_content = $content;
+                    }
+
+                    return [
+                        $parsed_content,
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'getFlowRelationshipsTags'
+     *
+     * @param  string $id  (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function getFlowRelationshipsTagsRequest($id, $apiKey = null)
+    {
+        // verify the required parameter 'id' is set
+        if ($id === null || (is_array($id) && count($id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $id when calling getFlowRelationshipsTags'
+            );
+        }
+
+        $resourcePath = '/api/flows/{id}/relationships/tags/';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -4064,14 +4773,6 @@ class FlowsApi
             $resourcePath = str_replace(
                 '{' . 'id' . '}',
                 ObjectSerializer::toPathValue($id),
-                $resourcePath
-            );
-        }
-        // path params
-        if ($related_resource !== null) {
-            $resourcePath = str_replace(
-                '{' . 'related_resource' . '}',
-                ObjectSerializer::toPathValue($related_resource),
                 $resourcePath
             );
         }

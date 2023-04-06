@@ -58,7 +58,7 @@ class SegmentPartialUpdateQuery implements ModelInterface, ArrayAccess, \JsonSer
       * @var string[]
       */
     protected static $openAPITypes = [
-        'data' => '\KlaviyoAPI\Model\SegmentPartialUpdateQueryAsSubResource'
+        'data' => '\KlaviyoAPI\Model\SegmentPartialUpdateQueryResourceObject'
     ];
 
     /**
@@ -210,7 +210,7 @@ class SegmentPartialUpdateQuery implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Gets data
      *
-     * @return \KlaviyoAPI\Model\SegmentPartialUpdateQueryAsSubResource
+     * @return \KlaviyoAPI\Model\SegmentPartialUpdateQueryResourceObject
      */
     public function getData()
     {
@@ -220,7 +220,7 @@ class SegmentPartialUpdateQuery implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Sets data
      *
-     * @param \KlaviyoAPI\Model\SegmentPartialUpdateQueryAsSubResource $data data
+     * @param \KlaviyoAPI\Model\SegmentPartialUpdateQueryResourceObject $data data
      *
      * @return self
      */

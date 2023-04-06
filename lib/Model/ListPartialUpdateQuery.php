@@ -58,7 +58,7 @@ class ListPartialUpdateQuery implements ModelInterface, ArrayAccess, \JsonSerial
       * @var string[]
       */
     protected static $openAPITypes = [
-        'data' => '\KlaviyoAPI\Model\ListPartialUpdateQueryAsSubResource'
+        'data' => '\KlaviyoAPI\Model\ListPartialUpdateQueryResourceObject'
     ];
 
     /**
@@ -210,7 +210,7 @@ class ListPartialUpdateQuery implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Gets data
      *
-     * @return \KlaviyoAPI\Model\ListPartialUpdateQueryAsSubResource
+     * @return \KlaviyoAPI\Model\ListPartialUpdateQueryResourceObject
      */
     public function getData()
     {
@@ -220,7 +220,7 @@ class ListPartialUpdateQuery implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets data
      *
-     * @param \KlaviyoAPI\Model\ListPartialUpdateQueryAsSubResource $data data
+     * @param \KlaviyoAPI\Model\ListPartialUpdateQueryResourceObject $data data
      *
      * @return self
      */

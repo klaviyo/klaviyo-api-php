@@ -58,8 +58,8 @@ class GetListTagResponseCollection implements ModelInterface, ArrayAccess, \Json
       * @var string[]
       */
     protected static $openAPITypes = [
-        'data' => '\KlaviyoAPI\Model\GetListTagResponseCollectionDataInner[]',
-        'links' => '\KlaviyoAPI\Model\GetCatalogItemResponseCollectionWithIncludedSectionLinks'
+        'data' => '\KlaviyoAPI\Model\ListTagResponseObjectResource[]',
+        'links' => '\KlaviyoAPI\Model\CollectionLinks'
     ];
 
     /**
@@ -219,7 +219,7 @@ class GetListTagResponseCollection implements ModelInterface, ArrayAccess, \Json
     /**
      * Gets data
      *
-     * @return \KlaviyoAPI\Model\GetListTagResponseCollectionDataInner[]
+     * @return \KlaviyoAPI\Model\ListTagResponseObjectResource[]
      */
     public function getData()
     {
@@ -229,7 +229,7 @@ class GetListTagResponseCollection implements ModelInterface, ArrayAccess, \Json
     /**
      * Sets data
      *
-     * @param \KlaviyoAPI\Model\GetListTagResponseCollectionDataInner[] $data data
+     * @param \KlaviyoAPI\Model\ListTagResponseObjectResource[] $data data
      *
      * @return self
      */
@@ -243,7 +243,7 @@ class GetListTagResponseCollection implements ModelInterface, ArrayAccess, \Json
     /**
      * Gets links
      *
-     * @return \KlaviyoAPI\Model\GetCatalogItemResponseCollectionWithIncludedSectionLinks
+     * @return \KlaviyoAPI\Model\CollectionLinks
      */
     public function getLinks()
     {
@@ -253,7 +253,7 @@ class GetListTagResponseCollection implements ModelInterface, ArrayAccess, \Json
     /**
      * Sets links
      *
-     * @param \KlaviyoAPI\Model\GetCatalogItemResponseCollectionWithIncludedSectionLinks $links links
+     * @param \KlaviyoAPI\Model\CollectionLinks $links links
      *
      * @return self
      */

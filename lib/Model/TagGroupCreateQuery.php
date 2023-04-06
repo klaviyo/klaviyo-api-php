@@ -58,7 +58,7 @@ class TagGroupCreateQuery implements ModelInterface, ArrayAccess, \JsonSerializa
       * @var string[]
       */
     protected static $openAPITypes = [
-        'data' => '\KlaviyoAPI\Model\TagGroupCreateQueryAsSubResource'
+        'data' => '\KlaviyoAPI\Model\TagGroupCreateQueryResourceObject'
     ];
 
     /**
@@ -210,7 +210,7 @@ class TagGroupCreateQuery implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Gets data
      *
-     * @return \KlaviyoAPI\Model\TagGroupCreateQueryAsSubResource
+     * @return \KlaviyoAPI\Model\TagGroupCreateQueryResourceObject
      */
     public function getData()
     {
@@ -220,7 +220,7 @@ class TagGroupCreateQuery implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets data
      *
-     * @param \KlaviyoAPI\Model\TagGroupCreateQueryAsSubResource $data data
+     * @param \KlaviyoAPI\Model\TagGroupCreateQueryResourceObject $data data
      *
      * @return self
      */

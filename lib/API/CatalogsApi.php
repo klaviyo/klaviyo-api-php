@@ -480,39 +480,37 @@ class CatalogsApi
     }
 
     /**
-     * Operation createCatalogCategoryRelationships
+     * Operation createCatalogCategoryRelationshipsItems
      *
-     * Create Catalog Category Relationships
+     * Create Catalog Category Relationships Items
      *
      * @param  string $id  (required)
-     * @param  string $related_resource  (required)
      * @param  \KlaviyoAPI\Model\CatalogCategoryItemOp $catalog_category_item_op catalog_category_item_op (required)
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function createCatalogCategoryRelationships($id, $related_resource, $catalog_category_item_op, $apiKey = null)
+    public function createCatalogCategoryRelationshipsItems($id, $catalog_category_item_op, $apiKey = null)
     {
-        $this->createCatalogCategoryRelationshipsWithHttpInfo($id, $related_resource, $catalog_category_item_op, $apiKey);
+        $this->createCatalogCategoryRelationshipsItemsWithHttpInfo($id, $catalog_category_item_op, $apiKey);
     }
 
     /**
-     * Operation createCatalogCategoryRelationshipsWithHttpInfo
+     * Operation createCatalogCategoryRelationshipsItemsWithHttpInfo
      *
-     * Create Catalog Category Relationships
+     * Create Catalog Category Relationships Items
      *
      * @param  string $id  (required)
-     * @param  string $related_resource  (required)
      * @param  \KlaviyoAPI\Model\CatalogCategoryItemOp $catalog_category_item_op (required)
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createCatalogCategoryRelationshipsWithHttpInfo($id, $related_resource, $catalog_category_item_op, $apiKey = null)
+    public function createCatalogCategoryRelationshipsItemsWithHttpInfo($id, $catalog_category_item_op, $apiKey = null)
     {
-        $request = $this->createCatalogCategoryRelationshipsRequest($id, $related_resource, $catalog_category_item_op, $apiKey);
+        $request = $this->createCatalogCategoryRelationshipsItemsRequest($id, $catalog_category_item_op, $apiKey);
 
         try {
             $options = $this->createHttpClientOption();
@@ -575,20 +573,19 @@ class CatalogsApi
     }
 
     /**
-     * Operation createCatalogCategoryRelationshipsAsync
+     * Operation createCatalogCategoryRelationshipsItemsAsync
      *
-     * Create Catalog Category Relationships
+     * Create Catalog Category Relationships Items
      *
      * @param  string $id  (required)
-     * @param  string $related_resource  (required)
      * @param  \KlaviyoAPI\Model\CatalogCategoryItemOp $catalog_category_item_op (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createCatalogCategoryRelationshipsAsync($id, $related_resource, $catalog_category_item_op, $apiKey = null)
+    public function createCatalogCategoryRelationshipsItemsAsync($id, $catalog_category_item_op, $apiKey = null)
     {
-        return $this->createCatalogCategoryRelationshipsAsyncWithHttpInfo($id, $related_resource, $catalog_category_item_op, $apiKey)
+        return $this->createCatalogCategoryRelationshipsItemsAsyncWithHttpInfo($id, $catalog_category_item_op, $apiKey)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -597,21 +594,20 @@ class CatalogsApi
     }
 
     /**
-     * Operation createCatalogCategoryRelationshipsAsyncWithHttpInfo
+     * Operation createCatalogCategoryRelationshipsItemsAsyncWithHttpInfo
      *
-     * Create Catalog Category Relationships
+     * Create Catalog Category Relationships Items
      *
      * @param  string $id  (required)
-     * @param  string $related_resource  (required)
      * @param  \KlaviyoAPI\Model\CatalogCategoryItemOp $catalog_category_item_op (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createCatalogCategoryRelationshipsAsyncWithHttpInfo($id, $related_resource, $catalog_category_item_op, $apiKey = null)
+    public function createCatalogCategoryRelationshipsItemsAsyncWithHttpInfo($id, $catalog_category_item_op, $apiKey = null)
     {
         $returnType = '';
-        $request = $this->createCatalogCategoryRelationshipsRequest($id, $related_resource, $catalog_category_item_op, $apiKey);
+        $request = $this->createCatalogCategoryRelationshipsItemsRequest($id, $catalog_category_item_op, $apiKey);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -637,37 +633,30 @@ class CatalogsApi
     }
 
     /**
-     * Create request for operation 'createCatalogCategoryRelationships'
+     * Create request for operation 'createCatalogCategoryRelationshipsItems'
      *
      * @param  string $id  (required)
-     * @param  string $related_resource  (required)
      * @param  \KlaviyoAPI\Model\CatalogCategoryItemOp $catalog_category_item_op (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function createCatalogCategoryRelationshipsRequest($id, $related_resource, $catalog_category_item_op, $apiKey = null)
+    public function createCatalogCategoryRelationshipsItemsRequest($id, $catalog_category_item_op, $apiKey = null)
     {
         // verify the required parameter 'id' is set
         if ($id === null || (is_array($id) && count($id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $id when calling createCatalogCategoryRelationships'
-            );
-        }
-        // verify the required parameter 'related_resource' is set
-        if ($related_resource === null || (is_array($related_resource) && count($related_resource) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $related_resource when calling createCatalogCategoryRelationships'
+                'Missing the required parameter $id when calling createCatalogCategoryRelationshipsItems'
             );
         }
         // verify the required parameter 'catalog_category_item_op' is set
         if ($catalog_category_item_op === null || (is_array($catalog_category_item_op) && count($catalog_category_item_op) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $catalog_category_item_op when calling createCatalogCategoryRelationships'
+                'Missing the required parameter $catalog_category_item_op when calling createCatalogCategoryRelationshipsItems'
             );
         }
 
-        $resourcePath = '/api/catalog-categories/{id}/relationships/{related_resource}/';
+        $resourcePath = '/api/catalog-categories/{id}/relationships/items/';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -681,14 +670,6 @@ class CatalogsApi
             $resourcePath = str_replace(
                 '{' . 'id' . '}',
                 ObjectSerializer::toPathValue($id),
-                $resourcePath
-            );
-        }
-        // path params
-        if ($related_resource !== null) {
-            $resourcePath = str_replace(
-                '{' . 'related_resource' . '}',
-                ObjectSerializer::toPathValue($related_resource),
                 $resourcePath
             );
         }
@@ -1132,39 +1113,37 @@ class CatalogsApi
     }
 
     /**
-     * Operation createCatalogItemRelationships
+     * Operation createCatalogItemRelationshipsCategories
      *
-     * Create Catalog Item Relationships
+     * Create Catalog Item Relationships Categories
      *
      * @param  string $id  (required)
-     * @param  string $related_resource  (required)
      * @param  \KlaviyoAPI\Model\CatalogItemCategoryOp $catalog_item_category_op catalog_item_category_op (required)
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function createCatalogItemRelationships($id, $related_resource, $catalog_item_category_op, $apiKey = null)
+    public function createCatalogItemRelationshipsCategories($id, $catalog_item_category_op, $apiKey = null)
     {
-        $this->createCatalogItemRelationshipsWithHttpInfo($id, $related_resource, $catalog_item_category_op, $apiKey);
+        $this->createCatalogItemRelationshipsCategoriesWithHttpInfo($id, $catalog_item_category_op, $apiKey);
     }
 
     /**
-     * Operation createCatalogItemRelationshipsWithHttpInfo
+     * Operation createCatalogItemRelationshipsCategoriesWithHttpInfo
      *
-     * Create Catalog Item Relationships
+     * Create Catalog Item Relationships Categories
      *
      * @param  string $id  (required)
-     * @param  string $related_resource  (required)
      * @param  \KlaviyoAPI\Model\CatalogItemCategoryOp $catalog_item_category_op (required)
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createCatalogItemRelationshipsWithHttpInfo($id, $related_resource, $catalog_item_category_op, $apiKey = null)
+    public function createCatalogItemRelationshipsCategoriesWithHttpInfo($id, $catalog_item_category_op, $apiKey = null)
     {
-        $request = $this->createCatalogItemRelationshipsRequest($id, $related_resource, $catalog_item_category_op, $apiKey);
+        $request = $this->createCatalogItemRelationshipsCategoriesRequest($id, $catalog_item_category_op, $apiKey);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1227,20 +1206,19 @@ class CatalogsApi
     }
 
     /**
-     * Operation createCatalogItemRelationshipsAsync
+     * Operation createCatalogItemRelationshipsCategoriesAsync
      *
-     * Create Catalog Item Relationships
+     * Create Catalog Item Relationships Categories
      *
      * @param  string $id  (required)
-     * @param  string $related_resource  (required)
      * @param  \KlaviyoAPI\Model\CatalogItemCategoryOp $catalog_item_category_op (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createCatalogItemRelationshipsAsync($id, $related_resource, $catalog_item_category_op, $apiKey = null)
+    public function createCatalogItemRelationshipsCategoriesAsync($id, $catalog_item_category_op, $apiKey = null)
     {
-        return $this->createCatalogItemRelationshipsAsyncWithHttpInfo($id, $related_resource, $catalog_item_category_op, $apiKey)
+        return $this->createCatalogItemRelationshipsCategoriesAsyncWithHttpInfo($id, $catalog_item_category_op, $apiKey)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1249,21 +1227,20 @@ class CatalogsApi
     }
 
     /**
-     * Operation createCatalogItemRelationshipsAsyncWithHttpInfo
+     * Operation createCatalogItemRelationshipsCategoriesAsyncWithHttpInfo
      *
-     * Create Catalog Item Relationships
+     * Create Catalog Item Relationships Categories
      *
      * @param  string $id  (required)
-     * @param  string $related_resource  (required)
      * @param  \KlaviyoAPI\Model\CatalogItemCategoryOp $catalog_item_category_op (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createCatalogItemRelationshipsAsyncWithHttpInfo($id, $related_resource, $catalog_item_category_op, $apiKey = null)
+    public function createCatalogItemRelationshipsCategoriesAsyncWithHttpInfo($id, $catalog_item_category_op, $apiKey = null)
     {
         $returnType = '';
-        $request = $this->createCatalogItemRelationshipsRequest($id, $related_resource, $catalog_item_category_op, $apiKey);
+        $request = $this->createCatalogItemRelationshipsCategoriesRequest($id, $catalog_item_category_op, $apiKey);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1289,37 +1266,30 @@ class CatalogsApi
     }
 
     /**
-     * Create request for operation 'createCatalogItemRelationships'
+     * Create request for operation 'createCatalogItemRelationshipsCategories'
      *
      * @param  string $id  (required)
-     * @param  string $related_resource  (required)
      * @param  \KlaviyoAPI\Model\CatalogItemCategoryOp $catalog_item_category_op (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function createCatalogItemRelationshipsRequest($id, $related_resource, $catalog_item_category_op, $apiKey = null)
+    public function createCatalogItemRelationshipsCategoriesRequest($id, $catalog_item_category_op, $apiKey = null)
     {
         // verify the required parameter 'id' is set
         if ($id === null || (is_array($id) && count($id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $id when calling createCatalogItemRelationships'
-            );
-        }
-        // verify the required parameter 'related_resource' is set
-        if ($related_resource === null || (is_array($related_resource) && count($related_resource) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $related_resource when calling createCatalogItemRelationships'
+                'Missing the required parameter $id when calling createCatalogItemRelationshipsCategories'
             );
         }
         // verify the required parameter 'catalog_item_category_op' is set
         if ($catalog_item_category_op === null || (is_array($catalog_item_category_op) && count($catalog_item_category_op) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $catalog_item_category_op when calling createCatalogItemRelationships'
+                'Missing the required parameter $catalog_item_category_op when calling createCatalogItemRelationshipsCategories'
             );
         }
 
-        $resourcePath = '/api/catalog-items/{id}/relationships/{related_resource}/';
+        $resourcePath = '/api/catalog-items/{id}/relationships/categories/';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1333,14 +1303,6 @@ class CatalogsApi
             $resourcePath = str_replace(
                 '{' . 'id' . '}',
                 ObjectSerializer::toPathValue($id),
-                $resourcePath
-            );
-        }
-        // path params
-        if ($related_resource !== null) {
-            $resourcePath = str_replace(
-                '{' . 'related_resource' . '}',
-                ObjectSerializer::toPathValue($related_resource),
                 $resourcePath
             );
         }
@@ -2037,39 +1999,37 @@ class CatalogsApi
     }
 
     /**
-     * Operation deleteCatalogCategoryRelationships
+     * Operation deleteCatalogCategoryRelationshipsItems
      *
-     * Delete Catalog Category Relationships
+     * Delete Catalog Category Relationships Items
      *
      * @param  string $id  (required)
-     * @param  string $related_resource  (required)
      * @param  \KlaviyoAPI\Model\CatalogCategoryItemOp $catalog_category_item_op catalog_category_item_op (required)
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function deleteCatalogCategoryRelationships($id, $related_resource, $catalog_category_item_op, $apiKey = null)
+    public function deleteCatalogCategoryRelationshipsItems($id, $catalog_category_item_op, $apiKey = null)
     {
-        $this->deleteCatalogCategoryRelationshipsWithHttpInfo($id, $related_resource, $catalog_category_item_op, $apiKey);
+        $this->deleteCatalogCategoryRelationshipsItemsWithHttpInfo($id, $catalog_category_item_op, $apiKey);
     }
 
     /**
-     * Operation deleteCatalogCategoryRelationshipsWithHttpInfo
+     * Operation deleteCatalogCategoryRelationshipsItemsWithHttpInfo
      *
-     * Delete Catalog Category Relationships
+     * Delete Catalog Category Relationships Items
      *
      * @param  string $id  (required)
-     * @param  string $related_resource  (required)
      * @param  \KlaviyoAPI\Model\CatalogCategoryItemOp $catalog_category_item_op (required)
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function deleteCatalogCategoryRelationshipsWithHttpInfo($id, $related_resource, $catalog_category_item_op, $apiKey = null)
+    public function deleteCatalogCategoryRelationshipsItemsWithHttpInfo($id, $catalog_category_item_op, $apiKey = null)
     {
-        $request = $this->deleteCatalogCategoryRelationshipsRequest($id, $related_resource, $catalog_category_item_op, $apiKey);
+        $request = $this->deleteCatalogCategoryRelationshipsItemsRequest($id, $catalog_category_item_op, $apiKey);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2132,20 +2092,19 @@ class CatalogsApi
     }
 
     /**
-     * Operation deleteCatalogCategoryRelationshipsAsync
+     * Operation deleteCatalogCategoryRelationshipsItemsAsync
      *
-     * Delete Catalog Category Relationships
+     * Delete Catalog Category Relationships Items
      *
      * @param  string $id  (required)
-     * @param  string $related_resource  (required)
      * @param  \KlaviyoAPI\Model\CatalogCategoryItemOp $catalog_category_item_op (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteCatalogCategoryRelationshipsAsync($id, $related_resource, $catalog_category_item_op, $apiKey = null)
+    public function deleteCatalogCategoryRelationshipsItemsAsync($id, $catalog_category_item_op, $apiKey = null)
     {
-        return $this->deleteCatalogCategoryRelationshipsAsyncWithHttpInfo($id, $related_resource, $catalog_category_item_op, $apiKey)
+        return $this->deleteCatalogCategoryRelationshipsItemsAsyncWithHttpInfo($id, $catalog_category_item_op, $apiKey)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2154,21 +2113,20 @@ class CatalogsApi
     }
 
     /**
-     * Operation deleteCatalogCategoryRelationshipsAsyncWithHttpInfo
+     * Operation deleteCatalogCategoryRelationshipsItemsAsyncWithHttpInfo
      *
-     * Delete Catalog Category Relationships
+     * Delete Catalog Category Relationships Items
      *
      * @param  string $id  (required)
-     * @param  string $related_resource  (required)
      * @param  \KlaviyoAPI\Model\CatalogCategoryItemOp $catalog_category_item_op (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteCatalogCategoryRelationshipsAsyncWithHttpInfo($id, $related_resource, $catalog_category_item_op, $apiKey = null)
+    public function deleteCatalogCategoryRelationshipsItemsAsyncWithHttpInfo($id, $catalog_category_item_op, $apiKey = null)
     {
         $returnType = '';
-        $request = $this->deleteCatalogCategoryRelationshipsRequest($id, $related_resource, $catalog_category_item_op, $apiKey);
+        $request = $this->deleteCatalogCategoryRelationshipsItemsRequest($id, $catalog_category_item_op, $apiKey);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2194,37 +2152,30 @@ class CatalogsApi
     }
 
     /**
-     * Create request for operation 'deleteCatalogCategoryRelationships'
+     * Create request for operation 'deleteCatalogCategoryRelationshipsItems'
      *
      * @param  string $id  (required)
-     * @param  string $related_resource  (required)
      * @param  \KlaviyoAPI\Model\CatalogCategoryItemOp $catalog_category_item_op (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function deleteCatalogCategoryRelationshipsRequest($id, $related_resource, $catalog_category_item_op, $apiKey = null)
+    public function deleteCatalogCategoryRelationshipsItemsRequest($id, $catalog_category_item_op, $apiKey = null)
     {
         // verify the required parameter 'id' is set
         if ($id === null || (is_array($id) && count($id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $id when calling deleteCatalogCategoryRelationships'
-            );
-        }
-        // verify the required parameter 'related_resource' is set
-        if ($related_resource === null || (is_array($related_resource) && count($related_resource) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $related_resource when calling deleteCatalogCategoryRelationships'
+                'Missing the required parameter $id when calling deleteCatalogCategoryRelationshipsItems'
             );
         }
         // verify the required parameter 'catalog_category_item_op' is set
         if ($catalog_category_item_op === null || (is_array($catalog_category_item_op) && count($catalog_category_item_op) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $catalog_category_item_op when calling deleteCatalogCategoryRelationships'
+                'Missing the required parameter $catalog_category_item_op when calling deleteCatalogCategoryRelationshipsItems'
             );
         }
 
-        $resourcePath = '/api/catalog-categories/{id}/relationships/{related_resource}/';
+        $resourcePath = '/api/catalog-categories/{id}/relationships/items/';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -2238,14 +2189,6 @@ class CatalogsApi
             $resourcePath = str_replace(
                 '{' . 'id' . '}',
                 ObjectSerializer::toPathValue($id),
-                $resourcePath
-            );
-        }
-        // path params
-        if ($related_resource !== null) {
-            $resourcePath = str_replace(
-                '{' . 'related_resource' . '}',
-                ObjectSerializer::toPathValue($related_resource),
                 $resourcePath
             );
         }
@@ -2579,39 +2522,37 @@ class CatalogsApi
     }
 
     /**
-     * Operation deleteCatalogItemRelationships
+     * Operation deleteCatalogItemRelationshipsCategories
      *
-     * Delete Catalog Item Relationships
+     * Delete Catalog Item Relationships Categories
      *
      * @param  string $id  (required)
-     * @param  string $related_resource  (required)
      * @param  \KlaviyoAPI\Model\CatalogItemCategoryOp $catalog_item_category_op catalog_item_category_op (required)
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function deleteCatalogItemRelationships($id, $related_resource, $catalog_item_category_op, $apiKey = null)
+    public function deleteCatalogItemRelationshipsCategories($id, $catalog_item_category_op, $apiKey = null)
     {
-        $this->deleteCatalogItemRelationshipsWithHttpInfo($id, $related_resource, $catalog_item_category_op, $apiKey);
+        $this->deleteCatalogItemRelationshipsCategoriesWithHttpInfo($id, $catalog_item_category_op, $apiKey);
     }
 
     /**
-     * Operation deleteCatalogItemRelationshipsWithHttpInfo
+     * Operation deleteCatalogItemRelationshipsCategoriesWithHttpInfo
      *
-     * Delete Catalog Item Relationships
+     * Delete Catalog Item Relationships Categories
      *
      * @param  string $id  (required)
-     * @param  string $related_resource  (required)
      * @param  \KlaviyoAPI\Model\CatalogItemCategoryOp $catalog_item_category_op (required)
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function deleteCatalogItemRelationshipsWithHttpInfo($id, $related_resource, $catalog_item_category_op, $apiKey = null)
+    public function deleteCatalogItemRelationshipsCategoriesWithHttpInfo($id, $catalog_item_category_op, $apiKey = null)
     {
-        $request = $this->deleteCatalogItemRelationshipsRequest($id, $related_resource, $catalog_item_category_op, $apiKey);
+        $request = $this->deleteCatalogItemRelationshipsCategoriesRequest($id, $catalog_item_category_op, $apiKey);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2674,20 +2615,19 @@ class CatalogsApi
     }
 
     /**
-     * Operation deleteCatalogItemRelationshipsAsync
+     * Operation deleteCatalogItemRelationshipsCategoriesAsync
      *
-     * Delete Catalog Item Relationships
+     * Delete Catalog Item Relationships Categories
      *
      * @param  string $id  (required)
-     * @param  string $related_resource  (required)
      * @param  \KlaviyoAPI\Model\CatalogItemCategoryOp $catalog_item_category_op (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteCatalogItemRelationshipsAsync($id, $related_resource, $catalog_item_category_op, $apiKey = null)
+    public function deleteCatalogItemRelationshipsCategoriesAsync($id, $catalog_item_category_op, $apiKey = null)
     {
-        return $this->deleteCatalogItemRelationshipsAsyncWithHttpInfo($id, $related_resource, $catalog_item_category_op, $apiKey)
+        return $this->deleteCatalogItemRelationshipsCategoriesAsyncWithHttpInfo($id, $catalog_item_category_op, $apiKey)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2696,21 +2636,20 @@ class CatalogsApi
     }
 
     /**
-     * Operation deleteCatalogItemRelationshipsAsyncWithHttpInfo
+     * Operation deleteCatalogItemRelationshipsCategoriesAsyncWithHttpInfo
      *
-     * Delete Catalog Item Relationships
+     * Delete Catalog Item Relationships Categories
      *
      * @param  string $id  (required)
-     * @param  string $related_resource  (required)
      * @param  \KlaviyoAPI\Model\CatalogItemCategoryOp $catalog_item_category_op (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteCatalogItemRelationshipsAsyncWithHttpInfo($id, $related_resource, $catalog_item_category_op, $apiKey = null)
+    public function deleteCatalogItemRelationshipsCategoriesAsyncWithHttpInfo($id, $catalog_item_category_op, $apiKey = null)
     {
         $returnType = '';
-        $request = $this->deleteCatalogItemRelationshipsRequest($id, $related_resource, $catalog_item_category_op, $apiKey);
+        $request = $this->deleteCatalogItemRelationshipsCategoriesRequest($id, $catalog_item_category_op, $apiKey);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2736,37 +2675,30 @@ class CatalogsApi
     }
 
     /**
-     * Create request for operation 'deleteCatalogItemRelationships'
+     * Create request for operation 'deleteCatalogItemRelationshipsCategories'
      *
      * @param  string $id  (required)
-     * @param  string $related_resource  (required)
      * @param  \KlaviyoAPI\Model\CatalogItemCategoryOp $catalog_item_category_op (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function deleteCatalogItemRelationshipsRequest($id, $related_resource, $catalog_item_category_op, $apiKey = null)
+    public function deleteCatalogItemRelationshipsCategoriesRequest($id, $catalog_item_category_op, $apiKey = null)
     {
         // verify the required parameter 'id' is set
         if ($id === null || (is_array($id) && count($id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $id when calling deleteCatalogItemRelationships'
-            );
-        }
-        // verify the required parameter 'related_resource' is set
-        if ($related_resource === null || (is_array($related_resource) && count($related_resource) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $related_resource when calling deleteCatalogItemRelationships'
+                'Missing the required parameter $id when calling deleteCatalogItemRelationshipsCategories'
             );
         }
         // verify the required parameter 'catalog_item_category_op' is set
         if ($catalog_item_category_op === null || (is_array($catalog_item_category_op) && count($catalog_item_category_op) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $catalog_item_category_op when calling deleteCatalogItemRelationships'
+                'Missing the required parameter $catalog_item_category_op when calling deleteCatalogItemRelationshipsCategories'
             );
         }
 
-        $resourcePath = '/api/catalog-items/{id}/relationships/{related_resource}/';
+        $resourcePath = '/api/catalog-items/{id}/relationships/categories/';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -2780,14 +2712,6 @@ class CatalogsApi
             $resourcePath = str_replace(
                 '{' . 'id' . '}',
                 ObjectSerializer::toPathValue($id),
-                $resourcePath
-            );
-        }
-        // path params
-        if ($related_resource !== null) {
-            $resourcePath = str_replace(
-                '{' . 'related_resource' . '}',
-                ObjectSerializer::toPathValue($related_resource),
                 $resourcePath
             );
         }
@@ -4351,40 +4275,38 @@ class CatalogsApi
     }
 
     /**
-     * Operation getCatalogCategoryRelationships
+     * Operation getCatalogCategoryRelationshipsItems
      *
-     * Get Catalog Category Relationships
+     * Get Catalog Category Relationships Items
      *
      * @param  string $id  (required)
-     * @param  string $related_resource  (required)
      * @param  string $page_cursor For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#pagination (optional)
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array<string,mixed>|\KlaviyoAPI\Model\GetCampaigns400Response|\KlaviyoAPI\Model\GetCampaigns400Response
      */
-    public function getCatalogCategoryRelationships($id, $related_resource, $page_cursor = null, $apiKey = null)
+    public function getCatalogCategoryRelationshipsItems($id, $page_cursor = null, $apiKey = null)
     {
-        list($response) = $this->getCatalogCategoryRelationshipsWithHttpInfo($id, $related_resource, $page_cursor, $apiKey);
+        list($response) = $this->getCatalogCategoryRelationshipsItemsWithHttpInfo($id, $page_cursor, $apiKey);
         return $response;
     }
 
     /**
-     * Operation getCatalogCategoryRelationshipsWithHttpInfo
+     * Operation getCatalogCategoryRelationshipsItemsWithHttpInfo
      *
-     * Get Catalog Category Relationships
+     * Get Catalog Category Relationships Items
      *
      * @param  string $id  (required)
-     * @param  string $related_resource  (required)
      * @param  string $page_cursor For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#pagination (optional)
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of array<string,mixed>|\KlaviyoAPI\Model\GetCampaigns400Response|\KlaviyoAPI\Model\GetCampaigns400Response, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getCatalogCategoryRelationshipsWithHttpInfo($id, $related_resource, $page_cursor = null, $apiKey = null)
+    public function getCatalogCategoryRelationshipsItemsWithHttpInfo($id, $page_cursor = null, $apiKey = null)
     {
-        $request = $this->getCatalogCategoryRelationshipsRequest($id, $related_resource, $page_cursor, $apiKey);
+        $request = $this->getCatalogCategoryRelationshipsItemsRequest($id, $page_cursor, $apiKey);
 
         try {
             $options = $this->createHttpClientOption();
@@ -4540,20 +4462,19 @@ class CatalogsApi
     }
 
     /**
-     * Operation getCatalogCategoryRelationshipsAsync
+     * Operation getCatalogCategoryRelationshipsItemsAsync
      *
-     * Get Catalog Category Relationships
+     * Get Catalog Category Relationships Items
      *
      * @param  string $id  (required)
-     * @param  string $related_resource  (required)
      * @param  string $page_cursor For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#pagination (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getCatalogCategoryRelationshipsAsync($id, $related_resource, $page_cursor = null, $apiKey = null)
+    public function getCatalogCategoryRelationshipsItemsAsync($id, $page_cursor = null, $apiKey = null)
     {
-        return $this->getCatalogCategoryRelationshipsAsyncWithHttpInfo($id, $related_resource, $page_cursor, $apiKey)
+        return $this->getCatalogCategoryRelationshipsItemsAsyncWithHttpInfo($id, $page_cursor, $apiKey)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -4562,21 +4483,20 @@ class CatalogsApi
     }
 
     /**
-     * Operation getCatalogCategoryRelationshipsAsyncWithHttpInfo
+     * Operation getCatalogCategoryRelationshipsItemsAsyncWithHttpInfo
      *
-     * Get Catalog Category Relationships
+     * Get Catalog Category Relationships Items
      *
      * @param  string $id  (required)
-     * @param  string $related_resource  (required)
      * @param  string $page_cursor For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#pagination (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getCatalogCategoryRelationshipsAsyncWithHttpInfo($id, $related_resource, $page_cursor = null, $apiKey = null)
+    public function getCatalogCategoryRelationshipsItemsAsyncWithHttpInfo($id, $page_cursor = null, $apiKey = null)
     {
         $returnType = 'array<string,mixed>';
-        $request = $this->getCatalogCategoryRelationshipsRequest($id, $related_resource, $page_cursor, $apiKey);
+        $request = $this->getCatalogCategoryRelationshipsItemsRequest($id, $page_cursor, $apiKey);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -4620,31 +4540,24 @@ class CatalogsApi
     }
 
     /**
-     * Create request for operation 'getCatalogCategoryRelationships'
+     * Create request for operation 'getCatalogCategoryRelationshipsItems'
      *
      * @param  string $id  (required)
-     * @param  string $related_resource  (required)
      * @param  string $page_cursor For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#pagination (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getCatalogCategoryRelationshipsRequest($id, $related_resource, $page_cursor = null, $apiKey = null)
+    public function getCatalogCategoryRelationshipsItemsRequest($id, $page_cursor = null, $apiKey = null)
     {
         // verify the required parameter 'id' is set
         if ($id === null || (is_array($id) && count($id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $id when calling getCatalogCategoryRelationships'
-            );
-        }
-        // verify the required parameter 'related_resource' is set
-        if ($related_resource === null || (is_array($related_resource) && count($related_resource) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $related_resource when calling getCatalogCategoryRelationships'
+                'Missing the required parameter $id when calling getCatalogCategoryRelationshipsItems'
             );
         }
 
-        $resourcePath = '/api/catalog-categories/{id}/relationships/{related_resource}/';
+        $resourcePath = '/api/catalog-categories/{id}/relationships/items/';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -4667,14 +4580,6 @@ class CatalogsApi
             $resourcePath = str_replace(
                 '{' . 'id' . '}',
                 ObjectSerializer::toPathValue($id),
-                $resourcePath
-            );
-        }
-        // path params
-        if ($related_resource !== null) {
-            $resourcePath = str_replace(
-                '{' . 'related_resource' . '}',
-                ObjectSerializer::toPathValue($related_resource),
                 $resourcePath
             );
         }
@@ -5577,40 +5482,38 @@ class CatalogsApi
     }
 
     /**
-     * Operation getCatalogItemRelationships
+     * Operation getCatalogItemRelationshipsCategories
      *
-     * Get Catalog Item Relationships
+     * Get Catalog Item Relationships Categories
      *
      * @param  string $id  (required)
-     * @param  string $related_resource  (required)
      * @param  string $page_cursor For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#pagination (optional)
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array<string,mixed>|\KlaviyoAPI\Model\GetCampaigns400Response|\KlaviyoAPI\Model\GetCampaigns400Response
      */
-    public function getCatalogItemRelationships($id, $related_resource, $page_cursor = null, $apiKey = null)
+    public function getCatalogItemRelationshipsCategories($id, $page_cursor = null, $apiKey = null)
     {
-        list($response) = $this->getCatalogItemRelationshipsWithHttpInfo($id, $related_resource, $page_cursor, $apiKey);
+        list($response) = $this->getCatalogItemRelationshipsCategoriesWithHttpInfo($id, $page_cursor, $apiKey);
         return $response;
     }
 
     /**
-     * Operation getCatalogItemRelationshipsWithHttpInfo
+     * Operation getCatalogItemRelationshipsCategoriesWithHttpInfo
      *
-     * Get Catalog Item Relationships
+     * Get Catalog Item Relationships Categories
      *
      * @param  string $id  (required)
-     * @param  string $related_resource  (required)
      * @param  string $page_cursor For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#pagination (optional)
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of array<string,mixed>|\KlaviyoAPI\Model\GetCampaigns400Response|\KlaviyoAPI\Model\GetCampaigns400Response, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getCatalogItemRelationshipsWithHttpInfo($id, $related_resource, $page_cursor = null, $apiKey = null)
+    public function getCatalogItemRelationshipsCategoriesWithHttpInfo($id, $page_cursor = null, $apiKey = null)
     {
-        $request = $this->getCatalogItemRelationshipsRequest($id, $related_resource, $page_cursor, $apiKey);
+        $request = $this->getCatalogItemRelationshipsCategoriesRequest($id, $page_cursor, $apiKey);
 
         try {
             $options = $this->createHttpClientOption();
@@ -5766,20 +5669,19 @@ class CatalogsApi
     }
 
     /**
-     * Operation getCatalogItemRelationshipsAsync
+     * Operation getCatalogItemRelationshipsCategoriesAsync
      *
-     * Get Catalog Item Relationships
+     * Get Catalog Item Relationships Categories
      *
      * @param  string $id  (required)
-     * @param  string $related_resource  (required)
      * @param  string $page_cursor For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#pagination (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getCatalogItemRelationshipsAsync($id, $related_resource, $page_cursor = null, $apiKey = null)
+    public function getCatalogItemRelationshipsCategoriesAsync($id, $page_cursor = null, $apiKey = null)
     {
-        return $this->getCatalogItemRelationshipsAsyncWithHttpInfo($id, $related_resource, $page_cursor, $apiKey)
+        return $this->getCatalogItemRelationshipsCategoriesAsyncWithHttpInfo($id, $page_cursor, $apiKey)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -5788,21 +5690,20 @@ class CatalogsApi
     }
 
     /**
-     * Operation getCatalogItemRelationshipsAsyncWithHttpInfo
+     * Operation getCatalogItemRelationshipsCategoriesAsyncWithHttpInfo
      *
-     * Get Catalog Item Relationships
+     * Get Catalog Item Relationships Categories
      *
      * @param  string $id  (required)
-     * @param  string $related_resource  (required)
      * @param  string $page_cursor For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#pagination (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getCatalogItemRelationshipsAsyncWithHttpInfo($id, $related_resource, $page_cursor = null, $apiKey = null)
+    public function getCatalogItemRelationshipsCategoriesAsyncWithHttpInfo($id, $page_cursor = null, $apiKey = null)
     {
         $returnType = 'array<string,mixed>';
-        $request = $this->getCatalogItemRelationshipsRequest($id, $related_resource, $page_cursor, $apiKey);
+        $request = $this->getCatalogItemRelationshipsCategoriesRequest($id, $page_cursor, $apiKey);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -5846,31 +5747,24 @@ class CatalogsApi
     }
 
     /**
-     * Create request for operation 'getCatalogItemRelationships'
+     * Create request for operation 'getCatalogItemRelationshipsCategories'
      *
      * @param  string $id  (required)
-     * @param  string $related_resource  (required)
      * @param  string $page_cursor For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#pagination (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getCatalogItemRelationshipsRequest($id, $related_resource, $page_cursor = null, $apiKey = null)
+    public function getCatalogItemRelationshipsCategoriesRequest($id, $page_cursor = null, $apiKey = null)
     {
         // verify the required parameter 'id' is set
         if ($id === null || (is_array($id) && count($id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $id when calling getCatalogItemRelationships'
-            );
-        }
-        // verify the required parameter 'related_resource' is set
-        if ($related_resource === null || (is_array($related_resource) && count($related_resource) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $related_resource when calling getCatalogItemRelationships'
+                'Missing the required parameter $id when calling getCatalogItemRelationshipsCategories'
             );
         }
 
-        $resourcePath = '/api/catalog-items/{id}/relationships/{related_resource}/';
+        $resourcePath = '/api/catalog-items/{id}/relationships/categories/';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -5893,14 +5787,6 @@ class CatalogsApi
             $resourcePath = str_replace(
                 '{' . 'id' . '}',
                 ObjectSerializer::toPathValue($id),
-                $resourcePath
-            );
-        }
-        // path params
-        if ($related_resource !== null) {
-            $resourcePath = str_replace(
-                '{' . 'related_resource' . '}',
-                ObjectSerializer::toPathValue($related_resource),
                 $resourcePath
             );
         }
@@ -18327,39 +18213,37 @@ class CatalogsApi
     }
 
     /**
-     * Operation updateCatalogCategoryRelationships
+     * Operation updateCatalogCategoryRelationshipsItems
      *
-     * Update Catalog Category Relationships
+     * Update Catalog Category Relationships Items
      *
      * @param  string $id  (required)
-     * @param  string $related_resource  (required)
      * @param  \KlaviyoAPI\Model\CatalogCategoryItemOp $catalog_category_item_op catalog_category_item_op (required)
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function updateCatalogCategoryRelationships($id, $related_resource, $catalog_category_item_op, $apiKey = null)
+    public function updateCatalogCategoryRelationshipsItems($id, $catalog_category_item_op, $apiKey = null)
     {
-        $this->updateCatalogCategoryRelationshipsWithHttpInfo($id, $related_resource, $catalog_category_item_op, $apiKey);
+        $this->updateCatalogCategoryRelationshipsItemsWithHttpInfo($id, $catalog_category_item_op, $apiKey);
     }
 
     /**
-     * Operation updateCatalogCategoryRelationshipsWithHttpInfo
+     * Operation updateCatalogCategoryRelationshipsItemsWithHttpInfo
      *
-     * Update Catalog Category Relationships
+     * Update Catalog Category Relationships Items
      *
      * @param  string $id  (required)
-     * @param  string $related_resource  (required)
      * @param  \KlaviyoAPI\Model\CatalogCategoryItemOp $catalog_category_item_op (required)
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updateCatalogCategoryRelationshipsWithHttpInfo($id, $related_resource, $catalog_category_item_op, $apiKey = null)
+    public function updateCatalogCategoryRelationshipsItemsWithHttpInfo($id, $catalog_category_item_op, $apiKey = null)
     {
-        $request = $this->updateCatalogCategoryRelationshipsRequest($id, $related_resource, $catalog_category_item_op, $apiKey);
+        $request = $this->updateCatalogCategoryRelationshipsItemsRequest($id, $catalog_category_item_op, $apiKey);
 
         try {
             $options = $this->createHttpClientOption();
@@ -18422,20 +18306,19 @@ class CatalogsApi
     }
 
     /**
-     * Operation updateCatalogCategoryRelationshipsAsync
+     * Operation updateCatalogCategoryRelationshipsItemsAsync
      *
-     * Update Catalog Category Relationships
+     * Update Catalog Category Relationships Items
      *
      * @param  string $id  (required)
-     * @param  string $related_resource  (required)
      * @param  \KlaviyoAPI\Model\CatalogCategoryItemOp $catalog_category_item_op (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateCatalogCategoryRelationshipsAsync($id, $related_resource, $catalog_category_item_op, $apiKey = null)
+    public function updateCatalogCategoryRelationshipsItemsAsync($id, $catalog_category_item_op, $apiKey = null)
     {
-        return $this->updateCatalogCategoryRelationshipsAsyncWithHttpInfo($id, $related_resource, $catalog_category_item_op, $apiKey)
+        return $this->updateCatalogCategoryRelationshipsItemsAsyncWithHttpInfo($id, $catalog_category_item_op, $apiKey)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -18444,21 +18327,20 @@ class CatalogsApi
     }
 
     /**
-     * Operation updateCatalogCategoryRelationshipsAsyncWithHttpInfo
+     * Operation updateCatalogCategoryRelationshipsItemsAsyncWithHttpInfo
      *
-     * Update Catalog Category Relationships
+     * Update Catalog Category Relationships Items
      *
      * @param  string $id  (required)
-     * @param  string $related_resource  (required)
      * @param  \KlaviyoAPI\Model\CatalogCategoryItemOp $catalog_category_item_op (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateCatalogCategoryRelationshipsAsyncWithHttpInfo($id, $related_resource, $catalog_category_item_op, $apiKey = null)
+    public function updateCatalogCategoryRelationshipsItemsAsyncWithHttpInfo($id, $catalog_category_item_op, $apiKey = null)
     {
         $returnType = '';
-        $request = $this->updateCatalogCategoryRelationshipsRequest($id, $related_resource, $catalog_category_item_op, $apiKey);
+        $request = $this->updateCatalogCategoryRelationshipsItemsRequest($id, $catalog_category_item_op, $apiKey);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -18484,37 +18366,30 @@ class CatalogsApi
     }
 
     /**
-     * Create request for operation 'updateCatalogCategoryRelationships'
+     * Create request for operation 'updateCatalogCategoryRelationshipsItems'
      *
      * @param  string $id  (required)
-     * @param  string $related_resource  (required)
      * @param  \KlaviyoAPI\Model\CatalogCategoryItemOp $catalog_category_item_op (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function updateCatalogCategoryRelationshipsRequest($id, $related_resource, $catalog_category_item_op, $apiKey = null)
+    public function updateCatalogCategoryRelationshipsItemsRequest($id, $catalog_category_item_op, $apiKey = null)
     {
         // verify the required parameter 'id' is set
         if ($id === null || (is_array($id) && count($id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $id when calling updateCatalogCategoryRelationships'
-            );
-        }
-        // verify the required parameter 'related_resource' is set
-        if ($related_resource === null || (is_array($related_resource) && count($related_resource) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $related_resource when calling updateCatalogCategoryRelationships'
+                'Missing the required parameter $id when calling updateCatalogCategoryRelationshipsItems'
             );
         }
         // verify the required parameter 'catalog_category_item_op' is set
         if ($catalog_category_item_op === null || (is_array($catalog_category_item_op) && count($catalog_category_item_op) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $catalog_category_item_op when calling updateCatalogCategoryRelationships'
+                'Missing the required parameter $catalog_category_item_op when calling updateCatalogCategoryRelationshipsItems'
             );
         }
 
-        $resourcePath = '/api/catalog-categories/{id}/relationships/{related_resource}/';
+        $resourcePath = '/api/catalog-categories/{id}/relationships/items/';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -18528,14 +18403,6 @@ class CatalogsApi
             $resourcePath = str_replace(
                 '{' . 'id' . '}',
                 ObjectSerializer::toPathValue($id),
-                $resourcePath
-            );
-        }
-        // path params
-        if ($related_resource !== null) {
-            $resourcePath = str_replace(
-                '{' . 'related_resource' . '}',
-                ObjectSerializer::toPathValue($related_resource),
                 $resourcePath
             );
         }
@@ -18998,39 +18865,37 @@ class CatalogsApi
     }
 
     /**
-     * Operation updateCatalogItemRelationships
+     * Operation updateCatalogItemRelationshipsCategories
      *
-     * Update Catalog Item Relationships
+     * Update Catalog Item Relationships Categories
      *
      * @param  string $id  (required)
-     * @param  string $related_resource  (required)
      * @param  \KlaviyoAPI\Model\CatalogItemCategoryOp $catalog_item_category_op catalog_item_category_op (required)
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function updateCatalogItemRelationships($id, $related_resource, $catalog_item_category_op, $apiKey = null)
+    public function updateCatalogItemRelationshipsCategories($id, $catalog_item_category_op, $apiKey = null)
     {
-        $this->updateCatalogItemRelationshipsWithHttpInfo($id, $related_resource, $catalog_item_category_op, $apiKey);
+        $this->updateCatalogItemRelationshipsCategoriesWithHttpInfo($id, $catalog_item_category_op, $apiKey);
     }
 
     /**
-     * Operation updateCatalogItemRelationshipsWithHttpInfo
+     * Operation updateCatalogItemRelationshipsCategoriesWithHttpInfo
      *
-     * Update Catalog Item Relationships
+     * Update Catalog Item Relationships Categories
      *
      * @param  string $id  (required)
-     * @param  string $related_resource  (required)
      * @param  \KlaviyoAPI\Model\CatalogItemCategoryOp $catalog_item_category_op (required)
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updateCatalogItemRelationshipsWithHttpInfo($id, $related_resource, $catalog_item_category_op, $apiKey = null)
+    public function updateCatalogItemRelationshipsCategoriesWithHttpInfo($id, $catalog_item_category_op, $apiKey = null)
     {
-        $request = $this->updateCatalogItemRelationshipsRequest($id, $related_resource, $catalog_item_category_op, $apiKey);
+        $request = $this->updateCatalogItemRelationshipsCategoriesRequest($id, $catalog_item_category_op, $apiKey);
 
         try {
             $options = $this->createHttpClientOption();
@@ -19093,20 +18958,19 @@ class CatalogsApi
     }
 
     /**
-     * Operation updateCatalogItemRelationshipsAsync
+     * Operation updateCatalogItemRelationshipsCategoriesAsync
      *
-     * Update Catalog Item Relationships
+     * Update Catalog Item Relationships Categories
      *
      * @param  string $id  (required)
-     * @param  string $related_resource  (required)
      * @param  \KlaviyoAPI\Model\CatalogItemCategoryOp $catalog_item_category_op (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateCatalogItemRelationshipsAsync($id, $related_resource, $catalog_item_category_op, $apiKey = null)
+    public function updateCatalogItemRelationshipsCategoriesAsync($id, $catalog_item_category_op, $apiKey = null)
     {
-        return $this->updateCatalogItemRelationshipsAsyncWithHttpInfo($id, $related_resource, $catalog_item_category_op, $apiKey)
+        return $this->updateCatalogItemRelationshipsCategoriesAsyncWithHttpInfo($id, $catalog_item_category_op, $apiKey)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -19115,21 +18979,20 @@ class CatalogsApi
     }
 
     /**
-     * Operation updateCatalogItemRelationshipsAsyncWithHttpInfo
+     * Operation updateCatalogItemRelationshipsCategoriesAsyncWithHttpInfo
      *
-     * Update Catalog Item Relationships
+     * Update Catalog Item Relationships Categories
      *
      * @param  string $id  (required)
-     * @param  string $related_resource  (required)
      * @param  \KlaviyoAPI\Model\CatalogItemCategoryOp $catalog_item_category_op (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateCatalogItemRelationshipsAsyncWithHttpInfo($id, $related_resource, $catalog_item_category_op, $apiKey = null)
+    public function updateCatalogItemRelationshipsCategoriesAsyncWithHttpInfo($id, $catalog_item_category_op, $apiKey = null)
     {
         $returnType = '';
-        $request = $this->updateCatalogItemRelationshipsRequest($id, $related_resource, $catalog_item_category_op, $apiKey);
+        $request = $this->updateCatalogItemRelationshipsCategoriesRequest($id, $catalog_item_category_op, $apiKey);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -19155,37 +19018,30 @@ class CatalogsApi
     }
 
     /**
-     * Create request for operation 'updateCatalogItemRelationships'
+     * Create request for operation 'updateCatalogItemRelationshipsCategories'
      *
      * @param  string $id  (required)
-     * @param  string $related_resource  (required)
      * @param  \KlaviyoAPI\Model\CatalogItemCategoryOp $catalog_item_category_op (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function updateCatalogItemRelationshipsRequest($id, $related_resource, $catalog_item_category_op, $apiKey = null)
+    public function updateCatalogItemRelationshipsCategoriesRequest($id, $catalog_item_category_op, $apiKey = null)
     {
         // verify the required parameter 'id' is set
         if ($id === null || (is_array($id) && count($id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $id when calling updateCatalogItemRelationships'
-            );
-        }
-        // verify the required parameter 'related_resource' is set
-        if ($related_resource === null || (is_array($related_resource) && count($related_resource) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $related_resource when calling updateCatalogItemRelationships'
+                'Missing the required parameter $id when calling updateCatalogItemRelationshipsCategories'
             );
         }
         // verify the required parameter 'catalog_item_category_op' is set
         if ($catalog_item_category_op === null || (is_array($catalog_item_category_op) && count($catalog_item_category_op) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $catalog_item_category_op when calling updateCatalogItemRelationships'
+                'Missing the required parameter $catalog_item_category_op when calling updateCatalogItemRelationshipsCategories'
             );
         }
 
-        $resourcePath = '/api/catalog-items/{id}/relationships/{related_resource}/';
+        $resourcePath = '/api/catalog-items/{id}/relationships/categories/';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -19199,14 +19055,6 @@ class CatalogsApi
             $resourcePath = str_replace(
                 '{' . 'id' . '}',
                 ObjectSerializer::toPathValue($id),
-                $resourcePath
-            );
-        }
-        // path params
-        if ($related_resource !== null) {
-            $resourcePath = str_replace(
-                '{' . 'related_resource' . '}',
-                ObjectSerializer::toPathValue($related_resource),
                 $resourcePath
             );
         }

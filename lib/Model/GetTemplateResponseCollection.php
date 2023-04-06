@@ -58,8 +58,8 @@ class GetTemplateResponseCollection implements ModelInterface, ArrayAccess, \Jso
       * @var string[]
       */
     protected static $openAPITypes = [
-        'data' => '\KlaviyoAPI\Model\GetTemplateResponseCollectionDataInner[]',
-        'links' => '\KlaviyoAPI\Model\GetCatalogItemResponseCollectionWithIncludedSectionLinks'
+        'data' => '\KlaviyoAPI\Model\TemplateResponseObjectResource[]',
+        'links' => '\KlaviyoAPI\Model\CollectionLinks'
     ];
 
     /**
@@ -219,7 +219,7 @@ class GetTemplateResponseCollection implements ModelInterface, ArrayAccess, \Jso
     /**
      * Gets data
      *
-     * @return \KlaviyoAPI\Model\GetTemplateResponseCollectionDataInner[]
+     * @return \KlaviyoAPI\Model\TemplateResponseObjectResource[]
      */
     public function getData()
     {
@@ -229,7 +229,7 @@ class GetTemplateResponseCollection implements ModelInterface, ArrayAccess, \Jso
     /**
      * Sets data
      *
-     * @param \KlaviyoAPI\Model\GetTemplateResponseCollectionDataInner[] $data data
+     * @param \KlaviyoAPI\Model\TemplateResponseObjectResource[] $data data
      *
      * @return self
      */
@@ -243,7 +243,7 @@ class GetTemplateResponseCollection implements ModelInterface, ArrayAccess, \Jso
     /**
      * Gets links
      *
-     * @return \KlaviyoAPI\Model\GetCatalogItemResponseCollectionWithIncludedSectionLinks
+     * @return \KlaviyoAPI\Model\CollectionLinks
      */
     public function getLinks()
     {
@@ -253,7 +253,7 @@ class GetTemplateResponseCollection implements ModelInterface, ArrayAccess, \Jso
     /**
      * Sets links
      *
-     * @param \KlaviyoAPI\Model\GetCatalogItemResponseCollectionWithIncludedSectionLinks $links links
+     * @param \KlaviyoAPI\Model\CollectionLinks $links links
      *
      * @return self
      */

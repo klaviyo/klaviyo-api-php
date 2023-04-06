@@ -58,7 +58,7 @@ class GetTagGroupResponse implements ModelInterface, ArrayAccess, \JsonSerializa
       * @var string[]
       */
     protected static $openAPITypes = [
-        'data' => '\KlaviyoAPI\Model\GetTagGroupResponseCollectionDataInner'
+        'data' => '\KlaviyoAPI\Model\TagGroupResponseObjectResource'
     ];
 
     /**
@@ -210,7 +210,7 @@ class GetTagGroupResponse implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Gets data
      *
-     * @return \KlaviyoAPI\Model\GetTagGroupResponseCollectionDataInner
+     * @return \KlaviyoAPI\Model\TagGroupResponseObjectResource
      */
     public function getData()
     {
@@ -220,7 +220,7 @@ class GetTagGroupResponse implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets data
      *
-     * @param \KlaviyoAPI\Model\GetTagGroupResponseCollectionDataInner $data data
+     * @param \KlaviyoAPI\Model\TagGroupResponseObjectResource $data data
      *
      * @return self
      */

@@ -482,37 +482,35 @@ class ListsApi
     /**
      * Operation createListRelationships
      *
-     * Add Profile to List
+     * Add Profile To List
      *
      * @param  string $id  (required)
-     * @param  string $related_resource  (required)
      * @param  \KlaviyoAPI\Model\ListMembersAddQuery $list_members_add_query list_members_add_query (required)
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function createListRelationships($id, $related_resource, $list_members_add_query, $apiKey = null)
+    public function createListRelationships($id, $list_members_add_query, $apiKey = null)
     {
-        $this->createListRelationshipsWithHttpInfo($id, $related_resource, $list_members_add_query, $apiKey);
+        $this->createListRelationshipsWithHttpInfo($id, $list_members_add_query, $apiKey);
     }
 
     /**
      * Operation createListRelationshipsWithHttpInfo
      *
-     * Add Profile to List
+     * Add Profile To List
      *
      * @param  string $id  (required)
-     * @param  string $related_resource  (required)
      * @param  \KlaviyoAPI\Model\ListMembersAddQuery $list_members_add_query (required)
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createListRelationshipsWithHttpInfo($id, $related_resource, $list_members_add_query, $apiKey = null)
+    public function createListRelationshipsWithHttpInfo($id, $list_members_add_query, $apiKey = null)
     {
-        $request = $this->createListRelationshipsRequest($id, $related_resource, $list_members_add_query, $apiKey);
+        $request = $this->createListRelationshipsRequest($id, $list_members_add_query, $apiKey);
 
         try {
             $options = $this->createHttpClientOption();
@@ -577,18 +575,17 @@ class ListsApi
     /**
      * Operation createListRelationshipsAsync
      *
-     * Add Profile to List
+     * Add Profile To List
      *
      * @param  string $id  (required)
-     * @param  string $related_resource  (required)
      * @param  \KlaviyoAPI\Model\ListMembersAddQuery $list_members_add_query (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createListRelationshipsAsync($id, $related_resource, $list_members_add_query, $apiKey = null)
+    public function createListRelationshipsAsync($id, $list_members_add_query, $apiKey = null)
     {
-        return $this->createListRelationshipsAsyncWithHttpInfo($id, $related_resource, $list_members_add_query, $apiKey)
+        return $this->createListRelationshipsAsyncWithHttpInfo($id, $list_members_add_query, $apiKey)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -599,19 +596,18 @@ class ListsApi
     /**
      * Operation createListRelationshipsAsyncWithHttpInfo
      *
-     * Add Profile to List
+     * Add Profile To List
      *
      * @param  string $id  (required)
-     * @param  string $related_resource  (required)
      * @param  \KlaviyoAPI\Model\ListMembersAddQuery $list_members_add_query (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createListRelationshipsAsyncWithHttpInfo($id, $related_resource, $list_members_add_query, $apiKey = null)
+    public function createListRelationshipsAsyncWithHttpInfo($id, $list_members_add_query, $apiKey = null)
     {
         $returnType = '';
-        $request = $this->createListRelationshipsRequest($id, $related_resource, $list_members_add_query, $apiKey);
+        $request = $this->createListRelationshipsRequest($id, $list_members_add_query, $apiKey);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -640,24 +636,17 @@ class ListsApi
      * Create request for operation 'createListRelationships'
      *
      * @param  string $id  (required)
-     * @param  string $related_resource  (required)
      * @param  \KlaviyoAPI\Model\ListMembersAddQuery $list_members_add_query (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function createListRelationshipsRequest($id, $related_resource, $list_members_add_query, $apiKey = null)
+    public function createListRelationshipsRequest($id, $list_members_add_query, $apiKey = null)
     {
         // verify the required parameter 'id' is set
         if ($id === null || (is_array($id) && count($id) === 0)) {
             throw new \InvalidArgumentException(
                 'Missing the required parameter $id when calling createListRelationships'
-            );
-        }
-        // verify the required parameter 'related_resource' is set
-        if ($related_resource === null || (is_array($related_resource) && count($related_resource) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $related_resource when calling createListRelationships'
             );
         }
         // verify the required parameter 'list_members_add_query' is set
@@ -667,7 +656,7 @@ class ListsApi
             );
         }
 
-        $resourcePath = '/api/lists/{id}/relationships/{related_resource}/';
+        $resourcePath = '/api/lists/{id}/relationships/profiles/';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -681,14 +670,6 @@ class ListsApi
             $resourcePath = str_replace(
                 '{' . 'id' . '}',
                 ObjectSerializer::toPathValue($id),
-                $resourcePath
-            );
-        }
-        // path params
-        if ($related_resource !== null) {
-            $resourcePath = str_replace(
-                '{' . 'related_resource' . '}',
-                ObjectSerializer::toPathValue($related_resource),
                 $resourcePath
             );
         }
@@ -1024,37 +1005,35 @@ class ListsApi
     /**
      * Operation deleteListRelationships
      *
-     * Remove Profile from List
+     * Remove Profile From List
      *
      * @param  string $id  (required)
-     * @param  string $related_resource  (required)
      * @param  \KlaviyoAPI\Model\ListMembersDeleteQuery $list_members_delete_query list_members_delete_query (required)
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function deleteListRelationships($id, $related_resource, $list_members_delete_query, $apiKey = null)
+    public function deleteListRelationships($id, $list_members_delete_query, $apiKey = null)
     {
-        $this->deleteListRelationshipsWithHttpInfo($id, $related_resource, $list_members_delete_query, $apiKey);
+        $this->deleteListRelationshipsWithHttpInfo($id, $list_members_delete_query, $apiKey);
     }
 
     /**
      * Operation deleteListRelationshipsWithHttpInfo
      *
-     * Remove Profile from List
+     * Remove Profile From List
      *
      * @param  string $id  (required)
-     * @param  string $related_resource  (required)
      * @param  \KlaviyoAPI\Model\ListMembersDeleteQuery $list_members_delete_query (required)
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function deleteListRelationshipsWithHttpInfo($id, $related_resource, $list_members_delete_query, $apiKey = null)
+    public function deleteListRelationshipsWithHttpInfo($id, $list_members_delete_query, $apiKey = null)
     {
-        $request = $this->deleteListRelationshipsRequest($id, $related_resource, $list_members_delete_query, $apiKey);
+        $request = $this->deleteListRelationshipsRequest($id, $list_members_delete_query, $apiKey);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1119,18 +1098,17 @@ class ListsApi
     /**
      * Operation deleteListRelationshipsAsync
      *
-     * Remove Profile from List
+     * Remove Profile From List
      *
      * @param  string $id  (required)
-     * @param  string $related_resource  (required)
      * @param  \KlaviyoAPI\Model\ListMembersDeleteQuery $list_members_delete_query (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteListRelationshipsAsync($id, $related_resource, $list_members_delete_query, $apiKey = null)
+    public function deleteListRelationshipsAsync($id, $list_members_delete_query, $apiKey = null)
     {
-        return $this->deleteListRelationshipsAsyncWithHttpInfo($id, $related_resource, $list_members_delete_query, $apiKey)
+        return $this->deleteListRelationshipsAsyncWithHttpInfo($id, $list_members_delete_query, $apiKey)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1141,19 +1119,18 @@ class ListsApi
     /**
      * Operation deleteListRelationshipsAsyncWithHttpInfo
      *
-     * Remove Profile from List
+     * Remove Profile From List
      *
      * @param  string $id  (required)
-     * @param  string $related_resource  (required)
      * @param  \KlaviyoAPI\Model\ListMembersDeleteQuery $list_members_delete_query (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteListRelationshipsAsyncWithHttpInfo($id, $related_resource, $list_members_delete_query, $apiKey = null)
+    public function deleteListRelationshipsAsyncWithHttpInfo($id, $list_members_delete_query, $apiKey = null)
     {
         $returnType = '';
-        $request = $this->deleteListRelationshipsRequest($id, $related_resource, $list_members_delete_query, $apiKey);
+        $request = $this->deleteListRelationshipsRequest($id, $list_members_delete_query, $apiKey);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1182,24 +1159,17 @@ class ListsApi
      * Create request for operation 'deleteListRelationships'
      *
      * @param  string $id  (required)
-     * @param  string $related_resource  (required)
      * @param  \KlaviyoAPI\Model\ListMembersDeleteQuery $list_members_delete_query (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function deleteListRelationshipsRequest($id, $related_resource, $list_members_delete_query, $apiKey = null)
+    public function deleteListRelationshipsRequest($id, $list_members_delete_query, $apiKey = null)
     {
         // verify the required parameter 'id' is set
         if ($id === null || (is_array($id) && count($id) === 0)) {
             throw new \InvalidArgumentException(
                 'Missing the required parameter $id when calling deleteListRelationships'
-            );
-        }
-        // verify the required parameter 'related_resource' is set
-        if ($related_resource === null || (is_array($related_resource) && count($related_resource) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $related_resource when calling deleteListRelationships'
             );
         }
         // verify the required parameter 'list_members_delete_query' is set
@@ -1209,7 +1179,7 @@ class ListsApi
             );
         }
 
-        $resourcePath = '/api/lists/{id}/relationships/{related_resource}/';
+        $resourcePath = '/api/lists/{id}/relationships/profiles/';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1223,14 +1193,6 @@ class ListsApi
             $resourcePath = str_replace(
                 '{' . 'id' . '}',
                 ObjectSerializer::toPathValue($id),
-                $resourcePath
-            );
-        }
-        // path params
-        if ($related_resource !== null) {
-            $resourcePath = str_replace(
-                '{' . 'related_resource' . '}',
-                ObjectSerializer::toPathValue($related_resource),
                 $resourcePath
             );
         }
@@ -1695,18 +1657,19 @@ class ListsApi
      * Get List Profiles
      *
      * @param  string $list_id Primary key that uniquely identifies this list. Generated by Klaviyo. (required)
+     * @param  string[] $additional_fields_profile Request additional fields not included by default in the response. Supported values: &#39;predictive_analytics&#39; (optional)
      * @param  string[] $fields_profile For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $filter For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;email&#x60;: &#x60;any&#x60;&lt;br&gt;&#x60;phone_number&#x60;: &#x60;any&#x60;&lt;br&gt;&#x60;push_token&#x60;: &#x60;any&#x60;&lt;br&gt;&#x60;_kx&#x60;: &#x60;equals&#x60; (optional)
      * @param  string $page_cursor For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#pagination (optional)
-     * @param  int $page_size page_size (optional)
+     * @param  int $page_size The number of results to return per page. Default &#x3D; 20. Max &#x3D; 100 (optional)
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array<string,mixed>|\KlaviyoAPI\Model\GetCampaigns400Response|\KlaviyoAPI\Model\GetCampaigns400Response
      */
-    public function getListProfiles($list_id, $fields_profile = null, $filter = null, $page_cursor = null, $page_size = null, $apiKey = null)
+    public function getListProfiles($list_id, $additional_fields_profile = null, $fields_profile = null, $filter = null, $page_cursor = null, $page_size = null, $apiKey = null)
     {
-        list($response) = $this->getListProfilesWithHttpInfo($list_id, $fields_profile, $filter, $page_cursor, $page_size, $apiKey);
+        list($response) = $this->getListProfilesWithHttpInfo($list_id, $additional_fields_profile, $fields_profile, $filter, $page_cursor, $page_size, $apiKey);
         return $response;
     }
 
@@ -1716,18 +1679,19 @@ class ListsApi
      * Get List Profiles
      *
      * @param  string $list_id Primary key that uniquely identifies this list. Generated by Klaviyo. (required)
+     * @param  string[] $additional_fields_profile Request additional fields not included by default in the response. Supported values: &#39;predictive_analytics&#39; (optional)
      * @param  string[] $fields_profile For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $filter For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;email&#x60;: &#x60;any&#x60;&lt;br&gt;&#x60;phone_number&#x60;: &#x60;any&#x60;&lt;br&gt;&#x60;push_token&#x60;: &#x60;any&#x60;&lt;br&gt;&#x60;_kx&#x60;: &#x60;equals&#x60; (optional)
      * @param  string $page_cursor For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#pagination (optional)
-     * @param  int $page_size (optional)
+     * @param  int $page_size The number of results to return per page. Default &#x3D; 20. Max &#x3D; 100 (optional)
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of array<string,mixed>|\KlaviyoAPI\Model\GetCampaigns400Response|\KlaviyoAPI\Model\GetCampaigns400Response, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getListProfilesWithHttpInfo($list_id, $fields_profile = null, $filter = null, $page_cursor = null, $page_size = null, $apiKey = null)
+    public function getListProfilesWithHttpInfo($list_id, $additional_fields_profile = null, $fields_profile = null, $filter = null, $page_cursor = null, $page_size = null, $apiKey = null)
     {
-        $request = $this->getListProfilesRequest($list_id, $fields_profile, $filter, $page_cursor, $page_size, $apiKey);
+        $request = $this->getListProfilesRequest($list_id, $additional_fields_profile, $fields_profile, $filter, $page_cursor, $page_size, $apiKey);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1888,17 +1852,18 @@ class ListsApi
      * Get List Profiles
      *
      * @param  string $list_id Primary key that uniquely identifies this list. Generated by Klaviyo. (required)
+     * @param  string[] $additional_fields_profile Request additional fields not included by default in the response. Supported values: &#39;predictive_analytics&#39; (optional)
      * @param  string[] $fields_profile For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $filter For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;email&#x60;: &#x60;any&#x60;&lt;br&gt;&#x60;phone_number&#x60;: &#x60;any&#x60;&lt;br&gt;&#x60;push_token&#x60;: &#x60;any&#x60;&lt;br&gt;&#x60;_kx&#x60;: &#x60;equals&#x60; (optional)
      * @param  string $page_cursor For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#pagination (optional)
-     * @param  int $page_size (optional)
+     * @param  int $page_size The number of results to return per page. Default &#x3D; 20. Max &#x3D; 100 (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getListProfilesAsync($list_id, $fields_profile = null, $filter = null, $page_cursor = null, $page_size = null, $apiKey = null)
+    public function getListProfilesAsync($list_id, $additional_fields_profile = null, $fields_profile = null, $filter = null, $page_cursor = null, $page_size = null, $apiKey = null)
     {
-        return $this->getListProfilesAsyncWithHttpInfo($list_id, $fields_profile, $filter, $page_cursor, $page_size, $apiKey)
+        return $this->getListProfilesAsyncWithHttpInfo($list_id, $additional_fields_profile, $fields_profile, $filter, $page_cursor, $page_size, $apiKey)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1912,18 +1877,19 @@ class ListsApi
      * Get List Profiles
      *
      * @param  string $list_id Primary key that uniquely identifies this list. Generated by Klaviyo. (required)
+     * @param  string[] $additional_fields_profile Request additional fields not included by default in the response. Supported values: &#39;predictive_analytics&#39; (optional)
      * @param  string[] $fields_profile For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $filter For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;email&#x60;: &#x60;any&#x60;&lt;br&gt;&#x60;phone_number&#x60;: &#x60;any&#x60;&lt;br&gt;&#x60;push_token&#x60;: &#x60;any&#x60;&lt;br&gt;&#x60;_kx&#x60;: &#x60;equals&#x60; (optional)
      * @param  string $page_cursor For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#pagination (optional)
-     * @param  int $page_size (optional)
+     * @param  int $page_size The number of results to return per page. Default &#x3D; 20. Max &#x3D; 100 (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getListProfilesAsyncWithHttpInfo($list_id, $fields_profile = null, $filter = null, $page_cursor = null, $page_size = null, $apiKey = null)
+    public function getListProfilesAsyncWithHttpInfo($list_id, $additional_fields_profile = null, $fields_profile = null, $filter = null, $page_cursor = null, $page_size = null, $apiKey = null)
     {
         $returnType = 'array<string,mixed>';
-        $request = $this->getListProfilesRequest($list_id, $fields_profile, $filter, $page_cursor, $page_size, $apiKey);
+        $request = $this->getListProfilesRequest($list_id, $additional_fields_profile, $fields_profile, $filter, $page_cursor, $page_size, $apiKey);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1970,15 +1936,16 @@ class ListsApi
      * Create request for operation 'getListProfiles'
      *
      * @param  string $list_id Primary key that uniquely identifies this list. Generated by Klaviyo. (required)
+     * @param  string[] $additional_fields_profile Request additional fields not included by default in the response. Supported values: &#39;predictive_analytics&#39; (optional)
      * @param  string[] $fields_profile For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $filter For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;email&#x60;: &#x60;any&#x60;&lt;br&gt;&#x60;phone_number&#x60;: &#x60;any&#x60;&lt;br&gt;&#x60;push_token&#x60;: &#x60;any&#x60;&lt;br&gt;&#x60;_kx&#x60;: &#x60;equals&#x60; (optional)
      * @param  string $page_cursor For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#pagination (optional)
-     * @param  int $page_size (optional)
+     * @param  int $page_size The number of results to return per page. Default &#x3D; 20. Max &#x3D; 100 (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getListProfilesRequest($list_id, $fields_profile = null, $filter = null, $page_cursor = null, $page_size = null, $apiKey = null)
+    public function getListProfilesRequest($list_id, $additional_fields_profile = null, $fields_profile = null, $filter = null, $page_cursor = null, $page_size = null, $apiKey = null)
     {
         // verify the required parameter 'list_id' is set
         if ($list_id === null || (is_array($list_id) && count($list_id) === 0)) {
@@ -1994,6 +1961,15 @@ class ListsApi
         $httpBody = '';
         $multipart = false;
 
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $additional_fields_profile,
+            'additional-fields[profile]', // param base name
+            'array', // openApiType
+            'form', // style
+            false, // explode
+            false // required
+        ) ?? []);
         // query params
         $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
             $fields_profile,
@@ -2111,40 +2087,38 @@ class ListsApi
     }
 
     /**
-     * Operation getListRelationships
+     * Operation getListRelationshipsProfiles
      *
-     * Get List Relationships
+     * Get List Relationships Profiles
      *
      * @param  string $id  (required)
-     * @param  string $related_resource  (required)
      * @param  string $page_cursor For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#pagination (optional)
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array<string,mixed>|\KlaviyoAPI\Model\GetCampaigns400Response|\KlaviyoAPI\Model\GetCampaigns400Response
      */
-    public function getListRelationships($id, $related_resource, $page_cursor = null, $apiKey = null)
+    public function getListRelationshipsProfiles($id, $page_cursor = null, $apiKey = null)
     {
-        list($response) = $this->getListRelationshipsWithHttpInfo($id, $related_resource, $page_cursor, $apiKey);
+        list($response) = $this->getListRelationshipsProfilesWithHttpInfo($id, $page_cursor, $apiKey);
         return $response;
     }
 
     /**
-     * Operation getListRelationshipsWithHttpInfo
+     * Operation getListRelationshipsProfilesWithHttpInfo
      *
-     * Get List Relationships
+     * Get List Relationships Profiles
      *
      * @param  string $id  (required)
-     * @param  string $related_resource  (required)
      * @param  string $page_cursor For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#pagination (optional)
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of array<string,mixed>|\KlaviyoAPI\Model\GetCampaigns400Response|\KlaviyoAPI\Model\GetCampaigns400Response, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getListRelationshipsWithHttpInfo($id, $related_resource, $page_cursor = null, $apiKey = null)
+    public function getListRelationshipsProfilesWithHttpInfo($id, $page_cursor = null, $apiKey = null)
     {
-        $request = $this->getListRelationshipsRequest($id, $related_resource, $page_cursor, $apiKey);
+        $request = $this->getListRelationshipsProfilesRequest($id, $page_cursor, $apiKey);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2300,20 +2274,19 @@ class ListsApi
     }
 
     /**
-     * Operation getListRelationshipsAsync
+     * Operation getListRelationshipsProfilesAsync
      *
-     * Get List Relationships
+     * Get List Relationships Profiles
      *
      * @param  string $id  (required)
-     * @param  string $related_resource  (required)
      * @param  string $page_cursor For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#pagination (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getListRelationshipsAsync($id, $related_resource, $page_cursor = null, $apiKey = null)
+    public function getListRelationshipsProfilesAsync($id, $page_cursor = null, $apiKey = null)
     {
-        return $this->getListRelationshipsAsyncWithHttpInfo($id, $related_resource, $page_cursor, $apiKey)
+        return $this->getListRelationshipsProfilesAsyncWithHttpInfo($id, $page_cursor, $apiKey)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2322,21 +2295,20 @@ class ListsApi
     }
 
     /**
-     * Operation getListRelationshipsAsyncWithHttpInfo
+     * Operation getListRelationshipsProfilesAsyncWithHttpInfo
      *
-     * Get List Relationships
+     * Get List Relationships Profiles
      *
      * @param  string $id  (required)
-     * @param  string $related_resource  (required)
      * @param  string $page_cursor For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#pagination (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getListRelationshipsAsyncWithHttpInfo($id, $related_resource, $page_cursor = null, $apiKey = null)
+    public function getListRelationshipsProfilesAsyncWithHttpInfo($id, $page_cursor = null, $apiKey = null)
     {
         $returnType = 'array<string,mixed>';
-        $request = $this->getListRelationshipsRequest($id, $related_resource, $page_cursor, $apiKey);
+        $request = $this->getListRelationshipsProfilesRequest($id, $page_cursor, $apiKey);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2380,31 +2352,24 @@ class ListsApi
     }
 
     /**
-     * Create request for operation 'getListRelationships'
+     * Create request for operation 'getListRelationshipsProfiles'
      *
      * @param  string $id  (required)
-     * @param  string $related_resource  (required)
      * @param  string $page_cursor For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#pagination (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getListRelationshipsRequest($id, $related_resource, $page_cursor = null, $apiKey = null)
+    public function getListRelationshipsProfilesRequest($id, $page_cursor = null, $apiKey = null)
     {
         // verify the required parameter 'id' is set
         if ($id === null || (is_array($id) && count($id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $id when calling getListRelationships'
-            );
-        }
-        // verify the required parameter 'related_resource' is set
-        if ($related_resource === null || (is_array($related_resource) && count($related_resource) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $related_resource when calling getListRelationships'
+                'Missing the required parameter $id when calling getListRelationshipsProfiles'
             );
         }
 
-        $resourcePath = '/api/lists/{id}/relationships/{related_resource}/';
+        $resourcePath = '/api/lists/{id}/relationships/profiles/';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -2430,11 +2395,368 @@ class ListsApi
                 $resourcePath
             );
         }
+
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                []
+            );
+        }
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        if ($apiKey == null) {
+            $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        } else {
+            $apiKey = 'Klaviyo-API-Key '.$apiKey;
+        }
+
+        $headers['Authorization'] = $apiKey;
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $defaultHeaders['revision'] = ['2023-02-22'];
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation getListRelationshipsTags
+     *
+     * Get List Relationships Tags
+     *
+     * @param  string $id  (required)
+     *
+     * @throws \KlaviyoAPI\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array<string,mixed>|\KlaviyoAPI\Model\GetCampaigns400Response|\KlaviyoAPI\Model\GetCampaigns400Response
+     */
+    public function getListRelationshipsTags($id, $apiKey = null)
+    {
+        list($response) = $this->getListRelationshipsTagsWithHttpInfo($id, $apiKey);
+        return $response;
+    }
+
+    /**
+     * Operation getListRelationshipsTagsWithHttpInfo
+     *
+     * Get List Relationships Tags
+     *
+     * @param  string $id  (required)
+     *
+     * @throws \KlaviyoAPI\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of array<string,mixed>|\KlaviyoAPI\Model\GetCampaigns400Response|\KlaviyoAPI\Model\GetCampaigns400Response, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getListRelationshipsTagsWithHttpInfo($id, $apiKey = null)
+    {
+        $request = $this->getListRelationshipsTagsRequest($id, $apiKey);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('array<string,mixed>' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('array&lt;string,mixed&gt;' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+
+                    $parsed_content = json_decode(json_encode($content), TRUE);
+                    if (json_last_error() != JSON_ERROR_NONE) {
+                        $parsed_content = $content;
+                    }
+
+                    return [
+                        $parsed_content,
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 400:
+                    if ('\KlaviyoAPI\Model\GetCampaigns400Response' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\KlaviyoAPI\Model\GetCampaigns400Response' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+
+                    $parsed_content = json_decode(json_encode($content), TRUE);
+                    if (json_last_error() != JSON_ERROR_NONE) {
+                        $parsed_content = $content;
+                    }
+
+                    return [
+                        $parsed_content,
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 500:
+                    if ('\KlaviyoAPI\Model\GetCampaigns400Response' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\KlaviyoAPI\Model\GetCampaigns400Response' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+
+                    $parsed_content = json_decode(json_encode($content), TRUE);
+                    if (json_last_error() != JSON_ERROR_NONE) {
+                        $parsed_content = $content;
+                    }
+
+                    return [
+                        $parsed_content,
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = 'array<string,mixed>';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            $parsed_content = json_decode(json_encode($content), TRUE);
+            if (json_last_error() != JSON_ERROR_NONE) {
+                $parsed_content = $content;
+            }
+
+            return [
+                $parsed_content,
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        'array<string,mixed>',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\KlaviyoAPI\Model\GetCampaigns400Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 500:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\KlaviyoAPI\Model\GetCampaigns400Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation getListRelationshipsTagsAsync
+     *
+     * Get List Relationships Tags
+     *
+     * @param  string $id  (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getListRelationshipsTagsAsync($id, $apiKey = null)
+    {
+        return $this->getListRelationshipsTagsAsyncWithHttpInfo($id, $apiKey)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation getListRelationshipsTagsAsyncWithHttpInfo
+     *
+     * Get List Relationships Tags
+     *
+     * @param  string $id  (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getListRelationshipsTagsAsyncWithHttpInfo($id, $apiKey = null)
+    {
+        $returnType = 'array<string,mixed>';
+        $request = $this->getListRelationshipsTagsRequest($id, $apiKey);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    $parsed_content = json_decode(json_encode($content), TRUE);
+                    if (json_last_error() != JSON_ERROR_NONE) {
+                        $parsed_content = $content;
+                    }
+
+                    return [
+                        $parsed_content,
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'getListRelationshipsTags'
+     *
+     * @param  string $id  (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function getListRelationshipsTagsRequest($id, $apiKey = null)
+    {
+        // verify the required parameter 'id' is set
+        if ($id === null || (is_array($id) && count($id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $id when calling getListRelationshipsTags'
+            );
+        }
+
+        $resourcePath = '/api/lists/{id}/relationships/tags/';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
         // path params
-        if ($related_resource !== null) {
+        if ($id !== null) {
             $resourcePath = str_replace(
-                '{' . 'related_resource' . '}',
-                ObjectSerializer::toPathValue($related_resource),
+                '{' . 'id' . '}',
+                ObjectSerializer::toPathValue($id),
                 $resourcePath
             );
         }

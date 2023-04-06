@@ -58,7 +58,7 @@ class ProfileCreateQuery implements ModelInterface, ArrayAccess, \JsonSerializab
       * @var string[]
       */
     protected static $openAPITypes = [
-        'data' => '\KlaviyoAPI\Model\ProfileCreateQueryAsSubResource'
+        'data' => '\KlaviyoAPI\Model\ProfileCreateQueryResourceObject'
     ];
 
     /**
@@ -210,7 +210,7 @@ class ProfileCreateQuery implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Gets data
      *
-     * @return \KlaviyoAPI\Model\ProfileCreateQueryAsSubResource
+     * @return \KlaviyoAPI\Model\ProfileCreateQueryResourceObject
      */
     public function getData()
     {
@@ -220,7 +220,7 @@ class ProfileCreateQuery implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets data
      *
-     * @param \KlaviyoAPI\Model\ProfileCreateQueryAsSubResource $data data
+     * @param \KlaviyoAPI\Model\ProfileCreateQueryResourceObject $data data
      *
      * @return self
      */

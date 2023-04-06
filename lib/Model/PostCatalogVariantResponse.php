@@ -58,7 +58,7 @@ class PostCatalogVariantResponse implements ModelInterface, ArrayAccess, \JsonSe
       * @var string[]
       */
     protected static $openAPITypes = [
-        'data' => '\KlaviyoAPI\Model\GetCatalogVariantResponseCollectionDataInner'
+        'data' => '\KlaviyoAPI\Model\PostCatalogVariantResponseData'
     ];
 
     /**
@@ -210,7 +210,7 @@ class PostCatalogVariantResponse implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Gets data
      *
-     * @return \KlaviyoAPI\Model\GetCatalogVariantResponseCollectionDataInner
+     * @return \KlaviyoAPI\Model\PostCatalogVariantResponseData
      */
     public function getData()
     {
@@ -220,7 +220,7 @@ class PostCatalogVariantResponse implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Sets data
      *
-     * @param \KlaviyoAPI\Model\GetCatalogVariantResponseCollectionDataInner $data data
+     * @param \KlaviyoAPI\Model\PostCatalogVariantResponseData $data data
      *
      * @return self
      */

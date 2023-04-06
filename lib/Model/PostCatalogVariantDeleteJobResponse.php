@@ -58,7 +58,7 @@ class PostCatalogVariantDeleteJobResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'data' => '\KlaviyoAPI\Model\GetCatalogVariantDeleteJobResponseCollectionDataInner'
+        'data' => '\KlaviyoAPI\Model\PostCatalogVariantDeleteJobResponseData'
     ];
 
     /**
@@ -210,7 +210,7 @@ class PostCatalogVariantDeleteJobResponse implements ModelInterface, ArrayAccess
     /**
      * Gets data
      *
-     * @return \KlaviyoAPI\Model\GetCatalogVariantDeleteJobResponseCollectionDataInner
+     * @return \KlaviyoAPI\Model\PostCatalogVariantDeleteJobResponseData
      */
     public function getData()
     {
@@ -220,7 +220,7 @@ class PostCatalogVariantDeleteJobResponse implements ModelInterface, ArrayAccess
     /**
      * Sets data
      *
-     * @param \KlaviyoAPI\Model\GetCatalogVariantDeleteJobResponseCollectionDataInner $data data
+     * @param \KlaviyoAPI\Model\PostCatalogVariantDeleteJobResponseData $data data
      *
      * @return self
      */

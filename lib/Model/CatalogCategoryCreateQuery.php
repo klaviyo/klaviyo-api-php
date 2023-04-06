@@ -58,7 +58,7 @@ class CatalogCategoryCreateQuery implements ModelInterface, ArrayAccess, \JsonSe
       * @var string[]
       */
     protected static $openAPITypes = [
-        'data' => '\KlaviyoAPI\Model\CatalogCategoryCreateQueryAsSubResource'
+        'data' => '\KlaviyoAPI\Model\CatalogCategoryCreateQueryResourceObject'
     ];
 
     /**
@@ -210,7 +210,7 @@ class CatalogCategoryCreateQuery implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Gets data
      *
-     * @return \KlaviyoAPI\Model\CatalogCategoryCreateQueryAsSubResource
+     * @return \KlaviyoAPI\Model\CatalogCategoryCreateQueryResourceObject
      */
     public function getData()
     {
@@ -220,7 +220,7 @@ class CatalogCategoryCreateQuery implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Sets data
      *
-     * @param \KlaviyoAPI\Model\CatalogCategoryCreateQueryAsSubResource $data data
+     * @param \KlaviyoAPI\Model\CatalogCategoryCreateQueryResourceObject $data data
      *
      * @return self
      */

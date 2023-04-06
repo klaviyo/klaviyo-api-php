@@ -58,7 +58,7 @@ class CampaignCloneQuery implements ModelInterface, ArrayAccess, \JsonSerializab
       * @var string[]
       */
     protected static $openAPITypes = [
-        'data' => '\KlaviyoAPI\Model\CampaignCloneQueryAsSubResource'
+        'data' => '\KlaviyoAPI\Model\CampaignCloneQueryResourceObject'
     ];
 
     /**
@@ -210,7 +210,7 @@ class CampaignCloneQuery implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Gets data
      *
-     * @return \KlaviyoAPI\Model\CampaignCloneQueryAsSubResource
+     * @return \KlaviyoAPI\Model\CampaignCloneQueryResourceObject
      */
     public function getData()
     {
@@ -220,7 +220,7 @@ class CampaignCloneQuery implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets data
      *
-     * @param \KlaviyoAPI\Model\CampaignCloneQueryAsSubResource $data data
+     * @param \KlaviyoAPI\Model\CampaignCloneQueryResourceObject $data data
      *
      * @return self
      */

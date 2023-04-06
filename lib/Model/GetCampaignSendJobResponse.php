@@ -58,7 +58,7 @@ class GetCampaignSendJobResponse implements ModelInterface, ArrayAccess, \JsonSe
       * @var string[]
       */
     protected static $openAPITypes = [
-        'data' => '\KlaviyoAPI\Model\GetCampaignSendJobResponseData'
+        'data' => '\KlaviyoAPI\Model\CampaignSendJobResponseObjectResource'
     ];
 
     /**
@@ -210,7 +210,7 @@ class GetCampaignSendJobResponse implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Gets data
      *
-     * @return \KlaviyoAPI\Model\GetCampaignSendJobResponseData
+     * @return \KlaviyoAPI\Model\CampaignSendJobResponseObjectResource
      */
     public function getData()
     {
@@ -220,7 +220,7 @@ class GetCampaignSendJobResponse implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Sets data
      *
-     * @param \KlaviyoAPI\Model\GetCampaignSendJobResponseData $data data
+     * @param \KlaviyoAPI\Model\CampaignSendJobResponseObjectResource $data data
      *
      * @return self
      */

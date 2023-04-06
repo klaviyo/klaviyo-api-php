@@ -58,10 +58,10 @@ class PostCatalogItemResponseData implements ModelInterface, ArrayAccess, \JsonS
       * @var string[]
       */
     protected static $openAPITypes = [
-        'type' => 'string',
+        'type' => '\KlaviyoAPI\Model\CatalogItemEnum',
         'id' => 'string',
-        'attributes' => '\KlaviyoAPI\Model\GetCatalogItemResponseCollectionWithIncludedSectionDataInnerAttributes',
-        'links' => '\KlaviyoAPI\Model\GetCatalogItemResponseCollectionWithIncludedSectionDataInnerLinks'
+        'attributes' => '\KlaviyoAPI\Model\CatalogItemResponseObjectResourceAttributes',
+        'links' => '\KlaviyoAPI\Model\ObjectLinks'
     ];
 
     /**
@@ -176,19 +176,6 @@ class PostCatalogItemResponseData implements ModelInterface, ArrayAccess, \JsonS
         return self::$openAPIModelName;
     }
 
-    public const TYPE_CATALOG_ITEM = 'catalog-item';
-
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getTypeAllowableValues()
-    {
-        return [
-            self::TYPE_CATALOG_ITEM,
-        ];
-    }
 
     /**
      * Associative array for storing property values
@@ -223,15 +210,6 @@ class PostCatalogItemResponseData implements ModelInterface, ArrayAccess, \JsonS
         if ($this->container['type'] === null) {
             $invalidProperties[] = "'type' can't be null";
         }
-        $allowedValues = $this->getTypeAllowableValues();
-        if (!is_null($this->container['type']) && !in_array($this->container['type'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value '%s' for 'type', must be one of '%s'",
-                $this->container['type'],
-                implode("', '", $allowedValues)
-            );
-        }
-
         if ($this->container['id'] === null) {
             $invalidProperties[] = "'id' can't be null";
         }
@@ -259,7 +237,7 @@ class PostCatalogItemResponseData implements ModelInterface, ArrayAccess, \JsonS
     /**
      * Gets type
      *
-     * @return string
+     * @return \KlaviyoAPI\Model\CatalogItemEnum
      */
     public function getType()
     {
@@ -269,22 +247,12 @@ class PostCatalogItemResponseData implements ModelInterface, ArrayAccess, \JsonS
     /**
      * Sets type
      *
-     * @param string $type type
+     * @param \KlaviyoAPI\Model\CatalogItemEnum $type type
      *
      * @return self
      */
     public function setType($type)
     {
-        $allowedValues = $this->getTypeAllowableValues();
-        if (!in_array($type, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value '%s' for 'type', must be one of '%s'",
-                    $type,
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
         $this->container['type'] = $type;
 
         return $this;
@@ -317,7 +285,7 @@ class PostCatalogItemResponseData implements ModelInterface, ArrayAccess, \JsonS
     /**
      * Gets attributes
      *
-     * @return \KlaviyoAPI\Model\GetCatalogItemResponseCollectionWithIncludedSectionDataInnerAttributes
+     * @return \KlaviyoAPI\Model\CatalogItemResponseObjectResourceAttributes
      */
     public function getAttributes()
     {
@@ -327,7 +295,7 @@ class PostCatalogItemResponseData implements ModelInterface, ArrayAccess, \JsonS
     /**
      * Sets attributes
      *
-     * @param \KlaviyoAPI\Model\GetCatalogItemResponseCollectionWithIncludedSectionDataInnerAttributes $attributes attributes
+     * @param \KlaviyoAPI\Model\CatalogItemResponseObjectResourceAttributes $attributes attributes
      *
      * @return self
      */
@@ -341,7 +309,7 @@ class PostCatalogItemResponseData implements ModelInterface, ArrayAccess, \JsonS
     /**
      * Gets links
      *
-     * @return \KlaviyoAPI\Model\GetCatalogItemResponseCollectionWithIncludedSectionDataInnerLinks
+     * @return \KlaviyoAPI\Model\ObjectLinks
      */
     public function getLinks()
     {
@@ -351,7 +319,7 @@ class PostCatalogItemResponseData implements ModelInterface, ArrayAccess, \JsonS
     /**
      * Sets links
      *
-     * @param \KlaviyoAPI\Model\GetCatalogItemResponseCollectionWithIncludedSectionDataInnerLinks $links links
+     * @param \KlaviyoAPI\Model\ObjectLinks $links links
      *
      * @return self
      */

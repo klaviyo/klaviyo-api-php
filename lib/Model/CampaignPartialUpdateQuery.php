@@ -58,7 +58,7 @@ class CampaignPartialUpdateQuery implements ModelInterface, ArrayAccess, \JsonSe
       * @var string[]
       */
     protected static $openAPITypes = [
-        'data' => '\KlaviyoAPI\Model\CampaignPartialUpdateQueryAsSubResource'
+        'data' => '\KlaviyoAPI\Model\CampaignPartialUpdateQueryResourceObject'
     ];
 
     /**
@@ -210,7 +210,7 @@ class CampaignPartialUpdateQuery implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Gets data
      *
-     * @return \KlaviyoAPI\Model\CampaignPartialUpdateQueryAsSubResource
+     * @return \KlaviyoAPI\Model\CampaignPartialUpdateQueryResourceObject
      */
     public function getData()
     {
@@ -220,7 +220,7 @@ class CampaignPartialUpdateQuery implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Sets data
      *
-     * @param \KlaviyoAPI\Model\CampaignPartialUpdateQueryAsSubResource $data data
+     * @param \KlaviyoAPI\Model\CampaignPartialUpdateQueryResourceObject $data data
      *
      * @return self
      */

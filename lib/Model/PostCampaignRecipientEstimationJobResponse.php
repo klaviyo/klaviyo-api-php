@@ -58,7 +58,7 @@ class PostCampaignRecipientEstimationJobResponse implements ModelInterface, Arra
       * @var string[]
       */
     protected static $openAPITypes = [
-        'data' => '\KlaviyoAPI\Model\GetCampaignRecipientEstimationJobResponseData'
+        'data' => '\KlaviyoAPI\Model\PostCampaignRecipientEstimationJobResponseData'
     ];
 
     /**
@@ -210,7 +210,7 @@ class PostCampaignRecipientEstimationJobResponse implements ModelInterface, Arra
     /**
      * Gets data
      *
-     * @return \KlaviyoAPI\Model\GetCampaignRecipientEstimationJobResponseData
+     * @return \KlaviyoAPI\Model\PostCampaignRecipientEstimationJobResponseData
      */
     public function getData()
     {
@@ -220,7 +220,7 @@ class PostCampaignRecipientEstimationJobResponse implements ModelInterface, Arra
     /**
      * Sets data
      *
-     * @param \KlaviyoAPI\Model\GetCampaignRecipientEstimationJobResponseData $data data
+     * @param \KlaviyoAPI\Model\PostCampaignRecipientEstimationJobResponseData $data data
      *
      * @return self
      */

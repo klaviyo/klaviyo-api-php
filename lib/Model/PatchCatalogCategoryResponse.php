@@ -58,7 +58,7 @@ class PatchCatalogCategoryResponse implements ModelInterface, ArrayAccess, \Json
       * @var string[]
       */
     protected static $openAPITypes = [
-        'data' => '\KlaviyoAPI\Model\GetCatalogCategoryResponseCollectionDataInner'
+        'data' => '\KlaviyoAPI\Model\PostCatalogCategoryResponseData'
     ];
 
     /**
@@ -210,7 +210,7 @@ class PatchCatalogCategoryResponse implements ModelInterface, ArrayAccess, \Json
     /**
      * Gets data
      *
-     * @return \KlaviyoAPI\Model\GetCatalogCategoryResponseCollectionDataInner
+     * @return \KlaviyoAPI\Model\PostCatalogCategoryResponseData
      */
     public function getData()
     {
@@ -220,7 +220,7 @@ class PatchCatalogCategoryResponse implements ModelInterface, ArrayAccess, \Json
     /**
      * Sets data
      *
-     * @param \KlaviyoAPI\Model\GetCatalogCategoryResponseCollectionDataInner $data data
+     * @param \KlaviyoAPI\Model\PostCatalogCategoryResponseData $data data
      *
      * @return self
      */

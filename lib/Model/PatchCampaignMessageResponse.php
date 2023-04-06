@@ -58,7 +58,7 @@ class PatchCampaignMessageResponse implements ModelInterface, ArrayAccess, \Json
       * @var string[]
       */
     protected static $openAPITypes = [
-        'data' => '\KlaviyoAPI\Model\GetCampaignMessageResponseData'
+        'data' => '\KlaviyoAPI\Model\PostCampaignMessageResponseData'
     ];
 
     /**
@@ -210,7 +210,7 @@ class PatchCampaignMessageResponse implements ModelInterface, ArrayAccess, \Json
     /**
      * Gets data
      *
-     * @return \KlaviyoAPI\Model\GetCampaignMessageResponseData
+     * @return \KlaviyoAPI\Model\PostCampaignMessageResponseData
      */
     public function getData()
     {
@@ -220,7 +220,7 @@ class PatchCampaignMessageResponse implements ModelInterface, ArrayAccess, \Json
     /**
      * Sets data
      *
-     * @param \KlaviyoAPI\Model\GetCampaignMessageResponseData $data data
+     * @param \KlaviyoAPI\Model\PostCampaignMessageResponseData $data data
      *
      * @return self
      */

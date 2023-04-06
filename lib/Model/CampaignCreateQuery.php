@@ -58,7 +58,7 @@ class CampaignCreateQuery implements ModelInterface, ArrayAccess, \JsonSerializa
       * @var string[]
       */
     protected static $openAPITypes = [
-        'data' => '\KlaviyoAPI\Model\CampaignCreateQueryAsSubResource'
+        'data' => '\KlaviyoAPI\Model\CampaignCreateQueryResourceObject'
     ];
 
     /**
@@ -210,7 +210,7 @@ class CampaignCreateQuery implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Gets data
      *
-     * @return \KlaviyoAPI\Model\CampaignCreateQueryAsSubResource
+     * @return \KlaviyoAPI\Model\CampaignCreateQueryResourceObject
      */
     public function getData()
     {
@@ -220,7 +220,7 @@ class CampaignCreateQuery implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets data
      *
-     * @param \KlaviyoAPI\Model\CampaignCreateQueryAsSubResource $data data
+     * @param \KlaviyoAPI\Model\CampaignCreateQueryResourceObject $data data
      *
      * @return self
      */

@@ -58,7 +58,7 @@ class DataPrivacyCreateDeletionJobQuery implements ModelInterface, ArrayAccess, 
       * @var string[]
       */
     protected static $openAPITypes = [
-        'data' => '\KlaviyoAPI\Model\DataPrivacyCreateDeletionJobQueryAsSubResource'
+        'data' => '\KlaviyoAPI\Model\DataPrivacyCreateDeletionJobQueryResourceObject'
     ];
 
     /**
@@ -210,7 +210,7 @@ class DataPrivacyCreateDeletionJobQuery implements ModelInterface, ArrayAccess, 
     /**
      * Gets data
      *
-     * @return \KlaviyoAPI\Model\DataPrivacyCreateDeletionJobQueryAsSubResource
+     * @return \KlaviyoAPI\Model\DataPrivacyCreateDeletionJobQueryResourceObject
      */
     public function getData()
     {
@@ -220,7 +220,7 @@ class DataPrivacyCreateDeletionJobQuery implements ModelInterface, ArrayAccess, 
     /**
      * Sets data
      *
-     * @param \KlaviyoAPI\Model\DataPrivacyCreateDeletionJobQueryAsSubResource $data data
+     * @param \KlaviyoAPI\Model\DataPrivacyCreateDeletionJobQueryResourceObject $data data
      *
      * @return self
      */

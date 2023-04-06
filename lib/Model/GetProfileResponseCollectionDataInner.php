@@ -58,10 +58,10 @@ class GetProfileResponseCollectionDataInner implements ModelInterface, ArrayAcce
       * @var string[]
       */
     protected static $openAPITypes = [
-        'type' => 'string',
+        'type' => '\KlaviyoAPI\Model\ProfileEnum',
+        'attributes' => '\KlaviyoAPI\Model\ProfileResponseObjectResourceAttributes',
         'id' => 'string',
-        'attributes' => '\KlaviyoAPI\Model\GetProfileResponseCollectionDataInnerAttributes',
-        'links' => '\KlaviyoAPI\Model\GetCatalogItemResponseCollectionWithIncludedSectionDataInnerLinks'
+        'links' => '\KlaviyoAPI\Model\ObjectLinks'
     ];
 
     /**
@@ -73,8 +73,8 @@ class GetProfileResponseCollectionDataInner implements ModelInterface, ArrayAcce
       */
     protected static $openAPIFormats = [
         'type' => null,
-        'id' => null,
         'attributes' => null,
+        'id' => null,
         'links' => null
     ];
 
@@ -106,8 +106,8 @@ class GetProfileResponseCollectionDataInner implements ModelInterface, ArrayAcce
      */
     protected static $attributeMap = [
         'type' => 'type',
-        'id' => 'id',
         'attributes' => 'attributes',
+        'id' => 'id',
         'links' => 'links'
     ];
 
@@ -118,8 +118,8 @@ class GetProfileResponseCollectionDataInner implements ModelInterface, ArrayAcce
      */
     protected static $setters = [
         'type' => 'setType',
-        'id' => 'setId',
         'attributes' => 'setAttributes',
+        'id' => 'setId',
         'links' => 'setLinks'
     ];
 
@@ -130,8 +130,8 @@ class GetProfileResponseCollectionDataInner implements ModelInterface, ArrayAcce
      */
     protected static $getters = [
         'type' => 'getType',
-        'id' => 'getId',
         'attributes' => 'getAttributes',
+        'id' => 'getId',
         'links' => 'getLinks'
     ];
 
@@ -176,19 +176,6 @@ class GetProfileResponseCollectionDataInner implements ModelInterface, ArrayAcce
         return self::$openAPIModelName;
     }
 
-    public const TYPE_PROFILE = 'profile';
-
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getTypeAllowableValues()
-    {
-        return [
-            self::TYPE_PROFILE,
-        ];
-    }
 
     /**
      * Associative array for storing property values
@@ -206,8 +193,8 @@ class GetProfileResponseCollectionDataInner implements ModelInterface, ArrayAcce
     public function __construct(array $data = null)
     {
         $this->container['type'] = $data['type'] ?? null;
-        $this->container['id'] = $data['id'] ?? null;
         $this->container['attributes'] = $data['attributes'] ?? null;
+        $this->container['id'] = $data['id'] ?? null;
         $this->container['links'] = $data['links'] ?? null;
     }
 
@@ -223,20 +210,11 @@ class GetProfileResponseCollectionDataInner implements ModelInterface, ArrayAcce
         if ($this->container['type'] === null) {
             $invalidProperties[] = "'type' can't be null";
         }
-        $allowedValues = $this->getTypeAllowableValues();
-        if (!is_null($this->container['type']) && !in_array($this->container['type'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value '%s' for 'type', must be one of '%s'",
-                $this->container['type'],
-                implode("', '", $allowedValues)
-            );
-        }
-
-        if ($this->container['id'] === null) {
-            $invalidProperties[] = "'id' can't be null";
-        }
         if ($this->container['attributes'] === null) {
             $invalidProperties[] = "'attributes' can't be null";
+        }
+        if ($this->container['id'] === null) {
+            $invalidProperties[] = "'id' can't be null";
         }
         if ($this->container['links'] === null) {
             $invalidProperties[] = "'links' can't be null";
@@ -259,7 +237,7 @@ class GetProfileResponseCollectionDataInner implements ModelInterface, ArrayAcce
     /**
      * Gets type
      *
-     * @return string
+     * @return \KlaviyoAPI\Model\ProfileEnum
      */
     public function getType()
     {
@@ -269,23 +247,37 @@ class GetProfileResponseCollectionDataInner implements ModelInterface, ArrayAcce
     /**
      * Sets type
      *
-     * @param string $type type
+     * @param \KlaviyoAPI\Model\ProfileEnum $type type
      *
      * @return self
      */
     public function setType($type)
     {
-        $allowedValues = $this->getTypeAllowableValues();
-        if (!in_array($type, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value '%s' for 'type', must be one of '%s'",
-                    $type,
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
         $this->container['type'] = $type;
+
+        return $this;
+    }
+
+    /**
+     * Gets attributes
+     *
+     * @return \KlaviyoAPI\Model\ProfileResponseObjectResourceAttributes
+     */
+    public function getAttributes()
+    {
+        return $this->container['attributes'];
+    }
+
+    /**
+     * Sets attributes
+     *
+     * @param \KlaviyoAPI\Model\ProfileResponseObjectResourceAttributes $attributes attributes
+     *
+     * @return self
+     */
+    public function setAttributes($attributes)
+    {
+        $this->container['attributes'] = $attributes;
 
         return $this;
     }
@@ -315,33 +307,9 @@ class GetProfileResponseCollectionDataInner implements ModelInterface, ArrayAcce
     }
 
     /**
-     * Gets attributes
-     *
-     * @return \KlaviyoAPI\Model\GetProfileResponseCollectionDataInnerAttributes
-     */
-    public function getAttributes()
-    {
-        return $this->container['attributes'];
-    }
-
-    /**
-     * Sets attributes
-     *
-     * @param \KlaviyoAPI\Model\GetProfileResponseCollectionDataInnerAttributes $attributes attributes
-     *
-     * @return self
-     */
-    public function setAttributes($attributes)
-    {
-        $this->container['attributes'] = $attributes;
-
-        return $this;
-    }
-
-    /**
      * Gets links
      *
-     * @return \KlaviyoAPI\Model\GetCatalogItemResponseCollectionWithIncludedSectionDataInnerLinks
+     * @return \KlaviyoAPI\Model\ObjectLinks
      */
     public function getLinks()
     {
@@ -351,7 +319,7 @@ class GetProfileResponseCollectionDataInner implements ModelInterface, ArrayAcce
     /**
      * Sets links
      *
-     * @param \KlaviyoAPI\Model\GetCatalogItemResponseCollectionWithIncludedSectionDataInnerLinks $links links
+     * @param \KlaviyoAPI\Model\ObjectLinks $links links
      *
      * @return self
      */

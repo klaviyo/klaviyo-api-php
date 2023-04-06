@@ -58,7 +58,7 @@ class CatalogItemCreateQuery implements ModelInterface, ArrayAccess, \JsonSerial
       * @var string[]
       */
     protected static $openAPITypes = [
-        'data' => '\KlaviyoAPI\Model\CatalogItemCreateQueryAsSubResource'
+        'data' => '\KlaviyoAPI\Model\CatalogItemCreateQueryResourceObject'
     ];
 
     /**
@@ -210,7 +210,7 @@ class CatalogItemCreateQuery implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Gets data
      *
-     * @return \KlaviyoAPI\Model\CatalogItemCreateQueryAsSubResource
+     * @return \KlaviyoAPI\Model\CatalogItemCreateQueryResourceObject
      */
     public function getData()
     {
@@ -220,7 +220,7 @@ class CatalogItemCreateQuery implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets data
      *
-     * @param \KlaviyoAPI\Model\CatalogItemCreateQueryAsSubResource $data data
+     * @param \KlaviyoAPI\Model\CatalogItemCreateQueryResourceObject $data data
      *
      * @return self
      */

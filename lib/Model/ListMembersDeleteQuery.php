@@ -58,7 +58,7 @@ class ListMembersDeleteQuery implements ModelInterface, ArrayAccess, \JsonSerial
       * @var string[]
       */
     protected static $openAPITypes = [
-        'data' => '\KlaviyoAPI\Model\GetEventResponseCollectionWithIncludedSectionDataInnerRelationshipsProfilesDataInner[]'
+        'data' => '\KlaviyoAPI\Model\GetEventResponseCollectionCompoundDocumentDataInnerAllOfRelationshipsProfilesDataInner[]'
     ];
 
     /**
@@ -210,7 +210,7 @@ class ListMembersDeleteQuery implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Gets data
      *
-     * @return \KlaviyoAPI\Model\GetEventResponseCollectionWithIncludedSectionDataInnerRelationshipsProfilesDataInner[]
+     * @return \KlaviyoAPI\Model\GetEventResponseCollectionCompoundDocumentDataInnerAllOfRelationshipsProfilesDataInner[]
      */
     public function getData()
     {
@@ -220,7 +220,7 @@ class ListMembersDeleteQuery implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets data
      *
-     * @param \KlaviyoAPI\Model\GetEventResponseCollectionWithIncludedSectionDataInnerRelationshipsProfilesDataInner[] $data data
+     * @param \KlaviyoAPI\Model\GetEventResponseCollectionCompoundDocumentDataInnerAllOfRelationshipsProfilesDataInner[] $data data
      *
      * @return self
      */

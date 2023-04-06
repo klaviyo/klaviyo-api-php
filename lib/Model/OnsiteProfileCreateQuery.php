@@ -58,7 +58,7 @@ class OnsiteProfileCreateQuery implements ModelInterface, ArrayAccess, \JsonSeri
       * @var string[]
       */
     protected static $openAPITypes = [
-        'data' => '\KlaviyoAPI\Model\OnsiteProfileCreateQueryAsSubResource'
+        'data' => '\KlaviyoAPI\Model\OnsiteProfileCreateQueryResourceObject'
     ];
 
     /**
@@ -210,7 +210,7 @@ class OnsiteProfileCreateQuery implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Gets data
      *
-     * @return \KlaviyoAPI\Model\OnsiteProfileCreateQueryAsSubResource
+     * @return \KlaviyoAPI\Model\OnsiteProfileCreateQueryResourceObject
      */
     public function getData()
     {
@@ -220,7 +220,7 @@ class OnsiteProfileCreateQuery implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets data
      *
-     * @param \KlaviyoAPI\Model\OnsiteProfileCreateQueryAsSubResource $data data
+     * @param \KlaviyoAPI\Model\OnsiteProfileCreateQueryResourceObject $data data
      *
      * @return self
      */

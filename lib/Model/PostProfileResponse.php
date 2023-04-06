@@ -58,7 +58,7 @@ class PostProfileResponse implements ModelInterface, ArrayAccess, \JsonSerializa
       * @var string[]
       */
     protected static $openAPITypes = [
-        'data' => '\KlaviyoAPI\Model\GetProfileResponseCollectionDataInner'
+        'data' => '\KlaviyoAPI\Model\PostProfileResponseData'
     ];
 
     /**
@@ -210,7 +210,7 @@ class PostProfileResponse implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Gets data
      *
-     * @return \KlaviyoAPI\Model\GetProfileResponseCollectionDataInner
+     * @return \KlaviyoAPI\Model\PostProfileResponseData
      */
     public function getData()
     {
@@ -220,7 +220,7 @@ class PostProfileResponse implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets data
      *
-     * @param \KlaviyoAPI\Model\GetProfileResponseCollectionDataInner $data data
+     * @param \KlaviyoAPI\Model\PostProfileResponseData $data data
      *
      * @return self
      */

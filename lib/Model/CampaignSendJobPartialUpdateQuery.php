@@ -58,7 +58,7 @@ class CampaignSendJobPartialUpdateQuery implements ModelInterface, ArrayAccess, 
       * @var string[]
       */
     protected static $openAPITypes = [
-        'data' => '\KlaviyoAPI\Model\CampaignSendJobPartialUpdateQueryAsSubResource'
+        'data' => '\KlaviyoAPI\Model\CampaignSendJobPartialUpdateQueryResourceObject'
     ];
 
     /**
@@ -210,7 +210,7 @@ class CampaignSendJobPartialUpdateQuery implements ModelInterface, ArrayAccess, 
     /**
      * Gets data
      *
-     * @return \KlaviyoAPI\Model\CampaignSendJobPartialUpdateQueryAsSubResource
+     * @return \KlaviyoAPI\Model\CampaignSendJobPartialUpdateQueryResourceObject
      */
     public function getData()
     {
@@ -220,7 +220,7 @@ class CampaignSendJobPartialUpdateQuery implements ModelInterface, ArrayAccess, 
     /**
      * Sets data
      *
-     * @param \KlaviyoAPI\Model\CampaignSendJobPartialUpdateQueryAsSubResource $data data
+     * @param \KlaviyoAPI\Model\CampaignSendJobPartialUpdateQueryResourceObject $data data
      *
      * @return self
      */

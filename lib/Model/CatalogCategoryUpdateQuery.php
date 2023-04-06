@@ -58,7 +58,7 @@ class CatalogCategoryUpdateQuery implements ModelInterface, ArrayAccess, \JsonSe
       * @var string[]
       */
     protected static $openAPITypes = [
-        'data' => '\KlaviyoAPI\Model\CatalogCategoryUpdateQueryAsSubResource'
+        'data' => '\KlaviyoAPI\Model\CatalogCategoryUpdateQueryResourceObject'
     ];
 
     /**
@@ -210,7 +210,7 @@ class CatalogCategoryUpdateQuery implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Gets data
      *
-     * @return \KlaviyoAPI\Model\CatalogCategoryUpdateQueryAsSubResource
+     * @return \KlaviyoAPI\Model\CatalogCategoryUpdateQueryResourceObject
      */
     public function getData()
     {
@@ -220,7 +220,7 @@ class CatalogCategoryUpdateQuery implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Sets data
      *
-     * @param \KlaviyoAPI\Model\CatalogCategoryUpdateQueryAsSubResource $data data
+     * @param \KlaviyoAPI\Model\CatalogCategoryUpdateQueryResourceObject $data data
      *
      * @return self
      */

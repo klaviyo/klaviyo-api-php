@@ -58,7 +58,7 @@ class TagSegmentOp implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'data' => '\KlaviyoAPI\Model\GetProfileResponseCollectionWithIncludedSectionDataInnerRelationshipsSegmentsDataInner[]'
+        'data' => '\KlaviyoAPI\Model\GetProfileResponseCollectionCompoundDocumentDataInnerAllOfRelationshipsSegmentsDataInner[]'
     ];
 
     /**
@@ -210,7 +210,7 @@ class TagSegmentOp implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets data
      *
-     * @return \KlaviyoAPI\Model\GetProfileResponseCollectionWithIncludedSectionDataInnerRelationshipsSegmentsDataInner[]
+     * @return \KlaviyoAPI\Model\GetProfileResponseCollectionCompoundDocumentDataInnerAllOfRelationshipsSegmentsDataInner[]
      */
     public function getData()
     {
@@ -220,7 +220,7 @@ class TagSegmentOp implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets data
      *
-     * @param \KlaviyoAPI\Model\GetProfileResponseCollectionWithIncludedSectionDataInnerRelationshipsSegmentsDataInner[] $data data
+     * @param \KlaviyoAPI\Model\GetProfileResponseCollectionCompoundDocumentDataInnerAllOfRelationshipsSegmentsDataInner[] $data data
      *
      * @return self
      */

@@ -58,7 +58,7 @@ class GetTemplateResponse implements ModelInterface, ArrayAccess, \JsonSerializa
       * @var string[]
       */
     protected static $openAPITypes = [
-        'data' => '\KlaviyoAPI\Model\GetTemplateResponseCollectionDataInner'
+        'data' => '\KlaviyoAPI\Model\TemplateResponseObjectResource'
     ];
 
     /**
@@ -210,7 +210,7 @@ class GetTemplateResponse implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Gets data
      *
-     * @return \KlaviyoAPI\Model\GetTemplateResponseCollectionDataInner
+     * @return \KlaviyoAPI\Model\TemplateResponseObjectResource
      */
     public function getData()
     {
@@ -220,7 +220,7 @@ class GetTemplateResponse implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets data
      *
-     * @param \KlaviyoAPI\Model\GetTemplateResponseCollectionDataInner $data data
+     * @param \KlaviyoAPI\Model\TemplateResponseObjectResource $data data
      *
      * @return self
      */

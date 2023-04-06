@@ -58,7 +58,7 @@ class ListCreateQuery implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'data' => '\KlaviyoAPI\Model\ListCreateQueryAsSubResource'
+        'data' => '\KlaviyoAPI\Model\ListCreateQueryResourceObject'
     ];
 
     /**
@@ -210,7 +210,7 @@ class ListCreateQuery implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets data
      *
-     * @return \KlaviyoAPI\Model\ListCreateQueryAsSubResource
+     * @return \KlaviyoAPI\Model\ListCreateQueryResourceObject
      */
     public function getData()
     {
@@ -220,7 +220,7 @@ class ListCreateQuery implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets data
      *
-     * @param \KlaviyoAPI\Model\ListCreateQueryAsSubResource $data data
+     * @param \KlaviyoAPI\Model\ListCreateQueryResourceObject $data data
      *
      * @return self
      */

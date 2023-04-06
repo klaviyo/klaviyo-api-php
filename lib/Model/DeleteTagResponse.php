@@ -58,7 +58,7 @@ class DeleteTagResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
       * @var string[]
       */
     protected static $openAPITypes = [
-        'data' => '\KlaviyoAPI\Model\GetListTagResponseCollectionDataInner'
+        'data' => '\KlaviyoAPI\Model\PostTagResponseData'
     ];
 
     /**
@@ -210,7 +210,7 @@ class DeleteTagResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Gets data
      *
-     * @return \KlaviyoAPI\Model\GetListTagResponseCollectionDataInner
+     * @return \KlaviyoAPI\Model\PostTagResponseData
      */
     public function getData()
     {
@@ -220,7 +220,7 @@ class DeleteTagResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Sets data
      *
-     * @param \KlaviyoAPI\Model\GetListTagResponseCollectionDataInner $data data
+     * @param \KlaviyoAPI\Model\PostTagResponseData $data data
      *
      * @return self
      */

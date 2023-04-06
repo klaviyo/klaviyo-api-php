@@ -58,7 +58,7 @@ class PatchTemplateResponse implements ModelInterface, ArrayAccess, \JsonSeriali
       * @var string[]
       */
     protected static $openAPITypes = [
-        'data' => '\KlaviyoAPI\Model\GetTemplateResponseCollectionDataInner'
+        'data' => '\KlaviyoAPI\Model\PostTemplateResponseData'
     ];
 
     /**
@@ -210,7 +210,7 @@ class PatchTemplateResponse implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Gets data
      *
-     * @return \KlaviyoAPI\Model\GetTemplateResponseCollectionDataInner
+     * @return \KlaviyoAPI\Model\PostTemplateResponseData
      */
     public function getData()
     {
@@ -220,7 +220,7 @@ class PatchTemplateResponse implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Sets data
      *
-     * @param \KlaviyoAPI\Model\GetTemplateResponseCollectionDataInner $data data
+     * @param \KlaviyoAPI\Model\PostTemplateResponseData $data data
      *
      * @return self
      */

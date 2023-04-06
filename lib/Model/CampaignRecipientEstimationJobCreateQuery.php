@@ -58,7 +58,7 @@ class CampaignRecipientEstimationJobCreateQuery implements ModelInterface, Array
       * @var string[]
       */
     protected static $openAPITypes = [
-        'data' => '\KlaviyoAPI\Model\CampaignRecipientEstimationJobCreateQueryAsSubResource'
+        'data' => '\KlaviyoAPI\Model\CampaignRecipientEstimationJobCreateQueryResourceObject'
     ];
 
     /**
@@ -210,7 +210,7 @@ class CampaignRecipientEstimationJobCreateQuery implements ModelInterface, Array
     /**
      * Gets data
      *
-     * @return \KlaviyoAPI\Model\CampaignRecipientEstimationJobCreateQueryAsSubResource
+     * @return \KlaviyoAPI\Model\CampaignRecipientEstimationJobCreateQueryResourceObject
      */
     public function getData()
     {
@@ -220,7 +220,7 @@ class CampaignRecipientEstimationJobCreateQuery implements ModelInterface, Array
     /**
      * Sets data
      *
-     * @param \KlaviyoAPI\Model\CampaignRecipientEstimationJobCreateQueryAsSubResource $data data
+     * @param \KlaviyoAPI\Model\CampaignRecipientEstimationJobCreateQueryResourceObject $data data
      *
      * @return self
      */

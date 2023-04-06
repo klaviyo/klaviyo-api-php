@@ -58,7 +58,7 @@ class PatchSegmentResponse implements ModelInterface, ArrayAccess, \JsonSerializ
       * @var string[]
       */
     protected static $openAPITypes = [
-        'data' => '\KlaviyoAPI\Model\GetSegmentResponseCollectionWithIncludedSectionDataInner'
+        'data' => '\KlaviyoAPI\Model\PatchSegmentResponseData'
     ];
 
     /**
@@ -210,7 +210,7 @@ class PatchSegmentResponse implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Gets data
      *
-     * @return \KlaviyoAPI\Model\GetSegmentResponseCollectionWithIncludedSectionDataInner
+     * @return \KlaviyoAPI\Model\PatchSegmentResponseData
      */
     public function getData()
     {
@@ -220,7 +220,7 @@ class PatchSegmentResponse implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Sets data
      *
-     * @param \KlaviyoAPI\Model\GetSegmentResponseCollectionWithIncludedSectionDataInner $data data
+     * @param \KlaviyoAPI\Model\PatchSegmentResponseData $data data
      *
      * @return self
      */

@@ -58,7 +58,7 @@ class PostTagGroupResponse implements ModelInterface, ArrayAccess, \JsonSerializ
       * @var string[]
       */
     protected static $openAPITypes = [
-        'data' => '\KlaviyoAPI\Model\GetTagGroupResponseCollectionDataInner'
+        'data' => '\KlaviyoAPI\Model\PostTagGroupResponseData'
     ];
 
     /**
@@ -210,7 +210,7 @@ class PostTagGroupResponse implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Gets data
      *
-     * @return \KlaviyoAPI\Model\GetTagGroupResponseCollectionDataInner
+     * @return \KlaviyoAPI\Model\PostTagGroupResponseData
      */
     public function getData()
     {
@@ -220,7 +220,7 @@ class PostTagGroupResponse implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Sets data
      *
-     * @param \KlaviyoAPI\Model\GetTagGroupResponseCollectionDataInner $data data
+     * @param \KlaviyoAPI\Model\PostTagGroupResponseData $data data
      *
      * @return self
      */

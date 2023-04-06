@@ -58,7 +58,7 @@ class CampaignMessagePartialUpdateQuery implements ModelInterface, ArrayAccess, 
       * @var string[]
       */
     protected static $openAPITypes = [
-        'data' => '\KlaviyoAPI\Model\CampaignMessagePartialUpdateQueryAsSubResource'
+        'data' => '\KlaviyoAPI\Model\CampaignMessagePartialUpdateQueryResourceObject'
     ];
 
     /**
@@ -210,7 +210,7 @@ class CampaignMessagePartialUpdateQuery implements ModelInterface, ArrayAccess, 
     /**
      * Gets data
      *
-     * @return \KlaviyoAPI\Model\CampaignMessagePartialUpdateQueryAsSubResource
+     * @return \KlaviyoAPI\Model\CampaignMessagePartialUpdateQueryResourceObject
      */
     public function getData()
     {
@@ -220,7 +220,7 @@ class CampaignMessagePartialUpdateQuery implements ModelInterface, ArrayAccess, 
     /**
      * Sets data
      *
-     * @param \KlaviyoAPI\Model\CampaignMessagePartialUpdateQueryAsSubResource $data data
+     * @param \KlaviyoAPI\Model\CampaignMessagePartialUpdateQueryResourceObject $data data
      *
      * @return self
      */
