@@ -1,6 +1,6 @@
 # Klaviyo PHP SDK
 
-- SDK version: 2.0.1
+- SDK version: 2.0.2
 - API Revision: 2023-02-22
 
 ## Helpful Resources
@@ -88,7 +88,8 @@ use KlaviyoAPI\KlaviyoAPI;
 $klaviyo = new KlaviyoAPI(
     'YOUR_API_KEY', 
     $num_retries = 3, 
-    $wait_seconds = 3);
+    $wait_seconds = 3,
+    $guzzle_options = []);
 
 $response = $klaviyo->Metrics->getMetrics();
 ```
