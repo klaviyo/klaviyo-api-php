@@ -88,7 +88,8 @@ use KlaviyoAPI\KlaviyoAPI;
 $klaviyo = new KlaviyoAPI(
     'YOUR_API_KEY', 
     $num_retries = 3, 
-    $wait_seconds = 3);
+    $wait_seconds = 3,
+    $guzzle_options = []);
 
 $response = $klaviyo->Metrics->getMetrics();
 ```
