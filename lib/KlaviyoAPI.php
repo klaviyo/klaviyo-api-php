@@ -25,6 +25,7 @@ class KlaviyoAPI {
     public $api_key = "API_KEY";
     public $wait_seconds;
     public $num_retries;
+    public $config;
     public $Campaigns;
     public $Catalogs;
     public $Client;
