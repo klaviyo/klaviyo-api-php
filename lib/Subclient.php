@@ -3,6 +3,13 @@ namespace KlaviyoAPI;
 
 class Subclient {
 
+    public $api_instance;
+    public $wait_seconds;
+    public $num_retries;
+    public $retry_codes;
+
+    public $_CURSOR_SEARCH_TOKENS;
+
     public function __construct(
         $api_instance, 
         $wait_seconds = 3,
