@@ -1,6 +1,6 @@
 # Klaviyo PHP SDK
 
-- SDK version: 2.0.2
+- SDK version: 2.0.3
 - API Revision: 2023-02-22
 
 ## Helpful Resources

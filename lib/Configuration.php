@@ -101,7 +101,7 @@ class Configuration
      *
      * @var string
      */
-    protected $userAgent = 'klaviyo/api/2.0.2';
+    protected $userAgent = 'klaviyo/api/2.0.3';
 
     /**
      * Debug switch (default set to false)
@@ -434,7 +434,7 @@ class Configuration
         $report .= '    OS: ' . php_uname() . PHP_EOL;
         $report .= '    PHP Version: ' . PHP_VERSION . PHP_EOL;
         $report .= '    The version of the OpenAPI document: 2023-02-22' . PHP_EOL;
-        $report .= '    SDK Package Version: 2.0.2' . PHP_EOL;
+        $report .= '    SDK Package Version: 2.0.3' . PHP_EOL;
         $report .= '    Temp Folder Path: ' . self::getDefaultConfiguration()->getTempFolderPath() . PHP_EOL;
 
         return $report;

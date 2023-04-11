@@ -63,74 +63,74 @@ class KlaviyoAPI {
         
         $this->Campaigns = new Subclient(
                 new CampaignsApi(new GuzzleClient($this->guzzle_options),$this->config),
-                $wait_seconds = $this->$wait_seconds,
-                $num_retries = $this->$num_retries,
+                $wait_seconds = $this->wait_seconds,
+                $num_retries = $this->num_retries,
             );
         
         $this->Catalogs = new Subclient(
                 new CatalogsApi(new GuzzleClient($this->guzzle_options),$this->config),
-                $wait_seconds = $this->$wait_seconds,
-                $num_retries = $this->$num_retries,
+                $wait_seconds = $this->wait_seconds,
+                $num_retries = $this->num_retries,
             );
         
         $this->Client = new Subclient(
                 new ClientApi(new GuzzleClient($this->guzzle_options),$this->config),
-                $wait_seconds = $this->$wait_seconds,
-                $num_retries = $this->$num_retries,
+                $wait_seconds = $this->wait_seconds,
+                $num_retries = $this->num_retries,
             );
         
         $this->DataPrivacy = new Subclient(
                 new DataPrivacyApi(new GuzzleClient($this->guzzle_options),$this->config),
-                $wait_seconds = $this->$wait_seconds,
-                $num_retries = $this->$num_retries,
+                $wait_seconds = $this->wait_seconds,
+                $num_retries = $this->num_retries,
             );
         
         $this->Events = new Subclient(
                 new EventsApi(new GuzzleClient($this->guzzle_options),$this->config),
-                $wait_seconds = $this->$wait_seconds,
-                $num_retries = $this->$num_retries,
+                $wait_seconds = $this->wait_seconds,
+                $num_retries = $this->num_retries,
             );
         
         $this->Flows = new Subclient(
                 new FlowsApi(new GuzzleClient($this->guzzle_options),$this->config),
-                $wait_seconds = $this->$wait_seconds,
-                $num_retries = $this->$num_retries,
+                $wait_seconds = $this->wait_seconds,
+                $num_retries = $this->num_retries,
             );
         
         $this->Lists = new Subclient(
                 new ListsApi(new GuzzleClient($this->guzzle_options),$this->config),
-                $wait_seconds = $this->$wait_seconds,
-                $num_retries = $this->$num_retries,
+                $wait_seconds = $this->wait_seconds,
+                $num_retries = $this->num_retries,
             );
         
         $this->Metrics = new Subclient(
                 new MetricsApi(new GuzzleClient($this->guzzle_options),$this->config),
-                $wait_seconds = $this->$wait_seconds,
-                $num_retries = $this->$num_retries,
+                $wait_seconds = $this->wait_seconds,
+                $num_retries = $this->num_retries,
             );
         
         $this->Profiles = new Subclient(
                 new ProfilesApi(new GuzzleClient($this->guzzle_options),$this->config),
-                $wait_seconds = $this->$wait_seconds,
-                $num_retries = $this->$num_retries,
+                $wait_seconds = $this->wait_seconds,
+                $num_retries = $this->num_retries,
             );
         
         $this->Segments = new Subclient(
                 new SegmentsApi(new GuzzleClient($this->guzzle_options),$this->config),
-                $wait_seconds = $this->$wait_seconds,
-                $num_retries = $this->$num_retries,
+                $wait_seconds = $this->wait_seconds,
+                $num_retries = $this->num_retries,
             );
         
         $this->Tags = new Subclient(
                 new TagsApi(new GuzzleClient($this->guzzle_options),$this->config),
-                $wait_seconds = $this->$wait_seconds,
-                $num_retries = $this->$num_retries,
+                $wait_seconds = $this->wait_seconds,
+                $num_retries = $this->num_retries,
             );
         
         $this->Templates = new Subclient(
                 new TemplatesApi(new GuzzleClient($this->guzzle_options),$this->config),
-                $wait_seconds = $this->$wait_seconds,
-                $num_retries = $this->$num_retries,
+                $wait_seconds = $this->wait_seconds,
+                $num_retries = $this->num_retries,
             );
         
 
