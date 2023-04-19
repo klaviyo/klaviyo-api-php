@@ -266,49 +266,49 @@ class MetricAggregateQueryResourceObjectAttributes implements ModelInterface, Ar
     public const SORT__VARIATION_SEND_COHORT = '$variation_send_cohort';
     public const SORT___VARIATION_SEND_COHORT = '-$variation_send_cohort';
     public const SORT_BOUNCE_TYPE = 'Bounce Type';
-    public const SORT_BOUNCE_TYPE = '-Bounce Type';
+    public const SORT__BOUNCE_TYPE = '-Bounce Type';
     public const SORT_CAMPAIGN_NAME = 'Campaign Name';
-    public const SORT_CAMPAIGN_NAME = '-Campaign Name';
+    public const SORT__CAMPAIGN_NAME = '-Campaign Name';
     public const SORT_CLIENT_CANONICAL = 'Client Canonical';
-    public const SORT_CLIENT_CANONICAL = '-Client Canonical';
+    public const SORT__CLIENT_CANONICAL = '-Client Canonical';
     public const SORT_CLIENT_NAME = 'Client Name';
-    public const SORT_CLIENT_NAME = '-Client Name';
+    public const SORT__CLIENT_NAME = '-Client Name';
     public const SORT_CLIENT_TYPE = 'Client Type';
-    public const SORT_CLIENT_TYPE = '-Client Type';
+    public const SORT__CLIENT_TYPE = '-Client Type';
     public const SORT_EMAIL_DOMAIN = 'Email Domain';
-    public const SORT_EMAIL_DOMAIN = '-Email Domain';
+    public const SORT__EMAIL_DOMAIN = '-Email Domain';
     public const SORT_FAILURE_SOURCE = 'Failure Source';
-    public const SORT_FAILURE_SOURCE = '-Failure Source';
+    public const SORT__FAILURE_SOURCE = '-Failure Source';
     public const SORT_FAILURE_TYPE = 'Failure Type';
-    public const SORT_FAILURE_TYPE = '-Failure Type';
+    public const SORT__FAILURE_TYPE = '-Failure Type';
     public const SORT_FROM_NUMBER = 'From Number';
-    public const SORT_FROM_NUMBER = '-From Number';
+    public const SORT__FROM_NUMBER = '-From Number';
     public const SORT_FROM_PHONE_REGION = 'From Phone Region';
-    public const SORT_FROM_PHONE_REGION = '-From Phone Region';
+    public const SORT__FROM_PHONE_REGION = '-From Phone Region';
     public const SORT__LIST = 'List';
-    public const SORT__LIST = '-List';
+    public const SORT___LIST = '-List';
     public const SORT_MESSAGE_NAME = 'Message Name';
-    public const SORT_MESSAGE_NAME = '-Message Name';
+    public const SORT__MESSAGE_NAME = '-Message Name';
     public const SORT_MESSAGE_TYPE = 'Message Type';
-    public const SORT_MESSAGE_TYPE = '-Message Type';
+    public const SORT__MESSAGE_TYPE = '-Message Type';
     public const SORT_METHOD = 'Method';
-    public const SORT_METHOD = '-Method';
+    public const SORT__METHOD = '-Method';
     public const SORT_SUBJECT = 'Subject';
-    public const SORT_SUBJECT = '-Subject';
+    public const SORT__SUBJECT = '-Subject';
     public const SORT_TO_NUMBER = 'To Number';
-    public const SORT_TO_NUMBER = '-To Number';
+    public const SORT__TO_NUMBER = '-To Number';
     public const SORT_TO_PHONE_REGION = 'To Phone Region';
-    public const SORT_TO_PHONE_REGION = '-To Phone Region';
+    public const SORT__TO_PHONE_REGION = '-To Phone Region';
     public const SORT_URL = 'URL';
-    public const SORT_URL = '-URL';
+    public const SORT__URL = '-URL';
     public const SORT_COUNT = 'count';
-    public const SORT_COUNT = '-count';
+    public const SORT__COUNT = '-count';
     public const SORT_FORM_ID = 'form_id';
-    public const SORT_FORM_ID = '-form_id';
+    public const SORT__FORM_ID = '-form_id';
     public const SORT_SUM_VALUE = 'sum_value';
-    public const SORT_SUM_VALUE = '-sum_value';
+    public const SORT__SUM_VALUE = '-sum_value';
     public const SORT_UNIQUE = 'unique';
-    public const SORT_UNIQUE = '-unique';
+    public const SORT__UNIQUE = '-unique';
 
     /**
      * Gets allowable values of the enum
@@ -411,49 +411,49 @@ class MetricAggregateQueryResourceObjectAttributes implements ModelInterface, Ar
             self::SORT__VARIATION_SEND_COHORT,
             self::SORT___VARIATION_SEND_COHORT,
             self::SORT_BOUNCE_TYPE,
-            self::SORT_BOUNCE_TYPE,
+            self::SORT__BOUNCE_TYPE,
             self::SORT_CAMPAIGN_NAME,
-            self::SORT_CAMPAIGN_NAME,
+            self::SORT__CAMPAIGN_NAME,
             self::SORT_CLIENT_CANONICAL,
-            self::SORT_CLIENT_CANONICAL,
+            self::SORT__CLIENT_CANONICAL,
             self::SORT_CLIENT_NAME,
-            self::SORT_CLIENT_NAME,
+            self::SORT__CLIENT_NAME,
             self::SORT_CLIENT_TYPE,
-            self::SORT_CLIENT_TYPE,
+            self::SORT__CLIENT_TYPE,
             self::SORT_EMAIL_DOMAIN,
-            self::SORT_EMAIL_DOMAIN,
+            self::SORT__EMAIL_DOMAIN,
             self::SORT_FAILURE_SOURCE,
-            self::SORT_FAILURE_SOURCE,
+            self::SORT__FAILURE_SOURCE,
             self::SORT_FAILURE_TYPE,
-            self::SORT_FAILURE_TYPE,
+            self::SORT__FAILURE_TYPE,
             self::SORT_FROM_NUMBER,
-            self::SORT_FROM_NUMBER,
+            self::SORT__FROM_NUMBER,
             self::SORT_FROM_PHONE_REGION,
-            self::SORT_FROM_PHONE_REGION,
-            self::SORT__LIST,
+            self::SORT__FROM_PHONE_REGION,
+            self::SORT_LIST,
             self::SORT__LIST,
             self::SORT_MESSAGE_NAME,
-            self::SORT_MESSAGE_NAME,
+            self::SORT__MESSAGE_NAME,
             self::SORT_MESSAGE_TYPE,
-            self::SORT_MESSAGE_TYPE,
+            self::SORT__MESSAGE_TYPE,
             self::SORT_METHOD,
-            self::SORT_METHOD,
+            self::SORT__METHOD,
             self::SORT_SUBJECT,
-            self::SORT_SUBJECT,
+            self::SORT__SUBJECT,
             self::SORT_TO_NUMBER,
-            self::SORT_TO_NUMBER,
+            self::SORT__TO_NUMBER,
             self::SORT_TO_PHONE_REGION,
-            self::SORT_TO_PHONE_REGION,
+            self::SORT__TO_PHONE_REGION,
             self::SORT_URL,
-            self::SORT_URL,
+            self::SORT__URL,
             self::SORT_COUNT,
-            self::SORT_COUNT,
+            self::SORT__COUNT,
             self::SORT_FORM_ID,
-            self::SORT_FORM_ID,
+            self::SORT__FORM_ID,
             self::SORT_SUM_VALUE,
-            self::SORT_SUM_VALUE,
+            self::SORT__SUM_VALUE,
             self::SORT_UNIQUE,
-            self::SORT_UNIQUE,
+            self::SORT__UNIQUE,
         ];
     }
 
@@ -879,7 +879,7 @@ class MetricAggregateQueryResourceObjectAttributes implements ModelInterface, Ar
     #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {
-       return ObjectSerializer::sanitizeForSerialization($this);
+        return ObjectSerializer::sanitizeForSerialization($this);
     }
 
     /**
@@ -905,5 +905,3 @@ class MetricAggregateQueryResourceObjectAttributes implements ModelInterface, Ar
         return json_encode(ObjectSerializer::sanitizeForSerialization($this));
     }
 }
-
-
