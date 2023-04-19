@@ -1661,13 +1661,13 @@ class ListsApi
      * @param  string[] $fields_profile For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $filter For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;email&#x60;: &#x60;any&#x60;&lt;br&gt;&#x60;phone_number&#x60;: &#x60;any&#x60;&lt;br&gt;&#x60;push_token&#x60;: &#x60;any&#x60;&lt;br&gt;&#x60;_kx&#x60;: &#x60;equals&#x60; (optional)
      * @param  string $page_cursor For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#pagination (optional)
-     * @param  int $page_size The number of results to return per page. Default &#x3D; 20. Max &#x3D; 100 (optional)
+     * @param  int $page_size Default: 20. Min: 1. Max: 100. (optional, default to 20)
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array<string,mixed>|\KlaviyoAPI\Model\GetCampaigns400Response|\KlaviyoAPI\Model\GetCampaigns400Response
      */
-    public function getListProfiles($list_id, $additional_fields_profile = null, $fields_profile = null, $filter = null, $page_cursor = null, $page_size = null, $apiKey = null)
+    public function getListProfiles($list_id, $additional_fields_profile = null, $fields_profile = null, $filter = null, $page_cursor = null, $page_size = 20, $apiKey = null)
     {
         list($response) = $this->getListProfilesWithHttpInfo($list_id, $additional_fields_profile, $fields_profile, $filter, $page_cursor, $page_size, $apiKey);
         return $response;
@@ -1683,13 +1683,13 @@ class ListsApi
      * @param  string[] $fields_profile For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $filter For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;email&#x60;: &#x60;any&#x60;&lt;br&gt;&#x60;phone_number&#x60;: &#x60;any&#x60;&lt;br&gt;&#x60;push_token&#x60;: &#x60;any&#x60;&lt;br&gt;&#x60;_kx&#x60;: &#x60;equals&#x60; (optional)
      * @param  string $page_cursor For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#pagination (optional)
-     * @param  int $page_size The number of results to return per page. Default &#x3D; 20. Max &#x3D; 100 (optional)
+     * @param  int $page_size Default: 20. Min: 1. Max: 100. (optional, default to 20)
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of array<string,mixed>|\KlaviyoAPI\Model\GetCampaigns400Response|\KlaviyoAPI\Model\GetCampaigns400Response, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getListProfilesWithHttpInfo($list_id, $additional_fields_profile = null, $fields_profile = null, $filter = null, $page_cursor = null, $page_size = null, $apiKey = null)
+    public function getListProfilesWithHttpInfo($list_id, $additional_fields_profile = null, $fields_profile = null, $filter = null, $page_cursor = null, $page_size = 20, $apiKey = null)
     {
         $request = $this->getListProfilesRequest($list_id, $additional_fields_profile, $fields_profile, $filter, $page_cursor, $page_size, $apiKey);
 
@@ -1856,12 +1856,12 @@ class ListsApi
      * @param  string[] $fields_profile For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $filter For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;email&#x60;: &#x60;any&#x60;&lt;br&gt;&#x60;phone_number&#x60;: &#x60;any&#x60;&lt;br&gt;&#x60;push_token&#x60;: &#x60;any&#x60;&lt;br&gt;&#x60;_kx&#x60;: &#x60;equals&#x60; (optional)
      * @param  string $page_cursor For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#pagination (optional)
-     * @param  int $page_size The number of results to return per page. Default &#x3D; 20. Max &#x3D; 100 (optional)
+     * @param  int $page_size Default: 20. Min: 1. Max: 100. (optional, default to 20)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getListProfilesAsync($list_id, $additional_fields_profile = null, $fields_profile = null, $filter = null, $page_cursor = null, $page_size = null, $apiKey = null)
+    public function getListProfilesAsync($list_id, $additional_fields_profile = null, $fields_profile = null, $filter = null, $page_cursor = null, $page_size = 20, $apiKey = null)
     {
         return $this->getListProfilesAsyncWithHttpInfo($list_id, $additional_fields_profile, $fields_profile, $filter, $page_cursor, $page_size, $apiKey)
             ->then(
@@ -1881,12 +1881,12 @@ class ListsApi
      * @param  string[] $fields_profile For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $filter For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;email&#x60;: &#x60;any&#x60;&lt;br&gt;&#x60;phone_number&#x60;: &#x60;any&#x60;&lt;br&gt;&#x60;push_token&#x60;: &#x60;any&#x60;&lt;br&gt;&#x60;_kx&#x60;: &#x60;equals&#x60; (optional)
      * @param  string $page_cursor For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#pagination (optional)
-     * @param  int $page_size The number of results to return per page. Default &#x3D; 20. Max &#x3D; 100 (optional)
+     * @param  int $page_size Default: 20. Min: 1. Max: 100. (optional, default to 20)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getListProfilesAsyncWithHttpInfo($list_id, $additional_fields_profile = null, $fields_profile = null, $filter = null, $page_cursor = null, $page_size = null, $apiKey = null)
+    public function getListProfilesAsyncWithHttpInfo($list_id, $additional_fields_profile = null, $fields_profile = null, $filter = null, $page_cursor = null, $page_size = 20, $apiKey = null)
     {
         $returnType = 'array<string,mixed>';
         $request = $this->getListProfilesRequest($list_id, $additional_fields_profile, $fields_profile, $filter, $page_cursor, $page_size, $apiKey);
@@ -1940,12 +1940,12 @@ class ListsApi
      * @param  string[] $fields_profile For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $filter For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;email&#x60;: &#x60;any&#x60;&lt;br&gt;&#x60;phone_number&#x60;: &#x60;any&#x60;&lt;br&gt;&#x60;push_token&#x60;: &#x60;any&#x60;&lt;br&gt;&#x60;_kx&#x60;: &#x60;equals&#x60; (optional)
      * @param  string $page_cursor For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#pagination (optional)
-     * @param  int $page_size The number of results to return per page. Default &#x3D; 20. Max &#x3D; 100 (optional)
+     * @param  int $page_size Default: 20. Min: 1. Max: 100. (optional, default to 20)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getListProfilesRequest($list_id, $additional_fields_profile = null, $fields_profile = null, $filter = null, $page_cursor = null, $page_size = null, $apiKey = null)
+    public function getListProfilesRequest($list_id, $additional_fields_profile = null, $fields_profile = null, $filter = null, $page_cursor = null, $page_size = 20, $apiKey = null)
     {
         // verify the required parameter 'list_id' is set
         if ($list_id === null || (is_array($list_id) && count($list_id) === 0)) {
@@ -1953,6 +1953,13 @@ class ListsApi
                 'Missing the required parameter $list_id when calling getListProfiles'
             );
         }
+        if ($page_size !== null && $page_size > 100) {
+            throw new \InvalidArgumentException('invalid value for "$page_size" when calling ListsApi.getListProfiles, must be smaller than or equal to 100.');
+        }
+        if ($page_size !== null && $page_size < 1) {
+            throw new \InvalidArgumentException('invalid value for "$page_size" when calling ListsApi.getListProfiles, must be bigger than or equal to 1.');
+        }
+
 
         $resourcePath = '/api/lists/{list_id}/profiles/';
         $formParams = [];

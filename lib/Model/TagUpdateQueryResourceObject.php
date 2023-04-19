@@ -60,7 +60,7 @@ class TagUpdateQueryResourceObject implements ModelInterface, ArrayAccess, \Json
     protected static $openAPITypes = [
         'type' => '\KlaviyoAPI\Model\TagEnum',
         'id' => 'string',
-        'attributes' => '\KlaviyoAPI\Model\ListTagResponseObjectResourceAttributes'
+        'attributes' => '\KlaviyoAPI\Model\TagUpdateQueryResourceObjectAttributes'
     ];
 
     /**
@@ -276,7 +276,7 @@ class TagUpdateQueryResourceObject implements ModelInterface, ArrayAccess, \Json
     /**
      * Gets attributes
      *
-     * @return \KlaviyoAPI\Model\ListTagResponseObjectResourceAttributes
+     * @return \KlaviyoAPI\Model\TagUpdateQueryResourceObjectAttributes
      */
     public function getAttributes()
     {
@@ -286,7 +286,7 @@ class TagUpdateQueryResourceObject implements ModelInterface, ArrayAccess, \Json
     /**
      * Sets attributes
      *
-     * @param \KlaviyoAPI\Model\ListTagResponseObjectResourceAttributes $attributes attributes
+     * @param \KlaviyoAPI\Model\TagUpdateQueryResourceObjectAttributes $attributes attributes
      *
      * @return self
      */

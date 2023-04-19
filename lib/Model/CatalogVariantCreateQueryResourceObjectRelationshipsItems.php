@@ -1,6 +1,6 @@
 <?php
 /**
- * CatalogCategoryItemOp
+ * CatalogVariantCreateQueryResourceObjectRelationshipsItems
  *
  * PHP version 7.4
  *
@@ -33,7 +33,7 @@ use \ArrayAccess;
 use \KlaviyoAPI\ObjectSerializer;
 
 /**
- * CatalogCategoryItemOp Class Doc Comment
+ * CatalogVariantCreateQueryResourceObjectRelationshipsItems Class Doc Comment
  *
  * @category Class
  * @package  KlaviyoAPI
@@ -41,7 +41,7 @@ use \KlaviyoAPI\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class CatalogCategoryItemOp implements ModelInterface, ArrayAccess, \JsonSerializable
+class CatalogVariantCreateQueryResourceObjectRelationshipsItems implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class CatalogCategoryItemOp implements ModelInterface, ArrayAccess, \JsonSeriali
       *
       * @var string
       */
-    protected static $openAPIModelName = 'CatalogCategoryItemOp';
+    protected static $openAPIModelName = 'CatalogVariantCreateQueryResourceObject_relationships_items';
 
     /**
       * Array of property to type mappings. Used for (de)serialization

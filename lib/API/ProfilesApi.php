@@ -122,15 +122,14 @@ class ProfilesApi
      * Create Profile
      *
      * @param  \KlaviyoAPI\Model\ProfileCreateQuery $profile_create_query profile_create_query (required)
-     * @param  string[] $additional_fields_profile Request additional fields not included by default in the response. Supported values: &#39;predictive_analytics&#39; (optional)
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array<string,mixed>|\KlaviyoAPI\Model\GetCampaigns400Response|\KlaviyoAPI\Model\GetCampaigns400Response
      */
-    public function createProfile($profile_create_query, $additional_fields_profile = null, $apiKey = null)
+    public function createProfile($profile_create_query, $apiKey = null)
     {
-        list($response) = $this->createProfileWithHttpInfo($profile_create_query, $additional_fields_profile, $apiKey);
+        list($response) = $this->createProfileWithHttpInfo($profile_create_query, $apiKey);
         return $response;
     }
 
@@ -140,15 +139,14 @@ class ProfilesApi
      * Create Profile
      *
      * @param  \KlaviyoAPI\Model\ProfileCreateQuery $profile_create_query (required)
-     * @param  string[] $additional_fields_profile Request additional fields not included by default in the response. Supported values: &#39;predictive_analytics&#39; (optional)
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of array<string,mixed>|\KlaviyoAPI\Model\GetCampaigns400Response|\KlaviyoAPI\Model\GetCampaigns400Response, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createProfileWithHttpInfo($profile_create_query, $additional_fields_profile = null, $apiKey = null)
+    public function createProfileWithHttpInfo($profile_create_query, $apiKey = null)
     {
-        $request = $this->createProfileRequest($profile_create_query, $additional_fields_profile, $apiKey);
+        $request = $this->createProfileRequest($profile_create_query, $apiKey);
 
         try {
             $options = $this->createHttpClientOption();
@@ -309,14 +307,13 @@ class ProfilesApi
      * Create Profile
      *
      * @param  \KlaviyoAPI\Model\ProfileCreateQuery $profile_create_query (required)
-     * @param  string[] $additional_fields_profile Request additional fields not included by default in the response. Supported values: &#39;predictive_analytics&#39; (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createProfileAsync($profile_create_query, $additional_fields_profile = null, $apiKey = null)
+    public function createProfileAsync($profile_create_query, $apiKey = null)
     {
-        return $this->createProfileAsyncWithHttpInfo($profile_create_query, $additional_fields_profile, $apiKey)
+        return $this->createProfileAsyncWithHttpInfo($profile_create_query, $apiKey)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -330,15 +327,14 @@ class ProfilesApi
      * Create Profile
      *
      * @param  \KlaviyoAPI\Model\ProfileCreateQuery $profile_create_query (required)
-     * @param  string[] $additional_fields_profile Request additional fields not included by default in the response. Supported values: &#39;predictive_analytics&#39; (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createProfileAsyncWithHttpInfo($profile_create_query, $additional_fields_profile = null, $apiKey = null)
+    public function createProfileAsyncWithHttpInfo($profile_create_query, $apiKey = null)
     {
         $returnType = 'array<string,mixed>';
-        $request = $this->createProfileRequest($profile_create_query, $additional_fields_profile, $apiKey);
+        $request = $this->createProfileRequest($profile_create_query, $apiKey);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -385,12 +381,11 @@ class ProfilesApi
      * Create request for operation 'createProfile'
      *
      * @param  \KlaviyoAPI\Model\ProfileCreateQuery $profile_create_query (required)
-     * @param  string[] $additional_fields_profile Request additional fields not included by default in the response. Supported values: &#39;predictive_analytics&#39; (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function createProfileRequest($profile_create_query, $additional_fields_profile = null, $apiKey = null)
+    public function createProfileRequest($profile_create_query, $apiKey = null)
     {
         // verify the required parameter 'profile_create_query' is set
         if ($profile_create_query === null || (is_array($profile_create_query) && count($profile_create_query) === 0)) {
@@ -406,15 +401,6 @@ class ProfilesApi
         $httpBody = '';
         $multipart = false;
 
-        // query params
-        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-            $additional_fields_profile,
-            'additional-fields[profile]', // param base name
-            'array', // openApiType
-            'form', // style
-            false, // explode
-            false // required
-        ) ?? []);
 
 
 
@@ -2425,16 +2411,16 @@ class ProfilesApi
      * @param  string[] $fields_profile For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $filter For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;id&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;email&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;phone_number&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;external_id&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;_kx&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;created&#x60;: &#x60;greater-than&#x60;, &#x60;less-than&#x60;&lt;br&gt;&#x60;updated&#x60;: &#x60;greater-than&#x60;, &#x60;less-than&#x60; (optional)
      * @param  string $page_cursor For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#pagination (optional)
+     * @param  int $page_size Default: 20. Min: 1. Max: 100. (optional, default to 20)
      * @param  string $sort For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#sorting (optional)
-     * @param  int $page_size The number of results to return per page. Default &#x3D; 20. Max &#x3D; 100 (optional)
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array<string,mixed>|\KlaviyoAPI\Model\GetCampaigns400Response|\KlaviyoAPI\Model\GetCampaigns400Response
      */
-    public function getProfiles($additional_fields_profile = null, $fields_profile = null, $filter = null, $page_cursor = null, $sort = null, $page_size = null, $apiKey = null)
+    public function getProfiles($additional_fields_profile = null, $fields_profile = null, $filter = null, $page_cursor = null, $page_size = 20, $sort = null, $apiKey = null)
     {
-        list($response) = $this->getProfilesWithHttpInfo($additional_fields_profile, $fields_profile, $filter, $page_cursor, $sort, $page_size, $apiKey);
+        list($response) = $this->getProfilesWithHttpInfo($additional_fields_profile, $fields_profile, $filter, $page_cursor, $page_size, $sort, $apiKey);
         return $response;
     }
 
@@ -2447,16 +2433,16 @@ class ProfilesApi
      * @param  string[] $fields_profile For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $filter For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;id&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;email&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;phone_number&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;external_id&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;_kx&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;created&#x60;: &#x60;greater-than&#x60;, &#x60;less-than&#x60;&lt;br&gt;&#x60;updated&#x60;: &#x60;greater-than&#x60;, &#x60;less-than&#x60; (optional)
      * @param  string $page_cursor For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#pagination (optional)
+     * @param  int $page_size Default: 20. Min: 1. Max: 100. (optional, default to 20)
      * @param  string $sort For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#sorting (optional)
-     * @param  int $page_size The number of results to return per page. Default &#x3D; 20. Max &#x3D; 100 (optional)
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of array<string,mixed>|\KlaviyoAPI\Model\GetCampaigns400Response|\KlaviyoAPI\Model\GetCampaigns400Response, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getProfilesWithHttpInfo($additional_fields_profile = null, $fields_profile = null, $filter = null, $page_cursor = null, $sort = null, $page_size = null, $apiKey = null)
+    public function getProfilesWithHttpInfo($additional_fields_profile = null, $fields_profile = null, $filter = null, $page_cursor = null, $page_size = 20, $sort = null, $apiKey = null)
     {
-        $request = $this->getProfilesRequest($additional_fields_profile, $fields_profile, $filter, $page_cursor, $sort, $page_size, $apiKey);
+        $request = $this->getProfilesRequest($additional_fields_profile, $fields_profile, $filter, $page_cursor, $page_size, $sort, $apiKey);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2620,15 +2606,15 @@ class ProfilesApi
      * @param  string[] $fields_profile For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $filter For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;id&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;email&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;phone_number&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;external_id&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;_kx&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;created&#x60;: &#x60;greater-than&#x60;, &#x60;less-than&#x60;&lt;br&gt;&#x60;updated&#x60;: &#x60;greater-than&#x60;, &#x60;less-than&#x60; (optional)
      * @param  string $page_cursor For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#pagination (optional)
+     * @param  int $page_size Default: 20. Min: 1. Max: 100. (optional, default to 20)
      * @param  string $sort For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#sorting (optional)
-     * @param  int $page_size The number of results to return per page. Default &#x3D; 20. Max &#x3D; 100 (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getProfilesAsync($additional_fields_profile = null, $fields_profile = null, $filter = null, $page_cursor = null, $sort = null, $page_size = null, $apiKey = null)
+    public function getProfilesAsync($additional_fields_profile = null, $fields_profile = null, $filter = null, $page_cursor = null, $page_size = 20, $sort = null, $apiKey = null)
     {
-        return $this->getProfilesAsyncWithHttpInfo($additional_fields_profile, $fields_profile, $filter, $page_cursor, $sort, $page_size, $apiKey)
+        return $this->getProfilesAsyncWithHttpInfo($additional_fields_profile, $fields_profile, $filter, $page_cursor, $page_size, $sort, $apiKey)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2645,16 +2631,16 @@ class ProfilesApi
      * @param  string[] $fields_profile For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $filter For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;id&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;email&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;phone_number&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;external_id&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;_kx&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;created&#x60;: &#x60;greater-than&#x60;, &#x60;less-than&#x60;&lt;br&gt;&#x60;updated&#x60;: &#x60;greater-than&#x60;, &#x60;less-than&#x60; (optional)
      * @param  string $page_cursor For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#pagination (optional)
+     * @param  int $page_size Default: 20. Min: 1. Max: 100. (optional, default to 20)
      * @param  string $sort For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#sorting (optional)
-     * @param  int $page_size The number of results to return per page. Default &#x3D; 20. Max &#x3D; 100 (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getProfilesAsyncWithHttpInfo($additional_fields_profile = null, $fields_profile = null, $filter = null, $page_cursor = null, $sort = null, $page_size = null, $apiKey = null)
+    public function getProfilesAsyncWithHttpInfo($additional_fields_profile = null, $fields_profile = null, $filter = null, $page_cursor = null, $page_size = 20, $sort = null, $apiKey = null)
     {
         $returnType = 'array<string,mixed>';
-        $request = $this->getProfilesRequest($additional_fields_profile, $fields_profile, $filter, $page_cursor, $sort, $page_size, $apiKey);
+        $request = $this->getProfilesRequest($additional_fields_profile, $fields_profile, $filter, $page_cursor, $page_size, $sort, $apiKey);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2704,14 +2690,21 @@ class ProfilesApi
      * @param  string[] $fields_profile For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $filter For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;id&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;email&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;phone_number&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;external_id&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;_kx&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;created&#x60;: &#x60;greater-than&#x60;, &#x60;less-than&#x60;&lt;br&gt;&#x60;updated&#x60;: &#x60;greater-than&#x60;, &#x60;less-than&#x60; (optional)
      * @param  string $page_cursor For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#pagination (optional)
+     * @param  int $page_size Default: 20. Min: 1. Max: 100. (optional, default to 20)
      * @param  string $sort For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#sorting (optional)
-     * @param  int $page_size The number of results to return per page. Default &#x3D; 20. Max &#x3D; 100 (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getProfilesRequest($additional_fields_profile = null, $fields_profile = null, $filter = null, $page_cursor = null, $sort = null, $page_size = null, $apiKey = null)
+    public function getProfilesRequest($additional_fields_profile = null, $fields_profile = null, $filter = null, $page_cursor = null, $page_size = 20, $sort = null, $apiKey = null)
     {
+        if ($page_size !== null && $page_size > 100) {
+            throw new \InvalidArgumentException('invalid value for "$page_size" when calling ProfilesApi.getProfiles, must be smaller than or equal to 100.');
+        }
+        if ($page_size !== null && $page_size < 1) {
+            throw new \InvalidArgumentException('invalid value for "$page_size" when calling ProfilesApi.getProfiles, must be bigger than or equal to 1.');
+        }
+
 
         $resourcePath = '/api/profiles/';
         $formParams = [];
@@ -2758,18 +2751,18 @@ class ProfilesApi
         ) ?? []);
         // query params
         $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-            $sort,
-            'sort', // param base name
-            'string', // openApiType
+            $page_size,
+            'page[size]', // param base name
+            'integer', // openApiType
             'form', // style
             true, // explode
             false // required
         ) ?? []);
         // query params
         $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-            $page_size,
-            'page[size]', // param base name
-            'integer', // openApiType
+            $sort,
+            'sort', // param base name
+            'string', // openApiType
             'form', // style
             true, // explode
             false // required
@@ -3857,15 +3850,14 @@ class ProfilesApi
      *
      * @param  string $id Primary key that uniquely identifies this profile. Generated by Klaviyo. (required)
      * @param  \KlaviyoAPI\Model\ProfilePartialUpdateQuery $profile_partial_update_query profile_partial_update_query (required)
-     * @param  string[] $additional_fields_profile Request additional fields not included by default in the response. Supported values: &#39;predictive_analytics&#39; (optional)
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array<string,mixed>|\KlaviyoAPI\Model\GetCampaigns400Response|\KlaviyoAPI\Model\GetCampaigns400Response
      */
-    public function updateProfile($id, $profile_partial_update_query, $additional_fields_profile = null, $apiKey = null)
+    public function updateProfile($id, $profile_partial_update_query, $apiKey = null)
     {
-        list($response) = $this->updateProfileWithHttpInfo($id, $profile_partial_update_query, $additional_fields_profile, $apiKey);
+        list($response) = $this->updateProfileWithHttpInfo($id, $profile_partial_update_query, $apiKey);
         return $response;
     }
 
@@ -3876,15 +3868,14 @@ class ProfilesApi
      *
      * @param  string $id Primary key that uniquely identifies this profile. Generated by Klaviyo. (required)
      * @param  \KlaviyoAPI\Model\ProfilePartialUpdateQuery $profile_partial_update_query (required)
-     * @param  string[] $additional_fields_profile Request additional fields not included by default in the response. Supported values: &#39;predictive_analytics&#39; (optional)
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of array<string,mixed>|\KlaviyoAPI\Model\GetCampaigns400Response|\KlaviyoAPI\Model\GetCampaigns400Response, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updateProfileWithHttpInfo($id, $profile_partial_update_query, $additional_fields_profile = null, $apiKey = null)
+    public function updateProfileWithHttpInfo($id, $profile_partial_update_query, $apiKey = null)
     {
-        $request = $this->updateProfileRequest($id, $profile_partial_update_query, $additional_fields_profile, $apiKey);
+        $request = $this->updateProfileRequest($id, $profile_partial_update_query, $apiKey);
 
         try {
             $options = $this->createHttpClientOption();
@@ -4046,14 +4037,13 @@ class ProfilesApi
      *
      * @param  string $id Primary key that uniquely identifies this profile. Generated by Klaviyo. (required)
      * @param  \KlaviyoAPI\Model\ProfilePartialUpdateQuery $profile_partial_update_query (required)
-     * @param  string[] $additional_fields_profile Request additional fields not included by default in the response. Supported values: &#39;predictive_analytics&#39; (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateProfileAsync($id, $profile_partial_update_query, $additional_fields_profile = null, $apiKey = null)
+    public function updateProfileAsync($id, $profile_partial_update_query, $apiKey = null)
     {
-        return $this->updateProfileAsyncWithHttpInfo($id, $profile_partial_update_query, $additional_fields_profile, $apiKey)
+        return $this->updateProfileAsyncWithHttpInfo($id, $profile_partial_update_query, $apiKey)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -4068,15 +4058,14 @@ class ProfilesApi
      *
      * @param  string $id Primary key that uniquely identifies this profile. Generated by Klaviyo. (required)
      * @param  \KlaviyoAPI\Model\ProfilePartialUpdateQuery $profile_partial_update_query (required)
-     * @param  string[] $additional_fields_profile Request additional fields not included by default in the response. Supported values: &#39;predictive_analytics&#39; (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateProfileAsyncWithHttpInfo($id, $profile_partial_update_query, $additional_fields_profile = null, $apiKey = null)
+    public function updateProfileAsyncWithHttpInfo($id, $profile_partial_update_query, $apiKey = null)
     {
         $returnType = 'array<string,mixed>';
-        $request = $this->updateProfileRequest($id, $profile_partial_update_query, $additional_fields_profile, $apiKey);
+        $request = $this->updateProfileRequest($id, $profile_partial_update_query, $apiKey);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -4124,12 +4113,11 @@ class ProfilesApi
      *
      * @param  string $id Primary key that uniquely identifies this profile. Generated by Klaviyo. (required)
      * @param  \KlaviyoAPI\Model\ProfilePartialUpdateQuery $profile_partial_update_query (required)
-     * @param  string[] $additional_fields_profile Request additional fields not included by default in the response. Supported values: &#39;predictive_analytics&#39; (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function updateProfileRequest($id, $profile_partial_update_query, $additional_fields_profile = null, $apiKey = null)
+    public function updateProfileRequest($id, $profile_partial_update_query, $apiKey = null)
     {
         // verify the required parameter 'id' is set
         if ($id === null || (is_array($id) && count($id) === 0)) {
@@ -4151,15 +4139,6 @@ class ProfilesApi
         $httpBody = '';
         $multipart = false;
 
-        // query params
-        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-            $additional_fields_profile,
-            'additional-fields[profile]', // param base name
-            'array', // openApiType
-            'form', // style
-            false, // explode
-            false // required
-        ) ?? []);
 
 
         // path params
