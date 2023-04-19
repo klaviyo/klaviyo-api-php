@@ -58,7 +58,7 @@ class TagListOp implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'data' => '\KlaviyoAPI\Model\TagListOpDataInner[]'
+        'data' => '\KlaviyoAPI\Model\GetProfileResponseCollectionCompoundDocumentDataInnerAllOfRelationshipsListsDataInner[]'
     ];
 
     /**
@@ -210,7 +210,7 @@ class TagListOp implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets data
      *
-     * @return \KlaviyoAPI\Model\TagListOpDataInner[]
+     * @return \KlaviyoAPI\Model\GetProfileResponseCollectionCompoundDocumentDataInnerAllOfRelationshipsListsDataInner[]
      */
     public function getData()
     {
@@ -220,7 +220,7 @@ class TagListOp implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets data
      *
-     * @param \KlaviyoAPI\Model\TagListOpDataInner[] $data data
+     * @param \KlaviyoAPI\Model\GetProfileResponseCollectionCompoundDocumentDataInnerAllOfRelationshipsListsDataInner[] $data data
      *
      * @return self
      */

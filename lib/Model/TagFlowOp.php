@@ -58,7 +58,7 @@ class TagFlowOp implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'data' => '\KlaviyoAPI\Model\TagFlowOpDataInner[]'
+        'data' => '\KlaviyoAPI\Model\GetFlowActionResponseCompoundDocumentDataAllOfRelationshipsFlowsDataInner[]'
     ];
 
     /**
@@ -210,7 +210,7 @@ class TagFlowOp implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets data
      *
-     * @return \KlaviyoAPI\Model\TagFlowOpDataInner[]
+     * @return \KlaviyoAPI\Model\GetFlowActionResponseCompoundDocumentDataAllOfRelationshipsFlowsDataInner[]
      */
     public function getData()
     {
@@ -220,7 +220,7 @@ class TagFlowOp implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets data
      *
-     * @param \KlaviyoAPI\Model\TagFlowOpDataInner[] $data data
+     * @param \KlaviyoAPI\Model\GetFlowActionResponseCompoundDocumentDataAllOfRelationshipsFlowsDataInner[] $data data
      *
      * @return self
      */

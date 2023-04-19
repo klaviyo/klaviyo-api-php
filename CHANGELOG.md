@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 NOTE: For more granular API-specific changes, please see our [API Changelog](https://developers.klaviyo.com/en/docs/changelog_)
 
+## [2.0.0] - 2023-04-19
+
+### Changed
+- Fixed order of params, and added `page_size`, so some calls may need to be updated.
+
 ## [2.0.0] - 2023-04-06
 ### Changed
 - Relationship endpoints that were previously grouped together are now split into related-resource-specific endpoints. This means that all relationship endpoints have new function names.

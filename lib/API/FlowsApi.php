@@ -1332,16 +1332,15 @@ class FlowsApi
      * @param  string[] $fields_flow_message For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $filter For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;id&#x60;: &#x60;any&#x60;&lt;br&gt;&#x60;name&#x60;: &#x60;contains&#x60;, &#x60;ends-with&#x60;, &#x60;equals&#x60;, &#x60;starts-with&#x60;&lt;br&gt;&#x60;created&#x60;: &#x60;equals&#x60;, &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60;&lt;br&gt;&#x60;updated&#x60;: &#x60;equals&#x60;, &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60; (optional)
      * @param  string $page_cursor For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#pagination (optional)
-     * @param  int $page_size Default: 50. Min: 1. Max: 50. (optional, default to 50)
      * @param  string $sort For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#sorting (optional)
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array<string,mixed>|\KlaviyoAPI\Model\GetCampaigns400Response|\KlaviyoAPI\Model\GetCampaigns400Response
      */
-    public function getFlowActionMessages($action_id, $fields_flow_message = null, $filter = null, $page_cursor = null, $page_size = 50, $sort = null, $apiKey = null)
+    public function getFlowActionMessages($action_id, $fields_flow_message = null, $filter = null, $page_cursor = null, $sort = null, $apiKey = null)
     {
-        list($response) = $this->getFlowActionMessagesWithHttpInfo($action_id, $fields_flow_message, $filter, $page_cursor, $page_size, $sort, $apiKey);
+        list($response) = $this->getFlowActionMessagesWithHttpInfo($action_id, $fields_flow_message, $filter, $page_cursor, $sort, $apiKey);
         return $response;
     }
 
@@ -1354,16 +1353,15 @@ class FlowsApi
      * @param  string[] $fields_flow_message For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $filter For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;id&#x60;: &#x60;any&#x60;&lt;br&gt;&#x60;name&#x60;: &#x60;contains&#x60;, &#x60;ends-with&#x60;, &#x60;equals&#x60;, &#x60;starts-with&#x60;&lt;br&gt;&#x60;created&#x60;: &#x60;equals&#x60;, &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60;&lt;br&gt;&#x60;updated&#x60;: &#x60;equals&#x60;, &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60; (optional)
      * @param  string $page_cursor For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#pagination (optional)
-     * @param  int $page_size Default: 50. Min: 1. Max: 50. (optional, default to 50)
      * @param  string $sort For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#sorting (optional)
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of array<string,mixed>|\KlaviyoAPI\Model\GetCampaigns400Response|\KlaviyoAPI\Model\GetCampaigns400Response, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getFlowActionMessagesWithHttpInfo($action_id, $fields_flow_message = null, $filter = null, $page_cursor = null, $page_size = 50, $sort = null, $apiKey = null)
+    public function getFlowActionMessagesWithHttpInfo($action_id, $fields_flow_message = null, $filter = null, $page_cursor = null, $sort = null, $apiKey = null)
     {
-        $request = $this->getFlowActionMessagesRequest($action_id, $fields_flow_message, $filter, $page_cursor, $page_size, $sort, $apiKey);
+        $request = $this->getFlowActionMessagesRequest($action_id, $fields_flow_message, $filter, $page_cursor, $sort, $apiKey);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1527,15 +1525,14 @@ class FlowsApi
      * @param  string[] $fields_flow_message For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $filter For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;id&#x60;: &#x60;any&#x60;&lt;br&gt;&#x60;name&#x60;: &#x60;contains&#x60;, &#x60;ends-with&#x60;, &#x60;equals&#x60;, &#x60;starts-with&#x60;&lt;br&gt;&#x60;created&#x60;: &#x60;equals&#x60;, &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60;&lt;br&gt;&#x60;updated&#x60;: &#x60;equals&#x60;, &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60; (optional)
      * @param  string $page_cursor For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#pagination (optional)
-     * @param  int $page_size Default: 50. Min: 1. Max: 50. (optional, default to 50)
      * @param  string $sort For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#sorting (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getFlowActionMessagesAsync($action_id, $fields_flow_message = null, $filter = null, $page_cursor = null, $page_size = 50, $sort = null, $apiKey = null)
+    public function getFlowActionMessagesAsync($action_id, $fields_flow_message = null, $filter = null, $page_cursor = null, $sort = null, $apiKey = null)
     {
-        return $this->getFlowActionMessagesAsyncWithHttpInfo($action_id, $fields_flow_message, $filter, $page_cursor, $page_size, $sort, $apiKey)
+        return $this->getFlowActionMessagesAsyncWithHttpInfo($action_id, $fields_flow_message, $filter, $page_cursor, $sort, $apiKey)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1552,16 +1549,15 @@ class FlowsApi
      * @param  string[] $fields_flow_message For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $filter For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;id&#x60;: &#x60;any&#x60;&lt;br&gt;&#x60;name&#x60;: &#x60;contains&#x60;, &#x60;ends-with&#x60;, &#x60;equals&#x60;, &#x60;starts-with&#x60;&lt;br&gt;&#x60;created&#x60;: &#x60;equals&#x60;, &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60;&lt;br&gt;&#x60;updated&#x60;: &#x60;equals&#x60;, &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60; (optional)
      * @param  string $page_cursor For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#pagination (optional)
-     * @param  int $page_size Default: 50. Min: 1. Max: 50. (optional, default to 50)
      * @param  string $sort For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#sorting (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getFlowActionMessagesAsyncWithHttpInfo($action_id, $fields_flow_message = null, $filter = null, $page_cursor = null, $page_size = 50, $sort = null, $apiKey = null)
+    public function getFlowActionMessagesAsyncWithHttpInfo($action_id, $fields_flow_message = null, $filter = null, $page_cursor = null, $sort = null, $apiKey = null)
     {
         $returnType = 'array<string,mixed>';
-        $request = $this->getFlowActionMessagesRequest($action_id, $fields_flow_message, $filter, $page_cursor, $page_size, $sort, $apiKey);
+        $request = $this->getFlowActionMessagesRequest($action_id, $fields_flow_message, $filter, $page_cursor, $sort, $apiKey);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1611,13 +1607,12 @@ class FlowsApi
      * @param  string[] $fields_flow_message For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $filter For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;id&#x60;: &#x60;any&#x60;&lt;br&gt;&#x60;name&#x60;: &#x60;contains&#x60;, &#x60;ends-with&#x60;, &#x60;equals&#x60;, &#x60;starts-with&#x60;&lt;br&gt;&#x60;created&#x60;: &#x60;equals&#x60;, &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60;&lt;br&gt;&#x60;updated&#x60;: &#x60;equals&#x60;, &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60; (optional)
      * @param  string $page_cursor For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#pagination (optional)
-     * @param  int $page_size Default: 50. Min: 1. Max: 50. (optional, default to 50)
      * @param  string $sort For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#sorting (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getFlowActionMessagesRequest($action_id, $fields_flow_message = null, $filter = null, $page_cursor = null, $page_size = 50, $sort = null, $apiKey = null)
+    public function getFlowActionMessagesRequest($action_id, $fields_flow_message = null, $filter = null, $page_cursor = null, $sort = null, $apiKey = null)
     {
         // verify the required parameter 'action_id' is set
         if ($action_id === null || (is_array($action_id) && count($action_id) === 0)) {
@@ -1625,13 +1620,6 @@ class FlowsApi
                 'Missing the required parameter $action_id when calling getFlowActionMessages'
             );
         }
-        if ($page_size !== null && $page_size > 50) {
-            throw new \InvalidArgumentException('invalid value for "$page_size" when calling FlowsApi.getFlowActionMessages, must be smaller than or equal to 50.');
-        }
-        if ($page_size !== null && $page_size < 1) {
-            throw new \InvalidArgumentException('invalid value for "$page_size" when calling FlowsApi.getFlowActionMessages, must be bigger than or equal to 1.');
-        }
-
 
         $resourcePath = '/api/flow-actions/{action_id}/flow-messages/';
         $formParams = [];
@@ -1663,15 +1651,6 @@ class FlowsApi
             $page_cursor,
             'page[cursor]', // param base name
             'string', // openApiType
-            'form', // style
-            true, // explode
-            false // required
-        ) ?? []);
-        // query params
-        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-            $page_size,
-            'page[size]', // param base name
-            'integer', // openApiType
             'form', // style
             true, // explode
             false // required
@@ -2138,16 +2117,15 @@ class FlowsApi
      * @param  string $id  (required)
      * @param  string $filter For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;name&#x60;: &#x60;contains&#x60;, &#x60;ends-with&#x60;, &#x60;equals&#x60;, &#x60;starts-with&#x60;&lt;br&gt;&#x60;created&#x60;: &#x60;equals&#x60;, &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60;&lt;br&gt;&#x60;updated&#x60;: &#x60;equals&#x60;, &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60; (optional)
      * @param  string $page_cursor For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#pagination (optional)
-     * @param  int $page_size Default: 50. Min: 1. Max: 50. (optional, default to 50)
      * @param  string $sort For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#sorting (optional)
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array<string,mixed>|\KlaviyoAPI\Model\GetCampaigns400Response|\KlaviyoAPI\Model\GetCampaigns400Response
      */
-    public function getFlowActionRelationshipsMessages($id, $filter = null, $page_cursor = null, $page_size = 50, $sort = null, $apiKey = null)
+    public function getFlowActionRelationshipsMessages($id, $filter = null, $page_cursor = null, $sort = null, $apiKey = null)
     {
-        list($response) = $this->getFlowActionRelationshipsMessagesWithHttpInfo($id, $filter, $page_cursor, $page_size, $sort, $apiKey);
+        list($response) = $this->getFlowActionRelationshipsMessagesWithHttpInfo($id, $filter, $page_cursor, $sort, $apiKey);
         return $response;
     }
 
@@ -2159,16 +2137,15 @@ class FlowsApi
      * @param  string $id  (required)
      * @param  string $filter For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;name&#x60;: &#x60;contains&#x60;, &#x60;ends-with&#x60;, &#x60;equals&#x60;, &#x60;starts-with&#x60;&lt;br&gt;&#x60;created&#x60;: &#x60;equals&#x60;, &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60;&lt;br&gt;&#x60;updated&#x60;: &#x60;equals&#x60;, &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60; (optional)
      * @param  string $page_cursor For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#pagination (optional)
-     * @param  int $page_size Default: 50. Min: 1. Max: 50. (optional, default to 50)
      * @param  string $sort For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#sorting (optional)
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of array<string,mixed>|\KlaviyoAPI\Model\GetCampaigns400Response|\KlaviyoAPI\Model\GetCampaigns400Response, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getFlowActionRelationshipsMessagesWithHttpInfo($id, $filter = null, $page_cursor = null, $page_size = 50, $sort = null, $apiKey = null)
+    public function getFlowActionRelationshipsMessagesWithHttpInfo($id, $filter = null, $page_cursor = null, $sort = null, $apiKey = null)
     {
-        $request = $this->getFlowActionRelationshipsMessagesRequest($id, $filter, $page_cursor, $page_size, $sort, $apiKey);
+        $request = $this->getFlowActionRelationshipsMessagesRequest($id, $filter, $page_cursor, $sort, $apiKey);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2331,15 +2308,14 @@ class FlowsApi
      * @param  string $id  (required)
      * @param  string $filter For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;name&#x60;: &#x60;contains&#x60;, &#x60;ends-with&#x60;, &#x60;equals&#x60;, &#x60;starts-with&#x60;&lt;br&gt;&#x60;created&#x60;: &#x60;equals&#x60;, &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60;&lt;br&gt;&#x60;updated&#x60;: &#x60;equals&#x60;, &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60; (optional)
      * @param  string $page_cursor For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#pagination (optional)
-     * @param  int $page_size Default: 50. Min: 1. Max: 50. (optional, default to 50)
      * @param  string $sort For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#sorting (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getFlowActionRelationshipsMessagesAsync($id, $filter = null, $page_cursor = null, $page_size = 50, $sort = null, $apiKey = null)
+    public function getFlowActionRelationshipsMessagesAsync($id, $filter = null, $page_cursor = null, $sort = null, $apiKey = null)
     {
-        return $this->getFlowActionRelationshipsMessagesAsyncWithHttpInfo($id, $filter, $page_cursor, $page_size, $sort, $apiKey)
+        return $this->getFlowActionRelationshipsMessagesAsyncWithHttpInfo($id, $filter, $page_cursor, $sort, $apiKey)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2355,16 +2331,15 @@ class FlowsApi
      * @param  string $id  (required)
      * @param  string $filter For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;name&#x60;: &#x60;contains&#x60;, &#x60;ends-with&#x60;, &#x60;equals&#x60;, &#x60;starts-with&#x60;&lt;br&gt;&#x60;created&#x60;: &#x60;equals&#x60;, &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60;&lt;br&gt;&#x60;updated&#x60;: &#x60;equals&#x60;, &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60; (optional)
      * @param  string $page_cursor For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#pagination (optional)
-     * @param  int $page_size Default: 50. Min: 1. Max: 50. (optional, default to 50)
      * @param  string $sort For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#sorting (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getFlowActionRelationshipsMessagesAsyncWithHttpInfo($id, $filter = null, $page_cursor = null, $page_size = 50, $sort = null, $apiKey = null)
+    public function getFlowActionRelationshipsMessagesAsyncWithHttpInfo($id, $filter = null, $page_cursor = null, $sort = null, $apiKey = null)
     {
         $returnType = 'array<string,mixed>';
-        $request = $this->getFlowActionRelationshipsMessagesRequest($id, $filter, $page_cursor, $page_size, $sort, $apiKey);
+        $request = $this->getFlowActionRelationshipsMessagesRequest($id, $filter, $page_cursor, $sort, $apiKey);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2413,13 +2388,12 @@ class FlowsApi
      * @param  string $id  (required)
      * @param  string $filter For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;name&#x60;: &#x60;contains&#x60;, &#x60;ends-with&#x60;, &#x60;equals&#x60;, &#x60;starts-with&#x60;&lt;br&gt;&#x60;created&#x60;: &#x60;equals&#x60;, &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60;&lt;br&gt;&#x60;updated&#x60;: &#x60;equals&#x60;, &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60; (optional)
      * @param  string $page_cursor For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#pagination (optional)
-     * @param  int $page_size Default: 50. Min: 1. Max: 50. (optional, default to 50)
      * @param  string $sort For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#sorting (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getFlowActionRelationshipsMessagesRequest($id, $filter = null, $page_cursor = null, $page_size = 50, $sort = null, $apiKey = null)
+    public function getFlowActionRelationshipsMessagesRequest($id, $filter = null, $page_cursor = null, $sort = null, $apiKey = null)
     {
         // verify the required parameter 'id' is set
         if ($id === null || (is_array($id) && count($id) === 0)) {
@@ -2427,13 +2401,6 @@ class FlowsApi
                 'Missing the required parameter $id when calling getFlowActionRelationshipsMessages'
             );
         }
-        if ($page_size !== null && $page_size > 50) {
-            throw new \InvalidArgumentException('invalid value for "$page_size" when calling FlowsApi.getFlowActionRelationshipsMessages, must be smaller than or equal to 50.');
-        }
-        if ($page_size !== null && $page_size < 1) {
-            throw new \InvalidArgumentException('invalid value for "$page_size" when calling FlowsApi.getFlowActionRelationshipsMessages, must be bigger than or equal to 1.');
-        }
-
 
         $resourcePath = '/api/flow-actions/{id}/relationships/flow-messages/';
         $formParams = [];
@@ -2456,15 +2423,6 @@ class FlowsApi
             $page_cursor,
             'page[cursor]', // param base name
             'string', // openApiType
-            'form', // style
-            true, // explode
-            false // required
-        ) ?? []);
-        // query params
-        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-            $page_size,
-            'page[size]', // param base name
-            'integer', // openApiType
             'form', // style
             true, // explode
             false // required
@@ -2567,16 +2525,15 @@ class FlowsApi
      * @param  string[] $fields_flow_action For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $filter For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;id&#x60;: &#x60;any&#x60;&lt;br&gt;&#x60;action_type&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;status&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;created&#x60;: &#x60;equals&#x60;, &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60;&lt;br&gt;&#x60;updated&#x60;: &#x60;equals&#x60;, &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60; (optional)
      * @param  string $page_cursor For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#pagination (optional)
-     * @param  int $page_size Default: 50. Min: 1. Max: 50. (optional, default to 50)
      * @param  string $sort For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#sorting (optional)
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array<string,mixed>|\KlaviyoAPI\Model\GetCampaigns400Response|\KlaviyoAPI\Model\GetCampaigns400Response
      */
-    public function getFlowFlowActions($flow_id, $fields_flow_action = null, $filter = null, $page_cursor = null, $page_size = 50, $sort = null, $apiKey = null)
+    public function getFlowFlowActions($flow_id, $fields_flow_action = null, $filter = null, $page_cursor = null, $sort = null, $apiKey = null)
     {
-        list($response) = $this->getFlowFlowActionsWithHttpInfo($flow_id, $fields_flow_action, $filter, $page_cursor, $page_size, $sort, $apiKey);
+        list($response) = $this->getFlowFlowActionsWithHttpInfo($flow_id, $fields_flow_action, $filter, $page_cursor, $sort, $apiKey);
         return $response;
     }
 
@@ -2589,16 +2546,15 @@ class FlowsApi
      * @param  string[] $fields_flow_action For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $filter For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;id&#x60;: &#x60;any&#x60;&lt;br&gt;&#x60;action_type&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;status&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;created&#x60;: &#x60;equals&#x60;, &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60;&lt;br&gt;&#x60;updated&#x60;: &#x60;equals&#x60;, &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60; (optional)
      * @param  string $page_cursor For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#pagination (optional)
-     * @param  int $page_size Default: 50. Min: 1. Max: 50. (optional, default to 50)
      * @param  string $sort For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#sorting (optional)
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of array<string,mixed>|\KlaviyoAPI\Model\GetCampaigns400Response|\KlaviyoAPI\Model\GetCampaigns400Response, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getFlowFlowActionsWithHttpInfo($flow_id, $fields_flow_action = null, $filter = null, $page_cursor = null, $page_size = 50, $sort = null, $apiKey = null)
+    public function getFlowFlowActionsWithHttpInfo($flow_id, $fields_flow_action = null, $filter = null, $page_cursor = null, $sort = null, $apiKey = null)
     {
-        $request = $this->getFlowFlowActionsRequest($flow_id, $fields_flow_action, $filter, $page_cursor, $page_size, $sort, $apiKey);
+        $request = $this->getFlowFlowActionsRequest($flow_id, $fields_flow_action, $filter, $page_cursor, $sort, $apiKey);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2762,15 +2718,14 @@ class FlowsApi
      * @param  string[] $fields_flow_action For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $filter For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;id&#x60;: &#x60;any&#x60;&lt;br&gt;&#x60;action_type&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;status&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;created&#x60;: &#x60;equals&#x60;, &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60;&lt;br&gt;&#x60;updated&#x60;: &#x60;equals&#x60;, &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60; (optional)
      * @param  string $page_cursor For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#pagination (optional)
-     * @param  int $page_size Default: 50. Min: 1. Max: 50. (optional, default to 50)
      * @param  string $sort For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#sorting (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getFlowFlowActionsAsync($flow_id, $fields_flow_action = null, $filter = null, $page_cursor = null, $page_size = 50, $sort = null, $apiKey = null)
+    public function getFlowFlowActionsAsync($flow_id, $fields_flow_action = null, $filter = null, $page_cursor = null, $sort = null, $apiKey = null)
     {
-        return $this->getFlowFlowActionsAsyncWithHttpInfo($flow_id, $fields_flow_action, $filter, $page_cursor, $page_size, $sort, $apiKey)
+        return $this->getFlowFlowActionsAsyncWithHttpInfo($flow_id, $fields_flow_action, $filter, $page_cursor, $sort, $apiKey)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2787,16 +2742,15 @@ class FlowsApi
      * @param  string[] $fields_flow_action For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $filter For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;id&#x60;: &#x60;any&#x60;&lt;br&gt;&#x60;action_type&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;status&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;created&#x60;: &#x60;equals&#x60;, &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60;&lt;br&gt;&#x60;updated&#x60;: &#x60;equals&#x60;, &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60; (optional)
      * @param  string $page_cursor For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#pagination (optional)
-     * @param  int $page_size Default: 50. Min: 1. Max: 50. (optional, default to 50)
      * @param  string $sort For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#sorting (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getFlowFlowActionsAsyncWithHttpInfo($flow_id, $fields_flow_action = null, $filter = null, $page_cursor = null, $page_size = 50, $sort = null, $apiKey = null)
+    public function getFlowFlowActionsAsyncWithHttpInfo($flow_id, $fields_flow_action = null, $filter = null, $page_cursor = null, $sort = null, $apiKey = null)
     {
         $returnType = 'array<string,mixed>';
-        $request = $this->getFlowFlowActionsRequest($flow_id, $fields_flow_action, $filter, $page_cursor, $page_size, $sort, $apiKey);
+        $request = $this->getFlowFlowActionsRequest($flow_id, $fields_flow_action, $filter, $page_cursor, $sort, $apiKey);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2846,13 +2800,12 @@ class FlowsApi
      * @param  string[] $fields_flow_action For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $filter For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;id&#x60;: &#x60;any&#x60;&lt;br&gt;&#x60;action_type&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;status&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;created&#x60;: &#x60;equals&#x60;, &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60;&lt;br&gt;&#x60;updated&#x60;: &#x60;equals&#x60;, &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60; (optional)
      * @param  string $page_cursor For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#pagination (optional)
-     * @param  int $page_size Default: 50. Min: 1. Max: 50. (optional, default to 50)
      * @param  string $sort For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#sorting (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getFlowFlowActionsRequest($flow_id, $fields_flow_action = null, $filter = null, $page_cursor = null, $page_size = 50, $sort = null, $apiKey = null)
+    public function getFlowFlowActionsRequest($flow_id, $fields_flow_action = null, $filter = null, $page_cursor = null, $sort = null, $apiKey = null)
     {
         // verify the required parameter 'flow_id' is set
         if ($flow_id === null || (is_array($flow_id) && count($flow_id) === 0)) {
@@ -2860,13 +2813,6 @@ class FlowsApi
                 'Missing the required parameter $flow_id when calling getFlowFlowActions'
             );
         }
-        if ($page_size !== null && $page_size > 50) {
-            throw new \InvalidArgumentException('invalid value for "$page_size" when calling FlowsApi.getFlowFlowActions, must be smaller than or equal to 50.');
-        }
-        if ($page_size !== null && $page_size < 1) {
-            throw new \InvalidArgumentException('invalid value for "$page_size" when calling FlowsApi.getFlowFlowActions, must be bigger than or equal to 1.');
-        }
-
 
         $resourcePath = '/api/flows/{flow_id}/flow-actions/';
         $formParams = [];
@@ -2898,15 +2844,6 @@ class FlowsApi
             $page_cursor,
             'page[cursor]', // param base name
             'string', // openApiType
-            'form', // style
-            true, // explode
-            false // required
-        ) ?? []);
-        // query params
-        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-            $page_size,
-            'page[size]', // param base name
-            'integer', // openApiType
             'form', // style
             true, // explode
             false // required
@@ -4158,16 +4095,15 @@ class FlowsApi
      *
      * @param  string $id  (required)
      * @param  string $filter For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;action_type&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;status&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;created&#x60;: &#x60;equals&#x60;, &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60;&lt;br&gt;&#x60;updated&#x60;: &#x60;equals&#x60;, &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60; (optional)
-     * @param  int $page_size Default: 50. Min: 1. Max: 100. (optional, default to 50)
      * @param  string $sort For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#sorting (optional)
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array<string,mixed>|\KlaviyoAPI\Model\GetCampaigns400Response|\KlaviyoAPI\Model\GetCampaigns400Response
      */
-    public function getFlowRelationshipsFlowActions($id, $filter = null, $page_size = 50, $sort = null, $apiKey = null)
+    public function getFlowRelationshipsFlowActions($id, $filter = null, $sort = null, $apiKey = null)
     {
-        list($response) = $this->getFlowRelationshipsFlowActionsWithHttpInfo($id, $filter, $page_size, $sort, $apiKey);
+        list($response) = $this->getFlowRelationshipsFlowActionsWithHttpInfo($id, $filter, $sort, $apiKey);
         return $response;
     }
 
@@ -4178,16 +4114,15 @@ class FlowsApi
      *
      * @param  string $id  (required)
      * @param  string $filter For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;action_type&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;status&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;created&#x60;: &#x60;equals&#x60;, &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60;&lt;br&gt;&#x60;updated&#x60;: &#x60;equals&#x60;, &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60; (optional)
-     * @param  int $page_size Default: 50. Min: 1. Max: 100. (optional, default to 50)
      * @param  string $sort For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#sorting (optional)
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of array<string,mixed>|\KlaviyoAPI\Model\GetCampaigns400Response|\KlaviyoAPI\Model\GetCampaigns400Response, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getFlowRelationshipsFlowActionsWithHttpInfo($id, $filter = null, $page_size = 50, $sort = null, $apiKey = null)
+    public function getFlowRelationshipsFlowActionsWithHttpInfo($id, $filter = null, $sort = null, $apiKey = null)
     {
-        $request = $this->getFlowRelationshipsFlowActionsRequest($id, $filter, $page_size, $sort, $apiKey);
+        $request = $this->getFlowRelationshipsFlowActionsRequest($id, $filter, $sort, $apiKey);
 
         try {
             $options = $this->createHttpClientOption();
@@ -4349,15 +4284,14 @@ class FlowsApi
      *
      * @param  string $id  (required)
      * @param  string $filter For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;action_type&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;status&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;created&#x60;: &#x60;equals&#x60;, &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60;&lt;br&gt;&#x60;updated&#x60;: &#x60;equals&#x60;, &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60; (optional)
-     * @param  int $page_size Default: 50. Min: 1. Max: 100. (optional, default to 50)
      * @param  string $sort For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#sorting (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getFlowRelationshipsFlowActionsAsync($id, $filter = null, $page_size = 50, $sort = null, $apiKey = null)
+    public function getFlowRelationshipsFlowActionsAsync($id, $filter = null, $sort = null, $apiKey = null)
     {
-        return $this->getFlowRelationshipsFlowActionsAsyncWithHttpInfo($id, $filter, $page_size, $sort, $apiKey)
+        return $this->getFlowRelationshipsFlowActionsAsyncWithHttpInfo($id, $filter, $sort, $apiKey)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -4372,16 +4306,15 @@ class FlowsApi
      *
      * @param  string $id  (required)
      * @param  string $filter For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;action_type&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;status&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;created&#x60;: &#x60;equals&#x60;, &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60;&lt;br&gt;&#x60;updated&#x60;: &#x60;equals&#x60;, &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60; (optional)
-     * @param  int $page_size Default: 50. Min: 1. Max: 100. (optional, default to 50)
      * @param  string $sort For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#sorting (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getFlowRelationshipsFlowActionsAsyncWithHttpInfo($id, $filter = null, $page_size = 50, $sort = null, $apiKey = null)
+    public function getFlowRelationshipsFlowActionsAsyncWithHttpInfo($id, $filter = null, $sort = null, $apiKey = null)
     {
         $returnType = 'array<string,mixed>';
-        $request = $this->getFlowRelationshipsFlowActionsRequest($id, $filter, $page_size, $sort, $apiKey);
+        $request = $this->getFlowRelationshipsFlowActionsRequest($id, $filter, $sort, $apiKey);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -4429,13 +4362,12 @@ class FlowsApi
      *
      * @param  string $id  (required)
      * @param  string $filter For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;action_type&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;status&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;created&#x60;: &#x60;equals&#x60;, &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60;&lt;br&gt;&#x60;updated&#x60;: &#x60;equals&#x60;, &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60; (optional)
-     * @param  int $page_size Default: 50. Min: 1. Max: 100. (optional, default to 50)
      * @param  string $sort For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#sorting (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getFlowRelationshipsFlowActionsRequest($id, $filter = null, $page_size = 50, $sort = null, $apiKey = null)
+    public function getFlowRelationshipsFlowActionsRequest($id, $filter = null, $sort = null, $apiKey = null)
     {
         // verify the required parameter 'id' is set
         if ($id === null || (is_array($id) && count($id) === 0)) {
@@ -4443,13 +4375,6 @@ class FlowsApi
                 'Missing the required parameter $id when calling getFlowRelationshipsFlowActions'
             );
         }
-        if ($page_size !== null && $page_size > 100) {
-            throw new \InvalidArgumentException('invalid value for "$page_size" when calling FlowsApi.getFlowRelationshipsFlowActions, must be smaller than or equal to 100.');
-        }
-        if ($page_size !== null && $page_size < 1) {
-            throw new \InvalidArgumentException('invalid value for "$page_size" when calling FlowsApi.getFlowRelationshipsFlowActions, must be bigger than or equal to 1.');
-        }
-
 
         $resourcePath = '/api/flows/{id}/relationships/flow-actions/';
         $formParams = [];
@@ -4463,15 +4388,6 @@ class FlowsApi
             $filter,
             'filter', // param base name
             'string', // openApiType
-            'form', // style
-            true, // explode
-            false // required
-        ) ?? []);
-        // query params
-        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-            $page_size,
-            'page[size]', // param base name
-            'integer', // openApiType
             'form', // style
             true, // explode
             false // required
@@ -5319,16 +5235,15 @@ class FlowsApi
      * @param  string $filter For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;id&#x60;: &#x60;any&#x60;&lt;br&gt;&#x60;name&#x60;: &#x60;contains&#x60;, &#x60;ends-with&#x60;, &#x60;equals&#x60;, &#x60;starts-with&#x60;&lt;br&gt;&#x60;status&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;archived&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;created&#x60;: &#x60;equals&#x60;, &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60;&lt;br&gt;&#x60;updated&#x60;: &#x60;equals&#x60;, &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60;&lt;br&gt;&#x60;trigger_type&#x60;: &#x60;equals&#x60; (optional)
      * @param  string[] $include For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#relationships (optional)
      * @param  string $page_cursor For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#pagination (optional)
-     * @param  int $page_size Default: 50. Min: 1. Max: 50. (optional, default to 50)
      * @param  string $sort For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#sorting (optional)
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array<string,mixed>|\KlaviyoAPI\Model\GetCampaigns400Response|\KlaviyoAPI\Model\GetCampaigns400Response
      */
-    public function getFlows($fields_flow_action = null, $fields_flow = null, $filter = null, $include = null, $page_cursor = null, $page_size = 50, $sort = null, $apiKey = null)
+    public function getFlows($fields_flow_action = null, $fields_flow = null, $filter = null, $include = null, $page_cursor = null, $sort = null, $apiKey = null)
     {
-        list($response) = $this->getFlowsWithHttpInfo($fields_flow_action, $fields_flow, $filter, $include, $page_cursor, $page_size, $sort, $apiKey);
+        list($response) = $this->getFlowsWithHttpInfo($fields_flow_action, $fields_flow, $filter, $include, $page_cursor, $sort, $apiKey);
         return $response;
     }
 
@@ -5342,16 +5257,15 @@ class FlowsApi
      * @param  string $filter For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;id&#x60;: &#x60;any&#x60;&lt;br&gt;&#x60;name&#x60;: &#x60;contains&#x60;, &#x60;ends-with&#x60;, &#x60;equals&#x60;, &#x60;starts-with&#x60;&lt;br&gt;&#x60;status&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;archived&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;created&#x60;: &#x60;equals&#x60;, &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60;&lt;br&gt;&#x60;updated&#x60;: &#x60;equals&#x60;, &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60;&lt;br&gt;&#x60;trigger_type&#x60;: &#x60;equals&#x60; (optional)
      * @param  string[] $include For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#relationships (optional)
      * @param  string $page_cursor For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#pagination (optional)
-     * @param  int $page_size Default: 50. Min: 1. Max: 50. (optional, default to 50)
      * @param  string $sort For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#sorting (optional)
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of array<string,mixed>|\KlaviyoAPI\Model\GetCampaigns400Response|\KlaviyoAPI\Model\GetCampaigns400Response, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getFlowsWithHttpInfo($fields_flow_action = null, $fields_flow = null, $filter = null, $include = null, $page_cursor = null, $page_size = 50, $sort = null, $apiKey = null)
+    public function getFlowsWithHttpInfo($fields_flow_action = null, $fields_flow = null, $filter = null, $include = null, $page_cursor = null, $sort = null, $apiKey = null)
     {
-        $request = $this->getFlowsRequest($fields_flow_action, $fields_flow, $filter, $include, $page_cursor, $page_size, $sort, $apiKey);
+        $request = $this->getFlowsRequest($fields_flow_action, $fields_flow, $filter, $include, $page_cursor, $sort, $apiKey);
 
         try {
             $options = $this->createHttpClientOption();
@@ -5516,15 +5430,14 @@ class FlowsApi
      * @param  string $filter For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;id&#x60;: &#x60;any&#x60;&lt;br&gt;&#x60;name&#x60;: &#x60;contains&#x60;, &#x60;ends-with&#x60;, &#x60;equals&#x60;, &#x60;starts-with&#x60;&lt;br&gt;&#x60;status&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;archived&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;created&#x60;: &#x60;equals&#x60;, &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60;&lt;br&gt;&#x60;updated&#x60;: &#x60;equals&#x60;, &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60;&lt;br&gt;&#x60;trigger_type&#x60;: &#x60;equals&#x60; (optional)
      * @param  string[] $include For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#relationships (optional)
      * @param  string $page_cursor For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#pagination (optional)
-     * @param  int $page_size Default: 50. Min: 1. Max: 50. (optional, default to 50)
      * @param  string $sort For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#sorting (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getFlowsAsync($fields_flow_action = null, $fields_flow = null, $filter = null, $include = null, $page_cursor = null, $page_size = 50, $sort = null, $apiKey = null)
+    public function getFlowsAsync($fields_flow_action = null, $fields_flow = null, $filter = null, $include = null, $page_cursor = null, $sort = null, $apiKey = null)
     {
-        return $this->getFlowsAsyncWithHttpInfo($fields_flow_action, $fields_flow, $filter, $include, $page_cursor, $page_size, $sort, $apiKey)
+        return $this->getFlowsAsyncWithHttpInfo($fields_flow_action, $fields_flow, $filter, $include, $page_cursor, $sort, $apiKey)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -5542,16 +5455,15 @@ class FlowsApi
      * @param  string $filter For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;id&#x60;: &#x60;any&#x60;&lt;br&gt;&#x60;name&#x60;: &#x60;contains&#x60;, &#x60;ends-with&#x60;, &#x60;equals&#x60;, &#x60;starts-with&#x60;&lt;br&gt;&#x60;status&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;archived&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;created&#x60;: &#x60;equals&#x60;, &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60;&lt;br&gt;&#x60;updated&#x60;: &#x60;equals&#x60;, &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60;&lt;br&gt;&#x60;trigger_type&#x60;: &#x60;equals&#x60; (optional)
      * @param  string[] $include For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#relationships (optional)
      * @param  string $page_cursor For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#pagination (optional)
-     * @param  int $page_size Default: 50. Min: 1. Max: 50. (optional, default to 50)
      * @param  string $sort For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#sorting (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getFlowsAsyncWithHttpInfo($fields_flow_action = null, $fields_flow = null, $filter = null, $include = null, $page_cursor = null, $page_size = 50, $sort = null, $apiKey = null)
+    public function getFlowsAsyncWithHttpInfo($fields_flow_action = null, $fields_flow = null, $filter = null, $include = null, $page_cursor = null, $sort = null, $apiKey = null)
     {
         $returnType = 'array<string,mixed>';
-        $request = $this->getFlowsRequest($fields_flow_action, $fields_flow, $filter, $include, $page_cursor, $page_size, $sort, $apiKey);
+        $request = $this->getFlowsRequest($fields_flow_action, $fields_flow, $filter, $include, $page_cursor, $sort, $apiKey);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -5602,21 +5514,13 @@ class FlowsApi
      * @param  string $filter For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;id&#x60;: &#x60;any&#x60;&lt;br&gt;&#x60;name&#x60;: &#x60;contains&#x60;, &#x60;ends-with&#x60;, &#x60;equals&#x60;, &#x60;starts-with&#x60;&lt;br&gt;&#x60;status&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;archived&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;created&#x60;: &#x60;equals&#x60;, &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60;&lt;br&gt;&#x60;updated&#x60;: &#x60;equals&#x60;, &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60;&lt;br&gt;&#x60;trigger_type&#x60;: &#x60;equals&#x60; (optional)
      * @param  string[] $include For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#relationships (optional)
      * @param  string $page_cursor For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#pagination (optional)
-     * @param  int $page_size Default: 50. Min: 1. Max: 50. (optional, default to 50)
      * @param  string $sort For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#sorting (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getFlowsRequest($fields_flow_action = null, $fields_flow = null, $filter = null, $include = null, $page_cursor = null, $page_size = 50, $sort = null, $apiKey = null)
+    public function getFlowsRequest($fields_flow_action = null, $fields_flow = null, $filter = null, $include = null, $page_cursor = null, $sort = null, $apiKey = null)
     {
-        if ($page_size !== null && $page_size > 50) {
-            throw new \InvalidArgumentException('invalid value for "$page_size" when calling FlowsApi.getFlows, must be smaller than or equal to 50.');
-        }
-        if ($page_size !== null && $page_size < 1) {
-            throw new \InvalidArgumentException('invalid value for "$page_size" when calling FlowsApi.getFlows, must be bigger than or equal to 1.');
-        }
-
 
         $resourcePath = '/api/flows/';
         $formParams = [];
@@ -5666,15 +5570,6 @@ class FlowsApi
             $page_cursor,
             'page[cursor]', // param base name
             'string', // openApiType
-            'form', // style
-            true, // explode
-            false // required
-        ) ?? []);
-        // query params
-        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-            $page_size,
-            'page[size]', // param base name
-            'integer', // openApiType
             'form', // style
             true, // explode
             false // required

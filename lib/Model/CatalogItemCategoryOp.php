@@ -58,7 +58,7 @@ class CatalogItemCategoryOp implements ModelInterface, ArrayAccess, \JsonSeriali
       * @var string[]
       */
     protected static $openAPITypes = [
-        'data' => '\KlaviyoAPI\Model\CatalogItemCreateQueryResourceObjectRelationshipsCategoriesDataInner[]'
+        'data' => '\KlaviyoAPI\Model\GetCatalogItemCategoryListResponseCollectionDataInner[]'
     ];
 
     /**
@@ -210,7 +210,7 @@ class CatalogItemCategoryOp implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Gets data
      *
-     * @return \KlaviyoAPI\Model\CatalogItemCreateQueryResourceObjectRelationshipsCategoriesDataInner[]
+     * @return \KlaviyoAPI\Model\GetCatalogItemCategoryListResponseCollectionDataInner[]
      */
     public function getData()
     {
@@ -220,7 +220,7 @@ class CatalogItemCategoryOp implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Sets data
      *
-     * @param \KlaviyoAPI\Model\CatalogItemCreateQueryResourceObjectRelationshipsCategoriesDataInner[] $data data
+     * @param \KlaviyoAPI\Model\GetCatalogItemCategoryListResponseCollectionDataInner[] $data data
      *
      * @return self
      */
