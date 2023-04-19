@@ -1492,9 +1492,10 @@ $klaviyo->Flows->getFlowActionFlow($action_id, $fields_flow=$fields_flow);
 # $fields_flow_message | string[]
 # $filter | string
 # $page_cursor | string
+# $page_size | int
 # $sort | string
 
-$klaviyo->Flows->getFlowActionMessages($action_id, $fields_flow_message=$fields_flow_message, $filter=$filter, $page_cursor=$page_cursor, $sort=$sort);
+$klaviyo->Flows->getFlowActionMessages($action_id, $fields_flow_message=$fields_flow_message, $filter=$filter, $page_cursor=$page_cursor, $page_size=$page_size, $sort=$sort);
 ```
 
 
@@ -1524,9 +1525,10 @@ $klaviyo->Flows->getFlowActionRelationshipsFlow($id);
 
 # $filter | string
 # $page_cursor | string
+# $page_size | int
 # $sort | string
 
-$klaviyo->Flows->getFlowActionRelationshipsMessages($id, $filter=$filter, $page_cursor=$page_cursor, $sort=$sort);
+$klaviyo->Flows->getFlowActionRelationshipsMessages($id, $filter=$filter, $page_cursor=$page_cursor, $page_size=$page_size, $sort=$sort);
 ```
 
 
@@ -1544,9 +1546,10 @@ $klaviyo->Flows->getFlowActionRelationshipsMessages($id, $filter=$filter, $page_
 # $fields_flow_action | string[]
 # $filter | string
 # $page_cursor | string
+# $page_size | int
 # $sort | string
 
-$klaviyo->Flows->getFlowFlowActions($flow_id, $fields_flow_action=$fields_flow_action, $filter=$filter, $page_cursor=$page_cursor, $sort=$sort);
+$klaviyo->Flows->getFlowFlowActions($flow_id, $fields_flow_action=$fields_flow_action, $filter=$filter, $page_cursor=$page_cursor, $page_size=$page_size, $sort=$sort);
 ```
 
 
@@ -1611,9 +1614,10 @@ $klaviyo->Flows->getFlowMessageRelationshipsAction($id);
 ## Keyword Arguments
 
 # $filter | string
+# $page_size | int
 # $sort | string
 
-$klaviyo->Flows->getFlowRelationshipsFlowActions($id, $filter=$filter, $sort=$sort);
+$klaviyo->Flows->getFlowRelationshipsFlowActions($id, $filter=$filter, $page_size=$page_size, $sort=$sort);
 ```
 
 
@@ -1660,9 +1664,10 @@ $klaviyo->Flows->getFlowTags($flow_id, $fields_tag=$fields_tag);
 # $filter | string
 # $include | string[]
 # $page_cursor | string
+# $page_size | int
 # $sort | string
 
-$klaviyo->Flows->getFlows($fields_flow_action=$fields_flow_action, $fields_flow=$fields_flow, $filter=$filter, $include=$include, $page_cursor=$page_cursor, $sort=$sort);
+$klaviyo->Flows->getFlows($fields_flow_action=$fields_flow_action, $fields_flow=$fields_flow, $filter=$filter, $include=$include, $page_cursor=$page_cursor, $page_size=$page_size, $sort=$sort);
 ```
 
 
@@ -1916,11 +1921,7 @@ $klaviyo->Metrics->queryMetricAggregates($body);
 
 # $body | associative array
 
-## Keyword Arguments
-
-# $additional_fields_profile | string[]
-
-$klaviyo->Profiles->createProfile($body, $additional_fields_profile=$additional_fields_profile);
+$klaviyo->Profiles->createProfile($body);
 ```
 
 
@@ -2017,10 +2018,10 @@ $klaviyo->Profiles->getProfileSegments($profile_id, $fields_segment=$fields_segm
 # $fields_profile | string[]
 # $filter | string
 # $page_cursor | string
-# $sort | string
 # $page_size | int
+# $sort | string
 
-$klaviyo->Profiles->getProfiles($additional_fields_profile=$additional_fields_profile, $fields_profile=$fields_profile, $filter=$filter, $page_cursor=$page_cursor, $sort=$sort, $page_size=$page_size);
+$klaviyo->Profiles->getProfiles($additional_fields_profile=$additional_fields_profile, $fields_profile=$fields_profile, $filter=$filter, $page_cursor=$page_cursor, $page_size=$page_size, $sort=$sort);
 ```
 
 
@@ -2086,11 +2087,7 @@ $klaviyo->Profiles->unsuppressProfiles($body);
 # $id | string
 # $body | associative array
 
-## Keyword Arguments
-
-# $additional_fields_profile | string[]
-
-$klaviyo->Profiles->updateProfile($id, $body, $additional_fields_profile=$additional_fields_profile);
+$klaviyo->Profiles->updateProfile($id, $body);
 ```
 
 

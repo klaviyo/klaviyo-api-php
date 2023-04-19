@@ -60,7 +60,7 @@ class PostCatalogVariantCreateJobResponseData implements ModelInterface, ArrayAc
     protected static $openAPITypes = [
         'type' => '\KlaviyoAPI\Model\CatalogVariantBulkCreateJobEnum',
         'attributes' => '\KlaviyoAPI\Model\CatalogItemCreateJobResponseObjectResourceAttributes',
-        'relationships' => '\KlaviyoAPI\Model\GetCatalogItemResponseCollectionCompoundDocumentDataInnerAllOfRelationships',
+        'relationships' => '\KlaviyoAPI\Model\GetCatalogVariantCreateJobResponseCollectionCompoundDocumentDataInnerAllOfRelationships',
         'links' => '\KlaviyoAPI\Model\ObjectLinks'
     ];
 
@@ -282,7 +282,7 @@ class PostCatalogVariantCreateJobResponseData implements ModelInterface, ArrayAc
     /**
      * Gets relationships
      *
-     * @return \KlaviyoAPI\Model\GetCatalogItemResponseCollectionCompoundDocumentDataInnerAllOfRelationships|null
+     * @return \KlaviyoAPI\Model\GetCatalogVariantCreateJobResponseCollectionCompoundDocumentDataInnerAllOfRelationships|null
      */
     public function getRelationships()
     {
@@ -292,7 +292,7 @@ class PostCatalogVariantCreateJobResponseData implements ModelInterface, ArrayAc
     /**
      * Sets relationships
      *
-     * @param \KlaviyoAPI\Model\GetCatalogItemResponseCollectionCompoundDocumentDataInnerAllOfRelationships|null $relationships relationships
+     * @param \KlaviyoAPI\Model\GetCatalogVariantCreateJobResponseCollectionCompoundDocumentDataInnerAllOfRelationships|null $relationships relationships
      *
      * @return self
      */

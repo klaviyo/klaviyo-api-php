@@ -61,7 +61,7 @@ class GetCatalogVariantCreateJobResponseCollectionCompoundDocumentDataInner impl
         'type' => '\KlaviyoAPI\Model\CatalogVariantBulkCreateJobEnum',
         'attributes' => '\KlaviyoAPI\Model\CatalogItemCreateJobResponseObjectResourceAttributes',
         'links' => '\KlaviyoAPI\Model\ObjectLinks',
-        'relationships' => '\KlaviyoAPI\Model\GetCatalogItemResponseCollectionCompoundDocumentDataInnerAllOfRelationships'
+        'relationships' => '\KlaviyoAPI\Model\GetCatalogVariantCreateJobResponseCollectionCompoundDocumentDataInnerAllOfRelationships'
     ];
 
     /**
@@ -306,7 +306,7 @@ class GetCatalogVariantCreateJobResponseCollectionCompoundDocumentDataInner impl
     /**
      * Gets relationships
      *
-     * @return \KlaviyoAPI\Model\GetCatalogItemResponseCollectionCompoundDocumentDataInnerAllOfRelationships|null
+     * @return \KlaviyoAPI\Model\GetCatalogVariantCreateJobResponseCollectionCompoundDocumentDataInnerAllOfRelationships|null
      */
     public function getRelationships()
     {
@@ -316,7 +316,7 @@ class GetCatalogVariantCreateJobResponseCollectionCompoundDocumentDataInner impl
     /**
      * Sets relationships
      *
-     * @param \KlaviyoAPI\Model\GetCatalogItemResponseCollectionCompoundDocumentDataInnerAllOfRelationships|null $relationships relationships
+     * @param \KlaviyoAPI\Model\GetCatalogVariantCreateJobResponseCollectionCompoundDocumentDataInnerAllOfRelationships|null $relationships relationships
      *
      * @return self
      */
