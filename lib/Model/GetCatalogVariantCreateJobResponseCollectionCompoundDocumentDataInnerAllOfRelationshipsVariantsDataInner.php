@@ -1,6 +1,6 @@
 <?php
 /**
- * GetTagGroupTagRelationshipsResponseCollection
+ * GetCatalogVariantCreateJobResponseCollectionCompoundDocumentDataInnerAllOfRelationshipsVariantsDataInner
  *
  * PHP version 7.4
  *
@@ -33,7 +33,7 @@ use \ArrayAccess;
 use \KlaviyoAPI\ObjectSerializer;
 
 /**
- * GetTagGroupTagRelationshipsResponseCollection Class Doc Comment
+ * GetCatalogVariantCreateJobResponseCollectionCompoundDocumentDataInnerAllOfRelationshipsVariantsDataInner Class Doc Comment
  *
  * @category Class
  * @package  KlaviyoAPI
@@ -41,7 +41,7 @@ use \KlaviyoAPI\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class GetTagGroupTagRelationshipsResponseCollection implements ModelInterface, ArrayAccess, \JsonSerializable
+class GetCatalogVariantCreateJobResponseCollectionCompoundDocumentDataInnerAllOfRelationshipsVariantsDataInner implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class GetTagGroupTagRelationshipsResponseCollection implements ModelInterface, A
       *
       * @var string
       */
-    protected static $openAPIModelName = 'GetTagGroupTagRelationshipsResponseCollection';
+    protected static $openAPIModelName = 'GetCatalogVariantCreateJobResponseCollectionCompoundDocument_data_inner_allOf_relationships_variants_data_inner';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,7 +58,8 @@ class GetTagGroupTagRelationshipsResponseCollection implements ModelInterface, A
       * @var string[]
       */
     protected static $openAPITypes = [
-        'data' => '\KlaviyoAPI\Model\GetTagGroupTagRelationshipsResponseCollectionDataInner[]'
+        'type' => 'string',
+        'id' => 'string'
     ];
 
     /**
@@ -69,7 +70,8 @@ class GetTagGroupTagRelationshipsResponseCollection implements ModelInterface, A
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'data' => null
+        'type' => null,
+        'id' => null
     ];
 
     /**
@@ -99,7 +101,8 @@ class GetTagGroupTagRelationshipsResponseCollection implements ModelInterface, A
      * @var string[]
      */
     protected static $attributeMap = [
-        'data' => 'data'
+        'type' => 'type',
+        'id' => 'id'
     ];
 
     /**
@@ -108,7 +111,8 @@ class GetTagGroupTagRelationshipsResponseCollection implements ModelInterface, A
      * @var string[]
      */
     protected static $setters = [
-        'data' => 'setData'
+        'type' => 'setType',
+        'id' => 'setId'
     ];
 
     /**
@@ -117,7 +121,8 @@ class GetTagGroupTagRelationshipsResponseCollection implements ModelInterface, A
      * @var string[]
      */
     protected static $getters = [
-        'data' => 'getData'
+        'type' => 'getType',
+        'id' => 'getId'
     ];
 
     /**
@@ -161,6 +166,19 @@ class GetTagGroupTagRelationshipsResponseCollection implements ModelInterface, A
         return self::$openAPIModelName;
     }
 
+    public const TYPE_CATALOG_VARIANT = 'catalog-variant';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getTypeAllowableValues()
+    {
+        return [
+            self::TYPE_CATALOG_VARIANT,
+        ];
+    }
 
     /**
      * Associative array for storing property values
@@ -177,7 +195,8 @@ class GetTagGroupTagRelationshipsResponseCollection implements ModelInterface, A
      */
     public function __construct(array $data = null)
     {
-        $this->container['data'] = $data['data'] ?? null;
+        $this->container['type'] = $data['type'] ?? null;
+        $this->container['id'] = $data['id'] ?? null;
     }
 
     /**
@@ -189,8 +208,20 @@ class GetTagGroupTagRelationshipsResponseCollection implements ModelInterface, A
     {
         $invalidProperties = [];
 
-        if ($this->container['data'] === null) {
-            $invalidProperties[] = "'data' can't be null";
+        if ($this->container['type'] === null) {
+            $invalidProperties[] = "'type' can't be null";
+        }
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!is_null($this->container['type']) && !in_array($this->container['type'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'type', must be one of '%s'",
+                $this->container['type'],
+                implode("', '", $allowedValues)
+            );
+        }
+
+        if ($this->container['id'] === null) {
+            $invalidProperties[] = "'id' can't be null";
         }
         return $invalidProperties;
     }
@@ -208,25 +239,59 @@ class GetTagGroupTagRelationshipsResponseCollection implements ModelInterface, A
 
 
     /**
-     * Gets data
+     * Gets type
      *
-     * @return \KlaviyoAPI\Model\GetTagGroupTagRelationshipsResponseCollectionDataInner[]
+     * @return string
      */
-    public function getData()
+    public function getType()
     {
-        return $this->container['data'];
+        return $this->container['type'];
     }
 
     /**
-     * Sets data
+     * Sets type
      *
-     * @param \KlaviyoAPI\Model\GetTagGroupTagRelationshipsResponseCollectionDataInner[] $data data
+     * @param string $type type
      *
      * @return self
      */
-    public function setData($data)
+    public function setType($type)
     {
-        $this->container['data'] = $data;
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!in_array($type, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'type', must be one of '%s'",
+                    $type,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['type'] = $type;
+
+        return $this;
+    }
+
+    /**
+     * Gets id
+     *
+     * @return string
+     */
+    public function getId()
+    {
+        return $this->container['id'];
+    }
+
+    /**
+     * Sets id
+     *
+     * @param string $id id
+     *
+     * @return self
+     */
+    public function setId($id)
+    {
+        $this->container['id'] = $id;
 
         return $this;
     }

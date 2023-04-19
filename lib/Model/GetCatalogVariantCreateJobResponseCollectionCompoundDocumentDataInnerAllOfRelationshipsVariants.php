@@ -1,6 +1,6 @@
 <?php
 /**
- * GetTagGroupTagRelationshipsResponseCollection
+ * GetCatalogVariantCreateJobResponseCollectionCompoundDocumentDataInnerAllOfRelationshipsVariants
  *
  * PHP version 7.4
  *
@@ -33,7 +33,7 @@ use \ArrayAccess;
 use \KlaviyoAPI\ObjectSerializer;
 
 /**
- * GetTagGroupTagRelationshipsResponseCollection Class Doc Comment
+ * GetCatalogVariantCreateJobResponseCollectionCompoundDocumentDataInnerAllOfRelationshipsVariants Class Doc Comment
  *
  * @category Class
  * @package  KlaviyoAPI
@@ -41,7 +41,7 @@ use \KlaviyoAPI\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class GetTagGroupTagRelationshipsResponseCollection implements ModelInterface, ArrayAccess, \JsonSerializable
+class GetCatalogVariantCreateJobResponseCollectionCompoundDocumentDataInnerAllOfRelationshipsVariants implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class GetTagGroupTagRelationshipsResponseCollection implements ModelInterface, A
       *
       * @var string
       */
-    protected static $openAPIModelName = 'GetTagGroupTagRelationshipsResponseCollection';
+    protected static $openAPIModelName = 'GetCatalogVariantCreateJobResponseCollectionCompoundDocument_data_inner_allOf_relationships_variants';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,7 +58,7 @@ class GetTagGroupTagRelationshipsResponseCollection implements ModelInterface, A
       * @var string[]
       */
     protected static $openAPITypes = [
-        'data' => '\KlaviyoAPI\Model\GetTagGroupTagRelationshipsResponseCollectionDataInner[]'
+        'data' => '\KlaviyoAPI\Model\GetCatalogVariantCreateJobResponseCollectionCompoundDocumentDataInnerAllOfRelationshipsVariantsDataInner[]'
     ];
 
     /**
@@ -210,7 +210,7 @@ class GetTagGroupTagRelationshipsResponseCollection implements ModelInterface, A
     /**
      * Gets data
      *
-     * @return \KlaviyoAPI\Model\GetTagGroupTagRelationshipsResponseCollectionDataInner[]
+     * @return \KlaviyoAPI\Model\GetCatalogVariantCreateJobResponseCollectionCompoundDocumentDataInnerAllOfRelationshipsVariantsDataInner[]
      */
     public function getData()
     {
@@ -220,7 +220,7 @@ class GetTagGroupTagRelationshipsResponseCollection implements ModelInterface, A
     /**
      * Sets data
      *
-     * @param \KlaviyoAPI\Model\GetTagGroupTagRelationshipsResponseCollectionDataInner[] $data data
+     * @param \KlaviyoAPI\Model\GetCatalogVariantCreateJobResponseCollectionCompoundDocumentDataInnerAllOfRelationshipsVariantsDataInner[] $data data
      *
      * @return self
      */
