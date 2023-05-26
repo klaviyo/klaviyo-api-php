@@ -118,7 +118,7 @@ For example:
 
 ```php
 try { 
-  $klaviyo.Metrics.getMetrics();
+  $klaviyo->Metrics->getMetrics();
 } catch (Exception $e) {
   if ($e->getCode() == SOME_INTEGER) {
     doSomething();
