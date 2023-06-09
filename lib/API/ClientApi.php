@@ -121,7 +121,7 @@ class ClientApi
      *
      * Create Client Event
      *
-     * @param  string $company_id ID of the Company to create event (required)
+     * @param  string $company_id Your Public API Key / Site ID. See [this article](https://help.klaviyo.com/hc/en-us/articles/115005062267) for more details. (required)
      * @param  \KlaviyoAPI\Model\EventCreateQuery $event_create_query Event to create. (required)
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response
@@ -138,7 +138,7 @@ class ClientApi
      *
      * Create Client Event
      *
-     * @param  string $company_id ID of the Company to create event (required)
+     * @param  string $company_id Your Public API Key / Site ID. See [this article](https://help.klaviyo.com/hc/en-us/articles/115005062267) for more details. (required)
      * @param  \KlaviyoAPI\Model\EventCreateQuery $event_create_query Event to create. (required)
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response
@@ -214,7 +214,7 @@ class ClientApi
      *
      * Create Client Event
      *
-     * @param  string $company_id ID of the Company to create event (required)
+     * @param  string $company_id Your Public API Key / Site ID. See [this article](https://help.klaviyo.com/hc/en-us/articles/115005062267) for more details. (required)
      * @param  \KlaviyoAPI\Model\EventCreateQuery $event_create_query Event to create. (required)
      *
      * @throws \InvalidArgumentException
@@ -235,7 +235,7 @@ class ClientApi
      *
      * Create Client Event
      *
-     * @param  string $company_id ID of the Company to create event (required)
+     * @param  string $company_id Your Public API Key / Site ID. See [this article](https://help.klaviyo.com/hc/en-us/articles/115005062267) for more details. (required)
      * @param  \KlaviyoAPI\Model\EventCreateQuery $event_create_query Event to create. (required)
      *
      * @throws \InvalidArgumentException
@@ -272,7 +272,7 @@ class ClientApi
     /**
      * Create request for operation 'createClientEvent'
      *
-     * @param  string $company_id ID of the Company to create event (required)
+     * @param  string $company_id Your Public API Key / Site ID. See [this article](https://help.klaviyo.com/hc/en-us/articles/115005062267) for more details. (required)
      * @param  \KlaviyoAPI\Model\EventCreateQuery $event_create_query Event to create. (required)
      *
      * @throws \InvalidArgumentException
@@ -383,7 +383,7 @@ class ClientApi
      *
      * Create or Update Client Profile
      *
-     * @param  string $company_id  (required)
+     * @param  string $company_id Your Public API Key / Site ID. See [this article](https://help.klaviyo.com/hc/en-us/articles/115005062267) for more details. (required)
      * @param  \KlaviyoAPI\Model\OnsiteProfileCreateQuery $onsite_profile_create_query onsite_profile_create_query (required)
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response
@@ -400,7 +400,7 @@ class ClientApi
      *
      * Create or Update Client Profile
      *
-     * @param  string $company_id  (required)
+     * @param  string $company_id Your Public API Key / Site ID. See [this article](https://help.klaviyo.com/hc/en-us/articles/115005062267) for more details. (required)
      * @param  \KlaviyoAPI\Model\OnsiteProfileCreateQuery $onsite_profile_create_query (required)
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response
@@ -476,7 +476,7 @@ class ClientApi
      *
      * Create or Update Client Profile
      *
-     * @param  string $company_id  (required)
+     * @param  string $company_id Your Public API Key / Site ID. See [this article](https://help.klaviyo.com/hc/en-us/articles/115005062267) for more details. (required)
      * @param  \KlaviyoAPI\Model\OnsiteProfileCreateQuery $onsite_profile_create_query (required)
      *
      * @throws \InvalidArgumentException
@@ -497,7 +497,7 @@ class ClientApi
      *
      * Create or Update Client Profile
      *
-     * @param  string $company_id  (required)
+     * @param  string $company_id Your Public API Key / Site ID. See [this article](https://help.klaviyo.com/hc/en-us/articles/115005062267) for more details. (required)
      * @param  \KlaviyoAPI\Model\OnsiteProfileCreateQuery $onsite_profile_create_query (required)
      *
      * @throws \InvalidArgumentException
@@ -534,7 +534,7 @@ class ClientApi
     /**
      * Create request for operation 'createClientProfile'
      *
-     * @param  string $company_id  (required)
+     * @param  string $company_id Your Public API Key / Site ID. See [this article](https://help.klaviyo.com/hc/en-us/articles/115005062267) for more details. (required)
      * @param  \KlaviyoAPI\Model\OnsiteProfileCreateQuery $onsite_profile_create_query (required)
      *
      * @throws \InvalidArgumentException
@@ -645,7 +645,7 @@ class ClientApi
      *
      * Create Client Subscription
      *
-     * @param  string $company_id Your company ID. (required)
+     * @param  string $company_id Your Public API Key / Site ID. See [this article](https://help.klaviyo.com/hc/en-us/articles/115005062267) for more details. (required)
      * @param  \KlaviyoAPI\Model\OnsiteSubscriptionCreateQuery $onsite_subscription_create_query Creates a subscription and consent records for Email and or SMS channels based on the provided email and phone_number attributes respectively. One of either email or phone_number must be provided. To create a subscription and consent record for only one channel but still include the other channel as a profile property the consent channel can be provided as a top level attribute and the other channel can be included in the properties object. (required)
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response
@@ -662,7 +662,7 @@ class ClientApi
      *
      * Create Client Subscription
      *
-     * @param  string $company_id Your company ID. (required)
+     * @param  string $company_id Your Public API Key / Site ID. See [this article](https://help.klaviyo.com/hc/en-us/articles/115005062267) for more details. (required)
      * @param  \KlaviyoAPI\Model\OnsiteSubscriptionCreateQuery $onsite_subscription_create_query Creates a subscription and consent records for Email and or SMS channels based on the provided email and phone_number attributes respectively. One of either email or phone_number must be provided. To create a subscription and consent record for only one channel but still include the other channel as a profile property the consent channel can be provided as a top level attribute and the other channel can be included in the properties object. (required)
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response
@@ -722,7 +722,7 @@ class ClientApi
      *
      * Create Client Subscription
      *
-     * @param  string $company_id Your company ID. (required)
+     * @param  string $company_id Your Public API Key / Site ID. See [this article](https://help.klaviyo.com/hc/en-us/articles/115005062267) for more details. (required)
      * @param  \KlaviyoAPI\Model\OnsiteSubscriptionCreateQuery $onsite_subscription_create_query Creates a subscription and consent records for Email and or SMS channels based on the provided email and phone_number attributes respectively. One of either email or phone_number must be provided. To create a subscription and consent record for only one channel but still include the other channel as a profile property the consent channel can be provided as a top level attribute and the other channel can be included in the properties object. (required)
      *
      * @throws \InvalidArgumentException
@@ -743,7 +743,7 @@ class ClientApi
      *
      * Create Client Subscription
      *
-     * @param  string $company_id Your company ID. (required)
+     * @param  string $company_id Your Public API Key / Site ID. See [this article](https://help.klaviyo.com/hc/en-us/articles/115005062267) for more details. (required)
      * @param  \KlaviyoAPI\Model\OnsiteSubscriptionCreateQuery $onsite_subscription_create_query Creates a subscription and consent records for Email and or SMS channels based on the provided email and phone_number attributes respectively. One of either email or phone_number must be provided. To create a subscription and consent record for only one channel but still include the other channel as a profile property the consent channel can be provided as a top level attribute and the other channel can be included in the properties object. (required)
      *
      * @throws \InvalidArgumentException
@@ -780,7 +780,7 @@ class ClientApi
     /**
      * Create request for operation 'createClientSubscription'
      *
-     * @param  string $company_id Your company ID. (required)
+     * @param  string $company_id Your Public API Key / Site ID. See [this article](https://help.klaviyo.com/hc/en-us/articles/115005062267) for more details. (required)
      * @param  \KlaviyoAPI\Model\OnsiteSubscriptionCreateQuery $onsite_subscription_create_query Creates a subscription and consent records for Email and or SMS channels based on the provided email and phone_number attributes respectively. One of either email or phone_number must be provided. To create a subscription and consent record for only one channel but still include the other channel as a profile property the consent channel can be provided as a top level attribute and the other channel can be included in the properties object. (required)
      *
      * @throws \InvalidArgumentException

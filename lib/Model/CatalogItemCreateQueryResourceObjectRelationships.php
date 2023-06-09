@@ -1,6 +1,6 @@
 <?php
 /**
- * CatalogCategoryItemOp
+ * CatalogItemCreateQueryResourceObjectRelationships
  *
  * PHP version 7.4
  *
@@ -33,7 +33,7 @@ use \ArrayAccess;
 use \KlaviyoAPI\ObjectSerializer;
 
 /**
- * CatalogCategoryItemOp Class Doc Comment
+ * CatalogItemCreateQueryResourceObjectRelationships Class Doc Comment
  *
  * @category Class
  * @package  KlaviyoAPI
@@ -41,7 +41,7 @@ use \KlaviyoAPI\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class CatalogCategoryItemOp implements ModelInterface, ArrayAccess, \JsonSerializable
+class CatalogItemCreateQueryResourceObjectRelationships implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class CatalogCategoryItemOp implements ModelInterface, ArrayAccess, \JsonSeriali
       *
       * @var string
       */
-    protected static $openAPIModelName = 'CatalogCategoryItemOp';
+    protected static $openAPIModelName = 'CatalogItemCreateQueryResourceObject_relationships';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,7 +58,7 @@ class CatalogCategoryItemOp implements ModelInterface, ArrayAccess, \JsonSeriali
       * @var string[]
       */
     protected static $openAPITypes = [
-        'data' => '\KlaviyoAPI\Model\CatalogVariantCreateQueryResourceObjectRelationshipsItemsDataInner[]'
+        'categories' => '\KlaviyoAPI\Model\CatalogItemCreateQueryResourceObjectRelationshipsCategories'
     ];
 
     /**
@@ -69,7 +69,7 @@ class CatalogCategoryItemOp implements ModelInterface, ArrayAccess, \JsonSeriali
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'data' => null
+        'categories' => null
     ];
 
     /**
@@ -99,7 +99,7 @@ class CatalogCategoryItemOp implements ModelInterface, ArrayAccess, \JsonSeriali
      * @var string[]
      */
     protected static $attributeMap = [
-        'data' => 'data'
+        'categories' => 'categories'
     ];
 
     /**
@@ -108,7 +108,7 @@ class CatalogCategoryItemOp implements ModelInterface, ArrayAccess, \JsonSeriali
      * @var string[]
      */
     protected static $setters = [
-        'data' => 'setData'
+        'categories' => 'setCategories'
     ];
 
     /**
@@ -117,7 +117,7 @@ class CatalogCategoryItemOp implements ModelInterface, ArrayAccess, \JsonSeriali
      * @var string[]
      */
     protected static $getters = [
-        'data' => 'getData'
+        'categories' => 'getCategories'
     ];
 
     /**
@@ -177,7 +177,7 @@ class CatalogCategoryItemOp implements ModelInterface, ArrayAccess, \JsonSeriali
      */
     public function __construct(array $data = null)
     {
-        $this->container['data'] = $data['data'] ?? null;
+        $this->container['categories'] = $data['categories'] ?? null;
     }
 
     /**
@@ -189,9 +189,6 @@ class CatalogCategoryItemOp implements ModelInterface, ArrayAccess, \JsonSeriali
     {
         $invalidProperties = [];
 
-        if ($this->container['data'] === null) {
-            $invalidProperties[] = "'data' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -208,25 +205,25 @@ class CatalogCategoryItemOp implements ModelInterface, ArrayAccess, \JsonSeriali
 
 
     /**
-     * Gets data
+     * Gets categories
      *
-     * @return \KlaviyoAPI\Model\CatalogVariantCreateQueryResourceObjectRelationshipsItemsDataInner[]
+     * @return \KlaviyoAPI\Model\CatalogItemCreateQueryResourceObjectRelationshipsCategories|null
      */
-    public function getData()
+    public function getCategories()
     {
-        return $this->container['data'];
+        return $this->container['categories'];
     }
 
     /**
-     * Sets data
+     * Sets categories
      *
-     * @param \KlaviyoAPI\Model\CatalogVariantCreateQueryResourceObjectRelationshipsItemsDataInner[] $data data
+     * @param \KlaviyoAPI\Model\CatalogItemCreateQueryResourceObjectRelationshipsCategories|null $categories categories
      *
      * @return self
      */
-    public function setData($data)
+    public function setCategories($categories)
     {
-        $this->container['data'] = $data;
+        $this->container['categories'] = $categories;
 
         return $this;
     }

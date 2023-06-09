@@ -58,7 +58,7 @@ class TagCampaignOp implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'data' => '\KlaviyoAPI\Model\GetTagCampaignRelationshipsResponseCollectionDataInner[]'
+        'data' => '\KlaviyoAPI\Model\TagCampaignOpDataInner[]'
     ];
 
     /**
@@ -210,7 +210,7 @@ class TagCampaignOp implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets data
      *
-     * @return \KlaviyoAPI\Model\GetTagCampaignRelationshipsResponseCollectionDataInner[]
+     * @return \KlaviyoAPI\Model\TagCampaignOpDataInner[]
      */
     public function getData()
     {
@@ -220,7 +220,7 @@ class TagCampaignOp implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets data
      *
-     * @param \KlaviyoAPI\Model\GetTagCampaignRelationshipsResponseCollectionDataInner[] $data data
+     * @param \KlaviyoAPI\Model\TagCampaignOpDataInner[] $data data
      *
      * @return self
      */
