@@ -1,6 +1,6 @@
 <?php
 /**
- * CatalogCategoryItemOp
+ * CatalogVariantCreateQueryResourceObjectRelationships
  *
  * PHP version 7.4
  *
@@ -33,7 +33,7 @@ use \ArrayAccess;
 use \KlaviyoAPI\ObjectSerializer;
 
 /**
- * CatalogCategoryItemOp Class Doc Comment
+ * CatalogVariantCreateQueryResourceObjectRelationships Class Doc Comment
  *
  * @category Class
  * @package  KlaviyoAPI
@@ -41,7 +41,7 @@ use \KlaviyoAPI\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class CatalogCategoryItemOp implements ModelInterface, ArrayAccess, \JsonSerializable
+class CatalogVariantCreateQueryResourceObjectRelationships implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class CatalogCategoryItemOp implements ModelInterface, ArrayAccess, \JsonSeriali
       *
       * @var string
       */
-    protected static $openAPIModelName = 'CatalogCategoryItemOp';
+    protected static $openAPIModelName = 'CatalogVariantCreateQueryResourceObject_relationships';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,7 +58,7 @@ class CatalogCategoryItemOp implements ModelInterface, ArrayAccess, \JsonSeriali
       * @var string[]
       */
     protected static $openAPITypes = [
-        'data' => '\KlaviyoAPI\Model\CatalogVariantCreateQueryResourceObjectRelationshipsItemsDataInner[]'
+        'items' => '\KlaviyoAPI\Model\CatalogVariantCreateQueryResourceObjectRelationshipsItems'
     ];
 
     /**
@@ -69,7 +69,7 @@ class CatalogCategoryItemOp implements ModelInterface, ArrayAccess, \JsonSeriali
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'data' => null
+        'items' => null
     ];
 
     /**
@@ -99,7 +99,7 @@ class CatalogCategoryItemOp implements ModelInterface, ArrayAccess, \JsonSeriali
      * @var string[]
      */
     protected static $attributeMap = [
-        'data' => 'data'
+        'items' => 'items'
     ];
 
     /**
@@ -108,7 +108,7 @@ class CatalogCategoryItemOp implements ModelInterface, ArrayAccess, \JsonSeriali
      * @var string[]
      */
     protected static $setters = [
-        'data' => 'setData'
+        'items' => 'setItems'
     ];
 
     /**
@@ -117,7 +117,7 @@ class CatalogCategoryItemOp implements ModelInterface, ArrayAccess, \JsonSeriali
      * @var string[]
      */
     protected static $getters = [
-        'data' => 'getData'
+        'items' => 'getItems'
     ];
 
     /**
@@ -177,7 +177,7 @@ class CatalogCategoryItemOp implements ModelInterface, ArrayAccess, \JsonSeriali
      */
     public function __construct(array $data = null)
     {
-        $this->container['data'] = $data['data'] ?? null;
+        $this->container['items'] = $data['items'] ?? null;
     }
 
     /**
@@ -189,9 +189,6 @@ class CatalogCategoryItemOp implements ModelInterface, ArrayAccess, \JsonSeriali
     {
         $invalidProperties = [];
 
-        if ($this->container['data'] === null) {
-            $invalidProperties[] = "'data' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -208,25 +205,25 @@ class CatalogCategoryItemOp implements ModelInterface, ArrayAccess, \JsonSeriali
 
 
     /**
-     * Gets data
+     * Gets items
      *
-     * @return \KlaviyoAPI\Model\CatalogVariantCreateQueryResourceObjectRelationshipsItemsDataInner[]
+     * @return \KlaviyoAPI\Model\CatalogVariantCreateQueryResourceObjectRelationshipsItems|null
      */
-    public function getData()
+    public function getItems()
     {
-        return $this->container['data'];
+        return $this->container['items'];
     }
 
     /**
-     * Sets data
+     * Sets items
      *
-     * @param \KlaviyoAPI\Model\CatalogVariantCreateQueryResourceObjectRelationshipsItemsDataInner[] $data data
+     * @param \KlaviyoAPI\Model\CatalogVariantCreateQueryResourceObjectRelationshipsItems|null $items items
      *
      * @return self
      */
-    public function setData($data)
+    public function setItems($items)
     {
-        $this->container['data'] = $data;
+        $this->container['items'] = $items;
 
         return $this;
     }

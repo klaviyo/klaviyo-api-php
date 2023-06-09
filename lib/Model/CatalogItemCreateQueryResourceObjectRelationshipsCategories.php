@@ -1,6 +1,6 @@
 <?php
 /**
- * CatalogCategoryItemOp
+ * CatalogItemCreateQueryResourceObjectRelationshipsCategories
  *
  * PHP version 7.4
  *
@@ -33,7 +33,7 @@ use \ArrayAccess;
 use \KlaviyoAPI\ObjectSerializer;
 
 /**
- * CatalogCategoryItemOp Class Doc Comment
+ * CatalogItemCreateQueryResourceObjectRelationshipsCategories Class Doc Comment
  *
  * @category Class
  * @package  KlaviyoAPI
@@ -41,7 +41,7 @@ use \KlaviyoAPI\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class CatalogCategoryItemOp implements ModelInterface, ArrayAccess, \JsonSerializable
+class CatalogItemCreateQueryResourceObjectRelationshipsCategories implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class CatalogCategoryItemOp implements ModelInterface, ArrayAccess, \JsonSeriali
       *
       * @var string
       */
-    protected static $openAPIModelName = 'CatalogCategoryItemOp';
+    protected static $openAPIModelName = 'CatalogItemCreateQueryResourceObject_relationships_categories';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,7 +58,7 @@ class CatalogCategoryItemOp implements ModelInterface, ArrayAccess, \JsonSeriali
       * @var string[]
       */
     protected static $openAPITypes = [
-        'data' => '\KlaviyoAPI\Model\CatalogVariantCreateQueryResourceObjectRelationshipsItemsDataInner[]'
+        'data' => '\KlaviyoAPI\Model\CatalogItemCreateQueryResourceObjectRelationshipsCategoriesDataInner[]'
     ];
 
     /**
@@ -210,7 +210,7 @@ class CatalogCategoryItemOp implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Gets data
      *
-     * @return \KlaviyoAPI\Model\CatalogVariantCreateQueryResourceObjectRelationshipsItemsDataInner[]
+     * @return \KlaviyoAPI\Model\CatalogItemCreateQueryResourceObjectRelationshipsCategoriesDataInner[]
      */
     public function getData()
     {
@@ -220,7 +220,7 @@ class CatalogCategoryItemOp implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Sets data
      *
-     * @param \KlaviyoAPI\Model\CatalogVariantCreateQueryResourceObjectRelationshipsItemsDataInner[] $data data
+     * @param \KlaviyoAPI\Model\CatalogItemCreateQueryResourceObjectRelationshipsCategoriesDataInner[] $data data
      *
      * @return self
      */

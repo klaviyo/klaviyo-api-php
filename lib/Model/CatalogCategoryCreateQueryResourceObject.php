@@ -60,7 +60,7 @@ class CatalogCategoryCreateQueryResourceObject implements ModelInterface, ArrayA
     protected static $openAPITypes = [
         'type' => '\KlaviyoAPI\Model\CatalogCategoryEnum',
         'attributes' => '\KlaviyoAPI\Model\CatalogCategoryCreateQueryResourceObjectAttributes',
-        'relationships' => '\KlaviyoAPI\Model\GetCatalogItemCreateJobResponseCollectionCompoundDocumentDataInnerAllOfRelationships'
+        'relationships' => '\KlaviyoAPI\Model\CatalogVariantCreateQueryResourceObjectRelationships'
     ];
 
     /**
@@ -273,7 +273,7 @@ class CatalogCategoryCreateQueryResourceObject implements ModelInterface, ArrayA
     /**
      * Gets relationships
      *
-     * @return \KlaviyoAPI\Model\GetCatalogItemCreateJobResponseCollectionCompoundDocumentDataInnerAllOfRelationships|null
+     * @return \KlaviyoAPI\Model\CatalogVariantCreateQueryResourceObjectRelationships|null
      */
     public function getRelationships()
     {
@@ -283,7 +283,7 @@ class CatalogCategoryCreateQueryResourceObject implements ModelInterface, ArrayA
     /**
      * Sets relationships
      *
-     * @param \KlaviyoAPI\Model\GetCatalogItemCreateJobResponseCollectionCompoundDocumentDataInnerAllOfRelationships|null $relationships relationships
+     * @param \KlaviyoAPI\Model\CatalogVariantCreateQueryResourceObjectRelationships|null $relationships relationships
      *
      * @return self
      */

@@ -59,8 +59,7 @@ class OnsiteProfileCreateQueryResourceObject implements ModelInterface, ArrayAcc
       */
     protected static $openAPITypes = [
         'type' => '\KlaviyoAPI\Model\ProfileEnum',
-        'attributes' => '\KlaviyoAPI\Model\OnsiteProfileCreateQueryResourceObjectAttributes',
-        'meta' => '\KlaviyoAPI\Model\OnsiteProfileMeta'
+        'attributes' => '\KlaviyoAPI\Model\OnsiteProfileCreateQueryResourceObjectAttributes'
     ];
 
     /**
@@ -72,8 +71,7 @@ class OnsiteProfileCreateQueryResourceObject implements ModelInterface, ArrayAcc
       */
     protected static $openAPIFormats = [
         'type' => null,
-        'attributes' => null,
-        'meta' => null
+        'attributes' => null
     ];
 
     /**
@@ -104,8 +102,7 @@ class OnsiteProfileCreateQueryResourceObject implements ModelInterface, ArrayAcc
      */
     protected static $attributeMap = [
         'type' => 'type',
-        'attributes' => 'attributes',
-        'meta' => 'meta'
+        'attributes' => 'attributes'
     ];
 
     /**
@@ -115,8 +112,7 @@ class OnsiteProfileCreateQueryResourceObject implements ModelInterface, ArrayAcc
      */
     protected static $setters = [
         'type' => 'setType',
-        'attributes' => 'setAttributes',
-        'meta' => 'setMeta'
+        'attributes' => 'setAttributes'
     ];
 
     /**
@@ -126,8 +122,7 @@ class OnsiteProfileCreateQueryResourceObject implements ModelInterface, ArrayAcc
      */
     protected static $getters = [
         'type' => 'getType',
-        'attributes' => 'getAttributes',
-        'meta' => 'getMeta'
+        'attributes' => 'getAttributes'
     ];
 
     /**
@@ -189,7 +184,6 @@ class OnsiteProfileCreateQueryResourceObject implements ModelInterface, ArrayAcc
     {
         $this->container['type'] = $data['type'] ?? null;
         $this->container['attributes'] = $data['attributes'] ?? null;
-        $this->container['meta'] = $data['meta'] ?? null;
     }
 
     /**
@@ -266,30 +260,6 @@ class OnsiteProfileCreateQueryResourceObject implements ModelInterface, ArrayAcc
     public function setAttributes($attributes)
     {
         $this->container['attributes'] = $attributes;
-
-        return $this;
-    }
-
-    /**
-     * Gets meta
-     *
-     * @return \KlaviyoAPI\Model\OnsiteProfileMeta|null
-     */
-    public function getMeta()
-    {
-        return $this->container['meta'];
-    }
-
-    /**
-     * Sets meta
-     *
-     * @param \KlaviyoAPI\Model\OnsiteProfileMeta|null $meta meta
-     *
-     * @return self
-     */
-    public function setMeta($meta)
-    {
-        $this->container['meta'] = $meta;
 
         return $this;
     }

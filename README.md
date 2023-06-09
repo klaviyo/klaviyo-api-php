@@ -1,6 +1,6 @@
 # Klaviyo PHP SDK
 
-- SDK version: 3.0.0
+- SDK version: 3.0.1
 - API Revision: 2023-02-22
 
 ## Helpful Resources
@@ -94,6 +94,85 @@ $klaviyo = new KlaviyoAPI(
 $response = $klaviyo->Metrics->getMetrics();
 ```
 
+### Use Case Examples
+
+#### How to use filtering, sorting, and spare fieldset JSON API features
+
+**Use Case**: Get events associated with a specific metric, then return just the event properties sorted by oldest to newest datetime.
+
+```php
+$klaviyo->Events->getEvents(
+    $fields_event=['event_properties'], 
+    $fields_metric=NULL, 
+    $fields_profile=NULL, 
+    $filter="equals(metric_id,\"UMTLbD\")", 
+    $include=NULL, 
+    $page_cursor=NULL, 
+    $sort='-datetime'
+);
+```
+
+NOTE: the filter param values need to be url-encoded
+
+#### How to filter based on datetime
+
+**Use Case**: Get profiles that have been updated between two datetimes.
+
+```php
+$klaviyo->Profiles->getProfiles(
+    $additional_fields_profile=NULL, 
+    $fields_profile=NULL, 
+    $filter='less-than(updated,2023-04-26T00:00:00Z),greater-than(updated,2023-04-19T00:00:00Z)', 
+);
+```
+
+#### How to use pagination and the page[size] param
+
+**Use Case**: Use cursor-based pagination to get the next 20 profile records.
+
+```php
+$klaviyo->Profiles->getProfiles(
+    $additional_fields_profile=NULL, 
+    $fields_profile=NULL, 
+    $filter=NULL,
+    $page_cursor="https://a.klaviyo.com/api/profiles/?page%5Bcursor%5D=bmV4dDo6aWQ6OjAxRjNaWk5ITlRYMUtFVEhQMzJTUzRBN0ZY", 
+    $page_size=20, 
+);
+```
+
+NOTE: This page cursor value is exactly what is returned in the `self`/`next`/`prev` response values
+
+#### How to add additional information to your API response via additional-fields and the `includes` parameter
+
+**Use Case**: Get a specific profile, return an additional predictive analytics field, and also return the list objects associated with the profile.
+
+```php
+$klaviyo->Profiles->getProfile(
+    '01F3ZZNHPY4YZFVGNBH5THCNXE', 
+    $additional_fields_profile=['predictive_analytics'], 
+    $fields_list=NULL, 
+    $fields_profile=NULL, 
+    $fields_segment=NULL, 
+    $include=['lists']
+);
+```
+
+#### How to use our relationship endpoints to see related resources
+
+**Use Case**: Get all list memberships for a profile with the given `profile_id`.
+
+```php
+$klaviyo->Profiles->getProfileRelationshipsLists('01GDDKASAP8TKDDA2GRZDSVP4H');
+```
+
+#### How to see what Klaviyo objects are associated with a specific tag
+
+**Use Case**: Get all campaigns associated with the given `tag_id`.
+
+```php
+$klaviyo->Tags->getTagRelationshipsCampaigns('f4bc6670-1aa5-47df-827a-d30a7e543088');
+```
+
 ## Retry behavior
 
 * The SDK retries on resolvable errors, namely: rate limits (common) and server errors on Klaviyo's end (rare).
@@ -118,7 +197,7 @@ For example:
 
 ```php
 try { 
-  $klaviyo->Metrics->getMetrics();
+  $klaviyo.Metrics.getMetrics();
 } catch (Exception $e) {
   if ($e->getCode() == SOME_INTEGER) {
     doSomething();
