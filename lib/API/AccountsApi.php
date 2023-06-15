@@ -1,6 +1,6 @@
 <?php
 /**
- * MetricsApi
+ * AccountsApi
  * PHP version 7.4
  *
  * @category Class
@@ -41,14 +41,14 @@ use KlaviyoAPI\HeaderSelector;
 use KlaviyoAPI\ObjectSerializer;
 
 /**
- * MetricsApi Class Doc Comment
+ * AccountsApi Class Doc Comment
  *
  * @category Class
  * @package  KlaviyoAPI
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class MetricsApi
+class AccountsApi
 {
     /**
      * @var ClientInterface
@@ -117,38 +117,38 @@ class MetricsApi
     }
 
     /**
-     * Operation getMetric
+     * Operation getAccount
      *
-     * Get Metric
+     * Get Account
      *
-     * @param  string $id Metric ID (required)
-     * @param  string[] $fields_metric For more information please visit https://developers.klaviyo.com/en/v2023-06-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string $id The ID of the account (required)
+     * @param  string[] $fields_account For more information please visit https://developers.klaviyo.com/en/v2023-06-15/reference/api-overview#sparse-fieldsets (optional)
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array<string,mixed>|\KlaviyoAPI\Model\GetCreateVariantsJobs400Response|\KlaviyoAPI\Model\GetCreateVariantsJobs400Response
      */
-    public function getMetric($id, $fields_metric = null, $apiKey = null)
+    public function getAccount($id, $fields_account = null, $apiKey = null)
     {
-        list($response) = $this->getMetricWithHttpInfo($id, $fields_metric, $apiKey);
+        list($response) = $this->getAccountWithHttpInfo($id, $fields_account, $apiKey);
         return $response;
     }
 
     /**
-     * Operation getMetricWithHttpInfo
+     * Operation getAccountWithHttpInfo
      *
-     * Get Metric
+     * Get Account
      *
-     * @param  string $id Metric ID (required)
-     * @param  string[] $fields_metric For more information please visit https://developers.klaviyo.com/en/v2023-06-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string $id The ID of the account (required)
+     * @param  string[] $fields_account For more information please visit https://developers.klaviyo.com/en/v2023-06-15/reference/api-overview#sparse-fieldsets (optional)
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of array<string,mixed>|\KlaviyoAPI\Model\GetCreateVariantsJobs400Response|\KlaviyoAPI\Model\GetCreateVariantsJobs400Response, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getMetricWithHttpInfo($id, $fields_metric = null, $apiKey = null)
+    public function getAccountWithHttpInfo($id, $fields_account = null, $apiKey = null)
     {
-        $request = $this->getMetricRequest($id, $fields_metric, $apiKey);
+        $request = $this->getAccountRequest($id, $fields_account, $apiKey);
 
         try {
             $options = $this->createHttpClientOption();
@@ -304,19 +304,19 @@ class MetricsApi
     }
 
     /**
-     * Operation getMetricAsync
+     * Operation getAccountAsync
      *
-     * Get Metric
+     * Get Account
      *
-     * @param  string $id Metric ID (required)
-     * @param  string[] $fields_metric For more information please visit https://developers.klaviyo.com/en/v2023-06-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string $id The ID of the account (required)
+     * @param  string[] $fields_account For more information please visit https://developers.klaviyo.com/en/v2023-06-15/reference/api-overview#sparse-fieldsets (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getMetricAsync($id, $fields_metric = null, $apiKey = null)
+    public function getAccountAsync($id, $fields_account = null, $apiKey = null)
     {
-        return $this->getMetricAsyncWithHttpInfo($id, $fields_metric, $apiKey)
+        return $this->getAccountAsyncWithHttpInfo($id, $fields_account, $apiKey)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -325,20 +325,20 @@ class MetricsApi
     }
 
     /**
-     * Operation getMetricAsyncWithHttpInfo
+     * Operation getAccountAsyncWithHttpInfo
      *
-     * Get Metric
+     * Get Account
      *
-     * @param  string $id Metric ID (required)
-     * @param  string[] $fields_metric For more information please visit https://developers.klaviyo.com/en/v2023-06-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string $id The ID of the account (required)
+     * @param  string[] $fields_account For more information please visit https://developers.klaviyo.com/en/v2023-06-15/reference/api-overview#sparse-fieldsets (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getMetricAsyncWithHttpInfo($id, $fields_metric = null, $apiKey = null)
+    public function getAccountAsyncWithHttpInfo($id, $fields_account = null, $apiKey = null)
     {
         $returnType = 'array<string,mixed>';
-        $request = $this->getMetricRequest($id, $fields_metric, $apiKey);
+        $request = $this->getAccountRequest($id, $fields_account, $apiKey);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -382,24 +382,24 @@ class MetricsApi
     }
 
     /**
-     * Create request for operation 'getMetric'
+     * Create request for operation 'getAccount'
      *
-     * @param  string $id Metric ID (required)
-     * @param  string[] $fields_metric For more information please visit https://developers.klaviyo.com/en/v2023-06-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string $id The ID of the account (required)
+     * @param  string[] $fields_account For more information please visit https://developers.klaviyo.com/en/v2023-06-15/reference/api-overview#sparse-fieldsets (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getMetricRequest($id, $fields_metric = null, $apiKey = null)
+    public function getAccountRequest($id, $fields_account = null, $apiKey = null)
     {
         // verify the required parameter 'id' is set
         if ($id === null || (is_array($id) && count($id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $id when calling getMetric'
+                'Missing the required parameter $id when calling getAccount'
             );
         }
 
-        $resourcePath = '/api/metrics/{id}/';
+        $resourcePath = '/api/accounts/{id}/';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -408,8 +408,8 @@ class MetricsApi
 
         // query params
         $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-            $fields_metric,
-            'fields[metric]', // param base name
+            $fields_account,
+            'fields[account]', // param base name
             'array', // openApiType
             'form', // style
             false, // explode
@@ -496,40 +496,36 @@ class MetricsApi
     }
 
     /**
-     * Operation getMetrics
+     * Operation getAccounts
      *
-     * Get Metrics
+     * Get Accounts
      *
-     * @param  string[] $fields_metric For more information please visit https://developers.klaviyo.com/en/v2023-06-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string $filter For more information please visit https://developers.klaviyo.com/en/v2023-06-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;integration.name&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;integration.category&#x60;: &#x60;equals&#x60; (optional)
-     * @param  string $page_cursor For more information please visit https://developers.klaviyo.com/en/v2023-06-15/reference/api-overview#pagination (optional)
+     * @param  string[] $fields_account For more information please visit https://developers.klaviyo.com/en/v2023-06-15/reference/api-overview#sparse-fieldsets (optional)
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array<string,mixed>|\KlaviyoAPI\Model\GetCreateVariantsJobs400Response|\KlaviyoAPI\Model\GetCreateVariantsJobs400Response
      */
-    public function getMetrics($fields_metric = null, $filter = null, $page_cursor = null, $apiKey = null)
+    public function getAccounts($fields_account = null, $apiKey = null)
     {
-        list($response) = $this->getMetricsWithHttpInfo($fields_metric, $filter, $page_cursor, $apiKey);
+        list($response) = $this->getAccountsWithHttpInfo($fields_account, $apiKey);
         return $response;
     }
 
     /**
-     * Operation getMetricsWithHttpInfo
+     * Operation getAccountsWithHttpInfo
      *
-     * Get Metrics
+     * Get Accounts
      *
-     * @param  string[] $fields_metric For more information please visit https://developers.klaviyo.com/en/v2023-06-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string $filter For more information please visit https://developers.klaviyo.com/en/v2023-06-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;integration.name&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;integration.category&#x60;: &#x60;equals&#x60; (optional)
-     * @param  string $page_cursor For more information please visit https://developers.klaviyo.com/en/v2023-06-15/reference/api-overview#pagination (optional)
+     * @param  string[] $fields_account For more information please visit https://developers.klaviyo.com/en/v2023-06-15/reference/api-overview#sparse-fieldsets (optional)
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of array<string,mixed>|\KlaviyoAPI\Model\GetCreateVariantsJobs400Response|\KlaviyoAPI\Model\GetCreateVariantsJobs400Response, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getMetricsWithHttpInfo($fields_metric = null, $filter = null, $page_cursor = null, $apiKey = null)
+    public function getAccountsWithHttpInfo($fields_account = null, $apiKey = null)
     {
-        $request = $this->getMetricsRequest($fields_metric, $filter, $page_cursor, $apiKey);
+        $request = $this->getAccountsRequest($fields_account, $apiKey);
 
         try {
             $options = $this->createHttpClientOption();
@@ -685,20 +681,18 @@ class MetricsApi
     }
 
     /**
-     * Operation getMetricsAsync
+     * Operation getAccountsAsync
      *
-     * Get Metrics
+     * Get Accounts
      *
-     * @param  string[] $fields_metric For more information please visit https://developers.klaviyo.com/en/v2023-06-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string $filter For more information please visit https://developers.klaviyo.com/en/v2023-06-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;integration.name&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;integration.category&#x60;: &#x60;equals&#x60; (optional)
-     * @param  string $page_cursor For more information please visit https://developers.klaviyo.com/en/v2023-06-15/reference/api-overview#pagination (optional)
+     * @param  string[] $fields_account For more information please visit https://developers.klaviyo.com/en/v2023-06-15/reference/api-overview#sparse-fieldsets (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getMetricsAsync($fields_metric = null, $filter = null, $page_cursor = null, $apiKey = null)
+    public function getAccountsAsync($fields_account = null, $apiKey = null)
     {
-        return $this->getMetricsAsyncWithHttpInfo($fields_metric, $filter, $page_cursor, $apiKey)
+        return $this->getAccountsAsyncWithHttpInfo($fields_account, $apiKey)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -707,21 +701,19 @@ class MetricsApi
     }
 
     /**
-     * Operation getMetricsAsyncWithHttpInfo
+     * Operation getAccountsAsyncWithHttpInfo
      *
-     * Get Metrics
+     * Get Accounts
      *
-     * @param  string[] $fields_metric For more information please visit https://developers.klaviyo.com/en/v2023-06-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string $filter For more information please visit https://developers.klaviyo.com/en/v2023-06-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;integration.name&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;integration.category&#x60;: &#x60;equals&#x60; (optional)
-     * @param  string $page_cursor For more information please visit https://developers.klaviyo.com/en/v2023-06-15/reference/api-overview#pagination (optional)
+     * @param  string[] $fields_account For more information please visit https://developers.klaviyo.com/en/v2023-06-15/reference/api-overview#sparse-fieldsets (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getMetricsAsyncWithHttpInfo($fields_metric = null, $filter = null, $page_cursor = null, $apiKey = null)
+    public function getAccountsAsyncWithHttpInfo($fields_account = null, $apiKey = null)
     {
         $returnType = 'array<string,mixed>';
-        $request = $this->getMetricsRequest($fields_metric, $filter, $page_cursor, $apiKey);
+        $request = $this->getAccountsRequest($fields_account, $apiKey);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -765,19 +757,17 @@ class MetricsApi
     }
 
     /**
-     * Create request for operation 'getMetrics'
+     * Create request for operation 'getAccounts'
      *
-     * @param  string[] $fields_metric For more information please visit https://developers.klaviyo.com/en/v2023-06-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string $filter For more information please visit https://developers.klaviyo.com/en/v2023-06-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;integration.name&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;integration.category&#x60;: &#x60;equals&#x60; (optional)
-     * @param  string $page_cursor For more information please visit https://developers.klaviyo.com/en/v2023-06-15/reference/api-overview#pagination (optional)
+     * @param  string[] $fields_account For more information please visit https://developers.klaviyo.com/en/v2023-06-15/reference/api-overview#sparse-fieldsets (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getMetricsRequest($fields_metric = null, $filter = null, $page_cursor = null, $apiKey = null)
+    public function getAccountsRequest($fields_account = null, $apiKey = null)
     {
 
-        $resourcePath = '/api/metrics/';
+        $resourcePath = '/api/accounts/';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -786,29 +776,11 @@ class MetricsApi
 
         // query params
         $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-            $fields_metric,
-            'fields[metric]', // param base name
+            $fields_account,
+            'fields[account]', // param base name
             'array', // openApiType
             'form', // style
             false, // explode
-            false // required
-        ) ?? []);
-        // query params
-        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-            $filter,
-            'filter', // param base name
-            'string', // openApiType
-            'form', // style
-            true, // explode
-            false // required
-        ) ?? []);
-        // query params
-        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-            $page_cursor,
-            'page[cursor]', // param base name
-            'string', // openApiType
-            'form', // style
-            true, // explode
             false // required
         ) ?? []);
 
@@ -877,369 +849,6 @@ class MetricsApi
         $query = ObjectSerializer::buildQuery($queryParams);
         return new Request(
             'GET',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
-     * Operation queryMetricAggregates
-     *
-     * Query Metric Aggregates
-     *
-     * @param  \KlaviyoAPI\Model\MetricAggregateQuery $metric_aggregate_query Retrieve Metric Aggregations (required)
-     *
-     * @throws \KlaviyoAPI\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return array<string,mixed>|\KlaviyoAPI\Model\GetCreateVariantsJobs400Response|\KlaviyoAPI\Model\GetCreateVariantsJobs400Response
-     */
-    public function queryMetricAggregates($metric_aggregate_query, $apiKey = null)
-    {
-        list($response) = $this->queryMetricAggregatesWithHttpInfo($metric_aggregate_query, $apiKey);
-        return $response;
-    }
-
-    /**
-     * Operation queryMetricAggregatesWithHttpInfo
-     *
-     * Query Metric Aggregates
-     *
-     * @param  \KlaviyoAPI\Model\MetricAggregateQuery $metric_aggregate_query Retrieve Metric Aggregations (required)
-     *
-     * @throws \KlaviyoAPI\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return array of array<string,mixed>|\KlaviyoAPI\Model\GetCreateVariantsJobs400Response|\KlaviyoAPI\Model\GetCreateVariantsJobs400Response, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function queryMetricAggregatesWithHttpInfo($metric_aggregate_query, $apiKey = null)
-    {
-        $request = $this->queryMetricAggregatesRequest($metric_aggregate_query, $apiKey);
-
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
-                );
-            } catch (ConnectException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    null,
-                    null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        (string) $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    (string) $response->getBody()
-                );
-            }
-
-            switch($statusCode) {
-                case 201:
-                    if ('array<string,mixed>' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('array&lt;string,mixed&gt;' !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-
-                    $parsed_content = json_decode(json_encode($content), TRUE);
-                    if (json_last_error() != JSON_ERROR_NONE) {
-                        $parsed_content = $content;
-                    }
-
-                    return [
-                        $parsed_content,
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                case 400:
-                    if ('\KlaviyoAPI\Model\GetCreateVariantsJobs400Response' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('\KlaviyoAPI\Model\GetCreateVariantsJobs400Response' !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-
-                    $parsed_content = json_decode(json_encode($content), TRUE);
-                    if (json_last_error() != JSON_ERROR_NONE) {
-                        $parsed_content = $content;
-                    }
-
-                    return [
-                        $parsed_content,
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                case 500:
-                    if ('\KlaviyoAPI\Model\GetCreateVariantsJobs400Response' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('\KlaviyoAPI\Model\GetCreateVariantsJobs400Response' !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-
-                    $parsed_content = json_decode(json_encode($content), TRUE);
-                    if (json_last_error() != JSON_ERROR_NONE) {
-                        $parsed_content = $content;
-                    }
-
-                    return [
-                        $parsed_content,
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-            }
-
-            $returnType = 'array<string,mixed>';
-            if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); //stream goes to serializer
-            } else {
-                $content = (string) $response->getBody();
-                if ($returnType !== 'string') {
-                    $content = json_decode($content);
-                }
-            }
-
-            $parsed_content = json_decode(json_encode($content), TRUE);
-            if (json_last_error() != JSON_ERROR_NONE) {
-                $parsed_content = $content;
-            }
-
-            return [
-                $parsed_content,
-                $response->getStatusCode(),
-                $response->getHeaders()
-            ];
-
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 201:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        'array<string,mixed>',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 400:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\KlaviyoAPI\Model\GetCreateVariantsJobs400Response',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 500:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\KlaviyoAPI\Model\GetCreateVariantsJobs400Response',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-            }
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation queryMetricAggregatesAsync
-     *
-     * Query Metric Aggregates
-     *
-     * @param  \KlaviyoAPI\Model\MetricAggregateQuery $metric_aggregate_query Retrieve Metric Aggregations (required)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function queryMetricAggregatesAsync($metric_aggregate_query, $apiKey = null)
-    {
-        return $this->queryMetricAggregatesAsyncWithHttpInfo($metric_aggregate_query, $apiKey)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation queryMetricAggregatesAsyncWithHttpInfo
-     *
-     * Query Metric Aggregates
-     *
-     * @param  \KlaviyoAPI\Model\MetricAggregateQuery $metric_aggregate_query Retrieve Metric Aggregations (required)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function queryMetricAggregatesAsyncWithHttpInfo($metric_aggregate_query, $apiKey = null)
-    {
-        $returnType = 'array<string,mixed>';
-        $request = $this->queryMetricAggregatesRequest($metric_aggregate_query, $apiKey);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ($returnType !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    $parsed_content = json_decode(json_encode($content), TRUE);
-                    if (json_last_error() != JSON_ERROR_NONE) {
-                        $parsed_content = $content;
-                    }
-
-                    return [
-                        $parsed_content,
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        (string) $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'queryMetricAggregates'
-     *
-     * @param  \KlaviyoAPI\Model\MetricAggregateQuery $metric_aggregate_query Retrieve Metric Aggregations (required)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    public function queryMetricAggregatesRequest($metric_aggregate_query, $apiKey = null)
-    {
-        // verify the required parameter 'metric_aggregate_query' is set
-        if ($metric_aggregate_query === null || (is_array($metric_aggregate_query) && count($metric_aggregate_query) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $metric_aggregate_query when calling queryMetricAggregates'
-            );
-        }
-
-        $resourcePath = '/api/metric-aggregates/';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-
-
-
-
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/json'],
-                ['application/json']
-            );
-        }
-
-        // for model (json/xml)
-        if (isset($metric_aggregate_query)) {
-            if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($metric_aggregate_query));
-            } else {
-                $httpBody = $metric_aggregate_query;
-            }
-        } elseif (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
-                    foreach ($formParamValueItems as $formParamValueItem) {
-                        $multipartContents[] = [
-                            'name' => $formParamName,
-                            'contents' => $formParamValueItem
-                        ];
-                    }
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($formParams);
-
-            } else {
-                // for HTTP post (form)
-                $httpBody = ObjectSerializer::buildQuery($formParams);
-            }
-        }
-
-        // this endpoint requires API key authentication
-        if ($apiKey == null) {
-            $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
-        } else {
-            $apiKey = 'Klaviyo-API-Key '.$apiKey;
-        }
-
-        $headers['Authorization'] = $apiKey;
-
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $defaultHeaders['revision'] = ['2023-06-15'];
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $query = ObjectSerializer::buildQuery($queryParams);
-        return new Request(
-            'POST',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody
