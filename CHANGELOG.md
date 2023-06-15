@@ -7,6 +7,20 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 NOTE: For more granular API-specific changes, please see our [API Changelog](https://developers.klaviyo.com/en/docs/changelog_)
 
+## [4.0.0] - revision 2023-06-15
+### Added
+- Accounts API is now available, this will allow you to access information about the Klaviyo account associated with your API key.
+  - `getAccounts`
+  - `getAccount`
+  
+**Note:** You will need to generate a new API key with either the `Accounts` scope enabled or `Full Access` to use these endpoints.
+
+### Removed
+- All `client` endpoints - While you could potentially get this repo to work for frontend and use only these the client endpoints, this is bad practice.
+ Klaviyo has the much lighter weight `klaviyo.js` wrapper [which you can read about here.](https://developers.klaviyo.com/en/docs/introduction_to_the_klaviyo_object)
+  - `createClientEvent`
+  - `createClientProfile`
+  - `createClientSubscript
 ## [2.0.0] - 2023-04-19
 
 ### Changed

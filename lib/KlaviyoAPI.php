@@ -5,9 +5,9 @@ use GuzzleHttp\Client as GuzzleClient;
 use KlaviyoAPI\ApiException;
 use KlaviyoAPI\Configuration;
 
+use KlaviyoAPI\API\AccountsApi;
 use KlaviyoAPI\API\CampaignsApi;
 use KlaviyoAPI\API\CatalogsApi;
-use KlaviyoAPI\API\ClientApi;
 use KlaviyoAPI\API\DataPrivacyApi;
 use KlaviyoAPI\API\EventsApi;
 use KlaviyoAPI\API\FlowsApi;
@@ -27,9 +27,9 @@ class KlaviyoAPI {
     public $num_retries;
     public $config;
     public $guzzle_options;
+    public $Accounts;
     public $Campaigns;
     public $Catalogs;
-    public $Client;
     public $DataPrivacy;
     public $Events;
     public $Flows;
@@ -61,6 +61,12 @@ class KlaviyoAPI {
         $this->config->setApiKey('Authorization',"Klaviyo-API-Key $this->api_key");
 
         
+        $this->Accounts = new Subclient(
+                new AccountsApi(new GuzzleClient($this->guzzle_options),$this->config),
+                $wait_seconds = $this->wait_seconds,
+                $num_retries = $this->num_retries,
+            );
+        
         $this->Campaigns = new Subclient(
                 new CampaignsApi(new GuzzleClient($this->guzzle_options),$this->config),
                 $wait_seconds = $this->wait_seconds,
@@ -69,12 +75,6 @@ class KlaviyoAPI {
         
         $this->Catalogs = new Subclient(
                 new CatalogsApi(new GuzzleClient($this->guzzle_options),$this->config),
-                $wait_seconds = $this->wait_seconds,
-                $num_retries = $this->num_retries,
-            );
-        
-        $this->Client = new Subclient(
-                new ClientApi(new GuzzleClient($this->guzzle_options),$this->config),
                 $wait_seconds = $this->wait_seconds,
                 $num_retries = $this->num_retries,
             );
