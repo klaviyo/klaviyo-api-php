@@ -16,11 +16,11 @@ NOTE: For more granular API-specific changes, please see our [API Changelog](htt
 **Note:** You will need to generate a new API key with either the `Accounts` scope enabled or `Full Access` to use these endpoints.
 
 ### Removed
-- All `client` endpoints - While you could potentially get this repo to work for frontend and use only these the client endpoints, this is bad practice.
- Klaviyo has the much lighter weight `klaviyo.js` wrapper [which you can read about here.](https://developers.klaviyo.com/en/docs/introduction_to_the_klaviyo_object)
+- All `client` endpoints
   - `createClientEvent`
   - `createClientProfile`
-  - `createClientSubscript
+  - `createClientSubscription`
+  
 ## [2.0.0] - 2023-04-19
 
 ### Changed
