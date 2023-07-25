@@ -1,4 +1,4 @@
-NOTE: we recently found a bug in the latest version, v5.0.0, that causes requests to `create_campaign` and `update_campaign` to error out. If you need to use those, we recommend using v4.0.0 for those until we have a patch in place. For folks using v4.0.0, you will need to refer to the API Reference Revision = `2023-06-15` (the previous API revision corresponding to SDK v4.0.0).
+NOTE: we recently found a bug in the latest version, `v5.0.0`, that causes requests to `create_campaign` and `update_campaign` to error out. If you need to use those, we recommend using `v4.0.0` for those until we have a patch in place. For folks using `v4.0.0`, you will need to refer to the API Reference Revision = `2023-06-15` (the previous API revision corresponding to SDK `v4.0.0`).
 
 # Klaviyo PHP SDK
 
