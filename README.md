@@ -1,4 +1,4 @@
-NOTE: we recently found a bug in the latest version, `v5.0.0`, that causes requests to `create_campaign` and `update_campaign` to error out. If you need to use those, we recommend using `v4.0.0` for those until we have a patch in place. For folks using `v4.0.0`, you will need to refer to the API Reference Revision = `2023-06-15` (the previous API revision corresponding to SDK `v4.0.0`).
+BUG NOTE: we are working on fixing a bug in the latest version, `v5.0.0`, that causes some requests to `create`/`update` `campaign`/`profile` that use `oneOf` params (see our [OpenAPI spec](https://github.com/klaviyo/openapi/blob/main/openapi/stable.json) for details) to error out with the following message: `TypeError: <SOME_RESOURCE>._from_openapi_data() missing <N> required positional argument: <SOME_ARGUMENT>`.  If you run into such an error, we recommend replacing that specific API call with an outright API call (see the example calls in our [API Reference](https://developers.klaviyo.com/en/reference/create_campaign), on the right-hand side, for full details).
 
 # Klaviyo PHP SDK
 
