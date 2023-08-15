@@ -7,7 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 NOTE: For more granular API-specific changes, please see our [API Changelog](https://developers.klaviyo.com/en/docs/changelog_)
 
-
+## [5.1.0] - revision 2023-08-15
+### Added
+- Flow Message Templates
+- You can now retrieve the templates associated with flow messages using `Flows->getFlowMessageTemplate()` or `Flows->getFlowMessageRelationshipsTemplate()` . You’re also able to include the template HTML for a flow message using `Flows->getFlowMessage($id, $include=['template'])`.
+- Create or Update Push Tokens
+- We have added an endpoint to create or update push tokens, `Profiles->createPushToken()`. This endpoint can be used to migrate profiles and their push tokens from another platform to Klaviyo. If you’re looking to register push tokens from users’ devices, please use our mobile SDKs.
 
 ## [5.0.0] - revision 2023-07-15
 ### Added
