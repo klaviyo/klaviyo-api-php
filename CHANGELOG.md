@@ -7,6 +7,26 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 NOTE: For more granular API-specific changes, please see our [API Changelog](https://developers.klaviyo.com/en/docs/changelog_)
 
+
+
+## [5.2.0] - revision 2023-09-15
+
+### Added
+
+- `Images` API
+  - We now support the following operations to work with images:
+    - `getImage`
+    - `getImages`
+    - `updateImage`
+    - `uploadImageFromFile`
+    - `uploadImageFromUrl`
+- `Coupons` API
+  - We now support CRUD operations for both Coupons and Coupon Codes
+  - Check out [Coupons API guide](https://developers.klaviyo.com/en/docs/use_klaviyos_coupons_api) for more information.
+- New profile merge endpoint: `Profiles->mergeProfiles`
+- Additional filtering/sorting option for getting profiles from `Lists` and `Segments`: `joined_group_at`
+- Increased the maximum page size limit for `Lists->getListRelationshipsProfiles` and `Segments->getSegmentRelationshipsProfiles` to 1000
+
 ## [5.1.0] - revision 2023-08-15
 ### Added
 - Flow Message Templates
