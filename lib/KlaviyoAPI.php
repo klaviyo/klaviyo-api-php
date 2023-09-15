@@ -8,9 +8,11 @@ use KlaviyoAPI\Configuration;
 use KlaviyoAPI\API\AccountsApi;
 use KlaviyoAPI\API\CampaignsApi;
 use KlaviyoAPI\API\CatalogsApi;
+use KlaviyoAPI\API\CouponsApi;
 use KlaviyoAPI\API\DataPrivacyApi;
 use KlaviyoAPI\API\EventsApi;
 use KlaviyoAPI\API\FlowsApi;
+use KlaviyoAPI\API\ImagesApi;
 use KlaviyoAPI\API\ListsApi;
 use KlaviyoAPI\API\MetricsApi;
 use KlaviyoAPI\API\ProfilesApi;
@@ -30,9 +32,11 @@ class KlaviyoAPI {
     public $Accounts;
     public $Campaigns;
     public $Catalogs;
+    public $Coupons;
     public $DataPrivacy;
     public $Events;
     public $Flows;
+    public $Images;
     public $Lists;
     public $Metrics;
     public $Profiles;
@@ -79,6 +83,12 @@ class KlaviyoAPI {
                 $num_retries = $this->num_retries,
             );
         
+        $this->Coupons = new Subclient(
+                new CouponsApi(new GuzzleClient($this->guzzle_options),$this->config),
+                $wait_seconds = $this->wait_seconds,
+                $num_retries = $this->num_retries,
+            );
+        
         $this->DataPrivacy = new Subclient(
                 new DataPrivacyApi(new GuzzleClient($this->guzzle_options),$this->config),
                 $wait_seconds = $this->wait_seconds,
@@ -93,6 +103,12 @@ class KlaviyoAPI {
         
         $this->Flows = new Subclient(
                 new FlowsApi(new GuzzleClient($this->guzzle_options),$this->config),
+                $wait_seconds = $this->wait_seconds,
+                $num_retries = $this->num_retries,
+            );
+        
+        $this->Images = new Subclient(
+                new ImagesApi(new GuzzleClient($this->guzzle_options),$this->config),
                 $wait_seconds = $this->wait_seconds,
                 $num_retries = $this->num_retries,
             );
