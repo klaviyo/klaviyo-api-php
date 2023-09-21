@@ -21,7 +21,28 @@ use KlaviyoAPI\API\TagsApi;
 use KlaviyoAPI\API\TemplatesApi;
 
 
-
+/**
+ * KlaviyoAPI
+ *
+ * @property string $api_key
+ * @property int $wait_seconds
+ * @property int $num_retries
+ * @property array $guzzle_options
+ * @property ProfilesApi $Profiles
+ * @property ListsApi $Lists
+ * @property CampaignsApi $Campaigns
+ * @property FlowsApi $Flows
+ * @property MetricsApi $Metrics
+ * @property EventsApi $Events
+ * @property TagsApi $Tags
+ * @property TemplatesApi $Templates
+ * @property AccountsApi $Accounts
+ * @property SegmentsApi $Segments
+ * @property ImagesApi $Images
+ * @property DataPrivacyApi $DataPrivacy
+ * @property CouponsApi $Coupons
+ * @property CatalogsApi $Catalogs
+ */
 
 class KlaviyoAPI {
     public $api_key = "API_KEY";
