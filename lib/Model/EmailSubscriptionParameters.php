@@ -1,6 +1,6 @@
 <?php
 /**
- * SegmentPartialUpdateQueryResourceObject
+ * EmailSubscriptionParameters
  *
  * PHP version 7.4
  *
@@ -33,7 +33,7 @@ use \ArrayAccess;
 use \KlaviyoAPI\ObjectSerializer;
 
 /**
- * SegmentPartialUpdateQueryResourceObject Class Doc Comment
+ * EmailSubscriptionParameters Class Doc Comment
  *
  * @category Class
  * @package  KlaviyoAPI
@@ -41,7 +41,7 @@ use \KlaviyoAPI\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class SegmentPartialUpdateQueryResourceObject implements ModelInterface, ArrayAccess, \JsonSerializable
+class EmailSubscriptionParameters implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class SegmentPartialUpdateQueryResourceObject implements ModelInterface, ArrayAc
       *
       * @var string
       */
-    protected static $openAPIModelName = 'SegmentPartialUpdateQueryResourceObject';
+    protected static $openAPIModelName = 'EmailSubscriptionParameters';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,9 +58,7 @@ class SegmentPartialUpdateQueryResourceObject implements ModelInterface, ArrayAc
       * @var string[]
       */
     protected static $openAPITypes = [
-        'type' => '\KlaviyoAPI\Model\SegmentEnum',
-        'id' => 'string',
-        'attributes' => '\KlaviyoAPI\Model\SegmentPartialUpdateQueryResourceObjectAttributes'
+        'marketing' => '\KlaviyoAPI\Model\MarketingSubscriptionParameters'
     ];
 
     /**
@@ -71,9 +69,7 @@ class SegmentPartialUpdateQueryResourceObject implements ModelInterface, ArrayAc
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'type' => null,
-        'id' => null,
-        'attributes' => null
+        'marketing' => null
     ];
 
     /**
@@ -103,9 +99,7 @@ class SegmentPartialUpdateQueryResourceObject implements ModelInterface, ArrayAc
      * @var string[]
      */
     protected static $attributeMap = [
-        'type' => 'type',
-        'id' => 'id',
-        'attributes' => 'attributes'
+        'marketing' => 'marketing'
     ];
 
     /**
@@ -114,9 +108,7 @@ class SegmentPartialUpdateQueryResourceObject implements ModelInterface, ArrayAc
      * @var string[]
      */
     protected static $setters = [
-        'type' => 'setType',
-        'id' => 'setId',
-        'attributes' => 'setAttributes'
+        'marketing' => 'setMarketing'
     ];
 
     /**
@@ -125,9 +117,7 @@ class SegmentPartialUpdateQueryResourceObject implements ModelInterface, ArrayAc
      * @var string[]
      */
     protected static $getters = [
-        'type' => 'getType',
-        'id' => 'getId',
-        'attributes' => 'getAttributes'
+        'marketing' => 'getMarketing'
     ];
 
     /**
@@ -187,9 +177,7 @@ class SegmentPartialUpdateQueryResourceObject implements ModelInterface, ArrayAc
      */
     public function __construct(array $data = null)
     {
-        $this->container['type'] = $data['type'] ?? null;
-        $this->container['id'] = $data['id'] ?? null;
-        $this->container['attributes'] = $data['attributes'] ?? null;
+        $this->container['marketing'] = $data['marketing'] ?? null;
     }
 
     /**
@@ -201,14 +189,8 @@ class SegmentPartialUpdateQueryResourceObject implements ModelInterface, ArrayAc
     {
         $invalidProperties = [];
 
-        if ($this->container['type'] === null) {
-            $invalidProperties[] = "'type' can't be null";
-        }
-        if ($this->container['id'] === null) {
-            $invalidProperties[] = "'id' can't be null";
-        }
-        if ($this->container['attributes'] === null) {
-            $invalidProperties[] = "'attributes' can't be null";
+        if ($this->container['marketing'] === null) {
+            $invalidProperties[] = "'marketing' can't be null";
         }
         return $invalidProperties;
     }
@@ -226,73 +208,25 @@ class SegmentPartialUpdateQueryResourceObject implements ModelInterface, ArrayAc
 
 
     /**
-     * Gets type
+     * Gets marketing
      *
-     * @return \KlaviyoAPI\Model\SegmentEnum
+     * @return \KlaviyoAPI\Model\MarketingSubscriptionParameters
      */
-    public function getType()
+    public function getMarketing()
     {
-        return $this->container['type'];
+        return $this->container['marketing'];
     }
 
     /**
-     * Sets type
+     * Sets marketing
      *
-     * @param \KlaviyoAPI\Model\SegmentEnum $type type
+     * @param \KlaviyoAPI\Model\MarketingSubscriptionParameters $marketing marketing
      *
      * @return self
      */
-    public function setType($type)
+    public function setMarketing($marketing)
     {
-        $this->container['type'] = $type;
-
-        return $this;
-    }
-
-    /**
-     * Gets id
-     *
-     * @return string
-     */
-    public function getId()
-    {
-        return $this->container['id'];
-    }
-
-    /**
-     * Sets id
-     *
-     * @param string $id id
-     *
-     * @return self
-     */
-    public function setId($id)
-    {
-        $this->container['id'] = $id;
-
-        return $this;
-    }
-
-    /**
-     * Gets attributes
-     *
-     * @return \KlaviyoAPI\Model\SegmentPartialUpdateQueryResourceObjectAttributes
-     */
-    public function getAttributes()
-    {
-        return $this->container['attributes'];
-    }
-
-    /**
-     * Sets attributes
-     *
-     * @param \KlaviyoAPI\Model\SegmentPartialUpdateQueryResourceObjectAttributes $attributes attributes
-     *
-     * @return self
-     */
-    public function setAttributes($attributes)
-    {
-        $this->container['attributes'] = $attributes;
+        $this->container['marketing'] = $marketing;
 
         return $this;
     }

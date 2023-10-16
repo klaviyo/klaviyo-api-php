@@ -1,6 +1,6 @@
 <?php
 /**
- * SegmentPartialUpdateQueryResourceObject
+ * MarketingSubscriptionParameters
  *
  * PHP version 7.4
  *
@@ -33,7 +33,7 @@ use \ArrayAccess;
 use \KlaviyoAPI\ObjectSerializer;
 
 /**
- * SegmentPartialUpdateQueryResourceObject Class Doc Comment
+ * MarketingSubscriptionParameters Class Doc Comment
  *
  * @category Class
  * @package  KlaviyoAPI
@@ -41,7 +41,7 @@ use \KlaviyoAPI\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class SegmentPartialUpdateQueryResourceObject implements ModelInterface, ArrayAccess, \JsonSerializable
+class MarketingSubscriptionParameters implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class SegmentPartialUpdateQueryResourceObject implements ModelInterface, ArrayAc
       *
       * @var string
       */
-    protected static $openAPIModelName = 'SegmentPartialUpdateQueryResourceObject';
+    protected static $openAPIModelName = 'MarketingSubscriptionParameters';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,9 +58,7 @@ class SegmentPartialUpdateQueryResourceObject implements ModelInterface, ArrayAc
       * @var string[]
       */
     protected static $openAPITypes = [
-        'type' => '\KlaviyoAPI\Model\SegmentEnum',
-        'id' => 'string',
-        'attributes' => '\KlaviyoAPI\Model\SegmentPartialUpdateQueryResourceObjectAttributes'
+        'consent' => 'string'
     ];
 
     /**
@@ -71,9 +69,7 @@ class SegmentPartialUpdateQueryResourceObject implements ModelInterface, ArrayAc
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'type' => null,
-        'id' => null,
-        'attributes' => null
+        'consent' => null
     ];
 
     /**
@@ -103,9 +99,7 @@ class SegmentPartialUpdateQueryResourceObject implements ModelInterface, ArrayAc
      * @var string[]
      */
     protected static $attributeMap = [
-        'type' => 'type',
-        'id' => 'id',
-        'attributes' => 'attributes'
+        'consent' => 'consent'
     ];
 
     /**
@@ -114,9 +108,7 @@ class SegmentPartialUpdateQueryResourceObject implements ModelInterface, ArrayAc
      * @var string[]
      */
     protected static $setters = [
-        'type' => 'setType',
-        'id' => 'setId',
-        'attributes' => 'setAttributes'
+        'consent' => 'setConsent'
     ];
 
     /**
@@ -125,9 +117,7 @@ class SegmentPartialUpdateQueryResourceObject implements ModelInterface, ArrayAc
      * @var string[]
      */
     protected static $getters = [
-        'type' => 'getType',
-        'id' => 'getId',
-        'attributes' => 'getAttributes'
+        'consent' => 'getConsent'
     ];
 
     /**
@@ -171,6 +161,19 @@ class SegmentPartialUpdateQueryResourceObject implements ModelInterface, ArrayAc
         return self::$openAPIModelName;
     }
 
+    public const CONSENT_SUBSCRIBED = 'SUBSCRIBED';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getConsentAllowableValues()
+    {
+        return [
+            self::CONSENT_SUBSCRIBED,
+        ];
+    }
 
     /**
      * Associative array for storing property values
@@ -187,9 +190,7 @@ class SegmentPartialUpdateQueryResourceObject implements ModelInterface, ArrayAc
      */
     public function __construct(array $data = null)
     {
-        $this->container['type'] = $data['type'] ?? null;
-        $this->container['id'] = $data['id'] ?? null;
-        $this->container['attributes'] = $data['attributes'] ?? null;
+        $this->container['consent'] = $data['consent'] ?? null;
     }
 
     /**
@@ -201,15 +202,18 @@ class SegmentPartialUpdateQueryResourceObject implements ModelInterface, ArrayAc
     {
         $invalidProperties = [];
 
-        if ($this->container['type'] === null) {
-            $invalidProperties[] = "'type' can't be null";
+        if ($this->container['consent'] === null) {
+            $invalidProperties[] = "'consent' can't be null";
         }
-        if ($this->container['id'] === null) {
-            $invalidProperties[] = "'id' can't be null";
+        $allowedValues = $this->getConsentAllowableValues();
+        if (!is_null($this->container['consent']) && !in_array($this->container['consent'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'consent', must be one of '%s'",
+                $this->container['consent'],
+                implode("', '", $allowedValues)
+            );
         }
-        if ($this->container['attributes'] === null) {
-            $invalidProperties[] = "'attributes' can't be null";
-        }
+
         return $invalidProperties;
     }
 
@@ -226,73 +230,35 @@ class SegmentPartialUpdateQueryResourceObject implements ModelInterface, ArrayAc
 
 
     /**
-     * Gets type
-     *
-     * @return \KlaviyoAPI\Model\SegmentEnum
-     */
-    public function getType()
-    {
-        return $this->container['type'];
-    }
-
-    /**
-     * Sets type
-     *
-     * @param \KlaviyoAPI\Model\SegmentEnum $type type
-     *
-     * @return self
-     */
-    public function setType($type)
-    {
-        $this->container['type'] = $type;
-
-        return $this;
-    }
-
-    /**
-     * Gets id
+     * Gets consent
      *
      * @return string
      */
-    public function getId()
+    public function getConsent()
     {
-        return $this->container['id'];
+        return $this->container['consent'];
     }
 
     /**
-     * Sets id
+     * Sets consent
      *
-     * @param string $id id
+     * @param string $consent The Consent status to subscribe to for the \"Marketing\" type. Currently supports \"SUBSCRIBED\".
      *
      * @return self
      */
-    public function setId($id)
+    public function setConsent($consent)
     {
-        $this->container['id'] = $id;
-
-        return $this;
-    }
-
-    /**
-     * Gets attributes
-     *
-     * @return \KlaviyoAPI\Model\SegmentPartialUpdateQueryResourceObjectAttributes
-     */
-    public function getAttributes()
-    {
-        return $this->container['attributes'];
-    }
-
-    /**
-     * Sets attributes
-     *
-     * @param \KlaviyoAPI\Model\SegmentPartialUpdateQueryResourceObjectAttributes $attributes attributes
-     *
-     * @return self
-     */
-    public function setAttributes($attributes)
-    {
-        $this->container['attributes'] = $attributes;
+        $allowedValues = $this->getConsentAllowableValues();
+        if (!in_array($consent, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'consent', must be one of '%s'",
+                    $consent,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['consent'] = $consent;
 
         return $this;
     }
