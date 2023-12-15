@@ -9,6 +9,28 @@ NOTE: For more granular API-specific changes, please see our [API Changelog](htt
 
 
 
+## [6.1.0] - revision 2023-12-15
+
+### Added
+
+#### New Endpoints: Bulk Profile Imports
+
+We have added the following endpoints to enable bulk profile imports:
+- `Profiles->spawnBulkProfileImportJob`
+- `Profiles->getBulkProfileImportJob`
+- `Profiles->getBulkProfileImportJobs`
+- `Profiles->getBulkProfileImportJobLists`
+- `Profiles->getBulkProfileImportJobProfiles`
+- `Profiles->getBulkProfileImportJobImportErrors`
+- `Profiles->getBulkProfileImportJobRelationshipsProfiles`
+- `Profiles->getBulkProfileImportJobRelationshipsLists`
+
+### Changed
+
+#### Relationships field of `Profiles->subscribeProfiles` payload is now optional
+
+When using `Profiles->subscribeProfiles`, the `relationships` field of the payload is now optional (see [Profiles->subscribeProfiles reference](https://developers.klaviyo.com/en/reference/subscribe_profiles) for details).
+
 ## [6.0.0] - revision 2023-10-15
 
 ### Added
