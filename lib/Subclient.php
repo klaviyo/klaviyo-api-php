@@ -1,15 +1,29 @@
 <?php
 namespace KlaviyoAPI;
 
+/**
+ * @template TWraps object
+ * @mixin TWraps
+ */
 class Subclient {
 
+    /** @var object */
     public $api_instance;
+    /** @var int */
     public $wait_seconds;
+    /** @var int */
     public $num_retries;
+    /** @var array */
     public $retry_codes;
-
+    /** @var array<int, string> */
     public $_CURSOR_SEARCH_TOKENS;
 
+    /**
+     * @param object $api_instance
+     * @param int $wait_seconds
+     * @param int $num_retries
+     * @param array $retry_codes
+     */
     public function __construct(
         $api_instance, 
         $wait_seconds = 3,
