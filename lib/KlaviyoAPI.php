@@ -34,33 +34,33 @@ class KlaviyoAPI {
     public $config;
     /** @var array */
     public $guzzle_options;
-    /** @var Subclient */
+    /** @var Subclient<AccountsApi> */
     public $Accounts;
-    /** @var Subclient */
+    /** @var Subclient<CampaignsApi> */
     public $Campaigns;
-    /** @var Subclient */
+    /** @var Subclient<CatalogsApi> */
     public $Catalogs;
-    /** @var Subclient */
+    /** @var Subclient<CouponsApi> */
     public $Coupons;
-    /** @var Subclient */
+    /** @var Subclient<DataPrivacyApi> */
     public $DataPrivacy;
-    /** @var Subclient */
+    /** @var Subclient<EventsApi> */
     public $Events;
-    /** @var Subclient */
+    /** @var Subclient<FlowsApi> */
     public $Flows;
-    /** @var Subclient */
+    /** @var Subclient<ImagesApi> */
     public $Images;
-    /** @var Subclient */
+    /** @var Subclient<ListsApi> */
     public $Lists;
-    /** @var Subclient */
+    /** @var Subclient<MetricsApi> */
     public $Metrics;
-    /** @var Subclient */
+    /** @var Subclient<ProfilesApi> */
     public $Profiles;
-    /** @var Subclient */
+    /** @var Subclient<SegmentsApi> */
     public $Segments;
-    /** @var Subclient */
+    /** @var Subclient<TagsApi> */
     public $Tags;
-    /** @var Subclient */
+    /** @var Subclient<TemplatesApi> */
     public $Templates;
 
 
