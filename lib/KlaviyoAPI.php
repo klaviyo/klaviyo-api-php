@@ -24,28 +24,52 @@ use KlaviyoAPI\API\TemplatesApi;
 
 
 class KlaviyoAPI {
+    /** @var string */
     public $api_key = "API_KEY";
+    /** @var int */
     public $wait_seconds;
+    /** @var int */
     public $num_retries;
+    /** @var string */
     public $config;
+    /** @var array */
     public $guzzle_options;
+    /** @var Subclient */
     public $Accounts;
+    /** @var Subclient */
     public $Campaigns;
+    /** @var Subclient */
     public $Catalogs;
+    /** @var Subclient */
     public $Coupons;
+    /** @var Subclient */
     public $DataPrivacy;
+    /** @var Subclient */
     public $Events;
+    /** @var Subclient */
     public $Flows;
+    /** @var Subclient */
     public $Images;
+    /** @var Subclient */
     public $Lists;
+    /** @var Subclient */
     public $Metrics;
+    /** @var Subclient */
     public $Profiles;
+    /** @var Subclient */
     public $Segments;
+    /** @var Subclient */
     public $Tags;
+    /** @var Subclient */
     public $Templates;
-    
 
 
+    /**
+     * @param string $api_key
+     * @param int $num_retries
+     * @param int $wait_seconds
+     * @param array $guzzle_options
+     */
     public function __construct($api_key, $num_retries = 3, $wait_seconds = 3, $guzzle_options = []) {
 
         if (gettype($num_retries) == 'NULL'){
