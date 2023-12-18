@@ -24,28 +24,52 @@ use KlaviyoAPI\API\TemplatesApi;
 
 
 class KlaviyoAPI {
+    /** @var string */
     public $api_key = "API_KEY";
+    /** @var int */
     public $wait_seconds;
+    /** @var int */
     public $num_retries;
+    /** @var string */
     public $config;
+    /** @var array */
     public $guzzle_options;
+    /** @var Subclient<AccountsApi> */
     public $Accounts;
+    /** @var Subclient<CampaignsApi> */
     public $Campaigns;
+    /** @var Subclient<CatalogsApi> */
     public $Catalogs;
+    /** @var Subclient<CouponsApi> */
     public $Coupons;
+    /** @var Subclient<DataPrivacyApi> */
     public $DataPrivacy;
+    /** @var Subclient<EventsApi> */
     public $Events;
+    /** @var Subclient<FlowsApi> */
     public $Flows;
+    /** @var Subclient<ImagesApi> */
     public $Images;
+    /** @var Subclient<ListsApi> */
     public $Lists;
+    /** @var Subclient<MetricsApi> */
     public $Metrics;
+    /** @var Subclient<ProfilesApi> */
     public $Profiles;
+    /** @var Subclient<SegmentsApi> */
     public $Segments;
+    /** @var Subclient<TagsApi> */
     public $Tags;
+    /** @var Subclient<TemplatesApi> */
     public $Templates;
-    
 
 
+    /**
+     * @param string $api_key
+     * @param int $num_retries
+     * @param int $wait_seconds
+     * @param array $guzzle_options
+     */
     public function __construct($api_key, $num_retries = 3, $wait_seconds = 3, $guzzle_options = []) {
 
         if (gettype($num_retries) == 'NULL'){
