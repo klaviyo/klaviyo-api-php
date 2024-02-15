@@ -16,6 +16,7 @@ use KlaviyoAPI\API\ImagesApi;
 use KlaviyoAPI\API\ListsApi;
 use KlaviyoAPI\API\MetricsApi;
 use KlaviyoAPI\API\ProfilesApi;
+use KlaviyoAPI\API\ReportingApi;
 use KlaviyoAPI\API\SegmentsApi;
 use KlaviyoAPI\API\TagsApi;
 use KlaviyoAPI\API\TemplatesApi;
@@ -40,6 +41,7 @@ class KlaviyoAPI {
     public $Lists;
     public $Metrics;
     public $Profiles;
+    public $Reporting;
     public $Segments;
     public $Tags;
     public $Templates;
@@ -127,6 +129,12 @@ class KlaviyoAPI {
         
         $this->Profiles = new Subclient(
                 new ProfilesApi(new GuzzleClient($this->guzzle_options),$this->config),
+                $wait_seconds = $this->wait_seconds,
+                $num_retries = $this->num_retries,
+            );
+        
+        $this->Reporting = new Subclient(
+                new ReportingApi(new GuzzleClient($this->guzzle_options),$this->config),
                 $wait_seconds = $this->wait_seconds,
                 $num_retries = $this->num_retries,
             );
