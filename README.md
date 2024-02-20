@@ -223,7 +223,7 @@ If you'd like to extend error handling beyond what the SDK supports natively, yo
 
 * `getCode() : int`
 * `getMessage() : str`
-* `getReponseBody() : bytes`
+* `getResponseBody() : bytes`
 * `getResponseHeaders() : string[]`
 
 For example:
