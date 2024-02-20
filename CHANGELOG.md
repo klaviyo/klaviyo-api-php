@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 NOTE: For more granular API-specific changes, please see our [API Changelog](https://developers.klaviyo.com/en/docs/changelog_)
 
+
+
 ## [7.0.0] - revision 2024-02-15
 
 ### Added: 
@@ -33,7 +35,6 @@ NOTE: For more granular API-specific changes, please see our [API Changelog](htt
 - Removed the $attribution field from event_properties in getEvent and  getEvents (breaking change).
 	
   - To include this data in your request, add include=attributions to your request.
-
 
 ## [6.1.0] - revision 2023-12-15
 
