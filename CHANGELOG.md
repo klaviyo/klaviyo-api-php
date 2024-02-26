@@ -9,6 +9,21 @@ NOTE: For more granular API-specific changes, please see our [API Changelog](htt
 
 
 
+## [7.1.0] - revision 2024-02-15
+
+### Added: 
+
+- Optional `$user_agent_suffix` param to client instantiation
+  - example usage: 
+  ```
+    $klaviyo = new KlaviyoAPI(
+        'YOUR_API_KEY', 
+        $num_retries = 3, 
+        $wait_seconds = 3,
+        $guzzle_options = [],
+        $user_agent_suffix = "YOUR_APP_NAME");
+  ```
+
 ## [7.0.0] - revision 2024-02-15
 
 ### Added: 
