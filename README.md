@@ -102,7 +102,7 @@ $klaviyo = new KlaviyoAPI(
     $num_retries = 3, 
     $wait_seconds = 3,
     $guzzle_options = [],
-    $user_agent_suffix = "YOUR_APP_NAME");
+    $user_agent_suffix = "/YOUR_APP_NAME");
 
 $response = $klaviyo->Metrics->getMetrics();
 ```
