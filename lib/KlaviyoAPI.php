@@ -48,7 +48,7 @@ class KlaviyoAPI {
     
 
 
-    public function __construct($api_key, $num_retries = 3, $wait_seconds = 3, $guzzle_options = []) {
+    public function __construct($api_key, $num_retries = 3, $wait_seconds = 3, $guzzle_options = [], $user_agent_suffix = "") {
 
         if (gettype($num_retries) == 'NULL'){
             $num_retries = 3;
@@ -65,6 +65,9 @@ class KlaviyoAPI {
 
         $this->config = clone Configuration::getDefaultConfiguration();
         $this->config->setApiKey('Authorization',"Klaviyo-API-Key $this->api_key");
+        $user_agent = $this->config->getUserAgent();
+        $user_agent = $user_agent . $user_agent_suffix;
+        $this->config->setUserAgent($user_agent);
 
         
         $this->Accounts = new Subclient(
