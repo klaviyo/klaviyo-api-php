@@ -1,6 +1,6 @@
 {
     "name": "klaviyo/api",
-    "version": "7.1.0",
+    "version": "7.1.1",
     "description": "PHP SDK for Klaviyo's API.",
     "keywords": [
         "openapitools",

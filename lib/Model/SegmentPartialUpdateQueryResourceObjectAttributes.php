@@ -58,7 +58,8 @@ class SegmentPartialUpdateQueryResourceObjectAttributes implements ModelInterfac
       * @var string[]
       */
     protected static $openAPITypes = [
-        'name' => 'string'
+        'name' => 'string',
+        'is_starred' => 'bool'
     ];
 
     /**
@@ -69,7 +70,8 @@ class SegmentPartialUpdateQueryResourceObjectAttributes implements ModelInterfac
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'name' => null
+        'name' => null,
+        'is_starred' => null
     ];
 
     /**
@@ -78,7 +80,8 @@ class SegmentPartialUpdateQueryResourceObjectAttributes implements ModelInterfac
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'name' => false
+        'name' => false,
+		'is_starred' => false
     ];
 
     /**
@@ -157,7 +160,8 @@ class SegmentPartialUpdateQueryResourceObjectAttributes implements ModelInterfac
      * @var string[]
      */
     protected static $attributeMap = [
-        'name' => 'name'
+        'name' => 'name',
+        'is_starred' => 'is_starred'
     ];
 
     /**
@@ -166,7 +170,8 @@ class SegmentPartialUpdateQueryResourceObjectAttributes implements ModelInterfac
      * @var string[]
      */
     protected static $setters = [
-        'name' => 'setName'
+        'name' => 'setName',
+        'is_starred' => 'setIsStarred'
     ];
 
     /**
@@ -175,7 +180,8 @@ class SegmentPartialUpdateQueryResourceObjectAttributes implements ModelInterfac
      * @var string[]
      */
     protected static $getters = [
-        'name' => 'getName'
+        'name' => 'getName',
+        'is_starred' => 'getIsStarred'
     ];
 
     /**
@@ -236,6 +242,7 @@ class SegmentPartialUpdateQueryResourceObjectAttributes implements ModelInterfac
     public function __construct(array $data = null)
     {
         $this->setIfExists('name', $data ?? [], null);
+        $this->setIfExists('is_starred', $data ?? [], null);
     }
 
     /**
@@ -305,6 +312,35 @@ class SegmentPartialUpdateQueryResourceObjectAttributes implements ModelInterfac
         }
 
         $this->container['name'] = $name;
+
+        return $this;
+    }
+
+    /**
+     * Gets is_starred
+     *
+     * @return bool|null
+     */
+    public function getIsStarred()
+    {
+        return $this->container['is_starred'];
+    }
+
+    /**
+     * Sets is_starred
+     *
+     * @param bool|null $is_starred is_starred
+     *
+     * @return self
+     */
+    public function setIsStarred($is_starred)
+    {
+
+        if (is_null($is_starred)) {
+            throw new \InvalidArgumentException('non-nullable is_starred cannot be null');
+        }
+
+        $this->container['is_starred'] = $is_starred;
 
         return $this;
     }
