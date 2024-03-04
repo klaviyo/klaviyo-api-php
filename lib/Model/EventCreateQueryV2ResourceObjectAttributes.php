@@ -61,6 +61,7 @@ class EventCreateQueryV2ResourceObjectAttributes implements ModelInterface, Arra
         'properties' => 'object',
         'time' => '\DateTime',
         'value' => 'float',
+        'value_currency' => 'string',
         'unique_id' => 'string',
         'metric' => '\KlaviyoAPI\Model\EventCreateQueryV2ResourceObjectAttributesMetric',
         'profile' => '\KlaviyoAPI\Model\EventCreateQueryV2ResourceObjectAttributesProfile'
@@ -77,6 +78,7 @@ class EventCreateQueryV2ResourceObjectAttributes implements ModelInterface, Arra
         'properties' => null,
         'time' => 'date-time',
         'value' => null,
+        'value_currency' => null,
         'unique_id' => null,
         'metric' => null,
         'profile' => null
@@ -91,6 +93,7 @@ class EventCreateQueryV2ResourceObjectAttributes implements ModelInterface, Arra
         'properties' => false,
 		'time' => false,
 		'value' => false,
+		'value_currency' => false,
 		'unique_id' => false,
 		'metric' => false,
 		'profile' => false
@@ -175,6 +178,7 @@ class EventCreateQueryV2ResourceObjectAttributes implements ModelInterface, Arra
         'properties' => 'properties',
         'time' => 'time',
         'value' => 'value',
+        'value_currency' => 'value_currency',
         'unique_id' => 'unique_id',
         'metric' => 'metric',
         'profile' => 'profile'
@@ -189,6 +193,7 @@ class EventCreateQueryV2ResourceObjectAttributes implements ModelInterface, Arra
         'properties' => 'setProperties',
         'time' => 'setTime',
         'value' => 'setValue',
+        'value_currency' => 'setValueCurrency',
         'unique_id' => 'setUniqueId',
         'metric' => 'setMetric',
         'profile' => 'setProfile'
@@ -203,6 +208,7 @@ class EventCreateQueryV2ResourceObjectAttributes implements ModelInterface, Arra
         'properties' => 'getProperties',
         'time' => 'getTime',
         'value' => 'getValue',
+        'value_currency' => 'getValueCurrency',
         'unique_id' => 'getUniqueId',
         'metric' => 'getMetric',
         'profile' => 'getProfile'
@@ -268,6 +274,7 @@ class EventCreateQueryV2ResourceObjectAttributes implements ModelInterface, Arra
         $this->setIfExists('properties', $data ?? [], null);
         $this->setIfExists('time', $data ?? [], null);
         $this->setIfExists('value', $data ?? [], null);
+        $this->setIfExists('value_currency', $data ?? [], null);
         $this->setIfExists('unique_id', $data ?? [], null);
         $this->setIfExists('metric', $data ?? [], null);
         $this->setIfExists('profile', $data ?? [], null);
@@ -395,7 +402,7 @@ class EventCreateQueryV2ResourceObjectAttributes implements ModelInterface, Arra
     /**
      * Sets value
      *
-     * @param float|null $value A numeric value to associate with this event. For example, the dollar amount of a purchase.
+     * @param float|null $value A numeric, monetary value to associate with this event. For example, the dollar amount of a purchase.
      *
      * @return self
      */
@@ -407,6 +414,35 @@ class EventCreateQueryV2ResourceObjectAttributes implements ModelInterface, Arra
         }
 
         $this->container['value'] = $value;
+
+        return $this;
+    }
+
+    /**
+     * Gets value_currency
+     *
+     * @return string|null
+     */
+    public function getValueCurrency()
+    {
+        return $this->container['value_currency'];
+    }
+
+    /**
+     * Sets value_currency
+     *
+     * @param string|null $value_currency The ISO 4217 currency code of the value associated with the event.
+     *
+     * @return self
+     */
+    public function setValueCurrency($value_currency)
+    {
+
+        if (is_null($value_currency)) {
+            throw new \InvalidArgumentException('non-nullable value_currency cannot be null');
+        }
+
+        $this->container['value_currency'] = $value_currency;
 
         return $this;
     }
