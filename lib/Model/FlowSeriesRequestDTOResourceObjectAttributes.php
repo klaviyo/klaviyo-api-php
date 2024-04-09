@@ -90,7 +90,7 @@ class FlowSeriesRequestDTOResourceObjectAttributes implements ModelInterface, Ar
 		'timeframe' => false,
 		'interval' => false,
 		'conversion_metric_id' => false,
-		'filter' => false
+		'filter' => true
     ];
 
     /**
@@ -561,7 +561,7 @@ class FlowSeriesRequestDTOResourceObjectAttributes implements ModelInterface, Ar
     /**
      * Sets filter
      *
-     * @param string|null $filter API filter string used to filter the query. Allowed filters are flow_id, send_channel, flow_message_id. Allowed operators are equals, contains-any. Only one filter can be used per attribute, only AND can be used as a combination operator. Max of 100 messages per ANY filter.
+     * @param string|null $filter API filter string used to filter the query. Allowed filters are flow_id, send_channel, flow_message_id. Allowed operators are equals, contains-any. Only one filter can be used per attribute, only AND can be used as a combination operator. Max of 100 messages per ANY filter. When filtering on send_channel, allowed values are email, push-notification, sms.
      *
      * @return self
      */
@@ -569,7 +569,14 @@ class FlowSeriesRequestDTOResourceObjectAttributes implements ModelInterface, Ar
     {
 
         if (is_null($filter)) {
-            throw new \InvalidArgumentException('non-nullable filter cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'filter');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('filter', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
 
         $this->container['filter'] = $filter;

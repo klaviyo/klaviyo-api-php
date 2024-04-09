@@ -80,8 +80,8 @@ class ImagePartialUpdateQueryResourceObjectAttributes implements ModelInterface,
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'name' => false,
-		'hidden' => false
+        'name' => true,
+		'hidden' => true
     ];
 
     /**
@@ -308,7 +308,14 @@ class ImagePartialUpdateQueryResourceObjectAttributes implements ModelInterface,
     {
 
         if (is_null($name)) {
-            throw new \InvalidArgumentException('non-nullable name cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'name');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('name', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
 
         $this->container['name'] = $name;
@@ -337,7 +344,14 @@ class ImagePartialUpdateQueryResourceObjectAttributes implements ModelInterface,
     {
 
         if (is_null($hidden)) {
-            throw new \InvalidArgumentException('non-nullable hidden cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'hidden');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('hidden', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
 
         $this->container['hidden'] = $hidden;

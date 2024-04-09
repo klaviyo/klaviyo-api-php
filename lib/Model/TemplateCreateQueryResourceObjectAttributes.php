@@ -86,8 +86,8 @@ class TemplateCreateQueryResourceObjectAttributes implements ModelInterface, Arr
     protected static array $openAPINullables = [
         'name' => false,
 		'editor_type' => false,
-		'html' => false,
-		'text' => false
+		'html' => true,
+		'text' => true
     ];
 
     /**
@@ -386,7 +386,14 @@ class TemplateCreateQueryResourceObjectAttributes implements ModelInterface, Arr
     {
 
         if (is_null($html)) {
-            throw new \InvalidArgumentException('non-nullable html cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'html');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('html', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
 
         $this->container['html'] = $html;
@@ -415,7 +422,14 @@ class TemplateCreateQueryResourceObjectAttributes implements ModelInterface, Arr
     {
 
         if (is_null($text)) {
-            throw new \InvalidArgumentException('non-nullable text cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'text');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('text', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
 
         $this->container['text'] = $text;

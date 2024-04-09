@@ -87,7 +87,7 @@ class CampaignValuesRequestDTOResourceObjectAttributes implements ModelInterface
         'statistics' => false,
 		'timeframe' => false,
 		'conversion_metric_id' => false,
-		'filter' => false
+		'filter' => true
     ];
 
     /**
@@ -484,7 +484,7 @@ class CampaignValuesRequestDTOResourceObjectAttributes implements ModelInterface
     /**
      * Sets filter
      *
-     * @param string|null $filter API filter string used to filter the query. Allowed filters are send_channel, campaign_id. Allowed operators are equals, contains-any. Only one filter can be used per attribute, only AND can be used as a combination operator. Max of 100 messages per ANY filter.
+     * @param string|null $filter API filter string used to filter the query. Allowed filters are send_channel, campaign_id. Allowed operators are equals, contains-any. Only one filter can be used per attribute, only AND can be used as a combination operator. Max of 100 messages per ANY filter. When filtering on send_channel, allowed values are email, push-notification, sms.
      *
      * @return self
      */
@@ -492,7 +492,14 @@ class CampaignValuesRequestDTOResourceObjectAttributes implements ModelInterface
     {
 
         if (is_null($filter)) {
-            throw new \InvalidArgumentException('non-nullable filter cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'filter');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('filter', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
 
         $this->container['filter'] = $filter;

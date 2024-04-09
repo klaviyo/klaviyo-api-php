@@ -1,6 +1,6 @@
 <?php
 /**
- * ProfileSuppressionDeleteQueryResourceObjectAttributes
+ * PushProfileUpsertQueryResourceObject
  *
  * PHP version 7.4
  *
@@ -33,7 +33,7 @@ use \ArrayAccess;
 use \KlaviyoAPI\ObjectSerializer;
 
 /**
- * ProfileSuppressionDeleteQueryResourceObjectAttributes Class Doc Comment
+ * PushProfileUpsertQueryResourceObject Class Doc Comment
  *
  * @category Class
  * @package  KlaviyoAPI
@@ -41,7 +41,7 @@ use \KlaviyoAPI\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class ProfileSuppressionDeleteQueryResourceObjectAttributes implements ModelInterface, ArrayAccess, \JsonSerializable
+class PushProfileUpsertQueryResourceObject implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class ProfileSuppressionDeleteQueryResourceObjectAttributes implements ModelInte
       *
       * @var string
       */
-    protected static $openAPIModelName = 'ProfileSuppressionDeleteQueryResourceObject_attributes';
+    protected static $openAPIModelName = 'PushProfileUpsertQueryResourceObject';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,7 +58,9 @@ class ProfileSuppressionDeleteQueryResourceObjectAttributes implements ModelInte
       * @var string[]
       */
     protected static $openAPITypes = [
-        'email' => 'string'
+        'type' => '\KlaviyoAPI\Model\ProfileEnum',
+        'id' => 'string',
+        'attributes' => '\KlaviyoAPI\Model\PushProfileUpsertQueryResourceObjectAttributes'
     ];
 
     /**
@@ -69,7 +71,9 @@ class ProfileSuppressionDeleteQueryResourceObjectAttributes implements ModelInte
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'email' => null
+        'type' => null,
+        'id' => null,
+        'attributes' => null
     ];
 
     /**
@@ -78,7 +82,9 @@ class ProfileSuppressionDeleteQueryResourceObjectAttributes implements ModelInte
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'email' => true
+        'type' => false,
+		'id' => true,
+		'attributes' => false
     ];
 
     /**
@@ -157,7 +163,9 @@ class ProfileSuppressionDeleteQueryResourceObjectAttributes implements ModelInte
      * @var string[]
      */
     protected static $attributeMap = [
-        'email' => 'email'
+        'type' => 'type',
+        'id' => 'id',
+        'attributes' => 'attributes'
     ];
 
     /**
@@ -166,7 +174,9 @@ class ProfileSuppressionDeleteQueryResourceObjectAttributes implements ModelInte
      * @var string[]
      */
     protected static $setters = [
-        'email' => 'setEmail'
+        'type' => 'setType',
+        'id' => 'setId',
+        'attributes' => 'setAttributes'
     ];
 
     /**
@@ -175,7 +185,9 @@ class ProfileSuppressionDeleteQueryResourceObjectAttributes implements ModelInte
      * @var string[]
      */
     protected static $getters = [
-        'email' => 'getEmail'
+        'type' => 'getType',
+        'id' => 'getId',
+        'attributes' => 'getAttributes'
     ];
 
     /**
@@ -235,7 +247,9 @@ class ProfileSuppressionDeleteQueryResourceObjectAttributes implements ModelInte
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('email', $data ?? [], null);
+        $this->setIfExists('type', $data ?? [], null);
+        $this->setIfExists('id', $data ?? [], null);
+        $this->setIfExists('attributes', $data ?? [], null);
     }
 
     /**
@@ -265,6 +279,12 @@ class ProfileSuppressionDeleteQueryResourceObjectAttributes implements ModelInte
     {
         $invalidProperties = [];
 
+        if ($this->container['type'] === null) {
+            $invalidProperties[] = "'type' can't be null";
+        }
+        if ($this->container['attributes'] === null) {
+            $invalidProperties[] = "'attributes' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -281,37 +301,95 @@ class ProfileSuppressionDeleteQueryResourceObjectAttributes implements ModelInte
 
 
     /**
-     * Gets email
+     * Gets type
      *
-     * @return string|null
+     * @return \KlaviyoAPI\Model\ProfileEnum
      */
-    public function getEmail()
+    public function getType()
     {
-        return $this->container['email'];
+        return $this->container['type'];
     }
 
     /**
-     * Sets email
+     * Sets type
      *
-     * @param string|null $email The email of the profile to unsuppress.
+     * @param \KlaviyoAPI\Model\ProfileEnum $type type
      *
      * @return self
      */
-    public function setEmail($email)
+    public function setType($type)
     {
 
-        if (is_null($email)) {
-            array_push($this->openAPINullablesSetToNull, 'email');
+        if (is_null($type)) {
+            throw new \InvalidArgumentException('non-nullable type cannot be null');
+        }
+
+        $this->container['type'] = $type;
+
+        return $this;
+    }
+
+    /**
+     * Gets id
+     *
+     * @return string|null
+     */
+    public function getId()
+    {
+        return $this->container['id'];
+    }
+
+    /**
+     * Sets id
+     *
+     * @param string|null $id Primary key that uniquely identifies this profile. Generated by Klaviyo.
+     *
+     * @return self
+     */
+    public function setId($id)
+    {
+
+        if (is_null($id)) {
+            array_push($this->openAPINullablesSetToNull, 'id');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('email', $nullablesSetToNull);
+            $index = array_search('id', $nullablesSetToNull);
             if ($index !== FALSE) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
 
-        $this->container['email'] = $email;
+        $this->container['id'] = $id;
+
+        return $this;
+    }
+
+    /**
+     * Gets attributes
+     *
+     * @return \KlaviyoAPI\Model\PushProfileUpsertQueryResourceObjectAttributes
+     */
+    public function getAttributes()
+    {
+        return $this->container['attributes'];
+    }
+
+    /**
+     * Sets attributes
+     *
+     * @param \KlaviyoAPI\Model\PushProfileUpsertQueryResourceObjectAttributes $attributes attributes
+     *
+     * @return self
+     */
+    public function setAttributes($attributes)
+    {
+
+        if (is_null($attributes)) {
+            throw new \InvalidArgumentException('non-nullable attributes cannot be null');
+        }
+
+        $this->container['attributes'] = $attributes;
 
         return $this;
     }

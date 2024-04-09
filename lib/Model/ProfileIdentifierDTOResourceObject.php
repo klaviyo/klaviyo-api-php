@@ -83,7 +83,7 @@ class ProfileIdentifierDTOResourceObject implements ModelInterface, ArrayAccess,
       */
     protected static array $openAPINullables = [
         'type' => false,
-		'id' => false,
+		'id' => true,
 		'attributes' => false
     ];
 
@@ -350,7 +350,14 @@ class ProfileIdentifierDTOResourceObject implements ModelInterface, ArrayAccess,
     {
 
         if (is_null($id)) {
-            throw new \InvalidArgumentException('non-nullable id cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
 
         $this->container['id'] = $id;

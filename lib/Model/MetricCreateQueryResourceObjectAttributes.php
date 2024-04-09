@@ -81,7 +81,7 @@ class MetricCreateQueryResourceObjectAttributes implements ModelInterface, Array
       */
     protected static array $openAPINullables = [
         'name' => false,
-		'service' => false
+		'service' => true
     ];
 
     /**
@@ -340,7 +340,14 @@ class MetricCreateQueryResourceObjectAttributes implements ModelInterface, Array
     {
 
         if (is_null($service)) {
-            throw new \InvalidArgumentException('non-nullable service cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'service');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('service', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
 
         $this->container['service'] = $service;

@@ -82,9 +82,9 @@ class TemplateUpdateQueryResourceObjectAttributes implements ModelInterface, Arr
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'name' => false,
-		'html' => false,
-		'text' => false
+        'name' => true,
+		'html' => true,
+		'text' => true
     ];
 
     /**
@@ -315,7 +315,14 @@ class TemplateUpdateQueryResourceObjectAttributes implements ModelInterface, Arr
     {
 
         if (is_null($name)) {
-            throw new \InvalidArgumentException('non-nullable name cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'name');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('name', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
 
         $this->container['name'] = $name;
@@ -344,7 +351,14 @@ class TemplateUpdateQueryResourceObjectAttributes implements ModelInterface, Arr
     {
 
         if (is_null($html)) {
-            throw new \InvalidArgumentException('non-nullable html cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'html');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('html', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
 
         $this->container['html'] = $html;
@@ -373,7 +387,14 @@ class TemplateUpdateQueryResourceObjectAttributes implements ModelInterface, Arr
     {
 
         if (is_null($text)) {
-            throw new \InvalidArgumentException('non-nullable text cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'text');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('text', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
 
         $this->container['text'] = $text;

@@ -91,8 +91,8 @@ class CampaignCreateQueryResourceObjectAttributes implements ModelInterface, Arr
         'name' => false,
 		'audiences' => false,
 		'send_strategy' => false,
-		'send_options' => false,
-		'tracking_options' => false,
+		'send_options' => true,
+		'tracking_options' => true,
 		'campaign_messages' => false
     ];
 
@@ -432,7 +432,14 @@ class CampaignCreateQueryResourceObjectAttributes implements ModelInterface, Arr
     {
 
         if (is_null($send_options)) {
-            throw new \InvalidArgumentException('non-nullable send_options cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'send_options');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('send_options', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
 
         $this->container['send_options'] = $send_options;
@@ -461,7 +468,14 @@ class CampaignCreateQueryResourceObjectAttributes implements ModelInterface, Arr
     {
 
         if (is_null($tracking_options)) {
-            throw new \InvalidArgumentException('non-nullable tracking_options cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'tracking_options');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('tracking_options', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
 
         $this->container['tracking_options'] = $tracking_options;

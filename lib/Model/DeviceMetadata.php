@@ -100,18 +100,18 @@ class DeviceMetadata implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'device_id' => false,
-		'klaviyo_sdk' => false,
-		'sdk_version' => false,
-		'device_model' => false,
-		'os_name' => false,
-		'os_version' => false,
-		'manufacturer' => false,
-		'app_name' => false,
-		'app_version' => false,
-		'app_build' => false,
-		'app_id' => false,
-		'environment' => false
+        'device_id' => true,
+		'klaviyo_sdk' => true,
+		'sdk_version' => true,
+		'device_model' => true,
+		'os_name' => true,
+		'os_version' => true,
+		'manufacturer' => true,
+		'app_name' => true,
+		'app_version' => true,
+		'app_build' => true,
+		'app_id' => true,
+		'environment' => true
     ];
 
     /**
@@ -456,7 +456,14 @@ class DeviceMetadata implements ModelInterface, ArrayAccess, \JsonSerializable
     {
 
         if (is_null($device_id)) {
-            throw new \InvalidArgumentException('non-nullable device_id cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'device_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('device_id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
 
         $this->container['device_id'] = $device_id;
@@ -495,7 +502,14 @@ class DeviceMetadata implements ModelInterface, ArrayAccess, \JsonSerializable
         }
 
         if (is_null($klaviyo_sdk)) {
-            throw new \InvalidArgumentException('non-nullable klaviyo_sdk cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'klaviyo_sdk');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('klaviyo_sdk', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
 
         $this->container['klaviyo_sdk'] = $klaviyo_sdk;
@@ -524,7 +538,14 @@ class DeviceMetadata implements ModelInterface, ArrayAccess, \JsonSerializable
     {
 
         if (is_null($sdk_version)) {
-            throw new \InvalidArgumentException('non-nullable sdk_version cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'sdk_version');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('sdk_version', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
 
         $this->container['sdk_version'] = $sdk_version;
@@ -553,7 +574,14 @@ class DeviceMetadata implements ModelInterface, ArrayAccess, \JsonSerializable
     {
 
         if (is_null($device_model)) {
-            throw new \InvalidArgumentException('non-nullable device_model cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'device_model');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('device_model', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
 
         $this->container['device_model'] = $device_model;
@@ -592,7 +620,14 @@ class DeviceMetadata implements ModelInterface, ArrayAccess, \JsonSerializable
         }
 
         if (is_null($os_name)) {
-            throw new \InvalidArgumentException('non-nullable os_name cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'os_name');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('os_name', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
 
         $this->container['os_name'] = $os_name;
@@ -621,7 +656,14 @@ class DeviceMetadata implements ModelInterface, ArrayAccess, \JsonSerializable
     {
 
         if (is_null($os_version)) {
-            throw new \InvalidArgumentException('non-nullable os_version cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'os_version');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('os_version', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
 
         $this->container['os_version'] = $os_version;
@@ -650,7 +692,14 @@ class DeviceMetadata implements ModelInterface, ArrayAccess, \JsonSerializable
     {
 
         if (is_null($manufacturer)) {
-            throw new \InvalidArgumentException('non-nullable manufacturer cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'manufacturer');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('manufacturer', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
 
         $this->container['manufacturer'] = $manufacturer;
@@ -679,7 +728,14 @@ class DeviceMetadata implements ModelInterface, ArrayAccess, \JsonSerializable
     {
 
         if (is_null($app_name)) {
-            throw new \InvalidArgumentException('non-nullable app_name cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'app_name');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('app_name', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
 
         $this->container['app_name'] = $app_name;
@@ -708,7 +764,14 @@ class DeviceMetadata implements ModelInterface, ArrayAccess, \JsonSerializable
     {
 
         if (is_null($app_version)) {
-            throw new \InvalidArgumentException('non-nullable app_version cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'app_version');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('app_version', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
 
         $this->container['app_version'] = $app_version;
@@ -737,7 +800,14 @@ class DeviceMetadata implements ModelInterface, ArrayAccess, \JsonSerializable
     {
 
         if (is_null($app_build)) {
-            throw new \InvalidArgumentException('non-nullable app_build cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'app_build');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('app_build', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
 
         $this->container['app_build'] = $app_build;
@@ -766,7 +836,14 @@ class DeviceMetadata implements ModelInterface, ArrayAccess, \JsonSerializable
     {
 
         if (is_null($app_id)) {
-            throw new \InvalidArgumentException('non-nullable app_id cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'app_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('app_id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
 
         $this->container['app_id'] = $app_id;
@@ -805,7 +882,14 @@ class DeviceMetadata implements ModelInterface, ArrayAccess, \JsonSerializable
         }
 
         if (is_null($environment)) {
-            throw new \InvalidArgumentException('non-nullable environment cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'environment');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('environment', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
 
         $this->container['environment'] = $environment;

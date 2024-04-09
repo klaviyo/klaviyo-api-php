@@ -82,9 +82,9 @@ class ProfileMetaPatchProperties implements ModelInterface, ArrayAccess, \JsonSe
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'append' => false,
-		'unappend' => false,
-		'unset' => false
+        'append' => true,
+		'unappend' => true,
+		'unset' => true
     ];
 
     /**
@@ -315,7 +315,14 @@ class ProfileMetaPatchProperties implements ModelInterface, ArrayAccess, \JsonSe
     {
 
         if (is_null($append)) {
-            throw new \InvalidArgumentException('non-nullable append cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'append');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('append', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
 
         $this->container['append'] = $append;
@@ -344,7 +351,14 @@ class ProfileMetaPatchProperties implements ModelInterface, ArrayAccess, \JsonSe
     {
 
         if (is_null($unappend)) {
-            throw new \InvalidArgumentException('non-nullable unappend cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'unappend');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('unappend', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
 
         $this->container['unappend'] = $unappend;
@@ -373,7 +387,14 @@ class ProfileMetaPatchProperties implements ModelInterface, ArrayAccess, \JsonSe
     {
 
         if (is_null($unset)) {
-            throw new \InvalidArgumentException('non-nullable unset cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'unset');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('unset', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
 
         $this->container['unset'] = $unset;

@@ -96,16 +96,16 @@ class ProfileLocation implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'address1' => false,
-		'address2' => false,
-		'city' => false,
-		'country' => false,
-		'latitude' => false,
-		'longitude' => false,
-		'region' => false,
-		'zip' => false,
-		'timezone' => false,
-		'ip' => false
+        'address1' => true,
+		'address2' => true,
+		'city' => true,
+		'country' => true,
+		'latitude' => true,
+		'longitude' => true,
+		'region' => true,
+		'zip' => true,
+		'timezone' => true,
+		'ip' => true
     ];
 
     /**
@@ -364,7 +364,14 @@ class ProfileLocation implements ModelInterface, ArrayAccess, \JsonSerializable
     {
 
         if (is_null($address1)) {
-            throw new \InvalidArgumentException('non-nullable address1 cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'address1');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('address1', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
 
         $this->container['address1'] = $address1;
@@ -393,7 +400,14 @@ class ProfileLocation implements ModelInterface, ArrayAccess, \JsonSerializable
     {
 
         if (is_null($address2)) {
-            throw new \InvalidArgumentException('non-nullable address2 cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'address2');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('address2', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
 
         $this->container['address2'] = $address2;
@@ -422,7 +436,14 @@ class ProfileLocation implements ModelInterface, ArrayAccess, \JsonSerializable
     {
 
         if (is_null($city)) {
-            throw new \InvalidArgumentException('non-nullable city cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'city');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('city', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
 
         $this->container['city'] = $city;
@@ -451,7 +472,14 @@ class ProfileLocation implements ModelInterface, ArrayAccess, \JsonSerializable
     {
 
         if (is_null($country)) {
-            throw new \InvalidArgumentException('non-nullable country cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'country');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('country', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
 
         $this->container['country'] = $country;
@@ -480,7 +508,14 @@ class ProfileLocation implements ModelInterface, ArrayAccess, \JsonSerializable
     {
 
         if (is_null($latitude)) {
-            throw new \InvalidArgumentException('non-nullable latitude cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'latitude');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('latitude', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
 
         $this->container['latitude'] = $latitude;
@@ -509,7 +544,14 @@ class ProfileLocation implements ModelInterface, ArrayAccess, \JsonSerializable
     {
 
         if (is_null($longitude)) {
-            throw new \InvalidArgumentException('non-nullable longitude cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'longitude');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('longitude', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
 
         $this->container['longitude'] = $longitude;
@@ -538,7 +580,14 @@ class ProfileLocation implements ModelInterface, ArrayAccess, \JsonSerializable
     {
 
         if (is_null($region)) {
-            throw new \InvalidArgumentException('non-nullable region cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'region');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('region', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
 
         $this->container['region'] = $region;
@@ -567,7 +616,14 @@ class ProfileLocation implements ModelInterface, ArrayAccess, \JsonSerializable
     {
 
         if (is_null($zip)) {
-            throw new \InvalidArgumentException('non-nullable zip cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'zip');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('zip', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
 
         $this->container['zip'] = $zip;
@@ -596,7 +652,14 @@ class ProfileLocation implements ModelInterface, ArrayAccess, \JsonSerializable
     {
 
         if (is_null($timezone)) {
-            throw new \InvalidArgumentException('non-nullable timezone cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'timezone');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('timezone', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
 
         $this->container['timezone'] = $timezone;
@@ -625,7 +688,14 @@ class ProfileLocation implements ModelInterface, ArrayAccess, \JsonSerializable
     {
 
         if (is_null($ip)) {
-            throw new \InvalidArgumentException('non-nullable ip cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'ip');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('ip', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
 
         $this->container['ip'] = $ip;

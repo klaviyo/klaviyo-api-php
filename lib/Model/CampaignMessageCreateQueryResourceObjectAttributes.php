@@ -85,8 +85,8 @@ class CampaignMessageCreateQueryResourceObjectAttributes implements ModelInterfa
       */
     protected static array $openAPINullables = [
         'channel' => false,
-		'label' => false,
-		'content' => false,
+		'label' => true,
+		'content' => true,
 		'render_options' => false
     ];
 
@@ -354,7 +354,14 @@ class CampaignMessageCreateQueryResourceObjectAttributes implements ModelInterfa
     {
 
         if (is_null($label)) {
-            throw new \InvalidArgumentException('non-nullable label cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'label');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('label', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
 
         $this->container['label'] = $label;
@@ -383,7 +390,14 @@ class CampaignMessageCreateQueryResourceObjectAttributes implements ModelInterfa
     {
 
         if (is_null($content)) {
-            throw new \InvalidArgumentException('non-nullable content cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'content');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('content', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
 
         $this->container['content'] = $content;

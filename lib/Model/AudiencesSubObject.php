@@ -80,8 +80,8 @@ class AudiencesSubObject implements ModelInterface, ArrayAccess, \JsonSerializab
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'included' => false,
-		'excluded' => false
+        'included' => true,
+		'excluded' => true
     ];
 
     /**
@@ -308,7 +308,14 @@ class AudiencesSubObject implements ModelInterface, ArrayAccess, \JsonSerializab
     {
 
         if (is_null($included)) {
-            throw new \InvalidArgumentException('non-nullable included cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'included');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('included', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
 
         $this->container['included'] = $included;
@@ -337,7 +344,14 @@ class AudiencesSubObject implements ModelInterface, ArrayAccess, \JsonSerializab
     {
 
         if (is_null($excluded)) {
-            throw new \InvalidArgumentException('non-nullable excluded cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'excluded');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('excluded', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
 
         $this->container['excluded'] = $excluded;

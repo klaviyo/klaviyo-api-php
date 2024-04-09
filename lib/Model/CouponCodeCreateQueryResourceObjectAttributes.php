@@ -81,7 +81,7 @@ class CouponCodeCreateQueryResourceObjectAttributes implements ModelInterface, A
       */
     protected static array $openAPINullables = [
         'unique_code' => false,
-		'expires_at' => false
+		'expires_at' => true
     ];
 
     /**
@@ -340,7 +340,14 @@ class CouponCodeCreateQueryResourceObjectAttributes implements ModelInterface, A
     {
 
         if (is_null($expires_at)) {
-            throw new \InvalidArgumentException('non-nullable expires_at cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'expires_at');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('expires_at', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
 
         $this->container['expires_at'] = $expires_at;

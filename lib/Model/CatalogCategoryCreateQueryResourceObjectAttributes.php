@@ -86,8 +86,8 @@ class CatalogCategoryCreateQueryResourceObjectAttributes implements ModelInterfa
     protected static array $openAPINullables = [
         'external_id' => false,
 		'name' => false,
-		'integration_type' => false,
-		'catalog_type' => false
+		'integration_type' => true,
+		'catalog_type' => true
     ];
 
     /**
@@ -418,7 +418,14 @@ class CatalogCategoryCreateQueryResourceObjectAttributes implements ModelInterfa
         }
 
         if (is_null($integration_type)) {
-            throw new \InvalidArgumentException('non-nullable integration_type cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'integration_type');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('integration_type', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
 
         $this->container['integration_type'] = $integration_type;
@@ -447,7 +454,14 @@ class CatalogCategoryCreateQueryResourceObjectAttributes implements ModelInterfa
     {
 
         if (is_null($catalog_type)) {
-            throw new \InvalidArgumentException('non-nullable catalog_type cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'catalog_type');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('catalog_type', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
 
         $this->container['catalog_type'] = $catalog_type;

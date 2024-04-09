@@ -80,8 +80,8 @@ class SMSTrackingOptionsSubObject implements ModelInterface, ArrayAccess, \JsonS
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'is_add_utm' => false,
-		'utm_params' => false
+        'is_add_utm' => true,
+		'utm_params' => true
     ];
 
     /**
@@ -308,7 +308,14 @@ class SMSTrackingOptionsSubObject implements ModelInterface, ArrayAccess, \JsonS
     {
 
         if (is_null($is_add_utm)) {
-            throw new \InvalidArgumentException('non-nullable is_add_utm cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'is_add_utm');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('is_add_utm', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
 
         $this->container['is_add_utm'] = $is_add_utm;
@@ -337,7 +344,14 @@ class SMSTrackingOptionsSubObject implements ModelInterface, ArrayAccess, \JsonS
     {
 
         if (is_null($utm_params)) {
-            throw new \InvalidArgumentException('non-nullable utm_params cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'utm_params');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('utm_params', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
 
         $this->container['utm_params'] = $utm_params;

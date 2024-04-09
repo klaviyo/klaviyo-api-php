@@ -100,18 +100,18 @@ class CatalogVariantUpdateQueryResourceObjectAttributes implements ModelInterfac
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'title' => false,
-		'description' => false,
-		'sku' => false,
-		'inventory_policy' => false,
-		'inventory_quantity' => false,
-		'price' => false,
-		'url' => false,
-		'image_full_url' => false,
-		'image_thumbnail_url' => false,
-		'images' => false,
-		'custom_metadata' => false,
-		'published' => false
+        'title' => true,
+		'description' => true,
+		'sku' => true,
+		'inventory_policy' => true,
+		'inventory_quantity' => true,
+		'price' => true,
+		'url' => true,
+		'image_full_url' => true,
+		'image_thumbnail_url' => true,
+		'images' => true,
+		'custom_metadata' => true,
+		'published' => true
     ];
 
     /**
@@ -404,7 +404,14 @@ class CatalogVariantUpdateQueryResourceObjectAttributes implements ModelInterfac
     {
 
         if (is_null($title)) {
-            throw new \InvalidArgumentException('non-nullable title cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'title');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('title', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
 
         $this->container['title'] = $title;
@@ -433,7 +440,14 @@ class CatalogVariantUpdateQueryResourceObjectAttributes implements ModelInterfac
     {
 
         if (is_null($description)) {
-            throw new \InvalidArgumentException('non-nullable description cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'description');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('description', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
 
         $this->container['description'] = $description;
@@ -462,7 +476,14 @@ class CatalogVariantUpdateQueryResourceObjectAttributes implements ModelInterfac
     {
 
         if (is_null($sku)) {
-            throw new \InvalidArgumentException('non-nullable sku cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'sku');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('sku', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
 
         $this->container['sku'] = $sku;
@@ -501,7 +522,14 @@ class CatalogVariantUpdateQueryResourceObjectAttributes implements ModelInterfac
         }
 
         if (is_null($inventory_policy)) {
-            throw new \InvalidArgumentException('non-nullable inventory_policy cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'inventory_policy');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('inventory_policy', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
 
         $this->container['inventory_policy'] = $inventory_policy;
@@ -530,7 +558,14 @@ class CatalogVariantUpdateQueryResourceObjectAttributes implements ModelInterfac
     {
 
         if (is_null($inventory_quantity)) {
-            throw new \InvalidArgumentException('non-nullable inventory_quantity cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'inventory_quantity');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('inventory_quantity', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
 
         $this->container['inventory_quantity'] = $inventory_quantity;
@@ -559,7 +594,14 @@ class CatalogVariantUpdateQueryResourceObjectAttributes implements ModelInterfac
     {
 
         if (is_null($price)) {
-            throw new \InvalidArgumentException('non-nullable price cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'price');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('price', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
 
         $this->container['price'] = $price;
@@ -588,7 +630,14 @@ class CatalogVariantUpdateQueryResourceObjectAttributes implements ModelInterfac
     {
 
         if (is_null($url)) {
-            throw new \InvalidArgumentException('non-nullable url cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'url');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('url', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
 
         $this->container['url'] = $url;
@@ -617,7 +666,14 @@ class CatalogVariantUpdateQueryResourceObjectAttributes implements ModelInterfac
     {
 
         if (is_null($image_full_url)) {
-            throw new \InvalidArgumentException('non-nullable image_full_url cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'image_full_url');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('image_full_url', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
 
         $this->container['image_full_url'] = $image_full_url;
@@ -646,7 +702,14 @@ class CatalogVariantUpdateQueryResourceObjectAttributes implements ModelInterfac
     {
 
         if (is_null($image_thumbnail_url)) {
-            throw new \InvalidArgumentException('non-nullable image_thumbnail_url cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'image_thumbnail_url');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('image_thumbnail_url', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
 
         $this->container['image_thumbnail_url'] = $image_thumbnail_url;
@@ -675,7 +738,14 @@ class CatalogVariantUpdateQueryResourceObjectAttributes implements ModelInterfac
     {
 
         if (is_null($images)) {
-            throw new \InvalidArgumentException('non-nullable images cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'images');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('images', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
 
         $this->container['images'] = $images;
@@ -704,7 +774,14 @@ class CatalogVariantUpdateQueryResourceObjectAttributes implements ModelInterfac
     {
 
         if (is_null($custom_metadata)) {
-            throw new \InvalidArgumentException('non-nullable custom_metadata cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'custom_metadata');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('custom_metadata', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
 
         $this->container['custom_metadata'] = $custom_metadata;
@@ -733,7 +810,14 @@ class CatalogVariantUpdateQueryResourceObjectAttributes implements ModelInterfac
     {
 
         if (is_null($published)) {
-            throw new \InvalidArgumentException('non-nullable published cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'published');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('published', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
 
         $this->container['published'] = $published;

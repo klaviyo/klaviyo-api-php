@@ -101,17 +101,17 @@ class CatalogItemCreateQueryResourceObjectAttributes implements ModelInterface, 
       */
     protected static array $openAPINullables = [
         'external_id' => false,
-		'integration_type' => false,
+		'integration_type' => true,
 		'title' => false,
-		'price' => false,
-		'catalog_type' => false,
+		'price' => true,
+		'catalog_type' => true,
 		'description' => false,
 		'url' => false,
-		'image_full_url' => false,
-		'image_thumbnail_url' => false,
-		'images' => false,
-		'custom_metadata' => false,
-		'published' => false
+		'image_full_url' => true,
+		'image_thumbnail_url' => true,
+		'images' => true,
+		'custom_metadata' => true,
+		'published' => true
     ];
 
     /**
@@ -451,7 +451,14 @@ class CatalogItemCreateQueryResourceObjectAttributes implements ModelInterface, 
         }
 
         if (is_null($integration_type)) {
-            throw new \InvalidArgumentException('non-nullable integration_type cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'integration_type');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('integration_type', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
 
         $this->container['integration_type'] = $integration_type;
@@ -509,7 +516,14 @@ class CatalogItemCreateQueryResourceObjectAttributes implements ModelInterface, 
     {
 
         if (is_null($price)) {
-            throw new \InvalidArgumentException('non-nullable price cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'price');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('price', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
 
         $this->container['price'] = $price;
@@ -538,7 +552,14 @@ class CatalogItemCreateQueryResourceObjectAttributes implements ModelInterface, 
     {
 
         if (is_null($catalog_type)) {
-            throw new \InvalidArgumentException('non-nullable catalog_type cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'catalog_type');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('catalog_type', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
 
         $this->container['catalog_type'] = $catalog_type;
@@ -625,7 +646,14 @@ class CatalogItemCreateQueryResourceObjectAttributes implements ModelInterface, 
     {
 
         if (is_null($image_full_url)) {
-            throw new \InvalidArgumentException('non-nullable image_full_url cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'image_full_url');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('image_full_url', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
 
         $this->container['image_full_url'] = $image_full_url;
@@ -654,7 +682,14 @@ class CatalogItemCreateQueryResourceObjectAttributes implements ModelInterface, 
     {
 
         if (is_null($image_thumbnail_url)) {
-            throw new \InvalidArgumentException('non-nullable image_thumbnail_url cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'image_thumbnail_url');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('image_thumbnail_url', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
 
         $this->container['image_thumbnail_url'] = $image_thumbnail_url;
@@ -683,7 +718,14 @@ class CatalogItemCreateQueryResourceObjectAttributes implements ModelInterface, 
     {
 
         if (is_null($images)) {
-            throw new \InvalidArgumentException('non-nullable images cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'images');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('images', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
 
         $this->container['images'] = $images;
@@ -712,7 +754,14 @@ class CatalogItemCreateQueryResourceObjectAttributes implements ModelInterface, 
     {
 
         if (is_null($custom_metadata)) {
-            throw new \InvalidArgumentException('non-nullable custom_metadata cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'custom_metadata');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('custom_metadata', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
 
         $this->container['custom_metadata'] = $custom_metadata;
@@ -741,7 +790,14 @@ class CatalogItemCreateQueryResourceObjectAttributes implements ModelInterface, 
     {
 
         if (is_null($published)) {
-            throw new \InvalidArgumentException('non-nullable published cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'published');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('published', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
 
         $this->container['published'] = $published;

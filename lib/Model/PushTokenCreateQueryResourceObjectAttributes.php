@@ -92,9 +92,9 @@ class PushTokenCreateQueryResourceObjectAttributes implements ModelInterface, Ar
     protected static array $openAPINullables = [
         'token' => false,
 		'platform' => false,
-		'enablement_status' => false,
+		'enablement_status' => true,
 		'vendor' => false,
-		'background' => false,
+		'background' => true,
 		'device_metadata' => false,
 		'profile' => false
     ];
@@ -537,7 +537,14 @@ class PushTokenCreateQueryResourceObjectAttributes implements ModelInterface, Ar
         }
 
         if (is_null($enablement_status)) {
-            throw new \InvalidArgumentException('non-nullable enablement_status cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'enablement_status');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('enablement_status', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
 
         $this->container['enablement_status'] = $enablement_status;
@@ -615,7 +622,14 @@ class PushTokenCreateQueryResourceObjectAttributes implements ModelInterface, Ar
         }
 
         if (is_null($background)) {
-            throw new \InvalidArgumentException('non-nullable background cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'background');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('background', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
 
         $this->container['background'] = $background;

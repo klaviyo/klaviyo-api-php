@@ -81,7 +81,7 @@ class TagGroupCreateQueryResourceObjectAttributes implements ModelInterface, Arr
       */
     protected static array $openAPINullables = [
         'name' => false,
-		'exclusive' => false
+		'exclusive' => true
     ];
 
     /**
@@ -340,7 +340,14 @@ class TagGroupCreateQueryResourceObjectAttributes implements ModelInterface, Arr
     {
 
         if (is_null($exclusive)) {
-            throw new \InvalidArgumentException('non-nullable exclusive cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'exclusive');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('exclusive', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
 
         $this->container['exclusive'] = $exclusive;

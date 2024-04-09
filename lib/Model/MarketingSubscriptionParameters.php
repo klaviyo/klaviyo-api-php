@@ -81,7 +81,7 @@ class MarketingSubscriptionParameters implements ModelInterface, ArrayAccess, \J
       */
     protected static array $openAPINullables = [
         'consent' => false,
-		'consented_at' => false
+		'consented_at' => true
     ];
 
     /**
@@ -372,7 +372,14 @@ class MarketingSubscriptionParameters implements ModelInterface, ArrayAccess, \J
     {
 
         if (is_null($consented_at)) {
-            throw new \InvalidArgumentException('non-nullable consented_at cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'consented_at');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('consented_at', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
 
         $this->container['consented_at'] = $consented_at;
