@@ -9,6 +9,12 @@ NOTE: For more granular API-specific changes, please see our [API Changelog](htt
 
 
 
+## [7.1.2] - revision 2024-02-15
+
+### Fixed: 
+
+- Patched a bug due to incorrect handling of page_cursor
+
 ## [7.1.1] - revision 2024-02-15
 
 ### Fixed: 

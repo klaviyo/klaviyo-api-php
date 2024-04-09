@@ -78,7 +78,7 @@ class SuppressionDeleteJobCreateQueryResourceObjectAttributes implements ModelIn
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'profiles' => false
+        'profiles' => true
     ];
 
     /**
@@ -265,9 +265,6 @@ class SuppressionDeleteJobCreateQueryResourceObjectAttributes implements ModelIn
     {
         $invalidProperties = [];
 
-        if ($this->container['profiles'] === null) {
-            $invalidProperties[] = "'profiles' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -286,7 +283,7 @@ class SuppressionDeleteJobCreateQueryResourceObjectAttributes implements ModelIn
     /**
      * Gets profiles
      *
-     * @return \KlaviyoAPI\Model\SuppressionDeleteJobCreateQueryResourceObjectAttributesProfiles
+     * @return \KlaviyoAPI\Model\SuppressionDeleteJobCreateQueryResourceObjectAttributesProfiles|null
      */
     public function getProfiles()
     {
@@ -296,7 +293,7 @@ class SuppressionDeleteJobCreateQueryResourceObjectAttributes implements ModelIn
     /**
      * Sets profiles
      *
-     * @param \KlaviyoAPI\Model\SuppressionDeleteJobCreateQueryResourceObjectAttributesProfiles $profiles profiles
+     * @param \KlaviyoAPI\Model\SuppressionDeleteJobCreateQueryResourceObjectAttributesProfiles|null $profiles profiles
      *
      * @return self
      */
@@ -304,7 +301,14 @@ class SuppressionDeleteJobCreateQueryResourceObjectAttributes implements ModelIn
     {
 
         if (is_null($profiles)) {
-            throw new \InvalidArgumentException('non-nullable profiles cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'profiles');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('profiles', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
 
         $this->container['profiles'] = $profiles;

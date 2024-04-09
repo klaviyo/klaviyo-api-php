@@ -80,8 +80,8 @@ class ProfileSubscriptionDeleteQueryResourceObjectAttributes implements ModelInt
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'email' => false,
-		'phone_number' => false
+        'email' => true,
+		'phone_number' => true
     ];
 
     /**
@@ -308,7 +308,14 @@ class ProfileSubscriptionDeleteQueryResourceObjectAttributes implements ModelInt
     {
 
         if (is_null($email)) {
-            throw new \InvalidArgumentException('non-nullable email cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'email');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('email', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
 
         $this->container['email'] = $email;
@@ -337,7 +344,14 @@ class ProfileSubscriptionDeleteQueryResourceObjectAttributes implements ModelInt
     {
 
         if (is_null($phone_number)) {
-            throw new \InvalidArgumentException('non-nullable phone_number cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'phone_number');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('phone_number', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
 
         $this->container['phone_number'] = $phone_number;

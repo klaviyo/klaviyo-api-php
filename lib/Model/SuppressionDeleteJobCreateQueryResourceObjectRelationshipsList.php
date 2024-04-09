@@ -1,6 +1,6 @@
 <?php
 /**
- * ProfileSuppressionDeleteQueryResourceObjectAttributes
+ * SuppressionDeleteJobCreateQueryResourceObjectRelationshipsList
  *
  * PHP version 7.4
  *
@@ -33,7 +33,7 @@ use \ArrayAccess;
 use \KlaviyoAPI\ObjectSerializer;
 
 /**
- * ProfileSuppressionDeleteQueryResourceObjectAttributes Class Doc Comment
+ * SuppressionDeleteJobCreateQueryResourceObjectRelationshipsList Class Doc Comment
  *
  * @category Class
  * @package  KlaviyoAPI
@@ -41,7 +41,7 @@ use \KlaviyoAPI\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class ProfileSuppressionDeleteQueryResourceObjectAttributes implements ModelInterface, ArrayAccess, \JsonSerializable
+class SuppressionDeleteJobCreateQueryResourceObjectRelationshipsList implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class ProfileSuppressionDeleteQueryResourceObjectAttributes implements ModelInte
       *
       * @var string
       */
-    protected static $openAPIModelName = 'ProfileSuppressionDeleteQueryResourceObject_attributes';
+    protected static $openAPIModelName = 'SuppressionDeleteJobCreateQueryResourceObject_relationships_list';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,7 +58,7 @@ class ProfileSuppressionDeleteQueryResourceObjectAttributes implements ModelInte
       * @var string[]
       */
     protected static $openAPITypes = [
-        'email' => 'string'
+        'data' => '\KlaviyoAPI\Model\SuppressionDeleteJobCreateQueryResourceObjectRelationshipsListData'
     ];
 
     /**
@@ -69,7 +69,7 @@ class ProfileSuppressionDeleteQueryResourceObjectAttributes implements ModelInte
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'email' => null
+        'data' => null
     ];
 
     /**
@@ -78,7 +78,7 @@ class ProfileSuppressionDeleteQueryResourceObjectAttributes implements ModelInte
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'email' => true
+        'data' => false
     ];
 
     /**
@@ -157,7 +157,7 @@ class ProfileSuppressionDeleteQueryResourceObjectAttributes implements ModelInte
      * @var string[]
      */
     protected static $attributeMap = [
-        'email' => 'email'
+        'data' => 'data'
     ];
 
     /**
@@ -166,7 +166,7 @@ class ProfileSuppressionDeleteQueryResourceObjectAttributes implements ModelInte
      * @var string[]
      */
     protected static $setters = [
-        'email' => 'setEmail'
+        'data' => 'setData'
     ];
 
     /**
@@ -175,7 +175,7 @@ class ProfileSuppressionDeleteQueryResourceObjectAttributes implements ModelInte
      * @var string[]
      */
     protected static $getters = [
-        'email' => 'getEmail'
+        'data' => 'getData'
     ];
 
     /**
@@ -235,7 +235,7 @@ class ProfileSuppressionDeleteQueryResourceObjectAttributes implements ModelInte
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('email', $data ?? [], null);
+        $this->setIfExists('data', $data ?? [], null);
     }
 
     /**
@@ -265,6 +265,9 @@ class ProfileSuppressionDeleteQueryResourceObjectAttributes implements ModelInte
     {
         $invalidProperties = [];
 
+        if ($this->container['data'] === null) {
+            $invalidProperties[] = "'data' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -281,37 +284,30 @@ class ProfileSuppressionDeleteQueryResourceObjectAttributes implements ModelInte
 
 
     /**
-     * Gets email
+     * Gets data
      *
-     * @return string|null
+     * @return \KlaviyoAPI\Model\SuppressionDeleteJobCreateQueryResourceObjectRelationshipsListData
      */
-    public function getEmail()
+    public function getData()
     {
-        return $this->container['email'];
+        return $this->container['data'];
     }
 
     /**
-     * Sets email
+     * Sets data
      *
-     * @param string|null $email The email of the profile to unsuppress.
+     * @param \KlaviyoAPI\Model\SuppressionDeleteJobCreateQueryResourceObjectRelationshipsListData $data data
      *
      * @return self
      */
-    public function setEmail($email)
+    public function setData($data)
     {
 
-        if (is_null($email)) {
-            array_push($this->openAPINullablesSetToNull, 'email');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('email', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+        if (is_null($data)) {
+            throw new \InvalidArgumentException('non-nullable data cannot be null');
         }
 
-        $this->container['email'] = $email;
+        $this->container['data'] = $data;
 
         return $this;
     }

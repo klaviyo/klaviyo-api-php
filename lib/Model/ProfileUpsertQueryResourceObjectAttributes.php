@@ -100,18 +100,18 @@ class ProfileUpsertQueryResourceObjectAttributes implements ModelInterface, Arra
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'email' => false,
-		'phone_number' => false,
-		'external_id' => false,
-		'anonymous_id' => false,
-		'_kx' => false,
-		'first_name' => false,
-		'last_name' => false,
-		'organization' => false,
-		'title' => false,
-		'image' => false,
+        'email' => true,
+		'phone_number' => true,
+		'external_id' => true,
+		'anonymous_id' => true,
+		'_kx' => true,
+		'first_name' => true,
+		'last_name' => true,
+		'organization' => true,
+		'title' => true,
+		'image' => true,
 		'location' => false,
-		'properties' => false
+		'properties' => true
     ];
 
     /**
@@ -378,7 +378,14 @@ class ProfileUpsertQueryResourceObjectAttributes implements ModelInterface, Arra
     {
 
         if (is_null($email)) {
-            throw new \InvalidArgumentException('non-nullable email cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'email');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('email', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
 
         $this->container['email'] = $email;
@@ -407,7 +414,14 @@ class ProfileUpsertQueryResourceObjectAttributes implements ModelInterface, Arra
     {
 
         if (is_null($phone_number)) {
-            throw new \InvalidArgumentException('non-nullable phone_number cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'phone_number');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('phone_number', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
 
         $this->container['phone_number'] = $phone_number;
@@ -436,7 +450,14 @@ class ProfileUpsertQueryResourceObjectAttributes implements ModelInterface, Arra
     {
 
         if (is_null($external_id)) {
-            throw new \InvalidArgumentException('non-nullable external_id cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'external_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('external_id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
 
         $this->container['external_id'] = $external_id;
@@ -465,7 +486,14 @@ class ProfileUpsertQueryResourceObjectAttributes implements ModelInterface, Arra
     {
 
         if (is_null($anonymous_id)) {
-            throw new \InvalidArgumentException('non-nullable anonymous_id cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'anonymous_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('anonymous_id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
 
         $this->container['anonymous_id'] = $anonymous_id;
@@ -494,7 +522,14 @@ class ProfileUpsertQueryResourceObjectAttributes implements ModelInterface, Arra
     {
 
         if (is_null($_kx)) {
-            throw new \InvalidArgumentException('non-nullable _kx cannot be null');
+            array_push($this->openAPINullablesSetToNull, '_kx');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('_kx', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
 
         $this->container['_kx'] = $_kx;
@@ -523,7 +558,14 @@ class ProfileUpsertQueryResourceObjectAttributes implements ModelInterface, Arra
     {
 
         if (is_null($first_name)) {
-            throw new \InvalidArgumentException('non-nullable first_name cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'first_name');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('first_name', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
 
         $this->container['first_name'] = $first_name;
@@ -552,7 +594,14 @@ class ProfileUpsertQueryResourceObjectAttributes implements ModelInterface, Arra
     {
 
         if (is_null($last_name)) {
-            throw new \InvalidArgumentException('non-nullable last_name cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'last_name');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('last_name', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
 
         $this->container['last_name'] = $last_name;
@@ -581,7 +630,14 @@ class ProfileUpsertQueryResourceObjectAttributes implements ModelInterface, Arra
     {
 
         if (is_null($organization)) {
-            throw new \InvalidArgumentException('non-nullable organization cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'organization');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('organization', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
 
         $this->container['organization'] = $organization;
@@ -610,7 +666,14 @@ class ProfileUpsertQueryResourceObjectAttributes implements ModelInterface, Arra
     {
 
         if (is_null($title)) {
-            throw new \InvalidArgumentException('non-nullable title cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'title');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('title', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
 
         $this->container['title'] = $title;
@@ -639,7 +702,14 @@ class ProfileUpsertQueryResourceObjectAttributes implements ModelInterface, Arra
     {
 
         if (is_null($image)) {
-            throw new \InvalidArgumentException('non-nullable image cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'image');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('image', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
 
         $this->container['image'] = $image;
@@ -697,7 +767,14 @@ class ProfileUpsertQueryResourceObjectAttributes implements ModelInterface, Arra
     {
 
         if (is_null($properties)) {
-            throw new \InvalidArgumentException('non-nullable properties cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'properties');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('properties', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
 
         $this->container['properties'] = $properties;

@@ -80,8 +80,8 @@ class CouponCodeUpdateQueryResourceObjectAttributes implements ModelInterface, A
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'status' => false,
-		'expires_at' => false
+        'status' => true,
+		'expires_at' => true
     ];
 
     /**
@@ -348,7 +348,14 @@ class CouponCodeUpdateQueryResourceObjectAttributes implements ModelInterface, A
         }
 
         if (is_null($status)) {
-            throw new \InvalidArgumentException('non-nullable status cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'status');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('status', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
 
         $this->container['status'] = $status;
@@ -377,7 +384,14 @@ class CouponCodeUpdateQueryResourceObjectAttributes implements ModelInterface, A
     {
 
         if (is_null($expires_at)) {
-            throw new \InvalidArgumentException('non-nullable expires_at cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'expires_at');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('expires_at', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
 
         $this->container['expires_at'] = $expires_at;

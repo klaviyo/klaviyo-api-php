@@ -84,10 +84,10 @@ class RenderOptionsSubObject implements ModelInterface, ArrayAccess, \JsonSerial
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'shorten_links' => false,
-		'add_org_prefix' => false,
-		'add_info_link' => false,
-		'add_opt_out_language' => false
+        'shorten_links' => true,
+		'add_org_prefix' => true,
+		'add_info_link' => true,
+		'add_opt_out_language' => true
     ];
 
     /**
@@ -322,7 +322,14 @@ class RenderOptionsSubObject implements ModelInterface, ArrayAccess, \JsonSerial
     {
 
         if (is_null($shorten_links)) {
-            throw new \InvalidArgumentException('non-nullable shorten_links cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'shorten_links');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('shorten_links', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
 
         $this->container['shorten_links'] = $shorten_links;
@@ -351,7 +358,14 @@ class RenderOptionsSubObject implements ModelInterface, ArrayAccess, \JsonSerial
     {
 
         if (is_null($add_org_prefix)) {
-            throw new \InvalidArgumentException('non-nullable add_org_prefix cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'add_org_prefix');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('add_org_prefix', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
 
         $this->container['add_org_prefix'] = $add_org_prefix;
@@ -380,7 +394,14 @@ class RenderOptionsSubObject implements ModelInterface, ArrayAccess, \JsonSerial
     {
 
         if (is_null($add_info_link)) {
-            throw new \InvalidArgumentException('non-nullable add_info_link cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'add_info_link');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('add_info_link', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
 
         $this->container['add_info_link'] = $add_info_link;
@@ -409,7 +430,14 @@ class RenderOptionsSubObject implements ModelInterface, ArrayAccess, \JsonSerial
     {
 
         if (is_null($add_opt_out_language)) {
-            throw new \InvalidArgumentException('non-nullable add_opt_out_language cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'add_opt_out_language');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('add_opt_out_language', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
 
         $this->container['add_opt_out_language'] = $add_opt_out_language;

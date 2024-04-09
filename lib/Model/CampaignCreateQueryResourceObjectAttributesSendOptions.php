@@ -79,7 +79,7 @@ class CampaignCreateQueryResourceObjectAttributesSendOptions implements ModelInt
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'use_smart_sending' => false
+        'use_smart_sending' => true
     ];
 
     /**
@@ -302,7 +302,14 @@ class CampaignCreateQueryResourceObjectAttributesSendOptions implements ModelInt
     {
 
         if (is_null($use_smart_sending)) {
-            throw new \InvalidArgumentException('non-nullable use_smart_sending cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'use_smart_sending');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('use_smart_sending', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
 
         $this->container['use_smart_sending'] = $use_smart_sending;

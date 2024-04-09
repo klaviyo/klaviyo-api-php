@@ -38,21 +38,18 @@ class Subclient {
 
         if (in_array('page_cursor', $param_names)) {
 
-            $param = new \ReflectionParameter(array($this->api_instance, $name),'page_cursor');
-            
-            $param_position = $param->getPosition();
+            if (isset($args['page_cursor'])) {
+                $param_position = 'page_cursor';
+            } else {
+                $param = new \ReflectionParameter(array($this->api_instance, $name), 'page_cursor');
 
-            if (count($args) > $param_position) {
+                $param_position = $param->getPosition();
+            }
 
-                $page_cursor = $args[$param_position];
-                if ($page_cursor != NULL) {
-                    $page_cursor = $this->new_page_cursor($page_cursor);
+            if (isset($args[$param_position])) {
+                $page_cursor = $this->new_page_cursor($args[$param_position]);
 
-                    $args[$param_position] = $page_cursor;
-                    
-                }
-
-
+                $args[$param_position] = $page_cursor;
             }
         }
 

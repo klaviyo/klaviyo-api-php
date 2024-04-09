@@ -58,7 +58,7 @@ class EventCreateQueryV2ResourceObjectAttributesProfile implements ModelInterfac
       * @var string[]
       */
     protected static $openAPITypes = [
-        'data' => '\KlaviyoAPI\Model\OnsiteProfileCreateQueryResourceObject'
+        'data' => '\KlaviyoAPI\Model\EventProfileCreateQueryResourceObject'
     ];
 
     /**
@@ -286,7 +286,7 @@ class EventCreateQueryV2ResourceObjectAttributesProfile implements ModelInterfac
     /**
      * Gets data
      *
-     * @return \KlaviyoAPI\Model\OnsiteProfileCreateQueryResourceObject
+     * @return \KlaviyoAPI\Model\EventProfileCreateQueryResourceObject
      */
     public function getData()
     {
@@ -296,7 +296,7 @@ class EventCreateQueryV2ResourceObjectAttributesProfile implements ModelInterfac
     /**
      * Sets data
      *
-     * @param \KlaviyoAPI\Model\OnsiteProfileCreateQueryResourceObject $data data
+     * @param \KlaviyoAPI\Model\EventProfileCreateQueryResourceObject $data data
      *
      * @return self
      */

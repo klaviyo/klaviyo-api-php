@@ -81,7 +81,7 @@ class TagGroupUpdateQueryResourceObjectAttributes implements ModelInterface, Arr
       */
     protected static array $openAPINullables = [
         'name' => false,
-		'return_fields' => false
+		'return_fields' => true
     ];
 
     /**
@@ -340,7 +340,14 @@ class TagGroupUpdateQueryResourceObjectAttributes implements ModelInterface, Arr
     {
 
         if (is_null($return_fields)) {
-            throw new \InvalidArgumentException('non-nullable return_fields cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'return_fields');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('return_fields', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
 
         $this->container['return_fields'] = $return_fields;

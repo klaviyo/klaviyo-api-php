@@ -1,6 +1,6 @@
 <?php
 /**
- * ProfileIdentifierDTOResourceObjectAttributes
+ * PushProfileUpsertQueryResourceObjectAttributes
  *
  * PHP version 7.4
  *
@@ -33,7 +33,7 @@ use \ArrayAccess;
 use \KlaviyoAPI\ObjectSerializer;
 
 /**
- * ProfileIdentifierDTOResourceObjectAttributes Class Doc Comment
+ * PushProfileUpsertQueryResourceObjectAttributes Class Doc Comment
  *
  * @category Class
  * @package  KlaviyoAPI
@@ -41,7 +41,7 @@ use \KlaviyoAPI\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class ProfileIdentifierDTOResourceObjectAttributes implements ModelInterface, ArrayAccess, \JsonSerializable
+class PushProfileUpsertQueryResourceObjectAttributes implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class ProfileIdentifierDTOResourceObjectAttributes implements ModelInterface, Ar
       *
       * @var string
       */
-    protected static $openAPIModelName = 'ProfileIdentifierDTOResourceObject_attributes';
+    protected static $openAPIModelName = 'PushProfileUpsertQueryResourceObject_attributes';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,10 +58,19 @@ class ProfileIdentifierDTOResourceObjectAttributes implements ModelInterface, Ar
       * @var string[]
       */
     protected static $openAPITypes = [
-        'email' => 'string',
         'phone_number' => 'string',
         'external_id' => 'string',
-        'anonymous_id' => 'string'
+        'anonymous_id' => 'string',
+        '_kx' => 'string',
+        'first_name' => 'string',
+        'last_name' => 'string',
+        'organization' => 'string',
+        'title' => 'string',
+        'image' => 'string',
+        'location' => '\KlaviyoAPI\Model\ProfileLocation',
+        'properties' => 'object',
+        'meta' => '\KlaviyoAPI\Model\ProfileMeta',
+        'email' => 'string'
     ];
 
     /**
@@ -72,10 +81,19 @@ class ProfileIdentifierDTOResourceObjectAttributes implements ModelInterface, Ar
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'email' => null,
         'phone_number' => null,
         'external_id' => null,
-        'anonymous_id' => null
+        'anonymous_id' => null,
+        '_kx' => null,
+        'first_name' => null,
+        'last_name' => null,
+        'organization' => null,
+        'title' => null,
+        'image' => null,
+        'location' => null,
+        'properties' => null,
+        'meta' => null,
+        'email' => null
     ];
 
     /**
@@ -84,10 +102,19 @@ class ProfileIdentifierDTOResourceObjectAttributes implements ModelInterface, Ar
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'email' => true,
-		'phone_number' => true,
+        'phone_number' => true,
 		'external_id' => true,
-		'anonymous_id' => true
+		'anonymous_id' => true,
+		'_kx' => true,
+		'first_name' => true,
+		'last_name' => true,
+		'organization' => true,
+		'title' => true,
+		'image' => true,
+		'location' => false,
+		'properties' => true,
+		'meta' => false,
+		'email' => true
     ];
 
     /**
@@ -166,10 +193,19 @@ class ProfileIdentifierDTOResourceObjectAttributes implements ModelInterface, Ar
      * @var string[]
      */
     protected static $attributeMap = [
-        'email' => 'email',
         'phone_number' => 'phone_number',
         'external_id' => 'external_id',
-        'anonymous_id' => 'anonymous_id'
+        'anonymous_id' => 'anonymous_id',
+        '_kx' => '_kx',
+        'first_name' => 'first_name',
+        'last_name' => 'last_name',
+        'organization' => 'organization',
+        'title' => 'title',
+        'image' => 'image',
+        'location' => 'location',
+        'properties' => 'properties',
+        'meta' => 'meta',
+        'email' => 'email'
     ];
 
     /**
@@ -178,10 +214,19 @@ class ProfileIdentifierDTOResourceObjectAttributes implements ModelInterface, Ar
      * @var string[]
      */
     protected static $setters = [
-        'email' => 'setEmail',
         'phone_number' => 'setPhoneNumber',
         'external_id' => 'setExternalId',
-        'anonymous_id' => 'setAnonymousId'
+        'anonymous_id' => 'setAnonymousId',
+        '_kx' => 'setKx',
+        'first_name' => 'setFirstName',
+        'last_name' => 'setLastName',
+        'organization' => 'setOrganization',
+        'title' => 'setTitle',
+        'image' => 'setImage',
+        'location' => 'setLocation',
+        'properties' => 'setProperties',
+        'meta' => 'setMeta',
+        'email' => 'setEmail'
     ];
 
     /**
@@ -190,10 +235,19 @@ class ProfileIdentifierDTOResourceObjectAttributes implements ModelInterface, Ar
      * @var string[]
      */
     protected static $getters = [
-        'email' => 'getEmail',
         'phone_number' => 'getPhoneNumber',
         'external_id' => 'getExternalId',
-        'anonymous_id' => 'getAnonymousId'
+        'anonymous_id' => 'getAnonymousId',
+        '_kx' => 'getKx',
+        'first_name' => 'getFirstName',
+        'last_name' => 'getLastName',
+        'organization' => 'getOrganization',
+        'title' => 'getTitle',
+        'image' => 'getImage',
+        'location' => 'getLocation',
+        'properties' => 'getProperties',
+        'meta' => 'getMeta',
+        'email' => 'getEmail'
     ];
 
     /**
@@ -253,10 +307,19 @@ class ProfileIdentifierDTOResourceObjectAttributes implements ModelInterface, Ar
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('email', $data ?? [], null);
         $this->setIfExists('phone_number', $data ?? [], null);
         $this->setIfExists('external_id', $data ?? [], null);
         $this->setIfExists('anonymous_id', $data ?? [], null);
+        $this->setIfExists('_kx', $data ?? [], null);
+        $this->setIfExists('first_name', $data ?? [], null);
+        $this->setIfExists('last_name', $data ?? [], null);
+        $this->setIfExists('organization', $data ?? [], null);
+        $this->setIfExists('title', $data ?? [], null);
+        $this->setIfExists('image', $data ?? [], null);
+        $this->setIfExists('location', $data ?? [], null);
+        $this->setIfExists('properties', $data ?? [], null);
+        $this->setIfExists('meta', $data ?? [], null);
+        $this->setIfExists('email', $data ?? [], null);
     }
 
     /**
@@ -300,42 +363,6 @@ class ProfileIdentifierDTOResourceObjectAttributes implements ModelInterface, Ar
         return count($this->listInvalidProperties()) === 0;
     }
 
-
-    /**
-     * Gets email
-     *
-     * @return string|null
-     */
-    public function getEmail()
-    {
-        return $this->container['email'];
-    }
-
-    /**
-     * Sets email
-     *
-     * @param string|null $email Individual's email address
-     *
-     * @return self
-     */
-    public function setEmail($email)
-    {
-
-        if (is_null($email)) {
-            array_push($this->openAPINullablesSetToNull, 'email');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('email', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-
-        $this->container['email'] = $email;
-
-        return $this;
-    }
 
     /**
      * Gets phone_number
@@ -422,7 +449,7 @@ class ProfileIdentifierDTOResourceObjectAttributes implements ModelInterface, Ar
     /**
      * Sets anonymous_id
      *
-     * @param string|null $anonymous_id anonymous_id
+     * @param string|null $anonymous_id Id that can be used to identify a profile when other identifiers are not available
      *
      * @return self
      */
@@ -441,6 +468,352 @@ class ProfileIdentifierDTOResourceObjectAttributes implements ModelInterface, Ar
         }
 
         $this->container['anonymous_id'] = $anonymous_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets _kx
+     *
+     * @return string|null
+     */
+    public function getKx()
+    {
+        return $this->container['_kx'];
+    }
+
+    /**
+     * Sets _kx
+     *
+     * @param string|null $_kx Also known as the `exchange_id`, this is an encrypted identifier used for identifying a profile by Klaviyo's web tracking.  You can use this field as a filter when retrieving profiles via the Get Profiles endpoint.
+     *
+     * @return self
+     */
+    public function setKx($_kx)
+    {
+
+        if (is_null($_kx)) {
+            array_push($this->openAPINullablesSetToNull, '_kx');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('_kx', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+
+        $this->container['_kx'] = $_kx;
+
+        return $this;
+    }
+
+    /**
+     * Gets first_name
+     *
+     * @return string|null
+     */
+    public function getFirstName()
+    {
+        return $this->container['first_name'];
+    }
+
+    /**
+     * Sets first_name
+     *
+     * @param string|null $first_name Individual's first name
+     *
+     * @return self
+     */
+    public function setFirstName($first_name)
+    {
+
+        if (is_null($first_name)) {
+            array_push($this->openAPINullablesSetToNull, 'first_name');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('first_name', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+
+        $this->container['first_name'] = $first_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets last_name
+     *
+     * @return string|null
+     */
+    public function getLastName()
+    {
+        return $this->container['last_name'];
+    }
+
+    /**
+     * Sets last_name
+     *
+     * @param string|null $last_name Individual's last name
+     *
+     * @return self
+     */
+    public function setLastName($last_name)
+    {
+
+        if (is_null($last_name)) {
+            array_push($this->openAPINullablesSetToNull, 'last_name');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('last_name', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+
+        $this->container['last_name'] = $last_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets organization
+     *
+     * @return string|null
+     */
+    public function getOrganization()
+    {
+        return $this->container['organization'];
+    }
+
+    /**
+     * Sets organization
+     *
+     * @param string|null $organization Name of the company or organization within the company for whom the individual works
+     *
+     * @return self
+     */
+    public function setOrganization($organization)
+    {
+
+        if (is_null($organization)) {
+            array_push($this->openAPINullablesSetToNull, 'organization');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('organization', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+
+        $this->container['organization'] = $organization;
+
+        return $this;
+    }
+
+    /**
+     * Gets title
+     *
+     * @return string|null
+     */
+    public function getTitle()
+    {
+        return $this->container['title'];
+    }
+
+    /**
+     * Sets title
+     *
+     * @param string|null $title Individual's job title
+     *
+     * @return self
+     */
+    public function setTitle($title)
+    {
+
+        if (is_null($title)) {
+            array_push($this->openAPINullablesSetToNull, 'title');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('title', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+
+        $this->container['title'] = $title;
+
+        return $this;
+    }
+
+    /**
+     * Gets image
+     *
+     * @return string|null
+     */
+    public function getImage()
+    {
+        return $this->container['image'];
+    }
+
+    /**
+     * Sets image
+     *
+     * @param string|null $image URL pointing to the location of a profile image
+     *
+     * @return self
+     */
+    public function setImage($image)
+    {
+
+        if (is_null($image)) {
+            array_push($this->openAPINullablesSetToNull, 'image');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('image', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+
+        $this->container['image'] = $image;
+
+        return $this;
+    }
+
+    /**
+     * Gets location
+     *
+     * @return \KlaviyoAPI\Model\ProfileLocation|null
+     */
+    public function getLocation()
+    {
+        return $this->container['location'];
+    }
+
+    /**
+     * Sets location
+     *
+     * @param \KlaviyoAPI\Model\ProfileLocation|null $location location
+     *
+     * @return self
+     */
+    public function setLocation($location)
+    {
+
+        if (is_null($location)) {
+            throw new \InvalidArgumentException('non-nullable location cannot be null');
+        }
+
+        $this->container['location'] = $location;
+
+        return $this;
+    }
+
+    /**
+     * Gets properties
+     *
+     * @return object|null
+     */
+    public function getProperties()
+    {
+        return $this->container['properties'];
+    }
+
+    /**
+     * Sets properties
+     *
+     * @param object|null $properties An object containing key/value pairs for any custom properties assigned to this profile
+     *
+     * @return self
+     */
+    public function setProperties($properties)
+    {
+
+        if (is_null($properties)) {
+            array_push($this->openAPINullablesSetToNull, 'properties');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('properties', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+
+        $this->container['properties'] = $properties;
+
+        return $this;
+    }
+
+    /**
+     * Gets meta
+     *
+     * @return \KlaviyoAPI\Model\ProfileMeta|null
+     */
+    public function getMeta()
+    {
+        return $this->container['meta'];
+    }
+
+    /**
+     * Sets meta
+     *
+     * @param \KlaviyoAPI\Model\ProfileMeta|null $meta meta
+     *
+     * @return self
+     */
+    public function setMeta($meta)
+    {
+
+        if (is_null($meta)) {
+            throw new \InvalidArgumentException('non-nullable meta cannot be null');
+        }
+
+        $this->container['meta'] = $meta;
+
+        return $this;
+    }
+
+    /**
+     * Gets email
+     *
+     * @return string|null
+     */
+    public function getEmail()
+    {
+        return $this->container['email'];
+    }
+
+    /**
+     * Sets email
+     *
+     * @param string|null $email Individual's email address
+     *
+     * @return self
+     */
+    public function setEmail($email)
+    {
+
+        if (is_null($email)) {
+            array_push($this->openAPINullablesSetToNull, 'email');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('email', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+
+        $this->container['email'] = $email;
 
         return $this;
     }

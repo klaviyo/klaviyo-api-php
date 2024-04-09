@@ -83,8 +83,8 @@ class StaticScheduleOptions implements ModelInterface, ArrayAccess, \JsonSeriali
       */
     protected static array $openAPINullables = [
         'datetime' => false,
-		'is_local' => false,
-		'send_past_recipients_immediately' => false
+		'is_local' => true,
+		'send_past_recipients_immediately' => true
     ];
 
     /**
@@ -347,7 +347,14 @@ class StaticScheduleOptions implements ModelInterface, ArrayAccess, \JsonSeriali
     {
 
         if (is_null($is_local)) {
-            throw new \InvalidArgumentException('non-nullable is_local cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'is_local');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('is_local', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
 
         $this->container['is_local'] = $is_local;
@@ -376,7 +383,14 @@ class StaticScheduleOptions implements ModelInterface, ArrayAccess, \JsonSeriali
     {
 
         if (is_null($send_past_recipients_immediately)) {
-            throw new \InvalidArgumentException('non-nullable send_past_recipients_immediately cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'send_past_recipients_immediately');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('send_past_recipients_immediately', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
 
         $this->container['send_past_recipients_immediately'] = $send_past_recipients_immediately;

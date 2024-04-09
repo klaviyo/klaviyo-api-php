@@ -86,10 +86,10 @@ class CampaignPartialUpdateQueryResourceObjectAttributes implements ModelInterfa
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'name' => false,
+        'name' => true,
 		'audiences' => false,
-		'send_options' => false,
-		'tracking_options' => false,
+		'send_options' => true,
+		'tracking_options' => true,
 		'send_strategy' => false
     ];
 
@@ -329,7 +329,14 @@ class CampaignPartialUpdateQueryResourceObjectAttributes implements ModelInterfa
     {
 
         if (is_null($name)) {
-            throw new \InvalidArgumentException('non-nullable name cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'name');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('name', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
 
         $this->container['name'] = $name;
@@ -387,7 +394,14 @@ class CampaignPartialUpdateQueryResourceObjectAttributes implements ModelInterfa
     {
 
         if (is_null($send_options)) {
-            throw new \InvalidArgumentException('non-nullable send_options cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'send_options');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('send_options', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
 
         $this->container['send_options'] = $send_options;
@@ -416,7 +430,14 @@ class CampaignPartialUpdateQueryResourceObjectAttributes implements ModelInterfa
     {
 
         if (is_null($tracking_options)) {
-            throw new \InvalidArgumentException('non-nullable tracking_options cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'tracking_options');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('tracking_options', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
 
         $this->container['tracking_options'] = $tracking_options;

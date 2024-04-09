@@ -90,13 +90,13 @@ class EmailContentSubObject implements ModelInterface, ArrayAccess, \JsonSeriali
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'subject' => false,
-		'preview_text' => false,
-		'from_email' => false,
-		'from_label' => false,
-		'reply_to_email' => false,
-		'cc_email' => false,
-		'bcc_email' => false
+        'subject' => true,
+		'preview_text' => true,
+		'from_email' => true,
+		'from_label' => true,
+		'reply_to_email' => true,
+		'cc_email' => true,
+		'bcc_email' => true
     ];
 
     /**
@@ -343,7 +343,14 @@ class EmailContentSubObject implements ModelInterface, ArrayAccess, \JsonSeriali
     {
 
         if (is_null($subject)) {
-            throw new \InvalidArgumentException('non-nullable subject cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'subject');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('subject', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
 
         $this->container['subject'] = $subject;
@@ -372,7 +379,14 @@ class EmailContentSubObject implements ModelInterface, ArrayAccess, \JsonSeriali
     {
 
         if (is_null($preview_text)) {
-            throw new \InvalidArgumentException('non-nullable preview_text cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'preview_text');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('preview_text', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
 
         $this->container['preview_text'] = $preview_text;
@@ -401,7 +415,14 @@ class EmailContentSubObject implements ModelInterface, ArrayAccess, \JsonSeriali
     {
 
         if (is_null($from_email)) {
-            throw new \InvalidArgumentException('non-nullable from_email cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'from_email');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('from_email', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
 
         $this->container['from_email'] = $from_email;
@@ -430,7 +451,14 @@ class EmailContentSubObject implements ModelInterface, ArrayAccess, \JsonSeriali
     {
 
         if (is_null($from_label)) {
-            throw new \InvalidArgumentException('non-nullable from_label cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'from_label');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('from_label', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
 
         $this->container['from_label'] = $from_label;
@@ -459,7 +487,14 @@ class EmailContentSubObject implements ModelInterface, ArrayAccess, \JsonSeriali
     {
 
         if (is_null($reply_to_email)) {
-            throw new \InvalidArgumentException('non-nullable reply_to_email cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'reply_to_email');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('reply_to_email', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
 
         $this->container['reply_to_email'] = $reply_to_email;
@@ -488,7 +523,14 @@ class EmailContentSubObject implements ModelInterface, ArrayAccess, \JsonSeriali
     {
 
         if (is_null($cc_email)) {
-            throw new \InvalidArgumentException('non-nullable cc_email cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'cc_email');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('cc_email', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
 
         $this->container['cc_email'] = $cc_email;
@@ -517,7 +559,14 @@ class EmailContentSubObject implements ModelInterface, ArrayAccess, \JsonSeriali
     {
 
         if (is_null($bcc_email)) {
-            throw new \InvalidArgumentException('non-nullable bcc_email cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'bcc_email');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('bcc_email', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
 
         $this->container['bcc_email'] = $bcc_email;

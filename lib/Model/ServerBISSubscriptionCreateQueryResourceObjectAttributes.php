@@ -81,7 +81,7 @@ class ServerBISSubscriptionCreateQueryResourceObjectAttributes implements ModelI
       */
     protected static array $openAPINullables = [
         'channels' => false,
-		'profile' => false
+		'profile' => true
     ];
 
     /**
@@ -366,7 +366,14 @@ class ServerBISSubscriptionCreateQueryResourceObjectAttributes implements ModelI
     {
 
         if (is_null($profile)) {
-            throw new \InvalidArgumentException('non-nullable profile cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'profile');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('profile', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
 
         $this->container['profile'] = $profile;

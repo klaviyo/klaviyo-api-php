@@ -1,6 +1,6 @@
 <?php
 /**
- * OnsiteProfileCreateQueryResourceObject
+ * EventProfileCreateQueryResourceObject
  *
  * PHP version 7.4
  *
@@ -33,7 +33,7 @@ use \ArrayAccess;
 use \KlaviyoAPI\ObjectSerializer;
 
 /**
- * OnsiteProfileCreateQueryResourceObject Class Doc Comment
+ * EventProfileCreateQueryResourceObject Class Doc Comment
  *
  * @category Class
  * @package  KlaviyoAPI
@@ -41,7 +41,7 @@ use \KlaviyoAPI\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class OnsiteProfileCreateQueryResourceObject implements ModelInterface, ArrayAccess, \JsonSerializable
+class EventProfileCreateQueryResourceObject implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class OnsiteProfileCreateQueryResourceObject implements ModelInterface, ArrayAcc
       *
       * @var string
       */
-    protected static $openAPIModelName = 'OnsiteProfileCreateQueryResourceObject';
+    protected static $openAPIModelName = 'EventProfileCreateQueryResourceObject';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -60,8 +60,7 @@ class OnsiteProfileCreateQueryResourceObject implements ModelInterface, ArrayAcc
     protected static $openAPITypes = [
         'type' => '\KlaviyoAPI\Model\ProfileEnum',
         'id' => 'string',
-        'attributes' => '\KlaviyoAPI\Model\OnsiteProfileCreateQueryResourceObjectAttributes',
-        'meta' => '\KlaviyoAPI\Model\OnsiteProfileMeta'
+        'attributes' => '\KlaviyoAPI\Model\EventProfileCreateQueryResourceObjectAttributes'
     ];
 
     /**
@@ -74,8 +73,7 @@ class OnsiteProfileCreateQueryResourceObject implements ModelInterface, ArrayAcc
     protected static $openAPIFormats = [
         'type' => null,
         'id' => null,
-        'attributes' => null,
-        'meta' => null
+        'attributes' => null
     ];
 
     /**
@@ -85,9 +83,8 @@ class OnsiteProfileCreateQueryResourceObject implements ModelInterface, ArrayAcc
       */
     protected static array $openAPINullables = [
         'type' => false,
-		'id' => false,
-		'attributes' => false,
-		'meta' => false
+		'id' => true,
+		'attributes' => false
     ];
 
     /**
@@ -168,8 +165,7 @@ class OnsiteProfileCreateQueryResourceObject implements ModelInterface, ArrayAcc
     protected static $attributeMap = [
         'type' => 'type',
         'id' => 'id',
-        'attributes' => 'attributes',
-        'meta' => 'meta'
+        'attributes' => 'attributes'
     ];
 
     /**
@@ -180,8 +176,7 @@ class OnsiteProfileCreateQueryResourceObject implements ModelInterface, ArrayAcc
     protected static $setters = [
         'type' => 'setType',
         'id' => 'setId',
-        'attributes' => 'setAttributes',
-        'meta' => 'setMeta'
+        'attributes' => 'setAttributes'
     ];
 
     /**
@@ -192,8 +187,7 @@ class OnsiteProfileCreateQueryResourceObject implements ModelInterface, ArrayAcc
     protected static $getters = [
         'type' => 'getType',
         'id' => 'getId',
-        'attributes' => 'getAttributes',
-        'meta' => 'getMeta'
+        'attributes' => 'getAttributes'
     ];
 
     /**
@@ -256,7 +250,6 @@ class OnsiteProfileCreateQueryResourceObject implements ModelInterface, ArrayAcc
         $this->setIfExists('type', $data ?? [], null);
         $this->setIfExists('id', $data ?? [], null);
         $this->setIfExists('attributes', $data ?? [], null);
-        $this->setIfExists('meta', $data ?? [], null);
     }
 
     /**
@@ -357,7 +350,14 @@ class OnsiteProfileCreateQueryResourceObject implements ModelInterface, ArrayAcc
     {
 
         if (is_null($id)) {
-            throw new \InvalidArgumentException('non-nullable id cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
 
         $this->container['id'] = $id;
@@ -368,7 +368,7 @@ class OnsiteProfileCreateQueryResourceObject implements ModelInterface, ArrayAcc
     /**
      * Gets attributes
      *
-     * @return \KlaviyoAPI\Model\OnsiteProfileCreateQueryResourceObjectAttributes
+     * @return \KlaviyoAPI\Model\EventProfileCreateQueryResourceObjectAttributes
      */
     public function getAttributes()
     {
@@ -378,7 +378,7 @@ class OnsiteProfileCreateQueryResourceObject implements ModelInterface, ArrayAcc
     /**
      * Sets attributes
      *
-     * @param \KlaviyoAPI\Model\OnsiteProfileCreateQueryResourceObjectAttributes $attributes attributes
+     * @param \KlaviyoAPI\Model\EventProfileCreateQueryResourceObjectAttributes $attributes attributes
      *
      * @return self
      */
@@ -390,35 +390,6 @@ class OnsiteProfileCreateQueryResourceObject implements ModelInterface, ArrayAcc
         }
 
         $this->container['attributes'] = $attributes;
-
-        return $this;
-    }
-
-    /**
-     * Gets meta
-     *
-     * @return \KlaviyoAPI\Model\OnsiteProfileMeta|null
-     */
-    public function getMeta()
-    {
-        return $this->container['meta'];
-    }
-
-    /**
-     * Sets meta
-     *
-     * @param \KlaviyoAPI\Model\OnsiteProfileMeta|null $meta meta
-     *
-     * @return self
-     */
-    public function setMeta($meta)
-    {
-
-        if (is_null($meta)) {
-            throw new \InvalidArgumentException('non-nullable meta cannot be null');
-        }
-
-        $this->container['meta'] = $meta;
 
         return $this;
     }

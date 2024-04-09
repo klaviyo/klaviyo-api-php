@@ -78,7 +78,7 @@ class TemplateCloneQueryResourceObjectAttributes implements ModelInterface, Arra
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'name' => false
+        'name' => true
     ];
 
     /**
@@ -301,7 +301,14 @@ class TemplateCloneQueryResourceObjectAttributes implements ModelInterface, Arra
     {
 
         if (is_null($name)) {
-            throw new \InvalidArgumentException('non-nullable name cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'name');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('name', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
 
         $this->container['name'] = $name;

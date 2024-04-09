@@ -80,8 +80,8 @@ class SegmentPartialUpdateQueryResourceObjectAttributes implements ModelInterfac
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'name' => false,
-		'is_starred' => false
+        'name' => true,
+		'is_starred' => true
     ];
 
     /**
@@ -308,7 +308,14 @@ class SegmentPartialUpdateQueryResourceObjectAttributes implements ModelInterfac
     {
 
         if (is_null($name)) {
-            throw new \InvalidArgumentException('non-nullable name cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'name');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('name', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
 
         $this->container['name'] = $name;
@@ -337,7 +344,14 @@ class SegmentPartialUpdateQueryResourceObjectAttributes implements ModelInterfac
     {
 
         if (is_null($is_starred)) {
-            throw new \InvalidArgumentException('non-nullable is_starred cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'is_starred');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('is_starred', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
 
         $this->container['is_starred'] = $is_starred;

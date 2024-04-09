@@ -1,6 +1,6 @@
 <?php
 /**
- * OnsiteProfileCreateQueryResourceObjectAttributes
+ * EventProfileCreateQueryResourceObjectAttributes
  *
  * PHP version 7.4
  *
@@ -33,7 +33,7 @@ use \ArrayAccess;
 use \KlaviyoAPI\ObjectSerializer;
 
 /**
- * OnsiteProfileCreateQueryResourceObjectAttributes Class Doc Comment
+ * EventProfileCreateQueryResourceObjectAttributes Class Doc Comment
  *
  * @category Class
  * @package  KlaviyoAPI
@@ -41,7 +41,7 @@ use \KlaviyoAPI\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class OnsiteProfileCreateQueryResourceObjectAttributes implements ModelInterface, ArrayAccess, \JsonSerializable
+class EventProfileCreateQueryResourceObjectAttributes implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class OnsiteProfileCreateQueryResourceObjectAttributes implements ModelInterface
       *
       * @var string
       */
-    protected static $openAPIModelName = 'OnsiteProfileCreateQueryResourceObject_attributes';
+    protected static $openAPIModelName = 'EventProfileCreateQueryResourceObject_attributes';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,7 +58,6 @@ class OnsiteProfileCreateQueryResourceObjectAttributes implements ModelInterface
       * @var string[]
       */
     protected static $openAPITypes = [
-        'email' => 'string',
         'phone_number' => 'string',
         'external_id' => 'string',
         'anonymous_id' => 'string',
@@ -69,7 +68,9 @@ class OnsiteProfileCreateQueryResourceObjectAttributes implements ModelInterface
         'title' => 'string',
         'image' => 'string',
         'location' => '\KlaviyoAPI\Model\ProfileLocation',
-        'properties' => 'object'
+        'properties' => 'object',
+        'meta' => '\KlaviyoAPI\Model\OnsiteProfileMeta',
+        'email' => 'string'
     ];
 
     /**
@@ -80,7 +81,6 @@ class OnsiteProfileCreateQueryResourceObjectAttributes implements ModelInterface
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'email' => null,
         'phone_number' => null,
         'external_id' => null,
         'anonymous_id' => null,
@@ -91,7 +91,9 @@ class OnsiteProfileCreateQueryResourceObjectAttributes implements ModelInterface
         'title' => null,
         'image' => null,
         'location' => null,
-        'properties' => null
+        'properties' => null,
+        'meta' => null,
+        'email' => null
     ];
 
     /**
@@ -100,18 +102,19 @@ class OnsiteProfileCreateQueryResourceObjectAttributes implements ModelInterface
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'email' => false,
-		'phone_number' => false,
-		'external_id' => false,
-		'anonymous_id' => false,
-		'_kx' => false,
-		'first_name' => false,
-		'last_name' => false,
-		'organization' => false,
-		'title' => false,
-		'image' => false,
+        'phone_number' => true,
+		'external_id' => true,
+		'anonymous_id' => true,
+		'_kx' => true,
+		'first_name' => true,
+		'last_name' => true,
+		'organization' => true,
+		'title' => true,
+		'image' => true,
 		'location' => false,
-		'properties' => false
+		'properties' => true,
+		'meta' => false,
+		'email' => true
     ];
 
     /**
@@ -190,7 +193,6 @@ class OnsiteProfileCreateQueryResourceObjectAttributes implements ModelInterface
      * @var string[]
      */
     protected static $attributeMap = [
-        'email' => 'email',
         'phone_number' => 'phone_number',
         'external_id' => 'external_id',
         'anonymous_id' => 'anonymous_id',
@@ -201,7 +203,9 @@ class OnsiteProfileCreateQueryResourceObjectAttributes implements ModelInterface
         'title' => 'title',
         'image' => 'image',
         'location' => 'location',
-        'properties' => 'properties'
+        'properties' => 'properties',
+        'meta' => 'meta',
+        'email' => 'email'
     ];
 
     /**
@@ -210,7 +214,6 @@ class OnsiteProfileCreateQueryResourceObjectAttributes implements ModelInterface
      * @var string[]
      */
     protected static $setters = [
-        'email' => 'setEmail',
         'phone_number' => 'setPhoneNumber',
         'external_id' => 'setExternalId',
         'anonymous_id' => 'setAnonymousId',
@@ -221,7 +224,9 @@ class OnsiteProfileCreateQueryResourceObjectAttributes implements ModelInterface
         'title' => 'setTitle',
         'image' => 'setImage',
         'location' => 'setLocation',
-        'properties' => 'setProperties'
+        'properties' => 'setProperties',
+        'meta' => 'setMeta',
+        'email' => 'setEmail'
     ];
 
     /**
@@ -230,7 +235,6 @@ class OnsiteProfileCreateQueryResourceObjectAttributes implements ModelInterface
      * @var string[]
      */
     protected static $getters = [
-        'email' => 'getEmail',
         'phone_number' => 'getPhoneNumber',
         'external_id' => 'getExternalId',
         'anonymous_id' => 'getAnonymousId',
@@ -241,7 +245,9 @@ class OnsiteProfileCreateQueryResourceObjectAttributes implements ModelInterface
         'title' => 'getTitle',
         'image' => 'getImage',
         'location' => 'getLocation',
-        'properties' => 'getProperties'
+        'properties' => 'getProperties',
+        'meta' => 'getMeta',
+        'email' => 'getEmail'
     ];
 
     /**
@@ -301,7 +307,6 @@ class OnsiteProfileCreateQueryResourceObjectAttributes implements ModelInterface
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('email', $data ?? [], null);
         $this->setIfExists('phone_number', $data ?? [], null);
         $this->setIfExists('external_id', $data ?? [], null);
         $this->setIfExists('anonymous_id', $data ?? [], null);
@@ -313,6 +318,8 @@ class OnsiteProfileCreateQueryResourceObjectAttributes implements ModelInterface
         $this->setIfExists('image', $data ?? [], null);
         $this->setIfExists('location', $data ?? [], null);
         $this->setIfExists('properties', $data ?? [], null);
+        $this->setIfExists('meta', $data ?? [], null);
+        $this->setIfExists('email', $data ?? [], null);
     }
 
     /**
@@ -358,35 +365,6 @@ class OnsiteProfileCreateQueryResourceObjectAttributes implements ModelInterface
 
 
     /**
-     * Gets email
-     *
-     * @return string|null
-     */
-    public function getEmail()
-    {
-        return $this->container['email'];
-    }
-
-    /**
-     * Sets email
-     *
-     * @param string|null $email Individual's email address
-     *
-     * @return self
-     */
-    public function setEmail($email)
-    {
-
-        if (is_null($email)) {
-            throw new \InvalidArgumentException('non-nullable email cannot be null');
-        }
-
-        $this->container['email'] = $email;
-
-        return $this;
-    }
-
-    /**
      * Gets phone_number
      *
      * @return string|null
@@ -407,7 +385,14 @@ class OnsiteProfileCreateQueryResourceObjectAttributes implements ModelInterface
     {
 
         if (is_null($phone_number)) {
-            throw new \InvalidArgumentException('non-nullable phone_number cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'phone_number');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('phone_number', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
 
         $this->container['phone_number'] = $phone_number;
@@ -436,7 +421,14 @@ class OnsiteProfileCreateQueryResourceObjectAttributes implements ModelInterface
     {
 
         if (is_null($external_id)) {
-            throw new \InvalidArgumentException('non-nullable external_id cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'external_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('external_id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
 
         $this->container['external_id'] = $external_id;
@@ -465,7 +457,14 @@ class OnsiteProfileCreateQueryResourceObjectAttributes implements ModelInterface
     {
 
         if (is_null($anonymous_id)) {
-            throw new \InvalidArgumentException('non-nullable anonymous_id cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'anonymous_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('anonymous_id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
 
         $this->container['anonymous_id'] = $anonymous_id;
@@ -494,7 +493,14 @@ class OnsiteProfileCreateQueryResourceObjectAttributes implements ModelInterface
     {
 
         if (is_null($_kx)) {
-            throw new \InvalidArgumentException('non-nullable _kx cannot be null');
+            array_push($this->openAPINullablesSetToNull, '_kx');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('_kx', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
 
         $this->container['_kx'] = $_kx;
@@ -523,7 +529,14 @@ class OnsiteProfileCreateQueryResourceObjectAttributes implements ModelInterface
     {
 
         if (is_null($first_name)) {
-            throw new \InvalidArgumentException('non-nullable first_name cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'first_name');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('first_name', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
 
         $this->container['first_name'] = $first_name;
@@ -552,7 +565,14 @@ class OnsiteProfileCreateQueryResourceObjectAttributes implements ModelInterface
     {
 
         if (is_null($last_name)) {
-            throw new \InvalidArgumentException('non-nullable last_name cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'last_name');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('last_name', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
 
         $this->container['last_name'] = $last_name;
@@ -581,7 +601,14 @@ class OnsiteProfileCreateQueryResourceObjectAttributes implements ModelInterface
     {
 
         if (is_null($organization)) {
-            throw new \InvalidArgumentException('non-nullable organization cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'organization');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('organization', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
 
         $this->container['organization'] = $organization;
@@ -610,7 +637,14 @@ class OnsiteProfileCreateQueryResourceObjectAttributes implements ModelInterface
     {
 
         if (is_null($title)) {
-            throw new \InvalidArgumentException('non-nullable title cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'title');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('title', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
 
         $this->container['title'] = $title;
@@ -639,7 +673,14 @@ class OnsiteProfileCreateQueryResourceObjectAttributes implements ModelInterface
     {
 
         if (is_null($image)) {
-            throw new \InvalidArgumentException('non-nullable image cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'image');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('image', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
 
         $this->container['image'] = $image;
@@ -697,10 +738,82 @@ class OnsiteProfileCreateQueryResourceObjectAttributes implements ModelInterface
     {
 
         if (is_null($properties)) {
-            throw new \InvalidArgumentException('non-nullable properties cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'properties');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('properties', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
 
         $this->container['properties'] = $properties;
+
+        return $this;
+    }
+
+    /**
+     * Gets meta
+     *
+     * @return \KlaviyoAPI\Model\OnsiteProfileMeta|null
+     */
+    public function getMeta()
+    {
+        return $this->container['meta'];
+    }
+
+    /**
+     * Sets meta
+     *
+     * @param \KlaviyoAPI\Model\OnsiteProfileMeta|null $meta meta
+     *
+     * @return self
+     */
+    public function setMeta($meta)
+    {
+
+        if (is_null($meta)) {
+            throw new \InvalidArgumentException('non-nullable meta cannot be null');
+        }
+
+        $this->container['meta'] = $meta;
+
+        return $this;
+    }
+
+    /**
+     * Gets email
+     *
+     * @return string|null
+     */
+    public function getEmail()
+    {
+        return $this->container['email'];
+    }
+
+    /**
+     * Sets email
+     *
+     * @param string|null $email Individual's email address
+     *
+     * @return self
+     */
+    public function setEmail($email)
+    {
+
+        if (is_null($email)) {
+            array_push($this->openAPINullablesSetToNull, 'email');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('email', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+
+        $this->container['email'] = $email;
 
         return $this;
     }

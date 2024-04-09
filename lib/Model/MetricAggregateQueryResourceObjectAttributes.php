@@ -99,12 +99,12 @@ class MetricAggregateQueryResourceObjectAttributes implements ModelInterface, Ar
         'metric_id' => false,
 		'page_cursor' => false,
 		'measurements' => false,
-		'interval' => false,
-		'page_size' => false,
-		'by' => false,
-		'return_fields' => false,
+		'interval' => true,
+		'page_size' => true,
+		'by' => true,
+		'return_fields' => true,
 		'filter' => false,
-		'timezone' => false,
+		'timezone' => true,
 		'sort' => false
     ];
 
@@ -747,7 +747,14 @@ class MetricAggregateQueryResourceObjectAttributes implements ModelInterface, Ar
         }
 
         if (is_null($interval)) {
-            throw new \InvalidArgumentException('non-nullable interval cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'interval');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('interval', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
 
         $this->container['interval'] = $interval;
@@ -776,7 +783,14 @@ class MetricAggregateQueryResourceObjectAttributes implements ModelInterface, Ar
     {
 
         if (is_null($page_size)) {
-            throw new \InvalidArgumentException('non-nullable page_size cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'page_size');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('page_size', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
 
         $this->container['page_size'] = $page_size;
@@ -814,7 +828,14 @@ class MetricAggregateQueryResourceObjectAttributes implements ModelInterface, Ar
         }
 
         if (is_null($by)) {
-            throw new \InvalidArgumentException('non-nullable by cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'by');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('by', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
 
         $this->container['by'] = $by;
@@ -843,7 +864,14 @@ class MetricAggregateQueryResourceObjectAttributes implements ModelInterface, Ar
     {
 
         if (is_null($return_fields)) {
-            throw new \InvalidArgumentException('non-nullable return_fields cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'return_fields');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('return_fields', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
 
         $this->container['return_fields'] = $return_fields;
@@ -901,7 +929,14 @@ class MetricAggregateQueryResourceObjectAttributes implements ModelInterface, Ar
     {
 
         if (is_null($timezone)) {
-            throw new \InvalidArgumentException('non-nullable timezone cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'timezone');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('timezone', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
 
         $this->container['timezone'] = $timezone;

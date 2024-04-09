@@ -91,10 +91,10 @@ class EventCreateQueryV2ResourceObjectAttributes implements ModelInterface, Arra
       */
     protected static array $openAPINullables = [
         'properties' => false,
-		'time' => false,
-		'value' => false,
-		'value_currency' => false,
-		'unique_id' => false,
+		'time' => true,
+		'value' => true,
+		'value_currency' => true,
+		'unique_id' => true,
 		'metric' => false,
 		'profile' => false
     ];
@@ -381,7 +381,14 @@ class EventCreateQueryV2ResourceObjectAttributes implements ModelInterface, Arra
     {
 
         if (is_null($time)) {
-            throw new \InvalidArgumentException('non-nullable time cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'time');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('time', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
 
         $this->container['time'] = $time;
@@ -410,7 +417,14 @@ class EventCreateQueryV2ResourceObjectAttributes implements ModelInterface, Arra
     {
 
         if (is_null($value)) {
-            throw new \InvalidArgumentException('non-nullable value cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'value');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('value', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
 
         $this->container['value'] = $value;
@@ -439,7 +453,14 @@ class EventCreateQueryV2ResourceObjectAttributes implements ModelInterface, Arra
     {
 
         if (is_null($value_currency)) {
-            throw new \InvalidArgumentException('non-nullable value_currency cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'value_currency');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('value_currency', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
 
         $this->container['value_currency'] = $value_currency;
@@ -468,7 +489,14 @@ class EventCreateQueryV2ResourceObjectAttributes implements ModelInterface, Arra
     {
 
         if (is_null($unique_id)) {
-            throw new \InvalidArgumentException('non-nullable unique_id cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'unique_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('unique_id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
 
         $this->container['unique_id'] = $unique_id;

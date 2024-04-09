@@ -78,7 +78,7 @@ class CampaignCloneQueryResourceObjectAttributes implements ModelInterface, Arra
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'new_name' => false
+        'new_name' => true
     ];
 
     /**
@@ -301,7 +301,14 @@ class CampaignCloneQueryResourceObjectAttributes implements ModelInterface, Arra
     {
 
         if (is_null($new_name)) {
-            throw new \InvalidArgumentException('non-nullable new_name cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'new_name');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('new_name', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
 
         $this->container['new_name'] = $new_name;

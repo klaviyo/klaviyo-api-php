@@ -59,7 +59,7 @@ class PushTokenCreateQueryResourceObjectAttributesProfile implements ModelInterf
       * @var string[]
       */
     protected static $openAPITypes = [
-        'data' => '\KlaviyoAPI\Model\ProfileUpsertQueryResourceObject'
+        'data' => '\KlaviyoAPI\Model\PushProfileUpsertQueryResourceObject'
     ];
 
     /**
@@ -287,7 +287,7 @@ class PushTokenCreateQueryResourceObjectAttributesProfile implements ModelInterf
     /**
      * Gets data
      *
-     * @return \KlaviyoAPI\Model\ProfileUpsertQueryResourceObject
+     * @return \KlaviyoAPI\Model\PushProfileUpsertQueryResourceObject
      */
     public function getData()
     {
@@ -297,7 +297,7 @@ class PushTokenCreateQueryResourceObjectAttributesProfile implements ModelInterf
     /**
      * Sets data
      *
-     * @param \KlaviyoAPI\Model\ProfileUpsertQueryResourceObject $data data
+     * @param \KlaviyoAPI\Model\PushProfileUpsertQueryResourceObject $data data
      *
      * @return self
      */

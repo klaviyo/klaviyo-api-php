@@ -78,7 +78,7 @@ class ProfileSuppressionCreateQueryResourceObjectAttributes implements ModelInte
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'email' => false
+        'email' => true
     ];
 
     /**
@@ -301,7 +301,14 @@ class ProfileSuppressionCreateQueryResourceObjectAttributes implements ModelInte
     {
 
         if (is_null($email)) {
-            throw new \InvalidArgumentException('non-nullable email cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'email');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('email', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
 
         $this->container['email'] = $email;

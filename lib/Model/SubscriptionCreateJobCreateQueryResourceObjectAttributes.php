@@ -80,7 +80,7 @@ class SubscriptionCreateJobCreateQueryResourceObjectAttributes implements ModelI
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'custom_source' => false,
+        'custom_source' => true,
 		'profiles' => false
     ];
 
@@ -311,7 +311,14 @@ class SubscriptionCreateJobCreateQueryResourceObjectAttributes implements ModelI
     {
 
         if (is_null($custom_source)) {
-            throw new \InvalidArgumentException('non-nullable custom_source cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'custom_source');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('custom_source', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
 
         $this->container['custom_source'] = $custom_source;

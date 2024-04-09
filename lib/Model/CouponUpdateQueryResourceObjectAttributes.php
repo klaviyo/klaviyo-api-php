@@ -78,7 +78,7 @@ class CouponUpdateQueryResourceObjectAttributes implements ModelInterface, Array
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'description' => false
+        'description' => true
     ];
 
     /**
@@ -301,7 +301,14 @@ class CouponUpdateQueryResourceObjectAttributes implements ModelInterface, Array
     {
 
         if (is_null($description)) {
-            throw new \InvalidArgumentException('non-nullable description cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'description');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('description', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
 
         $this->container['description'] = $description;

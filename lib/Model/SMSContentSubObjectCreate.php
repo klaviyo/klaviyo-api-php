@@ -78,7 +78,7 @@ class SMSContentSubObjectCreate implements ModelInterface, ArrayAccess, \JsonSer
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'body' => false
+        'body' => true
     ];
 
     /**
@@ -301,7 +301,14 @@ class SMSContentSubObjectCreate implements ModelInterface, ArrayAccess, \JsonSer
     {
 
         if (is_null($body)) {
-            throw new \InvalidArgumentException('non-nullable body cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'body');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('body', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
 
         $this->container['body'] = $body;
