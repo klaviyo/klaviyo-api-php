@@ -11,7 +11,7 @@ NOTE: For more granular API-specific changes, please see our [API Changelog](htt
 
 ### Added
 
-  - Bulk Create Events API with 
+  - Bulk Create Events API 
 	- We have added support for creating events in bulk via the `$klaviyo->Events->bulkCreateEvents` method
 - Create multiple events for new and existing profiles and/or update profile properties in a single API call. For more information, see our [Events API overview](https://developers.klaviyo.com/en/reference/events_api_overview).
 
