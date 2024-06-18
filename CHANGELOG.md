@@ -19,7 +19,7 @@ NOTE: For more granular API-specific changes, please see our [API Changelog](htt
   - Flows Api
     - New delete flows endpoint `$klaviyo->Flows->deleteFlow()`
    
-# [8.0.0] - revision 2024-05-15
+## [8.0.0] - revision 2024-05-15
 
 ### Added
 
