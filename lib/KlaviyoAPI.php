@@ -12,6 +12,7 @@ use KlaviyoAPI\API\CouponsApi;
 use KlaviyoAPI\API\DataPrivacyApi;
 use KlaviyoAPI\API\EventsApi;
 use KlaviyoAPI\API\FlowsApi;
+use KlaviyoAPI\API\FormsApi;
 use KlaviyoAPI\API\ImagesApi;
 use KlaviyoAPI\API\ListsApi;
 use KlaviyoAPI\API\MetricsApi;
@@ -20,6 +21,7 @@ use KlaviyoAPI\API\ReportingApi;
 use KlaviyoAPI\API\SegmentsApi;
 use KlaviyoAPI\API\TagsApi;
 use KlaviyoAPI\API\TemplatesApi;
+use KlaviyoAPI\API\WebhooksApi;
 
 
 
@@ -37,6 +39,7 @@ class KlaviyoAPI {
     public $DataPrivacy;
     public $Events;
     public $Flows;
+    public $Forms;
     public $Images;
     public $Lists;
     public $Metrics;
@@ -45,6 +48,7 @@ class KlaviyoAPI {
     public $Segments;
     public $Tags;
     public $Templates;
+    public $Webhooks;
     
 
 
@@ -112,6 +116,12 @@ class KlaviyoAPI {
                 $num_retries = $this->num_retries,
             );
         
+        $this->Forms = new Subclient(
+                new FormsApi(new GuzzleClient($this->guzzle_options),$this->config),
+                $wait_seconds = $this->wait_seconds,
+                $num_retries = $this->num_retries,
+            );
+        
         $this->Images = new Subclient(
                 new ImagesApi(new GuzzleClient($this->guzzle_options),$this->config),
                 $wait_seconds = $this->wait_seconds,
@@ -156,6 +166,12 @@ class KlaviyoAPI {
         
         $this->Templates = new Subclient(
                 new TemplatesApi(new GuzzleClient($this->guzzle_options),$this->config),
+                $wait_seconds = $this->wait_seconds,
+                $num_retries = $this->num_retries,
+            );
+        
+        $this->Webhooks = new Subclient(
+                new WebhooksApi(new GuzzleClient($this->guzzle_options),$this->config),
                 $wait_seconds = $this->wait_seconds,
                 $num_retries = $this->num_retries,
             );
