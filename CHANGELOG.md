@@ -7,7 +7,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 NOTE: For more granular API-specific changes, please see our [API Changelog](https://developers.klaviyo.com/en/docs/changelog_)
 
-## [9.0.0] - revision 2024-07-15
+## [9.0.1] - revision 2024-07-15
 
 ### Added
 
