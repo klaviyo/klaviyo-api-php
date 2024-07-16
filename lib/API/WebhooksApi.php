@@ -1500,9 +1500,9 @@ class WebhooksApi
      * @throws \InvalidArgumentException
      * @return array<string,mixed>|\KlaviyoAPI\Model\GetAccounts400Response|\KlaviyoAPI\Model\GetAccounts400Response
      */
-    public function getWebhookTopics(, $apiKey = null)
+    public function getWebhookTopics($id, $apiKey = null)
     {
-        list($response) = $this->getWebhookTopicsWithHttpInfo(, $apiKey);
+        list($response) = $this->getWebhookTopicsWithHttpInfo($id, $apiKey);
         return $response;
     }
 
@@ -1516,9 +1516,9 @@ class WebhooksApi
      * @throws \InvalidArgumentException
      * @return array of array<string,mixed>|\KlaviyoAPI\Model\GetAccounts400Response|\KlaviyoAPI\Model\GetAccounts400Response, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getWebhookTopicsWithHttpInfo(, $apiKey = null)
+    public function getWebhookTopicsWithHttpInfo($id, $apiKey = null)
     {
-        $request = $this->getWebhookTopicsRequest(, $apiKey);
+        $request = $this->getWebhookTopicsRequest($id, $apiKey);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1682,9 +1682,9 @@ class WebhooksApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getWebhookTopicsAsync(, $apiKey = null)
+    public function getWebhookTopicsAsync($id, $apiKey = null)
     {
-        return $this->getWebhookTopicsAsyncWithHttpInfo(, $apiKey)
+        return $this->getWebhookTopicsAsyncWithHttpInfo($id, $apiKey)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1701,10 +1701,10 @@ class WebhooksApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getWebhookTopicsAsyncWithHttpInfo(, $apiKey = null)
+    public function getWebhookTopicsAsyncWithHttpInfo($id, $apiKey = null)
     {
         $returnType = 'array<string,mixed>';
-        $request = $this->getWebhookTopicsRequest(, $apiKey);
+        $request = $this->getWebhookTopicsRequest($id, $apiKey);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1754,7 +1754,7 @@ class WebhooksApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getWebhookTopicsRequest(, $apiKey = null)
+    public function getWebhookTopicsRequest($id, $apiKey = null)
     {
 
         $resourcePath = '/api/webhook-topics/';
