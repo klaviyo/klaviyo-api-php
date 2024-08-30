@@ -134,6 +134,15 @@ class ProfilesApi
     }
 
     /**
+     * Alias of `createOrUpdateProfile`
+     *
+     * @deprecated use `createOrUpdateProfile` instead
+     */
+    public function createProfileImport(...$args) {
+        return $this->createOrUpdateProfile(...$args);
+    }
+
+    /**
      * Operation createOrUpdateProfileWithHttpInfo
      *
      * Create or Update Profile
@@ -331,6 +340,15 @@ class ProfilesApi
     }
 
     /**
+     * Alias of `createOrUpdateProfileWithHttpInfo`
+     *
+     * @deprecated use `createOrUpdateProfileWithHttpInfo` instead
+     */
+    public function createProfileImportWithHttpInfo(...$args) {
+        return $this->createOrUpdateProfileWithHttpInfo(...$args);
+    }
+
+    /**
      * Operation createOrUpdateProfileAsync
      *
      * Create or Update Profile
@@ -348,6 +366,15 @@ class ProfilesApi
                     return $response[0];
                 }
             );
+    }
+
+    /**
+     * Alias of `createOrUpdateProfileAsync`
+     *
+     * @deprecated use `createOrUpdateProfileAsync` instead
+     */
+    public function createProfileImportAsync(...$args) {
+        return $this->createOrUpdateProfileAsync(...$args);
     }
 
     /**
@@ -404,6 +431,15 @@ class ProfilesApi
                     );
                 }
             );
+    }
+
+    /**
+     * Alias of `createOrUpdateProfileAsyncWithHttpInfo`
+     *
+     * @deprecated use `createOrUpdateProfileAsyncWithHttpInfo` instead
+     */
+    public function createProfileImportAsyncWithHttpInfo(...$args) {
+        return $this->createOrUpdateProfileAsyncWithHttpInfo(...$args);
     }
 
     /**
@@ -506,6 +542,15 @@ class ProfilesApi
             $headers,
             $httpBody
         );
+    }
+
+    /**
+     * Alias of `createOrUpdateProfileRequest`
+     *
+     * @deprecated use `createOrUpdateProfileRequest` instead
+     */
+    public function createProfileImportRequest(...$args) {
+        return $this->createOrUpdateProfileRequest(...$args);
     }
 
     /**
@@ -1143,6 +1188,15 @@ class ProfilesApi
     }
 
     /**
+     * Alias of `getBulkProfileImportJob`
+     *
+     * @deprecated use `getBulkProfileImportJob` instead
+     */
+    public function getProfileBulkImportJob(...$args) {
+        return $this->getBulkProfileImportJob(...$args);
+    }
+
+    /**
      * Operation getBulkProfileImportJobWithHttpInfo
      *
      * Get Bulk Profile Import Job
@@ -1314,6 +1368,15 @@ class ProfilesApi
     }
 
     /**
+     * Alias of `getBulkProfileImportJobWithHttpInfo`
+     *
+     * @deprecated use `getBulkProfileImportJobWithHttpInfo` instead
+     */
+    public function getProfileBulkImportJobWithHttpInfo(...$args) {
+        return $this->getBulkProfileImportJobWithHttpInfo(...$args);
+    }
+
+    /**
      * Operation getBulkProfileImportJobAsync
      *
      * Get Bulk Profile Import Job
@@ -1334,6 +1397,15 @@ class ProfilesApi
                     return $response[0];
                 }
             );
+    }
+
+    /**
+     * Alias of `getBulkProfileImportJobAsync`
+     *
+     * @deprecated use `getBulkProfileImportJobAsync` instead
+     */
+    public function getProfileBulkImportJobAsync(...$args) {
+        return $this->getBulkProfileImportJobAsync(...$args);
     }
 
     /**
@@ -1393,6 +1465,15 @@ class ProfilesApi
                     );
                 }
             );
+    }
+
+    /**
+     * Alias of `getBulkProfileImportJobAsyncWithHttpInfo`
+     *
+     * @deprecated use `getBulkProfileImportJobAsyncWithHttpInfo` instead
+     */
+    public function getProfileBulkImportJobAsyncWithHttpInfo(...$args) {
+        return $this->getBulkProfileImportJobAsyncWithHttpInfo(...$args);
     }
 
     /**
@@ -1530,6 +1611,15 @@ class ProfilesApi
     }
 
     /**
+     * Alias of `getBulkProfileImportJobRequest`
+     *
+     * @deprecated use `getBulkProfileImportJobRequest` instead
+     */
+    public function getProfileBulkImportJobRequest(...$args) {
+        return $this->getBulkProfileImportJobRequest(...$args);
+    }
+
+    /**
      * Operation getBulkProfileImportJobImportErrors
      *
      * Get Bulk Profile Import Job Errors
@@ -1547,6 +1637,15 @@ class ProfilesApi
     {
         list($response) = $this->getBulkProfileImportJobImportErrorsWithHttpInfo($id, $fields_import_error, $page_cursor, $page_size, $apiKey);
         return $response;
+    }
+
+    /**
+     * Alias of `getBulkProfileImportJobImportErrors`
+     *
+     * @deprecated use `getBulkProfileImportJobImportErrors` instead
+     */
+    public function getProfileBulkImportJobImportErrors(...$args) {
+        return $this->getBulkProfileImportJobImportErrors(...$args);
     }
 
     /**
@@ -1721,6 +1820,15 @@ class ProfilesApi
     }
 
     /**
+     * Alias of `getBulkProfileImportJobImportErrorsWithHttpInfo`
+     *
+     * @deprecated use `getBulkProfileImportJobImportErrorsWithHttpInfo` instead
+     */
+    public function getProfileBulkImportJobImportErrorsWithHttpInfo(...$args) {
+        return $this->getBulkProfileImportJobImportErrorsWithHttpInfo(...$args);
+    }
+
+    /**
      * Operation getBulkProfileImportJobImportErrorsAsync
      *
      * Get Bulk Profile Import Job Errors
@@ -1741,6 +1849,15 @@ class ProfilesApi
                     return $response[0];
                 }
             );
+    }
+
+    /**
+     * Alias of `getBulkProfileImportJobImportErrorsAsync`
+     *
+     * @deprecated use `getBulkProfileImportJobImportErrorsAsync` instead
+     */
+    public function getProfileBulkImportJobImportErrorsAsync(...$args) {
+        return $this->getBulkProfileImportJobImportErrorsAsync(...$args);
     }
 
     /**
@@ -1800,6 +1917,15 @@ class ProfilesApi
                     );
                 }
             );
+    }
+
+    /**
+     * Alias of `getBulkProfileImportJobImportErrorsAsyncWithHttpInfo`
+     *
+     * @deprecated use `getBulkProfileImportJobImportErrorsAsyncWithHttpInfo` instead
+     */
+    public function getProfileBulkImportJobImportErrorsAsyncWithHttpInfo(...$args) {
+        return $this->getBulkProfileImportJobImportErrorsAsyncWithHttpInfo(...$args);
     }
 
     /**
@@ -1944,6 +2070,15 @@ class ProfilesApi
     }
 
     /**
+     * Alias of `getBulkProfileImportJobImportErrorsRequest`
+     *
+     * @deprecated use `getBulkProfileImportJobImportErrorsRequest` instead
+     */
+    public function getProfileBulkImportJobImportErrorsRequest(...$args) {
+        return $this->getBulkProfileImportJobImportErrorsRequest(...$args);
+    }
+
+    /**
      * Operation getBulkProfileImportJobLists
      *
      * Get Bulk Profile Import Job Lists
@@ -1959,6 +2094,15 @@ class ProfilesApi
     {
         list($response) = $this->getBulkProfileImportJobListsWithHttpInfo($id, $fields_list, $apiKey);
         return $response;
+    }
+
+    /**
+     * Alias of `getBulkProfileImportJobLists`
+     *
+     * @deprecated use `getBulkProfileImportJobLists` instead
+     */
+    public function getProfileBulkImportJobLists(...$args) {
+        return $this->getBulkProfileImportJobLists(...$args);
     }
 
     /**
@@ -2131,6 +2275,15 @@ class ProfilesApi
     }
 
     /**
+     * Alias of `getBulkProfileImportJobListsWithHttpInfo`
+     *
+     * @deprecated use `getBulkProfileImportJobListsWithHttpInfo` instead
+     */
+    public function getProfileBulkImportJobListsWithHttpInfo(...$args) {
+        return $this->getBulkProfileImportJobListsWithHttpInfo(...$args);
+    }
+
+    /**
      * Operation getBulkProfileImportJobListsAsync
      *
      * Get Bulk Profile Import Job Lists
@@ -2149,6 +2302,15 @@ class ProfilesApi
                     return $response[0];
                 }
             );
+    }
+
+    /**
+     * Alias of `getBulkProfileImportJobListsAsync`
+     *
+     * @deprecated use `getBulkProfileImportJobListsAsync` instead
+     */
+    public function getProfileBulkImportJobListsAsync(...$args) {
+        return $this->getBulkProfileImportJobListsAsync(...$args);
     }
 
     /**
@@ -2206,6 +2368,15 @@ class ProfilesApi
                     );
                 }
             );
+    }
+
+    /**
+     * Alias of `getBulkProfileImportJobListsAsyncWithHttpInfo`
+     *
+     * @deprecated use `getBulkProfileImportJobListsAsyncWithHttpInfo` instead
+     */
+    public function getProfileBulkImportJobListsAsyncWithHttpInfo(...$args) {
+        return $this->getBulkProfileImportJobListsAsyncWithHttpInfo(...$args);
     }
 
     /**
@@ -2323,6 +2494,15 @@ class ProfilesApi
     }
 
     /**
+     * Alias of `getBulkProfileImportJobListsRequest`
+     *
+     * @deprecated use `getBulkProfileImportJobListsRequest` instead
+     */
+    public function getProfileBulkImportJobListsRequest(...$args) {
+        return $this->getBulkProfileImportJobListsRequest(...$args);
+    }
+
+    /**
      * Operation getBulkProfileImportJobProfiles
      *
      * Get Bulk Profile Import Job Profiles
@@ -2341,6 +2521,15 @@ class ProfilesApi
     {
         list($response) = $this->getBulkProfileImportJobProfilesWithHttpInfo($id, $additional_fields_profile, $fields_profile, $page_cursor, $page_size, $apiKey);
         return $response;
+    }
+
+    /**
+     * Alias of `getBulkProfileImportJobProfiles`
+     *
+     * @deprecated use `getBulkProfileImportJobProfiles` instead
+     */
+    public function getProfileBulkImportJobProfiles(...$args) {
+        return $this->getBulkProfileImportJobProfiles(...$args);
     }
 
     /**
@@ -2516,6 +2705,15 @@ class ProfilesApi
     }
 
     /**
+     * Alias of `getBulkProfileImportJobProfilesWithHttpInfo`
+     *
+     * @deprecated use `getBulkProfileImportJobProfilesWithHttpInfo` instead
+     */
+    public function getProfileBulkImportJobProfilesWithHttpInfo(...$args) {
+        return $this->getBulkProfileImportJobProfilesWithHttpInfo(...$args);
+    }
+
+    /**
      * Operation getBulkProfileImportJobProfilesAsync
      *
      * Get Bulk Profile Import Job Profiles
@@ -2537,6 +2735,15 @@ class ProfilesApi
                     return $response[0];
                 }
             );
+    }
+
+    /**
+     * Alias of `getBulkProfileImportJobProfilesAsync`
+     *
+     * @deprecated use `getBulkProfileImportJobProfilesAsync` instead
+     */
+    public function getProfileBulkImportJobProfilesAsync(...$args) {
+        return $this->getBulkProfileImportJobProfilesAsync(...$args);
     }
 
     /**
@@ -2597,6 +2804,15 @@ class ProfilesApi
                     );
                 }
             );
+    }
+
+    /**
+     * Alias of `getBulkProfileImportJobProfilesAsyncWithHttpInfo`
+     *
+     * @deprecated use `getBulkProfileImportJobProfilesAsyncWithHttpInfo` instead
+     */
+    public function getProfileBulkImportJobProfilesAsyncWithHttpInfo(...$args) {
+        return $this->getBulkProfileImportJobProfilesAsyncWithHttpInfo(...$args);
     }
 
     /**
@@ -2751,6 +2967,15 @@ class ProfilesApi
     }
 
     /**
+     * Alias of `getBulkProfileImportJobProfilesRequest`
+     *
+     * @deprecated use `getBulkProfileImportJobProfilesRequest` instead
+     */
+    public function getProfileBulkImportJobProfilesRequest(...$args) {
+        return $this->getBulkProfileImportJobProfilesRequest(...$args);
+    }
+
+    /**
      * Operation getBulkProfileImportJobRelationshipsLists
      *
      * Get Bulk Profile Import Job Relationships Lists
@@ -2765,6 +2990,15 @@ class ProfilesApi
     {
         list($response) = $this->getBulkProfileImportJobRelationshipsListsWithHttpInfo($id, $apiKey);
         return $response;
+    }
+
+    /**
+     * Alias of `getBulkProfileImportJobRelationshipsLists`
+     *
+     * @deprecated use `getBulkProfileImportJobRelationshipsLists` instead
+     */
+    public function getProfileBulkImportJobRelationshipsLists(...$args) {
+        return $this->getBulkProfileImportJobRelationshipsLists(...$args);
     }
 
     /**
@@ -2936,6 +3170,15 @@ class ProfilesApi
     }
 
     /**
+     * Alias of `getBulkProfileImportJobRelationshipsListsWithHttpInfo`
+     *
+     * @deprecated use `getBulkProfileImportJobRelationshipsListsWithHttpInfo` instead
+     */
+    public function getProfileBulkImportJobRelationshipsListsWithHttpInfo(...$args) {
+        return $this->getBulkProfileImportJobRelationshipsListsWithHttpInfo(...$args);
+    }
+
+    /**
      * Operation getBulkProfileImportJobRelationshipsListsAsync
      *
      * Get Bulk Profile Import Job Relationships Lists
@@ -2953,6 +3196,15 @@ class ProfilesApi
                     return $response[0];
                 }
             );
+    }
+
+    /**
+     * Alias of `getBulkProfileImportJobRelationshipsListsAsync`
+     *
+     * @deprecated use `getBulkProfileImportJobRelationshipsListsAsync` instead
+     */
+    public function getProfileBulkImportJobRelationshipsListsAsync(...$args) {
+        return $this->getBulkProfileImportJobRelationshipsListsAsync(...$args);
     }
 
     /**
@@ -3009,6 +3261,15 @@ class ProfilesApi
                     );
                 }
             );
+    }
+
+    /**
+     * Alias of `getBulkProfileImportJobRelationshipsListsAsyncWithHttpInfo`
+     *
+     * @deprecated use `getBulkProfileImportJobRelationshipsListsAsyncWithHttpInfo` instead
+     */
+    public function getProfileBulkImportJobRelationshipsListsAsyncWithHttpInfo(...$args) {
+        return $this->getBulkProfileImportJobRelationshipsListsAsyncWithHttpInfo(...$args);
     }
 
     /**
@@ -3116,6 +3377,15 @@ class ProfilesApi
     }
 
     /**
+     * Alias of `getBulkProfileImportJobRelationshipsListsRequest`
+     *
+     * @deprecated use `getBulkProfileImportJobRelationshipsListsRequest` instead
+     */
+    public function getProfileBulkImportJobRelationshipsListsRequest(...$args) {
+        return $this->getBulkProfileImportJobRelationshipsListsRequest(...$args);
+    }
+
+    /**
      * Operation getBulkProfileImportJobRelationshipsProfiles
      *
      * Get Bulk Profile Import Job Relationships Profiles
@@ -3132,6 +3402,15 @@ class ProfilesApi
     {
         list($response) = $this->getBulkProfileImportJobRelationshipsProfilesWithHttpInfo($id, $page_cursor, $page_size, $apiKey);
         return $response;
+    }
+
+    /**
+     * Alias of `getBulkProfileImportJobRelationshipsProfiles`
+     *
+     * @deprecated use `getBulkProfileImportJobRelationshipsProfiles` instead
+     */
+    public function getProfileBulkImportJobRelationshipsProfiles(...$args) {
+        return $this->getBulkProfileImportJobRelationshipsProfiles(...$args);
     }
 
     /**
@@ -3305,6 +3584,15 @@ class ProfilesApi
     }
 
     /**
+     * Alias of `getBulkProfileImportJobRelationshipsProfilesWithHttpInfo`
+     *
+     * @deprecated use `getBulkProfileImportJobRelationshipsProfilesWithHttpInfo` instead
+     */
+    public function getProfileBulkImportJobRelationshipsProfilesWithHttpInfo(...$args) {
+        return $this->getBulkProfileImportJobRelationshipsProfilesWithHttpInfo(...$args);
+    }
+
+    /**
      * Operation getBulkProfileImportJobRelationshipsProfilesAsync
      *
      * Get Bulk Profile Import Job Relationships Profiles
@@ -3324,6 +3612,15 @@ class ProfilesApi
                     return $response[0];
                 }
             );
+    }
+
+    /**
+     * Alias of `getBulkProfileImportJobRelationshipsProfilesAsync`
+     *
+     * @deprecated use `getBulkProfileImportJobRelationshipsProfilesAsync` instead
+     */
+    public function getProfileBulkImportJobRelationshipsProfilesAsync(...$args) {
+        return $this->getBulkProfileImportJobRelationshipsProfilesAsync(...$args);
     }
 
     /**
@@ -3382,6 +3679,15 @@ class ProfilesApi
                     );
                 }
             );
+    }
+
+    /**
+     * Alias of `getBulkProfileImportJobRelationshipsProfilesAsyncWithHttpInfo`
+     *
+     * @deprecated use `getBulkProfileImportJobRelationshipsProfilesAsyncWithHttpInfo` instead
+     */
+    public function getProfileBulkImportJobRelationshipsProfilesAsyncWithHttpInfo(...$args) {
+        return $this->getBulkProfileImportJobRelationshipsProfilesAsyncWithHttpInfo(...$args);
     }
 
     /**
@@ -3516,6 +3822,15 @@ class ProfilesApi
     }
 
     /**
+     * Alias of `getBulkProfileImportJobRelationshipsProfilesRequest`
+     *
+     * @deprecated use `getBulkProfileImportJobRelationshipsProfilesRequest` instead
+     */
+    public function getProfileBulkImportJobRelationshipsProfilesRequest(...$args) {
+        return $this->getBulkProfileImportJobRelationshipsProfilesRequest(...$args);
+    }
+
+    /**
      * Operation getBulkProfileImportJobs
      *
      * Get Bulk Profile Import Jobs
@@ -3534,6 +3849,15 @@ class ProfilesApi
     {
         list($response) = $this->getBulkProfileImportJobsWithHttpInfo($fields_profile_bulk_import_job, $filter, $page_cursor, $page_size, $sort, $apiKey);
         return $response;
+    }
+
+    /**
+     * Alias of `getBulkProfileImportJobs`
+     *
+     * @deprecated use `getBulkProfileImportJobs` instead
+     */
+    public function getProfileBulkImportJobs(...$args) {
+        return $this->getBulkProfileImportJobs(...$args);
     }
 
     /**
@@ -3709,6 +4033,15 @@ class ProfilesApi
     }
 
     /**
+     * Alias of `getBulkProfileImportJobsWithHttpInfo`
+     *
+     * @deprecated use `getBulkProfileImportJobsWithHttpInfo` instead
+     */
+    public function getProfileBulkImportJobsWithHttpInfo(...$args) {
+        return $this->getBulkProfileImportJobsWithHttpInfo(...$args);
+    }
+
+    /**
      * Operation getBulkProfileImportJobsAsync
      *
      * Get Bulk Profile Import Jobs
@@ -3730,6 +4063,15 @@ class ProfilesApi
                     return $response[0];
                 }
             );
+    }
+
+    /**
+     * Alias of `getBulkProfileImportJobsAsync`
+     *
+     * @deprecated use `getBulkProfileImportJobsAsync` instead
+     */
+    public function getProfileBulkImportJobsAsync(...$args) {
+        return $this->getBulkProfileImportJobsAsync(...$args);
     }
 
     /**
@@ -3790,6 +4132,15 @@ class ProfilesApi
                     );
                 }
             );
+    }
+
+    /**
+     * Alias of `getBulkProfileImportJobsAsyncWithHttpInfo`
+     *
+     * @deprecated use `getBulkProfileImportJobsAsyncWithHttpInfo` instead
+     */
+    public function getProfileBulkImportJobsAsyncWithHttpInfo(...$args) {
+        return $this->getBulkProfileImportJobsAsyncWithHttpInfo(...$args);
     }
 
     /**
@@ -3936,6 +4287,15 @@ class ProfilesApi
             $headers,
             $httpBody
         );
+    }
+
+    /**
+     * Alias of `getBulkProfileImportJobsRequest`
+     *
+     * @deprecated use `getBulkProfileImportJobsRequest` instead
+     */
+    public function getProfileBulkImportJobsRequest(...$args) {
+        return $this->getBulkProfileImportJobsRequest(...$args);
     }
 
     /**
@@ -6316,6 +6676,15 @@ class ProfilesApi
     }
 
     /**
+     * Alias of `mergeProfiles`
+     *
+     * @deprecated use `mergeProfiles` instead
+     */
+    public function createProfileMerge(...$args) {
+        return $this->mergeProfiles(...$args);
+    }
+
+    /**
      * Operation mergeProfilesWithHttpInfo
      *
      * Merge Profiles
@@ -6484,6 +6853,15 @@ class ProfilesApi
     }
 
     /**
+     * Alias of `mergeProfilesWithHttpInfo`
+     *
+     * @deprecated use `mergeProfilesWithHttpInfo` instead
+     */
+    public function createProfileMergeWithHttpInfo(...$args) {
+        return $this->mergeProfilesWithHttpInfo(...$args);
+    }
+
+    /**
      * Operation mergeProfilesAsync
      *
      * Merge Profiles
@@ -6501,6 +6879,15 @@ class ProfilesApi
                     return $response[0];
                 }
             );
+    }
+
+    /**
+     * Alias of `mergeProfilesAsync`
+     *
+     * @deprecated use `mergeProfilesAsync` instead
+     */
+    public function createProfileMergeAsync(...$args) {
+        return $this->mergeProfilesAsync(...$args);
     }
 
     /**
@@ -6557,6 +6944,15 @@ class ProfilesApi
                     );
                 }
             );
+    }
+
+    /**
+     * Alias of `mergeProfilesAsyncWithHttpInfo`
+     *
+     * @deprecated use `mergeProfilesAsyncWithHttpInfo` instead
+     */
+    public function createProfileMergeAsyncWithHttpInfo(...$args) {
+        return $this->mergeProfilesAsyncWithHttpInfo(...$args);
     }
 
     /**
@@ -6662,6 +7058,15 @@ class ProfilesApi
     }
 
     /**
+     * Alias of `mergeProfilesRequest`
+     *
+     * @deprecated use `mergeProfilesRequest` instead
+     */
+    public function createProfileMergeRequest(...$args) {
+        return $this->mergeProfilesRequest(...$args);
+    }
+
+    /**
      * Operation spawnBulkProfileImportJob
      *
      * Spawn Bulk Profile Import Job
@@ -6676,6 +7081,15 @@ class ProfilesApi
     {
         list($response) = $this->spawnBulkProfileImportJobWithHttpInfo($profile_import_job_create_query, $apiKey);
         return $response;
+    }
+
+    /**
+     * Alias of `spawnBulkProfileImportJob`
+     *
+     * @deprecated use `spawnBulkProfileImportJob` instead
+     */
+    public function createProfileBulkImportJob(...$args) {
+        return $this->spawnBulkProfileImportJob(...$args);
     }
 
     /**
@@ -6847,6 +7261,15 @@ class ProfilesApi
     }
 
     /**
+     * Alias of `spawnBulkProfileImportJobWithHttpInfo`
+     *
+     * @deprecated use `spawnBulkProfileImportJobWithHttpInfo` instead
+     */
+    public function createProfileBulkImportJobWithHttpInfo(...$args) {
+        return $this->spawnBulkProfileImportJobWithHttpInfo(...$args);
+    }
+
+    /**
      * Operation spawnBulkProfileImportJobAsync
      *
      * Spawn Bulk Profile Import Job
@@ -6864,6 +7287,15 @@ class ProfilesApi
                     return $response[0];
                 }
             );
+    }
+
+    /**
+     * Alias of `spawnBulkProfileImportJobAsync`
+     *
+     * @deprecated use `spawnBulkProfileImportJobAsync` instead
+     */
+    public function createProfileBulkImportJobAsync(...$args) {
+        return $this->spawnBulkProfileImportJobAsync(...$args);
     }
 
     /**
@@ -6920,6 +7352,15 @@ class ProfilesApi
                     );
                 }
             );
+    }
+
+    /**
+     * Alias of `spawnBulkProfileImportJobAsyncWithHttpInfo`
+     *
+     * @deprecated use `spawnBulkProfileImportJobAsyncWithHttpInfo` instead
+     */
+    public function createProfileBulkImportJobAsyncWithHttpInfo(...$args) {
+        return $this->spawnBulkProfileImportJobAsyncWithHttpInfo(...$args);
     }
 
     /**
@@ -7025,6 +7466,15 @@ class ProfilesApi
     }
 
     /**
+     * Alias of `spawnBulkProfileImportJobRequest`
+     *
+     * @deprecated use `spawnBulkProfileImportJobRequest` instead
+     */
+    public function createProfileBulkImportJobRequest(...$args) {
+        return $this->spawnBulkProfileImportJobRequest(...$args);
+    }
+
+    /**
      * Operation subscribeProfiles
      *
      * Subscribe Profiles
@@ -7038,6 +7488,15 @@ class ProfilesApi
     public function subscribeProfiles($subscription_create_job_create_query, $apiKey = null)
     {
         $this->subscribeProfilesWithHttpInfo($subscription_create_job_create_query, $apiKey);
+    }
+
+    /**
+     * Alias of `subscribeProfiles`
+     *
+     * @deprecated use `subscribeProfiles` instead
+     */
+    public function createProfileSubscriptionBulkCreateJob(...$args) {
+        return $this->subscribeProfiles(...$args);
     }
 
     /**
@@ -7116,6 +7575,15 @@ class ProfilesApi
     }
 
     /**
+     * Alias of `subscribeProfilesWithHttpInfo`
+     *
+     * @deprecated use `subscribeProfilesWithHttpInfo` instead
+     */
+    public function createProfileSubscriptionBulkCreateJobWithHttpInfo(...$args) {
+        return $this->subscribeProfilesWithHttpInfo(...$args);
+    }
+
+    /**
      * Operation subscribeProfilesAsync
      *
      * Subscribe Profiles
@@ -7133,6 +7601,15 @@ class ProfilesApi
                     return $response[0];
                 }
             );
+    }
+
+    /**
+     * Alias of `subscribeProfilesAsync`
+     *
+     * @deprecated use `subscribeProfilesAsync` instead
+     */
+    public function createProfileSubscriptionBulkCreateJobAsync(...$args) {
+        return $this->subscribeProfilesAsync(...$args);
     }
 
     /**
@@ -7171,6 +7648,15 @@ class ProfilesApi
                     );
                 }
             );
+    }
+
+    /**
+     * Alias of `subscribeProfilesAsyncWithHttpInfo`
+     *
+     * @deprecated use `subscribeProfilesAsyncWithHttpInfo` instead
+     */
+    public function createProfileSubscriptionBulkCreateJobAsyncWithHttpInfo(...$args) {
+        return $this->subscribeProfilesAsyncWithHttpInfo(...$args);
     }
 
     /**
@@ -7276,6 +7762,15 @@ class ProfilesApi
     }
 
     /**
+     * Alias of `subscribeProfilesRequest`
+     *
+     * @deprecated use `subscribeProfilesRequest` instead
+     */
+    public function createProfileSubscriptionBulkCreateJobRequest(...$args) {
+        return $this->subscribeProfilesRequest(...$args);
+    }
+
+    /**
      * Operation suppressProfiles
      *
      * Suppress Profiles
@@ -7289,6 +7784,15 @@ class ProfilesApi
     public function suppressProfiles($suppression_create_job_create_query, $apiKey = null)
     {
         $this->suppressProfilesWithHttpInfo($suppression_create_job_create_query, $apiKey);
+    }
+
+    /**
+     * Alias of `suppressProfiles`
+     *
+     * @deprecated use `suppressProfiles` instead
+     */
+    public function createProfileSuppressionBulkCreateJob(...$args) {
+        return $this->suppressProfiles(...$args);
     }
 
     /**
@@ -7367,6 +7871,15 @@ class ProfilesApi
     }
 
     /**
+     * Alias of `suppressProfilesWithHttpInfo`
+     *
+     * @deprecated use `suppressProfilesWithHttpInfo` instead
+     */
+    public function createProfileSuppressionBulkCreateJobWithHttpInfo(...$args) {
+        return $this->suppressProfilesWithHttpInfo(...$args);
+    }
+
+    /**
      * Operation suppressProfilesAsync
      *
      * Suppress Profiles
@@ -7384,6 +7897,15 @@ class ProfilesApi
                     return $response[0];
                 }
             );
+    }
+
+    /**
+     * Alias of `suppressProfilesAsync`
+     *
+     * @deprecated use `suppressProfilesAsync` instead
+     */
+    public function createProfileSuppressionBulkCreateJobAsync(...$args) {
+        return $this->suppressProfilesAsync(...$args);
     }
 
     /**
@@ -7422,6 +7944,15 @@ class ProfilesApi
                     );
                 }
             );
+    }
+
+    /**
+     * Alias of `suppressProfilesAsyncWithHttpInfo`
+     *
+     * @deprecated use `suppressProfilesAsyncWithHttpInfo` instead
+     */
+    public function createProfileSuppressionBulkCreateJobAsyncWithHttpInfo(...$args) {
+        return $this->suppressProfilesAsyncWithHttpInfo(...$args);
     }
 
     /**
@@ -7527,6 +8058,15 @@ class ProfilesApi
     }
 
     /**
+     * Alias of `suppressProfilesRequest`
+     *
+     * @deprecated use `suppressProfilesRequest` instead
+     */
+    public function createProfileSuppressionBulkCreateJobRequest(...$args) {
+        return $this->suppressProfilesRequest(...$args);
+    }
+
+    /**
      * Operation unsubscribeProfiles
      *
      * Unsubscribe Profiles
@@ -7540,6 +8080,15 @@ class ProfilesApi
     public function unsubscribeProfiles($subscription_delete_job_create_query, $apiKey = null)
     {
         $this->unsubscribeProfilesWithHttpInfo($subscription_delete_job_create_query, $apiKey);
+    }
+
+    /**
+     * Alias of `unsubscribeProfiles`
+     *
+     * @deprecated use `unsubscribeProfiles` instead
+     */
+    public function createProfileSubscriptionBulkDeleteJob(...$args) {
+        return $this->unsubscribeProfiles(...$args);
     }
 
     /**
@@ -7618,6 +8167,15 @@ class ProfilesApi
     }
 
     /**
+     * Alias of `unsubscribeProfilesWithHttpInfo`
+     *
+     * @deprecated use `unsubscribeProfilesWithHttpInfo` instead
+     */
+    public function createProfileSubscriptionBulkDeleteJobWithHttpInfo(...$args) {
+        return $this->unsubscribeProfilesWithHttpInfo(...$args);
+    }
+
+    /**
      * Operation unsubscribeProfilesAsync
      *
      * Unsubscribe Profiles
@@ -7635,6 +8193,15 @@ class ProfilesApi
                     return $response[0];
                 }
             );
+    }
+
+    /**
+     * Alias of `unsubscribeProfilesAsync`
+     *
+     * @deprecated use `unsubscribeProfilesAsync` instead
+     */
+    public function createProfileSubscriptionBulkDeleteJobAsync(...$args) {
+        return $this->unsubscribeProfilesAsync(...$args);
     }
 
     /**
@@ -7673,6 +8240,15 @@ class ProfilesApi
                     );
                 }
             );
+    }
+
+    /**
+     * Alias of `unsubscribeProfilesAsyncWithHttpInfo`
+     *
+     * @deprecated use `unsubscribeProfilesAsyncWithHttpInfo` instead
+     */
+    public function createProfileSubscriptionBulkDeleteJobAsyncWithHttpInfo(...$args) {
+        return $this->unsubscribeProfilesAsyncWithHttpInfo(...$args);
     }
 
     /**
@@ -7778,6 +8354,15 @@ class ProfilesApi
     }
 
     /**
+     * Alias of `unsubscribeProfilesRequest`
+     *
+     * @deprecated use `unsubscribeProfilesRequest` instead
+     */
+    public function createProfileSubscriptionBulkDeleteJobRequest(...$args) {
+        return $this->unsubscribeProfilesRequest(...$args);
+    }
+
+    /**
      * Operation unsuppressProfiles
      *
      * Unsuppress Profiles
@@ -7791,6 +8376,15 @@ class ProfilesApi
     public function unsuppressProfiles($suppression_delete_job_create_query, $apiKey = null)
     {
         $this->unsuppressProfilesWithHttpInfo($suppression_delete_job_create_query, $apiKey);
+    }
+
+    /**
+     * Alias of `unsuppressProfiles`
+     *
+     * @deprecated use `unsuppressProfiles` instead
+     */
+    public function createProfileSuppressionBulkDeleteJob(...$args) {
+        return $this->unsuppressProfiles(...$args);
     }
 
     /**
@@ -7869,6 +8463,15 @@ class ProfilesApi
     }
 
     /**
+     * Alias of `unsuppressProfilesWithHttpInfo`
+     *
+     * @deprecated use `unsuppressProfilesWithHttpInfo` instead
+     */
+    public function createProfileSuppressionBulkDeleteJobWithHttpInfo(...$args) {
+        return $this->unsuppressProfilesWithHttpInfo(...$args);
+    }
+
+    /**
      * Operation unsuppressProfilesAsync
      *
      * Unsuppress Profiles
@@ -7886,6 +8489,15 @@ class ProfilesApi
                     return $response[0];
                 }
             );
+    }
+
+    /**
+     * Alias of `unsuppressProfilesAsync`
+     *
+     * @deprecated use `unsuppressProfilesAsync` instead
+     */
+    public function createProfileSuppressionBulkDeleteJobAsync(...$args) {
+        return $this->unsuppressProfilesAsync(...$args);
     }
 
     /**
@@ -7924,6 +8536,15 @@ class ProfilesApi
                     );
                 }
             );
+    }
+
+    /**
+     * Alias of `unsuppressProfilesAsyncWithHttpInfo`
+     *
+     * @deprecated use `unsuppressProfilesAsyncWithHttpInfo` instead
+     */
+    public function createProfileSuppressionBulkDeleteJobAsyncWithHttpInfo(...$args) {
+        return $this->unsuppressProfilesAsyncWithHttpInfo(...$args);
     }
 
     /**
@@ -8026,6 +8647,15 @@ class ProfilesApi
             $headers,
             $httpBody
         );
+    }
+
+    /**
+     * Alias of `unsuppressProfilesRequest`
+     *
+     * @deprecated use `unsuppressProfilesRequest` instead
+     */
+    public function createProfileSuppressionBulkDeleteJobRequest(...$args) {
+        return $this->unsuppressProfilesRequest(...$args);
     }
 
     /**

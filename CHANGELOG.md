@@ -7,6 +7,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 NOTE: For more granular API-specific changes, please see our [API Changelog](https://developers.klaviyo.com/en/docs/changelog_)
 
+## [10.0.0] - revision 2024-07-15
+### Added
+- Added several method aliases based on previous operation IDs
+### Fixed
+- **Breaking**
+   - Removed incorrect `$id` parameter for Webhooks API functions
+
 ## [9.0.1] - revision 2024-07-15
 
 ### Added
@@ -32,7 +39,7 @@ NOTE: For more granular API-specific changes, please see our [API Changelog](htt
 
   - Flows Api
     - New delete flows endpoint `$klaviyo->Flows->deleteFlow()`
-   
+
 ## [8.0.0] - revision 2024-05-15
 
 ### Added
@@ -52,7 +59,6 @@ NOTE: For more granular API-specific changes, please see our [API Changelog](htt
       2. If the account does not have a sending number in the phone number’s region.
       3. If the phone number is in a region not supported by Klaviyo.
       4. If consented_at is set and the list or global setting is double opt-in.
-
 
 ## [7.1.2] - revision 2024-02-15
 

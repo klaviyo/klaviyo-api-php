@@ -547,7 +547,7 @@ class CouponsApi
             }
 
             switch($statusCode) {
-                case 201:
+                case 200:
                     if ('array<string,mixed>' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
@@ -635,7 +635,7 @@ class CouponsApi
 
         } catch (ApiException $e) {
             switch ($e->getCode()) {
-                case 201:
+                case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         'array<string,mixed>',
@@ -3745,6 +3745,15 @@ class CouponsApi
     }
 
     /**
+     * Alias of `getCouponCodesForCoupon`
+     *
+     * @deprecated use `getCouponCodesForCoupon` instead
+     */
+    public function getCouponCouponCodes(...$args) {
+        return $this->getCouponCodesForCoupon(...$args);
+    }
+
+    /**
      * Operation getCouponCodesForCouponWithHttpInfo
      *
      * Get Coupon Codes For Coupon
@@ -3916,6 +3925,15 @@ class CouponsApi
     }
 
     /**
+     * Alias of `getCouponCodesForCouponWithHttpInfo`
+     *
+     * @deprecated use `getCouponCodesForCouponWithHttpInfo` instead
+     */
+    public function getCouponCouponCodesWithHttpInfo(...$args) {
+        return $this->getCouponCodesForCouponWithHttpInfo(...$args);
+    }
+
+    /**
      * Operation getCouponCodesForCouponAsync
      *
      * Get Coupon Codes For Coupon
@@ -3936,6 +3954,15 @@ class CouponsApi
                     return $response[0];
                 }
             );
+    }
+
+    /**
+     * Alias of `getCouponCodesForCouponAsync`
+     *
+     * @deprecated use `getCouponCodesForCouponAsync` instead
+     */
+    public function getCouponCouponCodesAsync(...$args) {
+        return $this->getCouponCodesForCouponAsync(...$args);
     }
 
     /**
@@ -3995,6 +4022,15 @@ class CouponsApi
                     );
                 }
             );
+    }
+
+    /**
+     * Alias of `getCouponCodesForCouponAsyncWithHttpInfo`
+     *
+     * @deprecated use `getCouponCodesForCouponAsyncWithHttpInfo` instead
+     */
+    public function getCouponCouponCodesAsyncWithHttpInfo(...$args) {
+        return $this->getCouponCodesForCouponAsyncWithHttpInfo(...$args);
     }
 
     /**
@@ -4132,6 +4168,15 @@ class CouponsApi
     }
 
     /**
+     * Alias of `getCouponCodesForCouponRequest`
+     *
+     * @deprecated use `getCouponCodesForCouponRequest` instead
+     */
+    public function getCouponCouponCodesRequest(...$args) {
+        return $this->getCouponCodesForCouponRequest(...$args);
+    }
+
+    /**
      * Operation getCouponForCouponCode
      *
      * Get Coupon For Coupon Code
@@ -4147,6 +4192,15 @@ class CouponsApi
     {
         list($response) = $this->getCouponForCouponCodeWithHttpInfo($id, $fields_coupon, $apiKey);
         return $response;
+    }
+
+    /**
+     * Alias of `getCouponForCouponCode`
+     *
+     * @deprecated use `getCouponForCouponCode` instead
+     */
+    public function getCouponCodeCoupon(...$args) {
+        return $this->getCouponForCouponCode(...$args);
     }
 
     /**
@@ -4319,6 +4373,15 @@ class CouponsApi
     }
 
     /**
+     * Alias of `getCouponForCouponCodeWithHttpInfo`
+     *
+     * @deprecated use `getCouponForCouponCodeWithHttpInfo` instead
+     */
+    public function getCouponCodeCouponWithHttpInfo(...$args) {
+        return $this->getCouponForCouponCodeWithHttpInfo(...$args);
+    }
+
+    /**
      * Operation getCouponForCouponCodeAsync
      *
      * Get Coupon For Coupon Code
@@ -4337,6 +4400,15 @@ class CouponsApi
                     return $response[0];
                 }
             );
+    }
+
+    /**
+     * Alias of `getCouponForCouponCodeAsync`
+     *
+     * @deprecated use `getCouponForCouponCodeAsync` instead
+     */
+    public function getCouponCodeCouponAsync(...$args) {
+        return $this->getCouponForCouponCodeAsync(...$args);
     }
 
     /**
@@ -4394,6 +4466,15 @@ class CouponsApi
                     );
                 }
             );
+    }
+
+    /**
+     * Alias of `getCouponForCouponCodeAsyncWithHttpInfo`
+     *
+     * @deprecated use `getCouponForCouponCodeAsyncWithHttpInfo` instead
+     */
+    public function getCouponCodeCouponAsyncWithHttpInfo(...$args) {
+        return $this->getCouponForCouponCodeAsyncWithHttpInfo(...$args);
     }
 
     /**
@@ -4508,6 +4589,15 @@ class CouponsApi
             $headers,
             $httpBody
         );
+    }
+
+    /**
+     * Alias of `getCouponForCouponCodeRequest`
+     *
+     * @deprecated use `getCouponForCouponCodeRequest` instead
+     */
+    public function getCouponCodeCouponRequest(...$args) {
+        return $this->getCouponForCouponCodeRequest(...$args);
     }
 
     /**
@@ -5267,6 +5357,15 @@ class CouponsApi
     }
 
     /**
+     * Alias of `spawnCouponCodeBulkCreateJob`
+     *
+     * @deprecated use `spawnCouponCodeBulkCreateJob` instead
+     */
+    public function createCouponCodeBulkCreateJob(...$args) {
+        return $this->spawnCouponCodeBulkCreateJob(...$args);
+    }
+
+    /**
      * Operation spawnCouponCodeBulkCreateJobWithHttpInfo
      *
      * Spawn Coupon Code Bulk Create Job
@@ -5435,6 +5534,15 @@ class CouponsApi
     }
 
     /**
+     * Alias of `spawnCouponCodeBulkCreateJobWithHttpInfo`
+     *
+     * @deprecated use `spawnCouponCodeBulkCreateJobWithHttpInfo` instead
+     */
+    public function createCouponCodeBulkCreateJobWithHttpInfo(...$args) {
+        return $this->spawnCouponCodeBulkCreateJobWithHttpInfo(...$args);
+    }
+
+    /**
      * Operation spawnCouponCodeBulkCreateJobAsync
      *
      * Spawn Coupon Code Bulk Create Job
@@ -5452,6 +5560,15 @@ class CouponsApi
                     return $response[0];
                 }
             );
+    }
+
+    /**
+     * Alias of `spawnCouponCodeBulkCreateJobAsync`
+     *
+     * @deprecated use `spawnCouponCodeBulkCreateJobAsync` instead
+     */
+    public function createCouponCodeBulkCreateJobAsync(...$args) {
+        return $this->spawnCouponCodeBulkCreateJobAsync(...$args);
     }
 
     /**
@@ -5508,6 +5625,15 @@ class CouponsApi
                     );
                 }
             );
+    }
+
+    /**
+     * Alias of `spawnCouponCodeBulkCreateJobAsyncWithHttpInfo`
+     *
+     * @deprecated use `spawnCouponCodeBulkCreateJobAsyncWithHttpInfo` instead
+     */
+    public function createCouponCodeBulkCreateJobAsyncWithHttpInfo(...$args) {
+        return $this->spawnCouponCodeBulkCreateJobAsyncWithHttpInfo(...$args);
     }
 
     /**
@@ -5610,6 +5736,15 @@ class CouponsApi
             $headers,
             $httpBody
         );
+    }
+
+    /**
+     * Alias of `spawnCouponCodeBulkCreateJobRequest`
+     *
+     * @deprecated use `spawnCouponCodeBulkCreateJobRequest` instead
+     */
+    public function createCouponCodeBulkCreateJobRequest(...$args) {
+        return $this->spawnCouponCodeBulkCreateJobRequest(...$args);
     }
 
     /**

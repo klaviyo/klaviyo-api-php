@@ -1320,6 +1320,15 @@ class ImagesApi
     }
 
     /**
+     * Alias of `uploadImageFromFile`
+     *
+     * @deprecated use `uploadImageFromFile` instead
+     */
+    public function createImageUpload(...$args) {
+        return $this->uploadImageFromFile(...$args);
+    }
+
+    /**
      * Operation uploadImageFromFileWithHttpInfo
      *
      * Upload Image From File
@@ -1490,6 +1499,15 @@ class ImagesApi
     }
 
     /**
+     * Alias of `uploadImageFromFileWithHttpInfo`
+     *
+     * @deprecated use `uploadImageFromFileWithHttpInfo` instead
+     */
+    public function createImageUploadWithHttpInfo(...$args) {
+        return $this->uploadImageFromFileWithHttpInfo(...$args);
+    }
+
+    /**
      * Operation uploadImageFromFileAsync
      *
      * Upload Image From File
@@ -1509,6 +1527,15 @@ class ImagesApi
                     return $response[0];
                 }
             );
+    }
+
+    /**
+     * Alias of `uploadImageFromFileAsync`
+     *
+     * @deprecated use `uploadImageFromFileAsync` instead
+     */
+    public function createImageUploadAsync(...$args) {
+        return $this->uploadImageFromFileAsync(...$args);
     }
 
     /**
@@ -1567,6 +1594,15 @@ class ImagesApi
                     );
                 }
             );
+    }
+
+    /**
+     * Alias of `uploadImageFromFileAsyncWithHttpInfo`
+     *
+     * @deprecated use `uploadImageFromFileAsyncWithHttpInfo` instead
+     */
+    public function createImageUploadAsyncWithHttpInfo(...$args) {
+        return $this->uploadImageFromFileAsyncWithHttpInfo(...$args);
     }
 
     /**
@@ -1688,6 +1724,15 @@ class ImagesApi
     }
 
     /**
+     * Alias of `uploadImageFromFileRequest`
+     *
+     * @deprecated use `uploadImageFromFileRequest` instead
+     */
+    public function createImageUploadRequest(...$args) {
+        return $this->uploadImageFromFileRequest(...$args);
+    }
+
+    /**
      * Operation uploadImageFromUrl
      *
      * Upload Image From URL
@@ -1702,6 +1747,15 @@ class ImagesApi
     {
         list($response) = $this->uploadImageFromUrlWithHttpInfo($image_create_query, $apiKey);
         return $response;
+    }
+
+    /**
+     * Alias of `uploadImageFromUrl`
+     *
+     * @deprecated use `uploadImageFromUrl` instead
+     */
+    public function createImage(...$args) {
+        return $this->uploadImageFromUrl(...$args);
     }
 
     /**
@@ -1873,6 +1927,15 @@ class ImagesApi
     }
 
     /**
+     * Alias of `uploadImageFromUrlWithHttpInfo`
+     *
+     * @deprecated use `uploadImageFromUrlWithHttpInfo` instead
+     */
+    public function createImageWithHttpInfo(...$args) {
+        return $this->uploadImageFromUrlWithHttpInfo(...$args);
+    }
+
+    /**
      * Operation uploadImageFromUrlAsync
      *
      * Upload Image From URL
@@ -1890,6 +1953,15 @@ class ImagesApi
                     return $response[0];
                 }
             );
+    }
+
+    /**
+     * Alias of `uploadImageFromUrlAsync`
+     *
+     * @deprecated use `uploadImageFromUrlAsync` instead
+     */
+    public function createImageAsync(...$args) {
+        return $this->uploadImageFromUrlAsync(...$args);
     }
 
     /**
@@ -1946,6 +2018,15 @@ class ImagesApi
                     );
                 }
             );
+    }
+
+    /**
+     * Alias of `uploadImageFromUrlAsyncWithHttpInfo`
+     *
+     * @deprecated use `uploadImageFromUrlAsyncWithHttpInfo` instead
+     */
+    public function createImageAsyncWithHttpInfo(...$args) {
+        return $this->uploadImageFromUrlAsyncWithHttpInfo(...$args);
     }
 
     /**
@@ -2048,6 +2129,15 @@ class ImagesApi
             $headers,
             $httpBody
         );
+    }
+
+    /**
+     * Alias of `uploadImageFromUrlRequest`
+     *
+     * @deprecated use `uploadImageFromUrlRequest` instead
+     */
+    public function createImageRequest(...$args) {
+        return $this->uploadImageFromUrlRequest(...$args);
     }
 
     /**
