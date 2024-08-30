@@ -542,6 +542,15 @@ class FormsApi
     }
 
     /**
+     * Alias of `getFormForFormVersion`
+     *
+     * @deprecated use `getFormForFormVersion` instead
+     */
+    public function getFormVersionForm(...$args) {
+        return $this->getFormForFormVersion(...$args);
+    }
+
+    /**
      * Operation getFormForFormVersionWithHttpInfo
      *
      * Get Form for Form Version
@@ -711,6 +720,15 @@ class FormsApi
     }
 
     /**
+     * Alias of `getFormForFormVersionWithHttpInfo`
+     *
+     * @deprecated use `getFormForFormVersionWithHttpInfo` instead
+     */
+    public function getFormVersionFormWithHttpInfo(...$args) {
+        return $this->getFormForFormVersionWithHttpInfo(...$args);
+    }
+
+    /**
      * Operation getFormForFormVersionAsync
      *
      * Get Form for Form Version
@@ -729,6 +747,15 @@ class FormsApi
                     return $response[0];
                 }
             );
+    }
+
+    /**
+     * Alias of `getFormForFormVersionAsync`
+     *
+     * @deprecated use `getFormForFormVersionAsync` instead
+     */
+    public function getFormVersionFormAsync(...$args) {
+        return $this->getFormForFormVersionAsync(...$args);
     }
 
     /**
@@ -786,6 +813,15 @@ class FormsApi
                     );
                 }
             );
+    }
+
+    /**
+     * Alias of `getFormForFormVersionAsyncWithHttpInfo`
+     *
+     * @deprecated use `getFormForFormVersionAsyncWithHttpInfo` instead
+     */
+    public function getFormVersionFormAsyncWithHttpInfo(...$args) {
+        return $this->getFormForFormVersionAsyncWithHttpInfo(...$args);
     }
 
     /**
@@ -903,6 +939,15 @@ class FormsApi
     }
 
     /**
+     * Alias of `getFormForFormVersionRequest`
+     *
+     * @deprecated use `getFormForFormVersionRequest` instead
+     */
+    public function getFormVersionFormRequest(...$args) {
+        return $this->getFormForFormVersionRequest(...$args);
+    }
+
+    /**
      * Operation getFormIdForFormVersion
      *
      * Get Form ID for Form Version
@@ -917,6 +962,15 @@ class FormsApi
     {
         list($response) = $this->getFormIdForFormVersionWithHttpInfo($id, $apiKey);
         return $response;
+    }
+
+    /**
+     * Alias of `getFormIdForFormVersion`
+     *
+     * @deprecated use `getFormIdForFormVersion` instead
+     */
+    public function getFormVersionRelationshipsForm(...$args) {
+        return $this->getFormIdForFormVersion(...$args);
     }
 
     /**
@@ -1088,6 +1142,15 @@ class FormsApi
     }
 
     /**
+     * Alias of `getFormIdForFormVersionWithHttpInfo`
+     *
+     * @deprecated use `getFormIdForFormVersionWithHttpInfo` instead
+     */
+    public function getFormVersionRelationshipsFormWithHttpInfo(...$args) {
+        return $this->getFormIdForFormVersionWithHttpInfo(...$args);
+    }
+
+    /**
      * Operation getFormIdForFormVersionAsync
      *
      * Get Form ID for Form Version
@@ -1105,6 +1168,15 @@ class FormsApi
                     return $response[0];
                 }
             );
+    }
+
+    /**
+     * Alias of `getFormIdForFormVersionAsync`
+     *
+     * @deprecated use `getFormIdForFormVersionAsync` instead
+     */
+    public function getFormVersionRelationshipsFormAsync(...$args) {
+        return $this->getFormIdForFormVersionAsync(...$args);
     }
 
     /**
@@ -1161,6 +1233,15 @@ class FormsApi
                     );
                 }
             );
+    }
+
+    /**
+     * Alias of `getFormIdForFormVersionAsyncWithHttpInfo`
+     *
+     * @deprecated use `getFormIdForFormVersionAsyncWithHttpInfo` instead
+     */
+    public function getFormVersionRelationshipsFormAsyncWithHttpInfo(...$args) {
+        return $this->getFormIdForFormVersionAsyncWithHttpInfo(...$args);
     }
 
     /**
@@ -1265,6 +1346,15 @@ class FormsApi
             $headers,
             $httpBody
         );
+    }
+
+    /**
+     * Alias of `getFormIdForFormVersionRequest`
+     *
+     * @deprecated use `getFormIdForFormVersionRequest` instead
+     */
+    public function getFormVersionRelationshipsFormRequest(...$args) {
+        return $this->getFormIdForFormVersionRequest(...$args);
     }
 
     /**
@@ -2087,6 +2177,15 @@ class FormsApi
     }
 
     /**
+     * Alias of `getVersionIdsForForm`
+     *
+     * @deprecated use `getVersionIdsForForm` instead
+     */
+    public function getFormRelationshipsFormVersions(...$args) {
+        return $this->getVersionIdsForForm(...$args);
+    }
+
+    /**
      * Operation getVersionIdsForFormWithHttpInfo
      *
      * Get Version IDs for Form
@@ -2255,6 +2354,15 @@ class FormsApi
     }
 
     /**
+     * Alias of `getVersionIdsForFormWithHttpInfo`
+     *
+     * @deprecated use `getVersionIdsForFormWithHttpInfo` instead
+     */
+    public function getFormRelationshipsFormVersionsWithHttpInfo(...$args) {
+        return $this->getVersionIdsForFormWithHttpInfo(...$args);
+    }
+
+    /**
      * Operation getVersionIdsForFormAsync
      *
      * Get Version IDs for Form
@@ -2272,6 +2380,15 @@ class FormsApi
                     return $response[0];
                 }
             );
+    }
+
+    /**
+     * Alias of `getVersionIdsForFormAsync`
+     *
+     * @deprecated use `getVersionIdsForFormAsync` instead
+     */
+    public function getFormRelationshipsFormVersionsAsync(...$args) {
+        return $this->getVersionIdsForFormAsync(...$args);
     }
 
     /**
@@ -2328,6 +2445,15 @@ class FormsApi
                     );
                 }
             );
+    }
+
+    /**
+     * Alias of `getVersionIdsForFormAsyncWithHttpInfo`
+     *
+     * @deprecated use `getVersionIdsForFormAsyncWithHttpInfo` instead
+     */
+    public function getFormRelationshipsFormVersionsAsyncWithHttpInfo(...$args) {
+        return $this->getVersionIdsForFormAsyncWithHttpInfo(...$args);
     }
 
     /**
@@ -2435,6 +2561,15 @@ class FormsApi
     }
 
     /**
+     * Alias of `getVersionIdsForFormRequest`
+     *
+     * @deprecated use `getVersionIdsForFormRequest` instead
+     */
+    public function getFormRelationshipsFormVersionsRequest(...$args) {
+        return $this->getVersionIdsForFormRequest(...$args);
+    }
+
+    /**
      * Operation getVersionsForForm
      *
      * Get Versions for Form
@@ -2454,6 +2589,15 @@ class FormsApi
     {
         list($response) = $this->getVersionsForFormWithHttpInfo($id, $fields_form_version, $filter, $page_cursor, $page_size, $sort, $apiKey);
         return $response;
+    }
+
+    /**
+     * Alias of `getVersionsForForm`
+     *
+     * @deprecated use `getVersionsForForm` instead
+     */
+    public function getFormFormVersions(...$args) {
+        return $this->getVersionsForForm(...$args);
     }
 
     /**
@@ -2630,6 +2774,15 @@ class FormsApi
     }
 
     /**
+     * Alias of `getVersionsForFormWithHttpInfo`
+     *
+     * @deprecated use `getVersionsForFormWithHttpInfo` instead
+     */
+    public function getFormFormVersionsWithHttpInfo(...$args) {
+        return $this->getVersionsForFormWithHttpInfo(...$args);
+    }
+
+    /**
      * Operation getVersionsForFormAsync
      *
      * Get Versions for Form
@@ -2652,6 +2805,15 @@ class FormsApi
                     return $response[0];
                 }
             );
+    }
+
+    /**
+     * Alias of `getVersionsForFormAsync`
+     *
+     * @deprecated use `getVersionsForFormAsync` instead
+     */
+    public function getFormFormVersionsAsync(...$args) {
+        return $this->getVersionsForFormAsync(...$args);
     }
 
     /**
@@ -2713,6 +2875,15 @@ class FormsApi
                     );
                 }
             );
+    }
+
+    /**
+     * Alias of `getVersionsForFormAsyncWithHttpInfo`
+     *
+     * @deprecated use `getVersionsForFormAsyncWithHttpInfo` instead
+     */
+    public function getFormFormVersionsAsyncWithHttpInfo(...$args) {
+        return $this->getVersionsForFormAsyncWithHttpInfo(...$args);
     }
 
     /**
@@ -2874,6 +3045,15 @@ class FormsApi
             $headers,
             $httpBody
         );
+    }
+
+    /**
+     * Alias of `getVersionsForFormRequest`
+     *
+     * @deprecated use `getVersionsForFormRequest` instead
+     */
+    public function getFormFormVersionsRequest(...$args) {
+        return $this->getVersionsForFormRequest(...$args);
     }
 
     /**

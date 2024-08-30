@@ -135,6 +135,15 @@ class ReportingApi
     }
 
     /**
+     * Alias of `queryCampaignValues`
+     *
+     * @deprecated use `queryCampaignValues` instead
+     */
+    public function createCampaignValueReport(...$args) {
+        return $this->queryCampaignValues(...$args);
+    }
+
+    /**
      * Operation queryCampaignValuesWithHttpInfo
      *
      * Query Campaign Values
@@ -304,6 +313,15 @@ class ReportingApi
     }
 
     /**
+     * Alias of `queryCampaignValuesWithHttpInfo`
+     *
+     * @deprecated use `queryCampaignValuesWithHttpInfo` instead
+     */
+    public function createCampaignValueReportWithHttpInfo(...$args) {
+        return $this->queryCampaignValuesWithHttpInfo(...$args);
+    }
+
+    /**
      * Operation queryCampaignValuesAsync
      *
      * Query Campaign Values
@@ -322,6 +340,15 @@ class ReportingApi
                     return $response[0];
                 }
             );
+    }
+
+    /**
+     * Alias of `queryCampaignValuesAsync`
+     *
+     * @deprecated use `queryCampaignValuesAsync` instead
+     */
+    public function createCampaignValueReportAsync(...$args) {
+        return $this->queryCampaignValuesAsync(...$args);
     }
 
     /**
@@ -379,6 +406,15 @@ class ReportingApi
                     );
                 }
             );
+    }
+
+    /**
+     * Alias of `queryCampaignValuesAsyncWithHttpInfo`
+     *
+     * @deprecated use `queryCampaignValuesAsyncWithHttpInfo` instead
+     */
+    public function createCampaignValueReportAsyncWithHttpInfo(...$args) {
+        return $this->queryCampaignValuesAsyncWithHttpInfo(...$args);
     }
 
     /**
@@ -494,6 +530,15 @@ class ReportingApi
     }
 
     /**
+     * Alias of `queryCampaignValuesRequest`
+     *
+     * @deprecated use `queryCampaignValuesRequest` instead
+     */
+    public function createCampaignValueReportRequest(...$args) {
+        return $this->queryCampaignValuesRequest(...$args);
+    }
+
+    /**
      * Operation queryFlowSeries
      *
      * Query Flow Series
@@ -509,6 +554,15 @@ class ReportingApi
     {
         list($response) = $this->queryFlowSeriesWithHttpInfo($flow_series_request_dto, $page_cursor, $apiKey);
         return $response;
+    }
+
+    /**
+     * Alias of `queryFlowSeries`
+     *
+     * @deprecated use `queryFlowSeries` instead
+     */
+    public function createFlowSeryReport(...$args) {
+        return $this->queryFlowSeries(...$args);
     }
 
     /**
@@ -681,6 +735,15 @@ class ReportingApi
     }
 
     /**
+     * Alias of `queryFlowSeriesWithHttpInfo`
+     *
+     * @deprecated use `queryFlowSeriesWithHttpInfo` instead
+     */
+    public function createFlowSeryReportWithHttpInfo(...$args) {
+        return $this->queryFlowSeriesWithHttpInfo(...$args);
+    }
+
+    /**
      * Operation queryFlowSeriesAsync
      *
      * Query Flow Series
@@ -699,6 +762,15 @@ class ReportingApi
                     return $response[0];
                 }
             );
+    }
+
+    /**
+     * Alias of `queryFlowSeriesAsync`
+     *
+     * @deprecated use `queryFlowSeriesAsync` instead
+     */
+    public function createFlowSeryReportAsync(...$args) {
+        return $this->queryFlowSeriesAsync(...$args);
     }
 
     /**
@@ -756,6 +828,15 @@ class ReportingApi
                     );
                 }
             );
+    }
+
+    /**
+     * Alias of `queryFlowSeriesAsyncWithHttpInfo`
+     *
+     * @deprecated use `queryFlowSeriesAsyncWithHttpInfo` instead
+     */
+    public function createFlowSeryReportAsyncWithHttpInfo(...$args) {
+        return $this->queryFlowSeriesAsyncWithHttpInfo(...$args);
     }
 
     /**
@@ -871,6 +952,15 @@ class ReportingApi
     }
 
     /**
+     * Alias of `queryFlowSeriesRequest`
+     *
+     * @deprecated use `queryFlowSeriesRequest` instead
+     */
+    public function createFlowSeryReportRequest(...$args) {
+        return $this->queryFlowSeriesRequest(...$args);
+    }
+
+    /**
      * Operation queryFlowValues
      *
      * Query Flow Values
@@ -886,6 +976,15 @@ class ReportingApi
     {
         list($response) = $this->queryFlowValuesWithHttpInfo($flow_values_request_dto, $page_cursor, $apiKey);
         return $response;
+    }
+
+    /**
+     * Alias of `queryFlowValues`
+     *
+     * @deprecated use `queryFlowValues` instead
+     */
+    public function createFlowValueReport(...$args) {
+        return $this->queryFlowValues(...$args);
     }
 
     /**
@@ -1058,6 +1157,15 @@ class ReportingApi
     }
 
     /**
+     * Alias of `queryFlowValuesWithHttpInfo`
+     *
+     * @deprecated use `queryFlowValuesWithHttpInfo` instead
+     */
+    public function createFlowValueReportWithHttpInfo(...$args) {
+        return $this->queryFlowValuesWithHttpInfo(...$args);
+    }
+
+    /**
      * Operation queryFlowValuesAsync
      *
      * Query Flow Values
@@ -1076,6 +1184,15 @@ class ReportingApi
                     return $response[0];
                 }
             );
+    }
+
+    /**
+     * Alias of `queryFlowValuesAsync`
+     *
+     * @deprecated use `queryFlowValuesAsync` instead
+     */
+    public function createFlowValueReportAsync(...$args) {
+        return $this->queryFlowValuesAsync(...$args);
     }
 
     /**
@@ -1133,6 +1250,15 @@ class ReportingApi
                     );
                 }
             );
+    }
+
+    /**
+     * Alias of `queryFlowValuesAsyncWithHttpInfo`
+     *
+     * @deprecated use `queryFlowValuesAsyncWithHttpInfo` instead
+     */
+    public function createFlowValueReportAsyncWithHttpInfo(...$args) {
+        return $this->queryFlowValuesAsyncWithHttpInfo(...$args);
     }
 
     /**
@@ -1245,6 +1371,15 @@ class ReportingApi
             $headers,
             $httpBody
         );
+    }
+
+    /**
+     * Alias of `queryFlowValuesRequest`
+     *
+     * @deprecated use `queryFlowValuesRequest` instead
+     */
+    public function createFlowValueReportRequest(...$args) {
+        return $this->queryFlowValuesRequest(...$args);
     }
 
     /**

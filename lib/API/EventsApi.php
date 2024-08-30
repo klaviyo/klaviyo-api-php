@@ -133,6 +133,15 @@ class EventsApi
     }
 
     /**
+     * Alias of `bulkCreateEvents`
+     *
+     * @deprecated use `bulkCreateEvents` instead
+     */
+    public function createEventBulkCreateJob(...$args) {
+        return $this->bulkCreateEvents(...$args);
+    }
+
+    /**
      * Operation bulkCreateEventsWithHttpInfo
      *
      * Bulk Create Events
@@ -208,6 +217,15 @@ class EventsApi
     }
 
     /**
+     * Alias of `bulkCreateEventsWithHttpInfo`
+     *
+     * @deprecated use `bulkCreateEventsWithHttpInfo` instead
+     */
+    public function createEventBulkCreateJobWithHttpInfo(...$args) {
+        return $this->bulkCreateEventsWithHttpInfo(...$args);
+    }
+
+    /**
      * Operation bulkCreateEventsAsync
      *
      * Bulk Create Events
@@ -225,6 +243,15 @@ class EventsApi
                     return $response[0];
                 }
             );
+    }
+
+    /**
+     * Alias of `bulkCreateEventsAsync`
+     *
+     * @deprecated use `bulkCreateEventsAsync` instead
+     */
+    public function createEventBulkCreateJobAsync(...$args) {
+        return $this->bulkCreateEventsAsync(...$args);
     }
 
     /**
@@ -263,6 +290,15 @@ class EventsApi
                     );
                 }
             );
+    }
+
+    /**
+     * Alias of `bulkCreateEventsAsyncWithHttpInfo`
+     *
+     * @deprecated use `bulkCreateEventsAsyncWithHttpInfo` instead
+     */
+    public function createEventBulkCreateJobAsyncWithHttpInfo(...$args) {
+        return $this->bulkCreateEventsAsyncWithHttpInfo(...$args);
     }
 
     /**
@@ -365,6 +401,15 @@ class EventsApi
             $headers,
             $httpBody
         );
+    }
+
+    /**
+     * Alias of `bulkCreateEventsRequest`
+     *
+     * @deprecated use `bulkCreateEventsRequest` instead
+     */
+    public function createEventBulkCreateJobRequest(...$args) {
+        return $this->bulkCreateEventsRequest(...$args);
     }
 
     /**

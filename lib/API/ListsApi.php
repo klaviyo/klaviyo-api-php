@@ -497,6 +497,15 @@ class ListsApi
     }
 
     /**
+     * Alias of `createListRelationships`
+     *
+     * @deprecated use `createListRelationships` instead
+     */
+    public function createListRelationshipsProfile(...$args) {
+        return $this->createListRelationships(...$args);
+    }
+
+    /**
      * Operation createListRelationshipsWithHttpInfo
      *
      * Add Profile To List
@@ -573,6 +582,15 @@ class ListsApi
     }
 
     /**
+     * Alias of `createListRelationshipsWithHttpInfo`
+     *
+     * @deprecated use `createListRelationshipsWithHttpInfo` instead
+     */
+    public function createListRelationshipsProfileWithHttpInfo(...$args) {
+        return $this->createListRelationshipsWithHttpInfo(...$args);
+    }
+
+    /**
      * Operation createListRelationshipsAsync
      *
      * Add Profile To List
@@ -591,6 +609,15 @@ class ListsApi
                     return $response[0];
                 }
             );
+    }
+
+    /**
+     * Alias of `createListRelationshipsAsync`
+     *
+     * @deprecated use `createListRelationshipsAsync` instead
+     */
+    public function createListRelationshipsProfileAsync(...$args) {
+        return $this->createListRelationshipsAsync(...$args);
     }
 
     /**
@@ -630,6 +657,15 @@ class ListsApi
                     );
                 }
             );
+    }
+
+    /**
+     * Alias of `createListRelationshipsAsyncWithHttpInfo`
+     *
+     * @deprecated use `createListRelationshipsAsyncWithHttpInfo` instead
+     */
+    public function createListRelationshipsProfileAsyncWithHttpInfo(...$args) {
+        return $this->createListRelationshipsAsyncWithHttpInfo(...$args);
     }
 
     /**
@@ -747,6 +783,15 @@ class ListsApi
             $headers,
             $httpBody
         );
+    }
+
+    /**
+     * Alias of `createListRelationshipsRequest`
+     *
+     * @deprecated use `createListRelationshipsRequest` instead
+     */
+    public function createListRelationshipsProfileRequest(...$args) {
+        return $this->createListRelationshipsRequest(...$args);
     }
 
     /**
@@ -1020,6 +1065,15 @@ class ListsApi
     }
 
     /**
+     * Alias of `deleteListRelationships`
+     *
+     * @deprecated use `deleteListRelationships` instead
+     */
+    public function deleteListRelationshipsProfiles(...$args) {
+        return $this->deleteListRelationships(...$args);
+    }
+
+    /**
      * Operation deleteListRelationshipsWithHttpInfo
      *
      * Remove Profile From List
@@ -1096,6 +1150,15 @@ class ListsApi
     }
 
     /**
+     * Alias of `deleteListRelationshipsWithHttpInfo`
+     *
+     * @deprecated use `deleteListRelationshipsWithHttpInfo` instead
+     */
+    public function deleteListRelationshipsProfilesWithHttpInfo(...$args) {
+        return $this->deleteListRelationshipsWithHttpInfo(...$args);
+    }
+
+    /**
      * Operation deleteListRelationshipsAsync
      *
      * Remove Profile From List
@@ -1114,6 +1177,15 @@ class ListsApi
                     return $response[0];
                 }
             );
+    }
+
+    /**
+     * Alias of `deleteListRelationshipsAsync`
+     *
+     * @deprecated use `deleteListRelationshipsAsync` instead
+     */
+    public function deleteListRelationshipsProfilesAsync(...$args) {
+        return $this->deleteListRelationshipsAsync(...$args);
     }
 
     /**
@@ -1153,6 +1225,15 @@ class ListsApi
                     );
                 }
             );
+    }
+
+    /**
+     * Alias of `deleteListRelationshipsAsyncWithHttpInfo`
+     *
+     * @deprecated use `deleteListRelationshipsAsyncWithHttpInfo` instead
+     */
+    public function deleteListRelationshipsProfilesAsyncWithHttpInfo(...$args) {
+        return $this->deleteListRelationshipsAsyncWithHttpInfo(...$args);
     }
 
     /**
@@ -1270,6 +1351,15 @@ class ListsApi
             $headers,
             $httpBody
         );
+    }
+
+    /**
+     * Alias of `deleteListRelationshipsRequest`
+     *
+     * @deprecated use `deleteListRelationshipsRequest` instead
+     */
+    public function deleteListRelationshipsProfilesRequest(...$args) {
+        return $this->deleteListRelationshipsRequest(...$args);
     }
 
     /**

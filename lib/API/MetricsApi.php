@@ -901,6 +901,15 @@ class MetricsApi
     }
 
     /**
+     * Alias of `queryMetricAggregates`
+     *
+     * @deprecated use `queryMetricAggregates` instead
+     */
+    public function createMetricAggregate(...$args) {
+        return $this->queryMetricAggregates(...$args);
+    }
+
+    /**
      * Operation queryMetricAggregatesWithHttpInfo
      *
      * Query Metric Aggregates
@@ -1069,6 +1078,15 @@ class MetricsApi
     }
 
     /**
+     * Alias of `queryMetricAggregatesWithHttpInfo`
+     *
+     * @deprecated use `queryMetricAggregatesWithHttpInfo` instead
+     */
+    public function createMetricAggregateWithHttpInfo(...$args) {
+        return $this->queryMetricAggregatesWithHttpInfo(...$args);
+    }
+
+    /**
      * Operation queryMetricAggregatesAsync
      *
      * Query Metric Aggregates
@@ -1086,6 +1104,15 @@ class MetricsApi
                     return $response[0];
                 }
             );
+    }
+
+    /**
+     * Alias of `queryMetricAggregatesAsync`
+     *
+     * @deprecated use `queryMetricAggregatesAsync` instead
+     */
+    public function createMetricAggregateAsync(...$args) {
+        return $this->queryMetricAggregatesAsync(...$args);
     }
 
     /**
@@ -1142,6 +1169,15 @@ class MetricsApi
                     );
                 }
             );
+    }
+
+    /**
+     * Alias of `queryMetricAggregatesAsyncWithHttpInfo`
+     *
+     * @deprecated use `queryMetricAggregatesAsyncWithHttpInfo` instead
+     */
+    public function createMetricAggregateAsyncWithHttpInfo(...$args) {
+        return $this->queryMetricAggregatesAsyncWithHttpInfo(...$args);
     }
 
     /**
@@ -1244,6 +1280,15 @@ class MetricsApi
             $headers,
             $httpBody
         );
+    }
+
+    /**
+     * Alias of `queryMetricAggregatesRequest`
+     *
+     * @deprecated use `queryMetricAggregatesRequest` instead
+     */
+    public function createMetricAggregateRequest(...$args) {
+        return $this->queryMetricAggregatesRequest(...$args);
     }
 
     /**

@@ -748,6 +748,15 @@ class CatalogsApi
     }
 
     /**
+     * Alias of `createCatalogCategoryRelationshipsItems`
+     *
+     * @deprecated use `createCatalogCategoryRelationshipsItems` instead
+     */
+    public function createCatalogCategoryRelationshipsItem(...$args) {
+        return $this->createCatalogCategoryRelationshipsItems(...$args);
+    }
+
+    /**
      * Operation createCatalogCategoryRelationshipsItemsWithHttpInfo
      *
      * Create Catalog Category Relationships Items
@@ -824,6 +833,15 @@ class CatalogsApi
     }
 
     /**
+     * Alias of `createCatalogCategoryRelationshipsItemsWithHttpInfo`
+     *
+     * @deprecated use `createCatalogCategoryRelationshipsItemsWithHttpInfo` instead
+     */
+    public function createCatalogCategoryRelationshipsItemWithHttpInfo(...$args) {
+        return $this->createCatalogCategoryRelationshipsItemsWithHttpInfo(...$args);
+    }
+
+    /**
      * Operation createCatalogCategoryRelationshipsItemsAsync
      *
      * Create Catalog Category Relationships Items
@@ -842,6 +860,15 @@ class CatalogsApi
                     return $response[0];
                 }
             );
+    }
+
+    /**
+     * Alias of `createCatalogCategoryRelationshipsItemsAsync`
+     *
+     * @deprecated use `createCatalogCategoryRelationshipsItemsAsync` instead
+     */
+    public function createCatalogCategoryRelationshipsItemAsync(...$args) {
+        return $this->createCatalogCategoryRelationshipsItemsAsync(...$args);
     }
 
     /**
@@ -881,6 +908,15 @@ class CatalogsApi
                     );
                 }
             );
+    }
+
+    /**
+     * Alias of `createCatalogCategoryRelationshipsItemsAsyncWithHttpInfo`
+     *
+     * @deprecated use `createCatalogCategoryRelationshipsItemsAsyncWithHttpInfo` instead
+     */
+    public function createCatalogCategoryRelationshipsItemAsyncWithHttpInfo(...$args) {
+        return $this->createCatalogCategoryRelationshipsItemsAsyncWithHttpInfo(...$args);
     }
 
     /**
@@ -998,6 +1034,15 @@ class CatalogsApi
             $headers,
             $httpBody
         );
+    }
+
+    /**
+     * Alias of `createCatalogCategoryRelationshipsItemsRequest`
+     *
+     * @deprecated use `createCatalogCategoryRelationshipsItemsRequest` instead
+     */
+    public function createCatalogCategoryRelationshipsItemRequest(...$args) {
+        return $this->createCatalogCategoryRelationshipsItemsRequest(...$args);
     }
 
     /**
@@ -1381,6 +1426,15 @@ class CatalogsApi
     }
 
     /**
+     * Alias of `createCatalogItemRelationshipsCategories`
+     *
+     * @deprecated use `createCatalogItemRelationshipsCategories` instead
+     */
+    public function createCatalogItemRelationshipsCategory(...$args) {
+        return $this->createCatalogItemRelationshipsCategories(...$args);
+    }
+
+    /**
      * Operation createCatalogItemRelationshipsCategoriesWithHttpInfo
      *
      * Create Catalog Item Relationships Categories
@@ -1457,6 +1511,15 @@ class CatalogsApi
     }
 
     /**
+     * Alias of `createCatalogItemRelationshipsCategoriesWithHttpInfo`
+     *
+     * @deprecated use `createCatalogItemRelationshipsCategoriesWithHttpInfo` instead
+     */
+    public function createCatalogItemRelationshipsCategoryWithHttpInfo(...$args) {
+        return $this->createCatalogItemRelationshipsCategoriesWithHttpInfo(...$args);
+    }
+
+    /**
      * Operation createCatalogItemRelationshipsCategoriesAsync
      *
      * Create Catalog Item Relationships Categories
@@ -1475,6 +1538,15 @@ class CatalogsApi
                     return $response[0];
                 }
             );
+    }
+
+    /**
+     * Alias of `createCatalogItemRelationshipsCategoriesAsync`
+     *
+     * @deprecated use `createCatalogItemRelationshipsCategoriesAsync` instead
+     */
+    public function createCatalogItemRelationshipsCategoryAsync(...$args) {
+        return $this->createCatalogItemRelationshipsCategoriesAsync(...$args);
     }
 
     /**
@@ -1514,6 +1586,15 @@ class CatalogsApi
                     );
                 }
             );
+    }
+
+    /**
+     * Alias of `createCatalogItemRelationshipsCategoriesAsyncWithHttpInfo`
+     *
+     * @deprecated use `createCatalogItemRelationshipsCategoriesAsyncWithHttpInfo` instead
+     */
+    public function createCatalogItemRelationshipsCategoryAsyncWithHttpInfo(...$args) {
+        return $this->createCatalogItemRelationshipsCategoriesAsyncWithHttpInfo(...$args);
     }
 
     /**
@@ -1631,6 +1712,15 @@ class CatalogsApi
             $headers,
             $httpBody
         );
+    }
+
+    /**
+     * Alias of `createCatalogItemRelationshipsCategoriesRequest`
+     *
+     * @deprecated use `createCatalogItemRelationshipsCategoriesRequest` instead
+     */
+    public function createCatalogItemRelationshipsCategoryRequest(...$args) {
+        return $this->createCatalogItemRelationshipsCategoriesRequest(...$args);
     }
 
     /**
@@ -7764,6 +7854,15 @@ class CatalogsApi
     }
 
     /**
+     * Alias of `getCreateCategoriesJob`
+     *
+     * @deprecated use `getCreateCategoriesJob` instead
+     */
+    public function getCatalogCategoryBulkCreateJob(...$args) {
+        return $this->getCreateCategoriesJob(...$args);
+    }
+
+    /**
      * Operation getCreateCategoriesJobWithHttpInfo
      *
      * Get Create Categories Job
@@ -7935,6 +8034,15 @@ class CatalogsApi
     }
 
     /**
+     * Alias of `getCreateCategoriesJobWithHttpInfo`
+     *
+     * @deprecated use `getCreateCategoriesJobWithHttpInfo` instead
+     */
+    public function getCatalogCategoryBulkCreateJobWithHttpInfo(...$args) {
+        return $this->getCreateCategoriesJobWithHttpInfo(...$args);
+    }
+
+    /**
      * Operation getCreateCategoriesJobAsync
      *
      * Get Create Categories Job
@@ -7955,6 +8063,15 @@ class CatalogsApi
                     return $response[0];
                 }
             );
+    }
+
+    /**
+     * Alias of `getCreateCategoriesJobAsync`
+     *
+     * @deprecated use `getCreateCategoriesJobAsync` instead
+     */
+    public function getCatalogCategoryBulkCreateJobAsync(...$args) {
+        return $this->getCreateCategoriesJobAsync(...$args);
     }
 
     /**
@@ -8014,6 +8131,15 @@ class CatalogsApi
                     );
                 }
             );
+    }
+
+    /**
+     * Alias of `getCreateCategoriesJobAsyncWithHttpInfo`
+     *
+     * @deprecated use `getCreateCategoriesJobAsyncWithHttpInfo` instead
+     */
+    public function getCatalogCategoryBulkCreateJobAsyncWithHttpInfo(...$args) {
+        return $this->getCreateCategoriesJobAsyncWithHttpInfo(...$args);
     }
 
     /**
@@ -8151,6 +8277,15 @@ class CatalogsApi
     }
 
     /**
+     * Alias of `getCreateCategoriesJobRequest`
+     *
+     * @deprecated use `getCreateCategoriesJobRequest` instead
+     */
+    public function getCatalogCategoryBulkCreateJobRequest(...$args) {
+        return $this->getCreateCategoriesJobRequest(...$args);
+    }
+
+    /**
      * Operation getCreateCategoriesJobs
      *
      * Get Create Categories Jobs
@@ -8167,6 +8302,15 @@ class CatalogsApi
     {
         list($response) = $this->getCreateCategoriesJobsWithHttpInfo($fields_catalog_category_bulk_create_job, $filter, $page_cursor, $apiKey);
         return $response;
+    }
+
+    /**
+     * Alias of `getCreateCategoriesJobs`
+     *
+     * @deprecated use `getCreateCategoriesJobs` instead
+     */
+    public function getCatalogCategoryBulkCreateJobs(...$args) {
+        return $this->getCreateCategoriesJobs(...$args);
     }
 
     /**
@@ -8340,6 +8484,15 @@ class CatalogsApi
     }
 
     /**
+     * Alias of `getCreateCategoriesJobsWithHttpInfo`
+     *
+     * @deprecated use `getCreateCategoriesJobsWithHttpInfo` instead
+     */
+    public function getCatalogCategoryBulkCreateJobsWithHttpInfo(...$args) {
+        return $this->getCreateCategoriesJobsWithHttpInfo(...$args);
+    }
+
+    /**
      * Operation getCreateCategoriesJobsAsync
      *
      * Get Create Categories Jobs
@@ -8359,6 +8512,15 @@ class CatalogsApi
                     return $response[0];
                 }
             );
+    }
+
+    /**
+     * Alias of `getCreateCategoriesJobsAsync`
+     *
+     * @deprecated use `getCreateCategoriesJobsAsync` instead
+     */
+    public function getCatalogCategoryBulkCreateJobsAsync(...$args) {
+        return $this->getCreateCategoriesJobsAsync(...$args);
     }
 
     /**
@@ -8417,6 +8579,15 @@ class CatalogsApi
                     );
                 }
             );
+    }
+
+    /**
+     * Alias of `getCreateCategoriesJobsAsyncWithHttpInfo`
+     *
+     * @deprecated use `getCreateCategoriesJobsAsyncWithHttpInfo` instead
+     */
+    public function getCatalogCategoryBulkCreateJobsAsyncWithHttpInfo(...$args) {
+        return $this->getCreateCategoriesJobsAsyncWithHttpInfo(...$args);
     }
 
     /**
@@ -8539,6 +8710,15 @@ class CatalogsApi
     }
 
     /**
+     * Alias of `getCreateCategoriesJobsRequest`
+     *
+     * @deprecated use `getCreateCategoriesJobsRequest` instead
+     */
+    public function getCatalogCategoryBulkCreateJobsRequest(...$args) {
+        return $this->getCreateCategoriesJobsRequest(...$args);
+    }
+
+    /**
      * Operation getCreateItemsJob
      *
      * Get Create Items Job
@@ -8556,6 +8736,15 @@ class CatalogsApi
     {
         list($response) = $this->getCreateItemsJobWithHttpInfo($job_id, $fields_catalog_item_bulk_create_job, $fields_catalog_item, $include, $apiKey);
         return $response;
+    }
+
+    /**
+     * Alias of `getCreateItemsJob`
+     *
+     * @deprecated use `getCreateItemsJob` instead
+     */
+    public function getCatalogItemBulkCreateJob(...$args) {
+        return $this->getCreateItemsJob(...$args);
     }
 
     /**
@@ -8730,6 +8919,15 @@ class CatalogsApi
     }
 
     /**
+     * Alias of `getCreateItemsJobWithHttpInfo`
+     *
+     * @deprecated use `getCreateItemsJobWithHttpInfo` instead
+     */
+    public function getCatalogItemBulkCreateJobWithHttpInfo(...$args) {
+        return $this->getCreateItemsJobWithHttpInfo(...$args);
+    }
+
+    /**
      * Operation getCreateItemsJobAsync
      *
      * Get Create Items Job
@@ -8750,6 +8948,15 @@ class CatalogsApi
                     return $response[0];
                 }
             );
+    }
+
+    /**
+     * Alias of `getCreateItemsJobAsync`
+     *
+     * @deprecated use `getCreateItemsJobAsync` instead
+     */
+    public function getCatalogItemBulkCreateJobAsync(...$args) {
+        return $this->getCreateItemsJobAsync(...$args);
     }
 
     /**
@@ -8809,6 +9016,15 @@ class CatalogsApi
                     );
                 }
             );
+    }
+
+    /**
+     * Alias of `getCreateItemsJobAsyncWithHttpInfo`
+     *
+     * @deprecated use `getCreateItemsJobAsyncWithHttpInfo` instead
+     */
+    public function getCatalogItemBulkCreateJobAsyncWithHttpInfo(...$args) {
+        return $this->getCreateItemsJobAsyncWithHttpInfo(...$args);
     }
 
     /**
@@ -8946,6 +9162,15 @@ class CatalogsApi
     }
 
     /**
+     * Alias of `getCreateItemsJobRequest`
+     *
+     * @deprecated use `getCreateItemsJobRequest` instead
+     */
+    public function getCatalogItemBulkCreateJobRequest(...$args) {
+        return $this->getCreateItemsJobRequest(...$args);
+    }
+
+    /**
      * Operation getCreateItemsJobs
      *
      * Get Create Items Jobs
@@ -8962,6 +9187,15 @@ class CatalogsApi
     {
         list($response) = $this->getCreateItemsJobsWithHttpInfo($fields_catalog_item_bulk_create_job, $filter, $page_cursor, $apiKey);
         return $response;
+    }
+
+    /**
+     * Alias of `getCreateItemsJobs`
+     *
+     * @deprecated use `getCreateItemsJobs` instead
+     */
+    public function getCatalogItemBulkCreateJobs(...$args) {
+        return $this->getCreateItemsJobs(...$args);
     }
 
     /**
@@ -9135,6 +9369,15 @@ class CatalogsApi
     }
 
     /**
+     * Alias of `getCreateItemsJobsWithHttpInfo`
+     *
+     * @deprecated use `getCreateItemsJobsWithHttpInfo` instead
+     */
+    public function getCatalogItemBulkCreateJobsWithHttpInfo(...$args) {
+        return $this->getCreateItemsJobsWithHttpInfo(...$args);
+    }
+
+    /**
      * Operation getCreateItemsJobsAsync
      *
      * Get Create Items Jobs
@@ -9154,6 +9397,15 @@ class CatalogsApi
                     return $response[0];
                 }
             );
+    }
+
+    /**
+     * Alias of `getCreateItemsJobsAsync`
+     *
+     * @deprecated use `getCreateItemsJobsAsync` instead
+     */
+    public function getCatalogItemBulkCreateJobsAsync(...$args) {
+        return $this->getCreateItemsJobsAsync(...$args);
     }
 
     /**
@@ -9212,6 +9464,15 @@ class CatalogsApi
                     );
                 }
             );
+    }
+
+    /**
+     * Alias of `getCreateItemsJobsAsyncWithHttpInfo`
+     *
+     * @deprecated use `getCreateItemsJobsAsyncWithHttpInfo` instead
+     */
+    public function getCatalogItemBulkCreateJobsAsyncWithHttpInfo(...$args) {
+        return $this->getCreateItemsJobsAsyncWithHttpInfo(...$args);
     }
 
     /**
@@ -9334,6 +9595,15 @@ class CatalogsApi
     }
 
     /**
+     * Alias of `getCreateItemsJobsRequest`
+     *
+     * @deprecated use `getCreateItemsJobsRequest` instead
+     */
+    public function getCatalogItemBulkCreateJobsRequest(...$args) {
+        return $this->getCreateItemsJobsRequest(...$args);
+    }
+
+    /**
      * Operation getCreateVariantsJob
      *
      * Get Create Variants Job
@@ -9351,6 +9621,15 @@ class CatalogsApi
     {
         list($response) = $this->getCreateVariantsJobWithHttpInfo($job_id, $fields_catalog_variant_bulk_create_job, $fields_catalog_variant, $include, $apiKey);
         return $response;
+    }
+
+    /**
+     * Alias of `getCreateVariantsJob`
+     *
+     * @deprecated use `getCreateVariantsJob` instead
+     */
+    public function getCatalogVariantBulkCreateJob(...$args) {
+        return $this->getCreateVariantsJob(...$args);
     }
 
     /**
@@ -9525,6 +9804,15 @@ class CatalogsApi
     }
 
     /**
+     * Alias of `getCreateVariantsJobWithHttpInfo`
+     *
+     * @deprecated use `getCreateVariantsJobWithHttpInfo` instead
+     */
+    public function getCatalogVariantBulkCreateJobWithHttpInfo(...$args) {
+        return $this->getCreateVariantsJobWithHttpInfo(...$args);
+    }
+
+    /**
      * Operation getCreateVariantsJobAsync
      *
      * Get Create Variants Job
@@ -9545,6 +9833,15 @@ class CatalogsApi
                     return $response[0];
                 }
             );
+    }
+
+    /**
+     * Alias of `getCreateVariantsJobAsync`
+     *
+     * @deprecated use `getCreateVariantsJobAsync` instead
+     */
+    public function getCatalogVariantBulkCreateJobAsync(...$args) {
+        return $this->getCreateVariantsJobAsync(...$args);
     }
 
     /**
@@ -9604,6 +9901,15 @@ class CatalogsApi
                     );
                 }
             );
+    }
+
+    /**
+     * Alias of `getCreateVariantsJobAsyncWithHttpInfo`
+     *
+     * @deprecated use `getCreateVariantsJobAsyncWithHttpInfo` instead
+     */
+    public function getCatalogVariantBulkCreateJobAsyncWithHttpInfo(...$args) {
+        return $this->getCreateVariantsJobAsyncWithHttpInfo(...$args);
     }
 
     /**
@@ -9741,6 +10047,15 @@ class CatalogsApi
     }
 
     /**
+     * Alias of `getCreateVariantsJobRequest`
+     *
+     * @deprecated use `getCreateVariantsJobRequest` instead
+     */
+    public function getCatalogVariantBulkCreateJobRequest(...$args) {
+        return $this->getCreateVariantsJobRequest(...$args);
+    }
+
+    /**
      * Operation getCreateVariantsJobs
      *
      * Get Create Variants Jobs
@@ -9757,6 +10072,15 @@ class CatalogsApi
     {
         list($response) = $this->getCreateVariantsJobsWithHttpInfo($fields_catalog_variant_bulk_create_job, $filter, $page_cursor, $apiKey);
         return $response;
+    }
+
+    /**
+     * Alias of `getCreateVariantsJobs`
+     *
+     * @deprecated use `getCreateVariantsJobs` instead
+     */
+    public function getCatalogVariantBulkCreateJobs(...$args) {
+        return $this->getCreateVariantsJobs(...$args);
     }
 
     /**
@@ -9930,6 +10254,15 @@ class CatalogsApi
     }
 
     /**
+     * Alias of `getCreateVariantsJobsWithHttpInfo`
+     *
+     * @deprecated use `getCreateVariantsJobsWithHttpInfo` instead
+     */
+    public function getCatalogVariantBulkCreateJobsWithHttpInfo(...$args) {
+        return $this->getCreateVariantsJobsWithHttpInfo(...$args);
+    }
+
+    /**
      * Operation getCreateVariantsJobsAsync
      *
      * Get Create Variants Jobs
@@ -9949,6 +10282,15 @@ class CatalogsApi
                     return $response[0];
                 }
             );
+    }
+
+    /**
+     * Alias of `getCreateVariantsJobsAsync`
+     *
+     * @deprecated use `getCreateVariantsJobsAsync` instead
+     */
+    public function getCatalogVariantBulkCreateJobsAsync(...$args) {
+        return $this->getCreateVariantsJobsAsync(...$args);
     }
 
     /**
@@ -10007,6 +10349,15 @@ class CatalogsApi
                     );
                 }
             );
+    }
+
+    /**
+     * Alias of `getCreateVariantsJobsAsyncWithHttpInfo`
+     *
+     * @deprecated use `getCreateVariantsJobsAsyncWithHttpInfo` instead
+     */
+    public function getCatalogVariantBulkCreateJobsAsyncWithHttpInfo(...$args) {
+        return $this->getCreateVariantsJobsAsyncWithHttpInfo(...$args);
     }
 
     /**
@@ -10129,6 +10480,15 @@ class CatalogsApi
     }
 
     /**
+     * Alias of `getCreateVariantsJobsRequest`
+     *
+     * @deprecated use `getCreateVariantsJobsRequest` instead
+     */
+    public function getCatalogVariantBulkCreateJobsRequest(...$args) {
+        return $this->getCreateVariantsJobsRequest(...$args);
+    }
+
+    /**
      * Operation getDeleteCategoriesJob
      *
      * Get Delete Categories Job
@@ -10144,6 +10504,15 @@ class CatalogsApi
     {
         list($response) = $this->getDeleteCategoriesJobWithHttpInfo($job_id, $fields_catalog_category_bulk_delete_job, $apiKey);
         return $response;
+    }
+
+    /**
+     * Alias of `getDeleteCategoriesJob`
+     *
+     * @deprecated use `getDeleteCategoriesJob` instead
+     */
+    public function getCatalogCategoryBulkDeleteJob(...$args) {
+        return $this->getDeleteCategoriesJob(...$args);
     }
 
     /**
@@ -10316,6 +10685,15 @@ class CatalogsApi
     }
 
     /**
+     * Alias of `getDeleteCategoriesJobWithHttpInfo`
+     *
+     * @deprecated use `getDeleteCategoriesJobWithHttpInfo` instead
+     */
+    public function getCatalogCategoryBulkDeleteJobWithHttpInfo(...$args) {
+        return $this->getDeleteCategoriesJobWithHttpInfo(...$args);
+    }
+
+    /**
      * Operation getDeleteCategoriesJobAsync
      *
      * Get Delete Categories Job
@@ -10334,6 +10712,15 @@ class CatalogsApi
                     return $response[0];
                 }
             );
+    }
+
+    /**
+     * Alias of `getDeleteCategoriesJobAsync`
+     *
+     * @deprecated use `getDeleteCategoriesJobAsync` instead
+     */
+    public function getCatalogCategoryBulkDeleteJobAsync(...$args) {
+        return $this->getDeleteCategoriesJobAsync(...$args);
     }
 
     /**
@@ -10391,6 +10778,15 @@ class CatalogsApi
                     );
                 }
             );
+    }
+
+    /**
+     * Alias of `getDeleteCategoriesJobAsyncWithHttpInfo`
+     *
+     * @deprecated use `getDeleteCategoriesJobAsyncWithHttpInfo` instead
+     */
+    public function getCatalogCategoryBulkDeleteJobAsyncWithHttpInfo(...$args) {
+        return $this->getDeleteCategoriesJobAsyncWithHttpInfo(...$args);
     }
 
     /**
@@ -10508,6 +10904,15 @@ class CatalogsApi
     }
 
     /**
+     * Alias of `getDeleteCategoriesJobRequest`
+     *
+     * @deprecated use `getDeleteCategoriesJobRequest` instead
+     */
+    public function getCatalogCategoryBulkDeleteJobRequest(...$args) {
+        return $this->getDeleteCategoriesJobRequest(...$args);
+    }
+
+    /**
      * Operation getDeleteCategoriesJobs
      *
      * Get Delete Categories Jobs
@@ -10524,6 +10929,15 @@ class CatalogsApi
     {
         list($response) = $this->getDeleteCategoriesJobsWithHttpInfo($fields_catalog_category_bulk_delete_job, $filter, $page_cursor, $apiKey);
         return $response;
+    }
+
+    /**
+     * Alias of `getDeleteCategoriesJobs`
+     *
+     * @deprecated use `getDeleteCategoriesJobs` instead
+     */
+    public function getCatalogCategoryBulkDeleteJobs(...$args) {
+        return $this->getDeleteCategoriesJobs(...$args);
     }
 
     /**
@@ -10697,6 +11111,15 @@ class CatalogsApi
     }
 
     /**
+     * Alias of `getDeleteCategoriesJobsWithHttpInfo`
+     *
+     * @deprecated use `getDeleteCategoriesJobsWithHttpInfo` instead
+     */
+    public function getCatalogCategoryBulkDeleteJobsWithHttpInfo(...$args) {
+        return $this->getDeleteCategoriesJobsWithHttpInfo(...$args);
+    }
+
+    /**
      * Operation getDeleteCategoriesJobsAsync
      *
      * Get Delete Categories Jobs
@@ -10716,6 +11139,15 @@ class CatalogsApi
                     return $response[0];
                 }
             );
+    }
+
+    /**
+     * Alias of `getDeleteCategoriesJobsAsync`
+     *
+     * @deprecated use `getDeleteCategoriesJobsAsync` instead
+     */
+    public function getCatalogCategoryBulkDeleteJobsAsync(...$args) {
+        return $this->getDeleteCategoriesJobsAsync(...$args);
     }
 
     /**
@@ -10774,6 +11206,15 @@ class CatalogsApi
                     );
                 }
             );
+    }
+
+    /**
+     * Alias of `getDeleteCategoriesJobsAsyncWithHttpInfo`
+     *
+     * @deprecated use `getDeleteCategoriesJobsAsyncWithHttpInfo` instead
+     */
+    public function getCatalogCategoryBulkDeleteJobsAsyncWithHttpInfo(...$args) {
+        return $this->getDeleteCategoriesJobsAsyncWithHttpInfo(...$args);
     }
 
     /**
@@ -10896,6 +11337,15 @@ class CatalogsApi
     }
 
     /**
+     * Alias of `getDeleteCategoriesJobsRequest`
+     *
+     * @deprecated use `getDeleteCategoriesJobsRequest` instead
+     */
+    public function getCatalogCategoryBulkDeleteJobsRequest(...$args) {
+        return $this->getDeleteCategoriesJobsRequest(...$args);
+    }
+
+    /**
      * Operation getDeleteItemsJob
      *
      * Get Delete Items Job
@@ -10911,6 +11361,15 @@ class CatalogsApi
     {
         list($response) = $this->getDeleteItemsJobWithHttpInfo($job_id, $fields_catalog_item_bulk_delete_job, $apiKey);
         return $response;
+    }
+
+    /**
+     * Alias of `getDeleteItemsJob`
+     *
+     * @deprecated use `getDeleteItemsJob` instead
+     */
+    public function getCatalogItemBulkDeleteJob(...$args) {
+        return $this->getDeleteItemsJob(...$args);
     }
 
     /**
@@ -11083,6 +11542,15 @@ class CatalogsApi
     }
 
     /**
+     * Alias of `getDeleteItemsJobWithHttpInfo`
+     *
+     * @deprecated use `getDeleteItemsJobWithHttpInfo` instead
+     */
+    public function getCatalogItemBulkDeleteJobWithHttpInfo(...$args) {
+        return $this->getDeleteItemsJobWithHttpInfo(...$args);
+    }
+
+    /**
      * Operation getDeleteItemsJobAsync
      *
      * Get Delete Items Job
@@ -11101,6 +11569,15 @@ class CatalogsApi
                     return $response[0];
                 }
             );
+    }
+
+    /**
+     * Alias of `getDeleteItemsJobAsync`
+     *
+     * @deprecated use `getDeleteItemsJobAsync` instead
+     */
+    public function getCatalogItemBulkDeleteJobAsync(...$args) {
+        return $this->getDeleteItemsJobAsync(...$args);
     }
 
     /**
@@ -11158,6 +11635,15 @@ class CatalogsApi
                     );
                 }
             );
+    }
+
+    /**
+     * Alias of `getDeleteItemsJobAsyncWithHttpInfo`
+     *
+     * @deprecated use `getDeleteItemsJobAsyncWithHttpInfo` instead
+     */
+    public function getCatalogItemBulkDeleteJobAsyncWithHttpInfo(...$args) {
+        return $this->getDeleteItemsJobAsyncWithHttpInfo(...$args);
     }
 
     /**
@@ -11275,6 +11761,15 @@ class CatalogsApi
     }
 
     /**
+     * Alias of `getDeleteItemsJobRequest`
+     *
+     * @deprecated use `getDeleteItemsJobRequest` instead
+     */
+    public function getCatalogItemBulkDeleteJobRequest(...$args) {
+        return $this->getDeleteItemsJobRequest(...$args);
+    }
+
+    /**
      * Operation getDeleteItemsJobs
      *
      * Get Delete Items Jobs
@@ -11291,6 +11786,15 @@ class CatalogsApi
     {
         list($response) = $this->getDeleteItemsJobsWithHttpInfo($fields_catalog_item_bulk_delete_job, $filter, $page_cursor, $apiKey);
         return $response;
+    }
+
+    /**
+     * Alias of `getDeleteItemsJobs`
+     *
+     * @deprecated use `getDeleteItemsJobs` instead
+     */
+    public function getCatalogItemBulkDeleteJobs(...$args) {
+        return $this->getDeleteItemsJobs(...$args);
     }
 
     /**
@@ -11464,6 +11968,15 @@ class CatalogsApi
     }
 
     /**
+     * Alias of `getDeleteItemsJobsWithHttpInfo`
+     *
+     * @deprecated use `getDeleteItemsJobsWithHttpInfo` instead
+     */
+    public function getCatalogItemBulkDeleteJobsWithHttpInfo(...$args) {
+        return $this->getDeleteItemsJobsWithHttpInfo(...$args);
+    }
+
+    /**
      * Operation getDeleteItemsJobsAsync
      *
      * Get Delete Items Jobs
@@ -11483,6 +11996,15 @@ class CatalogsApi
                     return $response[0];
                 }
             );
+    }
+
+    /**
+     * Alias of `getDeleteItemsJobsAsync`
+     *
+     * @deprecated use `getDeleteItemsJobsAsync` instead
+     */
+    public function getCatalogItemBulkDeleteJobsAsync(...$args) {
+        return $this->getDeleteItemsJobsAsync(...$args);
     }
 
     /**
@@ -11541,6 +12063,15 @@ class CatalogsApi
                     );
                 }
             );
+    }
+
+    /**
+     * Alias of `getDeleteItemsJobsAsyncWithHttpInfo`
+     *
+     * @deprecated use `getDeleteItemsJobsAsyncWithHttpInfo` instead
+     */
+    public function getCatalogItemBulkDeleteJobsAsyncWithHttpInfo(...$args) {
+        return $this->getDeleteItemsJobsAsyncWithHttpInfo(...$args);
     }
 
     /**
@@ -11663,6 +12194,15 @@ class CatalogsApi
     }
 
     /**
+     * Alias of `getDeleteItemsJobsRequest`
+     *
+     * @deprecated use `getDeleteItemsJobsRequest` instead
+     */
+    public function getCatalogItemBulkDeleteJobsRequest(...$args) {
+        return $this->getDeleteItemsJobsRequest(...$args);
+    }
+
+    /**
      * Operation getDeleteVariantsJob
      *
      * Get Delete Variants Job
@@ -11678,6 +12218,15 @@ class CatalogsApi
     {
         list($response) = $this->getDeleteVariantsJobWithHttpInfo($job_id, $fields_catalog_variant_bulk_delete_job, $apiKey);
         return $response;
+    }
+
+    /**
+     * Alias of `getDeleteVariantsJob`
+     *
+     * @deprecated use `getDeleteVariantsJob` instead
+     */
+    public function getCatalogVariantBulkDeleteJob(...$args) {
+        return $this->getDeleteVariantsJob(...$args);
     }
 
     /**
@@ -11850,6 +12399,15 @@ class CatalogsApi
     }
 
     /**
+     * Alias of `getDeleteVariantsJobWithHttpInfo`
+     *
+     * @deprecated use `getDeleteVariantsJobWithHttpInfo` instead
+     */
+    public function getCatalogVariantBulkDeleteJobWithHttpInfo(...$args) {
+        return $this->getDeleteVariantsJobWithHttpInfo(...$args);
+    }
+
+    /**
      * Operation getDeleteVariantsJobAsync
      *
      * Get Delete Variants Job
@@ -11868,6 +12426,15 @@ class CatalogsApi
                     return $response[0];
                 }
             );
+    }
+
+    /**
+     * Alias of `getDeleteVariantsJobAsync`
+     *
+     * @deprecated use `getDeleteVariantsJobAsync` instead
+     */
+    public function getCatalogVariantBulkDeleteJobAsync(...$args) {
+        return $this->getDeleteVariantsJobAsync(...$args);
     }
 
     /**
@@ -11925,6 +12492,15 @@ class CatalogsApi
                     );
                 }
             );
+    }
+
+    /**
+     * Alias of `getDeleteVariantsJobAsyncWithHttpInfo`
+     *
+     * @deprecated use `getDeleteVariantsJobAsyncWithHttpInfo` instead
+     */
+    public function getCatalogVariantBulkDeleteJobAsyncWithHttpInfo(...$args) {
+        return $this->getDeleteVariantsJobAsyncWithHttpInfo(...$args);
     }
 
     /**
@@ -12042,6 +12618,15 @@ class CatalogsApi
     }
 
     /**
+     * Alias of `getDeleteVariantsJobRequest`
+     *
+     * @deprecated use `getDeleteVariantsJobRequest` instead
+     */
+    public function getCatalogVariantBulkDeleteJobRequest(...$args) {
+        return $this->getDeleteVariantsJobRequest(...$args);
+    }
+
+    /**
      * Operation getDeleteVariantsJobs
      *
      * Get Delete Variants Jobs
@@ -12058,6 +12643,15 @@ class CatalogsApi
     {
         list($response) = $this->getDeleteVariantsJobsWithHttpInfo($fields_catalog_variant_bulk_delete_job, $filter, $page_cursor, $apiKey);
         return $response;
+    }
+
+    /**
+     * Alias of `getDeleteVariantsJobs`
+     *
+     * @deprecated use `getDeleteVariantsJobs` instead
+     */
+    public function getCatalogVariantBulkDeleteJobs(...$args) {
+        return $this->getDeleteVariantsJobs(...$args);
     }
 
     /**
@@ -12231,6 +12825,15 @@ class CatalogsApi
     }
 
     /**
+     * Alias of `getDeleteVariantsJobsWithHttpInfo`
+     *
+     * @deprecated use `getDeleteVariantsJobsWithHttpInfo` instead
+     */
+    public function getCatalogVariantBulkDeleteJobsWithHttpInfo(...$args) {
+        return $this->getDeleteVariantsJobsWithHttpInfo(...$args);
+    }
+
+    /**
      * Operation getDeleteVariantsJobsAsync
      *
      * Get Delete Variants Jobs
@@ -12250,6 +12853,15 @@ class CatalogsApi
                     return $response[0];
                 }
             );
+    }
+
+    /**
+     * Alias of `getDeleteVariantsJobsAsync`
+     *
+     * @deprecated use `getDeleteVariantsJobsAsync` instead
+     */
+    public function getCatalogVariantBulkDeleteJobsAsync(...$args) {
+        return $this->getDeleteVariantsJobsAsync(...$args);
     }
 
     /**
@@ -12308,6 +12920,15 @@ class CatalogsApi
                     );
                 }
             );
+    }
+
+    /**
+     * Alias of `getDeleteVariantsJobsAsyncWithHttpInfo`
+     *
+     * @deprecated use `getDeleteVariantsJobsAsyncWithHttpInfo` instead
+     */
+    public function getCatalogVariantBulkDeleteJobsAsyncWithHttpInfo(...$args) {
+        return $this->getDeleteVariantsJobsAsyncWithHttpInfo(...$args);
     }
 
     /**
@@ -12430,6 +13051,15 @@ class CatalogsApi
     }
 
     /**
+     * Alias of `getDeleteVariantsJobsRequest`
+     *
+     * @deprecated use `getDeleteVariantsJobsRequest` instead
+     */
+    public function getCatalogVariantBulkDeleteJobsRequest(...$args) {
+        return $this->getDeleteVariantsJobsRequest(...$args);
+    }
+
+    /**
      * Operation getUpdateCategoriesJob
      *
      * Get Update Categories Job
@@ -12447,6 +13077,15 @@ class CatalogsApi
     {
         list($response) = $this->getUpdateCategoriesJobWithHttpInfo($job_id, $fields_catalog_category_bulk_update_job, $fields_catalog_category, $include, $apiKey);
         return $response;
+    }
+
+    /**
+     * Alias of `getUpdateCategoriesJob`
+     *
+     * @deprecated use `getUpdateCategoriesJob` instead
+     */
+    public function getCatalogCategoryBulkUpdateJob(...$args) {
+        return $this->getUpdateCategoriesJob(...$args);
     }
 
     /**
@@ -12621,6 +13260,15 @@ class CatalogsApi
     }
 
     /**
+     * Alias of `getUpdateCategoriesJobWithHttpInfo`
+     *
+     * @deprecated use `getUpdateCategoriesJobWithHttpInfo` instead
+     */
+    public function getCatalogCategoryBulkUpdateJobWithHttpInfo(...$args) {
+        return $this->getUpdateCategoriesJobWithHttpInfo(...$args);
+    }
+
+    /**
      * Operation getUpdateCategoriesJobAsync
      *
      * Get Update Categories Job
@@ -12641,6 +13289,15 @@ class CatalogsApi
                     return $response[0];
                 }
             );
+    }
+
+    /**
+     * Alias of `getUpdateCategoriesJobAsync`
+     *
+     * @deprecated use `getUpdateCategoriesJobAsync` instead
+     */
+    public function getCatalogCategoryBulkUpdateJobAsync(...$args) {
+        return $this->getUpdateCategoriesJobAsync(...$args);
     }
 
     /**
@@ -12700,6 +13357,15 @@ class CatalogsApi
                     );
                 }
             );
+    }
+
+    /**
+     * Alias of `getUpdateCategoriesJobAsyncWithHttpInfo`
+     *
+     * @deprecated use `getUpdateCategoriesJobAsyncWithHttpInfo` instead
+     */
+    public function getCatalogCategoryBulkUpdateJobAsyncWithHttpInfo(...$args) {
+        return $this->getUpdateCategoriesJobAsyncWithHttpInfo(...$args);
     }
 
     /**
@@ -12837,6 +13503,15 @@ class CatalogsApi
     }
 
     /**
+     * Alias of `getUpdateCategoriesJobRequest`
+     *
+     * @deprecated use `getUpdateCategoriesJobRequest` instead
+     */
+    public function getCatalogCategoryBulkUpdateJobRequest(...$args) {
+        return $this->getUpdateCategoriesJobRequest(...$args);
+    }
+
+    /**
      * Operation getUpdateCategoriesJobs
      *
      * Get Update Categories Jobs
@@ -12853,6 +13528,15 @@ class CatalogsApi
     {
         list($response) = $this->getUpdateCategoriesJobsWithHttpInfo($fields_catalog_category_bulk_update_job, $filter, $page_cursor, $apiKey);
         return $response;
+    }
+
+    /**
+     * Alias of `getUpdateCategoriesJobs`
+     *
+     * @deprecated use `getUpdateCategoriesJobs` instead
+     */
+    public function getCatalogCategoryBulkUpdateJobs(...$args) {
+        return $this->getUpdateCategoriesJobs(...$args);
     }
 
     /**
@@ -13026,6 +13710,15 @@ class CatalogsApi
     }
 
     /**
+     * Alias of `getUpdateCategoriesJobsWithHttpInfo`
+     *
+     * @deprecated use `getUpdateCategoriesJobsWithHttpInfo` instead
+     */
+    public function getCatalogCategoryBulkUpdateJobsWithHttpInfo(...$args) {
+        return $this->getUpdateCategoriesJobsWithHttpInfo(...$args);
+    }
+
+    /**
      * Operation getUpdateCategoriesJobsAsync
      *
      * Get Update Categories Jobs
@@ -13045,6 +13738,15 @@ class CatalogsApi
                     return $response[0];
                 }
             );
+    }
+
+    /**
+     * Alias of `getUpdateCategoriesJobsAsync`
+     *
+     * @deprecated use `getUpdateCategoriesJobsAsync` instead
+     */
+    public function getCatalogCategoryBulkUpdateJobsAsync(...$args) {
+        return $this->getUpdateCategoriesJobsAsync(...$args);
     }
 
     /**
@@ -13103,6 +13805,15 @@ class CatalogsApi
                     );
                 }
             );
+    }
+
+    /**
+     * Alias of `getUpdateCategoriesJobsAsyncWithHttpInfo`
+     *
+     * @deprecated use `getUpdateCategoriesJobsAsyncWithHttpInfo` instead
+     */
+    public function getCatalogCategoryBulkUpdateJobsAsyncWithHttpInfo(...$args) {
+        return $this->getUpdateCategoriesJobsAsyncWithHttpInfo(...$args);
     }
 
     /**
@@ -13225,6 +13936,15 @@ class CatalogsApi
     }
 
     /**
+     * Alias of `getUpdateCategoriesJobsRequest`
+     *
+     * @deprecated use `getUpdateCategoriesJobsRequest` instead
+     */
+    public function getCatalogCategoryBulkUpdateJobsRequest(...$args) {
+        return $this->getUpdateCategoriesJobsRequest(...$args);
+    }
+
+    /**
      * Operation getUpdateItemsJob
      *
      * Get Update Items Job
@@ -13242,6 +13962,15 @@ class CatalogsApi
     {
         list($response) = $this->getUpdateItemsJobWithHttpInfo($job_id, $fields_catalog_item_bulk_update_job, $fields_catalog_item, $include, $apiKey);
         return $response;
+    }
+
+    /**
+     * Alias of `getUpdateItemsJob`
+     *
+     * @deprecated use `getUpdateItemsJob` instead
+     */
+    public function getCatalogItemBulkUpdateJob(...$args) {
+        return $this->getUpdateItemsJob(...$args);
     }
 
     /**
@@ -13416,6 +14145,15 @@ class CatalogsApi
     }
 
     /**
+     * Alias of `getUpdateItemsJobWithHttpInfo`
+     *
+     * @deprecated use `getUpdateItemsJobWithHttpInfo` instead
+     */
+    public function getCatalogItemBulkUpdateJobWithHttpInfo(...$args) {
+        return $this->getUpdateItemsJobWithHttpInfo(...$args);
+    }
+
+    /**
      * Operation getUpdateItemsJobAsync
      *
      * Get Update Items Job
@@ -13436,6 +14174,15 @@ class CatalogsApi
                     return $response[0];
                 }
             );
+    }
+
+    /**
+     * Alias of `getUpdateItemsJobAsync`
+     *
+     * @deprecated use `getUpdateItemsJobAsync` instead
+     */
+    public function getCatalogItemBulkUpdateJobAsync(...$args) {
+        return $this->getUpdateItemsJobAsync(...$args);
     }
 
     /**
@@ -13495,6 +14242,15 @@ class CatalogsApi
                     );
                 }
             );
+    }
+
+    /**
+     * Alias of `getUpdateItemsJobAsyncWithHttpInfo`
+     *
+     * @deprecated use `getUpdateItemsJobAsyncWithHttpInfo` instead
+     */
+    public function getCatalogItemBulkUpdateJobAsyncWithHttpInfo(...$args) {
+        return $this->getUpdateItemsJobAsyncWithHttpInfo(...$args);
     }
 
     /**
@@ -13632,6 +14388,15 @@ class CatalogsApi
     }
 
     /**
+     * Alias of `getUpdateItemsJobRequest`
+     *
+     * @deprecated use `getUpdateItemsJobRequest` instead
+     */
+    public function getCatalogItemBulkUpdateJobRequest(...$args) {
+        return $this->getUpdateItemsJobRequest(...$args);
+    }
+
+    /**
      * Operation getUpdateItemsJobs
      *
      * Get Update Items Jobs
@@ -13648,6 +14413,15 @@ class CatalogsApi
     {
         list($response) = $this->getUpdateItemsJobsWithHttpInfo($fields_catalog_item_bulk_update_job, $filter, $page_cursor, $apiKey);
         return $response;
+    }
+
+    /**
+     * Alias of `getUpdateItemsJobs`
+     *
+     * @deprecated use `getUpdateItemsJobs` instead
+     */
+    public function getCatalogItemBulkUpdateJobs(...$args) {
+        return $this->getUpdateItemsJobs(...$args);
     }
 
     /**
@@ -13821,6 +14595,15 @@ class CatalogsApi
     }
 
     /**
+     * Alias of `getUpdateItemsJobsWithHttpInfo`
+     *
+     * @deprecated use `getUpdateItemsJobsWithHttpInfo` instead
+     */
+    public function getCatalogItemBulkUpdateJobsWithHttpInfo(...$args) {
+        return $this->getUpdateItemsJobsWithHttpInfo(...$args);
+    }
+
+    /**
      * Operation getUpdateItemsJobsAsync
      *
      * Get Update Items Jobs
@@ -13840,6 +14623,15 @@ class CatalogsApi
                     return $response[0];
                 }
             );
+    }
+
+    /**
+     * Alias of `getUpdateItemsJobsAsync`
+     *
+     * @deprecated use `getUpdateItemsJobsAsync` instead
+     */
+    public function getCatalogItemBulkUpdateJobsAsync(...$args) {
+        return $this->getUpdateItemsJobsAsync(...$args);
     }
 
     /**
@@ -13898,6 +14690,15 @@ class CatalogsApi
                     );
                 }
             );
+    }
+
+    /**
+     * Alias of `getUpdateItemsJobsAsyncWithHttpInfo`
+     *
+     * @deprecated use `getUpdateItemsJobsAsyncWithHttpInfo` instead
+     */
+    public function getCatalogItemBulkUpdateJobsAsyncWithHttpInfo(...$args) {
+        return $this->getUpdateItemsJobsAsyncWithHttpInfo(...$args);
     }
 
     /**
@@ -14020,6 +14821,15 @@ class CatalogsApi
     }
 
     /**
+     * Alias of `getUpdateItemsJobsRequest`
+     *
+     * @deprecated use `getUpdateItemsJobsRequest` instead
+     */
+    public function getCatalogItemBulkUpdateJobsRequest(...$args) {
+        return $this->getUpdateItemsJobsRequest(...$args);
+    }
+
+    /**
      * Operation getUpdateVariantsJob
      *
      * Get Update Variants Job
@@ -14037,6 +14847,15 @@ class CatalogsApi
     {
         list($response) = $this->getUpdateVariantsJobWithHttpInfo($job_id, $fields_catalog_variant_bulk_update_job, $fields_catalog_variant, $include, $apiKey);
         return $response;
+    }
+
+    /**
+     * Alias of `getUpdateVariantsJob`
+     *
+     * @deprecated use `getUpdateVariantsJob` instead
+     */
+    public function getCatalogVariantBulkUpdateJob(...$args) {
+        return $this->getUpdateVariantsJob(...$args);
     }
 
     /**
@@ -14211,6 +15030,15 @@ class CatalogsApi
     }
 
     /**
+     * Alias of `getUpdateVariantsJobWithHttpInfo`
+     *
+     * @deprecated use `getUpdateVariantsJobWithHttpInfo` instead
+     */
+    public function getCatalogVariantBulkUpdateJobWithHttpInfo(...$args) {
+        return $this->getUpdateVariantsJobWithHttpInfo(...$args);
+    }
+
+    /**
      * Operation getUpdateVariantsJobAsync
      *
      * Get Update Variants Job
@@ -14231,6 +15059,15 @@ class CatalogsApi
                     return $response[0];
                 }
             );
+    }
+
+    /**
+     * Alias of `getUpdateVariantsJobAsync`
+     *
+     * @deprecated use `getUpdateVariantsJobAsync` instead
+     */
+    public function getCatalogVariantBulkUpdateJobAsync(...$args) {
+        return $this->getUpdateVariantsJobAsync(...$args);
     }
 
     /**
@@ -14290,6 +15127,15 @@ class CatalogsApi
                     );
                 }
             );
+    }
+
+    /**
+     * Alias of `getUpdateVariantsJobAsyncWithHttpInfo`
+     *
+     * @deprecated use `getUpdateVariantsJobAsyncWithHttpInfo` instead
+     */
+    public function getCatalogVariantBulkUpdateJobAsyncWithHttpInfo(...$args) {
+        return $this->getUpdateVariantsJobAsyncWithHttpInfo(...$args);
     }
 
     /**
@@ -14427,6 +15273,15 @@ class CatalogsApi
     }
 
     /**
+     * Alias of `getUpdateVariantsJobRequest`
+     *
+     * @deprecated use `getUpdateVariantsJobRequest` instead
+     */
+    public function getCatalogVariantBulkUpdateJobRequest(...$args) {
+        return $this->getUpdateVariantsJobRequest(...$args);
+    }
+
+    /**
      * Operation getUpdateVariantsJobs
      *
      * Get Update Variants Jobs
@@ -14443,6 +15298,15 @@ class CatalogsApi
     {
         list($response) = $this->getUpdateVariantsJobsWithHttpInfo($fields_catalog_variant_bulk_update_job, $filter, $page_cursor, $apiKey);
         return $response;
+    }
+
+    /**
+     * Alias of `getUpdateVariantsJobs`
+     *
+     * @deprecated use `getUpdateVariantsJobs` instead
+     */
+    public function getCatalogVariantBulkUpdateJobs(...$args) {
+        return $this->getUpdateVariantsJobs(...$args);
     }
 
     /**
@@ -14616,6 +15480,15 @@ class CatalogsApi
     }
 
     /**
+     * Alias of `getUpdateVariantsJobsWithHttpInfo`
+     *
+     * @deprecated use `getUpdateVariantsJobsWithHttpInfo` instead
+     */
+    public function getCatalogVariantBulkUpdateJobsWithHttpInfo(...$args) {
+        return $this->getUpdateVariantsJobsWithHttpInfo(...$args);
+    }
+
+    /**
      * Operation getUpdateVariantsJobsAsync
      *
      * Get Update Variants Jobs
@@ -14635,6 +15508,15 @@ class CatalogsApi
                     return $response[0];
                 }
             );
+    }
+
+    /**
+     * Alias of `getUpdateVariantsJobsAsync`
+     *
+     * @deprecated use `getUpdateVariantsJobsAsync` instead
+     */
+    public function getCatalogVariantBulkUpdateJobsAsync(...$args) {
+        return $this->getUpdateVariantsJobsAsync(...$args);
     }
 
     /**
@@ -14693,6 +15575,15 @@ class CatalogsApi
                     );
                 }
             );
+    }
+
+    /**
+     * Alias of `getUpdateVariantsJobsAsyncWithHttpInfo`
+     *
+     * @deprecated use `getUpdateVariantsJobsAsyncWithHttpInfo` instead
+     */
+    public function getCatalogVariantBulkUpdateJobsAsyncWithHttpInfo(...$args) {
+        return $this->getUpdateVariantsJobsAsyncWithHttpInfo(...$args);
     }
 
     /**
@@ -14815,6 +15706,15 @@ class CatalogsApi
     }
 
     /**
+     * Alias of `getUpdateVariantsJobsRequest`
+     *
+     * @deprecated use `getUpdateVariantsJobsRequest` instead
+     */
+    public function getCatalogVariantBulkUpdateJobsRequest(...$args) {
+        return $this->getUpdateVariantsJobsRequest(...$args);
+    }
+
+    /**
      * Operation spawnCreateCategoriesJob
      *
      * Spawn Create Categories Job
@@ -14829,6 +15729,15 @@ class CatalogsApi
     {
         list($response) = $this->spawnCreateCategoriesJobWithHttpInfo($catalog_category_create_job_create_query, $apiKey);
         return $response;
+    }
+
+    /**
+     * Alias of `spawnCreateCategoriesJob`
+     *
+     * @deprecated use `spawnCreateCategoriesJob` instead
+     */
+    public function createCatalogCategoryBulkCreateJob(...$args) {
+        return $this->spawnCreateCategoriesJob(...$args);
     }
 
     /**
@@ -15000,6 +15909,15 @@ class CatalogsApi
     }
 
     /**
+     * Alias of `spawnCreateCategoriesJobWithHttpInfo`
+     *
+     * @deprecated use `spawnCreateCategoriesJobWithHttpInfo` instead
+     */
+    public function createCatalogCategoryBulkCreateJobWithHttpInfo(...$args) {
+        return $this->spawnCreateCategoriesJobWithHttpInfo(...$args);
+    }
+
+    /**
      * Operation spawnCreateCategoriesJobAsync
      *
      * Spawn Create Categories Job
@@ -15017,6 +15935,15 @@ class CatalogsApi
                     return $response[0];
                 }
             );
+    }
+
+    /**
+     * Alias of `spawnCreateCategoriesJobAsync`
+     *
+     * @deprecated use `spawnCreateCategoriesJobAsync` instead
+     */
+    public function createCatalogCategoryBulkCreateJobAsync(...$args) {
+        return $this->spawnCreateCategoriesJobAsync(...$args);
     }
 
     /**
@@ -15073,6 +16000,15 @@ class CatalogsApi
                     );
                 }
             );
+    }
+
+    /**
+     * Alias of `spawnCreateCategoriesJobAsyncWithHttpInfo`
+     *
+     * @deprecated use `spawnCreateCategoriesJobAsyncWithHttpInfo` instead
+     */
+    public function createCatalogCategoryBulkCreateJobAsyncWithHttpInfo(...$args) {
+        return $this->spawnCreateCategoriesJobAsyncWithHttpInfo(...$args);
     }
 
     /**
@@ -15178,6 +16114,15 @@ class CatalogsApi
     }
 
     /**
+     * Alias of `spawnCreateCategoriesJobRequest`
+     *
+     * @deprecated use `spawnCreateCategoriesJobRequest` instead
+     */
+    public function createCatalogCategoryBulkCreateJobRequest(...$args) {
+        return $this->spawnCreateCategoriesJobRequest(...$args);
+    }
+
+    /**
      * Operation spawnCreateItemsJob
      *
      * Spawn Create Items Job
@@ -15192,6 +16137,15 @@ class CatalogsApi
     {
         list($response) = $this->spawnCreateItemsJobWithHttpInfo($catalog_item_create_job_create_query, $apiKey);
         return $response;
+    }
+
+    /**
+     * Alias of `spawnCreateItemsJob`
+     *
+     * @deprecated use `spawnCreateItemsJob` instead
+     */
+    public function createCatalogItemBulkCreateJob(...$args) {
+        return $this->spawnCreateItemsJob(...$args);
     }
 
     /**
@@ -15363,6 +16317,15 @@ class CatalogsApi
     }
 
     /**
+     * Alias of `spawnCreateItemsJobWithHttpInfo`
+     *
+     * @deprecated use `spawnCreateItemsJobWithHttpInfo` instead
+     */
+    public function createCatalogItemBulkCreateJobWithHttpInfo(...$args) {
+        return $this->spawnCreateItemsJobWithHttpInfo(...$args);
+    }
+
+    /**
      * Operation spawnCreateItemsJobAsync
      *
      * Spawn Create Items Job
@@ -15380,6 +16343,15 @@ class CatalogsApi
                     return $response[0];
                 }
             );
+    }
+
+    /**
+     * Alias of `spawnCreateItemsJobAsync`
+     *
+     * @deprecated use `spawnCreateItemsJobAsync` instead
+     */
+    public function createCatalogItemBulkCreateJobAsync(...$args) {
+        return $this->spawnCreateItemsJobAsync(...$args);
     }
 
     /**
@@ -15436,6 +16408,15 @@ class CatalogsApi
                     );
                 }
             );
+    }
+
+    /**
+     * Alias of `spawnCreateItemsJobAsyncWithHttpInfo`
+     *
+     * @deprecated use `spawnCreateItemsJobAsyncWithHttpInfo` instead
+     */
+    public function createCatalogItemBulkCreateJobAsyncWithHttpInfo(...$args) {
+        return $this->spawnCreateItemsJobAsyncWithHttpInfo(...$args);
     }
 
     /**
@@ -15541,6 +16522,15 @@ class CatalogsApi
     }
 
     /**
+     * Alias of `spawnCreateItemsJobRequest`
+     *
+     * @deprecated use `spawnCreateItemsJobRequest` instead
+     */
+    public function createCatalogItemBulkCreateJobRequest(...$args) {
+        return $this->spawnCreateItemsJobRequest(...$args);
+    }
+
+    /**
      * Operation spawnCreateVariantsJob
      *
      * Spawn Create Variants Job
@@ -15555,6 +16545,15 @@ class CatalogsApi
     {
         list($response) = $this->spawnCreateVariantsJobWithHttpInfo($catalog_variant_create_job_create_query, $apiKey);
         return $response;
+    }
+
+    /**
+     * Alias of `spawnCreateVariantsJob`
+     *
+     * @deprecated use `spawnCreateVariantsJob` instead
+     */
+    public function createCatalogVariantBulkCreateJob(...$args) {
+        return $this->spawnCreateVariantsJob(...$args);
     }
 
     /**
@@ -15726,6 +16725,15 @@ class CatalogsApi
     }
 
     /**
+     * Alias of `spawnCreateVariantsJobWithHttpInfo`
+     *
+     * @deprecated use `spawnCreateVariantsJobWithHttpInfo` instead
+     */
+    public function createCatalogVariantBulkCreateJobWithHttpInfo(...$args) {
+        return $this->spawnCreateVariantsJobWithHttpInfo(...$args);
+    }
+
+    /**
      * Operation spawnCreateVariantsJobAsync
      *
      * Spawn Create Variants Job
@@ -15743,6 +16751,15 @@ class CatalogsApi
                     return $response[0];
                 }
             );
+    }
+
+    /**
+     * Alias of `spawnCreateVariantsJobAsync`
+     *
+     * @deprecated use `spawnCreateVariantsJobAsync` instead
+     */
+    public function createCatalogVariantBulkCreateJobAsync(...$args) {
+        return $this->spawnCreateVariantsJobAsync(...$args);
     }
 
     /**
@@ -15799,6 +16816,15 @@ class CatalogsApi
                     );
                 }
             );
+    }
+
+    /**
+     * Alias of `spawnCreateVariantsJobAsyncWithHttpInfo`
+     *
+     * @deprecated use `spawnCreateVariantsJobAsyncWithHttpInfo` instead
+     */
+    public function createCatalogVariantBulkCreateJobAsyncWithHttpInfo(...$args) {
+        return $this->spawnCreateVariantsJobAsyncWithHttpInfo(...$args);
     }
 
     /**
@@ -15904,6 +16930,15 @@ class CatalogsApi
     }
 
     /**
+     * Alias of `spawnCreateVariantsJobRequest`
+     *
+     * @deprecated use `spawnCreateVariantsJobRequest` instead
+     */
+    public function createCatalogVariantBulkCreateJobRequest(...$args) {
+        return $this->spawnCreateVariantsJobRequest(...$args);
+    }
+
+    /**
      * Operation spawnDeleteCategoriesJob
      *
      * Spawn Delete Categories Job
@@ -15918,6 +16953,15 @@ class CatalogsApi
     {
         list($response) = $this->spawnDeleteCategoriesJobWithHttpInfo($catalog_category_delete_job_create_query, $apiKey);
         return $response;
+    }
+
+    /**
+     * Alias of `spawnDeleteCategoriesJob`
+     *
+     * @deprecated use `spawnDeleteCategoriesJob` instead
+     */
+    public function createCatalogCategoryBulkDeleteJob(...$args) {
+        return $this->spawnDeleteCategoriesJob(...$args);
     }
 
     /**
@@ -16089,6 +17133,15 @@ class CatalogsApi
     }
 
     /**
+     * Alias of `spawnDeleteCategoriesJobWithHttpInfo`
+     *
+     * @deprecated use `spawnDeleteCategoriesJobWithHttpInfo` instead
+     */
+    public function createCatalogCategoryBulkDeleteJobWithHttpInfo(...$args) {
+        return $this->spawnDeleteCategoriesJobWithHttpInfo(...$args);
+    }
+
+    /**
      * Operation spawnDeleteCategoriesJobAsync
      *
      * Spawn Delete Categories Job
@@ -16106,6 +17159,15 @@ class CatalogsApi
                     return $response[0];
                 }
             );
+    }
+
+    /**
+     * Alias of `spawnDeleteCategoriesJobAsync`
+     *
+     * @deprecated use `spawnDeleteCategoriesJobAsync` instead
+     */
+    public function createCatalogCategoryBulkDeleteJobAsync(...$args) {
+        return $this->spawnDeleteCategoriesJobAsync(...$args);
     }
 
     /**
@@ -16162,6 +17224,15 @@ class CatalogsApi
                     );
                 }
             );
+    }
+
+    /**
+     * Alias of `spawnDeleteCategoriesJobAsyncWithHttpInfo`
+     *
+     * @deprecated use `spawnDeleteCategoriesJobAsyncWithHttpInfo` instead
+     */
+    public function createCatalogCategoryBulkDeleteJobAsyncWithHttpInfo(...$args) {
+        return $this->spawnDeleteCategoriesJobAsyncWithHttpInfo(...$args);
     }
 
     /**
@@ -16267,6 +17338,15 @@ class CatalogsApi
     }
 
     /**
+     * Alias of `spawnDeleteCategoriesJobRequest`
+     *
+     * @deprecated use `spawnDeleteCategoriesJobRequest` instead
+     */
+    public function createCatalogCategoryBulkDeleteJobRequest(...$args) {
+        return $this->spawnDeleteCategoriesJobRequest(...$args);
+    }
+
+    /**
      * Operation spawnDeleteItemsJob
      *
      * Spawn Delete Items Job
@@ -16281,6 +17361,15 @@ class CatalogsApi
     {
         list($response) = $this->spawnDeleteItemsJobWithHttpInfo($catalog_item_delete_job_create_query, $apiKey);
         return $response;
+    }
+
+    /**
+     * Alias of `spawnDeleteItemsJob`
+     *
+     * @deprecated use `spawnDeleteItemsJob` instead
+     */
+    public function createCatalogItemBulkDeleteJob(...$args) {
+        return $this->spawnDeleteItemsJob(...$args);
     }
 
     /**
@@ -16452,6 +17541,15 @@ class CatalogsApi
     }
 
     /**
+     * Alias of `spawnDeleteItemsJobWithHttpInfo`
+     *
+     * @deprecated use `spawnDeleteItemsJobWithHttpInfo` instead
+     */
+    public function createCatalogItemBulkDeleteJobWithHttpInfo(...$args) {
+        return $this->spawnDeleteItemsJobWithHttpInfo(...$args);
+    }
+
+    /**
      * Operation spawnDeleteItemsJobAsync
      *
      * Spawn Delete Items Job
@@ -16469,6 +17567,15 @@ class CatalogsApi
                     return $response[0];
                 }
             );
+    }
+
+    /**
+     * Alias of `spawnDeleteItemsJobAsync`
+     *
+     * @deprecated use `spawnDeleteItemsJobAsync` instead
+     */
+    public function createCatalogItemBulkDeleteJobAsync(...$args) {
+        return $this->spawnDeleteItemsJobAsync(...$args);
     }
 
     /**
@@ -16525,6 +17632,15 @@ class CatalogsApi
                     );
                 }
             );
+    }
+
+    /**
+     * Alias of `spawnDeleteItemsJobAsyncWithHttpInfo`
+     *
+     * @deprecated use `spawnDeleteItemsJobAsyncWithHttpInfo` instead
+     */
+    public function createCatalogItemBulkDeleteJobAsyncWithHttpInfo(...$args) {
+        return $this->spawnDeleteItemsJobAsyncWithHttpInfo(...$args);
     }
 
     /**
@@ -16630,6 +17746,15 @@ class CatalogsApi
     }
 
     /**
+     * Alias of `spawnDeleteItemsJobRequest`
+     *
+     * @deprecated use `spawnDeleteItemsJobRequest` instead
+     */
+    public function createCatalogItemBulkDeleteJobRequest(...$args) {
+        return $this->spawnDeleteItemsJobRequest(...$args);
+    }
+
+    /**
      * Operation spawnDeleteVariantsJob
      *
      * Spawn Delete Variants Job
@@ -16644,6 +17769,15 @@ class CatalogsApi
     {
         list($response) = $this->spawnDeleteVariantsJobWithHttpInfo($catalog_variant_delete_job_create_query, $apiKey);
         return $response;
+    }
+
+    /**
+     * Alias of `spawnDeleteVariantsJob`
+     *
+     * @deprecated use `spawnDeleteVariantsJob` instead
+     */
+    public function createCatalogVariantBulkDeleteJob(...$args) {
+        return $this->spawnDeleteVariantsJob(...$args);
     }
 
     /**
@@ -16815,6 +17949,15 @@ class CatalogsApi
     }
 
     /**
+     * Alias of `spawnDeleteVariantsJobWithHttpInfo`
+     *
+     * @deprecated use `spawnDeleteVariantsJobWithHttpInfo` instead
+     */
+    public function createCatalogVariantBulkDeleteJobWithHttpInfo(...$args) {
+        return $this->spawnDeleteVariantsJobWithHttpInfo(...$args);
+    }
+
+    /**
      * Operation spawnDeleteVariantsJobAsync
      *
      * Spawn Delete Variants Job
@@ -16832,6 +17975,15 @@ class CatalogsApi
                     return $response[0];
                 }
             );
+    }
+
+    /**
+     * Alias of `spawnDeleteVariantsJobAsync`
+     *
+     * @deprecated use `spawnDeleteVariantsJobAsync` instead
+     */
+    public function createCatalogVariantBulkDeleteJobAsync(...$args) {
+        return $this->spawnDeleteVariantsJobAsync(...$args);
     }
 
     /**
@@ -16888,6 +18040,15 @@ class CatalogsApi
                     );
                 }
             );
+    }
+
+    /**
+     * Alias of `spawnDeleteVariantsJobAsyncWithHttpInfo`
+     *
+     * @deprecated use `spawnDeleteVariantsJobAsyncWithHttpInfo` instead
+     */
+    public function createCatalogVariantBulkDeleteJobAsyncWithHttpInfo(...$args) {
+        return $this->spawnDeleteVariantsJobAsyncWithHttpInfo(...$args);
     }
 
     /**
@@ -16993,6 +18154,15 @@ class CatalogsApi
     }
 
     /**
+     * Alias of `spawnDeleteVariantsJobRequest`
+     *
+     * @deprecated use `spawnDeleteVariantsJobRequest` instead
+     */
+    public function createCatalogVariantBulkDeleteJobRequest(...$args) {
+        return $this->spawnDeleteVariantsJobRequest(...$args);
+    }
+
+    /**
      * Operation spawnUpdateCategoriesJob
      *
      * Spawn Update Categories Job
@@ -17007,6 +18177,15 @@ class CatalogsApi
     {
         list($response) = $this->spawnUpdateCategoriesJobWithHttpInfo($catalog_category_update_job_create_query, $apiKey);
         return $response;
+    }
+
+    /**
+     * Alias of `spawnUpdateCategoriesJob`
+     *
+     * @deprecated use `spawnUpdateCategoriesJob` instead
+     */
+    public function createCatalogCategoryBulkUpdateJob(...$args) {
+        return $this->spawnUpdateCategoriesJob(...$args);
     }
 
     /**
@@ -17178,6 +18357,15 @@ class CatalogsApi
     }
 
     /**
+     * Alias of `spawnUpdateCategoriesJobWithHttpInfo`
+     *
+     * @deprecated use `spawnUpdateCategoriesJobWithHttpInfo` instead
+     */
+    public function createCatalogCategoryBulkUpdateJobWithHttpInfo(...$args) {
+        return $this->spawnUpdateCategoriesJobWithHttpInfo(...$args);
+    }
+
+    /**
      * Operation spawnUpdateCategoriesJobAsync
      *
      * Spawn Update Categories Job
@@ -17195,6 +18383,15 @@ class CatalogsApi
                     return $response[0];
                 }
             );
+    }
+
+    /**
+     * Alias of `spawnUpdateCategoriesJobAsync`
+     *
+     * @deprecated use `spawnUpdateCategoriesJobAsync` instead
+     */
+    public function createCatalogCategoryBulkUpdateJobAsync(...$args) {
+        return $this->spawnUpdateCategoriesJobAsync(...$args);
     }
 
     /**
@@ -17251,6 +18448,15 @@ class CatalogsApi
                     );
                 }
             );
+    }
+
+    /**
+     * Alias of `spawnUpdateCategoriesJobAsyncWithHttpInfo`
+     *
+     * @deprecated use `spawnUpdateCategoriesJobAsyncWithHttpInfo` instead
+     */
+    public function createCatalogCategoryBulkUpdateJobAsyncWithHttpInfo(...$args) {
+        return $this->spawnUpdateCategoriesJobAsyncWithHttpInfo(...$args);
     }
 
     /**
@@ -17356,6 +18562,15 @@ class CatalogsApi
     }
 
     /**
+     * Alias of `spawnUpdateCategoriesJobRequest`
+     *
+     * @deprecated use `spawnUpdateCategoriesJobRequest` instead
+     */
+    public function createCatalogCategoryBulkUpdateJobRequest(...$args) {
+        return $this->spawnUpdateCategoriesJobRequest(...$args);
+    }
+
+    /**
      * Operation spawnUpdateItemsJob
      *
      * Spawn Update Items Job
@@ -17370,6 +18585,15 @@ class CatalogsApi
     {
         list($response) = $this->spawnUpdateItemsJobWithHttpInfo($catalog_item_update_job_create_query, $apiKey);
         return $response;
+    }
+
+    /**
+     * Alias of `spawnUpdateItemsJob`
+     *
+     * @deprecated use `spawnUpdateItemsJob` instead
+     */
+    public function createCatalogItemBulkUpdateJob(...$args) {
+        return $this->spawnUpdateItemsJob(...$args);
     }
 
     /**
@@ -17541,6 +18765,15 @@ class CatalogsApi
     }
 
     /**
+     * Alias of `spawnUpdateItemsJobWithHttpInfo`
+     *
+     * @deprecated use `spawnUpdateItemsJobWithHttpInfo` instead
+     */
+    public function createCatalogItemBulkUpdateJobWithHttpInfo(...$args) {
+        return $this->spawnUpdateItemsJobWithHttpInfo(...$args);
+    }
+
+    /**
      * Operation spawnUpdateItemsJobAsync
      *
      * Spawn Update Items Job
@@ -17558,6 +18791,15 @@ class CatalogsApi
                     return $response[0];
                 }
             );
+    }
+
+    /**
+     * Alias of `spawnUpdateItemsJobAsync`
+     *
+     * @deprecated use `spawnUpdateItemsJobAsync` instead
+     */
+    public function createCatalogItemBulkUpdateJobAsync(...$args) {
+        return $this->spawnUpdateItemsJobAsync(...$args);
     }
 
     /**
@@ -17614,6 +18856,15 @@ class CatalogsApi
                     );
                 }
             );
+    }
+
+    /**
+     * Alias of `spawnUpdateItemsJobAsyncWithHttpInfo`
+     *
+     * @deprecated use `spawnUpdateItemsJobAsyncWithHttpInfo` instead
+     */
+    public function createCatalogItemBulkUpdateJobAsyncWithHttpInfo(...$args) {
+        return $this->spawnUpdateItemsJobAsyncWithHttpInfo(...$args);
     }
 
     /**
@@ -17719,6 +18970,15 @@ class CatalogsApi
     }
 
     /**
+     * Alias of `spawnUpdateItemsJobRequest`
+     *
+     * @deprecated use `spawnUpdateItemsJobRequest` instead
+     */
+    public function createCatalogItemBulkUpdateJobRequest(...$args) {
+        return $this->spawnUpdateItemsJobRequest(...$args);
+    }
+
+    /**
      * Operation spawnUpdateVariantsJob
      *
      * Spawn Update Variants Job
@@ -17733,6 +18993,15 @@ class CatalogsApi
     {
         list($response) = $this->spawnUpdateVariantsJobWithHttpInfo($catalog_variant_update_job_create_query, $apiKey);
         return $response;
+    }
+
+    /**
+     * Alias of `spawnUpdateVariantsJob`
+     *
+     * @deprecated use `spawnUpdateVariantsJob` instead
+     */
+    public function createCatalogVariantBulkUpdateJob(...$args) {
+        return $this->spawnUpdateVariantsJob(...$args);
     }
 
     /**
@@ -17904,6 +19173,15 @@ class CatalogsApi
     }
 
     /**
+     * Alias of `spawnUpdateVariantsJobWithHttpInfo`
+     *
+     * @deprecated use `spawnUpdateVariantsJobWithHttpInfo` instead
+     */
+    public function createCatalogVariantBulkUpdateJobWithHttpInfo(...$args) {
+        return $this->spawnUpdateVariantsJobWithHttpInfo(...$args);
+    }
+
+    /**
      * Operation spawnUpdateVariantsJobAsync
      *
      * Spawn Update Variants Job
@@ -17921,6 +19199,15 @@ class CatalogsApi
                     return $response[0];
                 }
             );
+    }
+
+    /**
+     * Alias of `spawnUpdateVariantsJobAsync`
+     *
+     * @deprecated use `spawnUpdateVariantsJobAsync` instead
+     */
+    public function createCatalogVariantBulkUpdateJobAsync(...$args) {
+        return $this->spawnUpdateVariantsJobAsync(...$args);
     }
 
     /**
@@ -17977,6 +19264,15 @@ class CatalogsApi
                     );
                 }
             );
+    }
+
+    /**
+     * Alias of `spawnUpdateVariantsJobAsyncWithHttpInfo`
+     *
+     * @deprecated use `spawnUpdateVariantsJobAsyncWithHttpInfo` instead
+     */
+    public function createCatalogVariantBulkUpdateJobAsyncWithHttpInfo(...$args) {
+        return $this->spawnUpdateVariantsJobAsyncWithHttpInfo(...$args);
     }
 
     /**
@@ -18079,6 +19375,15 @@ class CatalogsApi
             $headers,
             $httpBody
         );
+    }
+
+    /**
+     * Alias of `spawnUpdateVariantsJobRequest`
+     *
+     * @deprecated use `spawnUpdateVariantsJobRequest` instead
+     */
+    public function createCatalogVariantBulkUpdateJobRequest(...$args) {
+        return $this->spawnUpdateVariantsJobRequest(...$args);
     }
 
     /**

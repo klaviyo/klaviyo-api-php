@@ -133,6 +133,15 @@ class DataPrivacyApi
     }
 
     /**
+     * Alias of `requestProfileDeletion`
+     *
+     * @deprecated use `requestProfileDeletion` instead
+     */
+    public function createDataPrivacyDeletionJob(...$args) {
+        return $this->requestProfileDeletion(...$args);
+    }
+
+    /**
      * Operation requestProfileDeletionWithHttpInfo
      *
      * Request Profile Deletion
@@ -208,6 +217,15 @@ class DataPrivacyApi
     }
 
     /**
+     * Alias of `requestProfileDeletionWithHttpInfo`
+     *
+     * @deprecated use `requestProfileDeletionWithHttpInfo` instead
+     */
+    public function createDataPrivacyDeletionJobWithHttpInfo(...$args) {
+        return $this->requestProfileDeletionWithHttpInfo(...$args);
+    }
+
+    /**
      * Operation requestProfileDeletionAsync
      *
      * Request Profile Deletion
@@ -225,6 +243,15 @@ class DataPrivacyApi
                     return $response[0];
                 }
             );
+    }
+
+    /**
+     * Alias of `requestProfileDeletionAsync`
+     *
+     * @deprecated use `requestProfileDeletionAsync` instead
+     */
+    public function createDataPrivacyDeletionJobAsync(...$args) {
+        return $this->requestProfileDeletionAsync(...$args);
     }
 
     /**
@@ -263,6 +290,15 @@ class DataPrivacyApi
                     );
                 }
             );
+    }
+
+    /**
+     * Alias of `requestProfileDeletionAsyncWithHttpInfo`
+     *
+     * @deprecated use `requestProfileDeletionAsyncWithHttpInfo` instead
+     */
+    public function createDataPrivacyDeletionJobAsyncWithHttpInfo(...$args) {
+        return $this->requestProfileDeletionAsyncWithHttpInfo(...$args);
     }
 
     /**
@@ -365,6 +401,15 @@ class DataPrivacyApi
             $headers,
             $httpBody
         );
+    }
+
+    /**
+     * Alias of `requestProfileDeletionRequest`
+     *
+     * @deprecated use `requestProfileDeletionRequest` instead
+     */
+    public function createDataPrivacyDeletionJobRequest(...$args) {
+        return $this->requestProfileDeletionRequest(...$args);
     }
 
     /**

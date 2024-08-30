@@ -860,6 +860,15 @@ class TagsApi
     }
 
     /**
+     * Alias of `createTagRelationshipsCampaigns`
+     *
+     * @deprecated use `createTagRelationshipsCampaigns` instead
+     */
+    public function createTagRelationshipsCampaign(...$args) {
+        return $this->createTagRelationshipsCampaigns(...$args);
+    }
+
+    /**
      * Operation createTagRelationshipsCampaignsWithHttpInfo
      *
      * Create Tag Relationships Campaigns
@@ -936,6 +945,15 @@ class TagsApi
     }
 
     /**
+     * Alias of `createTagRelationshipsCampaignsWithHttpInfo`
+     *
+     * @deprecated use `createTagRelationshipsCampaignsWithHttpInfo` instead
+     */
+    public function createTagRelationshipsCampaignWithHttpInfo(...$args) {
+        return $this->createTagRelationshipsCampaignsWithHttpInfo(...$args);
+    }
+
+    /**
      * Operation createTagRelationshipsCampaignsAsync
      *
      * Create Tag Relationships Campaigns
@@ -954,6 +972,15 @@ class TagsApi
                     return $response[0];
                 }
             );
+    }
+
+    /**
+     * Alias of `createTagRelationshipsCampaignsAsync`
+     *
+     * @deprecated use `createTagRelationshipsCampaignsAsync` instead
+     */
+    public function createTagRelationshipsCampaignAsync(...$args) {
+        return $this->createTagRelationshipsCampaignsAsync(...$args);
     }
 
     /**
@@ -993,6 +1020,15 @@ class TagsApi
                     );
                 }
             );
+    }
+
+    /**
+     * Alias of `createTagRelationshipsCampaignsAsyncWithHttpInfo`
+     *
+     * @deprecated use `createTagRelationshipsCampaignsAsyncWithHttpInfo` instead
+     */
+    public function createTagRelationshipsCampaignAsyncWithHttpInfo(...$args) {
+        return $this->createTagRelationshipsCampaignsAsyncWithHttpInfo(...$args);
     }
 
     /**
@@ -1113,6 +1149,15 @@ class TagsApi
     }
 
     /**
+     * Alias of `createTagRelationshipsCampaignsRequest`
+     *
+     * @deprecated use `createTagRelationshipsCampaignsRequest` instead
+     */
+    public function createTagRelationshipsCampaignRequest(...$args) {
+        return $this->createTagRelationshipsCampaignsRequest(...$args);
+    }
+
+    /**
      * Operation createTagRelationshipsFlows
      *
      * Create Tag Relationships Flows
@@ -1127,6 +1172,15 @@ class TagsApi
     public function createTagRelationshipsFlows($id, $tag_flow_op, $apiKey = null)
     {
         $this->createTagRelationshipsFlowsWithHttpInfo($id, $tag_flow_op, $apiKey);
+    }
+
+    /**
+     * Alias of `createTagRelationshipsFlows`
+     *
+     * @deprecated use `createTagRelationshipsFlows` instead
+     */
+    public function createTagRelationshipsFlow(...$args) {
+        return $this->createTagRelationshipsFlows(...$args);
     }
 
     /**
@@ -1206,6 +1260,15 @@ class TagsApi
     }
 
     /**
+     * Alias of `createTagRelationshipsFlowsWithHttpInfo`
+     *
+     * @deprecated use `createTagRelationshipsFlowsWithHttpInfo` instead
+     */
+    public function createTagRelationshipsFlowWithHttpInfo(...$args) {
+        return $this->createTagRelationshipsFlowsWithHttpInfo(...$args);
+    }
+
+    /**
      * Operation createTagRelationshipsFlowsAsync
      *
      * Create Tag Relationships Flows
@@ -1224,6 +1287,15 @@ class TagsApi
                     return $response[0];
                 }
             );
+    }
+
+    /**
+     * Alias of `createTagRelationshipsFlowsAsync`
+     *
+     * @deprecated use `createTagRelationshipsFlowsAsync` instead
+     */
+    public function createTagRelationshipsFlowAsync(...$args) {
+        return $this->createTagRelationshipsFlowsAsync(...$args);
     }
 
     /**
@@ -1263,6 +1335,15 @@ class TagsApi
                     );
                 }
             );
+    }
+
+    /**
+     * Alias of `createTagRelationshipsFlowsAsyncWithHttpInfo`
+     *
+     * @deprecated use `createTagRelationshipsFlowsAsyncWithHttpInfo` instead
+     */
+    public function createTagRelationshipsFlowAsyncWithHttpInfo(...$args) {
+        return $this->createTagRelationshipsFlowsAsyncWithHttpInfo(...$args);
     }
 
     /**
@@ -1383,6 +1464,15 @@ class TagsApi
     }
 
     /**
+     * Alias of `createTagRelationshipsFlowsRequest`
+     *
+     * @deprecated use `createTagRelationshipsFlowsRequest` instead
+     */
+    public function createTagRelationshipsFlowRequest(...$args) {
+        return $this->createTagRelationshipsFlowsRequest(...$args);
+    }
+
+    /**
      * Operation createTagRelationshipsLists
      *
      * Create Tag Relationships Lists
@@ -1397,6 +1487,15 @@ class TagsApi
     public function createTagRelationshipsLists($id, $tag_list_op, $apiKey = null)
     {
         $this->createTagRelationshipsListsWithHttpInfo($id, $tag_list_op, $apiKey);
+    }
+
+    /**
+     * Alias of `createTagRelationshipsLists`
+     *
+     * @deprecated use `createTagRelationshipsLists` instead
+     */
+    public function createTagRelationshipsList(...$args) {
+        return $this->createTagRelationshipsLists(...$args);
     }
 
     /**
@@ -1476,6 +1575,15 @@ class TagsApi
     }
 
     /**
+     * Alias of `createTagRelationshipsListsWithHttpInfo`
+     *
+     * @deprecated use `createTagRelationshipsListsWithHttpInfo` instead
+     */
+    public function createTagRelationshipsListWithHttpInfo(...$args) {
+        return $this->createTagRelationshipsListsWithHttpInfo(...$args);
+    }
+
+    /**
      * Operation createTagRelationshipsListsAsync
      *
      * Create Tag Relationships Lists
@@ -1494,6 +1602,15 @@ class TagsApi
                     return $response[0];
                 }
             );
+    }
+
+    /**
+     * Alias of `createTagRelationshipsListsAsync`
+     *
+     * @deprecated use `createTagRelationshipsListsAsync` instead
+     */
+    public function createTagRelationshipsListAsync(...$args) {
+        return $this->createTagRelationshipsListsAsync(...$args);
     }
 
     /**
@@ -1533,6 +1650,15 @@ class TagsApi
                     );
                 }
             );
+    }
+
+    /**
+     * Alias of `createTagRelationshipsListsAsyncWithHttpInfo`
+     *
+     * @deprecated use `createTagRelationshipsListsAsyncWithHttpInfo` instead
+     */
+    public function createTagRelationshipsListAsyncWithHttpInfo(...$args) {
+        return $this->createTagRelationshipsListsAsyncWithHttpInfo(...$args);
     }
 
     /**
@@ -1653,6 +1779,15 @@ class TagsApi
     }
 
     /**
+     * Alias of `createTagRelationshipsListsRequest`
+     *
+     * @deprecated use `createTagRelationshipsListsRequest` instead
+     */
+    public function createTagRelationshipsListRequest(...$args) {
+        return $this->createTagRelationshipsListsRequest(...$args);
+    }
+
+    /**
      * Operation createTagRelationshipsSegments
      *
      * Create Tag Relationships Segments
@@ -1667,6 +1802,15 @@ class TagsApi
     public function createTagRelationshipsSegments($id, $tag_segment_op, $apiKey = null)
     {
         $this->createTagRelationshipsSegmentsWithHttpInfo($id, $tag_segment_op, $apiKey);
+    }
+
+    /**
+     * Alias of `createTagRelationshipsSegments`
+     *
+     * @deprecated use `createTagRelationshipsSegments` instead
+     */
+    public function createTagRelationshipsSegment(...$args) {
+        return $this->createTagRelationshipsSegments(...$args);
     }
 
     /**
@@ -1746,6 +1890,15 @@ class TagsApi
     }
 
     /**
+     * Alias of `createTagRelationshipsSegmentsWithHttpInfo`
+     *
+     * @deprecated use `createTagRelationshipsSegmentsWithHttpInfo` instead
+     */
+    public function createTagRelationshipsSegmentWithHttpInfo(...$args) {
+        return $this->createTagRelationshipsSegmentsWithHttpInfo(...$args);
+    }
+
+    /**
      * Operation createTagRelationshipsSegmentsAsync
      *
      * Create Tag Relationships Segments
@@ -1764,6 +1917,15 @@ class TagsApi
                     return $response[0];
                 }
             );
+    }
+
+    /**
+     * Alias of `createTagRelationshipsSegmentsAsync`
+     *
+     * @deprecated use `createTagRelationshipsSegmentsAsync` instead
+     */
+    public function createTagRelationshipsSegmentAsync(...$args) {
+        return $this->createTagRelationshipsSegmentsAsync(...$args);
     }
 
     /**
@@ -1803,6 +1965,15 @@ class TagsApi
                     );
                 }
             );
+    }
+
+    /**
+     * Alias of `createTagRelationshipsSegmentsAsyncWithHttpInfo`
+     *
+     * @deprecated use `createTagRelationshipsSegmentsAsyncWithHttpInfo` instead
+     */
+    public function createTagRelationshipsSegmentAsyncWithHttpInfo(...$args) {
+        return $this->createTagRelationshipsSegmentsAsyncWithHttpInfo(...$args);
     }
 
     /**
@@ -1920,6 +2091,15 @@ class TagsApi
             $headers,
             $httpBody
         );
+    }
+
+    /**
+     * Alias of `createTagRelationshipsSegmentsRequest`
+     *
+     * @deprecated use `createTagRelationshipsSegmentsRequest` instead
+     */
+    public function createTagRelationshipsSegmentRequest(...$args) {
+        return $this->createTagRelationshipsSegmentsRequest(...$args);
     }
 
     /**
