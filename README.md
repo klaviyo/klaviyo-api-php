@@ -1,12 +1,12 @@
 # Klaviyo PHP SDK
 
-- SDK version: 10.0.0
-- API Revision: 2024-07-15
+- SDK version: 11.0.0
+- API Revision: 2024-10-15
 
 ## Helpful Resources
 
-- [API Reference](https://developers.klaviyo.com/en/v2024-07-15/reference)
-- [API Guides](https://developers.klaviyo.com/en/v2024-07-15/docs)
+- [API Reference](https://developers.klaviyo.com/en/v2024-10-15/reference)
+- [API Guides](https://developers.klaviyo.com/en/v2024-10-15/docs)
 - [Postman Workspace](https://www.postman.com/klaviyo/workspace/klaviyo-developers)
 
 ## Design & Approach
@@ -73,6 +73,10 @@ This SDK is organized into the following resources:
 
 
 
+- Reviews
+
+
+
 - Segments
 
 
@@ -82,6 +86,10 @@ This SDK is organized into the following resources:
 
 
 - Templates
+
+
+
+- TrackingSettings
 
 
 
@@ -250,7 +258,7 @@ try {
 ## Important Notes
 
 - The main difference between this SDK and the language-agnostic API Docs that the below endpoints link to is that this SDK automatically adds the `revision` header corresponding to the SDK version.
-- Organization: Resource groups and functions are listed in alphabetical order, first by Resource name, then by **OpenAPI Summary**. Operation summaries are those listed in the right side bar of the [API Reference](https://developers.klaviyo.com/en/v2024-07-15/reference/get_events). These summaries link directly to the corresponding section of the API reference.
+- Organization: Resource groups and functions are listed in alphabetical order, first by Resource name, then by **OpenAPI Summary**. Operation summaries are those listed in the right side bar of the [API Reference](https://developers.klaviyo.com/en/v2024-10-15/reference/get_events). These summaries link directly to the corresponding section of the API reference.
 - For example values / data types, as well as whether parameters are required/optional, please reference the corresponding API Reference link.
 - Some keyword args are required for the API call to succeed, the API docs above are the source of truth regarding which keyword args are required.
 - JSON payloads should be passed in as associative arrays
@@ -268,7 +276,7 @@ try {
 
 ## Accounts
 
-#### [Get Account](https://developers.klaviyo.com/en/v2024-07-15/reference/get_account)
+#### [Get Account](https://developers.klaviyo.com/en/v2024-10-15/reference/get_account)
 
 ```php
 ## Positional Arguments
@@ -285,7 +293,7 @@ $klaviyo->Accounts->getAccount($id, $fields_account=$fields_account);
 
 
 
-#### [Get Accounts](https://developers.klaviyo.com/en/v2024-07-15/reference/get_accounts)
+#### [Get Accounts](https://developers.klaviyo.com/en/v2024-10-15/reference/get_accounts)
 
 ```php
 
@@ -303,7 +311,42 @@ $klaviyo->Accounts->getAccounts($fields_account=$fields_account);
 
 ## Campaigns
 
-#### [Create Campaign](https://developers.klaviyo.com/en/v2024-07-15/reference/create_campaign)
+#### [Assign Template to Campaign Message](https://developers.klaviyo.com/en/v2024-10-15/reference/assign_template_to_campaign_message)
+
+```php
+## Positional Arguments
+
+# $body | associative array
+
+$klaviyo->Campaigns->assignTemplateToCampaignMessage($body);
+```
+##### Method alias:
+```php
+$klaviyo->Campaigns->createCampaignMessageAssignTemplate($body);
+```
+
+
+
+
+#### [Cancel Campaign Send](https://developers.klaviyo.com/en/v2024-10-15/reference/cancel_campaign_send)
+
+```php
+## Positional Arguments
+
+# $id | string
+# $body | associative array
+
+$klaviyo->Campaigns->cancelCampaignSend($id, $body);
+```
+##### Method alias:
+```php
+$klaviyo->Campaigns->updateCampaignSendJob($id, $body);
+```
+
+
+
+
+#### [Create Campaign](https://developers.klaviyo.com/en/v2024-10-15/reference/create_campaign)
 
 ```php
 ## Positional Arguments
@@ -316,7 +359,7 @@ $klaviyo->Campaigns->createCampaign($body);
 
 
 
-#### [Create Campaign Clone](https://developers.klaviyo.com/en/v2024-07-15/reference/create_campaign_clone)
+#### [Create Campaign Clone](https://developers.klaviyo.com/en/v2024-10-15/reference/create_campaign_clone)
 
 ```php
 ## Positional Arguments
@@ -325,50 +368,15 @@ $klaviyo->Campaigns->createCampaign($body);
 
 $klaviyo->Campaigns->createCampaignClone($body);
 ```
-
-
-
-
-#### [Assign Campaign Message Template](https://developers.klaviyo.com/en/v2024-07-15/reference/create_campaign_message_assign_template)
-
+##### Method alias:
 ```php
-## Positional Arguments
-
-# $body | associative array
-
-$klaviyo->Campaigns->createCampaignMessageAssignTemplate($body);
+$klaviyo->Campaigns->cloneCampaign($body);
 ```
 
 
 
 
-#### [Create Campaign Recipient Estimation Job](https://developers.klaviyo.com/en/v2024-07-15/reference/create_campaign_recipient_estimation_job)
-
-```php
-## Positional Arguments
-
-# $body | associative array
-
-$klaviyo->Campaigns->createCampaignRecipientEstimationJob($body);
-```
-
-
-
-
-#### [Create Campaign Send Job](https://developers.klaviyo.com/en/v2024-07-15/reference/create_campaign_send_job)
-
-```php
-## Positional Arguments
-
-# $body | associative array
-
-$klaviyo->Campaigns->createCampaignSendJob($body);
-```
-
-
-
-
-#### [Delete Campaign](https://developers.klaviyo.com/en/v2024-07-15/reference/delete_campaign)
+#### [Delete Campaign](https://developers.klaviyo.com/en/v2024-10-15/reference/delete_campaign)
 
 ```php
 ## Positional Arguments
@@ -381,7 +389,7 @@ $klaviyo->Campaigns->deleteCampaign($id);
 
 
 
-#### [Get Campaign](https://developers.klaviyo.com/en/v2024-07-15/reference/get_campaign)
+#### [Get Campaign](https://developers.klaviyo.com/en/v2024-10-15/reference/get_campaign)
 
 ```php
 ## Positional Arguments
@@ -401,7 +409,7 @@ $klaviyo->Campaigns->getCampaign($id, $fields_campaign_message=$fields_campaign_
 
 
 
-#### [Get Campaign Campaign Messages](https://developers.klaviyo.com/en/v2024-07-15/reference/get_campaign_campaign_messages)
+#### [Get Campaign for Campaign Message](https://developers.klaviyo.com/en/v2024-10-15/reference/get_campaign_for_campaign_message)
 
 ```php
 ## Positional Arguments
@@ -410,18 +418,36 @@ $klaviyo->Campaigns->getCampaign($id, $fields_campaign_message=$fields_campaign_
 
 ## Keyword Arguments
 
-# $fields_campaign_message | string[]
 # $fields_campaign | string[]
-# $fields_template | string[]
-# $include | string[]
 
-$klaviyo->Campaigns->getCampaignCampaignMessages($id, $fields_campaign_message=$fields_campaign_message, $fields_campaign=$fields_campaign, $fields_template=$fields_template, $include=$include);
+$klaviyo->Campaigns->getCampaignForCampaignMessage($id, $fields_campaign=$fields_campaign);
+```
+##### Method alias:
+```php
+$klaviyo->Campaigns->getCampaignMessageCampaign($id, $fields_campaign=$fields_campaign);
 ```
 
 
 
 
-#### [Get Campaign Message](https://developers.klaviyo.com/en/v2024-07-15/reference/get_campaign_message)
+#### [Get Campaign ID for Campaign Message](https://developers.klaviyo.com/en/v2024-10-15/reference/get_campaign_id_for_campaign_message)
+
+```php
+## Positional Arguments
+
+# $id | string
+
+$klaviyo->Campaigns->getCampaignIdForCampaignMessage($id);
+```
+##### Method alias:
+```php
+$klaviyo->Campaigns->getCampaignMessageRelationshipsCampaign($id);
+```
+
+
+
+
+#### [Get Campaign Message](https://developers.klaviyo.com/en/v2024-10-15/reference/get_campaign_message)
 
 ```php
 ## Positional Arguments
@@ -441,67 +467,7 @@ $klaviyo->Campaigns->getCampaignMessage($id, $fields_campaign_message=$fields_ca
 
 
 
-#### [Get Campaign Message Campaign](https://developers.klaviyo.com/en/v2024-07-15/reference/get_campaign_message_campaign)
-
-```php
-## Positional Arguments
-
-# $id | string
-
-## Keyword Arguments
-
-# $fields_campaign | string[]
-
-$klaviyo->Campaigns->getCampaignMessageCampaign($id, $fields_campaign=$fields_campaign);
-```
-
-
-
-
-#### [Get Campaign Message Relationships Campaign](https://developers.klaviyo.com/en/v2024-07-15/reference/get_campaign_message_relationships_campaign)
-
-```php
-## Positional Arguments
-
-# $id | string
-
-$klaviyo->Campaigns->getCampaignMessageRelationshipsCampaign($id);
-```
-
-
-
-
-#### [Get Campaign Message Relationships Template](https://developers.klaviyo.com/en/v2024-07-15/reference/get_campaign_message_relationships_template)
-
-```php
-## Positional Arguments
-
-# $id | string
-
-$klaviyo->Campaigns->getCampaignMessageRelationshipsTemplate($id);
-```
-
-
-
-
-#### [Get Campaign Message Template](https://developers.klaviyo.com/en/v2024-07-15/reference/get_campaign_message_template)
-
-```php
-## Positional Arguments
-
-# $id | string
-
-## Keyword Arguments
-
-# $fields_template | string[]
-
-$klaviyo->Campaigns->getCampaignMessageTemplate($id, $fields_template=$fields_template);
-```
-
-
-
-
-#### [Get Campaign Recipient Estimation](https://developers.klaviyo.com/en/v2024-07-15/reference/get_campaign_recipient_estimation)
+#### [Get Campaign Recipient Estimation](https://developers.klaviyo.com/en/v2024-10-15/reference/get_campaign_recipient_estimation)
 
 ```php
 ## Positional Arguments
@@ -518,7 +484,7 @@ $klaviyo->Campaigns->getCampaignRecipientEstimation($id, $fields_campaign_recipi
 
 
 
-#### [Get Campaign Recipient Estimation Job](https://developers.klaviyo.com/en/v2024-07-15/reference/get_campaign_recipient_estimation_job)
+#### [Get Campaign Recipient Estimation Job](https://developers.klaviyo.com/en/v2024-10-15/reference/get_campaign_recipient_estimation_job)
 
 ```php
 ## Positional Arguments
@@ -535,33 +501,7 @@ $klaviyo->Campaigns->getCampaignRecipientEstimationJob($id, $fields_campaign_rec
 
 
 
-#### [Get Campaign Relationships Campaign Messages](https://developers.klaviyo.com/en/v2024-07-15/reference/get_campaign_relationships_campaign_messages)
-
-```php
-## Positional Arguments
-
-# $id | string
-
-$klaviyo->Campaigns->getCampaignRelationshipsCampaignMessages($id);
-```
-
-
-
-
-#### [Get Campaign Relationships Tags](https://developers.klaviyo.com/en/v2024-07-15/reference/get_campaign_relationships_tags)
-
-```php
-## Positional Arguments
-
-# $id | string
-
-$klaviyo->Campaigns->getCampaignRelationshipsTags($id);
-```
-
-
-
-
-#### [Get Campaign Send Job](https://developers.klaviyo.com/en/v2024-07-15/reference/get_campaign_send_job)
+#### [Get Campaign Send Job](https://developers.klaviyo.com/en/v2024-10-15/reference/get_campaign_send_job)
 
 ```php
 ## Positional Arguments
@@ -578,7 +518,7 @@ $klaviyo->Campaigns->getCampaignSendJob($id, $fields_campaign_send_job=$fields_c
 
 
 
-#### [Get Campaign Tags](https://developers.klaviyo.com/en/v2024-07-15/reference/get_campaign_tags)
+#### [Get Campaign Tags](https://developers.klaviyo.com/en/v2024-10-15/reference/get_campaign_tags)
 
 ```php
 ## Positional Arguments
@@ -595,7 +535,7 @@ $klaviyo->Campaigns->getCampaignTags($id, $fields_tag=$fields_tag);
 
 
 
-#### [Get Campaigns](https://developers.klaviyo.com/en/v2024-07-15/reference/get_campaigns)
+#### [Get Campaigns](https://developers.klaviyo.com/en/v2024-10-15/reference/get_campaigns)
 
 ```php
 ## Positional Arguments
@@ -617,7 +557,137 @@ $klaviyo->Campaigns->getCampaigns($filter, $fields_campaign_message=$fields_camp
 
 
 
-#### [Update Campaign](https://developers.klaviyo.com/en/v2024-07-15/reference/update_campaign)
+#### [Get Message IDs for Campaign](https://developers.klaviyo.com/en/v2024-10-15/reference/get_message_ids_for_campaign)
+
+```php
+## Positional Arguments
+
+# $id | string
+
+$klaviyo->Campaigns->getMessageIdsForCampaign($id);
+```
+##### Method alias:
+```php
+$klaviyo->Campaigns->getCampaignRelationshipsCampaignMessages($id);
+```
+
+
+
+
+#### [Get Messages for Campaign](https://developers.klaviyo.com/en/v2024-10-15/reference/get_messages_for_campaign)
+
+```php
+## Positional Arguments
+
+# $id | string
+
+## Keyword Arguments
+
+# $fields_campaign_message | string[]
+# $fields_campaign | string[]
+# $fields_template | string[]
+# $include | string[]
+
+$klaviyo->Campaigns->getMessagesForCampaign($id, $fields_campaign_message=$fields_campaign_message, $fields_campaign=$fields_campaign, $fields_template=$fields_template, $include=$include);
+```
+##### Method alias:
+```php
+$klaviyo->Campaigns->getCampaignCampaignMessages($id, $fields_campaign_message=$fields_campaign_message, $fields_campaign=$fields_campaign, $fields_template=$fields_template, $include=$include);
+```
+
+
+
+
+#### [Get Tag IDs for Campaign](https://developers.klaviyo.com/en/v2024-10-15/reference/get_tag_ids_for_campaign)
+
+```php
+## Positional Arguments
+
+# $id | string
+
+$klaviyo->Campaigns->getTagIdsForCampaign($id);
+```
+##### Method alias:
+```php
+$klaviyo->Campaigns->getCampaignRelationshipsTags($id);
+```
+
+
+
+
+#### [Get Template for Campaign Message](https://developers.klaviyo.com/en/v2024-10-15/reference/get_template_for_campaign_message)
+
+```php
+## Positional Arguments
+
+# $id | string
+
+## Keyword Arguments
+
+# $fields_template | string[]
+
+$klaviyo->Campaigns->getTemplateForCampaignMessage($id, $fields_template=$fields_template);
+```
+##### Method alias:
+```php
+$klaviyo->Campaigns->getCampaignMessageTemplate($id, $fields_template=$fields_template);
+```
+
+
+
+
+#### [Get Template ID for Campaign Message](https://developers.klaviyo.com/en/v2024-10-15/reference/get_template_id_for_campaign_message)
+
+```php
+## Positional Arguments
+
+# $id | string
+
+$klaviyo->Campaigns->getTemplateIdForCampaignMessage($id);
+```
+##### Method alias:
+```php
+$klaviyo->Campaigns->getCampaignMessageRelationshipsTemplate($id);
+```
+
+
+
+
+#### [Refresh Campaign Recipient Estimation](https://developers.klaviyo.com/en/v2024-10-15/reference/refresh_campaign_recipient_estimation)
+
+```php
+## Positional Arguments
+
+# $body | associative array
+
+$klaviyo->Campaigns->refreshCampaignRecipientEstimation($body);
+```
+##### Method alias:
+```php
+$klaviyo->Campaigns->createCampaignRecipientEstimationJob($body);
+```
+
+
+
+
+#### [Send Campaign](https://developers.klaviyo.com/en/v2024-10-15/reference/send_campaign)
+
+```php
+## Positional Arguments
+
+# $body | associative array
+
+$klaviyo->Campaigns->sendCampaign($body);
+```
+##### Method alias:
+```php
+$klaviyo->Campaigns->createCampaignSendJob($body);
+```
+
+
+
+
+#### [Update Campaign](https://developers.klaviyo.com/en/v2024-10-15/reference/update_campaign)
 
 ```php
 ## Positional Arguments
@@ -631,7 +701,7 @@ $klaviyo->Campaigns->updateCampaign($id, $body);
 
 
 
-#### [Update Campaign Message](https://developers.klaviyo.com/en/v2024-07-15/reference/update_campaign_message)
+#### [Update Campaign Message](https://developers.klaviyo.com/en/v2024-10-15/reference/update_campaign_message)
 
 ```php
 ## Positional Arguments
@@ -645,7 +715,11 @@ $klaviyo->Campaigns->updateCampaignMessage($id, $body);
 
 
 
-#### [Update Campaign Send Job](https://developers.klaviyo.com/en/v2024-07-15/reference/update_campaign_send_job)
+
+
+## Catalogs
+
+#### [Add Category to Catalog Item](https://developers.klaviyo.com/en/v2024-10-15/reference/add_category_to_catalog_item)
 
 ```php
 ## Positional Arguments
@@ -653,17 +727,232 @@ $klaviyo->Campaigns->updateCampaignMessage($id, $body);
 # $id | string
 # $body | associative array
 
-$klaviyo->Campaigns->updateCampaignSendJob($id, $body);
+$klaviyo->Catalogs->addCategoryToCatalogItem($id, $body);
+```
+##### Method alias:
+```php
+$klaviyo->Catalogs->createCatalogItemRelationshipsCategories($id, $body);
+```
+##### Method alias:
+```php
+$klaviyo->Catalogs->createCatalogItemRelationshipsCategory($id, $body);
 ```
 
 
 
 
+#### [Add Items to Catalog Category](https://developers.klaviyo.com/en/v2024-10-15/reference/add_items_to_catalog_category)
+
+```php
+## Positional Arguments
+
+# $id | string
+# $body | associative array
+
+$klaviyo->Catalogs->addItemsToCatalogCategory($id, $body);
+```
+##### Method alias:
+```php
+$klaviyo->Catalogs->createCatalogCategoryRelationshipsItems($id, $body);
+```
+##### Method alias:
+```php
+$klaviyo->Catalogs->createCatalogCategoryRelationshipsItem($id, $body);
+```
 
 
-## Catalogs
 
-#### [Create Back In Stock Subscription](https://developers.klaviyo.com/en/v2024-07-15/reference/create_back_in_stock_subscription)
+
+#### [Bulk Create Catalog Categories](https://developers.klaviyo.com/en/v2024-10-15/reference/bulk_create_catalog_categories)
+
+```php
+## Positional Arguments
+
+# $body | associative array
+
+$klaviyo->Catalogs->bulkCreateCatalogCategories($body);
+```
+##### Method alias:
+```php
+$klaviyo->Catalogs->spawnCreateCategoriesJob($body);
+```
+##### Method alias:
+```php
+$klaviyo->Catalogs->createCatalogCategoryBulkCreateJob($body);
+```
+
+
+
+
+#### [Bulk Create Catalog Items](https://developers.klaviyo.com/en/v2024-10-15/reference/bulk_create_catalog_items)
+
+```php
+## Positional Arguments
+
+# $body | associative array
+
+$klaviyo->Catalogs->bulkCreateCatalogItems($body);
+```
+##### Method alias:
+```php
+$klaviyo->Catalogs->spawnCreateItemsJob($body);
+```
+##### Method alias:
+```php
+$klaviyo->Catalogs->createCatalogItemBulkCreateJob($body);
+```
+
+
+
+
+#### [Bulk Create Catalog Variants](https://developers.klaviyo.com/en/v2024-10-15/reference/bulk_create_catalog_variants)
+
+```php
+## Positional Arguments
+
+# $body | associative array
+
+$klaviyo->Catalogs->bulkCreateCatalogVariants($body);
+```
+##### Method alias:
+```php
+$klaviyo->Catalogs->spawnCreateVariantsJob($body);
+```
+##### Method alias:
+```php
+$klaviyo->Catalogs->createCatalogVariantBulkCreateJob($body);
+```
+
+
+
+
+#### [Bulk Delete Catalog Categories](https://developers.klaviyo.com/en/v2024-10-15/reference/bulk_delete_catalog_categories)
+
+```php
+## Positional Arguments
+
+# $body | associative array
+
+$klaviyo->Catalogs->bulkDeleteCatalogCategories($body);
+```
+##### Method alias:
+```php
+$klaviyo->Catalogs->spawnDeleteCategoriesJob($body);
+```
+##### Method alias:
+```php
+$klaviyo->Catalogs->createCatalogCategoryBulkDeleteJob($body);
+```
+
+
+
+
+#### [Bulk Delete Catalog Items](https://developers.klaviyo.com/en/v2024-10-15/reference/bulk_delete_catalog_items)
+
+```php
+## Positional Arguments
+
+# $body | associative array
+
+$klaviyo->Catalogs->bulkDeleteCatalogItems($body);
+```
+##### Method alias:
+```php
+$klaviyo->Catalogs->spawnDeleteItemsJob($body);
+```
+##### Method alias:
+```php
+$klaviyo->Catalogs->createCatalogItemBulkDeleteJob($body);
+```
+
+
+
+
+#### [Bulk Delete Catalog Variants](https://developers.klaviyo.com/en/v2024-10-15/reference/bulk_delete_catalog_variants)
+
+```php
+## Positional Arguments
+
+# $body | associative array
+
+$klaviyo->Catalogs->bulkDeleteCatalogVariants($body);
+```
+##### Method alias:
+```php
+$klaviyo->Catalogs->spawnDeleteVariantsJob($body);
+```
+##### Method alias:
+```php
+$klaviyo->Catalogs->createCatalogVariantBulkDeleteJob($body);
+```
+
+
+
+
+#### [Bulk Update Catalog Categories](https://developers.klaviyo.com/en/v2024-10-15/reference/bulk_update_catalog_categories)
+
+```php
+## Positional Arguments
+
+# $body | associative array
+
+$klaviyo->Catalogs->bulkUpdateCatalogCategories($body);
+```
+##### Method alias:
+```php
+$klaviyo->Catalogs->spawnUpdateCategoriesJob($body);
+```
+##### Method alias:
+```php
+$klaviyo->Catalogs->createCatalogCategoryBulkUpdateJob($body);
+```
+
+
+
+
+#### [Bulk Update Catalog Items](https://developers.klaviyo.com/en/v2024-10-15/reference/bulk_update_catalog_items)
+
+```php
+## Positional Arguments
+
+# $body | associative array
+
+$klaviyo->Catalogs->bulkUpdateCatalogItems($body);
+```
+##### Method alias:
+```php
+$klaviyo->Catalogs->spawnUpdateItemsJob($body);
+```
+##### Method alias:
+```php
+$klaviyo->Catalogs->createCatalogItemBulkUpdateJob($body);
+```
+
+
+
+
+#### [Bulk Update Catalog Variants](https://developers.klaviyo.com/en/v2024-10-15/reference/bulk_update_catalog_variants)
+
+```php
+## Positional Arguments
+
+# $body | associative array
+
+$klaviyo->Catalogs->bulkUpdateCatalogVariants($body);
+```
+##### Method alias:
+```php
+$klaviyo->Catalogs->spawnUpdateVariantsJob($body);
+```
+##### Method alias:
+```php
+$klaviyo->Catalogs->createCatalogVariantBulkUpdateJob($body);
+```
+
+
+
+
+#### [Create Back In Stock Subscription](https://developers.klaviyo.com/en/v2024-10-15/reference/create_back_in_stock_subscription)
 
 ```php
 ## Positional Arguments
@@ -676,7 +965,7 @@ $klaviyo->Catalogs->createBackInStockSubscription($body);
 
 
 
-#### [Create Catalog Category](https://developers.klaviyo.com/en/v2024-07-15/reference/create_catalog_category)
+#### [Create Catalog Category](https://developers.klaviyo.com/en/v2024-10-15/reference/create_catalog_category)
 
 ```php
 ## Positional Arguments
@@ -689,25 +978,7 @@ $klaviyo->Catalogs->createCatalogCategory($body);
 
 
 
-#### [Create Catalog Category Relationships Items](https://developers.klaviyo.com/en/v2024-07-15/reference/create_catalog_category_relationships_items)
-
-```php
-## Positional Arguments
-
-# $id | string
-# $body | associative array
-
-$klaviyo->Catalogs->createCatalogCategoryRelationshipsItems($id, $body);
-```
-##### Method alias:
-```php
-$klaviyo->Catalogs->createCatalogCategoryRelationshipsItem($id, $body);
-```
-
-
-
-
-#### [Create Catalog Item](https://developers.klaviyo.com/en/v2024-07-15/reference/create_catalog_item)
+#### [Create Catalog Item](https://developers.klaviyo.com/en/v2024-10-15/reference/create_catalog_item)
 
 ```php
 ## Positional Arguments
@@ -720,25 +991,7 @@ $klaviyo->Catalogs->createCatalogItem($body);
 
 
 
-#### [Create Catalog Item Relationships Categories](https://developers.klaviyo.com/en/v2024-07-15/reference/create_catalog_item_relationships_categories)
-
-```php
-## Positional Arguments
-
-# $id | string
-# $body | associative array
-
-$klaviyo->Catalogs->createCatalogItemRelationshipsCategories($id, $body);
-```
-##### Method alias:
-```php
-$klaviyo->Catalogs->createCatalogItemRelationshipsCategory($id, $body);
-```
-
-
-
-
-#### [Create Catalog Variant](https://developers.klaviyo.com/en/v2024-07-15/reference/create_catalog_variant)
+#### [Create Catalog Variant](https://developers.klaviyo.com/en/v2024-10-15/reference/create_catalog_variant)
 
 ```php
 ## Positional Arguments
@@ -751,7 +1004,7 @@ $klaviyo->Catalogs->createCatalogVariant($body);
 
 
 
-#### [Delete Catalog Category](https://developers.klaviyo.com/en/v2024-07-15/reference/delete_catalog_category)
+#### [Delete Catalog Category](https://developers.klaviyo.com/en/v2024-10-15/reference/delete_catalog_category)
 
 ```php
 ## Positional Arguments
@@ -764,21 +1017,7 @@ $klaviyo->Catalogs->deleteCatalogCategory($id);
 
 
 
-#### [Delete Catalog Category Relationships Items](https://developers.klaviyo.com/en/v2024-07-15/reference/delete_catalog_category_relationships_items)
-
-```php
-## Positional Arguments
-
-# $id | string
-# $body | associative array
-
-$klaviyo->Catalogs->deleteCatalogCategoryRelationshipsItems($id, $body);
-```
-
-
-
-
-#### [Delete Catalog Item](https://developers.klaviyo.com/en/v2024-07-15/reference/delete_catalog_item)
+#### [Delete Catalog Item](https://developers.klaviyo.com/en/v2024-10-15/reference/delete_catalog_item)
 
 ```php
 ## Positional Arguments
@@ -791,21 +1030,7 @@ $klaviyo->Catalogs->deleteCatalogItem($id);
 
 
 
-#### [Delete Catalog Item Relationships Categories](https://developers.klaviyo.com/en/v2024-07-15/reference/delete_catalog_item_relationships_categories)
-
-```php
-## Positional Arguments
-
-# $id | string
-# $body | associative array
-
-$klaviyo->Catalogs->deleteCatalogItemRelationshipsCategories($id, $body);
-```
-
-
-
-
-#### [Delete Catalog Variant](https://developers.klaviyo.com/en/v2024-07-15/reference/delete_catalog_variant)
+#### [Delete Catalog Variant](https://developers.klaviyo.com/en/v2024-10-15/reference/delete_catalog_variant)
 
 ```php
 ## Positional Arguments
@@ -818,7 +1043,158 @@ $klaviyo->Catalogs->deleteCatalogVariant($id);
 
 
 
-#### [Get Catalog Categories](https://developers.klaviyo.com/en/v2024-07-15/reference/get_catalog_categories)
+#### [Get Bulk Create Catalog Items Job](https://developers.klaviyo.com/en/v2024-10-15/reference/get_bulk_create_catalog_items_job)
+
+```php
+## Positional Arguments
+
+# $job_id | string
+
+## Keyword Arguments
+
+# $fields_catalog_item_bulk_create_job | string[]
+# $fields_catalog_item | string[]
+# $include | string[]
+
+$klaviyo->Catalogs->getBulkCreateCatalogItemsJob($job_id, $fields_catalog_item_bulk_create_job=$fields_catalog_item_bulk_create_job, $fields_catalog_item=$fields_catalog_item, $include=$include);
+```
+##### Method alias:
+```php
+$klaviyo->Catalogs->getCreateItemsJob($job_id, $fields_catalog_item_bulk_create_job=$fields_catalog_item_bulk_create_job, $fields_catalog_item=$fields_catalog_item, $include=$include);
+```
+##### Method alias:
+```php
+$klaviyo->Catalogs->getCatalogItemBulkCreateJob($job_id, $fields_catalog_item_bulk_create_job=$fields_catalog_item_bulk_create_job, $fields_catalog_item=$fields_catalog_item, $include=$include);
+```
+
+
+
+
+#### [Get Bulk Create Catalog Items Jobs](https://developers.klaviyo.com/en/v2024-10-15/reference/get_bulk_create_catalog_items_jobs)
+
+```php
+
+## Keyword Arguments
+
+# $fields_catalog_item_bulk_create_job | string[]
+# $filter | string
+# $page_cursor | string
+
+$klaviyo->Catalogs->getBulkCreateCatalogItemsJobs($fields_catalog_item_bulk_create_job=$fields_catalog_item_bulk_create_job, $filter=$filter, $page_cursor=$page_cursor);
+```
+##### Method alias:
+```php
+$klaviyo->Catalogs->getCreateItemsJobs($fields_catalog_item_bulk_create_job=$fields_catalog_item_bulk_create_job, $filter=$filter, $page_cursor=$page_cursor);
+```
+##### Method alias:
+```php
+$klaviyo->Catalogs->getCatalogItemBulkCreateJobs($fields_catalog_item_bulk_create_job=$fields_catalog_item_bulk_create_job, $filter=$filter, $page_cursor=$page_cursor);
+```
+
+
+
+
+#### [Get Bulk Delete Catalog Items Job](https://developers.klaviyo.com/en/v2024-10-15/reference/get_bulk_delete_catalog_items_job)
+
+```php
+## Positional Arguments
+
+# $job_id | string
+
+## Keyword Arguments
+
+# $fields_catalog_item_bulk_delete_job | string[]
+
+$klaviyo->Catalogs->getBulkDeleteCatalogItemsJob($job_id, $fields_catalog_item_bulk_delete_job=$fields_catalog_item_bulk_delete_job);
+```
+##### Method alias:
+```php
+$klaviyo->Catalogs->getDeleteItemsJob($job_id, $fields_catalog_item_bulk_delete_job=$fields_catalog_item_bulk_delete_job);
+```
+##### Method alias:
+```php
+$klaviyo->Catalogs->getCatalogItemBulkDeleteJob($job_id, $fields_catalog_item_bulk_delete_job=$fields_catalog_item_bulk_delete_job);
+```
+
+
+
+
+#### [Get Bulk Delete Catalog Items Jobs](https://developers.klaviyo.com/en/v2024-10-15/reference/get_bulk_delete_catalog_items_jobs)
+
+```php
+
+## Keyword Arguments
+
+# $fields_catalog_item_bulk_delete_job | string[]
+# $filter | string
+# $page_cursor | string
+
+$klaviyo->Catalogs->getBulkDeleteCatalogItemsJobs($fields_catalog_item_bulk_delete_job=$fields_catalog_item_bulk_delete_job, $filter=$filter, $page_cursor=$page_cursor);
+```
+##### Method alias:
+```php
+$klaviyo->Catalogs->getDeleteItemsJobs($fields_catalog_item_bulk_delete_job=$fields_catalog_item_bulk_delete_job, $filter=$filter, $page_cursor=$page_cursor);
+```
+##### Method alias:
+```php
+$klaviyo->Catalogs->getCatalogItemBulkDeleteJobs($fields_catalog_item_bulk_delete_job=$fields_catalog_item_bulk_delete_job, $filter=$filter, $page_cursor=$page_cursor);
+```
+
+
+
+
+#### [Get Bulk Update Catalog Items Job](https://developers.klaviyo.com/en/v2024-10-15/reference/get_bulk_update_catalog_items_job)
+
+```php
+## Positional Arguments
+
+# $job_id | string
+
+## Keyword Arguments
+
+# $fields_catalog_item_bulk_update_job | string[]
+# $fields_catalog_item | string[]
+# $include | string[]
+
+$klaviyo->Catalogs->getBulkUpdateCatalogItemsJob($job_id, $fields_catalog_item_bulk_update_job=$fields_catalog_item_bulk_update_job, $fields_catalog_item=$fields_catalog_item, $include=$include);
+```
+##### Method alias:
+```php
+$klaviyo->Catalogs->getUpdateItemsJob($job_id, $fields_catalog_item_bulk_update_job=$fields_catalog_item_bulk_update_job, $fields_catalog_item=$fields_catalog_item, $include=$include);
+```
+##### Method alias:
+```php
+$klaviyo->Catalogs->getCatalogItemBulkUpdateJob($job_id, $fields_catalog_item_bulk_update_job=$fields_catalog_item_bulk_update_job, $fields_catalog_item=$fields_catalog_item, $include=$include);
+```
+
+
+
+
+#### [Get Bulk Update Catalog Items Jobs](https://developers.klaviyo.com/en/v2024-10-15/reference/get_bulk_update_catalog_items_jobs)
+
+```php
+
+## Keyword Arguments
+
+# $fields_catalog_item_bulk_update_job | string[]
+# $filter | string
+# $page_cursor | string
+
+$klaviyo->Catalogs->getBulkUpdateCatalogItemsJobs($fields_catalog_item_bulk_update_job=$fields_catalog_item_bulk_update_job, $filter=$filter, $page_cursor=$page_cursor);
+```
+##### Method alias:
+```php
+$klaviyo->Catalogs->getUpdateItemsJobs($fields_catalog_item_bulk_update_job=$fields_catalog_item_bulk_update_job, $filter=$filter, $page_cursor=$page_cursor);
+```
+##### Method alias:
+```php
+$klaviyo->Catalogs->getCatalogItemBulkUpdateJobs($fields_catalog_item_bulk_update_job=$fields_catalog_item_bulk_update_job, $filter=$filter, $page_cursor=$page_cursor);
+```
+
+
+
+
+#### [Get Catalog Categories](https://developers.klaviyo.com/en/v2024-10-15/reference/get_catalog_categories)
 
 ```php
 
@@ -835,7 +1211,7 @@ $klaviyo->Catalogs->getCatalogCategories($fields_catalog_category=$fields_catalo
 
 
 
-#### [Get Catalog Category](https://developers.klaviyo.com/en/v2024-07-15/reference/get_catalog_category)
+#### [Get Catalog Category](https://developers.klaviyo.com/en/v2024-10-15/reference/get_catalog_category)
 
 ```php
 ## Positional Arguments
@@ -852,46 +1228,7 @@ $klaviyo->Catalogs->getCatalogCategory($id, $fields_catalog_category=$fields_cat
 
 
 
-#### [Get Catalog Category Items](https://developers.klaviyo.com/en/v2024-07-15/reference/get_catalog_category_items)
-
-```php
-## Positional Arguments
-
-# $id | string
-
-## Keyword Arguments
-
-# $fields_catalog_item | string[]
-# $fields_catalog_variant | string[]
-# $filter | string
-# $include | string[]
-# $page_cursor | string
-# $sort | string
-
-$klaviyo->Catalogs->getCatalogCategoryItems($id, $fields_catalog_item=$fields_catalog_item, $fields_catalog_variant=$fields_catalog_variant, $filter=$filter, $include=$include, $page_cursor=$page_cursor, $sort=$sort);
-```
-
-
-
-
-#### [Get Catalog Category Relationships Items](https://developers.klaviyo.com/en/v2024-07-15/reference/get_catalog_category_relationships_items)
-
-```php
-## Positional Arguments
-
-# $id | string
-
-## Keyword Arguments
-
-# $page_cursor | string
-
-$klaviyo->Catalogs->getCatalogCategoryRelationshipsItems($id, $page_cursor=$page_cursor);
-```
-
-
-
-
-#### [Get Catalog Item](https://developers.klaviyo.com/en/v2024-07-15/reference/get_catalog_item)
+#### [Get Catalog Item](https://developers.klaviyo.com/en/v2024-10-15/reference/get_catalog_item)
 
 ```php
 ## Positional Arguments
@@ -910,64 +1247,7 @@ $klaviyo->Catalogs->getCatalogItem($id, $fields_catalog_item=$fields_catalog_ite
 
 
 
-#### [Get Catalog Item Categories](https://developers.klaviyo.com/en/v2024-07-15/reference/get_catalog_item_categories)
-
-```php
-## Positional Arguments
-
-# $id | string
-
-## Keyword Arguments
-
-# $fields_catalog_category | string[]
-# $filter | string
-# $page_cursor | string
-# $sort | string
-
-$klaviyo->Catalogs->getCatalogItemCategories($id, $fields_catalog_category=$fields_catalog_category, $filter=$filter, $page_cursor=$page_cursor, $sort=$sort);
-```
-
-
-
-
-#### [Get Catalog Item Relationships Categories](https://developers.klaviyo.com/en/v2024-07-15/reference/get_catalog_item_relationships_categories)
-
-```php
-## Positional Arguments
-
-# $id | string
-
-## Keyword Arguments
-
-# $page_cursor | string
-
-$klaviyo->Catalogs->getCatalogItemRelationshipsCategories($id, $page_cursor=$page_cursor);
-```
-
-
-
-
-#### [Get Catalog Item Variants](https://developers.klaviyo.com/en/v2024-07-15/reference/get_catalog_item_variants)
-
-```php
-## Positional Arguments
-
-# $id | string
-
-## Keyword Arguments
-
-# $fields_catalog_variant | string[]
-# $filter | string
-# $page_cursor | string
-# $sort | string
-
-$klaviyo->Catalogs->getCatalogItemVariants($id, $fields_catalog_variant=$fields_catalog_variant, $filter=$filter, $page_cursor=$page_cursor, $sort=$sort);
-```
-
-
-
-
-#### [Get Catalog Items](https://developers.klaviyo.com/en/v2024-07-15/reference/get_catalog_items)
+#### [Get Catalog Items](https://developers.klaviyo.com/en/v2024-10-15/reference/get_catalog_items)
 
 ```php
 
@@ -986,7 +1266,7 @@ $klaviyo->Catalogs->getCatalogItems($fields_catalog_item=$fields_catalog_item, $
 
 
 
-#### [Get Catalog Variant](https://developers.klaviyo.com/en/v2024-07-15/reference/get_catalog_variant)
+#### [Get Catalog Variant](https://developers.klaviyo.com/en/v2024-10-15/reference/get_catalog_variant)
 
 ```php
 ## Positional Arguments
@@ -1003,7 +1283,7 @@ $klaviyo->Catalogs->getCatalogVariant($id, $fields_catalog_variant=$fields_catal
 
 
 
-#### [Get Catalog Variants](https://developers.klaviyo.com/en/v2024-07-15/reference/get_catalog_variants)
+#### [Get Catalog Variants](https://developers.klaviyo.com/en/v2024-10-15/reference/get_catalog_variants)
 
 ```php
 
@@ -1020,7 +1300,52 @@ $klaviyo->Catalogs->getCatalogVariants($fields_catalog_variant=$fields_catalog_v
 
 
 
-#### [Get Create Categories Job](https://developers.klaviyo.com/en/v2024-07-15/reference/get_create_categories_job)
+#### [Get Categories for Catalog Item](https://developers.klaviyo.com/en/v2024-10-15/reference/get_categories_for_catalog_item)
+
+```php
+## Positional Arguments
+
+# $id | string
+
+## Keyword Arguments
+
+# $fields_catalog_category | string[]
+# $filter | string
+# $page_cursor | string
+# $sort | string
+
+$klaviyo->Catalogs->getCategoriesForCatalogItem($id, $fields_catalog_category=$fields_catalog_category, $filter=$filter, $page_cursor=$page_cursor, $sort=$sort);
+```
+##### Method alias:
+```php
+$klaviyo->Catalogs->getCatalogItemCategories($id, $fields_catalog_category=$fields_catalog_category, $filter=$filter, $page_cursor=$page_cursor, $sort=$sort);
+```
+
+
+
+
+#### [Get Category IDs for Catalog Item](https://developers.klaviyo.com/en/v2024-10-15/reference/get_category_ids_for_catalog_item)
+
+```php
+## Positional Arguments
+
+# $id | string
+
+## Keyword Arguments
+
+# $page_cursor | string
+
+$klaviyo->Catalogs->getCategoryIdsForCatalogItem($id, $page_cursor=$page_cursor);
+```
+##### Method alias:
+```php
+$klaviyo->Catalogs->getCatalogItemRelationshipsCategories($id, $page_cursor=$page_cursor);
+```
+
+
+
+
+#### [Get Create Categories Job](https://developers.klaviyo.com/en/v2024-10-15/reference/get_create_categories_job)
 
 ```php
 ## Positional Arguments
@@ -1043,7 +1368,7 @@ $klaviyo->Catalogs->getCatalogCategoryBulkCreateJob($job_id, $fields_catalog_cat
 
 
 
-#### [Get Create Categories Jobs](https://developers.klaviyo.com/en/v2024-07-15/reference/get_create_categories_jobs)
+#### [Get Create Categories Jobs](https://developers.klaviyo.com/en/v2024-10-15/reference/get_create_categories_jobs)
 
 ```php
 
@@ -1063,50 +1388,7 @@ $klaviyo->Catalogs->getCatalogCategoryBulkCreateJobs($fields_catalog_category_bu
 
 
 
-#### [Get Create Items Job](https://developers.klaviyo.com/en/v2024-07-15/reference/get_create_items_job)
-
-```php
-## Positional Arguments
-
-# $job_id | string
-
-## Keyword Arguments
-
-# $fields_catalog_item_bulk_create_job | string[]
-# $fields_catalog_item | string[]
-# $include | string[]
-
-$klaviyo->Catalogs->getCreateItemsJob($job_id, $fields_catalog_item_bulk_create_job=$fields_catalog_item_bulk_create_job, $fields_catalog_item=$fields_catalog_item, $include=$include);
-```
-##### Method alias:
-```php
-$klaviyo->Catalogs->getCatalogItemBulkCreateJob($job_id, $fields_catalog_item_bulk_create_job=$fields_catalog_item_bulk_create_job, $fields_catalog_item=$fields_catalog_item, $include=$include);
-```
-
-
-
-
-#### [Get Create Items Jobs](https://developers.klaviyo.com/en/v2024-07-15/reference/get_create_items_jobs)
-
-```php
-
-## Keyword Arguments
-
-# $fields_catalog_item_bulk_create_job | string[]
-# $filter | string
-# $page_cursor | string
-
-$klaviyo->Catalogs->getCreateItemsJobs($fields_catalog_item_bulk_create_job=$fields_catalog_item_bulk_create_job, $filter=$filter, $page_cursor=$page_cursor);
-```
-##### Method alias:
-```php
-$klaviyo->Catalogs->getCatalogItemBulkCreateJobs($fields_catalog_item_bulk_create_job=$fields_catalog_item_bulk_create_job, $filter=$filter, $page_cursor=$page_cursor);
-```
-
-
-
-
-#### [Get Create Variants Job](https://developers.klaviyo.com/en/v2024-07-15/reference/get_create_variants_job)
+#### [Get Create Variants Job](https://developers.klaviyo.com/en/v2024-10-15/reference/get_create_variants_job)
 
 ```php
 ## Positional Arguments
@@ -1129,7 +1411,7 @@ $klaviyo->Catalogs->getCatalogVariantBulkCreateJob($job_id, $fields_catalog_vari
 
 
 
-#### [Get Create Variants Jobs](https://developers.klaviyo.com/en/v2024-07-15/reference/get_create_variants_jobs)
+#### [Get Create Variants Jobs](https://developers.klaviyo.com/en/v2024-10-15/reference/get_create_variants_jobs)
 
 ```php
 
@@ -1149,7 +1431,7 @@ $klaviyo->Catalogs->getCatalogVariantBulkCreateJobs($fields_catalog_variant_bulk
 
 
 
-#### [Get Delete Categories Job](https://developers.klaviyo.com/en/v2024-07-15/reference/get_delete_categories_job)
+#### [Get Delete Categories Job](https://developers.klaviyo.com/en/v2024-10-15/reference/get_delete_categories_job)
 
 ```php
 ## Positional Arguments
@@ -1170,7 +1452,7 @@ $klaviyo->Catalogs->getCatalogCategoryBulkDeleteJob($job_id, $fields_catalog_cat
 
 
 
-#### [Get Delete Categories Jobs](https://developers.klaviyo.com/en/v2024-07-15/reference/get_delete_categories_jobs)
+#### [Get Delete Categories Jobs](https://developers.klaviyo.com/en/v2024-10-15/reference/get_delete_categories_jobs)
 
 ```php
 
@@ -1190,48 +1472,7 @@ $klaviyo->Catalogs->getCatalogCategoryBulkDeleteJobs($fields_catalog_category_bu
 
 
 
-#### [Get Delete Items Job](https://developers.klaviyo.com/en/v2024-07-15/reference/get_delete_items_job)
-
-```php
-## Positional Arguments
-
-# $job_id | string
-
-## Keyword Arguments
-
-# $fields_catalog_item_bulk_delete_job | string[]
-
-$klaviyo->Catalogs->getDeleteItemsJob($job_id, $fields_catalog_item_bulk_delete_job=$fields_catalog_item_bulk_delete_job);
-```
-##### Method alias:
-```php
-$klaviyo->Catalogs->getCatalogItemBulkDeleteJob($job_id, $fields_catalog_item_bulk_delete_job=$fields_catalog_item_bulk_delete_job);
-```
-
-
-
-
-#### [Get Delete Items Jobs](https://developers.klaviyo.com/en/v2024-07-15/reference/get_delete_items_jobs)
-
-```php
-
-## Keyword Arguments
-
-# $fields_catalog_item_bulk_delete_job | string[]
-# $filter | string
-# $page_cursor | string
-
-$klaviyo->Catalogs->getDeleteItemsJobs($fields_catalog_item_bulk_delete_job=$fields_catalog_item_bulk_delete_job, $filter=$filter, $page_cursor=$page_cursor);
-```
-##### Method alias:
-```php
-$klaviyo->Catalogs->getCatalogItemBulkDeleteJobs($fields_catalog_item_bulk_delete_job=$fields_catalog_item_bulk_delete_job, $filter=$filter, $page_cursor=$page_cursor);
-```
-
-
-
-
-#### [Get Delete Variants Job](https://developers.klaviyo.com/en/v2024-07-15/reference/get_delete_variants_job)
+#### [Get Delete Variants Job](https://developers.klaviyo.com/en/v2024-10-15/reference/get_delete_variants_job)
 
 ```php
 ## Positional Arguments
@@ -1252,7 +1493,7 @@ $klaviyo->Catalogs->getCatalogVariantBulkDeleteJob($job_id, $fields_catalog_vari
 
 
 
-#### [Get Delete Variants Jobs](https://developers.klaviyo.com/en/v2024-07-15/reference/get_delete_variants_jobs)
+#### [Get Delete Variants Jobs](https://developers.klaviyo.com/en/v2024-10-15/reference/get_delete_variants_jobs)
 
 ```php
 
@@ -1272,7 +1513,54 @@ $klaviyo->Catalogs->getCatalogVariantBulkDeleteJobs($fields_catalog_variant_bulk
 
 
 
-#### [Get Update Categories Job](https://developers.klaviyo.com/en/v2024-07-15/reference/get_update_categories_job)
+#### [Get Item IDs for Catalog Category](https://developers.klaviyo.com/en/v2024-10-15/reference/get_item_ids_for_catalog_category)
+
+```php
+## Positional Arguments
+
+# $id | string
+
+## Keyword Arguments
+
+# $page_cursor | string
+
+$klaviyo->Catalogs->getItemIdsForCatalogCategory($id, $page_cursor=$page_cursor);
+```
+##### Method alias:
+```php
+$klaviyo->Catalogs->getCatalogCategoryRelationshipsItems($id, $page_cursor=$page_cursor);
+```
+
+
+
+
+#### [Get Items for Catalog Category](https://developers.klaviyo.com/en/v2024-10-15/reference/get_items_for_catalog_category)
+
+```php
+## Positional Arguments
+
+# $id | string
+
+## Keyword Arguments
+
+# $fields_catalog_item | string[]
+# $fields_catalog_variant | string[]
+# $filter | string
+# $include | string[]
+# $page_cursor | string
+# $sort | string
+
+$klaviyo->Catalogs->getItemsForCatalogCategory($id, $fields_catalog_item=$fields_catalog_item, $fields_catalog_variant=$fields_catalog_variant, $filter=$filter, $include=$include, $page_cursor=$page_cursor, $sort=$sort);
+```
+##### Method alias:
+```php
+$klaviyo->Catalogs->getCatalogCategoryItems($id, $fields_catalog_item=$fields_catalog_item, $fields_catalog_variant=$fields_catalog_variant, $filter=$filter, $include=$include, $page_cursor=$page_cursor, $sort=$sort);
+```
+
+
+
+
+#### [Get Update Categories Job](https://developers.klaviyo.com/en/v2024-10-15/reference/get_update_categories_job)
 
 ```php
 ## Positional Arguments
@@ -1295,7 +1583,7 @@ $klaviyo->Catalogs->getCatalogCategoryBulkUpdateJob($job_id, $fields_catalog_cat
 
 
 
-#### [Get Update Categories Jobs](https://developers.klaviyo.com/en/v2024-07-15/reference/get_update_categories_jobs)
+#### [Get Update Categories Jobs](https://developers.klaviyo.com/en/v2024-10-15/reference/get_update_categories_jobs)
 
 ```php
 
@@ -1315,50 +1603,7 @@ $klaviyo->Catalogs->getCatalogCategoryBulkUpdateJobs($fields_catalog_category_bu
 
 
 
-#### [Get Update Items Job](https://developers.klaviyo.com/en/v2024-07-15/reference/get_update_items_job)
-
-```php
-## Positional Arguments
-
-# $job_id | string
-
-## Keyword Arguments
-
-# $fields_catalog_item_bulk_update_job | string[]
-# $fields_catalog_item | string[]
-# $include | string[]
-
-$klaviyo->Catalogs->getUpdateItemsJob($job_id, $fields_catalog_item_bulk_update_job=$fields_catalog_item_bulk_update_job, $fields_catalog_item=$fields_catalog_item, $include=$include);
-```
-##### Method alias:
-```php
-$klaviyo->Catalogs->getCatalogItemBulkUpdateJob($job_id, $fields_catalog_item_bulk_update_job=$fields_catalog_item_bulk_update_job, $fields_catalog_item=$fields_catalog_item, $include=$include);
-```
-
-
-
-
-#### [Get Update Items Jobs](https://developers.klaviyo.com/en/v2024-07-15/reference/get_update_items_jobs)
-
-```php
-
-## Keyword Arguments
-
-# $fields_catalog_item_bulk_update_job | string[]
-# $filter | string
-# $page_cursor | string
-
-$klaviyo->Catalogs->getUpdateItemsJobs($fields_catalog_item_bulk_update_job=$fields_catalog_item_bulk_update_job, $filter=$filter, $page_cursor=$page_cursor);
-```
-##### Method alias:
-```php
-$klaviyo->Catalogs->getCatalogItemBulkUpdateJobs($fields_catalog_item_bulk_update_job=$fields_catalog_item_bulk_update_job, $filter=$filter, $page_cursor=$page_cursor);
-```
-
-
-
-
-#### [Get Update Variants Job](https://developers.klaviyo.com/en/v2024-07-15/reference/get_update_variants_job)
+#### [Get Update Variants Job](https://developers.klaviyo.com/en/v2024-10-15/reference/get_update_variants_job)
 
 ```php
 ## Positional Arguments
@@ -1381,7 +1626,7 @@ $klaviyo->Catalogs->getCatalogVariantBulkUpdateJob($job_id, $fields_catalog_vari
 
 
 
-#### [Get Update Variants Jobs](https://developers.klaviyo.com/en/v2024-07-15/reference/get_update_variants_jobs)
+#### [Get Update Variants Jobs](https://developers.klaviyo.com/en/v2024-10-15/reference/get_update_variants_jobs)
 
 ```php
 
@@ -1401,160 +1646,67 @@ $klaviyo->Catalogs->getCatalogVariantBulkUpdateJobs($fields_catalog_variant_bulk
 
 
 
-#### [Spawn Create Categories Job](https://developers.klaviyo.com/en/v2024-07-15/reference/spawn_create_categories_job)
+#### [Get Variants for Catalog Item](https://developers.klaviyo.com/en/v2024-10-15/reference/get_variants_for_catalog_item)
 
 ```php
 ## Positional Arguments
 
-# $body | associative array
+# $id | string
 
-$klaviyo->Catalogs->spawnCreateCategoriesJob($body);
+## Keyword Arguments
+
+# $fields_catalog_variant | string[]
+# $filter | string
+# $page_cursor | string
+# $sort | string
+
+$klaviyo->Catalogs->getVariantsForCatalogItem($id, $fields_catalog_variant=$fields_catalog_variant, $filter=$filter, $page_cursor=$page_cursor, $sort=$sort);
 ```
 ##### Method alias:
 ```php
-$klaviyo->Catalogs->createCatalogCategoryBulkCreateJob($body);
+$klaviyo->Catalogs->getCatalogItemVariants($id, $fields_catalog_variant=$fields_catalog_variant, $filter=$filter, $page_cursor=$page_cursor, $sort=$sort);
 ```
 
 
 
 
-#### [Spawn Create Items Job](https://developers.klaviyo.com/en/v2024-07-15/reference/spawn_create_items_job)
+#### [Remove Categories from Catalog Item](https://developers.klaviyo.com/en/v2024-10-15/reference/remove_categories_from_catalog_item)
 
 ```php
 ## Positional Arguments
 
+# $id | string
 # $body | associative array
 
-$klaviyo->Catalogs->spawnCreateItemsJob($body);
+$klaviyo->Catalogs->removeCategoriesFromCatalogItem($id, $body);
 ```
 ##### Method alias:
 ```php
-$klaviyo->Catalogs->createCatalogItemBulkCreateJob($body);
+$klaviyo->Catalogs->deleteCatalogItemRelationshipsCategories($id, $body);
 ```
 
 
 
 
-#### [Spawn Create Variants Job](https://developers.klaviyo.com/en/v2024-07-15/reference/spawn_create_variants_job)
+#### [Remove Items from Catalog Category](https://developers.klaviyo.com/en/v2024-10-15/reference/remove_items_from_catalog_category)
 
 ```php
 ## Positional Arguments
 
+# $id | string
 # $body | associative array
 
-$klaviyo->Catalogs->spawnCreateVariantsJob($body);
+$klaviyo->Catalogs->removeItemsFromCatalogCategory($id, $body);
 ```
 ##### Method alias:
 ```php
-$klaviyo->Catalogs->createCatalogVariantBulkCreateJob($body);
+$klaviyo->Catalogs->deleteCatalogCategoryRelationshipsItems($id, $body);
 ```
 
 
 
 
-#### [Spawn Delete Categories Job](https://developers.klaviyo.com/en/v2024-07-15/reference/spawn_delete_categories_job)
-
-```php
-## Positional Arguments
-
-# $body | associative array
-
-$klaviyo->Catalogs->spawnDeleteCategoriesJob($body);
-```
-##### Method alias:
-```php
-$klaviyo->Catalogs->createCatalogCategoryBulkDeleteJob($body);
-```
-
-
-
-
-#### [Spawn Delete Items Job](https://developers.klaviyo.com/en/v2024-07-15/reference/spawn_delete_items_job)
-
-```php
-## Positional Arguments
-
-# $body | associative array
-
-$klaviyo->Catalogs->spawnDeleteItemsJob($body);
-```
-##### Method alias:
-```php
-$klaviyo->Catalogs->createCatalogItemBulkDeleteJob($body);
-```
-
-
-
-
-#### [Spawn Delete Variants Job](https://developers.klaviyo.com/en/v2024-07-15/reference/spawn_delete_variants_job)
-
-```php
-## Positional Arguments
-
-# $body | associative array
-
-$klaviyo->Catalogs->spawnDeleteVariantsJob($body);
-```
-##### Method alias:
-```php
-$klaviyo->Catalogs->createCatalogVariantBulkDeleteJob($body);
-```
-
-
-
-
-#### [Spawn Update Categories Job](https://developers.klaviyo.com/en/v2024-07-15/reference/spawn_update_categories_job)
-
-```php
-## Positional Arguments
-
-# $body | associative array
-
-$klaviyo->Catalogs->spawnUpdateCategoriesJob($body);
-```
-##### Method alias:
-```php
-$klaviyo->Catalogs->createCatalogCategoryBulkUpdateJob($body);
-```
-
-
-
-
-#### [Spawn Update Items Job](https://developers.klaviyo.com/en/v2024-07-15/reference/spawn_update_items_job)
-
-```php
-## Positional Arguments
-
-# $body | associative array
-
-$klaviyo->Catalogs->spawnUpdateItemsJob($body);
-```
-##### Method alias:
-```php
-$klaviyo->Catalogs->createCatalogItemBulkUpdateJob($body);
-```
-
-
-
-
-#### [Spawn Update Variants Job](https://developers.klaviyo.com/en/v2024-07-15/reference/spawn_update_variants_job)
-
-```php
-## Positional Arguments
-
-# $body | associative array
-
-$klaviyo->Catalogs->spawnUpdateVariantsJob($body);
-```
-##### Method alias:
-```php
-$klaviyo->Catalogs->createCatalogVariantBulkUpdateJob($body);
-```
-
-
-
-
-#### [Update Catalog Category](https://developers.klaviyo.com/en/v2024-07-15/reference/update_catalog_category)
+#### [Update Catalog Category](https://developers.klaviyo.com/en/v2024-10-15/reference/update_catalog_category)
 
 ```php
 ## Positional Arguments
@@ -1568,21 +1720,7 @@ $klaviyo->Catalogs->updateCatalogCategory($id, $body);
 
 
 
-#### [Update Catalog Category Relationships Items](https://developers.klaviyo.com/en/v2024-07-15/reference/update_catalog_category_relationships_items)
-
-```php
-## Positional Arguments
-
-# $id | string
-# $body | associative array
-
-$klaviyo->Catalogs->updateCatalogCategoryRelationshipsItems($id, $body);
-```
-
-
-
-
-#### [Update Catalog Item](https://developers.klaviyo.com/en/v2024-07-15/reference/update_catalog_item)
+#### [Update Catalog Item](https://developers.klaviyo.com/en/v2024-10-15/reference/update_catalog_item)
 
 ```php
 ## Positional Arguments
@@ -1596,21 +1734,7 @@ $klaviyo->Catalogs->updateCatalogItem($id, $body);
 
 
 
-#### [Update Catalog Item Relationships Categories](https://developers.klaviyo.com/en/v2024-07-15/reference/update_catalog_item_relationships_categories)
-
-```php
-## Positional Arguments
-
-# $id | string
-# $body | associative array
-
-$klaviyo->Catalogs->updateCatalogItemRelationshipsCategories($id, $body);
-```
-
-
-
-
-#### [Update Catalog Variant](https://developers.klaviyo.com/en/v2024-07-15/reference/update_catalog_variant)
+#### [Update Catalog Variant](https://developers.klaviyo.com/en/v2024-10-15/reference/update_catalog_variant)
 
 ```php
 ## Positional Arguments
@@ -1624,11 +1748,68 @@ $klaviyo->Catalogs->updateCatalogVariant($id, $body);
 
 
 
+#### [Update Categories for Catalog Item](https://developers.klaviyo.com/en/v2024-10-15/reference/update_categories_for_catalog_item)
+
+```php
+## Positional Arguments
+
+# $id | string
+# $body | associative array
+
+$klaviyo->Catalogs->updateCategoriesForCatalogItem($id, $body);
+```
+##### Method alias:
+```php
+$klaviyo->Catalogs->updateCatalogItemRelationshipsCategories($id, $body);
+```
+
+
+
+
+#### [Update Items for Catalog Category](https://developers.klaviyo.com/en/v2024-10-15/reference/update_items_for_catalog_category)
+
+```php
+## Positional Arguments
+
+# $id | string
+# $body | associative array
+
+$klaviyo->Catalogs->updateItemsForCatalogCategory($id, $body);
+```
+##### Method alias:
+```php
+$klaviyo->Catalogs->updateCatalogCategoryRelationshipsItems($id, $body);
+```
+
+
+
+
 
 
 ## Coupons
 
-#### [Create Coupon](https://developers.klaviyo.com/en/v2024-07-15/reference/create_coupon)
+#### [Bulk Create Coupon Codes](https://developers.klaviyo.com/en/v2024-10-15/reference/bulk_create_coupon_codes)
+
+```php
+## Positional Arguments
+
+# $body | associative array
+
+$klaviyo->Coupons->bulkCreateCouponCodes($body);
+```
+##### Method alias:
+```php
+$klaviyo->Coupons->spawnCouponCodeBulkCreateJob($body);
+```
+##### Method alias:
+```php
+$klaviyo->Coupons->createCouponCodeBulkCreateJob($body);
+```
+
+
+
+
+#### [Create Coupon](https://developers.klaviyo.com/en/v2024-10-15/reference/create_coupon)
 
 ```php
 ## Positional Arguments
@@ -1641,7 +1822,7 @@ $klaviyo->Coupons->createCoupon($body);
 
 
 
-#### [Create Coupon Code](https://developers.klaviyo.com/en/v2024-07-15/reference/create_coupon_code)
+#### [Create Coupon Code](https://developers.klaviyo.com/en/v2024-10-15/reference/create_coupon_code)
 
 ```php
 ## Positional Arguments
@@ -1654,7 +1835,7 @@ $klaviyo->Coupons->createCouponCode($body);
 
 
 
-#### [Delete Coupon](https://developers.klaviyo.com/en/v2024-07-15/reference/delete_coupon)
+#### [Delete Coupon](https://developers.klaviyo.com/en/v2024-10-15/reference/delete_coupon)
 
 ```php
 ## Positional Arguments
@@ -1667,7 +1848,7 @@ $klaviyo->Coupons->deleteCoupon($id);
 
 
 
-#### [Delete Coupon Code](https://developers.klaviyo.com/en/v2024-07-15/reference/delete_coupon_code)
+#### [Delete Coupon Code](https://developers.klaviyo.com/en/v2024-10-15/reference/delete_coupon_code)
 
 ```php
 ## Positional Arguments
@@ -1680,7 +1861,71 @@ $klaviyo->Coupons->deleteCouponCode($id);
 
 
 
-#### [Get Coupon](https://developers.klaviyo.com/en/v2024-07-15/reference/get_coupon)
+#### [Get Bulk Create Coupon Code Jobs](https://developers.klaviyo.com/en/v2024-10-15/reference/get_bulk_create_coupon_code_jobs)
+
+```php
+
+## Keyword Arguments
+
+# $fields_coupon_code_bulk_create_job | string[]
+# $filter | string
+# $page_cursor | string
+
+$klaviyo->Coupons->getBulkCreateCouponCodeJobs($fields_coupon_code_bulk_create_job=$fields_coupon_code_bulk_create_job, $filter=$filter, $page_cursor=$page_cursor);
+```
+##### Method alias:
+```php
+$klaviyo->Coupons->getCouponCodeBulkCreateJobs($fields_coupon_code_bulk_create_job=$fields_coupon_code_bulk_create_job, $filter=$filter, $page_cursor=$page_cursor);
+```
+
+
+
+
+#### [Get Bulk Create Coupon Codes Job](https://developers.klaviyo.com/en/v2024-10-15/reference/get_bulk_create_coupon_codes_job)
+
+```php
+## Positional Arguments
+
+# $job_id | string
+
+## Keyword Arguments
+
+# $fields_coupon_code_bulk_create_job | string[]
+# $fields_coupon_code | string[]
+# $include | string[]
+
+$klaviyo->Coupons->getBulkCreateCouponCodesJob($job_id, $fields_coupon_code_bulk_create_job=$fields_coupon_code_bulk_create_job, $fields_coupon_code=$fields_coupon_code, $include=$include);
+```
+##### Method alias:
+```php
+$klaviyo->Coupons->getCouponCodeBulkCreateJob($job_id, $fields_coupon_code_bulk_create_job=$fields_coupon_code_bulk_create_job, $fields_coupon_code=$fields_coupon_code, $include=$include);
+```
+
+
+
+
+#### [Get Code IDs for Coupon](https://developers.klaviyo.com/en/v2024-10-15/reference/get_code_ids_for_coupon)
+
+```php
+## Positional Arguments
+
+# $id | string
+
+## Keyword Arguments
+
+# $page_cursor | string
+
+$klaviyo->Coupons->getCodeIdsForCoupon($id, $page_cursor=$page_cursor);
+```
+##### Method alias:
+```php
+$klaviyo->Coupons->getCouponCodeRelationshipsCoupon($id, $page_cursor=$page_cursor);
+```
+
+
+
+
+#### [Get Coupon](https://developers.klaviyo.com/en/v2024-10-15/reference/get_coupon)
 
 ```php
 ## Positional Arguments
@@ -1697,7 +1942,7 @@ $klaviyo->Coupons->getCoupon($id, $fields_coupon=$fields_coupon);
 
 
 
-#### [Get Coupon Code](https://developers.klaviyo.com/en/v2024-07-15/reference/get_coupon_code)
+#### [Get Coupon Code](https://developers.klaviyo.com/en/v2024-10-15/reference/get_coupon_code)
 
 ```php
 ## Positional Arguments
@@ -1716,59 +1961,7 @@ $klaviyo->Coupons->getCouponCode($id, $fields_coupon_code=$fields_coupon_code, $
 
 
 
-#### [Get Coupon Code Bulk Create Job](https://developers.klaviyo.com/en/v2024-07-15/reference/get_coupon_code_bulk_create_job)
-
-```php
-## Positional Arguments
-
-# $job_id | string
-
-## Keyword Arguments
-
-# $fields_coupon_code_bulk_create_job | string[]
-# $fields_coupon_code | string[]
-# $include | string[]
-
-$klaviyo->Coupons->getCouponCodeBulkCreateJob($job_id, $fields_coupon_code_bulk_create_job=$fields_coupon_code_bulk_create_job, $fields_coupon_code=$fields_coupon_code, $include=$include);
-```
-
-
-
-
-#### [Get Coupon Code Bulk Create Jobs](https://developers.klaviyo.com/en/v2024-07-15/reference/get_coupon_code_bulk_create_jobs)
-
-```php
-
-## Keyword Arguments
-
-# $fields_coupon_code_bulk_create_job | string[]
-# $filter | string
-# $page_cursor | string
-
-$klaviyo->Coupons->getCouponCodeBulkCreateJobs($fields_coupon_code_bulk_create_job=$fields_coupon_code_bulk_create_job, $filter=$filter, $page_cursor=$page_cursor);
-```
-
-
-
-
-#### [Get Coupon Code Relationships Coupon](https://developers.klaviyo.com/en/v2024-07-15/reference/get_coupon_code_relationships_coupon)
-
-```php
-## Positional Arguments
-
-# $id | string
-
-## Keyword Arguments
-
-# $page_cursor | string
-
-$klaviyo->Coupons->getCouponCodeRelationshipsCoupon($id, $page_cursor=$page_cursor);
-```
-
-
-
-
-#### [Get Coupon Codes](https://developers.klaviyo.com/en/v2024-07-15/reference/get_coupon_codes)
+#### [Get Coupon Codes](https://developers.klaviyo.com/en/v2024-10-15/reference/get_coupon_codes)
 
 ```php
 
@@ -1786,7 +1979,7 @@ $klaviyo->Coupons->getCouponCodes($fields_coupon_code=$fields_coupon_code, $fiel
 
 
 
-#### [Get Coupon Codes For Coupon](https://developers.klaviyo.com/en/v2024-07-15/reference/get_coupon_codes_for_coupon)
+#### [Get Coupon Codes For Coupon](https://developers.klaviyo.com/en/v2024-10-15/reference/get_coupon_codes_for_coupon)
 
 ```php
 ## Positional Arguments
@@ -1809,7 +2002,7 @@ $klaviyo->Coupons->getCouponCouponCodes($id, $fields_coupon_code=$fields_coupon_
 
 
 
-#### [Get Coupon For Coupon Code](https://developers.klaviyo.com/en/v2024-07-15/reference/get_coupon_for_coupon_code)
+#### [Get Coupon For Coupon Code](https://developers.klaviyo.com/en/v2024-10-15/reference/get_coupon_for_coupon_code)
 
 ```php
 ## Positional Arguments
@@ -1830,20 +2023,24 @@ $klaviyo->Coupons->getCouponCodeCoupon($id, $fields_coupon=$fields_coupon);
 
 
 
-#### [Get Coupon Relationships Coupon Codes](https://developers.klaviyo.com/en/v2024-07-15/reference/get_coupon_relationships_coupon_codes)
+#### [Get Coupon ID for Coupon Code](https://developers.klaviyo.com/en/v2024-10-15/reference/get_coupon_id_for_coupon_code)
 
 ```php
 ## Positional Arguments
 
 # $id | string
 
+$klaviyo->Coupons->getCouponIdForCouponCode($id);
+```
+##### Method alias:
+```php
 $klaviyo->Coupons->getCouponRelationshipsCouponCodes($id);
 ```
 
 
 
 
-#### [Get Coupons](https://developers.klaviyo.com/en/v2024-07-15/reference/get_coupons)
+#### [Get Coupons](https://developers.klaviyo.com/en/v2024-10-15/reference/get_coupons)
 
 ```php
 
@@ -1858,24 +2055,7 @@ $klaviyo->Coupons->getCoupons($fields_coupon=$fields_coupon, $page_cursor=$page_
 
 
 
-#### [Spawn Coupon Code Bulk Create Job](https://developers.klaviyo.com/en/v2024-07-15/reference/spawn_coupon_code_bulk_create_job)
-
-```php
-## Positional Arguments
-
-# $body | associative array
-
-$klaviyo->Coupons->spawnCouponCodeBulkCreateJob($body);
-```
-##### Method alias:
-```php
-$klaviyo->Coupons->createCouponCodeBulkCreateJob($body);
-```
-
-
-
-
-#### [Update Coupon](https://developers.klaviyo.com/en/v2024-07-15/reference/update_coupon)
+#### [Update Coupon](https://developers.klaviyo.com/en/v2024-10-15/reference/update_coupon)
 
 ```php
 ## Positional Arguments
@@ -1889,7 +2069,7 @@ $klaviyo->Coupons->updateCoupon($id, $body);
 
 
 
-#### [Update Coupon Code](https://developers.klaviyo.com/en/v2024-07-15/reference/update_coupon_code)
+#### [Update Coupon Code](https://developers.klaviyo.com/en/v2024-10-15/reference/update_coupon_code)
 
 ```php
 ## Positional Arguments
@@ -1907,7 +2087,7 @@ $klaviyo->Coupons->updateCouponCode($id, $body);
 
 ## DataPrivacy
 
-#### [Request Profile Deletion](https://developers.klaviyo.com/en/v2024-07-15/reference/request_profile_deletion)
+#### [Request Profile Deletion](https://developers.klaviyo.com/en/v2024-10-15/reference/request_profile_deletion)
 
 ```php
 ## Positional Arguments
@@ -1928,7 +2108,7 @@ $klaviyo->DataPrivacy->createDataPrivacyDeletionJob($body);
 
 ## Events
 
-#### [Bulk Create Events](https://developers.klaviyo.com/en/v2024-07-15/reference/bulk_create_events)
+#### [Bulk Create Events](https://developers.klaviyo.com/en/v2024-10-15/reference/bulk_create_events)
 
 ```php
 ## Positional Arguments
@@ -1945,7 +2125,7 @@ $klaviyo->Events->createEventBulkCreateJob($body);
 
 
 
-#### [Create Event](https://developers.klaviyo.com/en/v2024-07-15/reference/create_event)
+#### [Create Event](https://developers.klaviyo.com/en/v2024-10-15/reference/create_event)
 
 ```php
 ## Positional Arguments
@@ -1958,7 +2138,7 @@ $klaviyo->Events->createEvent($body);
 
 
 
-#### [Get Event](https://developers.klaviyo.com/en/v2024-07-15/reference/get_event)
+#### [Get Event](https://developers.klaviyo.com/en/v2024-10-15/reference/get_event)
 
 ```php
 ## Positional Arguments
@@ -1978,7 +2158,7 @@ $klaviyo->Events->getEvent($id, $fields_event=$fields_event, $fields_metric=$fie
 
 
 
-#### [Get Event Metric](https://developers.klaviyo.com/en/v2024-07-15/reference/get_event_metric)
+#### [Get Event Metric](https://developers.klaviyo.com/en/v2024-10-15/reference/get_event_metric)
 
 ```php
 ## Positional Arguments
@@ -1995,7 +2175,7 @@ $klaviyo->Events->getEventMetric($id, $fields_metric=$fields_metric);
 
 
 
-#### [Get Event Profile](https://developers.klaviyo.com/en/v2024-07-15/reference/get_event_profile)
+#### [Get Event Profile](https://developers.klaviyo.com/en/v2024-10-15/reference/get_event_profile)
 
 ```php
 ## Positional Arguments
@@ -2013,33 +2193,7 @@ $klaviyo->Events->getEventProfile($id, $additional_fields_profile=$additional_fi
 
 
 
-#### [Get Event Relationships Metric](https://developers.klaviyo.com/en/v2024-07-15/reference/get_event_relationships_metric)
-
-```php
-## Positional Arguments
-
-# $id | string
-
-$klaviyo->Events->getEventRelationshipsMetric($id);
-```
-
-
-
-
-#### [Get Event Relationships Profile](https://developers.klaviyo.com/en/v2024-07-15/reference/get_event_relationships_profile)
-
-```php
-## Positional Arguments
-
-# $id | string
-
-$klaviyo->Events->getEventRelationshipsProfile($id);
-```
-
-
-
-
-#### [Get Events](https://developers.klaviyo.com/en/v2024-07-15/reference/get_events)
+#### [Get Events](https://developers.klaviyo.com/en/v2024-10-15/reference/get_events)
 
 ```php
 
@@ -2059,11 +2213,45 @@ $klaviyo->Events->getEvents($fields_event=$fields_event, $fields_metric=$fields_
 
 
 
+#### [Get Metric ID for Event](https://developers.klaviyo.com/en/v2024-10-15/reference/get_metric_id_for_event)
+
+```php
+## Positional Arguments
+
+# $id | string
+
+$klaviyo->Events->getMetricIdForEvent($id);
+```
+##### Method alias:
+```php
+$klaviyo->Events->getEventRelationshipsMetric($id);
+```
+
+
+
+
+#### [Get Profile ID for Event](https://developers.klaviyo.com/en/v2024-10-15/reference/get_profile_id_for_event)
+
+```php
+## Positional Arguments
+
+# $id | string
+
+$klaviyo->Events->getProfileIdForEvent($id);
+```
+##### Method alias:
+```php
+$klaviyo->Events->getEventRelationshipsProfile($id);
+```
+
+
+
+
 
 
 ## Flows
 
-#### [Delete Flow](https://developers.klaviyo.com/en/v2024-07-15/reference/delete_flow)
+#### [Delete Flow](https://developers.klaviyo.com/en/v2024-10-15/reference/delete_flow)
 
 ```php
 ## Positional Arguments
@@ -2076,7 +2264,72 @@ $klaviyo->Flows->deleteFlow($id);
 
 
 
-#### [Get Flow](https://developers.klaviyo.com/en/v2024-07-15/reference/get_flow)
+#### [Get Action ID for Flow Message](https://developers.klaviyo.com/en/v2024-10-15/reference/get_action_id_for_flow_message)
+
+```php
+## Positional Arguments
+
+# $id | string
+
+$klaviyo->Flows->getActionIdForFlowMessage($id);
+```
+##### Method alias:
+```php
+$klaviyo->Flows->getFlowMessageRelationshipsAction($id);
+```
+
+
+
+
+#### [Get Action IDs for Flow](https://developers.klaviyo.com/en/v2024-10-15/reference/get_action_ids_for_flow)
+
+```php
+## Positional Arguments
+
+# $id | string
+
+## Keyword Arguments
+
+# $filter | string
+# $page_size | int
+# $sort | string
+
+$klaviyo->Flows->getActionIdsForFlow($id, $filter=$filter, $page_size=$page_size, $sort=$sort);
+```
+##### Method alias:
+```php
+$klaviyo->Flows->getFlowRelationshipsFlowActions($id, $filter=$filter, $page_size=$page_size, $sort=$sort);
+```
+
+
+
+
+#### [Get Actions for Flow](https://developers.klaviyo.com/en/v2024-10-15/reference/get_actions_for_flow)
+
+```php
+## Positional Arguments
+
+# $id | string
+
+## Keyword Arguments
+
+# $fields_flow_action | string[]
+# $filter | string
+# $page_cursor | string
+# $page_size | int
+# $sort | string
+
+$klaviyo->Flows->getActionsForFlow($id, $fields_flow_action=$fields_flow_action, $filter=$filter, $page_cursor=$page_cursor, $page_size=$page_size, $sort=$sort);
+```
+##### Method alias:
+```php
+$klaviyo->Flows->getFlowFlowActions($id, $fields_flow_action=$fields_flow_action, $filter=$filter, $page_cursor=$page_cursor, $page_size=$page_size, $sort=$sort);
+```
+
+
+
+
+#### [Get Flow](https://developers.klaviyo.com/en/v2024-10-15/reference/get_flow)
 
 ```php
 ## Positional Arguments
@@ -2096,7 +2349,7 @@ $klaviyo->Flows->getFlow($id, $fields_flow_action=$fields_flow_action, $fields_f
 
 
 
-#### [Get Flow Action](https://developers.klaviyo.com/en/v2024-07-15/reference/get_flow_action)
+#### [Get Flow Action](https://developers.klaviyo.com/en/v2024-10-15/reference/get_flow_action)
 
 ```php
 ## Positional Arguments
@@ -2116,7 +2369,7 @@ $klaviyo->Flows->getFlowAction($id, $fields_flow_action=$fields_flow_action, $fi
 
 
 
-#### [Get Flow For Flow Action](https://developers.klaviyo.com/en/v2024-07-15/reference/get_flow_action_flow)
+#### [Get Flow For Flow Action](https://developers.klaviyo.com/en/v2024-10-15/reference/get_flow_action_flow)
 
 ```php
 ## Positional Arguments
@@ -2133,81 +2386,24 @@ $klaviyo->Flows->getFlowActionFlow($id, $fields_flow=$fields_flow);
 
 
 
-#### [Get Flow Action Messages](https://developers.klaviyo.com/en/v2024-07-15/reference/get_flow_action_messages)
+#### [Get Flow ID for Flow Action](https://developers.klaviyo.com/en/v2024-10-15/reference/get_flow_id_for_flow_action)
 
 ```php
 ## Positional Arguments
 
 # $id | string
 
-## Keyword Arguments
-
-# $fields_flow_message | string[]
-# $filter | string
-# $page_size | int
-# $sort | string
-
-$klaviyo->Flows->getFlowActionMessages($id, $fields_flow_message=$fields_flow_message, $filter=$filter, $page_size=$page_size, $sort=$sort);
+$klaviyo->Flows->getFlowIdForFlowAction($id);
 ```
-
-
-
-
-#### [Get Flow Action Relationships Flow](https://developers.klaviyo.com/en/v2024-07-15/reference/get_flow_action_relationships_flow)
-
+##### Method alias:
 ```php
-## Positional Arguments
-
-# $id | string
-
 $klaviyo->Flows->getFlowActionRelationshipsFlow($id);
 ```
 
 
 
 
-#### [Get Flow Action Relationships Messages](https://developers.klaviyo.com/en/v2024-07-15/reference/get_flow_action_relationships_messages)
-
-```php
-## Positional Arguments
-
-# $id | string
-
-## Keyword Arguments
-
-# $filter | string
-# $page_cursor | string
-# $page_size | int
-# $sort | string
-
-$klaviyo->Flows->getFlowActionRelationshipsMessages($id, $filter=$filter, $page_cursor=$page_cursor, $page_size=$page_size, $sort=$sort);
-```
-
-
-
-
-#### [Get Flow Flow Actions](https://developers.klaviyo.com/en/v2024-07-15/reference/get_flow_flow_actions)
-
-```php
-## Positional Arguments
-
-# $id | string
-
-## Keyword Arguments
-
-# $fields_flow_action | string[]
-# $filter | string
-# $page_cursor | string
-# $page_size | int
-# $sort | string
-
-$klaviyo->Flows->getFlowFlowActions($id, $fields_flow_action=$fields_flow_action, $filter=$filter, $page_cursor=$page_cursor, $page_size=$page_size, $sort=$sort);
-```
-
-
-
-
-#### [Get Flow Message](https://developers.klaviyo.com/en/v2024-07-15/reference/get_flow_message)
+#### [Get Flow Message](https://developers.klaviyo.com/en/v2024-10-15/reference/get_flow_message)
 
 ```php
 ## Positional Arguments
@@ -2227,7 +2423,7 @@ $klaviyo->Flows->getFlowMessage($id, $fields_flow_action=$fields_flow_action, $f
 
 
 
-#### [Get Flow Action For Message](https://developers.klaviyo.com/en/v2024-07-15/reference/get_flow_message_action)
+#### [Get Flow Action For Message](https://developers.klaviyo.com/en/v2024-10-15/reference/get_flow_message_action)
 
 ```php
 ## Positional Arguments
@@ -2244,82 +2440,7 @@ $klaviyo->Flows->getFlowMessageAction($id, $fields_flow_action=$fields_flow_acti
 
 
 
-#### [Get Flow Message Relationships Action](https://developers.klaviyo.com/en/v2024-07-15/reference/get_flow_message_relationships_action)
-
-```php
-## Positional Arguments
-
-# $id | string
-
-$klaviyo->Flows->getFlowMessageRelationshipsAction($id);
-```
-
-
-
-
-#### [Get Flow Message Relationships Template](https://developers.klaviyo.com/en/v2024-07-15/reference/get_flow_message_relationships_template)
-
-```php
-## Positional Arguments
-
-# $id | string
-
-$klaviyo->Flows->getFlowMessageRelationshipsTemplate($id);
-```
-
-
-
-
-#### [Get Flow Message Template](https://developers.klaviyo.com/en/v2024-07-15/reference/get_flow_message_template)
-
-```php
-## Positional Arguments
-
-# $id | string
-
-## Keyword Arguments
-
-# $fields_template | string[]
-
-$klaviyo->Flows->getFlowMessageTemplate($id, $fields_template=$fields_template);
-```
-
-
-
-
-#### [Get Flow Relationships Flow Actions](https://developers.klaviyo.com/en/v2024-07-15/reference/get_flow_relationships_flow_actions)
-
-```php
-## Positional Arguments
-
-# $id | string
-
-## Keyword Arguments
-
-# $filter | string
-# $page_size | int
-# $sort | string
-
-$klaviyo->Flows->getFlowRelationshipsFlowActions($id, $filter=$filter, $page_size=$page_size, $sort=$sort);
-```
-
-
-
-
-#### [Get Flow Relationships Tags](https://developers.klaviyo.com/en/v2024-07-15/reference/get_flow_relationships_tags)
-
-```php
-## Positional Arguments
-
-# $id | string
-
-$klaviyo->Flows->getFlowRelationshipsTags($id);
-```
-
-
-
-
-#### [Get Flow Tags](https://developers.klaviyo.com/en/v2024-07-15/reference/get_flow_tags)
+#### [Get Flow Tags](https://developers.klaviyo.com/en/v2024-10-15/reference/get_flow_tags)
 
 ```php
 ## Positional Arguments
@@ -2336,7 +2457,7 @@ $klaviyo->Flows->getFlowTags($id, $fields_tag=$fields_tag);
 
 
 
-#### [Get Flows](https://developers.klaviyo.com/en/v2024-07-15/reference/get_flows)
+#### [Get Flows](https://developers.klaviyo.com/en/v2024-10-15/reference/get_flows)
 
 ```php
 
@@ -2357,7 +2478,110 @@ $klaviyo->Flows->getFlows($fields_flow_action=$fields_flow_action, $fields_flow=
 
 
 
-#### [Update Flow Status](https://developers.klaviyo.com/en/v2024-07-15/reference/update_flow)
+#### [Get Message IDs for Flow Action](https://developers.klaviyo.com/en/v2024-10-15/reference/get_message_ids_for_flow_action)
+
+```php
+## Positional Arguments
+
+# $id | string
+
+## Keyword Arguments
+
+# $filter | string
+# $page_cursor | string
+# $page_size | int
+# $sort | string
+
+$klaviyo->Flows->getMessageIdsForFlowAction($id, $filter=$filter, $page_cursor=$page_cursor, $page_size=$page_size, $sort=$sort);
+```
+##### Method alias:
+```php
+$klaviyo->Flows->getFlowActionRelationshipsMessages($id, $filter=$filter, $page_cursor=$page_cursor, $page_size=$page_size, $sort=$sort);
+```
+
+
+
+
+#### [Get Messages for Flow Action](https://developers.klaviyo.com/en/v2024-10-15/reference/get_messages_for_flow_action)
+
+```php
+## Positional Arguments
+
+# $id | string
+
+## Keyword Arguments
+
+# $fields_flow_message | string[]
+# $filter | string
+# $page_size | int
+# $sort | string
+
+$klaviyo->Flows->getMessagesForFlowAction($id, $fields_flow_message=$fields_flow_message, $filter=$filter, $page_size=$page_size, $sort=$sort);
+```
+##### Method alias:
+```php
+$klaviyo->Flows->getFlowActionMessages($id, $fields_flow_message=$fields_flow_message, $filter=$filter, $page_size=$page_size, $sort=$sort);
+```
+
+
+
+
+#### [Get Tag IDs for Flow](https://developers.klaviyo.com/en/v2024-10-15/reference/get_tag_ids_for_flow)
+
+```php
+## Positional Arguments
+
+# $id | string
+
+$klaviyo->Flows->getTagIdsForFlow($id);
+```
+##### Method alias:
+```php
+$klaviyo->Flows->getFlowRelationshipsTags($id);
+```
+
+
+
+
+#### [Get Template for Flow Message](https://developers.klaviyo.com/en/v2024-10-15/reference/get_template_for_flow_message)
+
+```php
+## Positional Arguments
+
+# $id | string
+
+## Keyword Arguments
+
+# $fields_template | string[]
+
+$klaviyo->Flows->getTemplateForFlowMessage($id, $fields_template=$fields_template);
+```
+##### Method alias:
+```php
+$klaviyo->Flows->getFlowMessageTemplate($id, $fields_template=$fields_template);
+```
+
+
+
+
+#### [Get Template ID for Flow Message](https://developers.klaviyo.com/en/v2024-10-15/reference/get_template_id_for_flow_message)
+
+```php
+## Positional Arguments
+
+# $id | string
+
+$klaviyo->Flows->getTemplateIdForFlowMessage($id);
+```
+##### Method alias:
+```php
+$klaviyo->Flows->getFlowMessageRelationshipsTemplate($id);
+```
+
+
+
+
+#### [Update Flow Status](https://developers.klaviyo.com/en/v2024-10-15/reference/update_flow)
 
 ```php
 ## Positional Arguments
@@ -2375,7 +2599,7 @@ $klaviyo->Flows->updateFlow($id, $body);
 
 ## Forms
 
-#### [Get Form](https://developers.klaviyo.com/en/v2024-07-15/reference/get_form)
+#### [Get Form](https://developers.klaviyo.com/en/v2024-10-15/reference/get_form)
 
 ```php
 ## Positional Arguments
@@ -2394,7 +2618,7 @@ $klaviyo->Forms->getForm($id, $fields_form_version=$fields_form_version, $fields
 
 
 
-#### [Get Form for Form Version](https://developers.klaviyo.com/en/v2024-07-15/reference/get_form_for_form_version)
+#### [Get Form for Form Version](https://developers.klaviyo.com/en/v2024-10-15/reference/get_form_for_form_version)
 
 ```php
 ## Positional Arguments
@@ -2415,7 +2639,7 @@ $klaviyo->Forms->getFormVersionForm($id, $fields_form=$fields_form);
 
 
 
-#### [Get Form ID for Form Version](https://developers.klaviyo.com/en/v2024-07-15/reference/get_form_id_for_form_version)
+#### [Get Form ID for Form Version](https://developers.klaviyo.com/en/v2024-10-15/reference/get_form_id_for_form_version)
 
 ```php
 ## Positional Arguments
@@ -2432,7 +2656,7 @@ $klaviyo->Forms->getFormVersionRelationshipsForm($id);
 
 
 
-#### [Get Form Version](https://developers.klaviyo.com/en/v2024-07-15/reference/get_form_version)
+#### [Get Form Version](https://developers.klaviyo.com/en/v2024-10-15/reference/get_form_version)
 
 ```php
 ## Positional Arguments
@@ -2449,7 +2673,7 @@ $klaviyo->Forms->getFormVersion($id, $fields_form_version=$fields_form_version);
 
 
 
-#### [Get Forms](https://developers.klaviyo.com/en/v2024-07-15/reference/get_forms)
+#### [Get Forms](https://developers.klaviyo.com/en/v2024-10-15/reference/get_forms)
 
 ```php
 
@@ -2467,7 +2691,7 @@ $klaviyo->Forms->getForms($fields_form=$fields_form, $filter=$filter, $page_curs
 
 
 
-#### [Get Version IDs for Form](https://developers.klaviyo.com/en/v2024-07-15/reference/get_version_ids_for_form)
+#### [Get Version IDs for Form](https://developers.klaviyo.com/en/v2024-10-15/reference/get_version_ids_for_form)
 
 ```php
 ## Positional Arguments
@@ -2484,7 +2708,7 @@ $klaviyo->Forms->getFormRelationshipsFormVersions($id);
 
 
 
-#### [Get Versions for Form](https://developers.klaviyo.com/en/v2024-07-15/reference/get_versions_for_form)
+#### [Get Versions for Form](https://developers.klaviyo.com/en/v2024-10-15/reference/get_versions_for_form)
 
 ```php
 ## Positional Arguments
@@ -2513,7 +2737,7 @@ $klaviyo->Forms->getFormFormVersions($id, $fields_form_version=$fields_form_vers
 
 ## Images
 
-#### [Get Image](https://developers.klaviyo.com/en/v2024-07-15/reference/get_image)
+#### [Get Image](https://developers.klaviyo.com/en/v2024-10-15/reference/get_image)
 
 ```php
 ## Positional Arguments
@@ -2530,7 +2754,7 @@ $klaviyo->Images->getImage($id, $fields_image=$fields_image);
 
 
 
-#### [Get Images](https://developers.klaviyo.com/en/v2024-07-15/reference/get_images)
+#### [Get Images](https://developers.klaviyo.com/en/v2024-10-15/reference/get_images)
 
 ```php
 
@@ -2548,7 +2772,7 @@ $klaviyo->Images->getImages($fields_image=$fields_image, $filter=$filter, $page_
 
 
 
-#### [Update Image](https://developers.klaviyo.com/en/v2024-07-15/reference/update_image)
+#### [Update Image](https://developers.klaviyo.com/en/v2024-10-15/reference/update_image)
 
 ```php
 ## Positional Arguments
@@ -2562,7 +2786,7 @@ $klaviyo->Images->updateImage($id, $body);
 
 
 
-#### [Upload Image From File](https://developers.klaviyo.com/en/v2024-07-15/reference/upload_image_from_file)
+#### [Upload Image From File](https://developers.klaviyo.com/en/v2024-10-15/reference/upload_image_from_file)
 
 ```php
 ## Positional Arguments
@@ -2584,7 +2808,7 @@ $klaviyo->Images->createImageUpload($file, $name=$name, $hidden=$hidden);
 
 
 
-#### [Upload Image From URL](https://developers.klaviyo.com/en/v2024-07-15/reference/upload_image_from_url)
+#### [Upload Image From URL](https://developers.klaviyo.com/en/v2024-10-15/reference/upload_image_from_url)
 
 ```php
 ## Positional Arguments
@@ -2605,7 +2829,7 @@ $klaviyo->Images->createImage($body);
 
 ## Lists
 
-#### [Create List](https://developers.klaviyo.com/en/v2024-07-15/reference/create_list)
+#### [Create List](https://developers.klaviyo.com/en/v2024-10-15/reference/create_list)
 
 ```php
 ## Positional Arguments
@@ -2618,7 +2842,7 @@ $klaviyo->Lists->createList($body);
 
 
 
-#### [Add Profile To List](https://developers.klaviyo.com/en/v2024-07-15/reference/create_list_relationships)
+#### [Add Profile To List](https://developers.klaviyo.com/en/v2024-10-15/reference/create_list_relationships)
 
 ```php
 ## Positional Arguments
@@ -2636,7 +2860,7 @@ $klaviyo->Lists->createListRelationshipsProfile($id, $body);
 
 
 
-#### [Delete List](https://developers.klaviyo.com/en/v2024-07-15/reference/delete_list)
+#### [Delete List](https://developers.klaviyo.com/en/v2024-10-15/reference/delete_list)
 
 ```php
 ## Positional Arguments
@@ -2649,7 +2873,7 @@ $klaviyo->Lists->deleteList($id);
 
 
 
-#### [Remove Profile From List](https://developers.klaviyo.com/en/v2024-07-15/reference/delete_list_relationships)
+#### [Remove Profile From List](https://developers.klaviyo.com/en/v2024-10-15/reference/delete_list_relationships)
 
 ```php
 ## Positional Arguments
@@ -2667,7 +2891,7 @@ $klaviyo->Lists->deleteListRelationshipsProfiles($id, $body);
 
 
 
-#### [Get List](https://developers.klaviyo.com/en/v2024-07-15/reference/get_list)
+#### [Get List](https://developers.klaviyo.com/en/v2024-10-15/reference/get_list)
 
 ```php
 ## Positional Arguments
@@ -2677,17 +2901,35 @@ $klaviyo->Lists->deleteListRelationshipsProfiles($id, $body);
 ## Keyword Arguments
 
 # $additional_fields_list | string[]
+# $fields_flow | string[]
 # $fields_list | string[]
 # $fields_tag | string[]
 # $include | string[]
 
-$klaviyo->Lists->getList($id, $additional_fields_list=$additional_fields_list, $fields_list=$fields_list, $fields_tag=$fields_tag, $include=$include);
+$klaviyo->Lists->getList($id, $additional_fields_list=$additional_fields_list, $fields_flow=$fields_flow, $fields_list=$fields_list, $fields_tag=$fields_tag, $include=$include);
 ```
 
 
 
 
-#### [Get List Profiles](https://developers.klaviyo.com/en/v2024-07-15/reference/get_list_profiles)
+#### [Get List Flow Triggers](https://developers.klaviyo.com/en/v2024-10-15/reference/get_list_flow_triggers)
+
+```php
+## Positional Arguments
+
+# $id | string
+
+## Keyword Arguments
+
+# $fields_flow | string[]
+
+$klaviyo->Lists->getListFlowTriggers($id, $fields_flow=$fields_flow);
+```
+
+
+
+
+#### [Get List Profiles](https://developers.klaviyo.com/en/v2024-10-15/reference/get_list_profiles)
 
 ```php
 ## Positional Arguments
@@ -2709,40 +2951,20 @@ $klaviyo->Lists->getListProfiles($id, $additional_fields_profile=$additional_fie
 
 
 
-#### [Get List Relationships Profiles](https://developers.klaviyo.com/en/v2024-07-15/reference/get_list_relationships_profiles)
+#### [Get List Relationships Flow Triggers](https://developers.klaviyo.com/en/v2024-10-15/reference/get_list_relationships_flow_triggers)
 
 ```php
 ## Positional Arguments
 
 # $id | string
 
-## Keyword Arguments
-
-# $filter | string
-# $page_cursor | string
-# $page_size | int
-# $sort | string
-
-$klaviyo->Lists->getListRelationshipsProfiles($id, $filter=$filter, $page_cursor=$page_cursor, $page_size=$page_size, $sort=$sort);
+$klaviyo->Lists->getListRelationshipsFlowTriggers($id);
 ```
 
 
 
 
-#### [Get List Relationships Tags](https://developers.klaviyo.com/en/v2024-07-15/reference/get_list_relationships_tags)
-
-```php
-## Positional Arguments
-
-# $id | string
-
-$klaviyo->Lists->getListRelationshipsTags($id);
-```
-
-
-
-
-#### [Get List Tags](https://developers.klaviyo.com/en/v2024-07-15/reference/get_list_tags)
+#### [Get List Tags](https://developers.klaviyo.com/en/v2024-10-15/reference/get_list_tags)
 
 ```php
 ## Positional Arguments
@@ -2759,12 +2981,13 @@ $klaviyo->Lists->getListTags($id, $fields_tag=$fields_tag);
 
 
 
-#### [Get Lists](https://developers.klaviyo.com/en/v2024-07-15/reference/get_lists)
+#### [Get Lists](https://developers.klaviyo.com/en/v2024-10-15/reference/get_lists)
 
 ```php
 
 ## Keyword Arguments
 
+# $fields_flow | string[]
 # $fields_list | string[]
 # $fields_tag | string[]
 # $filter | string
@@ -2772,13 +2995,54 @@ $klaviyo->Lists->getListTags($id, $fields_tag=$fields_tag);
 # $page_cursor | string
 # $sort | string
 
-$klaviyo->Lists->getLists($fields_list=$fields_list, $fields_tag=$fields_tag, $filter=$filter, $include=$include, $page_cursor=$page_cursor, $sort=$sort);
+$klaviyo->Lists->getLists($fields_flow=$fields_flow, $fields_list=$fields_list, $fields_tag=$fields_tag, $filter=$filter, $include=$include, $page_cursor=$page_cursor, $sort=$sort);
 ```
 
 
 
 
-#### [Update List](https://developers.klaviyo.com/en/v2024-07-15/reference/update_list)
+#### [Get Profile IDs for List](https://developers.klaviyo.com/en/v2024-10-15/reference/get_profile_ids_for_list)
+
+```php
+## Positional Arguments
+
+# $id | string
+
+## Keyword Arguments
+
+# $filter | string
+# $page_cursor | string
+# $page_size | int
+# $sort | string
+
+$klaviyo->Lists->getProfileIdsForList($id, $filter=$filter, $page_cursor=$page_cursor, $page_size=$page_size, $sort=$sort);
+```
+##### Method alias:
+```php
+$klaviyo->Lists->getListRelationshipsProfiles($id, $filter=$filter, $page_cursor=$page_cursor, $page_size=$page_size, $sort=$sort);
+```
+
+
+
+
+#### [Get Tag IDs for List](https://developers.klaviyo.com/en/v2024-10-15/reference/get_tag_ids_for_list)
+
+```php
+## Positional Arguments
+
+# $id | string
+
+$klaviyo->Lists->getTagIdsForList($id);
+```
+##### Method alias:
+```php
+$klaviyo->Lists->getListRelationshipsTags($id);
+```
+
+
+
+
+#### [Update List](https://developers.klaviyo.com/en/v2024-10-15/reference/update_list)
 
 ```php
 ## Positional Arguments
@@ -2796,7 +3060,43 @@ $klaviyo->Lists->updateList($id, $body);
 
 ## Metrics
 
-#### [Get Metric](https://developers.klaviyo.com/en/v2024-07-15/reference/get_metric)
+#### [Get Metric](https://developers.klaviyo.com/en/v2024-10-15/reference/get_metric)
+
+```php
+## Positional Arguments
+
+# $id | string
+
+## Keyword Arguments
+
+# $fields_flow | string[]
+# $fields_metric | string[]
+# $include | string[]
+
+$klaviyo->Metrics->getMetric($id, $fields_flow=$fields_flow, $fields_metric=$fields_metric, $include=$include);
+```
+
+
+
+
+#### [Get Metric Flow Triggers](https://developers.klaviyo.com/en/v2024-10-15/reference/get_metric_flow_triggers)
+
+```php
+## Positional Arguments
+
+# $id | string
+
+## Keyword Arguments
+
+# $fields_flow | string[]
+
+$klaviyo->Metrics->getMetricFlowTriggers($id, $fields_flow=$fields_flow);
+```
+
+
+
+
+#### [Get Metric for Metric Property](https://developers.klaviyo.com/en/v2024-10-15/reference/get_metric_for_metric_property)
 
 ```php
 ## Positional Arguments
@@ -2807,29 +3107,124 @@ $klaviyo->Lists->updateList($id, $body);
 
 # $fields_metric | string[]
 
-$klaviyo->Metrics->getMetric($id, $fields_metric=$fields_metric);
+$klaviyo->Metrics->getMetricForMetricProperty($id, $fields_metric=$fields_metric);
+```
+##### Method alias:
+```php
+$klaviyo->Metrics->getMetricPropertyMetric($id, $fields_metric=$fields_metric);
 ```
 
 
 
 
-#### [Get Metrics](https://developers.klaviyo.com/en/v2024-07-15/reference/get_metrics)
+#### [Get Metric ID for Metric Property](https://developers.klaviyo.com/en/v2024-10-15/reference/get_metric_id_for_metric_property)
+
+```php
+## Positional Arguments
+
+# $id | string
+
+$klaviyo->Metrics->getMetricIdForMetricProperty($id);
+```
+##### Method alias:
+```php
+$klaviyo->Metrics->getMetricPropertyRelationshipsMetric($id);
+```
+
+
+
+
+#### [Get Metric Property](https://developers.klaviyo.com/en/v2024-10-15/reference/get_metric_property)
+
+```php
+## Positional Arguments
+
+# $id | string
+
+## Keyword Arguments
+
+# $additional_fields_metric_property | string[]
+# $fields_metric_property | string[]
+# $fields_metric | string[]
+# $include | string[]
+
+$klaviyo->Metrics->getMetricProperty($id, $additional_fields_metric_property=$additional_fields_metric_property, $fields_metric_property=$fields_metric_property, $fields_metric=$fields_metric, $include=$include);
+```
+
+
+
+
+#### [Get Metric Relationships Flow Triggers](https://developers.klaviyo.com/en/v2024-10-15/reference/get_metric_relationships_flow_triggers)
+
+```php
+## Positional Arguments
+
+# $id | string
+
+$klaviyo->Metrics->getMetricRelationshipsFlowTriggers($id);
+```
+
+
+
+
+#### [Get Metrics](https://developers.klaviyo.com/en/v2024-10-15/reference/get_metrics)
 
 ```php
 
 ## Keyword Arguments
 
+# $fields_flow | string[]
 # $fields_metric | string[]
 # $filter | string
+# $include | string[]
 # $page_cursor | string
 
-$klaviyo->Metrics->getMetrics($fields_metric=$fields_metric, $filter=$filter, $page_cursor=$page_cursor);
+$klaviyo->Metrics->getMetrics($fields_flow=$fields_flow, $fields_metric=$fields_metric, $filter=$filter, $include=$include, $page_cursor=$page_cursor);
 ```
 
 
 
 
-#### [Query Metric Aggregates](https://developers.klaviyo.com/en/v2024-07-15/reference/query_metric_aggregates)
+#### [Get Properties for Metric](https://developers.klaviyo.com/en/v2024-10-15/reference/get_properties_for_metric)
+
+```php
+## Positional Arguments
+
+# $id | string
+
+## Keyword Arguments
+
+# $additional_fields_metric_property | string[]
+# $fields_metric_property | string[]
+
+$klaviyo->Metrics->getPropertiesForMetric($id, $additional_fields_metric_property=$additional_fields_metric_property, $fields_metric_property=$fields_metric_property);
+```
+##### Method alias:
+```php
+$klaviyo->Metrics->getMetricMetricProperties($id, $additional_fields_metric_property=$additional_fields_metric_property, $fields_metric_property=$fields_metric_property);
+```
+
+
+
+
+#### [Get Property IDs for Metric](https://developers.klaviyo.com/en/v2024-10-15/reference/get_property_ids_for_metric)
+
+```php
+## Positional Arguments
+
+# $id | string
+
+$klaviyo->Metrics->getPropertyIdsForMetric($id);
+```
+##### Method alias:
+```php
+$klaviyo->Metrics->getMetricRelationshipsMetricProperties($id);
+```
+
+
+
+
+#### [Query Metric Aggregates](https://developers.klaviyo.com/en/v2024-10-15/reference/query_metric_aggregates)
 
 ```php
 ## Positional Arguments
@@ -2850,7 +3245,91 @@ $klaviyo->Metrics->createMetricAggregate($body);
 
 ## Profiles
 
-#### [Create or Update Profile](https://developers.klaviyo.com/en/v2024-07-15/reference/create_or_update_profile)
+#### [Bulk Subscribe Profiles](https://developers.klaviyo.com/en/v2024-10-15/reference/bulk_subscribe_profiles)
+
+```php
+## Positional Arguments
+
+# $body | associative array
+
+$klaviyo->Profiles->bulkSubscribeProfiles($body);
+```
+##### Method alias:
+```php
+$klaviyo->Profiles->subscribeProfiles($body);
+```
+##### Method alias:
+```php
+$klaviyo->Profiles->createProfileSubscriptionBulkCreateJob($body);
+```
+
+
+
+
+#### [Bulk Suppress Profiles](https://developers.klaviyo.com/en/v2024-10-15/reference/bulk_suppress_profiles)
+
+```php
+## Positional Arguments
+
+# $body | associative array
+
+$klaviyo->Profiles->bulkSuppressProfiles($body);
+```
+##### Method alias:
+```php
+$klaviyo->Profiles->suppressProfiles($body);
+```
+##### Method alias:
+```php
+$klaviyo->Profiles->createProfileSuppressionBulkCreateJob($body);
+```
+
+
+
+
+#### [Bulk Unsubscribe Profiles](https://developers.klaviyo.com/en/v2024-10-15/reference/bulk_unsubscribe_profiles)
+
+```php
+## Positional Arguments
+
+# $body | associative array
+
+$klaviyo->Profiles->bulkUnsubscribeProfiles($body);
+```
+##### Method alias:
+```php
+$klaviyo->Profiles->unsubscribeProfiles($body);
+```
+##### Method alias:
+```php
+$klaviyo->Profiles->createProfileSubscriptionBulkDeleteJob($body);
+```
+
+
+
+
+#### [Bulk Unsuppress Profiles](https://developers.klaviyo.com/en/v2024-10-15/reference/bulk_unsuppress_profiles)
+
+```php
+## Positional Arguments
+
+# $body | associative array
+
+$klaviyo->Profiles->bulkUnsuppressProfiles($body);
+```
+##### Method alias:
+```php
+$klaviyo->Profiles->unsuppressProfiles($body);
+```
+##### Method alias:
+```php
+$klaviyo->Profiles->createProfileSuppressionBulkDeleteJob($body);
+```
+
+
+
+
+#### [Create or Update Profile](https://developers.klaviyo.com/en/v2024-10-15/reference/create_or_update_profile)
 
 ```php
 ## Positional Arguments
@@ -2867,7 +3346,7 @@ $klaviyo->Profiles->createProfileImport($body);
 
 
 
-#### [Create Profile](https://developers.klaviyo.com/en/v2024-07-15/reference/create_profile)
+#### [Create Profile](https://developers.klaviyo.com/en/v2024-10-15/reference/create_profile)
 
 ```php
 ## Positional Arguments
@@ -2880,7 +3359,7 @@ $klaviyo->Profiles->createProfile($body);
 
 
 
-#### [Create or Update Push Token](https://developers.klaviyo.com/en/v2024-07-15/reference/create_push_token)
+#### [Create or Update Push Token](https://developers.klaviyo.com/en/v2024-10-15/reference/create_push_token)
 
 ```php
 ## Positional Arguments
@@ -2893,7 +3372,7 @@ $klaviyo->Profiles->createPushToken($body);
 
 
 
-#### [Get Bulk Profile Import Job](https://developers.klaviyo.com/en/v2024-07-15/reference/get_bulk_profile_import_job)
+#### [Get Bulk Import Profiles Job](https://developers.klaviyo.com/en/v2024-10-15/reference/get_bulk_import_profiles_job)
 
 ```php
 ## Positional Arguments
@@ -2906,6 +3385,10 @@ $klaviyo->Profiles->createPushToken($body);
 # $fields_profile_bulk_import_job | string[]
 # $include | string[]
 
+$klaviyo->Profiles->getBulkImportProfilesJob($job_id, $fields_list=$fields_list, $fields_profile_bulk_import_job=$fields_profile_bulk_import_job, $include=$include);
+```
+##### Method alias:
+```php
 $klaviyo->Profiles->getBulkProfileImportJob($job_id, $fields_list=$fields_list, $fields_profile_bulk_import_job=$fields_profile_bulk_import_job, $include=$include);
 ```
 ##### Method alias:
@@ -2916,7 +3399,117 @@ $klaviyo->Profiles->getProfileBulkImportJob($job_id, $fields_list=$fields_list, 
 
 
 
-#### [Get Bulk Profile Import Job Errors](https://developers.klaviyo.com/en/v2024-07-15/reference/get_bulk_profile_import_job_import_errors)
+#### [Get Bulk Import Profiles Jobs](https://developers.klaviyo.com/en/v2024-10-15/reference/get_bulk_import_profiles_jobs)
+
+```php
+
+## Keyword Arguments
+
+# $fields_profile_bulk_import_job | string[]
+# $filter | string
+# $page_cursor | string
+# $page_size | int
+# $sort | string
+
+$klaviyo->Profiles->getBulkImportProfilesJobs($fields_profile_bulk_import_job=$fields_profile_bulk_import_job, $filter=$filter, $page_cursor=$page_cursor, $page_size=$page_size, $sort=$sort);
+```
+##### Method alias:
+```php
+$klaviyo->Profiles->getBulkProfileImportJobs($fields_profile_bulk_import_job=$fields_profile_bulk_import_job, $filter=$filter, $page_cursor=$page_cursor, $page_size=$page_size, $sort=$sort);
+```
+##### Method alias:
+```php
+$klaviyo->Profiles->getProfileBulkImportJobs($fields_profile_bulk_import_job=$fields_profile_bulk_import_job, $filter=$filter, $page_cursor=$page_cursor, $page_size=$page_size, $sort=$sort);
+```
+
+
+
+
+#### [Get Bulk Suppress Profiles Job](https://developers.klaviyo.com/en/v2024-10-15/reference/get_bulk_suppress_profiles_job)
+
+```php
+## Positional Arguments
+
+# $job_id | string
+
+## Keyword Arguments
+
+# $fields_profile_suppression_bulk_create_job | string[]
+
+$klaviyo->Profiles->getBulkSuppressProfilesJob($job_id, $fields_profile_suppression_bulk_create_job=$fields_profile_suppression_bulk_create_job);
+```
+##### Method alias:
+```php
+$klaviyo->Profiles->getProfileSuppressionBulkCreateJob($job_id, $fields_profile_suppression_bulk_create_job=$fields_profile_suppression_bulk_create_job);
+```
+
+
+
+
+#### [Get Bulk Suppress Profiles Jobs](https://developers.klaviyo.com/en/v2024-10-15/reference/get_bulk_suppress_profiles_jobs)
+
+```php
+
+## Keyword Arguments
+
+# $fields_profile_suppression_bulk_create_job | string[]
+# $filter | string
+# $page_cursor | string
+# $sort | string
+
+$klaviyo->Profiles->getBulkSuppressProfilesJobs($fields_profile_suppression_bulk_create_job=$fields_profile_suppression_bulk_create_job, $filter=$filter, $page_cursor=$page_cursor, $sort=$sort);
+```
+##### Method alias:
+```php
+$klaviyo->Profiles->getProfileSuppressionBulkCreateJobs($fields_profile_suppression_bulk_create_job=$fields_profile_suppression_bulk_create_job, $filter=$filter, $page_cursor=$page_cursor, $sort=$sort);
+```
+
+
+
+
+#### [Get Bulk Unsuppress Profiles Job](https://developers.klaviyo.com/en/v2024-10-15/reference/get_bulk_unsuppress_profiles_job)
+
+```php
+## Positional Arguments
+
+# $job_id | string
+
+## Keyword Arguments
+
+# $fields_profile_suppression_bulk_delete_job | string[]
+
+$klaviyo->Profiles->getBulkUnsuppressProfilesJob($job_id, $fields_profile_suppression_bulk_delete_job=$fields_profile_suppression_bulk_delete_job);
+```
+##### Method alias:
+```php
+$klaviyo->Profiles->getProfileSuppressionBulkDeleteJob($job_id, $fields_profile_suppression_bulk_delete_job=$fields_profile_suppression_bulk_delete_job);
+```
+
+
+
+
+#### [Get Bulk Unsuppress Profiles Jobs](https://developers.klaviyo.com/en/v2024-10-15/reference/get_bulk_unsuppress_profiles_jobs)
+
+```php
+
+## Keyword Arguments
+
+# $fields_profile_suppression_bulk_delete_job | string[]
+# $filter | string
+# $page_cursor | string
+# $sort | string
+
+$klaviyo->Profiles->getBulkUnsuppressProfilesJobs($fields_profile_suppression_bulk_delete_job=$fields_profile_suppression_bulk_delete_job, $filter=$filter, $page_cursor=$page_cursor, $sort=$sort);
+```
+##### Method alias:
+```php
+$klaviyo->Profiles->getProfileSuppressionBulkDeleteJobs($fields_profile_suppression_bulk_delete_job=$fields_profile_suppression_bulk_delete_job, $filter=$filter, $page_cursor=$page_cursor, $sort=$sort);
+```
+
+
+
+
+#### [Get Errors for Bulk Import Profiles Job](https://developers.klaviyo.com/en/v2024-10-15/reference/get_errors_for_bulk_import_profiles_job)
 
 ```php
 ## Positional Arguments
@@ -2929,6 +3522,10 @@ $klaviyo->Profiles->getProfileBulkImportJob($job_id, $fields_list=$fields_list, 
 # $page_cursor | string
 # $page_size | int
 
+$klaviyo->Profiles->getErrorsForBulkImportProfilesJob($id, $fields_import_error=$fields_import_error, $page_cursor=$page_cursor, $page_size=$page_size);
+```
+##### Method alias:
+```php
 $klaviyo->Profiles->getBulkProfileImportJobImportErrors($id, $fields_import_error=$fields_import_error, $page_cursor=$page_cursor, $page_size=$page_size);
 ```
 ##### Method alias:
@@ -2939,7 +3536,7 @@ $klaviyo->Profiles->getProfileBulkImportJobImportErrors($id, $fields_import_erro
 
 
 
-#### [Get Bulk Profile Import Job Lists](https://developers.klaviyo.com/en/v2024-07-15/reference/get_bulk_profile_import_job_lists)
+#### [Get List for Bulk Import Profiles Job](https://developers.klaviyo.com/en/v2024-10-15/reference/get_list_for_bulk_import_profiles_job)
 
 ```php
 ## Positional Arguments
@@ -2950,6 +3547,10 @@ $klaviyo->Profiles->getProfileBulkImportJobImportErrors($id, $fields_import_erro
 
 # $fields_list | string[]
 
+$klaviyo->Profiles->getListForBulkImportProfilesJob($id, $fields_list=$fields_list);
+```
+##### Method alias:
+```php
 $klaviyo->Profiles->getBulkProfileImportJobLists($id, $fields_list=$fields_list);
 ```
 ##### Method alias:
@@ -2960,37 +3561,17 @@ $klaviyo->Profiles->getProfileBulkImportJobLists($id, $fields_list=$fields_list)
 
 
 
-#### [Get Bulk Profile Import Job Profiles](https://developers.klaviyo.com/en/v2024-07-15/reference/get_bulk_profile_import_job_profiles)
+#### [Get List IDs for Bulk Import Profiles Job](https://developers.klaviyo.com/en/v2024-10-15/reference/get_list_ids_for_bulk_import_profiles_job)
 
 ```php
 ## Positional Arguments
 
 # $id | string
 
-## Keyword Arguments
-
-# $additional_fields_profile | string[]
-# $fields_profile | string[]
-# $page_cursor | string
-# $page_size | int
-
-$klaviyo->Profiles->getBulkProfileImportJobProfiles($id, $additional_fields_profile=$additional_fields_profile, $fields_profile=$fields_profile, $page_cursor=$page_cursor, $page_size=$page_size);
+$klaviyo->Profiles->getListIdsForBulkImportProfilesJob($id);
 ```
 ##### Method alias:
 ```php
-$klaviyo->Profiles->getProfileBulkImportJobProfiles($id, $additional_fields_profile=$additional_fields_profile, $fields_profile=$fields_profile, $page_cursor=$page_cursor, $page_size=$page_size);
-```
-
-
-
-
-#### [Get Bulk Profile Import Job Relationships Lists](https://developers.klaviyo.com/en/v2024-07-15/reference/get_bulk_profile_import_job_relationships_lists)
-
-```php
-## Positional Arguments
-
-# $id | string
-
 $klaviyo->Profiles->getBulkProfileImportJobRelationshipsLists($id);
 ```
 ##### Method alias:
@@ -3001,7 +3582,24 @@ $klaviyo->Profiles->getProfileBulkImportJobRelationshipsLists($id);
 
 
 
-#### [Get Bulk Profile Import Job Relationships Profiles](https://developers.klaviyo.com/en/v2024-07-15/reference/get_bulk_profile_import_job_relationships_profiles)
+#### [Get List IDs for Profile](https://developers.klaviyo.com/en/v2024-10-15/reference/get_list_ids_for_profile)
+
+```php
+## Positional Arguments
+
+# $id | string
+
+$klaviyo->Profiles->getListIdsForProfile($id);
+```
+##### Method alias:
+```php
+$klaviyo->Profiles->getProfileRelationshipsLists($id);
+```
+
+
+
+
+#### [Get Lists for Profile](https://developers.klaviyo.com/en/v2024-10-15/reference/get_lists_for_profile)
 
 ```php
 ## Positional Arguments
@@ -3010,42 +3608,19 @@ $klaviyo->Profiles->getProfileBulkImportJobRelationshipsLists($id);
 
 ## Keyword Arguments
 
-# $page_cursor | string
-# $page_size | int
+# $fields_list | string[]
 
-$klaviyo->Profiles->getBulkProfileImportJobRelationshipsProfiles($id, $page_cursor=$page_cursor, $page_size=$page_size);
+$klaviyo->Profiles->getListsForProfile($id, $fields_list=$fields_list);
 ```
 ##### Method alias:
 ```php
-$klaviyo->Profiles->getProfileBulkImportJobRelationshipsProfiles($id, $page_cursor=$page_cursor, $page_size=$page_size);
+$klaviyo->Profiles->getProfileLists($id, $fields_list=$fields_list);
 ```
 
 
 
 
-#### [Get Bulk Profile Import Jobs](https://developers.klaviyo.com/en/v2024-07-15/reference/get_bulk_profile_import_jobs)
-
-```php
-
-## Keyword Arguments
-
-# $fields_profile_bulk_import_job | string[]
-# $filter | string
-# $page_cursor | string
-# $page_size | int
-# $sort | string
-
-$klaviyo->Profiles->getBulkProfileImportJobs($fields_profile_bulk_import_job=$fields_profile_bulk_import_job, $filter=$filter, $page_cursor=$page_cursor, $page_size=$page_size, $sort=$sort);
-```
-##### Method alias:
-```php
-$klaviyo->Profiles->getProfileBulkImportJobs($fields_profile_bulk_import_job=$fields_profile_bulk_import_job, $filter=$filter, $page_cursor=$page_cursor, $page_size=$page_size, $sort=$sort);
-```
-
-
-
-
-#### [Get Profile](https://developers.klaviyo.com/en/v2024-07-15/reference/get_profile)
+#### [Get Profile](https://developers.klaviyo.com/en/v2024-10-15/reference/get_profile)
 
 ```php
 ## Positional Arguments
@@ -3066,7 +3641,7 @@ $klaviyo->Profiles->getProfile($id, $additional_fields_profile=$additional_field
 
 
 
-#### [Get Profile Lists](https://developers.klaviyo.com/en/v2024-07-15/reference/get_profile_lists)
+#### [Get Profile IDs for Bulk Import Profiles Job](https://developers.klaviyo.com/en/v2024-10-15/reference/get_profile_ids_for_bulk_import_profiles_job)
 
 ```php
 ## Positional Arguments
@@ -3075,58 +3650,24 @@ $klaviyo->Profiles->getProfile($id, $additional_fields_profile=$additional_field
 
 ## Keyword Arguments
 
-# $fields_list | string[]
+# $page_cursor | string
+# $page_size | int
 
-$klaviyo->Profiles->getProfileLists($id, $fields_list=$fields_list);
+$klaviyo->Profiles->getProfileIdsForBulkImportProfilesJob($id, $page_cursor=$page_cursor, $page_size=$page_size);
 ```
-
-
-
-
-#### [Get Profile Relationships Lists](https://developers.klaviyo.com/en/v2024-07-15/reference/get_profile_relationships_lists)
-
+##### Method alias:
 ```php
-## Positional Arguments
-
-# $id | string
-
-$klaviyo->Profiles->getProfileRelationshipsLists($id);
+$klaviyo->Profiles->getBulkProfileImportJobRelationshipsProfiles($id, $page_cursor=$page_cursor, $page_size=$page_size);
 ```
-
-
-
-
-#### [Get Profile Relationships Segments](https://developers.klaviyo.com/en/v2024-07-15/reference/get_profile_relationships_segments)
-
+##### Method alias:
 ```php
-## Positional Arguments
-
-# $id | string
-
-$klaviyo->Profiles->getProfileRelationshipsSegments($id);
+$klaviyo->Profiles->getProfileBulkImportJobRelationshipsProfiles($id, $page_cursor=$page_cursor, $page_size=$page_size);
 ```
 
 
 
 
-#### [Get Profile Segments](https://developers.klaviyo.com/en/v2024-07-15/reference/get_profile_segments)
-
-```php
-## Positional Arguments
-
-# $id | string
-
-## Keyword Arguments
-
-# $fields_segment | string[]
-
-$klaviyo->Profiles->getProfileSegments($id, $fields_segment=$fields_segment);
-```
-
-
-
-
-#### [Get Profiles](https://developers.klaviyo.com/en/v2024-07-15/reference/get_profiles)
+#### [Get Profiles](https://developers.klaviyo.com/en/v2024-10-15/reference/get_profiles)
 
 ```php
 
@@ -3145,7 +3686,73 @@ $klaviyo->Profiles->getProfiles($additional_fields_profile=$additional_fields_pr
 
 
 
-#### [Merge Profiles](https://developers.klaviyo.com/en/v2024-07-15/reference/merge_profiles)
+#### [Get Profiles for Bulk Import Profiles Job](https://developers.klaviyo.com/en/v2024-10-15/reference/get_profiles_for_bulk_import_profiles_job)
+
+```php
+## Positional Arguments
+
+# $id | string
+
+## Keyword Arguments
+
+# $additional_fields_profile | string[]
+# $fields_profile | string[]
+# $page_cursor | string
+# $page_size | int
+
+$klaviyo->Profiles->getProfilesForBulkImportProfilesJob($id, $additional_fields_profile=$additional_fields_profile, $fields_profile=$fields_profile, $page_cursor=$page_cursor, $page_size=$page_size);
+```
+##### Method alias:
+```php
+$klaviyo->Profiles->getBulkProfileImportJobProfiles($id, $additional_fields_profile=$additional_fields_profile, $fields_profile=$fields_profile, $page_cursor=$page_cursor, $page_size=$page_size);
+```
+##### Method alias:
+```php
+$klaviyo->Profiles->getProfileBulkImportJobProfiles($id, $additional_fields_profile=$additional_fields_profile, $fields_profile=$fields_profile, $page_cursor=$page_cursor, $page_size=$page_size);
+```
+
+
+
+
+#### [Get Segment IDs for Profile](https://developers.klaviyo.com/en/v2024-10-15/reference/get_segment_ids_for_profile)
+
+```php
+## Positional Arguments
+
+# $id | string
+
+$klaviyo->Profiles->getSegmentIdsForProfile($id);
+```
+##### Method alias:
+```php
+$klaviyo->Profiles->getProfileRelationshipsSegments($id);
+```
+
+
+
+
+#### [Get Segments for Profile](https://developers.klaviyo.com/en/v2024-10-15/reference/get_segments_for_profile)
+
+```php
+## Positional Arguments
+
+# $id | string
+
+## Keyword Arguments
+
+# $fields_segment | string[]
+
+$klaviyo->Profiles->getSegmentsForProfile($id, $fields_segment=$fields_segment);
+```
+##### Method alias:
+```php
+$klaviyo->Profiles->getProfileSegments($id, $fields_segment=$fields_segment);
+```
+
+
+
+
+#### [Merge Profiles](https://developers.klaviyo.com/en/v2024-10-15/reference/merge_profiles)
 
 ```php
 ## Positional Arguments
@@ -3162,7 +3769,7 @@ $klaviyo->Profiles->createProfileMerge($body);
 
 
 
-#### [Spawn Bulk Profile Import Job](https://developers.klaviyo.com/en/v2024-07-15/reference/spawn_bulk_profile_import_job)
+#### [Spawn Bulk Profile Import Job](https://developers.klaviyo.com/en/v2024-10-15/reference/spawn_bulk_profile_import_job)
 
 ```php
 ## Positional Arguments
@@ -3173,81 +3780,17 @@ $klaviyo->Profiles->spawnBulkProfileImportJob($body);
 ```
 ##### Method alias:
 ```php
+$klaviyo->Profiles->bulkImportProfiles($body);
+```
+##### Method alias:
+```php
 $klaviyo->Profiles->createProfileBulkImportJob($body);
 ```
 
 
 
 
-#### [Subscribe Profiles](https://developers.klaviyo.com/en/v2024-07-15/reference/subscribe_profiles)
-
-```php
-## Positional Arguments
-
-# $body | associative array
-
-$klaviyo->Profiles->subscribeProfiles($body);
-```
-##### Method alias:
-```php
-$klaviyo->Profiles->createProfileSubscriptionBulkCreateJob($body);
-```
-
-
-
-
-#### [Suppress Profiles](https://developers.klaviyo.com/en/v2024-07-15/reference/suppress_profiles)
-
-```php
-## Positional Arguments
-
-# $body | associative array
-
-$klaviyo->Profiles->suppressProfiles($body);
-```
-##### Method alias:
-```php
-$klaviyo->Profiles->createProfileSuppressionBulkCreateJob($body);
-```
-
-
-
-
-#### [Unsubscribe Profiles](https://developers.klaviyo.com/en/v2024-07-15/reference/unsubscribe_profiles)
-
-```php
-## Positional Arguments
-
-# $body | associative array
-
-$klaviyo->Profiles->unsubscribeProfiles($body);
-```
-##### Method alias:
-```php
-$klaviyo->Profiles->createProfileSubscriptionBulkDeleteJob($body);
-```
-
-
-
-
-#### [Unsuppress Profiles](https://developers.klaviyo.com/en/v2024-07-15/reference/unsuppress_profiles)
-
-```php
-## Positional Arguments
-
-# $body | associative array
-
-$klaviyo->Profiles->unsuppressProfiles($body);
-```
-##### Method alias:
-```php
-$klaviyo->Profiles->createProfileSuppressionBulkDeleteJob($body);
-```
-
-
-
-
-#### [Update Profile](https://developers.klaviyo.com/en/v2024-07-15/reference/update_profile)
+#### [Update Profile](https://developers.klaviyo.com/en/v2024-10-15/reference/update_profile)
 
 ```php
 ## Positional Arguments
@@ -3265,7 +3808,7 @@ $klaviyo->Profiles->updateProfile($id, $body);
 
 ## Reporting
 
-#### [Query Campaign Values](https://developers.klaviyo.com/en/v2024-07-15/reference/query_campaign_values)
+#### [Query Campaign Values](https://developers.klaviyo.com/en/v2024-10-15/reference/query_campaign_values)
 
 ```php
 ## Positional Arguments
@@ -3286,7 +3829,7 @@ $klaviyo->Reporting->createCampaignValueReport($body, $page_cursor=$page_cursor)
 
 
 
-#### [Query Flow Series](https://developers.klaviyo.com/en/v2024-07-15/reference/query_flow_series)
+#### [Query Flow Series](https://developers.klaviyo.com/en/v2024-10-15/reference/query_flow_series)
 
 ```php
 ## Positional Arguments
@@ -3307,7 +3850,7 @@ $klaviyo->Reporting->createFlowSeryReport($body, $page_cursor=$page_cursor);
 
 
 
-#### [Query Flow Values](https://developers.klaviyo.com/en/v2024-07-15/reference/query_flow_values)
+#### [Query Flow Values](https://developers.klaviyo.com/en/v2024-10-15/reference/query_flow_values)
 
 ```php
 ## Positional Arguments
@@ -3328,11 +3871,122 @@ $klaviyo->Reporting->createFlowValueReport($body, $page_cursor=$page_cursor);
 
 
 
+#### [Query Form Series](https://developers.klaviyo.com/en/v2024-10-15/reference/query_form_series)
+
+```php
+## Positional Arguments
+
+# $body | associative array
+
+$klaviyo->Reporting->queryFormSeries($body);
+```
+##### Method alias:
+```php
+$klaviyo->Reporting->createFormSeryReport($body);
+```
+
+
+
+
+#### [Query Form Values](https://developers.klaviyo.com/en/v2024-10-15/reference/query_form_values)
+
+```php
+## Positional Arguments
+
+# $body | associative array
+
+$klaviyo->Reporting->queryFormValues($body);
+```
+##### Method alias:
+```php
+$klaviyo->Reporting->createFormValueReport($body);
+```
+
+
+
+
+#### [Query Segment Series](https://developers.klaviyo.com/en/v2024-10-15/reference/query_segment_series)
+
+```php
+## Positional Arguments
+
+# $body | associative array
+
+$klaviyo->Reporting->querySegmentSeries($body);
+```
+##### Method alias:
+```php
+$klaviyo->Reporting->createSegmentSeryReport($body);
+```
+
+
+
+
+#### [Query Segment Values](https://developers.klaviyo.com/en/v2024-10-15/reference/query_segment_values)
+
+```php
+## Positional Arguments
+
+# $body | associative array
+
+$klaviyo->Reporting->querySegmentValues($body);
+```
+##### Method alias:
+```php
+$klaviyo->Reporting->createSegmentValueReport($body);
+```
+
+
+
+
+
+
+## Reviews
+
+#### [Get Review](https://developers.klaviyo.com/en/v2024-10-15/reference/get_review)
+
+```php
+## Positional Arguments
+
+# $id | string
+
+## Keyword Arguments
+
+# $fields_event | string[]
+# $fields_review | string[]
+# $include | string[]
+
+$klaviyo->Reviews->getReview($id, $fields_event=$fields_event, $fields_review=$fields_review, $include=$include);
+```
+
+
+
+
+#### [Get Reviews](https://developers.klaviyo.com/en/v2024-10-15/reference/get_reviews)
+
+```php
+
+## Keyword Arguments
+
+# $fields_event | string[]
+# $fields_review | string[]
+# $filter | string
+# $include | string[]
+# $page_cursor | string
+# $page_size | int
+# $sort | string
+
+$klaviyo->Reviews->getReviews($fields_event=$fields_event, $fields_review=$fields_review, $filter=$filter, $include=$include, $page_cursor=$page_cursor, $page_size=$page_size, $sort=$sort);
+```
+
+
+
+
 
 
 ## Segments
 
-#### [Create Segment](https://developers.klaviyo.com/en/v2024-07-15/reference/create_segment)
+#### [Create Segment](https://developers.klaviyo.com/en/v2024-10-15/reference/create_segment)
 
 ```php
 ## Positional Arguments
@@ -3345,7 +3999,7 @@ $klaviyo->Segments->createSegment($body);
 
 
 
-#### [Delete Segment](https://developers.klaviyo.com/en/v2024-07-15/reference/delete_segment)
+#### [Delete Segment](https://developers.klaviyo.com/en/v2024-10-15/reference/delete_segment)
 
 ```php
 ## Positional Arguments
@@ -3358,7 +4012,7 @@ $klaviyo->Segments->deleteSegment($id);
 
 
 
-#### [Get Segment](https://developers.klaviyo.com/en/v2024-07-15/reference/get_segment)
+#### [Get Profile IDs for Segment](https://developers.klaviyo.com/en/v2024-10-15/reference/get_profile_ids_for_segment)
 
 ```php
 ## Positional Arguments
@@ -3367,18 +4021,22 @@ $klaviyo->Segments->deleteSegment($id);
 
 ## Keyword Arguments
 
-# $additional_fields_segment | string[]
-# $fields_segment | string[]
-# $fields_tag | string[]
-# $include | string[]
+# $filter | string
+# $page_cursor | string
+# $page_size | int
+# $sort | string
 
-$klaviyo->Segments->getSegment($id, $additional_fields_segment=$additional_fields_segment, $fields_segment=$fields_segment, $fields_tag=$fields_tag, $include=$include);
+$klaviyo->Segments->getProfileIdsForSegment($id, $filter=$filter, $page_cursor=$page_cursor, $page_size=$page_size, $sort=$sort);
+```
+##### Method alias:
+```php
+$klaviyo->Segments->getSegmentRelationshipsProfiles($id, $filter=$filter, $page_cursor=$page_cursor, $page_size=$page_size, $sort=$sort);
 ```
 
 
 
 
-#### [Get Segment Profiles](https://developers.klaviyo.com/en/v2024-07-15/reference/get_segment_profiles)
+#### [Get Profiles for Segment](https://developers.klaviyo.com/en/v2024-10-15/reference/get_profiles_for_segment)
 
 ```php
 ## Positional Arguments
@@ -3394,13 +4052,17 @@ $klaviyo->Segments->getSegment($id, $additional_fields_segment=$additional_field
 # $page_size | int
 # $sort | string
 
+$klaviyo->Segments->getProfilesForSegment($id, $additional_fields_profile=$additional_fields_profile, $fields_profile=$fields_profile, $filter=$filter, $page_cursor=$page_cursor, $page_size=$page_size, $sort=$sort);
+```
+##### Method alias:
+```php
 $klaviyo->Segments->getSegmentProfiles($id, $additional_fields_profile=$additional_fields_profile, $fields_profile=$fields_profile, $filter=$filter, $page_cursor=$page_cursor, $page_size=$page_size, $sort=$sort);
 ```
 
 
 
 
-#### [Get Segment Relationships Profiles](https://developers.klaviyo.com/en/v2024-07-15/reference/get_segment_relationships_profiles)
+#### [Get Segment](https://developers.klaviyo.com/en/v2024-10-15/reference/get_segment)
 
 ```php
 ## Positional Arguments
@@ -3409,53 +4071,55 @@ $klaviyo->Segments->getSegmentProfiles($id, $additional_fields_profile=$addition
 
 ## Keyword Arguments
 
-# $filter | string
-# $page_cursor | string
-# $page_size | int
-# $sort | string
-
-$klaviyo->Segments->getSegmentRelationshipsProfiles($id, $filter=$filter, $page_cursor=$page_cursor, $page_size=$page_size, $sort=$sort);
-```
-
-
-
-
-#### [Get Segment Relationships Tags](https://developers.klaviyo.com/en/v2024-07-15/reference/get_segment_relationships_tags)
-
-```php
-## Positional Arguments
-
-# $id | string
-
-$klaviyo->Segments->getSegmentRelationshipsTags($id);
-```
-
-
-
-
-#### [Get Segment Tags](https://developers.klaviyo.com/en/v2024-07-15/reference/get_segment_tags)
-
-```php
-## Positional Arguments
-
-# $id | string
-
-## Keyword Arguments
-
+# $additional_fields_segment | string[]
+# $fields_flow | string[]
+# $fields_segment | string[]
 # $fields_tag | string[]
+# $include | string[]
 
-$klaviyo->Segments->getSegmentTags($id, $fields_tag=$fields_tag);
+$klaviyo->Segments->getSegment($id, $additional_fields_segment=$additional_fields_segment, $fields_flow=$fields_flow, $fields_segment=$fields_segment, $fields_tag=$fields_tag, $include=$include);
 ```
 
 
 
 
-#### [Get Segments](https://developers.klaviyo.com/en/v2024-07-15/reference/get_segments)
+#### [Get Segment Flow Triggers](https://developers.klaviyo.com/en/v2024-10-15/reference/get_segment_flow_triggers)
+
+```php
+## Positional Arguments
+
+# $id | string
+
+## Keyword Arguments
+
+# $fields_flow | string[]
+
+$klaviyo->Segments->getSegmentFlowTriggers($id, $fields_flow=$fields_flow);
+```
+
+
+
+
+#### [Get Segment Relationships Flow Triggers](https://developers.klaviyo.com/en/v2024-10-15/reference/get_segment_relationships_flow_triggers)
+
+```php
+## Positional Arguments
+
+# $id | string
+
+$klaviyo->Segments->getSegmentRelationshipsFlowTriggers($id);
+```
+
+
+
+
+#### [Get Segments](https://developers.klaviyo.com/en/v2024-10-15/reference/get_segments)
 
 ```php
 
 ## Keyword Arguments
 
+# $fields_flow | string[]
 # $fields_segment | string[]
 # $fields_tag | string[]
 # $filter | string
@@ -3463,13 +4127,51 @@ $klaviyo->Segments->getSegmentTags($id, $fields_tag=$fields_tag);
 # $page_cursor | string
 # $sort | string
 
-$klaviyo->Segments->getSegments($fields_segment=$fields_segment, $fields_tag=$fields_tag, $filter=$filter, $include=$include, $page_cursor=$page_cursor, $sort=$sort);
+$klaviyo->Segments->getSegments($fields_flow=$fields_flow, $fields_segment=$fields_segment, $fields_tag=$fields_tag, $filter=$filter, $include=$include, $page_cursor=$page_cursor, $sort=$sort);
 ```
 
 
 
 
-#### [Update Segment](https://developers.klaviyo.com/en/v2024-07-15/reference/update_segment)
+#### [Get Tag IDs for Segment](https://developers.klaviyo.com/en/v2024-10-15/reference/get_tag_ids_for_segment)
+
+```php
+## Positional Arguments
+
+# $id | string
+
+$klaviyo->Segments->getTagIdsForSegment($id);
+```
+##### Method alias:
+```php
+$klaviyo->Segments->getSegmentRelationshipsTags($id);
+```
+
+
+
+
+#### [Get Tags for Segment](https://developers.klaviyo.com/en/v2024-10-15/reference/get_tags_for_segment)
+
+```php
+## Positional Arguments
+
+# $id | string
+
+## Keyword Arguments
+
+# $fields_tag | string[]
+
+$klaviyo->Segments->getTagsForSegment($id, $fields_tag=$fields_tag);
+```
+##### Method alias:
+```php
+$klaviyo->Segments->getSegmentTags($id, $fields_tag=$fields_tag);
+```
+
+
+
+
+#### [Update Segment](https://developers.klaviyo.com/en/v2024-10-15/reference/update_segment)
 
 ```php
 ## Positional Arguments
@@ -3487,7 +4189,7 @@ $klaviyo->Segments->updateSegment($id, $body);
 
 ## Tags
 
-#### [Create Tag](https://developers.klaviyo.com/en/v2024-07-15/reference/create_tag)
+#### [Create Tag](https://developers.klaviyo.com/en/v2024-10-15/reference/create_tag)
 
 ```php
 ## Positional Arguments
@@ -3500,7 +4202,7 @@ $klaviyo->Tags->createTag($body);
 
 
 
-#### [Create Tag Group](https://developers.klaviyo.com/en/v2024-07-15/reference/create_tag_group)
+#### [Create Tag Group](https://developers.klaviyo.com/en/v2024-10-15/reference/create_tag_group)
 
 ```php
 ## Positional Arguments
@@ -3513,79 +4215,7 @@ $klaviyo->Tags->createTagGroup($body);
 
 
 
-#### [Create Tag Relationships Campaigns](https://developers.klaviyo.com/en/v2024-07-15/reference/create_tag_relationships_campaigns)
-
-```php
-## Positional Arguments
-
-# $id | string
-# $body | associative array
-
-$klaviyo->Tags->createTagRelationshipsCampaigns($id, $body);
-```
-##### Method alias:
-```php
-$klaviyo->Tags->createTagRelationshipsCampaign($id, $body);
-```
-
-
-
-
-#### [Create Tag Relationships Flows](https://developers.klaviyo.com/en/v2024-07-15/reference/create_tag_relationships_flows)
-
-```php
-## Positional Arguments
-
-# $id | string
-# $body | associative array
-
-$klaviyo->Tags->createTagRelationshipsFlows($id, $body);
-```
-##### Method alias:
-```php
-$klaviyo->Tags->createTagRelationshipsFlow($id, $body);
-```
-
-
-
-
-#### [Create Tag Relationships Lists](https://developers.klaviyo.com/en/v2024-07-15/reference/create_tag_relationships_lists)
-
-```php
-## Positional Arguments
-
-# $id | string
-# $body | associative array
-
-$klaviyo->Tags->createTagRelationshipsLists($id, $body);
-```
-##### Method alias:
-```php
-$klaviyo->Tags->createTagRelationshipsList($id, $body);
-```
-
-
-
-
-#### [Create Tag Relationships Segments](https://developers.klaviyo.com/en/v2024-07-15/reference/create_tag_relationships_segments)
-
-```php
-## Positional Arguments
-
-# $id | string
-# $body | associative array
-
-$klaviyo->Tags->createTagRelationshipsSegments($id, $body);
-```
-##### Method alias:
-```php
-$klaviyo->Tags->createTagRelationshipsSegment($id, $body);
-```
-
-
-
-
-#### [Delete Tag](https://developers.klaviyo.com/en/v2024-07-15/reference/delete_tag)
+#### [Delete Tag](https://developers.klaviyo.com/en/v2024-10-15/reference/delete_tag)
 
 ```php
 ## Positional Arguments
@@ -3598,7 +4228,7 @@ $klaviyo->Tags->deleteTag($id);
 
 
 
-#### [Delete Tag Group](https://developers.klaviyo.com/en/v2024-07-15/reference/delete_tag_group)
+#### [Delete Tag Group](https://developers.klaviyo.com/en/v2024-10-15/reference/delete_tag_group)
 
 ```php
 ## Positional Arguments
@@ -3611,63 +4241,75 @@ $klaviyo->Tags->deleteTagGroup($id);
 
 
 
-#### [Delete Tag Relationships Campaigns](https://developers.klaviyo.com/en/v2024-07-15/reference/delete_tag_relationships_campaigns)
+#### [Get Campaign IDs for Tag](https://developers.klaviyo.com/en/v2024-10-15/reference/get_campaign_ids_for_tag)
 
 ```php
 ## Positional Arguments
 
 # $id | string
-# $body | associative array
 
-$klaviyo->Tags->deleteTagRelationshipsCampaigns($id, $body);
+$klaviyo->Tags->getCampaignIdsForTag($id);
+```
+##### Method alias:
+```php
+$klaviyo->Tags->getTagRelationshipsCampaigns($id);
 ```
 
 
 
 
-#### [Delete Tag Relationships Flows](https://developers.klaviyo.com/en/v2024-07-15/reference/delete_tag_relationships_flows)
+#### [Get Flow IDs for Tag](https://developers.klaviyo.com/en/v2024-10-15/reference/get_flow_ids_for_tag)
 
 ```php
 ## Positional Arguments
 
 # $id | string
-# $body | associative array
 
-$klaviyo->Tags->deleteTagRelationshipsFlows($id, $body);
+$klaviyo->Tags->getFlowIdsForTag($id);
+```
+##### Method alias:
+```php
+$klaviyo->Tags->getTagRelationshipsFlows($id);
 ```
 
 
 
 
-#### [Delete Tag Relationships Lists](https://developers.klaviyo.com/en/v2024-07-15/reference/delete_tag_relationships_lists)
+#### [Get List IDs for Tag](https://developers.klaviyo.com/en/v2024-10-15/reference/get_list_ids_for_tag)
 
 ```php
 ## Positional Arguments
 
 # $id | string
-# $body | associative array
 
-$klaviyo->Tags->deleteTagRelationshipsLists($id, $body);
+$klaviyo->Tags->getListIdsForTag($id);
+```
+##### Method alias:
+```php
+$klaviyo->Tags->getTagRelationshipsLists($id);
 ```
 
 
 
 
-#### [Delete Tag Relationships Segments](https://developers.klaviyo.com/en/v2024-07-15/reference/delete_tag_relationships_segments)
+#### [Get Segment IDs for Tag](https://developers.klaviyo.com/en/v2024-10-15/reference/get_segment_ids_for_tag)
 
 ```php
 ## Positional Arguments
 
 # $id | string
-# $body | associative array
 
-$klaviyo->Tags->deleteTagRelationshipsSegments($id, $body);
+$klaviyo->Tags->getSegmentIdsForTag($id);
+```
+##### Method alias:
+```php
+$klaviyo->Tags->getTagRelationshipsSegments($id);
 ```
 
 
 
 
-#### [Get Tag](https://developers.klaviyo.com/en/v2024-07-15/reference/get_tag)
+#### [Get Tag](https://developers.klaviyo.com/en/v2024-10-15/reference/get_tag)
 
 ```php
 ## Positional Arguments
@@ -3686,7 +4328,7 @@ $klaviyo->Tags->getTag($id, $fields_tag_group=$fields_tag_group, $fields_tag=$fi
 
 
 
-#### [Get Tag Group](https://developers.klaviyo.com/en/v2024-07-15/reference/get_tag_group)
+#### [Get Tag Group](https://developers.klaviyo.com/en/v2024-10-15/reference/get_tag_group)
 
 ```php
 ## Positional Arguments
@@ -3703,20 +4345,7 @@ $klaviyo->Tags->getTagGroup($id, $fields_tag_group=$fields_tag_group);
 
 
 
-#### [Get Tag Group Relationships Tags](https://developers.klaviyo.com/en/v2024-07-15/reference/get_tag_group_relationships_tags)
-
-```php
-## Positional Arguments
-
-# $id | string
-
-$klaviyo->Tags->getTagGroupRelationshipsTags($id);
-```
-
-
-
-
-#### [Get Tag Group Tags](https://developers.klaviyo.com/en/v2024-07-15/reference/get_tag_group_tags)
+#### [Get Tag Group for Tag](https://developers.klaviyo.com/en/v2024-10-15/reference/get_tag_group_for_tag)
 
 ```php
 ## Positional Arguments
@@ -3725,15 +4354,36 @@ $klaviyo->Tags->getTagGroupRelationshipsTags($id);
 
 ## Keyword Arguments
 
-# $fields_tag | string[]
+# $fields_tag_group | string[]
 
-$klaviyo->Tags->getTagGroupTags($id, $fields_tag=$fields_tag);
+$klaviyo->Tags->getTagGroupForTag($id, $fields_tag_group=$fields_tag_group);
+```
+##### Method alias:
+```php
+$klaviyo->Tags->getTagTagGroup($id, $fields_tag_group=$fields_tag_group);
 ```
 
 
 
 
-#### [Get Tag Groups](https://developers.klaviyo.com/en/v2024-07-15/reference/get_tag_groups)
+#### [Get Tag Group ID for Tag](https://developers.klaviyo.com/en/v2024-10-15/reference/get_tag_group_id_for_tag)
+
+```php
+## Positional Arguments
+
+# $id | string
+
+$klaviyo->Tags->getTagGroupIdForTag($id);
+```
+##### Method alias:
+```php
+$klaviyo->Tags->getTagRelationshipsTagGroup($id);
+```
+
+
+
+
+#### [Get Tag Groups](https://developers.klaviyo.com/en/v2024-10-15/reference/get_tag_groups)
 
 ```php
 
@@ -3750,89 +4400,24 @@ $klaviyo->Tags->getTagGroups($fields_tag_group=$fields_tag_group, $filter=$filte
 
 
 
-#### [Get Tag Relationships Campaigns](https://developers.klaviyo.com/en/v2024-07-15/reference/get_tag_relationships_campaigns)
+#### [Get Tag IDs for Tag Group](https://developers.klaviyo.com/en/v2024-10-15/reference/get_tag_ids_for_tag_group)
 
 ```php
 ## Positional Arguments
 
 # $id | string
 
-$klaviyo->Tags->getTagRelationshipsCampaigns($id);
+$klaviyo->Tags->getTagIdsForTagGroup($id);
 ```
-
-
-
-
-#### [Get Tag Relationships Flows](https://developers.klaviyo.com/en/v2024-07-15/reference/get_tag_relationships_flows)
-
+##### Method alias:
 ```php
-## Positional Arguments
-
-# $id | string
-
-$klaviyo->Tags->getTagRelationshipsFlows($id);
+$klaviyo->Tags->getTagGroupRelationshipsTags($id);
 ```
 
 
 
 
-#### [Get Tag Relationships Lists](https://developers.klaviyo.com/en/v2024-07-15/reference/get_tag_relationships_lists)
-
-```php
-## Positional Arguments
-
-# $id | string
-
-$klaviyo->Tags->getTagRelationshipsLists($id);
-```
-
-
-
-
-#### [Get Tag Relationships Segments](https://developers.klaviyo.com/en/v2024-07-15/reference/get_tag_relationships_segments)
-
-```php
-## Positional Arguments
-
-# $id | string
-
-$klaviyo->Tags->getTagRelationshipsSegments($id);
-```
-
-
-
-
-#### [Get Tag Relationships Tag Group](https://developers.klaviyo.com/en/v2024-07-15/reference/get_tag_relationships_tag_group)
-
-```php
-## Positional Arguments
-
-# $id | string
-
-$klaviyo->Tags->getTagRelationshipsTagGroup($id);
-```
-
-
-
-
-#### [Get Tag Tag Group](https://developers.klaviyo.com/en/v2024-07-15/reference/get_tag_tag_group)
-
-```php
-## Positional Arguments
-
-# $id | string
-
-## Keyword Arguments
-
-# $fields_tag_group | string[]
-
-$klaviyo->Tags->getTagTagGroup($id, $fields_tag_group=$fields_tag_group);
-```
-
-
-
-
-#### [Get Tags](https://developers.klaviyo.com/en/v2024-07-15/reference/get_tags)
+#### [Get Tags](https://developers.klaviyo.com/en/v2024-10-15/reference/get_tags)
 
 ```php
 
@@ -3851,7 +4436,188 @@ $klaviyo->Tags->getTags($fields_tag_group=$fields_tag_group, $fields_tag=$fields
 
 
 
-#### [Update Tag](https://developers.klaviyo.com/en/v2024-07-15/reference/update_tag)
+#### [Get Tags for Tag Group](https://developers.klaviyo.com/en/v2024-10-15/reference/get_tags_for_tag_group)
+
+```php
+## Positional Arguments
+
+# $id | string
+
+## Keyword Arguments
+
+# $fields_tag | string[]
+
+$klaviyo->Tags->getTagsForTagGroup($id, $fields_tag=$fields_tag);
+```
+##### Method alias:
+```php
+$klaviyo->Tags->getTagGroupTags($id, $fields_tag=$fields_tag);
+```
+
+
+
+
+#### [Remove Tag from Campaigns](https://developers.klaviyo.com/en/v2024-10-15/reference/remove_tag_from_campaigns)
+
+```php
+## Positional Arguments
+
+# $id | string
+# $body | associative array
+
+$klaviyo->Tags->removeTagFromCampaigns($id, $body);
+```
+##### Method alias:
+```php
+$klaviyo->Tags->deleteTagRelationshipsCampaigns($id, $body);
+```
+
+
+
+
+#### [Remove Tag from Flows](https://developers.klaviyo.com/en/v2024-10-15/reference/remove_tag_from_flows)
+
+```php
+## Positional Arguments
+
+# $id | string
+# $body | associative array
+
+$klaviyo->Tags->removeTagFromFlows($id, $body);
+```
+##### Method alias:
+```php
+$klaviyo->Tags->deleteTagRelationshipsFlows($id, $body);
+```
+
+
+
+
+#### [Remove Tag from Lists](https://developers.klaviyo.com/en/v2024-10-15/reference/remove_tag_from_lists)
+
+```php
+## Positional Arguments
+
+# $id | string
+# $body | associative array
+
+$klaviyo->Tags->removeTagFromLists($id, $body);
+```
+##### Method alias:
+```php
+$klaviyo->Tags->deleteTagRelationshipsLists($id, $body);
+```
+
+
+
+
+#### [Remove Tag from Segments](https://developers.klaviyo.com/en/v2024-10-15/reference/remove_tag_from_segments)
+
+```php
+## Positional Arguments
+
+# $id | string
+# $body | associative array
+
+$klaviyo->Tags->removeTagFromSegments($id, $body);
+```
+##### Method alias:
+```php
+$klaviyo->Tags->deleteTagRelationshipsSegments($id, $body);
+```
+
+
+
+
+#### [Tag Campaigns](https://developers.klaviyo.com/en/v2024-10-15/reference/tag_campaigns)
+
+```php
+## Positional Arguments
+
+# $id | string
+# $body | associative array
+
+$klaviyo->Tags->tagCampaigns($id, $body);
+```
+##### Method alias:
+```php
+$klaviyo->Tags->createTagRelationshipsCampaigns($id, $body);
+```
+##### Method alias:
+```php
+$klaviyo->Tags->createTagRelationshipsCampaign($id, $body);
+```
+
+
+
+
+#### [Tag Flows](https://developers.klaviyo.com/en/v2024-10-15/reference/tag_flows)
+
+```php
+## Positional Arguments
+
+# $id | string
+# $body | associative array
+
+$klaviyo->Tags->tagFlows($id, $body);
+```
+##### Method alias:
+```php
+$klaviyo->Tags->createTagRelationshipsFlows($id, $body);
+```
+##### Method alias:
+```php
+$klaviyo->Tags->createTagRelationshipsFlow($id, $body);
+```
+
+
+
+
+#### [Tag Lists](https://developers.klaviyo.com/en/v2024-10-15/reference/tag_lists)
+
+```php
+## Positional Arguments
+
+# $id | string
+# $body | associative array
+
+$klaviyo->Tags->tagLists($id, $body);
+```
+##### Method alias:
+```php
+$klaviyo->Tags->createTagRelationshipsLists($id, $body);
+```
+##### Method alias:
+```php
+$klaviyo->Tags->createTagRelationshipsList($id, $body);
+```
+
+
+
+
+#### [Tag Segments](https://developers.klaviyo.com/en/v2024-10-15/reference/tag_segments)
+
+```php
+## Positional Arguments
+
+# $id | string
+# $body | associative array
+
+$klaviyo->Tags->tagSegments($id, $body);
+```
+##### Method alias:
+```php
+$klaviyo->Tags->createTagRelationshipsSegments($id, $body);
+```
+##### Method alias:
+```php
+$klaviyo->Tags->createTagRelationshipsSegment($id, $body);
+```
+
+
+
+
+#### [Update Tag](https://developers.klaviyo.com/en/v2024-10-15/reference/update_tag)
 
 ```php
 ## Positional Arguments
@@ -3865,7 +4631,7 @@ $klaviyo->Tags->updateTag($id, $body);
 
 
 
-#### [Update Tag Group](https://developers.klaviyo.com/en/v2024-07-15/reference/update_tag_group)
+#### [Update Tag Group](https://developers.klaviyo.com/en/v2024-10-15/reference/update_tag_group)
 
 ```php
 ## Positional Arguments
@@ -3883,7 +4649,24 @@ $klaviyo->Tags->updateTagGroup($id, $body);
 
 ## Templates
 
-#### [Create Template](https://developers.klaviyo.com/en/v2024-07-15/reference/create_template)
+#### [Clone Template](https://developers.klaviyo.com/en/v2024-10-15/reference/clone_template)
+
+```php
+## Positional Arguments
+
+# $body | associative array
+
+$klaviyo->Templates->cloneTemplate($body);
+```
+##### Method alias:
+```php
+$klaviyo->Templates->createTemplateClone($body);
+```
+
+
+
+
+#### [Create Template](https://developers.klaviyo.com/en/v2024-10-15/reference/create_template)
 
 ```php
 ## Positional Arguments
@@ -3896,33 +4679,24 @@ $klaviyo->Templates->createTemplate($body);
 
 
 
-#### [Create Template Clone](https://developers.klaviyo.com/en/v2024-07-15/reference/create_template_clone)
+#### [Create Universal Content](https://developers.klaviyo.com/en/v2024-10-15/reference/create_universal_content)
 
 ```php
 ## Positional Arguments
 
 # $body | associative array
 
-$klaviyo->Templates->createTemplateClone($body);
+$klaviyo->Templates->createUniversalContent($body);
 ```
-
-
-
-
-#### [Create Template Render](https://developers.klaviyo.com/en/v2024-07-15/reference/create_template_render)
-
+##### Method alias:
 ```php
-## Positional Arguments
-
-# $body | associative array
-
-$klaviyo->Templates->createTemplateRender($body);
+$klaviyo->Templates->createTemplateUniversalContent($body);
 ```
 
 
 
 
-#### [Delete Template](https://developers.klaviyo.com/en/v2024-07-15/reference/delete_template)
+#### [Delete Template](https://developers.klaviyo.com/en/v2024-10-15/reference/delete_template)
 
 ```php
 ## Positional Arguments
@@ -3935,7 +4709,46 @@ $klaviyo->Templates->deleteTemplate($id);
 
 
 
-#### [Get Template](https://developers.klaviyo.com/en/v2024-07-15/reference/get_template)
+#### [Delete Universal Content](https://developers.klaviyo.com/en/v2024-10-15/reference/delete_universal_content)
+
+```php
+## Positional Arguments
+
+# $id | string
+
+$klaviyo->Templates->deleteUniversalContent($id);
+```
+##### Method alias:
+```php
+$klaviyo->Templates->deleteTemplateUniversalContent($id);
+```
+
+
+
+
+#### [Get All Universal Content](https://developers.klaviyo.com/en/v2024-10-15/reference/get_all_universal_content)
+
+```php
+
+## Keyword Arguments
+
+# $fields_template_universal_content | string[]
+# $filter | string
+# $page_cursor | string
+# $page_size | int
+# $sort | string
+
+$klaviyo->Templates->getAllUniversalContent($fields_template_universal_content=$fields_template_universal_content, $filter=$filter, $page_cursor=$page_cursor, $page_size=$page_size, $sort=$sort);
+```
+##### Method alias:
+```php
+$klaviyo->Templates->getTemplateUniversalContent($fields_template_universal_content=$fields_template_universal_content, $filter=$filter, $page_cursor=$page_cursor, $page_size=$page_size, $sort=$sort);
+```
+
+
+
+
+#### [Get Template](https://developers.klaviyo.com/en/v2024-10-15/reference/get_template)
 
 ```php
 ## Positional Arguments
@@ -3952,7 +4765,7 @@ $klaviyo->Templates->getTemplate($id, $fields_template=$fields_template);
 
 
 
-#### [Get Templates](https://developers.klaviyo.com/en/v2024-07-15/reference/get_templates)
+#### [Get Templates](https://developers.klaviyo.com/en/v2024-10-15/reference/get_templates)
 
 ```php
 
@@ -3969,7 +4782,41 @@ $klaviyo->Templates->getTemplates($fields_template=$fields_template, $filter=$fi
 
 
 
-#### [Update Template](https://developers.klaviyo.com/en/v2024-07-15/reference/update_template)
+#### [Get Universal Content](https://developers.klaviyo.com/en/v2024-10-15/reference/get_universal_content)
+
+```php
+## Positional Arguments
+
+# $id | string
+
+## Keyword Arguments
+
+# $fields_template_universal_content | string[]
+
+$klaviyo->Templates->getUniversalContent($id, $fields_template_universal_content=$fields_template_universal_content);
+```
+
+
+
+
+#### [Render Template](https://developers.klaviyo.com/en/v2024-10-15/reference/render_template)
+
+```php
+## Positional Arguments
+
+# $body | associative array
+
+$klaviyo->Templates->renderTemplate($body);
+```
+##### Method alias:
+```php
+$klaviyo->Templates->createTemplateRender($body);
+```
+
+
+
+
+#### [Update Template](https://developers.klaviyo.com/en/v2024-10-15/reference/update_template)
 
 ```php
 ## Positional Arguments
@@ -3983,11 +4830,80 @@ $klaviyo->Templates->updateTemplate($id, $body);
 
 
 
+#### [Update Universal Content](https://developers.klaviyo.com/en/v2024-10-15/reference/update_universal_content)
+
+```php
+## Positional Arguments
+
+# $id | string
+# $body | associative array
+
+$klaviyo->Templates->updateUniversalContent($id, $body);
+```
+##### Method alias:
+```php
+$klaviyo->Templates->updateTemplateUniversalContent($id, $body);
+```
+
+
+
+
+
+
+## TrackingSettings
+
+#### [Get Tracking Setting](https://developers.klaviyo.com/en/v2024-10-15/reference/get_tracking_setting)
+
+```php
+## Positional Arguments
+
+# $id | string
+
+## Keyword Arguments
+
+# $fields_tracking_setting | string[]
+
+$klaviyo->TrackingSettings->getTrackingSetting($id, $fields_tracking_setting=$fields_tracking_setting);
+```
+
+
+
+
+#### [Get Tracking Settings](https://developers.klaviyo.com/en/v2024-10-15/reference/get_tracking_settings)
+
+```php
+
+## Keyword Arguments
+
+# $fields_tracking_setting | string[]
+# $page_cursor | string
+# $page_size | int
+
+$klaviyo->TrackingSettings->getTrackingSettings($fields_tracking_setting=$fields_tracking_setting, $page_cursor=$page_cursor, $page_size=$page_size);
+```
+
+
+
+
+#### [Update Tracking Setting](https://developers.klaviyo.com/en/v2024-10-15/reference/update_tracking_setting)
+
+```php
+## Positional Arguments
+
+# $id | string
+# $body | associative array
+
+$klaviyo->TrackingSettings->updateTrackingSetting($id, $body);
+```
+
+
+
+
 
 
 ## Webhooks
 
-#### [Create Webhook](https://developers.klaviyo.com/en/v2024-07-15/reference/create_webhook)
+#### [Create Webhook](https://developers.klaviyo.com/en/v2024-10-15/reference/create_webhook)
 
 ```php
 ## Positional Arguments
@@ -4000,7 +4916,7 @@ $klaviyo->Webhooks->createWebhook($body);
 
 
 
-#### [Delete Webhook](https://developers.klaviyo.com/en/v2024-07-15/reference/delete_webhook)
+#### [Delete Webhook](https://developers.klaviyo.com/en/v2024-10-15/reference/delete_webhook)
 
 ```php
 ## Positional Arguments
@@ -4013,7 +4929,7 @@ $klaviyo->Webhooks->deleteWebhook($id);
 
 
 
-#### [Get Webhook](https://developers.klaviyo.com/en/v2024-07-15/reference/get_webhook)
+#### [Get Webhook](https://developers.klaviyo.com/en/v2024-10-15/reference/get_webhook)
 
 ```php
 ## Positional Arguments
@@ -4031,7 +4947,7 @@ $klaviyo->Webhooks->getWebhook($id, $fields_webhook=$fields_webhook, $include=$i
 
 
 
-#### [Get Webhook Topic](https://developers.klaviyo.com/en/v2024-07-15/reference/get_webhook_topic)
+#### [Get Webhook Topic](https://developers.klaviyo.com/en/v2024-10-15/reference/get_webhook_topic)
 
 ```php
 ## Positional Arguments
@@ -4044,7 +4960,7 @@ $klaviyo->Webhooks->getWebhookTopic($id);
 
 
 
-#### [Get Webhook Topics](https://developers.klaviyo.com/en/v2024-07-15/reference/get_webhook_topics)
+#### [Get Webhook Topics](https://developers.klaviyo.com/en/v2024-10-15/reference/get_webhook_topics)
 
 ```php
 
@@ -4054,7 +4970,7 @@ $klaviyo->Webhooks->getWebhookTopics();
 
 
 
-#### [Get Webhooks](https://developers.klaviyo.com/en/v2024-07-15/reference/get_webhooks)
+#### [Get Webhooks](https://developers.klaviyo.com/en/v2024-10-15/reference/get_webhooks)
 
 ```php
 
@@ -4069,7 +4985,7 @@ $klaviyo->Webhooks->getWebhooks($fields_webhook=$fields_webhook, $include=$inclu
 
 
 
-#### [Update Webhook](https://developers.klaviyo.com/en/v2024-07-15/reference/update_webhook)
+#### [Update Webhook](https://developers.klaviyo.com/en/v2024-10-15/reference/update_webhook)
 
 ```php
 ## Positional Arguments

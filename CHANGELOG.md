@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 NOTE: For more granular API-specific changes, please see our [API Changelog](https://developers.klaviyo.com/en/docs/changelog_)
 
+## [11.0.0] - 2024-10-15
+### Added
+- Sample Change
+
 ## [10.0.0] - revision 2024-07-15
 ### Added
 - Added several method aliases based on previous operation IDs

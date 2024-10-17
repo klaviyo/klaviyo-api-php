@@ -18,9 +18,11 @@ use KlaviyoAPI\API\ListsApi;
 use KlaviyoAPI\API\MetricsApi;
 use KlaviyoAPI\API\ProfilesApi;
 use KlaviyoAPI\API\ReportingApi;
+use KlaviyoAPI\API\ReviewsApi;
 use KlaviyoAPI\API\SegmentsApi;
 use KlaviyoAPI\API\TagsApi;
 use KlaviyoAPI\API\TemplatesApi;
+use KlaviyoAPI\API\TrackingSettingsApi;
 use KlaviyoAPI\API\WebhooksApi;
 
 
@@ -45,9 +47,11 @@ class KlaviyoAPI {
     public $Metrics;
     public $Profiles;
     public $Reporting;
+    public $Reviews;
     public $Segments;
     public $Tags;
     public $Templates;
+    public $TrackingSettings;
     public $Webhooks;
     
 
@@ -152,6 +156,12 @@ class KlaviyoAPI {
                 $num_retries = $this->num_retries,
             );
         
+        $this->Reviews = new Subclient(
+                new ReviewsApi(new GuzzleClient($this->guzzle_options),$this->config),
+                $wait_seconds = $this->wait_seconds,
+                $num_retries = $this->num_retries,
+            );
+        
         $this->Segments = new Subclient(
                 new SegmentsApi(new GuzzleClient($this->guzzle_options),$this->config),
                 $wait_seconds = $this->wait_seconds,
@@ -166,6 +176,12 @@ class KlaviyoAPI {
         
         $this->Templates = new Subclient(
                 new TemplatesApi(new GuzzleClient($this->guzzle_options),$this->config),
+                $wait_seconds = $this->wait_seconds,
+                $num_retries = $this->num_retries,
+            );
+        
+        $this->TrackingSettings = new Subclient(
+                new TrackingSettingsApi(new GuzzleClient($this->guzzle_options),$this->config),
                 $wait_seconds = $this->wait_seconds,
                 $num_retries = $this->num_retries,
             );
