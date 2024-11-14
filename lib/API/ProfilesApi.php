@@ -1710,14 +1710,15 @@ class ProfilesApi
      * Create or Update Profile
      *
      * @param  \KlaviyoAPI\Model\ProfileUpsertQuery $profile_upsert_query profile_upsert_query (required)
+     * @param  string[] $additional_fields_profile Request additional fields not included by default in the response. Supported values: &#39;subscriptions&#39;, &#39;predictive_analytics&#39; (optional)
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array<string,mixed>|array<string,mixed>|\KlaviyoAPI\Model\GetAccounts400Response|\KlaviyoAPI\Model\GetAccounts400Response
      */
-    public function createOrUpdateProfile($profile_upsert_query, $apiKey = null)
+    public function createOrUpdateProfile($profile_upsert_query, $additional_fields_profile = null, $apiKey = null)
     {
-        list($response) = $this->createOrUpdateProfileWithHttpInfo($profile_upsert_query, $apiKey);
+        list($response) = $this->createOrUpdateProfileWithHttpInfo($profile_upsert_query, $additional_fields_profile, $apiKey);
         return $response;
     }
 
@@ -1736,14 +1737,15 @@ class ProfilesApi
      * Create or Update Profile
      *
      * @param  \KlaviyoAPI\Model\ProfileUpsertQuery $profile_upsert_query (required)
+     * @param  string[] $additional_fields_profile Request additional fields not included by default in the response. Supported values: &#39;subscriptions&#39;, &#39;predictive_analytics&#39; (optional)
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of array<string,mixed>|array<string,mixed>|\KlaviyoAPI\Model\GetAccounts400Response|\KlaviyoAPI\Model\GetAccounts400Response, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createOrUpdateProfileWithHttpInfo($profile_upsert_query, $apiKey = null)
+    public function createOrUpdateProfileWithHttpInfo($profile_upsert_query, $additional_fields_profile = null, $apiKey = null)
     {
-        $request = $this->createOrUpdateProfileRequest($profile_upsert_query, $apiKey);
+        $request = $this->createOrUpdateProfileRequest($profile_upsert_query, $additional_fields_profile, $apiKey);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1942,13 +1944,14 @@ class ProfilesApi
      * Create or Update Profile
      *
      * @param  \KlaviyoAPI\Model\ProfileUpsertQuery $profile_upsert_query (required)
+     * @param  string[] $additional_fields_profile Request additional fields not included by default in the response. Supported values: &#39;subscriptions&#39;, &#39;predictive_analytics&#39; (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createOrUpdateProfileAsync($profile_upsert_query, $apiKey = null)
+    public function createOrUpdateProfileAsync($profile_upsert_query, $additional_fields_profile = null, $apiKey = null)
     {
-        return $this->createOrUpdateProfileAsyncWithHttpInfo($profile_upsert_query, $apiKey)
+        return $this->createOrUpdateProfileAsyncWithHttpInfo($profile_upsert_query, $additional_fields_profile, $apiKey)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1971,14 +1974,15 @@ class ProfilesApi
      * Create or Update Profile
      *
      * @param  \KlaviyoAPI\Model\ProfileUpsertQuery $profile_upsert_query (required)
+     * @param  string[] $additional_fields_profile Request additional fields not included by default in the response. Supported values: &#39;subscriptions&#39;, &#39;predictive_analytics&#39; (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createOrUpdateProfileAsyncWithHttpInfo($profile_upsert_query, $apiKey = null)
+    public function createOrUpdateProfileAsyncWithHttpInfo($profile_upsert_query, $additional_fields_profile = null, $apiKey = null)
     {
         $returnType = 'array<string,mixed>';
-        $request = $this->createOrUpdateProfileRequest($profile_upsert_query, $apiKey);
+        $request = $this->createOrUpdateProfileRequest($profile_upsert_query, $additional_fields_profile, $apiKey);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2034,11 +2038,12 @@ class ProfilesApi
      * Create request for operation 'createOrUpdateProfile'
      *
      * @param  \KlaviyoAPI\Model\ProfileUpsertQuery $profile_upsert_query (required)
+     * @param  string[] $additional_fields_profile Request additional fields not included by default in the response. Supported values: &#39;subscriptions&#39;, &#39;predictive_analytics&#39; (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function createOrUpdateProfileRequest($profile_upsert_query, $apiKey = null)
+    public function createOrUpdateProfileRequest($profile_upsert_query, $additional_fields_profile = null, $apiKey = null)
     {
         // verify the required parameter 'profile_upsert_query' is set
         if ($profile_upsert_query === null || (is_array($profile_upsert_query) && count($profile_upsert_query) === 0)) {
@@ -2054,6 +2059,15 @@ class ProfilesApi
         $httpBody = '';
         $multipart = false;
 
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $additional_fields_profile,
+            'additional-fields[profile]', // param base name
+            'array', // openApiType
+            'form', // style
+            false, // explode
+            false // required
+        ) ?? []);
 
 
 
@@ -2147,14 +2161,15 @@ class ProfilesApi
      * Create Profile
      *
      * @param  \KlaviyoAPI\Model\ProfileCreateQuery $profile_create_query profile_create_query (required)
+     * @param  string[] $additional_fields_profile Request additional fields not included by default in the response. Supported values: &#39;subscriptions&#39;, &#39;predictive_analytics&#39; (optional)
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array<string,mixed>|\KlaviyoAPI\Model\GetAccounts400Response|\KlaviyoAPI\Model\GetAccounts400Response
      */
-    public function createProfile($profile_create_query, $apiKey = null)
+    public function createProfile($profile_create_query, $additional_fields_profile = null, $apiKey = null)
     {
-        list($response) = $this->createProfileWithHttpInfo($profile_create_query, $apiKey);
+        list($response) = $this->createProfileWithHttpInfo($profile_create_query, $additional_fields_profile, $apiKey);
         return $response;
     }
 
@@ -2164,14 +2179,15 @@ class ProfilesApi
      * Create Profile
      *
      * @param  \KlaviyoAPI\Model\ProfileCreateQuery $profile_create_query (required)
+     * @param  string[] $additional_fields_profile Request additional fields not included by default in the response. Supported values: &#39;subscriptions&#39;, &#39;predictive_analytics&#39; (optional)
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of array<string,mixed>|\KlaviyoAPI\Model\GetAccounts400Response|\KlaviyoAPI\Model\GetAccounts400Response, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createProfileWithHttpInfo($profile_create_query, $apiKey = null)
+    public function createProfileWithHttpInfo($profile_create_query, $additional_fields_profile = null, $apiKey = null)
     {
-        $request = $this->createProfileRequest($profile_create_query, $apiKey);
+        $request = $this->createProfileRequest($profile_create_query, $additional_fields_profile, $apiKey);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2332,13 +2348,14 @@ class ProfilesApi
      * Create Profile
      *
      * @param  \KlaviyoAPI\Model\ProfileCreateQuery $profile_create_query (required)
+     * @param  string[] $additional_fields_profile Request additional fields not included by default in the response. Supported values: &#39;subscriptions&#39;, &#39;predictive_analytics&#39; (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createProfileAsync($profile_create_query, $apiKey = null)
+    public function createProfileAsync($profile_create_query, $additional_fields_profile = null, $apiKey = null)
     {
-        return $this->createProfileAsyncWithHttpInfo($profile_create_query, $apiKey)
+        return $this->createProfileAsyncWithHttpInfo($profile_create_query, $additional_fields_profile, $apiKey)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2352,14 +2369,15 @@ class ProfilesApi
      * Create Profile
      *
      * @param  \KlaviyoAPI\Model\ProfileCreateQuery $profile_create_query (required)
+     * @param  string[] $additional_fields_profile Request additional fields not included by default in the response. Supported values: &#39;subscriptions&#39;, &#39;predictive_analytics&#39; (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createProfileAsyncWithHttpInfo($profile_create_query, $apiKey = null)
+    public function createProfileAsyncWithHttpInfo($profile_create_query, $additional_fields_profile = null, $apiKey = null)
     {
         $returnType = 'array<string,mixed>';
-        $request = $this->createProfileRequest($profile_create_query, $apiKey);
+        $request = $this->createProfileRequest($profile_create_query, $additional_fields_profile, $apiKey);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2406,11 +2424,12 @@ class ProfilesApi
      * Create request for operation 'createProfile'
      *
      * @param  \KlaviyoAPI\Model\ProfileCreateQuery $profile_create_query (required)
+     * @param  string[] $additional_fields_profile Request additional fields not included by default in the response. Supported values: &#39;subscriptions&#39;, &#39;predictive_analytics&#39; (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function createProfileRequest($profile_create_query, $apiKey = null)
+    public function createProfileRequest($profile_create_query, $additional_fields_profile = null, $apiKey = null)
     {
         // verify the required parameter 'profile_create_query' is set
         if ($profile_create_query === null || (is_array($profile_create_query) && count($profile_create_query) === 0)) {
@@ -2426,6 +2445,15 @@ class ProfilesApi
         $httpBody = '';
         $multipart = false;
 
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $additional_fields_profile,
+            'additional-fields[profile]', // param base name
+            'array', // openApiType
+            'form', // style
+            false, // explode
+            false // required
+        ) ?? []);
 
 
 
@@ -11351,14 +11379,15 @@ class ProfilesApi
      *
      * @param  string $id Primary key that uniquely identifies this profile. Generated by Klaviyo. (required)
      * @param  \KlaviyoAPI\Model\ProfilePartialUpdateQuery $profile_partial_update_query profile_partial_update_query (required)
+     * @param  string[] $additional_fields_profile Request additional fields not included by default in the response. Supported values: &#39;subscriptions&#39;, &#39;predictive_analytics&#39; (optional)
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array<string,mixed>|\KlaviyoAPI\Model\GetAccounts400Response|\KlaviyoAPI\Model\GetAccounts400Response
      */
-    public function updateProfile($id, $profile_partial_update_query, $apiKey = null)
+    public function updateProfile($id, $profile_partial_update_query, $additional_fields_profile = null, $apiKey = null)
     {
-        list($response) = $this->updateProfileWithHttpInfo($id, $profile_partial_update_query, $apiKey);
+        list($response) = $this->updateProfileWithHttpInfo($id, $profile_partial_update_query, $additional_fields_profile, $apiKey);
         return $response;
     }
 
@@ -11369,14 +11398,15 @@ class ProfilesApi
      *
      * @param  string $id Primary key that uniquely identifies this profile. Generated by Klaviyo. (required)
      * @param  \KlaviyoAPI\Model\ProfilePartialUpdateQuery $profile_partial_update_query (required)
+     * @param  string[] $additional_fields_profile Request additional fields not included by default in the response. Supported values: &#39;subscriptions&#39;, &#39;predictive_analytics&#39; (optional)
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of array<string,mixed>|\KlaviyoAPI\Model\GetAccounts400Response|\KlaviyoAPI\Model\GetAccounts400Response, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updateProfileWithHttpInfo($id, $profile_partial_update_query, $apiKey = null)
+    public function updateProfileWithHttpInfo($id, $profile_partial_update_query, $additional_fields_profile = null, $apiKey = null)
     {
-        $request = $this->updateProfileRequest($id, $profile_partial_update_query, $apiKey);
+        $request = $this->updateProfileRequest($id, $profile_partial_update_query, $additional_fields_profile, $apiKey);
 
         try {
             $options = $this->createHttpClientOption();
@@ -11538,13 +11568,14 @@ class ProfilesApi
      *
      * @param  string $id Primary key that uniquely identifies this profile. Generated by Klaviyo. (required)
      * @param  \KlaviyoAPI\Model\ProfilePartialUpdateQuery $profile_partial_update_query (required)
+     * @param  string[] $additional_fields_profile Request additional fields not included by default in the response. Supported values: &#39;subscriptions&#39;, &#39;predictive_analytics&#39; (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateProfileAsync($id, $profile_partial_update_query, $apiKey = null)
+    public function updateProfileAsync($id, $profile_partial_update_query, $additional_fields_profile = null, $apiKey = null)
     {
-        return $this->updateProfileAsyncWithHttpInfo($id, $profile_partial_update_query, $apiKey)
+        return $this->updateProfileAsyncWithHttpInfo($id, $profile_partial_update_query, $additional_fields_profile, $apiKey)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -11559,14 +11590,15 @@ class ProfilesApi
      *
      * @param  string $id Primary key that uniquely identifies this profile. Generated by Klaviyo. (required)
      * @param  \KlaviyoAPI\Model\ProfilePartialUpdateQuery $profile_partial_update_query (required)
+     * @param  string[] $additional_fields_profile Request additional fields not included by default in the response. Supported values: &#39;subscriptions&#39;, &#39;predictive_analytics&#39; (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateProfileAsyncWithHttpInfo($id, $profile_partial_update_query, $apiKey = null)
+    public function updateProfileAsyncWithHttpInfo($id, $profile_partial_update_query, $additional_fields_profile = null, $apiKey = null)
     {
         $returnType = 'array<string,mixed>';
-        $request = $this->updateProfileRequest($id, $profile_partial_update_query, $apiKey);
+        $request = $this->updateProfileRequest($id, $profile_partial_update_query, $additional_fields_profile, $apiKey);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -11614,11 +11646,12 @@ class ProfilesApi
      *
      * @param  string $id Primary key that uniquely identifies this profile. Generated by Klaviyo. (required)
      * @param  \KlaviyoAPI\Model\ProfilePartialUpdateQuery $profile_partial_update_query (required)
+     * @param  string[] $additional_fields_profile Request additional fields not included by default in the response. Supported values: &#39;subscriptions&#39;, &#39;predictive_analytics&#39; (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function updateProfileRequest($id, $profile_partial_update_query, $apiKey = null)
+    public function updateProfileRequest($id, $profile_partial_update_query, $additional_fields_profile = null, $apiKey = null)
     {
         // verify the required parameter 'id' is set
         if ($id === null || (is_array($id) && count($id) === 0)) {
@@ -11640,6 +11673,15 @@ class ProfilesApi
         $httpBody = '';
         $multipart = false;
 
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $additional_fields_profile,
+            'additional-fields[profile]', // param base name
+            'array', // openApiType
+            'form', // style
+            false, // explode
+            false // required
+        ) ?? []);
 
 
         // path params

@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 NOTE: For more granular API-specific changes, please see our [API Changelog](https://developers.klaviyo.com/en/docs/changelog_)
 
+## [12.0.0] - revision 2024-10-15
+### Changed
+  - **Breaking:** Improved Retry Logic
+    - To address 429 status codes, we have modified the retry logic to use exponential backoff and the `Retry-After` header. This is now the default behavior.
+    - `wait_seconds` is now deprecated.
+
 ## [11.0.0] - revision 2024-10-15
 ### Added
 - Universal Content API

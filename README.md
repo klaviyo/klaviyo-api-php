@@ -1,6 +1,6 @@
 # Klaviyo PHP SDK
 
-- SDK version: 11.0.0
+- SDK version: 12.0.0
 - API Revision: 2024-10-15
 
 ## Helpful Resources
@@ -114,9 +114,8 @@ require_once(__DIR__ . '/vendor/autoload.php');
 use KlaviyoAPI\KlaviyoAPI;
 
 $klaviyo = new KlaviyoAPI(
-    'YOUR_API_KEY', 
-    $num_retries = 3, 
-    $wait_seconds = 3,
+    'YOUR_API_KEY',
+    $num_retries = 3,
     $guzzle_options = [],
     $user_agent_suffix = "/YOUR_APP_NAME");
 
@@ -227,7 +226,7 @@ klaviyo.Images.upload_image_from_file(file, name=name)
 
 * The SDK retries on resolvable errors, namely: rate limits (common) and server errors on Klaviyo's end (rare).
 * The keyword arguments in the example above define retry behavior
-  * `wait_seconds` denotes how long to wait per retry, in *seconds*
+  * The time interval between retries is calculated using exponential backoff and the `Retry-After` header
   * If you wish to disable retries, set `$num_retries = 0`
   * the example is populated with the default values
 * non-resolvable errors and resolvable errors which have timed out throw an `ApiException`, detailed below.
@@ -3336,11 +3335,15 @@ $klaviyo->Profiles->createProfileSuppressionBulkDeleteJob($body);
 
 # $body | associative array
 
-$klaviyo->Profiles->createOrUpdateProfile($body);
+## Keyword Arguments
+
+# $additional_fields_profile | string[]
+
+$klaviyo->Profiles->createOrUpdateProfile($body, $additional_fields_profile=$additional_fields_profile);
 ```
 ##### Method alias:
 ```php
-$klaviyo->Profiles->createProfileImport($body);
+$klaviyo->Profiles->createProfileImport($body, $additional_fields_profile=$additional_fields_profile);
 ```
 
 
@@ -3353,7 +3356,11 @@ $klaviyo->Profiles->createProfileImport($body);
 
 # $body | associative array
 
-$klaviyo->Profiles->createProfile($body);
+## Keyword Arguments
+
+# $additional_fields_profile | string[]
+
+$klaviyo->Profiles->createProfile($body, $additional_fields_profile=$additional_fields_profile);
 ```
 
 
@@ -3798,7 +3805,11 @@ $klaviyo->Profiles->createProfileBulkImportJob($body);
 # $id | string
 # $body | associative array
 
-$klaviyo->Profiles->updateProfile($id, $body);
+## Keyword Arguments
+
+# $additional_fields_profile | string[]
+
+$klaviyo->Profiles->updateProfile($id, $body, $additional_fields_profile=$additional_fields_profile);
 ```
 
 

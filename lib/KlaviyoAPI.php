@@ -56,14 +56,14 @@ class KlaviyoAPI {
     
 
 
-    public function __construct($api_key, $num_retries = 3, $wait_seconds = 3, $guzzle_options = [], $user_agent_suffix = "") {
+    public function __construct($api_key, $num_retries = 3, $wait_seconds = null, $guzzle_options = [], $user_agent_suffix = "") {
 
         if (gettype($num_retries) == 'NULL'){
             $num_retries = 3;
         } 
 
-        if (gettype($wait_seconds) == 'NULL'){
-            $wait_seconds = 3;
+        if ($wait_seconds !== null){
+            trigger_error("The 'wait_seconds' parameter is deprecated and will be removed in a future version. Please remove this to enable exponential backoff for retry intervals.", E_USER_WARNING);
         } 
 
         $this->api_key = $api_key;

@@ -1,6 +1,8 @@
 <?php
 namespace KlaviyoAPI;
 
+use KlaviyoAPI\ApiException;
+
 class Subclient {
 
     public $api_instance;
@@ -8,11 +10,17 @@ class Subclient {
     public $num_retries;
     public $retry_codes;
 
+    // vars for exponential backoff
+    public $base_interval = 0.5;
+    public $max_interval = 60;
+    public $multiplier = 1.5;
+    public $rand_factor = 0.5;
+
     public $_CURSOR_SEARCH_TOKENS;
 
     public function __construct(
         $api_instance, 
-        $wait_seconds = 3,
+        $wait_seconds = null,
         $num_retries = 3,
         $retry_codes = [429,503,504,524]
     ) {
@@ -53,34 +61,49 @@ class Subclient {
             }
         }
 
-        $attempts = 0;
-        
-        do {
+        $make_request = function() use ($name, $args) {
+            return $this->api_instance->$name(...$args);
+        };
 
-            try {
-                $result = $this->api_instance->$name(...$args);
-                return $result;
-            } catch (Exception $e) {
-                
-                if ( ! in_array($e->getCode(),$this->retry_codes)) {
-                    throw $e;
-                }
-                else {
-                    echo "\nretrying...\n";
-                    $attempts++;
-                    sleep($this->wait_seconds);
-                    continue;
-    
-                }
-            }
-        
-            break;
-        
-        } while($attempts < ($this->num_retries));
-
-        throw $e;
+        return $this->with_retry($make_request);
     }
 
+    public function with_retry($func_to_call) {
+        $last_request_retry_after = null;
+        $last_request_timestamp = null;
+        $attempt = 0;
+        $iteration = 0;
+
+        while (True) {
+            try {
+                $retry_after_value_elapsed = $last_request_retry_after === null || microtime(true) - $last_request_timestamp > $last_request_retry_after;
+                if ($retry_after_value_elapsed) {
+                    $attempt++;
+                    return $func_to_call();
+                }
+            } catch (ApiException $e) {
+                if (!in_array($e->getCode(),$this->retry_codes) || $attempt >= $this->num_retries) {
+                    throw $e;
+                }
+                $response_headers = $e->getResponseHeaders();
+                $last_request_retry_after = array_key_exists('Retry-After', $response_headers) ? $response_headers['Retry-After'][0] : null;
+                $last_request_timestamp = microtime(true);
+            }
+            $sleep_seconds = $this->wait_seconds === null ? $this->exponential_backoff($iteration) : $this->wait_seconds;
+            usleep(ceil($sleep_seconds * 1000000));
+            $iteration++;
+        }
+    }
+
+    private function exponential_backoff($iteration) {
+        $wait_time = min($this->base_interval * $this->multiplier**$iteration, $this->max_interval);
+
+        // apply randomness to avoid thundering herd
+        $delta = $this->rand_factor * $wait_time;
+        $random_0_to_1 = mt_rand() / mt_getrandmax();
+        $random_neg_1_to_1 = 2 * $random_0_to_1 - 1;
+        return $wait_time + $delta * $random_neg_1_to_1;
+    }
 
     protected function is_url($string) {
         return (is_string($string) && preg_match('/^https?:\/\//',$string));
