@@ -286,6 +286,7 @@ class DeviceMetadata implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     public const KLAVIYO_SDK_ANDROID = 'android';
+    public const KLAVIYO_SDK_FLUTTER_COMMUNITY = 'flutter_community';
     public const KLAVIYO_SDK_REACT_NATIVE = 'react_native';
     public const KLAVIYO_SDK_SWIFT = 'swift';
     public const OS_NAME_ANDROID = 'android';
@@ -305,6 +306,7 @@ class DeviceMetadata implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         return [
             self::KLAVIYO_SDK_ANDROID,
+            self::KLAVIYO_SDK_FLUTTER_COMMUNITY,
             self::KLAVIYO_SDK_REACT_NATIVE,
             self::KLAVIYO_SDK_SWIFT,
         ];

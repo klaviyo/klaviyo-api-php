@@ -59,8 +59,7 @@ class HTMLBlockData implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static $openAPITypes = [
         'content' => 'string',
-        'display_options' => '\KlaviyoAPI\Model\BlockDisplayOptions',
-        'styles' => 'string'
+        'display_options' => '\KlaviyoAPI\Model\BlockDisplayOptions'
     ];
 
     /**
@@ -72,8 +71,7 @@ class HTMLBlockData implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static $openAPIFormats = [
         'content' => null,
-        'display_options' => null,
-        'styles' => null
+        'display_options' => null
     ];
 
     /**
@@ -83,8 +81,7 @@ class HTMLBlockData implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static array $openAPINullables = [
         'content' => false,
-		'display_options' => false,
-		'styles' => true
+		'display_options' => false
     ];
 
     /**
@@ -164,8 +161,7 @@ class HTMLBlockData implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $attributeMap = [
         'content' => 'content',
-        'display_options' => 'display_options',
-        'styles' => 'styles'
+        'display_options' => 'display_options'
     ];
 
     /**
@@ -175,8 +171,7 @@ class HTMLBlockData implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $setters = [
         'content' => 'setContent',
-        'display_options' => 'setDisplayOptions',
-        'styles' => 'setStyles'
+        'display_options' => 'setDisplayOptions'
     ];
 
     /**
@@ -186,8 +181,7 @@ class HTMLBlockData implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $getters = [
         'content' => 'getContent',
-        'display_options' => 'getDisplayOptions',
-        'styles' => 'getStyles'
+        'display_options' => 'getDisplayOptions'
     ];
 
     /**
@@ -249,7 +243,6 @@ class HTMLBlockData implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $this->setIfExists('content', $data ?? [], null);
         $this->setIfExists('display_options', $data ?? [], null);
-        $this->setIfExists('styles', $data ?? [], null);
     }
 
     /**
@@ -354,42 +347,6 @@ class HTMLBlockData implements ModelInterface, ArrayAccess, \JsonSerializable
         }
 
         $this->container['display_options'] = $display_options;
-
-        return $this;
-    }
-
-    /**
-     * Gets styles
-     *
-     * @return string|null
-     */
-    public function getStyles()
-    {
-        return $this->container['styles'];
-    }
-
-    /**
-     * Sets styles
-     *
-     * @param string|null $styles styles
-     *
-     * @return self
-     */
-    public function setStyles($styles)
-    {
-
-        if (is_null($styles)) {
-            array_push($this->openAPINullablesSetToNull, 'styles');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('styles', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-
-        $this->container['styles'] = $styles;
 
         return $this;
     }

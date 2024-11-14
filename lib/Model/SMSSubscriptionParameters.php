@@ -58,7 +58,8 @@ class SMSSubscriptionParameters implements ModelInterface, ArrayAccess, \JsonSer
       * @var string[]
       */
     protected static $openAPITypes = [
-        'marketing' => '\KlaviyoAPI\Model\SubscriptionParameters'
+        'marketing' => '\KlaviyoAPI\Model\SubscriptionParameters',
+        'transactional' => '\KlaviyoAPI\Model\SubscriptionParameters'
     ];
 
     /**
@@ -69,7 +70,8 @@ class SMSSubscriptionParameters implements ModelInterface, ArrayAccess, \JsonSer
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'marketing' => null
+        'marketing' => null,
+        'transactional' => null
     ];
 
     /**
@@ -78,7 +80,8 @@ class SMSSubscriptionParameters implements ModelInterface, ArrayAccess, \JsonSer
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'marketing' => false
+        'marketing' => false,
+		'transactional' => false
     ];
 
     /**
@@ -157,7 +160,8 @@ class SMSSubscriptionParameters implements ModelInterface, ArrayAccess, \JsonSer
      * @var string[]
      */
     protected static $attributeMap = [
-        'marketing' => 'marketing'
+        'marketing' => 'marketing',
+        'transactional' => 'transactional'
     ];
 
     /**
@@ -166,7 +170,8 @@ class SMSSubscriptionParameters implements ModelInterface, ArrayAccess, \JsonSer
      * @var string[]
      */
     protected static $setters = [
-        'marketing' => 'setMarketing'
+        'marketing' => 'setMarketing',
+        'transactional' => 'setTransactional'
     ];
 
     /**
@@ -175,7 +180,8 @@ class SMSSubscriptionParameters implements ModelInterface, ArrayAccess, \JsonSer
      * @var string[]
      */
     protected static $getters = [
-        'marketing' => 'getMarketing'
+        'marketing' => 'getMarketing',
+        'transactional' => 'getTransactional'
     ];
 
     /**
@@ -236,6 +242,7 @@ class SMSSubscriptionParameters implements ModelInterface, ArrayAccess, \JsonSer
     public function __construct(array $data = null)
     {
         $this->setIfExists('marketing', $data ?? [], null);
+        $this->setIfExists('transactional', $data ?? [], null);
     }
 
     /**
@@ -305,6 +312,35 @@ class SMSSubscriptionParameters implements ModelInterface, ArrayAccess, \JsonSer
         }
 
         $this->container['marketing'] = $marketing;
+
+        return $this;
+    }
+
+    /**
+     * Gets transactional
+     *
+     * @return \KlaviyoAPI\Model\SubscriptionParameters|null
+     */
+    public function getTransactional()
+    {
+        return $this->container['transactional'];
+    }
+
+    /**
+     * Sets transactional
+     *
+     * @param \KlaviyoAPI\Model\SubscriptionParameters|null $transactional transactional
+     *
+     * @return self
+     */
+    public function setTransactional($transactional)
+    {
+
+        if (is_null($transactional)) {
+            throw new \InvalidArgumentException('non-nullable transactional cannot be null');
+        }
+
+        $this->container['transactional'] = $transactional;
 
         return $this;
     }
