@@ -1,6 +1,6 @@
 # Klaviyo PHP SDK
 
-- SDK version: 12.0.0
+- SDK version: 12.0.1
 - API Revision: 2024-10-15
 
 ## Helpful Resources
@@ -203,22 +203,19 @@ $klaviyo->Tags->getTagRelationshipsCampaigns('f4bc6670-1aa5-47df-827a-d30a7e5430
 
 #### Uploading Image From File
 
-When using `Images.uploadImageFromFile(file, name=name)`, `file`` can be either a file path string OR a bytearray.
-
-NOTE: when file is a bytearray, you will need to use the optional `name` parameter to specify the file name, else name will default to `unnamed_image_from_python_sdk`
+When using `$klaviyo->Images->uploadImageFromFile($file, $name)`, `$file` can be either a file path string OR a `SplFileObject`.
 
 *as a file path*
-```python
-filepath = '/path/to/image.png'
-klaviyo.Images.upload_image_from_file(file, name=name)
+```php
+$filepath = '/path/to/image.png';
+$klaviyo->Images->uploadImageFromFile($filepath);
 ```
 
-*as a bytearray*
-```python
-filepath = '/path/to/image.png'
-with open(filepath, 'rb') as f:
-    file = f.read()
-klaviyo.Images.upload_image_from_file(file, name=name)
+*as a `SplFileObject`*
+```php
+$filepath = '/path/to/image.png';
+$file = new SplFileObject($filepath);
+$klaviyo->Images->uploadImageFromFile($file);
 ```
 
 

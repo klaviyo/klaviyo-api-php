@@ -437,7 +437,7 @@ class FormValuesRequestDTOResourceObjectAttributes implements ModelInterface, Ar
     /**
      * Sets group_by
      *
-     * @param string[]|null $group_by List of attributes to group the data by. Allowed group-bys are form_version_id, form_id. If not passed in, the data will be grouped by form_id. If a group by has prerequisites, they must be passed in together. The prerequisites for form_version_id is form_id
+     * @param string[]|null $group_by List of attributes to group the data by. Allowed group-bys are form_id, form_version_id. If not passed in, the data will be grouped by form_id. If a group by has prerequisites, they must be passed in together. The prerequisites for form_version_id is form_id
      *
      * @return self
      */
@@ -482,7 +482,7 @@ class FormValuesRequestDTOResourceObjectAttributes implements ModelInterface, Ar
     /**
      * Sets filter
      *
-     * @param string|null $filter API filter string used to filter the query. Allowed filters are form_version_id, form_id. Allowed operators are equals, any. Only one filter can be used per attribute, only AND can be used as a combination operator. Max of 100 messages per ANY filter.
+     * @param string|null $filter API filter string used to filter the query. Allowed filters are form_id, form_version_id. Allowed operators are equals, any. Only one filter can be used per attribute, only AND can be used as a combination operator. Max of 100 messages per ANY filter.
      *
      * @return self
      */
