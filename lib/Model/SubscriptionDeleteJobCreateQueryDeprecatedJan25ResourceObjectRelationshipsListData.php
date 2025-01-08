@@ -1,6 +1,6 @@
 <?php
 /**
- * SubscriptionDeleteJobCreateQuery
+ * SubscriptionDeleteJobCreateQueryDeprecatedJan25ResourceObjectRelationshipsListData
  *
  * PHP version 7.4
  *
@@ -33,7 +33,7 @@ use \ArrayAccess;
 use \KlaviyoAPI\ObjectSerializer;
 
 /**
- * SubscriptionDeleteJobCreateQuery Class Doc Comment
+ * SubscriptionDeleteJobCreateQueryDeprecatedJan25ResourceObjectRelationshipsListData Class Doc Comment
  *
  * @category Class
  * @package  KlaviyoAPI
@@ -41,7 +41,7 @@ use \KlaviyoAPI\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class SubscriptionDeleteJobCreateQuery implements ModelInterface, ArrayAccess, \JsonSerializable
+class SubscriptionDeleteJobCreateQueryDeprecatedJan25ResourceObjectRelationshipsListData implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class SubscriptionDeleteJobCreateQuery implements ModelInterface, ArrayAccess, \
       *
       * @var string
       */
-    protected static $openAPIModelName = 'SubscriptionDeleteJobCreateQuery';
+    protected static $openAPIModelName = 'SubscriptionDeleteJobCreateQueryDeprecatedJan25ResourceObject_relationships_list_data';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,7 +58,8 @@ class SubscriptionDeleteJobCreateQuery implements ModelInterface, ArrayAccess, \
       * @var string[]
       */
     protected static $openAPITypes = [
-        'data' => '\KlaviyoAPI\Model\SubscriptionDeleteJobCreateQueryResourceObject'
+        'type' => '\KlaviyoAPI\Model\ListEnum',
+        'id' => 'string'
     ];
 
     /**
@@ -69,7 +70,8 @@ class SubscriptionDeleteJobCreateQuery implements ModelInterface, ArrayAccess, \
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'data' => null
+        'type' => null,
+        'id' => null
     ];
 
     /**
@@ -78,7 +80,8 @@ class SubscriptionDeleteJobCreateQuery implements ModelInterface, ArrayAccess, \
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'data' => false
+        'type' => false,
+		'id' => false
     ];
 
     /**
@@ -157,7 +160,8 @@ class SubscriptionDeleteJobCreateQuery implements ModelInterface, ArrayAccess, \
      * @var string[]
      */
     protected static $attributeMap = [
-        'data' => 'data'
+        'type' => 'type',
+        'id' => 'id'
     ];
 
     /**
@@ -166,7 +170,8 @@ class SubscriptionDeleteJobCreateQuery implements ModelInterface, ArrayAccess, \
      * @var string[]
      */
     protected static $setters = [
-        'data' => 'setData'
+        'type' => 'setType',
+        'id' => 'setId'
     ];
 
     /**
@@ -175,7 +180,8 @@ class SubscriptionDeleteJobCreateQuery implements ModelInterface, ArrayAccess, \
      * @var string[]
      */
     protected static $getters = [
-        'data' => 'getData'
+        'type' => 'getType',
+        'id' => 'getId'
     ];
 
     /**
@@ -235,7 +241,8 @@ class SubscriptionDeleteJobCreateQuery implements ModelInterface, ArrayAccess, \
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('data', $data ?? [], null);
+        $this->setIfExists('type', $data ?? [], null);
+        $this->setIfExists('id', $data ?? [], null);
     }
 
     /**
@@ -265,8 +272,11 @@ class SubscriptionDeleteJobCreateQuery implements ModelInterface, ArrayAccess, \
     {
         $invalidProperties = [];
 
-        if ($this->container['data'] === null) {
-            $invalidProperties[] = "'data' can't be null";
+        if ($this->container['type'] === null) {
+            $invalidProperties[] = "'type' can't be null";
+        }
+        if ($this->container['id'] === null) {
+            $invalidProperties[] = "'id' can't be null";
         }
         return $invalidProperties;
     }
@@ -284,30 +294,59 @@ class SubscriptionDeleteJobCreateQuery implements ModelInterface, ArrayAccess, \
 
 
     /**
-     * Gets data
+     * Gets type
      *
-     * @return \KlaviyoAPI\Model\SubscriptionDeleteJobCreateQueryResourceObject
+     * @return \KlaviyoAPI\Model\ListEnum
      */
-    public function getData()
+    public function getType()
     {
-        return $this->container['data'];
+        return $this->container['type'];
     }
 
     /**
-     * Sets data
+     * Sets type
      *
-     * @param \KlaviyoAPI\Model\SubscriptionDeleteJobCreateQueryResourceObject $data data
+     * @param \KlaviyoAPI\Model\ListEnum $type type
      *
      * @return self
      */
-    public function setData($data)
+    public function setType($type)
     {
 
-        if (is_null($data)) {
-            throw new \InvalidArgumentException('non-nullable data cannot be null');
+        if (is_null($type)) {
+            throw new \InvalidArgumentException('non-nullable type cannot be null');
         }
 
-        $this->container['data'] = $data;
+        $this->container['type'] = $type;
+
+        return $this;
+    }
+
+    /**
+     * Gets id
+     *
+     * @return string
+     */
+    public function getId()
+    {
+        return $this->container['id'];
+    }
+
+    /**
+     * Sets id
+     *
+     * @param string $id The list to remove the profiles from
+     *
+     * @return self
+     */
+    public function setId($id)
+    {
+
+        if (is_null($id)) {
+            throw new \InvalidArgumentException('non-nullable id cannot be null');
+        }
+
+        $this->container['id'] = $id;
 
         return $this;
     }

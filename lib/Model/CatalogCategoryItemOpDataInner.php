@@ -1,6 +1,6 @@
 <?php
 /**
- * CatalogCategoryItemOp
+ * CatalogCategoryItemOpDataInner
  *
  * PHP version 7.4
  *
@@ -33,7 +33,7 @@ use \ArrayAccess;
 use \KlaviyoAPI\ObjectSerializer;
 
 /**
- * CatalogCategoryItemOp Class Doc Comment
+ * CatalogCategoryItemOpDataInner Class Doc Comment
  *
  * @category Class
  * @package  KlaviyoAPI
@@ -41,7 +41,7 @@ use \KlaviyoAPI\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class CatalogCategoryItemOp implements ModelInterface, ArrayAccess, \JsonSerializable
+class CatalogCategoryItemOpDataInner implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class CatalogCategoryItemOp implements ModelInterface, ArrayAccess, \JsonSeriali
       *
       * @var string
       */
-    protected static $openAPIModelName = 'CatalogCategoryItemOp';
+    protected static $openAPIModelName = 'CatalogCategoryItemOp_data_inner';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,7 +58,8 @@ class CatalogCategoryItemOp implements ModelInterface, ArrayAccess, \JsonSeriali
       * @var string[]
       */
     protected static $openAPITypes = [
-        'data' => '\KlaviyoAPI\Model\CatalogCategoryItemOpDataInner[]'
+        'type' => '\KlaviyoAPI\Model\CatalogItemEnum',
+        'id' => 'string'
     ];
 
     /**
@@ -69,7 +70,8 @@ class CatalogCategoryItemOp implements ModelInterface, ArrayAccess, \JsonSeriali
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'data' => null
+        'type' => null,
+        'id' => null
     ];
 
     /**
@@ -78,7 +80,8 @@ class CatalogCategoryItemOp implements ModelInterface, ArrayAccess, \JsonSeriali
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'data' => false
+        'type' => false,
+		'id' => false
     ];
 
     /**
@@ -157,7 +160,8 @@ class CatalogCategoryItemOp implements ModelInterface, ArrayAccess, \JsonSeriali
      * @var string[]
      */
     protected static $attributeMap = [
-        'data' => 'data'
+        'type' => 'type',
+        'id' => 'id'
     ];
 
     /**
@@ -166,7 +170,8 @@ class CatalogCategoryItemOp implements ModelInterface, ArrayAccess, \JsonSeriali
      * @var string[]
      */
     protected static $setters = [
-        'data' => 'setData'
+        'type' => 'setType',
+        'id' => 'setId'
     ];
 
     /**
@@ -175,7 +180,8 @@ class CatalogCategoryItemOp implements ModelInterface, ArrayAccess, \JsonSeriali
      * @var string[]
      */
     protected static $getters = [
-        'data' => 'getData'
+        'type' => 'getType',
+        'id' => 'getId'
     ];
 
     /**
@@ -235,7 +241,8 @@ class CatalogCategoryItemOp implements ModelInterface, ArrayAccess, \JsonSeriali
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('data', $data ?? [], null);
+        $this->setIfExists('type', $data ?? [], null);
+        $this->setIfExists('id', $data ?? [], null);
     }
 
     /**
@@ -265,8 +272,11 @@ class CatalogCategoryItemOp implements ModelInterface, ArrayAccess, \JsonSeriali
     {
         $invalidProperties = [];
 
-        if ($this->container['data'] === null) {
-            $invalidProperties[] = "'data' can't be null";
+        if ($this->container['type'] === null) {
+            $invalidProperties[] = "'type' can't be null";
+        }
+        if ($this->container['id'] === null) {
+            $invalidProperties[] = "'id' can't be null";
         }
         return $invalidProperties;
     }
@@ -284,30 +294,59 @@ class CatalogCategoryItemOp implements ModelInterface, ArrayAccess, \JsonSeriali
 
 
     /**
-     * Gets data
+     * Gets type
      *
-     * @return \KlaviyoAPI\Model\CatalogCategoryItemOpDataInner[]
+     * @return \KlaviyoAPI\Model\CatalogItemEnum
      */
-    public function getData()
+    public function getType()
     {
-        return $this->container['data'];
+        return $this->container['type'];
     }
 
     /**
-     * Sets data
+     * Sets type
      *
-     * @param \KlaviyoAPI\Model\CatalogCategoryItemOpDataInner[] $data data
+     * @param \KlaviyoAPI\Model\CatalogItemEnum $type type
      *
      * @return self
      */
-    public function setData($data)
+    public function setType($type)
     {
 
-        if (is_null($data)) {
-            throw new \InvalidArgumentException('non-nullable data cannot be null');
+        if (is_null($type)) {
+            throw new \InvalidArgumentException('non-nullable type cannot be null');
         }
 
-        $this->container['data'] = $data;
+        $this->container['type'] = $type;
+
+        return $this;
+    }
+
+    /**
+     * Gets id
+     *
+     * @return string
+     */
+    public function getId()
+    {
+        return $this->container['id'];
+    }
+
+    /**
+     * Sets id
+     *
+     * @param string $id A list of catalog item IDs that are in the given category.
+     *
+     * @return self
+     */
+    public function setId($id)
+    {
+
+        if (is_null($id)) {
+            throw new \InvalidArgumentException('non-nullable id cannot be null');
+        }
+
+        $this->container['id'] = $id;
 
         return $this;
     }

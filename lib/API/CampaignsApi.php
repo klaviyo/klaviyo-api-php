@@ -4677,385 +4677,6 @@ class CampaignsApi
     }
 
     /**
-     * Operation getCampaignTags
-     *
-     * Get Campaign Tags
-     *
-     * @param  string $id  (required)
-     * @param  string[] $fields_tag For more information please visit https://developers.klaviyo.com/en/v2024-10-15/reference/api-overview#sparse-fieldsets (optional)
-     *
-     * @throws \KlaviyoAPI\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return array<string,mixed>|\KlaviyoAPI\Model\GetAccounts400Response|\KlaviyoAPI\Model\GetAccounts400Response
-     */
-    public function getCampaignTags($id, $fields_tag = null, $apiKey = null)
-    {
-        list($response) = $this->getCampaignTagsWithHttpInfo($id, $fields_tag, $apiKey);
-        return $response;
-    }
-
-    /**
-     * Operation getCampaignTagsWithHttpInfo
-     *
-     * Get Campaign Tags
-     *
-     * @param  string $id  (required)
-     * @param  string[] $fields_tag For more information please visit https://developers.klaviyo.com/en/v2024-10-15/reference/api-overview#sparse-fieldsets (optional)
-     *
-     * @throws \KlaviyoAPI\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return array of array<string,mixed>|\KlaviyoAPI\Model\GetAccounts400Response|\KlaviyoAPI\Model\GetAccounts400Response, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function getCampaignTagsWithHttpInfo($id, $fields_tag = null, $apiKey = null)
-    {
-        $request = $this->getCampaignTagsRequest($id, $fields_tag, $apiKey);
-
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
-                );
-            } catch (ConnectException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    null,
-                    null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        (string) $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    (string) $response->getBody()
-                );
-            }
-
-            switch($statusCode) {
-                case 200:
-                    if ('array<string,mixed>' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('array&lt;string,mixed&gt;' !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-
-                    $parsed_content = json_decode(json_encode($content), TRUE);
-                    if (json_last_error() != JSON_ERROR_NONE) {
-                        $parsed_content = $content;
-                    }
-
-                    return [
-                        $parsed_content,
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                case 400:
-                    if ('\KlaviyoAPI\Model\GetAccounts400Response' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('\KlaviyoAPI\Model\GetAccounts400Response' !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-
-                    $parsed_content = json_decode(json_encode($content), TRUE);
-                    if (json_last_error() != JSON_ERROR_NONE) {
-                        $parsed_content = $content;
-                    }
-
-                    return [
-                        $parsed_content,
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                case 500:
-                    if ('\KlaviyoAPI\Model\GetAccounts400Response' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('\KlaviyoAPI\Model\GetAccounts400Response' !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-
-                    $parsed_content = json_decode(json_encode($content), TRUE);
-                    if (json_last_error() != JSON_ERROR_NONE) {
-                        $parsed_content = $content;
-                    }
-
-                    return [
-                        $parsed_content,
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-            }
-
-            $returnType = 'array<string,mixed>';
-            if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); //stream goes to serializer
-            } else {
-                $content = (string) $response->getBody();
-                if ($returnType !== 'string') {
-                    $content = json_decode($content);
-                }
-            }
-
-            $parsed_content = json_decode(json_encode($content), TRUE);
-            if (json_last_error() != JSON_ERROR_NONE) {
-                $parsed_content = $content;
-            }
-
-            return [
-                $parsed_content,
-                $response->getStatusCode(),
-                $response->getHeaders()
-            ];
-
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 200:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        'array<string,mixed>',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 400:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\KlaviyoAPI\Model\GetAccounts400Response',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 500:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\KlaviyoAPI\Model\GetAccounts400Response',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-            }
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation getCampaignTagsAsync
-     *
-     * Get Campaign Tags
-     *
-     * @param  string $id  (required)
-     * @param  string[] $fields_tag For more information please visit https://developers.klaviyo.com/en/v2024-10-15/reference/api-overview#sparse-fieldsets (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function getCampaignTagsAsync($id, $fields_tag = null, $apiKey = null)
-    {
-        return $this->getCampaignTagsAsyncWithHttpInfo($id, $fields_tag, $apiKey)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation getCampaignTagsAsyncWithHttpInfo
-     *
-     * Get Campaign Tags
-     *
-     * @param  string $id  (required)
-     * @param  string[] $fields_tag For more information please visit https://developers.klaviyo.com/en/v2024-10-15/reference/api-overview#sparse-fieldsets (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function getCampaignTagsAsyncWithHttpInfo($id, $fields_tag = null, $apiKey = null)
-    {
-        $returnType = 'array<string,mixed>';
-        $request = $this->getCampaignTagsRequest($id, $fields_tag, $apiKey);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ($returnType !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    $parsed_content = json_decode(json_encode($content), TRUE);
-                    if (json_last_error() != JSON_ERROR_NONE) {
-                        $parsed_content = $content;
-                    }
-
-                    return [
-                        $parsed_content,
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        (string) $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'getCampaignTags'
-     *
-     * @param  string $id  (required)
-     * @param  string[] $fields_tag For more information please visit https://developers.klaviyo.com/en/v2024-10-15/reference/api-overview#sparse-fieldsets (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    public function getCampaignTagsRequest($id, $fields_tag = null, $apiKey = null)
-    {
-        // verify the required parameter 'id' is set
-        if ($id === null || (is_array($id) && count($id) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $id when calling getCampaignTags'
-            );
-        }
-
-        $resourcePath = '/api/campaigns/{id}/tags';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-        // query params
-        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-            $fields_tag,
-            'fields[tag]', // param base name
-            'array', // openApiType
-            'form', // style
-            false, // explode
-            false // required
-        ) ?? []);
-
-
-        // path params
-        if ($id !== null) {
-            $resourcePath = str_replace(
-                '{' . 'id' . '}',
-                ObjectSerializer::toPathValue($id),
-                $resourcePath
-            );
-        }
-
-
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/vnd.api+json']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/vnd.api+json'],
-                []
-            );
-        }
-
-        // for model (json/xml)
-        if (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
-                    foreach ($formParamValueItems as $formParamValueItem) {
-                        $multipartContents[] = [
-                            'name' => $formParamName,
-                            'contents' => $formParamValueItem
-                        ];
-                    }
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif ($headers['Content-Type'] === 'application/json' || $headers['Content-Type'] === 'application/vnd.api+json') {
-                $httpBody = \GuzzleHttp\json_encode($formParams);
-
-            } else {
-                // for HTTP post (form)
-                $httpBody = ObjectSerializer::buildQuery($formParams);
-            }
-        }
-
-        // this endpoint requires API key authentication
-        if ($apiKey == null) {
-            $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
-        } else {
-            $apiKey = 'Klaviyo-API-Key '.$apiKey;
-        }
-
-        $headers['Authorization'] = $apiKey;
-
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $defaultHeaders['revision'] = ['2024-10-15'];
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $query = ObjectSerializer::buildQuery($queryParams);
-        return new Request(
-            'GET',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
      * Operation getCampaigns
      *
      * Get Campaigns
@@ -5532,6 +5153,15 @@ class CampaignsApi
     }
 
     /**
+     * Alias of `getMessageIdsForCampaign`
+     *
+     * @deprecated use `getMessageIdsForCampaign` instead
+     */
+    public function getCampaignRelationshipsMessages(...$args) {
+        return $this->getMessageIdsForCampaign(...$args);
+    }
+
+    /**
      * Operation getMessageIdsForCampaignWithHttpInfo
      *
      * Get Message IDs for Campaign
@@ -5709,6 +5339,15 @@ class CampaignsApi
     }
 
     /**
+     * Alias of `getMessageIdsForCampaignWithHttpInfo`
+     *
+     * @deprecated use `getMessageIdsForCampaignWithHttpInfo` instead
+     */
+    public function getCampaignRelationshipsMessagesWithHttpInfo(...$args) {
+        return $this->getMessageIdsForCampaignWithHttpInfo(...$args);
+    }
+
+    /**
      * Operation getMessageIdsForCampaignAsync
      *
      * Get Message IDs for Campaign
@@ -5734,6 +5373,15 @@ class CampaignsApi
      * @deprecated use `getMessageIdsForCampaignAsync` instead
      */
     public function getCampaignRelationshipsCampaignMessagesAsync(...$args) {
+        return $this->getMessageIdsForCampaignAsync(...$args);
+    }
+
+    /**
+     * Alias of `getMessageIdsForCampaignAsync`
+     *
+     * @deprecated use `getMessageIdsForCampaignAsync` instead
+     */
+    public function getCampaignRelationshipsMessagesAsync(...$args) {
         return $this->getMessageIdsForCampaignAsync(...$args);
     }
 
@@ -5799,6 +5447,15 @@ class CampaignsApi
      * @deprecated use `getMessageIdsForCampaignAsyncWithHttpInfo` instead
      */
     public function getCampaignRelationshipsCampaignMessagesAsyncWithHttpInfo(...$args) {
+        return $this->getMessageIdsForCampaignAsyncWithHttpInfo(...$args);
+    }
+
+    /**
+     * Alias of `getMessageIdsForCampaignAsyncWithHttpInfo`
+     *
+     * @deprecated use `getMessageIdsForCampaignAsyncWithHttpInfo` instead
+     */
+    public function getCampaignRelationshipsMessagesAsyncWithHttpInfo(...$args) {
         return $this->getMessageIdsForCampaignAsyncWithHttpInfo(...$args);
     }
 
@@ -5916,6 +5573,15 @@ class CampaignsApi
     }
 
     /**
+     * Alias of `getMessageIdsForCampaignRequest`
+     *
+     * @deprecated use `getMessageIdsForCampaignRequest` instead
+     */
+    public function getCampaignRelationshipsMessagesRequest(...$args) {
+        return $this->getMessageIdsForCampaignRequest(...$args);
+    }
+
+    /**
      * Operation getMessagesForCampaign
      *
      * Get Messages for Campaign
@@ -5942,6 +5608,15 @@ class CampaignsApi
      * @deprecated use `getMessagesForCampaign` instead
      */
     public function getCampaignCampaignMessages(...$args) {
+        return $this->getMessagesForCampaign(...$args);
+    }
+
+    /**
+     * Alias of `getMessagesForCampaign`
+     *
+     * @deprecated use `getMessagesForCampaign` instead
+     */
+    public function getCampaignMessages(...$args) {
         return $this->getMessagesForCampaign(...$args);
     }
 
@@ -6127,6 +5802,15 @@ class CampaignsApi
     }
 
     /**
+     * Alias of `getMessagesForCampaignWithHttpInfo`
+     *
+     * @deprecated use `getMessagesForCampaignWithHttpInfo` instead
+     */
+    public function getCampaignMessagesWithHttpInfo(...$args) {
+        return $this->getMessagesForCampaignWithHttpInfo(...$args);
+    }
+
+    /**
      * Operation getMessagesForCampaignAsync
      *
      * Get Messages for Campaign
@@ -6156,6 +5840,15 @@ class CampaignsApi
      * @deprecated use `getMessagesForCampaignAsync` instead
      */
     public function getCampaignCampaignMessagesAsync(...$args) {
+        return $this->getMessagesForCampaignAsync(...$args);
+    }
+
+    /**
+     * Alias of `getMessagesForCampaignAsync`
+     *
+     * @deprecated use `getMessagesForCampaignAsync` instead
+     */
+    public function getCampaignMessagesAsync(...$args) {
         return $this->getMessagesForCampaignAsync(...$args);
     }
 
@@ -6225,6 +5918,15 @@ class CampaignsApi
      * @deprecated use `getMessagesForCampaignAsyncWithHttpInfo` instead
      */
     public function getCampaignCampaignMessagesAsyncWithHttpInfo(...$args) {
+        return $this->getMessagesForCampaignAsyncWithHttpInfo(...$args);
+    }
+
+    /**
+     * Alias of `getMessagesForCampaignAsyncWithHttpInfo`
+     *
+     * @deprecated use `getMessagesForCampaignAsyncWithHttpInfo` instead
+     */
+    public function getCampaignMessagesAsyncWithHttpInfo(...$args) {
         return $this->getMessagesForCampaignAsyncWithHttpInfo(...$args);
     }
 
@@ -6378,6 +6080,15 @@ class CampaignsApi
      * @deprecated use `getMessagesForCampaignRequest` instead
      */
     public function getCampaignCampaignMessagesRequest(...$args) {
+        return $this->getMessagesForCampaignRequest(...$args);
+    }
+
+    /**
+     * Alias of `getMessagesForCampaignRequest`
+     *
+     * @deprecated use `getMessagesForCampaignRequest` instead
+     */
+    public function getCampaignMessagesRequest(...$args) {
         return $this->getMessagesForCampaignRequest(...$args);
     }
 
@@ -6789,6 +6500,430 @@ class CampaignsApi
      */
     public function getCampaignRelationshipsTagsRequest(...$args) {
         return $this->getTagIdsForCampaignRequest(...$args);
+    }
+
+    /**
+     * Operation getTagsForCampaign
+     *
+     * Get Tags for Campaign
+     *
+     * @param  string $id  (required)
+     * @param  string[] $fields_tag For more information please visit https://developers.klaviyo.com/en/v2024-10-15/reference/api-overview#sparse-fieldsets (optional)
+     *
+     * @throws \KlaviyoAPI\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array<string,mixed>|\KlaviyoAPI\Model\GetAccounts400Response|\KlaviyoAPI\Model\GetAccounts400Response
+     */
+    public function getTagsForCampaign($id, $fields_tag = null, $apiKey = null)
+    {
+        list($response) = $this->getTagsForCampaignWithHttpInfo($id, $fields_tag, $apiKey);
+        return $response;
+    }
+
+    /**
+     * Alias of `getTagsForCampaign`
+     *
+     * @deprecated use `getTagsForCampaign` instead
+     */
+    public function getCampaignTags(...$args) {
+        return $this->getTagsForCampaign(...$args);
+    }
+
+    /**
+     * Operation getTagsForCampaignWithHttpInfo
+     *
+     * Get Tags for Campaign
+     *
+     * @param  string $id  (required)
+     * @param  string[] $fields_tag For more information please visit https://developers.klaviyo.com/en/v2024-10-15/reference/api-overview#sparse-fieldsets (optional)
+     *
+     * @throws \KlaviyoAPI\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of array<string,mixed>|\KlaviyoAPI\Model\GetAccounts400Response|\KlaviyoAPI\Model\GetAccounts400Response, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getTagsForCampaignWithHttpInfo($id, $fields_tag = null, $apiKey = null)
+    {
+        $request = $this->getTagsForCampaignRequest($id, $fields_tag, $apiKey);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('array<string,mixed>' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('array&lt;string,mixed&gt;' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+
+                    $parsed_content = json_decode(json_encode($content), TRUE);
+                    if (json_last_error() != JSON_ERROR_NONE) {
+                        $parsed_content = $content;
+                    }
+
+                    return [
+                        $parsed_content,
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 400:
+                    if ('\KlaviyoAPI\Model\GetAccounts400Response' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\KlaviyoAPI\Model\GetAccounts400Response' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+
+                    $parsed_content = json_decode(json_encode($content), TRUE);
+                    if (json_last_error() != JSON_ERROR_NONE) {
+                        $parsed_content = $content;
+                    }
+
+                    return [
+                        $parsed_content,
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 500:
+                    if ('\KlaviyoAPI\Model\GetAccounts400Response' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\KlaviyoAPI\Model\GetAccounts400Response' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+
+                    $parsed_content = json_decode(json_encode($content), TRUE);
+                    if (json_last_error() != JSON_ERROR_NONE) {
+                        $parsed_content = $content;
+                    }
+
+                    return [
+                        $parsed_content,
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = 'array<string,mixed>';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            $parsed_content = json_decode(json_encode($content), TRUE);
+            if (json_last_error() != JSON_ERROR_NONE) {
+                $parsed_content = $content;
+            }
+
+            return [
+                $parsed_content,
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        'array<string,mixed>',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\KlaviyoAPI\Model\GetAccounts400Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 500:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\KlaviyoAPI\Model\GetAccounts400Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Alias of `getTagsForCampaignWithHttpInfo`
+     *
+     * @deprecated use `getTagsForCampaignWithHttpInfo` instead
+     */
+    public function getCampaignTagsWithHttpInfo(...$args) {
+        return $this->getTagsForCampaignWithHttpInfo(...$args);
+    }
+
+    /**
+     * Operation getTagsForCampaignAsync
+     *
+     * Get Tags for Campaign
+     *
+     * @param  string $id  (required)
+     * @param  string[] $fields_tag For more information please visit https://developers.klaviyo.com/en/v2024-10-15/reference/api-overview#sparse-fieldsets (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getTagsForCampaignAsync($id, $fields_tag = null, $apiKey = null)
+    {
+        return $this->getTagsForCampaignAsyncWithHttpInfo($id, $fields_tag, $apiKey)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Alias of `getTagsForCampaignAsync`
+     *
+     * @deprecated use `getTagsForCampaignAsync` instead
+     */
+    public function getCampaignTagsAsync(...$args) {
+        return $this->getTagsForCampaignAsync(...$args);
+    }
+
+    /**
+     * Operation getTagsForCampaignAsyncWithHttpInfo
+     *
+     * Get Tags for Campaign
+     *
+     * @param  string $id  (required)
+     * @param  string[] $fields_tag For more information please visit https://developers.klaviyo.com/en/v2024-10-15/reference/api-overview#sparse-fieldsets (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getTagsForCampaignAsyncWithHttpInfo($id, $fields_tag = null, $apiKey = null)
+    {
+        $returnType = 'array<string,mixed>';
+        $request = $this->getTagsForCampaignRequest($id, $fields_tag, $apiKey);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    $parsed_content = json_decode(json_encode($content), TRUE);
+                    if (json_last_error() != JSON_ERROR_NONE) {
+                        $parsed_content = $content;
+                    }
+
+                    return [
+                        $parsed_content,
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Alias of `getTagsForCampaignAsyncWithHttpInfo`
+     *
+     * @deprecated use `getTagsForCampaignAsyncWithHttpInfo` instead
+     */
+    public function getCampaignTagsAsyncWithHttpInfo(...$args) {
+        return $this->getTagsForCampaignAsyncWithHttpInfo(...$args);
+    }
+
+    /**
+     * Create request for operation 'getTagsForCampaign'
+     *
+     * @param  string $id  (required)
+     * @param  string[] $fields_tag For more information please visit https://developers.klaviyo.com/en/v2024-10-15/reference/api-overview#sparse-fieldsets (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function getTagsForCampaignRequest($id, $fields_tag = null, $apiKey = null)
+    {
+        // verify the required parameter 'id' is set
+        if ($id === null || (is_array($id) && count($id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $id when calling getTagsForCampaign'
+            );
+        }
+
+        $resourcePath = '/api/campaigns/{id}/tags';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $fields_tag,
+            'fields[tag]', // param base name
+            'array', // openApiType
+            'form', // style
+            false, // explode
+            false // required
+        ) ?? []);
+
+
+        // path params
+        if ($id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'id' . '}',
+                ObjectSerializer::toPathValue($id),
+                $resourcePath
+            );
+        }
+
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/vnd.api+json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/vnd.api+json'],
+                []
+            );
+        }
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json' || $headers['Content-Type'] === 'application/vnd.api+json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        if ($apiKey == null) {
+            $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        } else {
+            $apiKey = 'Klaviyo-API-Key '.$apiKey;
+        }
+
+        $headers['Authorization'] = $apiKey;
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $defaultHeaders['revision'] = ['2024-10-15'];
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Alias of `getTagsForCampaignRequest`
+     *
+     * @deprecated use `getTagsForCampaignRequest` instead
+     */
+    public function getCampaignTagsRequest(...$args) {
+        return $this->getTagsForCampaignRequest(...$args);
     }
 
     /**

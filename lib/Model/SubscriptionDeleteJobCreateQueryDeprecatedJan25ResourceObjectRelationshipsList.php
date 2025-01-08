@@ -1,6 +1,6 @@
 <?php
 /**
- * SubscriptionDeleteJobCreateQueryResourceObjectAttributes
+ * SubscriptionDeleteJobCreateQueryDeprecatedJan25ResourceObjectRelationshipsList
  *
  * PHP version 7.4
  *
@@ -33,7 +33,7 @@ use \ArrayAccess;
 use \KlaviyoAPI\ObjectSerializer;
 
 /**
- * SubscriptionDeleteJobCreateQueryResourceObjectAttributes Class Doc Comment
+ * SubscriptionDeleteJobCreateQueryDeprecatedJan25ResourceObjectRelationshipsList Class Doc Comment
  *
  * @category Class
  * @package  KlaviyoAPI
@@ -41,7 +41,7 @@ use \KlaviyoAPI\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class SubscriptionDeleteJobCreateQueryResourceObjectAttributes implements ModelInterface, ArrayAccess, \JsonSerializable
+class SubscriptionDeleteJobCreateQueryDeprecatedJan25ResourceObjectRelationshipsList implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class SubscriptionDeleteJobCreateQueryResourceObjectAttributes implements ModelI
       *
       * @var string
       */
-    protected static $openAPIModelName = 'SubscriptionDeleteJobCreateQueryResourceObject_attributes';
+    protected static $openAPIModelName = 'SubscriptionDeleteJobCreateQueryDeprecatedJan25ResourceObject_relationships_list';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,7 +58,7 @@ class SubscriptionDeleteJobCreateQueryResourceObjectAttributes implements ModelI
       * @var string[]
       */
     protected static $openAPITypes = [
-        'profiles' => '\KlaviyoAPI\Model\SubscriptionDeleteJobCreateQueryResourceObjectAttributesProfiles'
+        'data' => '\KlaviyoAPI\Model\SubscriptionDeleteJobCreateQueryDeprecatedJan25ResourceObjectRelationshipsListData'
     ];
 
     /**
@@ -69,7 +69,7 @@ class SubscriptionDeleteJobCreateQueryResourceObjectAttributes implements ModelI
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'profiles' => null
+        'data' => null
     ];
 
     /**
@@ -78,7 +78,7 @@ class SubscriptionDeleteJobCreateQueryResourceObjectAttributes implements ModelI
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'profiles' => false
+        'data' => false
     ];
 
     /**
@@ -157,7 +157,7 @@ class SubscriptionDeleteJobCreateQueryResourceObjectAttributes implements ModelI
      * @var string[]
      */
     protected static $attributeMap = [
-        'profiles' => 'profiles'
+        'data' => 'data'
     ];
 
     /**
@@ -166,7 +166,7 @@ class SubscriptionDeleteJobCreateQueryResourceObjectAttributes implements ModelI
      * @var string[]
      */
     protected static $setters = [
-        'profiles' => 'setProfiles'
+        'data' => 'setData'
     ];
 
     /**
@@ -175,7 +175,7 @@ class SubscriptionDeleteJobCreateQueryResourceObjectAttributes implements ModelI
      * @var string[]
      */
     protected static $getters = [
-        'profiles' => 'getProfiles'
+        'data' => 'getData'
     ];
 
     /**
@@ -235,7 +235,7 @@ class SubscriptionDeleteJobCreateQueryResourceObjectAttributes implements ModelI
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('profiles', $data ?? [], null);
+        $this->setIfExists('data', $data ?? [], null);
     }
 
     /**
@@ -265,9 +265,6 @@ class SubscriptionDeleteJobCreateQueryResourceObjectAttributes implements ModelI
     {
         $invalidProperties = [];
 
-        if ($this->container['profiles'] === null) {
-            $invalidProperties[] = "'profiles' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -284,30 +281,30 @@ class SubscriptionDeleteJobCreateQueryResourceObjectAttributes implements ModelI
 
 
     /**
-     * Gets profiles
+     * Gets data
      *
-     * @return \KlaviyoAPI\Model\SubscriptionDeleteJobCreateQueryResourceObjectAttributesProfiles
+     * @return \KlaviyoAPI\Model\SubscriptionDeleteJobCreateQueryDeprecatedJan25ResourceObjectRelationshipsListData|null
      */
-    public function getProfiles()
+    public function getData()
     {
-        return $this->container['profiles'];
+        return $this->container['data'];
     }
 
     /**
-     * Sets profiles
+     * Sets data
      *
-     * @param \KlaviyoAPI\Model\SubscriptionDeleteJobCreateQueryResourceObjectAttributesProfiles $profiles profiles
+     * @param \KlaviyoAPI\Model\SubscriptionDeleteJobCreateQueryDeprecatedJan25ResourceObjectRelationshipsListData|null $data data
      *
      * @return self
      */
-    public function setProfiles($profiles)
+    public function setData($data)
     {
 
-        if (is_null($profiles)) {
-            throw new \InvalidArgumentException('non-nullable profiles cannot be null');
+        if (is_null($data)) {
+            throw new \InvalidArgumentException('non-nullable data cannot be null');
         }
 
-        $this->container['profiles'] = $profiles;
+        $this->container['data'] = $data;
 
         return $this;
     }

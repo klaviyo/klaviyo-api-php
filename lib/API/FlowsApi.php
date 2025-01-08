@@ -370,6 +370,430 @@ class FlowsApi
     }
 
     /**
+     * Operation getActionForFlowMessage
+     *
+     * Get Action for Flow Message
+     *
+     * @param  string $id  (required)
+     * @param  string[] $fields_flow_action For more information please visit https://developers.klaviyo.com/en/v2024-10-15/reference/api-overview#sparse-fieldsets (optional)
+     *
+     * @throws \KlaviyoAPI\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array<string,mixed>|\KlaviyoAPI\Model\GetAccounts400Response|\KlaviyoAPI\Model\GetAccounts400Response
+     */
+    public function getActionForFlowMessage($id, $fields_flow_action = null, $apiKey = null)
+    {
+        list($response) = $this->getActionForFlowMessageWithHttpInfo($id, $fields_flow_action, $apiKey);
+        return $response;
+    }
+
+    /**
+     * Alias of `getActionForFlowMessage`
+     *
+     * @deprecated use `getActionForFlowMessage` instead
+     */
+    public function getFlowMessageAction(...$args) {
+        return $this->getActionForFlowMessage(...$args);
+    }
+
+    /**
+     * Operation getActionForFlowMessageWithHttpInfo
+     *
+     * Get Action for Flow Message
+     *
+     * @param  string $id  (required)
+     * @param  string[] $fields_flow_action For more information please visit https://developers.klaviyo.com/en/v2024-10-15/reference/api-overview#sparse-fieldsets (optional)
+     *
+     * @throws \KlaviyoAPI\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of array<string,mixed>|\KlaviyoAPI\Model\GetAccounts400Response|\KlaviyoAPI\Model\GetAccounts400Response, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getActionForFlowMessageWithHttpInfo($id, $fields_flow_action = null, $apiKey = null)
+    {
+        $request = $this->getActionForFlowMessageRequest($id, $fields_flow_action, $apiKey);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('array<string,mixed>' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('array&lt;string,mixed&gt;' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+
+                    $parsed_content = json_decode(json_encode($content), TRUE);
+                    if (json_last_error() != JSON_ERROR_NONE) {
+                        $parsed_content = $content;
+                    }
+
+                    return [
+                        $parsed_content,
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 400:
+                    if ('\KlaviyoAPI\Model\GetAccounts400Response' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\KlaviyoAPI\Model\GetAccounts400Response' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+
+                    $parsed_content = json_decode(json_encode($content), TRUE);
+                    if (json_last_error() != JSON_ERROR_NONE) {
+                        $parsed_content = $content;
+                    }
+
+                    return [
+                        $parsed_content,
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 500:
+                    if ('\KlaviyoAPI\Model\GetAccounts400Response' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\KlaviyoAPI\Model\GetAccounts400Response' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+
+                    $parsed_content = json_decode(json_encode($content), TRUE);
+                    if (json_last_error() != JSON_ERROR_NONE) {
+                        $parsed_content = $content;
+                    }
+
+                    return [
+                        $parsed_content,
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = 'array<string,mixed>';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            $parsed_content = json_decode(json_encode($content), TRUE);
+            if (json_last_error() != JSON_ERROR_NONE) {
+                $parsed_content = $content;
+            }
+
+            return [
+                $parsed_content,
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        'array<string,mixed>',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\KlaviyoAPI\Model\GetAccounts400Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 500:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\KlaviyoAPI\Model\GetAccounts400Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Alias of `getActionForFlowMessageWithHttpInfo`
+     *
+     * @deprecated use `getActionForFlowMessageWithHttpInfo` instead
+     */
+    public function getFlowMessageActionWithHttpInfo(...$args) {
+        return $this->getActionForFlowMessageWithHttpInfo(...$args);
+    }
+
+    /**
+     * Operation getActionForFlowMessageAsync
+     *
+     * Get Action for Flow Message
+     *
+     * @param  string $id  (required)
+     * @param  string[] $fields_flow_action For more information please visit https://developers.klaviyo.com/en/v2024-10-15/reference/api-overview#sparse-fieldsets (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getActionForFlowMessageAsync($id, $fields_flow_action = null, $apiKey = null)
+    {
+        return $this->getActionForFlowMessageAsyncWithHttpInfo($id, $fields_flow_action, $apiKey)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Alias of `getActionForFlowMessageAsync`
+     *
+     * @deprecated use `getActionForFlowMessageAsync` instead
+     */
+    public function getFlowMessageActionAsync(...$args) {
+        return $this->getActionForFlowMessageAsync(...$args);
+    }
+
+    /**
+     * Operation getActionForFlowMessageAsyncWithHttpInfo
+     *
+     * Get Action for Flow Message
+     *
+     * @param  string $id  (required)
+     * @param  string[] $fields_flow_action For more information please visit https://developers.klaviyo.com/en/v2024-10-15/reference/api-overview#sparse-fieldsets (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getActionForFlowMessageAsyncWithHttpInfo($id, $fields_flow_action = null, $apiKey = null)
+    {
+        $returnType = 'array<string,mixed>';
+        $request = $this->getActionForFlowMessageRequest($id, $fields_flow_action, $apiKey);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    $parsed_content = json_decode(json_encode($content), TRUE);
+                    if (json_last_error() != JSON_ERROR_NONE) {
+                        $parsed_content = $content;
+                    }
+
+                    return [
+                        $parsed_content,
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Alias of `getActionForFlowMessageAsyncWithHttpInfo`
+     *
+     * @deprecated use `getActionForFlowMessageAsyncWithHttpInfo` instead
+     */
+    public function getFlowMessageActionAsyncWithHttpInfo(...$args) {
+        return $this->getActionForFlowMessageAsyncWithHttpInfo(...$args);
+    }
+
+    /**
+     * Create request for operation 'getActionForFlowMessage'
+     *
+     * @param  string $id  (required)
+     * @param  string[] $fields_flow_action For more information please visit https://developers.klaviyo.com/en/v2024-10-15/reference/api-overview#sparse-fieldsets (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function getActionForFlowMessageRequest($id, $fields_flow_action = null, $apiKey = null)
+    {
+        // verify the required parameter 'id' is set
+        if ($id === null || (is_array($id) && count($id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $id when calling getActionForFlowMessage'
+            );
+        }
+
+        $resourcePath = '/api/flow-messages/{id}/flow-action';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $fields_flow_action,
+            'fields[flow-action]', // param base name
+            'array', // openApiType
+            'form', // style
+            false, // explode
+            false // required
+        ) ?? []);
+
+
+        // path params
+        if ($id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'id' . '}',
+                ObjectSerializer::toPathValue($id),
+                $resourcePath
+            );
+        }
+
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/vnd.api+json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/vnd.api+json'],
+                []
+            );
+        }
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json' || $headers['Content-Type'] === 'application/vnd.api+json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        if ($apiKey == null) {
+            $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        } else {
+            $apiKey = 'Klaviyo-API-Key '.$apiKey;
+        }
+
+        $headers['Authorization'] = $apiKey;
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $defaultHeaders['revision'] = ['2024-10-15'];
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Alias of `getActionForFlowMessageRequest`
+     *
+     * @deprecated use `getActionForFlowMessageRequest` instead
+     */
+    public function getFlowMessageActionRequest(...$args) {
+        return $this->getActionForFlowMessageRequest(...$args);
+    }
+
+    /**
      * Operation getActionIdForFlowMessage
      *
      * Get Action ID for Flow Message
@@ -809,6 +1233,15 @@ class FlowsApi
     }
 
     /**
+     * Alias of `getActionIdsForFlow`
+     *
+     * @deprecated use `getActionIdsForFlow` instead
+     */
+    public function getFlowRelationshipsActions(...$args) {
+        return $this->getActionIdsForFlow(...$args);
+    }
+
+    /**
      * Operation getActionIdsForFlowWithHttpInfo
      *
      * Get Action IDs for Flow
@@ -989,6 +1422,15 @@ class FlowsApi
     }
 
     /**
+     * Alias of `getActionIdsForFlowWithHttpInfo`
+     *
+     * @deprecated use `getActionIdsForFlowWithHttpInfo` instead
+     */
+    public function getFlowRelationshipsActionsWithHttpInfo(...$args) {
+        return $this->getActionIdsForFlowWithHttpInfo(...$args);
+    }
+
+    /**
      * Operation getActionIdsForFlowAsync
      *
      * Get Action IDs for Flow
@@ -1017,6 +1459,15 @@ class FlowsApi
      * @deprecated use `getActionIdsForFlowAsync` instead
      */
     public function getFlowRelationshipsFlowActionsAsync(...$args) {
+        return $this->getActionIdsForFlowAsync(...$args);
+    }
+
+    /**
+     * Alias of `getActionIdsForFlowAsync`
+     *
+     * @deprecated use `getActionIdsForFlowAsync` instead
+     */
+    public function getFlowRelationshipsActionsAsync(...$args) {
         return $this->getActionIdsForFlowAsync(...$args);
     }
 
@@ -1085,6 +1536,15 @@ class FlowsApi
      * @deprecated use `getActionIdsForFlowAsyncWithHttpInfo` instead
      */
     public function getFlowRelationshipsFlowActionsAsyncWithHttpInfo(...$args) {
+        return $this->getActionIdsForFlowAsyncWithHttpInfo(...$args);
+    }
+
+    /**
+     * Alias of `getActionIdsForFlowAsyncWithHttpInfo`
+     *
+     * @deprecated use `getActionIdsForFlowAsyncWithHttpInfo` instead
+     */
+    public function getFlowRelationshipsActionsAsyncWithHttpInfo(...$args) {
         return $this->getActionIdsForFlowAsyncWithHttpInfo(...$args);
     }
 
@@ -1239,6 +1699,15 @@ class FlowsApi
     }
 
     /**
+     * Alias of `getActionIdsForFlowRequest`
+     *
+     * @deprecated use `getActionIdsForFlowRequest` instead
+     */
+    public function getFlowRelationshipsActionsRequest(...$args) {
+        return $this->getActionIdsForFlowRequest(...$args);
+    }
+
+    /**
      * Operation getActionsForFlow
      *
      * Get Actions for Flow
@@ -1266,6 +1735,15 @@ class FlowsApi
      * @deprecated use `getActionsForFlow` instead
      */
     public function getFlowFlowActions(...$args) {
+        return $this->getActionsForFlow(...$args);
+    }
+
+    /**
+     * Alias of `getActionsForFlow`
+     *
+     * @deprecated use `getActionsForFlow` instead
+     */
+    public function getFlowActions(...$args) {
         return $this->getActionsForFlow(...$args);
     }
 
@@ -1452,6 +1930,15 @@ class FlowsApi
     }
 
     /**
+     * Alias of `getActionsForFlowWithHttpInfo`
+     *
+     * @deprecated use `getActionsForFlowWithHttpInfo` instead
+     */
+    public function getFlowActionsWithHttpInfo(...$args) {
+        return $this->getActionsForFlowWithHttpInfo(...$args);
+    }
+
+    /**
      * Operation getActionsForFlowAsync
      *
      * Get Actions for Flow
@@ -1482,6 +1969,15 @@ class FlowsApi
      * @deprecated use `getActionsForFlowAsync` instead
      */
     public function getFlowFlowActionsAsync(...$args) {
+        return $this->getActionsForFlowAsync(...$args);
+    }
+
+    /**
+     * Alias of `getActionsForFlowAsync`
+     *
+     * @deprecated use `getActionsForFlowAsync` instead
+     */
+    public function getFlowActionsAsync(...$args) {
         return $this->getActionsForFlowAsync(...$args);
     }
 
@@ -1552,6 +2048,15 @@ class FlowsApi
      * @deprecated use `getActionsForFlowAsyncWithHttpInfo` instead
      */
     public function getFlowFlowActionsAsyncWithHttpInfo(...$args) {
+        return $this->getActionsForFlowAsyncWithHttpInfo(...$args);
+    }
+
+    /**
+     * Alias of `getActionsForFlowAsyncWithHttpInfo`
+     *
+     * @deprecated use `getActionsForFlowAsyncWithHttpInfo` instead
+     */
+    public function getFlowActionsAsyncWithHttpInfo(...$args) {
         return $this->getActionsForFlowAsyncWithHttpInfo(...$args);
     }
 
@@ -1722,6 +2227,15 @@ class FlowsApi
      * @deprecated use `getActionsForFlowRequest` instead
      */
     public function getFlowFlowActionsRequest(...$args) {
+        return $this->getActionsForFlowRequest(...$args);
+    }
+
+    /**
+     * Alias of `getActionsForFlowRequest`
+     *
+     * @deprecated use `getActionsForFlowRequest` instead
+     */
+    public function getFlowActionsRequest(...$args) {
         return $this->getActionsForFlowRequest(...$args);
     }
 
@@ -2568,9 +3082,9 @@ class FlowsApi
     }
 
     /**
-     * Operation getFlowActionFlow
+     * Operation getFlowForFlowAction
      *
-     * Get Flow For Flow Action
+     * Get Flow for Flow Action
      *
      * @param  string $id  (required)
      * @param  string[] $fields_flow For more information please visit https://developers.klaviyo.com/en/v2024-10-15/reference/api-overview#sparse-fieldsets (optional)
@@ -2579,16 +3093,25 @@ class FlowsApi
      * @throws \InvalidArgumentException
      * @return array<string,mixed>|\KlaviyoAPI\Model\GetAccounts400Response|\KlaviyoAPI\Model\GetAccounts400Response
      */
-    public function getFlowActionFlow($id, $fields_flow = null, $apiKey = null)
+    public function getFlowForFlowAction($id, $fields_flow = null, $apiKey = null)
     {
-        list($response) = $this->getFlowActionFlowWithHttpInfo($id, $fields_flow, $apiKey);
+        list($response) = $this->getFlowForFlowActionWithHttpInfo($id, $fields_flow, $apiKey);
         return $response;
     }
 
     /**
-     * Operation getFlowActionFlowWithHttpInfo
+     * Alias of `getFlowForFlowAction`
      *
-     * Get Flow For Flow Action
+     * @deprecated use `getFlowForFlowAction` instead
+     */
+    public function getFlowActionFlow(...$args) {
+        return $this->getFlowForFlowAction(...$args);
+    }
+
+    /**
+     * Operation getFlowForFlowActionWithHttpInfo
+     *
+     * Get Flow for Flow Action
      *
      * @param  string $id  (required)
      * @param  string[] $fields_flow For more information please visit https://developers.klaviyo.com/en/v2024-10-15/reference/api-overview#sparse-fieldsets (optional)
@@ -2597,9 +3120,9 @@ class FlowsApi
      * @throws \InvalidArgumentException
      * @return array of array<string,mixed>|\KlaviyoAPI\Model\GetAccounts400Response|\KlaviyoAPI\Model\GetAccounts400Response, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getFlowActionFlowWithHttpInfo($id, $fields_flow = null, $apiKey = null)
+    public function getFlowForFlowActionWithHttpInfo($id, $fields_flow = null, $apiKey = null)
     {
-        $request = $this->getFlowActionFlowRequest($id, $fields_flow, $apiKey);
+        $request = $this->getFlowForFlowActionRequest($id, $fields_flow, $apiKey);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2755,9 +3278,18 @@ class FlowsApi
     }
 
     /**
-     * Operation getFlowActionFlowAsync
+     * Alias of `getFlowForFlowActionWithHttpInfo`
      *
-     * Get Flow For Flow Action
+     * @deprecated use `getFlowForFlowActionWithHttpInfo` instead
+     */
+    public function getFlowActionFlowWithHttpInfo(...$args) {
+        return $this->getFlowForFlowActionWithHttpInfo(...$args);
+    }
+
+    /**
+     * Operation getFlowForFlowActionAsync
+     *
+     * Get Flow for Flow Action
      *
      * @param  string $id  (required)
      * @param  string[] $fields_flow For more information please visit https://developers.klaviyo.com/en/v2024-10-15/reference/api-overview#sparse-fieldsets (optional)
@@ -2765,9 +3297,9 @@ class FlowsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getFlowActionFlowAsync($id, $fields_flow = null, $apiKey = null)
+    public function getFlowForFlowActionAsync($id, $fields_flow = null, $apiKey = null)
     {
-        return $this->getFlowActionFlowAsyncWithHttpInfo($id, $fields_flow, $apiKey)
+        return $this->getFlowForFlowActionAsyncWithHttpInfo($id, $fields_flow, $apiKey)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2776,9 +3308,18 @@ class FlowsApi
     }
 
     /**
-     * Operation getFlowActionFlowAsyncWithHttpInfo
+     * Alias of `getFlowForFlowActionAsync`
      *
-     * Get Flow For Flow Action
+     * @deprecated use `getFlowForFlowActionAsync` instead
+     */
+    public function getFlowActionFlowAsync(...$args) {
+        return $this->getFlowForFlowActionAsync(...$args);
+    }
+
+    /**
+     * Operation getFlowForFlowActionAsyncWithHttpInfo
+     *
+     * Get Flow for Flow Action
      *
      * @param  string $id  (required)
      * @param  string[] $fields_flow For more information please visit https://developers.klaviyo.com/en/v2024-10-15/reference/api-overview#sparse-fieldsets (optional)
@@ -2786,10 +3327,10 @@ class FlowsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getFlowActionFlowAsyncWithHttpInfo($id, $fields_flow = null, $apiKey = null)
+    public function getFlowForFlowActionAsyncWithHttpInfo($id, $fields_flow = null, $apiKey = null)
     {
         $returnType = 'array<string,mixed>';
-        $request = $this->getFlowActionFlowRequest($id, $fields_flow, $apiKey);
+        $request = $this->getFlowForFlowActionRequest($id, $fields_flow, $apiKey);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2833,7 +3374,16 @@ class FlowsApi
     }
 
     /**
-     * Create request for operation 'getFlowActionFlow'
+     * Alias of `getFlowForFlowActionAsyncWithHttpInfo`
+     *
+     * @deprecated use `getFlowForFlowActionAsyncWithHttpInfo` instead
+     */
+    public function getFlowActionFlowAsyncWithHttpInfo(...$args) {
+        return $this->getFlowForFlowActionAsyncWithHttpInfo(...$args);
+    }
+
+    /**
+     * Create request for operation 'getFlowForFlowAction'
      *
      * @param  string $id  (required)
      * @param  string[] $fields_flow For more information please visit https://developers.klaviyo.com/en/v2024-10-15/reference/api-overview#sparse-fieldsets (optional)
@@ -2841,12 +3391,12 @@ class FlowsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getFlowActionFlowRequest($id, $fields_flow = null, $apiKey = null)
+    public function getFlowForFlowActionRequest($id, $fields_flow = null, $apiKey = null)
     {
         // verify the required parameter 'id' is set
         if ($id === null || (is_array($id) && count($id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $id when calling getFlowActionFlow'
+                'Missing the required parameter $id when calling getFlowForFlowAction'
             );
         }
 
@@ -2944,6 +3494,15 @@ class FlowsApi
             $headers,
             $httpBody
         );
+    }
+
+    /**
+     * Alias of `getFlowForFlowActionRequest`
+     *
+     * @deprecated use `getFlowForFlowActionRequest` instead
+     */
+    public function getFlowActionFlowRequest(...$args) {
+        return $this->getFlowForFlowActionRequest(...$args);
     }
 
     /**
@@ -3692,764 +4251,6 @@ class FlowsApi
         $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
             $include,
             'include', // param base name
-            'array', // openApiType
-            'form', // style
-            false, // explode
-            false // required
-        ) ?? []);
-
-
-        // path params
-        if ($id !== null) {
-            $resourcePath = str_replace(
-                '{' . 'id' . '}',
-                ObjectSerializer::toPathValue($id),
-                $resourcePath
-            );
-        }
-
-
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/vnd.api+json']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/vnd.api+json'],
-                []
-            );
-        }
-
-        // for model (json/xml)
-        if (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
-                    foreach ($formParamValueItems as $formParamValueItem) {
-                        $multipartContents[] = [
-                            'name' => $formParamName,
-                            'contents' => $formParamValueItem
-                        ];
-                    }
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif ($headers['Content-Type'] === 'application/json' || $headers['Content-Type'] === 'application/vnd.api+json') {
-                $httpBody = \GuzzleHttp\json_encode($formParams);
-
-            } else {
-                // for HTTP post (form)
-                $httpBody = ObjectSerializer::buildQuery($formParams);
-            }
-        }
-
-        // this endpoint requires API key authentication
-        if ($apiKey == null) {
-            $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
-        } else {
-            $apiKey = 'Klaviyo-API-Key '.$apiKey;
-        }
-
-        $headers['Authorization'] = $apiKey;
-
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $defaultHeaders['revision'] = ['2024-10-15'];
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $query = ObjectSerializer::buildQuery($queryParams);
-        return new Request(
-            'GET',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
-     * Operation getFlowMessageAction
-     *
-     * Get Flow Action For Message
-     *
-     * @param  string $id  (required)
-     * @param  string[] $fields_flow_action For more information please visit https://developers.klaviyo.com/en/v2024-10-15/reference/api-overview#sparse-fieldsets (optional)
-     *
-     * @throws \KlaviyoAPI\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return array<string,mixed>|\KlaviyoAPI\Model\GetAccounts400Response|\KlaviyoAPI\Model\GetAccounts400Response
-     */
-    public function getFlowMessageAction($id, $fields_flow_action = null, $apiKey = null)
-    {
-        list($response) = $this->getFlowMessageActionWithHttpInfo($id, $fields_flow_action, $apiKey);
-        return $response;
-    }
-
-    /**
-     * Operation getFlowMessageActionWithHttpInfo
-     *
-     * Get Flow Action For Message
-     *
-     * @param  string $id  (required)
-     * @param  string[] $fields_flow_action For more information please visit https://developers.klaviyo.com/en/v2024-10-15/reference/api-overview#sparse-fieldsets (optional)
-     *
-     * @throws \KlaviyoAPI\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return array of array<string,mixed>|\KlaviyoAPI\Model\GetAccounts400Response|\KlaviyoAPI\Model\GetAccounts400Response, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function getFlowMessageActionWithHttpInfo($id, $fields_flow_action = null, $apiKey = null)
-    {
-        $request = $this->getFlowMessageActionRequest($id, $fields_flow_action, $apiKey);
-
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
-                );
-            } catch (ConnectException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    null,
-                    null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        (string) $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    (string) $response->getBody()
-                );
-            }
-
-            switch($statusCode) {
-                case 200:
-                    if ('array<string,mixed>' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('array&lt;string,mixed&gt;' !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-
-                    $parsed_content = json_decode(json_encode($content), TRUE);
-                    if (json_last_error() != JSON_ERROR_NONE) {
-                        $parsed_content = $content;
-                    }
-
-                    return [
-                        $parsed_content,
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                case 400:
-                    if ('\KlaviyoAPI\Model\GetAccounts400Response' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('\KlaviyoAPI\Model\GetAccounts400Response' !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-
-                    $parsed_content = json_decode(json_encode($content), TRUE);
-                    if (json_last_error() != JSON_ERROR_NONE) {
-                        $parsed_content = $content;
-                    }
-
-                    return [
-                        $parsed_content,
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                case 500:
-                    if ('\KlaviyoAPI\Model\GetAccounts400Response' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('\KlaviyoAPI\Model\GetAccounts400Response' !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-
-                    $parsed_content = json_decode(json_encode($content), TRUE);
-                    if (json_last_error() != JSON_ERROR_NONE) {
-                        $parsed_content = $content;
-                    }
-
-                    return [
-                        $parsed_content,
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-            }
-
-            $returnType = 'array<string,mixed>';
-            if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); //stream goes to serializer
-            } else {
-                $content = (string) $response->getBody();
-                if ($returnType !== 'string') {
-                    $content = json_decode($content);
-                }
-            }
-
-            $parsed_content = json_decode(json_encode($content), TRUE);
-            if (json_last_error() != JSON_ERROR_NONE) {
-                $parsed_content = $content;
-            }
-
-            return [
-                $parsed_content,
-                $response->getStatusCode(),
-                $response->getHeaders()
-            ];
-
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 200:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        'array<string,mixed>',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 400:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\KlaviyoAPI\Model\GetAccounts400Response',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 500:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\KlaviyoAPI\Model\GetAccounts400Response',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-            }
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation getFlowMessageActionAsync
-     *
-     * Get Flow Action For Message
-     *
-     * @param  string $id  (required)
-     * @param  string[] $fields_flow_action For more information please visit https://developers.klaviyo.com/en/v2024-10-15/reference/api-overview#sparse-fieldsets (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function getFlowMessageActionAsync($id, $fields_flow_action = null, $apiKey = null)
-    {
-        return $this->getFlowMessageActionAsyncWithHttpInfo($id, $fields_flow_action, $apiKey)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation getFlowMessageActionAsyncWithHttpInfo
-     *
-     * Get Flow Action For Message
-     *
-     * @param  string $id  (required)
-     * @param  string[] $fields_flow_action For more information please visit https://developers.klaviyo.com/en/v2024-10-15/reference/api-overview#sparse-fieldsets (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function getFlowMessageActionAsyncWithHttpInfo($id, $fields_flow_action = null, $apiKey = null)
-    {
-        $returnType = 'array<string,mixed>';
-        $request = $this->getFlowMessageActionRequest($id, $fields_flow_action, $apiKey);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ($returnType !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    $parsed_content = json_decode(json_encode($content), TRUE);
-                    if (json_last_error() != JSON_ERROR_NONE) {
-                        $parsed_content = $content;
-                    }
-
-                    return [
-                        $parsed_content,
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        (string) $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'getFlowMessageAction'
-     *
-     * @param  string $id  (required)
-     * @param  string[] $fields_flow_action For more information please visit https://developers.klaviyo.com/en/v2024-10-15/reference/api-overview#sparse-fieldsets (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    public function getFlowMessageActionRequest($id, $fields_flow_action = null, $apiKey = null)
-    {
-        // verify the required parameter 'id' is set
-        if ($id === null || (is_array($id) && count($id) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $id when calling getFlowMessageAction'
-            );
-        }
-
-        $resourcePath = '/api/flow-messages/{id}/flow-action';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-        // query params
-        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-            $fields_flow_action,
-            'fields[flow-action]', // param base name
-            'array', // openApiType
-            'form', // style
-            false, // explode
-            false // required
-        ) ?? []);
-
-
-        // path params
-        if ($id !== null) {
-            $resourcePath = str_replace(
-                '{' . 'id' . '}',
-                ObjectSerializer::toPathValue($id),
-                $resourcePath
-            );
-        }
-
-
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/vnd.api+json']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/vnd.api+json'],
-                []
-            );
-        }
-
-        // for model (json/xml)
-        if (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
-                    foreach ($formParamValueItems as $formParamValueItem) {
-                        $multipartContents[] = [
-                            'name' => $formParamName,
-                            'contents' => $formParamValueItem
-                        ];
-                    }
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif ($headers['Content-Type'] === 'application/json' || $headers['Content-Type'] === 'application/vnd.api+json') {
-                $httpBody = \GuzzleHttp\json_encode($formParams);
-
-            } else {
-                // for HTTP post (form)
-                $httpBody = ObjectSerializer::buildQuery($formParams);
-            }
-        }
-
-        // this endpoint requires API key authentication
-        if ($apiKey == null) {
-            $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
-        } else {
-            $apiKey = 'Klaviyo-API-Key '.$apiKey;
-        }
-
-        $headers['Authorization'] = $apiKey;
-
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $defaultHeaders['revision'] = ['2024-10-15'];
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $query = ObjectSerializer::buildQuery($queryParams);
-        return new Request(
-            'GET',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
-     * Operation getFlowTags
-     *
-     * Get Flow Tags
-     *
-     * @param  string $id  (required)
-     * @param  string[] $fields_tag For more information please visit https://developers.klaviyo.com/en/v2024-10-15/reference/api-overview#sparse-fieldsets (optional)
-     *
-     * @throws \KlaviyoAPI\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return array<string,mixed>|\KlaviyoAPI\Model\GetAccounts400Response|\KlaviyoAPI\Model\GetAccounts400Response
-     */
-    public function getFlowTags($id, $fields_tag = null, $apiKey = null)
-    {
-        list($response) = $this->getFlowTagsWithHttpInfo($id, $fields_tag, $apiKey);
-        return $response;
-    }
-
-    /**
-     * Operation getFlowTagsWithHttpInfo
-     *
-     * Get Flow Tags
-     *
-     * @param  string $id  (required)
-     * @param  string[] $fields_tag For more information please visit https://developers.klaviyo.com/en/v2024-10-15/reference/api-overview#sparse-fieldsets (optional)
-     *
-     * @throws \KlaviyoAPI\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return array of array<string,mixed>|\KlaviyoAPI\Model\GetAccounts400Response|\KlaviyoAPI\Model\GetAccounts400Response, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function getFlowTagsWithHttpInfo($id, $fields_tag = null, $apiKey = null)
-    {
-        $request = $this->getFlowTagsRequest($id, $fields_tag, $apiKey);
-
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
-                );
-            } catch (ConnectException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    null,
-                    null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        (string) $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    (string) $response->getBody()
-                );
-            }
-
-            switch($statusCode) {
-                case 200:
-                    if ('array<string,mixed>' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('array&lt;string,mixed&gt;' !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-
-                    $parsed_content = json_decode(json_encode($content), TRUE);
-                    if (json_last_error() != JSON_ERROR_NONE) {
-                        $parsed_content = $content;
-                    }
-
-                    return [
-                        $parsed_content,
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                case 400:
-                    if ('\KlaviyoAPI\Model\GetAccounts400Response' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('\KlaviyoAPI\Model\GetAccounts400Response' !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-
-                    $parsed_content = json_decode(json_encode($content), TRUE);
-                    if (json_last_error() != JSON_ERROR_NONE) {
-                        $parsed_content = $content;
-                    }
-
-                    return [
-                        $parsed_content,
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                case 500:
-                    if ('\KlaviyoAPI\Model\GetAccounts400Response' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('\KlaviyoAPI\Model\GetAccounts400Response' !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-
-                    $parsed_content = json_decode(json_encode($content), TRUE);
-                    if (json_last_error() != JSON_ERROR_NONE) {
-                        $parsed_content = $content;
-                    }
-
-                    return [
-                        $parsed_content,
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-            }
-
-            $returnType = 'array<string,mixed>';
-            if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); //stream goes to serializer
-            } else {
-                $content = (string) $response->getBody();
-                if ($returnType !== 'string') {
-                    $content = json_decode($content);
-                }
-            }
-
-            $parsed_content = json_decode(json_encode($content), TRUE);
-            if (json_last_error() != JSON_ERROR_NONE) {
-                $parsed_content = $content;
-            }
-
-            return [
-                $parsed_content,
-                $response->getStatusCode(),
-                $response->getHeaders()
-            ];
-
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 200:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        'array<string,mixed>',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 400:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\KlaviyoAPI\Model\GetAccounts400Response',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 500:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\KlaviyoAPI\Model\GetAccounts400Response',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-            }
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation getFlowTagsAsync
-     *
-     * Get Flow Tags
-     *
-     * @param  string $id  (required)
-     * @param  string[] $fields_tag For more information please visit https://developers.klaviyo.com/en/v2024-10-15/reference/api-overview#sparse-fieldsets (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function getFlowTagsAsync($id, $fields_tag = null, $apiKey = null)
-    {
-        return $this->getFlowTagsAsyncWithHttpInfo($id, $fields_tag, $apiKey)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation getFlowTagsAsyncWithHttpInfo
-     *
-     * Get Flow Tags
-     *
-     * @param  string $id  (required)
-     * @param  string[] $fields_tag For more information please visit https://developers.klaviyo.com/en/v2024-10-15/reference/api-overview#sparse-fieldsets (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function getFlowTagsAsyncWithHttpInfo($id, $fields_tag = null, $apiKey = null)
-    {
-        $returnType = 'array<string,mixed>';
-        $request = $this->getFlowTagsRequest($id, $fields_tag, $apiKey);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ($returnType !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    $parsed_content = json_decode(json_encode($content), TRUE);
-                    if (json_last_error() != JSON_ERROR_NONE) {
-                        $parsed_content = $content;
-                    }
-
-                    return [
-                        $parsed_content,
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        (string) $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'getFlowTags'
-     *
-     * @param  string $id  (required)
-     * @param  string[] $fields_tag For more information please visit https://developers.klaviyo.com/en/v2024-10-15/reference/api-overview#sparse-fieldsets (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    public function getFlowTagsRequest($id, $fields_tag = null, $apiKey = null)
-    {
-        // verify the required parameter 'id' is set
-        if ($id === null || (is_array($id) && count($id) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $id when calling getFlowTags'
-            );
-        }
-
-        $resourcePath = '/api/flows/{id}/tags';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-        // query params
-        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-            $fields_tag,
-            'fields[tag]', // param base name
             'array', // openApiType
             'form', // style
             false, // explode
@@ -6354,6 +6155,430 @@ class FlowsApi
      */
     public function getFlowRelationshipsTagsRequest(...$args) {
         return $this->getTagIdsForFlowRequest(...$args);
+    }
+
+    /**
+     * Operation getTagsForFlow
+     *
+     * Get Tags for Flow
+     *
+     * @param  string $id  (required)
+     * @param  string[] $fields_tag For more information please visit https://developers.klaviyo.com/en/v2024-10-15/reference/api-overview#sparse-fieldsets (optional)
+     *
+     * @throws \KlaviyoAPI\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array<string,mixed>|\KlaviyoAPI\Model\GetAccounts400Response|\KlaviyoAPI\Model\GetAccounts400Response
+     */
+    public function getTagsForFlow($id, $fields_tag = null, $apiKey = null)
+    {
+        list($response) = $this->getTagsForFlowWithHttpInfo($id, $fields_tag, $apiKey);
+        return $response;
+    }
+
+    /**
+     * Alias of `getTagsForFlow`
+     *
+     * @deprecated use `getTagsForFlow` instead
+     */
+    public function getFlowTags(...$args) {
+        return $this->getTagsForFlow(...$args);
+    }
+
+    /**
+     * Operation getTagsForFlowWithHttpInfo
+     *
+     * Get Tags for Flow
+     *
+     * @param  string $id  (required)
+     * @param  string[] $fields_tag For more information please visit https://developers.klaviyo.com/en/v2024-10-15/reference/api-overview#sparse-fieldsets (optional)
+     *
+     * @throws \KlaviyoAPI\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of array<string,mixed>|\KlaviyoAPI\Model\GetAccounts400Response|\KlaviyoAPI\Model\GetAccounts400Response, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getTagsForFlowWithHttpInfo($id, $fields_tag = null, $apiKey = null)
+    {
+        $request = $this->getTagsForFlowRequest($id, $fields_tag, $apiKey);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('array<string,mixed>' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('array&lt;string,mixed&gt;' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+
+                    $parsed_content = json_decode(json_encode($content), TRUE);
+                    if (json_last_error() != JSON_ERROR_NONE) {
+                        $parsed_content = $content;
+                    }
+
+                    return [
+                        $parsed_content,
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 400:
+                    if ('\KlaviyoAPI\Model\GetAccounts400Response' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\KlaviyoAPI\Model\GetAccounts400Response' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+
+                    $parsed_content = json_decode(json_encode($content), TRUE);
+                    if (json_last_error() != JSON_ERROR_NONE) {
+                        $parsed_content = $content;
+                    }
+
+                    return [
+                        $parsed_content,
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 500:
+                    if ('\KlaviyoAPI\Model\GetAccounts400Response' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\KlaviyoAPI\Model\GetAccounts400Response' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+
+                    $parsed_content = json_decode(json_encode($content), TRUE);
+                    if (json_last_error() != JSON_ERROR_NONE) {
+                        $parsed_content = $content;
+                    }
+
+                    return [
+                        $parsed_content,
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = 'array<string,mixed>';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            $parsed_content = json_decode(json_encode($content), TRUE);
+            if (json_last_error() != JSON_ERROR_NONE) {
+                $parsed_content = $content;
+            }
+
+            return [
+                $parsed_content,
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        'array<string,mixed>',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\KlaviyoAPI\Model\GetAccounts400Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 500:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\KlaviyoAPI\Model\GetAccounts400Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Alias of `getTagsForFlowWithHttpInfo`
+     *
+     * @deprecated use `getTagsForFlowWithHttpInfo` instead
+     */
+    public function getFlowTagsWithHttpInfo(...$args) {
+        return $this->getTagsForFlowWithHttpInfo(...$args);
+    }
+
+    /**
+     * Operation getTagsForFlowAsync
+     *
+     * Get Tags for Flow
+     *
+     * @param  string $id  (required)
+     * @param  string[] $fields_tag For more information please visit https://developers.klaviyo.com/en/v2024-10-15/reference/api-overview#sparse-fieldsets (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getTagsForFlowAsync($id, $fields_tag = null, $apiKey = null)
+    {
+        return $this->getTagsForFlowAsyncWithHttpInfo($id, $fields_tag, $apiKey)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Alias of `getTagsForFlowAsync`
+     *
+     * @deprecated use `getTagsForFlowAsync` instead
+     */
+    public function getFlowTagsAsync(...$args) {
+        return $this->getTagsForFlowAsync(...$args);
+    }
+
+    /**
+     * Operation getTagsForFlowAsyncWithHttpInfo
+     *
+     * Get Tags for Flow
+     *
+     * @param  string $id  (required)
+     * @param  string[] $fields_tag For more information please visit https://developers.klaviyo.com/en/v2024-10-15/reference/api-overview#sparse-fieldsets (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getTagsForFlowAsyncWithHttpInfo($id, $fields_tag = null, $apiKey = null)
+    {
+        $returnType = 'array<string,mixed>';
+        $request = $this->getTagsForFlowRequest($id, $fields_tag, $apiKey);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    $parsed_content = json_decode(json_encode($content), TRUE);
+                    if (json_last_error() != JSON_ERROR_NONE) {
+                        $parsed_content = $content;
+                    }
+
+                    return [
+                        $parsed_content,
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Alias of `getTagsForFlowAsyncWithHttpInfo`
+     *
+     * @deprecated use `getTagsForFlowAsyncWithHttpInfo` instead
+     */
+    public function getFlowTagsAsyncWithHttpInfo(...$args) {
+        return $this->getTagsForFlowAsyncWithHttpInfo(...$args);
+    }
+
+    /**
+     * Create request for operation 'getTagsForFlow'
+     *
+     * @param  string $id  (required)
+     * @param  string[] $fields_tag For more information please visit https://developers.klaviyo.com/en/v2024-10-15/reference/api-overview#sparse-fieldsets (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function getTagsForFlowRequest($id, $fields_tag = null, $apiKey = null)
+    {
+        // verify the required parameter 'id' is set
+        if ($id === null || (is_array($id) && count($id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $id when calling getTagsForFlow'
+            );
+        }
+
+        $resourcePath = '/api/flows/{id}/tags';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $fields_tag,
+            'fields[tag]', // param base name
+            'array', // openApiType
+            'form', // style
+            false, // explode
+            false // required
+        ) ?? []);
+
+
+        // path params
+        if ($id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'id' . '}',
+                ObjectSerializer::toPathValue($id),
+                $resourcePath
+            );
+        }
+
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/vnd.api+json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/vnd.api+json'],
+                []
+            );
+        }
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json' || $headers['Content-Type'] === 'application/vnd.api+json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        if ($apiKey == null) {
+            $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        } else {
+            $apiKey = 'Klaviyo-API-Key '.$apiKey;
+        }
+
+        $headers['Authorization'] = $apiKey;
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $defaultHeaders['revision'] = ['2024-10-15'];
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Alias of `getTagsForFlowRequest`
+     *
+     * @deprecated use `getTagsForFlowRequest` instead
+     */
+    public function getFlowTagsRequest(...$args) {
+        return $this->getTagsForFlowRequest(...$args);
     }
 
     /**

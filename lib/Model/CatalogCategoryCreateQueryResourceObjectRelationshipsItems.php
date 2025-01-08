@@ -58,7 +58,7 @@ class CatalogCategoryCreateQueryResourceObjectRelationshipsItems implements Mode
       * @var string[]
       */
     protected static $openAPITypes = [
-        'data' => '\KlaviyoAPI\Model\CatalogCategoryCreateQueryResourceObjectRelationshipsItemsDataInner[]'
+        'data' => '\KlaviyoAPI\Model\CatalogCategoryItemOpDataInner[]'
     ];
 
     /**
@@ -283,7 +283,7 @@ class CatalogCategoryCreateQueryResourceObjectRelationshipsItems implements Mode
     /**
      * Gets data
      *
-     * @return \KlaviyoAPI\Model\CatalogCategoryCreateQueryResourceObjectRelationshipsItemsDataInner[]|null
+     * @return \KlaviyoAPI\Model\CatalogCategoryItemOpDataInner[]|null
      */
     public function getData()
     {
@@ -293,7 +293,7 @@ class CatalogCategoryCreateQueryResourceObjectRelationshipsItems implements Mode
     /**
      * Sets data
      *
-     * @param \KlaviyoAPI\Model\CatalogCategoryCreateQueryResourceObjectRelationshipsItemsDataInner[]|null $data data
+     * @param \KlaviyoAPI\Model\CatalogCategoryItemOpDataInner[]|null $data data
      *
      * @return self
      */

@@ -349,7 +349,7 @@ class TemplateCreateQueryResourceObjectAttributes implements ModelInterface, Arr
     /**
      * Sets editor_type
      *
-     * @param string $editor_type Restricted to CODE
+     * @param string $editor_type Restricted to CODE and USER_DRAGGABLE
      *
      * @return self
      */

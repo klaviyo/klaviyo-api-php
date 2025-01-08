@@ -1,6 +1,6 @@
 <?php
 /**
- * CatalogCategoryItemOp
+ * SubscriptionDeleteJobCreateQueryDeprecatedJan25ResourceObjectAttributes
  *
  * PHP version 7.4
  *
@@ -33,7 +33,7 @@ use \ArrayAccess;
 use \KlaviyoAPI\ObjectSerializer;
 
 /**
- * CatalogCategoryItemOp Class Doc Comment
+ * SubscriptionDeleteJobCreateQueryDeprecatedJan25ResourceObjectAttributes Class Doc Comment
  *
  * @category Class
  * @package  KlaviyoAPI
@@ -41,7 +41,7 @@ use \KlaviyoAPI\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class CatalogCategoryItemOp implements ModelInterface, ArrayAccess, \JsonSerializable
+class SubscriptionDeleteJobCreateQueryDeprecatedJan25ResourceObjectAttributes implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class CatalogCategoryItemOp implements ModelInterface, ArrayAccess, \JsonSeriali
       *
       * @var string
       */
-    protected static $openAPIModelName = 'CatalogCategoryItemOp';
+    protected static $openAPIModelName = 'SubscriptionDeleteJobCreateQueryDeprecatedJan25ResourceObject_attributes';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,7 +58,7 @@ class CatalogCategoryItemOp implements ModelInterface, ArrayAccess, \JsonSeriali
       * @var string[]
       */
     protected static $openAPITypes = [
-        'data' => '\KlaviyoAPI\Model\CatalogCategoryItemOpDataInner[]'
+        'profiles' => '\KlaviyoAPI\Model\SubscriptionDeleteJobCreateQueryDeprecatedJan25ResourceObjectAttributesProfiles'
     ];
 
     /**
@@ -69,7 +69,7 @@ class CatalogCategoryItemOp implements ModelInterface, ArrayAccess, \JsonSeriali
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'data' => null
+        'profiles' => null
     ];
 
     /**
@@ -78,7 +78,7 @@ class CatalogCategoryItemOp implements ModelInterface, ArrayAccess, \JsonSeriali
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'data' => false
+        'profiles' => false
     ];
 
     /**
@@ -157,7 +157,7 @@ class CatalogCategoryItemOp implements ModelInterface, ArrayAccess, \JsonSeriali
      * @var string[]
      */
     protected static $attributeMap = [
-        'data' => 'data'
+        'profiles' => 'profiles'
     ];
 
     /**
@@ -166,7 +166,7 @@ class CatalogCategoryItemOp implements ModelInterface, ArrayAccess, \JsonSeriali
      * @var string[]
      */
     protected static $setters = [
-        'data' => 'setData'
+        'profiles' => 'setProfiles'
     ];
 
     /**
@@ -175,7 +175,7 @@ class CatalogCategoryItemOp implements ModelInterface, ArrayAccess, \JsonSeriali
      * @var string[]
      */
     protected static $getters = [
-        'data' => 'getData'
+        'profiles' => 'getProfiles'
     ];
 
     /**
@@ -235,7 +235,7 @@ class CatalogCategoryItemOp implements ModelInterface, ArrayAccess, \JsonSeriali
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('data', $data ?? [], null);
+        $this->setIfExists('profiles', $data ?? [], null);
     }
 
     /**
@@ -265,8 +265,8 @@ class CatalogCategoryItemOp implements ModelInterface, ArrayAccess, \JsonSeriali
     {
         $invalidProperties = [];
 
-        if ($this->container['data'] === null) {
-            $invalidProperties[] = "'data' can't be null";
+        if ($this->container['profiles'] === null) {
+            $invalidProperties[] = "'profiles' can't be null";
         }
         return $invalidProperties;
     }
@@ -284,30 +284,30 @@ class CatalogCategoryItemOp implements ModelInterface, ArrayAccess, \JsonSeriali
 
 
     /**
-     * Gets data
+     * Gets profiles
      *
-     * @return \KlaviyoAPI\Model\CatalogCategoryItemOpDataInner[]
+     * @return \KlaviyoAPI\Model\SubscriptionDeleteJobCreateQueryDeprecatedJan25ResourceObjectAttributesProfiles
      */
-    public function getData()
+    public function getProfiles()
     {
-        return $this->container['data'];
+        return $this->container['profiles'];
     }
 
     /**
-     * Sets data
+     * Sets profiles
      *
-     * @param \KlaviyoAPI\Model\CatalogCategoryItemOpDataInner[] $data data
+     * @param \KlaviyoAPI\Model\SubscriptionDeleteJobCreateQueryDeprecatedJan25ResourceObjectAttributesProfiles $profiles profiles
      *
      * @return self
      */
-    public function setData($data)
+    public function setProfiles($profiles)
     {
 
-        if (is_null($data)) {
-            throw new \InvalidArgumentException('non-nullable data cannot be null');
+        if (is_null($profiles)) {
+            throw new \InvalidArgumentException('non-nullable profiles cannot be null');
         }
 
-        $this->container['data'] = $data;
+        $this->container['profiles'] = $profiles;
 
         return $this;
     }

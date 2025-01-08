@@ -1,6 +1,6 @@
 <?php
 /**
- * CatalogCategoryCreateQueryResourceObjectRelationshipsItemsDataInner
+ * ProfileSubscriptionDeleteQueryDeprecatedJan25ResourceObject
  *
  * PHP version 7.4
  *
@@ -33,7 +33,7 @@ use \ArrayAccess;
 use \KlaviyoAPI\ObjectSerializer;
 
 /**
- * CatalogCategoryCreateQueryResourceObjectRelationshipsItemsDataInner Class Doc Comment
+ * ProfileSubscriptionDeleteQueryDeprecatedJan25ResourceObject Class Doc Comment
  *
  * @category Class
  * @package  KlaviyoAPI
@@ -41,7 +41,7 @@ use \KlaviyoAPI\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class CatalogCategoryCreateQueryResourceObjectRelationshipsItemsDataInner implements ModelInterface, ArrayAccess, \JsonSerializable
+class ProfileSubscriptionDeleteQueryDeprecatedJan25ResourceObject implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class CatalogCategoryCreateQueryResourceObjectRelationshipsItemsDataInner implem
       *
       * @var string
       */
-    protected static $openAPIModelName = 'CatalogCategoryCreateQueryResourceObject_relationships_items_data_inner';
+    protected static $openAPIModelName = 'ProfileSubscriptionDeleteQueryDeprecatedJan25ResourceObject';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,8 +58,8 @@ class CatalogCategoryCreateQueryResourceObjectRelationshipsItemsDataInner implem
       * @var string[]
       */
     protected static $openAPITypes = [
-        'type' => '\KlaviyoAPI\Model\CatalogItemEnum',
-        'id' => 'string'
+        'type' => '\KlaviyoAPI\Model\ProfileEnum',
+        'attributes' => '\KlaviyoAPI\Model\ProfileSubscriptionDeleteQueryDeprecatedJan25ResourceObjectAttributes'
     ];
 
     /**
@@ -71,7 +71,7 @@ class CatalogCategoryCreateQueryResourceObjectRelationshipsItemsDataInner implem
       */
     protected static $openAPIFormats = [
         'type' => null,
-        'id' => null
+        'attributes' => null
     ];
 
     /**
@@ -81,7 +81,7 @@ class CatalogCategoryCreateQueryResourceObjectRelationshipsItemsDataInner implem
       */
     protected static array $openAPINullables = [
         'type' => false,
-		'id' => false
+		'attributes' => false
     ];
 
     /**
@@ -161,7 +161,7 @@ class CatalogCategoryCreateQueryResourceObjectRelationshipsItemsDataInner implem
      */
     protected static $attributeMap = [
         'type' => 'type',
-        'id' => 'id'
+        'attributes' => 'attributes'
     ];
 
     /**
@@ -171,7 +171,7 @@ class CatalogCategoryCreateQueryResourceObjectRelationshipsItemsDataInner implem
      */
     protected static $setters = [
         'type' => 'setType',
-        'id' => 'setId'
+        'attributes' => 'setAttributes'
     ];
 
     /**
@@ -181,7 +181,7 @@ class CatalogCategoryCreateQueryResourceObjectRelationshipsItemsDataInner implem
      */
     protected static $getters = [
         'type' => 'getType',
-        'id' => 'getId'
+        'attributes' => 'getAttributes'
     ];
 
     /**
@@ -242,7 +242,7 @@ class CatalogCategoryCreateQueryResourceObjectRelationshipsItemsDataInner implem
     public function __construct(array $data = null)
     {
         $this->setIfExists('type', $data ?? [], null);
-        $this->setIfExists('id', $data ?? [], null);
+        $this->setIfExists('attributes', $data ?? [], null);
     }
 
     /**
@@ -275,8 +275,8 @@ class CatalogCategoryCreateQueryResourceObjectRelationshipsItemsDataInner implem
         if ($this->container['type'] === null) {
             $invalidProperties[] = "'type' can't be null";
         }
-        if ($this->container['id'] === null) {
-            $invalidProperties[] = "'id' can't be null";
+        if ($this->container['attributes'] === null) {
+            $invalidProperties[] = "'attributes' can't be null";
         }
         return $invalidProperties;
     }
@@ -296,7 +296,7 @@ class CatalogCategoryCreateQueryResourceObjectRelationshipsItemsDataInner implem
     /**
      * Gets type
      *
-     * @return \KlaviyoAPI\Model\CatalogItemEnum
+     * @return \KlaviyoAPI\Model\ProfileEnum
      */
     public function getType()
     {
@@ -306,7 +306,7 @@ class CatalogCategoryCreateQueryResourceObjectRelationshipsItemsDataInner implem
     /**
      * Sets type
      *
-     * @param \KlaviyoAPI\Model\CatalogItemEnum $type type
+     * @param \KlaviyoAPI\Model\ProfileEnum $type type
      *
      * @return self
      */
@@ -323,30 +323,30 @@ class CatalogCategoryCreateQueryResourceObjectRelationshipsItemsDataInner implem
     }
 
     /**
-     * Gets id
+     * Gets attributes
      *
-     * @return string
+     * @return \KlaviyoAPI\Model\ProfileSubscriptionDeleteQueryDeprecatedJan25ResourceObjectAttributes
      */
-    public function getId()
+    public function getAttributes()
     {
-        return $this->container['id'];
+        return $this->container['attributes'];
     }
 
     /**
-     * Sets id
+     * Sets attributes
      *
-     * @param string $id A list of catalog item IDs that are in the given category.
+     * @param \KlaviyoAPI\Model\ProfileSubscriptionDeleteQueryDeprecatedJan25ResourceObjectAttributes $attributes attributes
      *
      * @return self
      */
-    public function setId($id)
+    public function setAttributes($attributes)
     {
 
-        if (is_null($id)) {
-            throw new \InvalidArgumentException('non-nullable id cannot be null');
+        if (is_null($attributes)) {
+            throw new \InvalidArgumentException('non-nullable attributes cannot be null');
         }
 
-        $this->container['id'] = $id;
+        $this->container['attributes'] = $attributes;
 
         return $this;
     }

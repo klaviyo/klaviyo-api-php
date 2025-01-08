@@ -117,6 +117,930 @@ class MetricsApi
     }
 
     /**
+     * Operation getFlowsTriggeredByMetric
+     *
+     * Get Flows Triggered by Metric
+     *
+     * @param  string $id  (required)
+     * @param  string[] $fields_flow For more information please visit https://developers.klaviyo.com/en/v2024-10-15/reference/api-overview#sparse-fieldsets (optional)
+     *
+     * @throws \KlaviyoAPI\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array<string,mixed>|\KlaviyoAPI\Model\GetAccounts400Response|\KlaviyoAPI\Model\GetAccounts400Response
+     */
+    public function getFlowsTriggeredByMetric($id, $fields_flow = null, $apiKey = null)
+    {
+        list($response) = $this->getFlowsTriggeredByMetricWithHttpInfo($id, $fields_flow, $apiKey);
+        return $response;
+    }
+
+    /**
+     * Alias of `getFlowsTriggeredByMetric`
+     *
+     * @deprecated use `getFlowsTriggeredByMetric` instead
+     */
+    public function getFlowTriggersForMetric(...$args) {
+        return $this->getFlowsTriggeredByMetric(...$args);
+    }
+
+    /**
+     * Alias of `getFlowsTriggeredByMetric`
+     *
+     * @deprecated use `getFlowsTriggeredByMetric` instead
+     */
+    public function getMetricFlowTriggers(...$args) {
+        return $this->getFlowsTriggeredByMetric(...$args);
+    }
+
+    /**
+     * Operation getFlowsTriggeredByMetricWithHttpInfo
+     *
+     * Get Flows Triggered by Metric
+     *
+     * @param  string $id  (required)
+     * @param  string[] $fields_flow For more information please visit https://developers.klaviyo.com/en/v2024-10-15/reference/api-overview#sparse-fieldsets (optional)
+     *
+     * @throws \KlaviyoAPI\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of array<string,mixed>|\KlaviyoAPI\Model\GetAccounts400Response|\KlaviyoAPI\Model\GetAccounts400Response, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getFlowsTriggeredByMetricWithHttpInfo($id, $fields_flow = null, $apiKey = null)
+    {
+        $request = $this->getFlowsTriggeredByMetricRequest($id, $fields_flow, $apiKey);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('array<string,mixed>' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('array&lt;string,mixed&gt;' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+
+                    $parsed_content = json_decode(json_encode($content), TRUE);
+                    if (json_last_error() != JSON_ERROR_NONE) {
+                        $parsed_content = $content;
+                    }
+
+                    return [
+                        $parsed_content,
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 400:
+                    if ('\KlaviyoAPI\Model\GetAccounts400Response' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\KlaviyoAPI\Model\GetAccounts400Response' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+
+                    $parsed_content = json_decode(json_encode($content), TRUE);
+                    if (json_last_error() != JSON_ERROR_NONE) {
+                        $parsed_content = $content;
+                    }
+
+                    return [
+                        $parsed_content,
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 500:
+                    if ('\KlaviyoAPI\Model\GetAccounts400Response' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\KlaviyoAPI\Model\GetAccounts400Response' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+
+                    $parsed_content = json_decode(json_encode($content), TRUE);
+                    if (json_last_error() != JSON_ERROR_NONE) {
+                        $parsed_content = $content;
+                    }
+
+                    return [
+                        $parsed_content,
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = 'array<string,mixed>';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            $parsed_content = json_decode(json_encode($content), TRUE);
+            if (json_last_error() != JSON_ERROR_NONE) {
+                $parsed_content = $content;
+            }
+
+            return [
+                $parsed_content,
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        'array<string,mixed>',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\KlaviyoAPI\Model\GetAccounts400Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 500:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\KlaviyoAPI\Model\GetAccounts400Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Alias of `getFlowsTriggeredByMetricWithHttpInfo`
+     *
+     * @deprecated use `getFlowsTriggeredByMetricWithHttpInfo` instead
+     */
+    public function getFlowTriggersForMetricWithHttpInfo(...$args) {
+        return $this->getFlowsTriggeredByMetricWithHttpInfo(...$args);
+    }
+
+    /**
+     * Alias of `getFlowsTriggeredByMetricWithHttpInfo`
+     *
+     * @deprecated use `getFlowsTriggeredByMetricWithHttpInfo` instead
+     */
+    public function getMetricFlowTriggersWithHttpInfo(...$args) {
+        return $this->getFlowsTriggeredByMetricWithHttpInfo(...$args);
+    }
+
+    /**
+     * Operation getFlowsTriggeredByMetricAsync
+     *
+     * Get Flows Triggered by Metric
+     *
+     * @param  string $id  (required)
+     * @param  string[] $fields_flow For more information please visit https://developers.klaviyo.com/en/v2024-10-15/reference/api-overview#sparse-fieldsets (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getFlowsTriggeredByMetricAsync($id, $fields_flow = null, $apiKey = null)
+    {
+        return $this->getFlowsTriggeredByMetricAsyncWithHttpInfo($id, $fields_flow, $apiKey)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Alias of `getFlowsTriggeredByMetricAsync`
+     *
+     * @deprecated use `getFlowsTriggeredByMetricAsync` instead
+     */
+    public function getFlowTriggersForMetricAsync(...$args) {
+        return $this->getFlowsTriggeredByMetricAsync(...$args);
+    }
+
+    /**
+     * Alias of `getFlowsTriggeredByMetricAsync`
+     *
+     * @deprecated use `getFlowsTriggeredByMetricAsync` instead
+     */
+    public function getMetricFlowTriggersAsync(...$args) {
+        return $this->getFlowsTriggeredByMetricAsync(...$args);
+    }
+
+    /**
+     * Operation getFlowsTriggeredByMetricAsyncWithHttpInfo
+     *
+     * Get Flows Triggered by Metric
+     *
+     * @param  string $id  (required)
+     * @param  string[] $fields_flow For more information please visit https://developers.klaviyo.com/en/v2024-10-15/reference/api-overview#sparse-fieldsets (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getFlowsTriggeredByMetricAsyncWithHttpInfo($id, $fields_flow = null, $apiKey = null)
+    {
+        $returnType = 'array<string,mixed>';
+        $request = $this->getFlowsTriggeredByMetricRequest($id, $fields_flow, $apiKey);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    $parsed_content = json_decode(json_encode($content), TRUE);
+                    if (json_last_error() != JSON_ERROR_NONE) {
+                        $parsed_content = $content;
+                    }
+
+                    return [
+                        $parsed_content,
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Alias of `getFlowsTriggeredByMetricAsyncWithHttpInfo`
+     *
+     * @deprecated use `getFlowsTriggeredByMetricAsyncWithHttpInfo` instead
+     */
+    public function getFlowTriggersForMetricAsyncWithHttpInfo(...$args) {
+        return $this->getFlowsTriggeredByMetricAsyncWithHttpInfo(...$args);
+    }
+
+    /**
+     * Alias of `getFlowsTriggeredByMetricAsyncWithHttpInfo`
+     *
+     * @deprecated use `getFlowsTriggeredByMetricAsyncWithHttpInfo` instead
+     */
+    public function getMetricFlowTriggersAsyncWithHttpInfo(...$args) {
+        return $this->getFlowsTriggeredByMetricAsyncWithHttpInfo(...$args);
+    }
+
+    /**
+     * Create request for operation 'getFlowsTriggeredByMetric'
+     *
+     * @param  string $id  (required)
+     * @param  string[] $fields_flow For more information please visit https://developers.klaviyo.com/en/v2024-10-15/reference/api-overview#sparse-fieldsets (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function getFlowsTriggeredByMetricRequest($id, $fields_flow = null, $apiKey = null)
+    {
+        // verify the required parameter 'id' is set
+        if ($id === null || (is_array($id) && count($id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $id when calling getFlowsTriggeredByMetric'
+            );
+        }
+
+        $resourcePath = '/api/metrics/{id}/flow-triggers';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $fields_flow,
+            'fields[flow]', // param base name
+            'array', // openApiType
+            'form', // style
+            false, // explode
+            false // required
+        ) ?? []);
+
+
+        // path params
+        if ($id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'id' . '}',
+                ObjectSerializer::toPathValue($id),
+                $resourcePath
+            );
+        }
+
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/vnd.api+json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/vnd.api+json'],
+                []
+            );
+        }
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json' || $headers['Content-Type'] === 'application/vnd.api+json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        if ($apiKey == null) {
+            $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        } else {
+            $apiKey = 'Klaviyo-API-Key '.$apiKey;
+        }
+
+        $headers['Authorization'] = $apiKey;
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $defaultHeaders['revision'] = ['2024-10-15'];
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Alias of `getFlowsTriggeredByMetricRequest`
+     *
+     * @deprecated use `getFlowsTriggeredByMetricRequest` instead
+     */
+    public function getFlowTriggersForMetricRequest(...$args) {
+        return $this->getFlowsTriggeredByMetricRequest(...$args);
+    }
+
+    /**
+     * Alias of `getFlowsTriggeredByMetricRequest`
+     *
+     * @deprecated use `getFlowsTriggeredByMetricRequest` instead
+     */
+    public function getMetricFlowTriggersRequest(...$args) {
+        return $this->getFlowsTriggeredByMetricRequest(...$args);
+    }
+
+    /**
+     * Operation getIdsForFlowsTriggeredByMetric
+     *
+     * Get IDs for Flows Triggered by Metric
+     *
+     * @param  string $id  (required)
+     *
+     * @throws \KlaviyoAPI\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array<string,mixed>|\KlaviyoAPI\Model\GetAccounts400Response|\KlaviyoAPI\Model\GetAccounts400Response
+     */
+    public function getIdsForFlowsTriggeredByMetric($id, $apiKey = null)
+    {
+        list($response) = $this->getIdsForFlowsTriggeredByMetricWithHttpInfo($id, $apiKey);
+        return $response;
+    }
+
+    /**
+     * Alias of `getIdsForFlowsTriggeredByMetric`
+     *
+     * @deprecated use `getIdsForFlowsTriggeredByMetric` instead
+     */
+    public function getFlowTriggerIdsForMetric(...$args) {
+        return $this->getIdsForFlowsTriggeredByMetric(...$args);
+    }
+
+    /**
+     * Alias of `getIdsForFlowsTriggeredByMetric`
+     *
+     * @deprecated use `getIdsForFlowsTriggeredByMetric` instead
+     */
+    public function getMetricRelationshipsFlowTriggers(...$args) {
+        return $this->getIdsForFlowsTriggeredByMetric(...$args);
+    }
+
+    /**
+     * Operation getIdsForFlowsTriggeredByMetricWithHttpInfo
+     *
+     * Get IDs for Flows Triggered by Metric
+     *
+     * @param  string $id  (required)
+     *
+     * @throws \KlaviyoAPI\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of array<string,mixed>|\KlaviyoAPI\Model\GetAccounts400Response|\KlaviyoAPI\Model\GetAccounts400Response, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getIdsForFlowsTriggeredByMetricWithHttpInfo($id, $apiKey = null)
+    {
+        $request = $this->getIdsForFlowsTriggeredByMetricRequest($id, $apiKey);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('array<string,mixed>' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('array&lt;string,mixed&gt;' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+
+                    $parsed_content = json_decode(json_encode($content), TRUE);
+                    if (json_last_error() != JSON_ERROR_NONE) {
+                        $parsed_content = $content;
+                    }
+
+                    return [
+                        $parsed_content,
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 400:
+                    if ('\KlaviyoAPI\Model\GetAccounts400Response' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\KlaviyoAPI\Model\GetAccounts400Response' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+
+                    $parsed_content = json_decode(json_encode($content), TRUE);
+                    if (json_last_error() != JSON_ERROR_NONE) {
+                        $parsed_content = $content;
+                    }
+
+                    return [
+                        $parsed_content,
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 500:
+                    if ('\KlaviyoAPI\Model\GetAccounts400Response' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\KlaviyoAPI\Model\GetAccounts400Response' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+
+                    $parsed_content = json_decode(json_encode($content), TRUE);
+                    if (json_last_error() != JSON_ERROR_NONE) {
+                        $parsed_content = $content;
+                    }
+
+                    return [
+                        $parsed_content,
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = 'array<string,mixed>';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            $parsed_content = json_decode(json_encode($content), TRUE);
+            if (json_last_error() != JSON_ERROR_NONE) {
+                $parsed_content = $content;
+            }
+
+            return [
+                $parsed_content,
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        'array<string,mixed>',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\KlaviyoAPI\Model\GetAccounts400Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 500:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\KlaviyoAPI\Model\GetAccounts400Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Alias of `getIdsForFlowsTriggeredByMetricWithHttpInfo`
+     *
+     * @deprecated use `getIdsForFlowsTriggeredByMetricWithHttpInfo` instead
+     */
+    public function getFlowTriggerIdsForMetricWithHttpInfo(...$args) {
+        return $this->getIdsForFlowsTriggeredByMetricWithHttpInfo(...$args);
+    }
+
+    /**
+     * Alias of `getIdsForFlowsTriggeredByMetricWithHttpInfo`
+     *
+     * @deprecated use `getIdsForFlowsTriggeredByMetricWithHttpInfo` instead
+     */
+    public function getMetricRelationshipsFlowTriggersWithHttpInfo(...$args) {
+        return $this->getIdsForFlowsTriggeredByMetricWithHttpInfo(...$args);
+    }
+
+    /**
+     * Operation getIdsForFlowsTriggeredByMetricAsync
+     *
+     * Get IDs for Flows Triggered by Metric
+     *
+     * @param  string $id  (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getIdsForFlowsTriggeredByMetricAsync($id, $apiKey = null)
+    {
+        return $this->getIdsForFlowsTriggeredByMetricAsyncWithHttpInfo($id, $apiKey)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Alias of `getIdsForFlowsTriggeredByMetricAsync`
+     *
+     * @deprecated use `getIdsForFlowsTriggeredByMetricAsync` instead
+     */
+    public function getFlowTriggerIdsForMetricAsync(...$args) {
+        return $this->getIdsForFlowsTriggeredByMetricAsync(...$args);
+    }
+
+    /**
+     * Alias of `getIdsForFlowsTriggeredByMetricAsync`
+     *
+     * @deprecated use `getIdsForFlowsTriggeredByMetricAsync` instead
+     */
+    public function getMetricRelationshipsFlowTriggersAsync(...$args) {
+        return $this->getIdsForFlowsTriggeredByMetricAsync(...$args);
+    }
+
+    /**
+     * Operation getIdsForFlowsTriggeredByMetricAsyncWithHttpInfo
+     *
+     * Get IDs for Flows Triggered by Metric
+     *
+     * @param  string $id  (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getIdsForFlowsTriggeredByMetricAsyncWithHttpInfo($id, $apiKey = null)
+    {
+        $returnType = 'array<string,mixed>';
+        $request = $this->getIdsForFlowsTriggeredByMetricRequest($id, $apiKey);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    $parsed_content = json_decode(json_encode($content), TRUE);
+                    if (json_last_error() != JSON_ERROR_NONE) {
+                        $parsed_content = $content;
+                    }
+
+                    return [
+                        $parsed_content,
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Alias of `getIdsForFlowsTriggeredByMetricAsyncWithHttpInfo`
+     *
+     * @deprecated use `getIdsForFlowsTriggeredByMetricAsyncWithHttpInfo` instead
+     */
+    public function getFlowTriggerIdsForMetricAsyncWithHttpInfo(...$args) {
+        return $this->getIdsForFlowsTriggeredByMetricAsyncWithHttpInfo(...$args);
+    }
+
+    /**
+     * Alias of `getIdsForFlowsTriggeredByMetricAsyncWithHttpInfo`
+     *
+     * @deprecated use `getIdsForFlowsTriggeredByMetricAsyncWithHttpInfo` instead
+     */
+    public function getMetricRelationshipsFlowTriggersAsyncWithHttpInfo(...$args) {
+        return $this->getIdsForFlowsTriggeredByMetricAsyncWithHttpInfo(...$args);
+    }
+
+    /**
+     * Create request for operation 'getIdsForFlowsTriggeredByMetric'
+     *
+     * @param  string $id  (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function getIdsForFlowsTriggeredByMetricRequest($id, $apiKey = null)
+    {
+        // verify the required parameter 'id' is set
+        if ($id === null || (is_array($id) && count($id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $id when calling getIdsForFlowsTriggeredByMetric'
+            );
+        }
+
+        $resourcePath = '/api/metrics/{id}/relationships/flow-triggers';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'id' . '}',
+                ObjectSerializer::toPathValue($id),
+                $resourcePath
+            );
+        }
+
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/vnd.api+json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/vnd.api+json'],
+                []
+            );
+        }
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json' || $headers['Content-Type'] === 'application/vnd.api+json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        if ($apiKey == null) {
+            $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        } else {
+            $apiKey = 'Klaviyo-API-Key '.$apiKey;
+        }
+
+        $headers['Authorization'] = $apiKey;
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $defaultHeaders['revision'] = ['2024-10-15'];
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Alias of `getIdsForFlowsTriggeredByMetricRequest`
+     *
+     * @deprecated use `getIdsForFlowsTriggeredByMetricRequest` instead
+     */
+    public function getFlowTriggerIdsForMetricRequest(...$args) {
+        return $this->getIdsForFlowsTriggeredByMetricRequest(...$args);
+    }
+
+    /**
+     * Alias of `getIdsForFlowsTriggeredByMetricRequest`
+     *
+     * @deprecated use `getIdsForFlowsTriggeredByMetricRequest` instead
+     */
+    public function getMetricRelationshipsFlowTriggersRequest(...$args) {
+        return $this->getIdsForFlowsTriggeredByMetricRequest(...$args);
+    }
+
+    /**
      * Operation getMetric
      *
      * Get Metric
@@ -438,385 +1362,6 @@ class MetricsApi
         $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
             $include,
             'include', // param base name
-            'array', // openApiType
-            'form', // style
-            false, // explode
-            false // required
-        ) ?? []);
-
-
-        // path params
-        if ($id !== null) {
-            $resourcePath = str_replace(
-                '{' . 'id' . '}',
-                ObjectSerializer::toPathValue($id),
-                $resourcePath
-            );
-        }
-
-
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/vnd.api+json']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/vnd.api+json'],
-                []
-            );
-        }
-
-        // for model (json/xml)
-        if (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
-                    foreach ($formParamValueItems as $formParamValueItem) {
-                        $multipartContents[] = [
-                            'name' => $formParamName,
-                            'contents' => $formParamValueItem
-                        ];
-                    }
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif ($headers['Content-Type'] === 'application/json' || $headers['Content-Type'] === 'application/vnd.api+json') {
-                $httpBody = \GuzzleHttp\json_encode($formParams);
-
-            } else {
-                // for HTTP post (form)
-                $httpBody = ObjectSerializer::buildQuery($formParams);
-            }
-        }
-
-        // this endpoint requires API key authentication
-        if ($apiKey == null) {
-            $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
-        } else {
-            $apiKey = 'Klaviyo-API-Key '.$apiKey;
-        }
-
-        $headers['Authorization'] = $apiKey;
-
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $defaultHeaders['revision'] = ['2024-10-15'];
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $query = ObjectSerializer::buildQuery($queryParams);
-        return new Request(
-            'GET',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
-     * Operation getMetricFlowTriggers
-     *
-     * Get Metric Flow Triggers
-     *
-     * @param  string $id  (required)
-     * @param  string[] $fields_flow For more information please visit https://developers.klaviyo.com/en/v2024-10-15/reference/api-overview#sparse-fieldsets (optional)
-     *
-     * @throws \KlaviyoAPI\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return array<string,mixed>|\KlaviyoAPI\Model\GetAccounts400Response|\KlaviyoAPI\Model\GetAccounts400Response
-     */
-    public function getMetricFlowTriggers($id, $fields_flow = null, $apiKey = null)
-    {
-        list($response) = $this->getMetricFlowTriggersWithHttpInfo($id, $fields_flow, $apiKey);
-        return $response;
-    }
-
-    /**
-     * Operation getMetricFlowTriggersWithHttpInfo
-     *
-     * Get Metric Flow Triggers
-     *
-     * @param  string $id  (required)
-     * @param  string[] $fields_flow For more information please visit https://developers.klaviyo.com/en/v2024-10-15/reference/api-overview#sparse-fieldsets (optional)
-     *
-     * @throws \KlaviyoAPI\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return array of array<string,mixed>|\KlaviyoAPI\Model\GetAccounts400Response|\KlaviyoAPI\Model\GetAccounts400Response, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function getMetricFlowTriggersWithHttpInfo($id, $fields_flow = null, $apiKey = null)
-    {
-        $request = $this->getMetricFlowTriggersRequest($id, $fields_flow, $apiKey);
-
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
-                );
-            } catch (ConnectException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    null,
-                    null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        (string) $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    (string) $response->getBody()
-                );
-            }
-
-            switch($statusCode) {
-                case 200:
-                    if ('array<string,mixed>' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('array&lt;string,mixed&gt;' !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-
-                    $parsed_content = json_decode(json_encode($content), TRUE);
-                    if (json_last_error() != JSON_ERROR_NONE) {
-                        $parsed_content = $content;
-                    }
-
-                    return [
-                        $parsed_content,
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                case 400:
-                    if ('\KlaviyoAPI\Model\GetAccounts400Response' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('\KlaviyoAPI\Model\GetAccounts400Response' !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-
-                    $parsed_content = json_decode(json_encode($content), TRUE);
-                    if (json_last_error() != JSON_ERROR_NONE) {
-                        $parsed_content = $content;
-                    }
-
-                    return [
-                        $parsed_content,
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                case 500:
-                    if ('\KlaviyoAPI\Model\GetAccounts400Response' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('\KlaviyoAPI\Model\GetAccounts400Response' !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-
-                    $parsed_content = json_decode(json_encode($content), TRUE);
-                    if (json_last_error() != JSON_ERROR_NONE) {
-                        $parsed_content = $content;
-                    }
-
-                    return [
-                        $parsed_content,
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-            }
-
-            $returnType = 'array<string,mixed>';
-            if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); //stream goes to serializer
-            } else {
-                $content = (string) $response->getBody();
-                if ($returnType !== 'string') {
-                    $content = json_decode($content);
-                }
-            }
-
-            $parsed_content = json_decode(json_encode($content), TRUE);
-            if (json_last_error() != JSON_ERROR_NONE) {
-                $parsed_content = $content;
-            }
-
-            return [
-                $parsed_content,
-                $response->getStatusCode(),
-                $response->getHeaders()
-            ];
-
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 200:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        'array<string,mixed>',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 400:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\KlaviyoAPI\Model\GetAccounts400Response',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 500:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\KlaviyoAPI\Model\GetAccounts400Response',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-            }
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation getMetricFlowTriggersAsync
-     *
-     * Get Metric Flow Triggers
-     *
-     * @param  string $id  (required)
-     * @param  string[] $fields_flow For more information please visit https://developers.klaviyo.com/en/v2024-10-15/reference/api-overview#sparse-fieldsets (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function getMetricFlowTriggersAsync($id, $fields_flow = null, $apiKey = null)
-    {
-        return $this->getMetricFlowTriggersAsyncWithHttpInfo($id, $fields_flow, $apiKey)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation getMetricFlowTriggersAsyncWithHttpInfo
-     *
-     * Get Metric Flow Triggers
-     *
-     * @param  string $id  (required)
-     * @param  string[] $fields_flow For more information please visit https://developers.klaviyo.com/en/v2024-10-15/reference/api-overview#sparse-fieldsets (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function getMetricFlowTriggersAsyncWithHttpInfo($id, $fields_flow = null, $apiKey = null)
-    {
-        $returnType = 'array<string,mixed>';
-        $request = $this->getMetricFlowTriggersRequest($id, $fields_flow, $apiKey);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ($returnType !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    $parsed_content = json_decode(json_encode($content), TRUE);
-                    if (json_last_error() != JSON_ERROR_NONE) {
-                        $parsed_content = $content;
-                    }
-
-                    return [
-                        $parsed_content,
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        (string) $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'getMetricFlowTriggers'
-     *
-     * @param  string $id  (required)
-     * @param  string[] $fields_flow For more information please visit https://developers.klaviyo.com/en/v2024-10-15/reference/api-overview#sparse-fieldsets (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    public function getMetricFlowTriggersRequest($id, $fields_flow = null, $apiKey = null)
-    {
-        // verify the required parameter 'id' is set
-        if ($id === null || (is_array($id) && count($id) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $id when calling getMetricFlowTriggers'
-            );
-        }
-
-        $resourcePath = '/api/metrics/{id}/flow-triggers';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-        // query params
-        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-            $fields_flow,
-            'fields[flow]', // param base name
             'array', // openApiType
             'form', // style
             false, // explode
@@ -2158,371 +2703,6 @@ class MetricsApi
     }
 
     /**
-     * Operation getMetricRelationshipsFlowTriggers
-     *
-     * Get Metric Relationships Flow Triggers
-     *
-     * @param  string $id  (required)
-     *
-     * @throws \KlaviyoAPI\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return array<string,mixed>|\KlaviyoAPI\Model\GetAccounts400Response|\KlaviyoAPI\Model\GetAccounts400Response
-     */
-    public function getMetricRelationshipsFlowTriggers($id, $apiKey = null)
-    {
-        list($response) = $this->getMetricRelationshipsFlowTriggersWithHttpInfo($id, $apiKey);
-        return $response;
-    }
-
-    /**
-     * Operation getMetricRelationshipsFlowTriggersWithHttpInfo
-     *
-     * Get Metric Relationships Flow Triggers
-     *
-     * @param  string $id  (required)
-     *
-     * @throws \KlaviyoAPI\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return array of array<string,mixed>|\KlaviyoAPI\Model\GetAccounts400Response|\KlaviyoAPI\Model\GetAccounts400Response, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function getMetricRelationshipsFlowTriggersWithHttpInfo($id, $apiKey = null)
-    {
-        $request = $this->getMetricRelationshipsFlowTriggersRequest($id, $apiKey);
-
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
-                );
-            } catch (ConnectException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    null,
-                    null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        (string) $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    (string) $response->getBody()
-                );
-            }
-
-            switch($statusCode) {
-                case 200:
-                    if ('array<string,mixed>' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('array&lt;string,mixed&gt;' !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-
-                    $parsed_content = json_decode(json_encode($content), TRUE);
-                    if (json_last_error() != JSON_ERROR_NONE) {
-                        $parsed_content = $content;
-                    }
-
-                    return [
-                        $parsed_content,
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                case 400:
-                    if ('\KlaviyoAPI\Model\GetAccounts400Response' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('\KlaviyoAPI\Model\GetAccounts400Response' !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-
-                    $parsed_content = json_decode(json_encode($content), TRUE);
-                    if (json_last_error() != JSON_ERROR_NONE) {
-                        $parsed_content = $content;
-                    }
-
-                    return [
-                        $parsed_content,
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                case 500:
-                    if ('\KlaviyoAPI\Model\GetAccounts400Response' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('\KlaviyoAPI\Model\GetAccounts400Response' !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-
-                    $parsed_content = json_decode(json_encode($content), TRUE);
-                    if (json_last_error() != JSON_ERROR_NONE) {
-                        $parsed_content = $content;
-                    }
-
-                    return [
-                        $parsed_content,
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-            }
-
-            $returnType = 'array<string,mixed>';
-            if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); //stream goes to serializer
-            } else {
-                $content = (string) $response->getBody();
-                if ($returnType !== 'string') {
-                    $content = json_decode($content);
-                }
-            }
-
-            $parsed_content = json_decode(json_encode($content), TRUE);
-            if (json_last_error() != JSON_ERROR_NONE) {
-                $parsed_content = $content;
-            }
-
-            return [
-                $parsed_content,
-                $response->getStatusCode(),
-                $response->getHeaders()
-            ];
-
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 200:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        'array<string,mixed>',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 400:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\KlaviyoAPI\Model\GetAccounts400Response',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 500:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\KlaviyoAPI\Model\GetAccounts400Response',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-            }
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation getMetricRelationshipsFlowTriggersAsync
-     *
-     * Get Metric Relationships Flow Triggers
-     *
-     * @param  string $id  (required)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function getMetricRelationshipsFlowTriggersAsync($id, $apiKey = null)
-    {
-        return $this->getMetricRelationshipsFlowTriggersAsyncWithHttpInfo($id, $apiKey)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation getMetricRelationshipsFlowTriggersAsyncWithHttpInfo
-     *
-     * Get Metric Relationships Flow Triggers
-     *
-     * @param  string $id  (required)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function getMetricRelationshipsFlowTriggersAsyncWithHttpInfo($id, $apiKey = null)
-    {
-        $returnType = 'array<string,mixed>';
-        $request = $this->getMetricRelationshipsFlowTriggersRequest($id, $apiKey);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ($returnType !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    $parsed_content = json_decode(json_encode($content), TRUE);
-                    if (json_last_error() != JSON_ERROR_NONE) {
-                        $parsed_content = $content;
-                    }
-
-                    return [
-                        $parsed_content,
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        (string) $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'getMetricRelationshipsFlowTriggers'
-     *
-     * @param  string $id  (required)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    public function getMetricRelationshipsFlowTriggersRequest($id, $apiKey = null)
-    {
-        // verify the required parameter 'id' is set
-        if ($id === null || (is_array($id) && count($id) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $id when calling getMetricRelationshipsFlowTriggers'
-            );
-        }
-
-        $resourcePath = '/api/metrics/{id}/relationships/flow-triggers';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-
-
-        // path params
-        if ($id !== null) {
-            $resourcePath = str_replace(
-                '{' . 'id' . '}',
-                ObjectSerializer::toPathValue($id),
-                $resourcePath
-            );
-        }
-
-
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/vnd.api+json']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/vnd.api+json'],
-                []
-            );
-        }
-
-        // for model (json/xml)
-        if (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
-                    foreach ($formParamValueItems as $formParamValueItem) {
-                        $multipartContents[] = [
-                            'name' => $formParamName,
-                            'contents' => $formParamValueItem
-                        ];
-                    }
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif ($headers['Content-Type'] === 'application/json' || $headers['Content-Type'] === 'application/vnd.api+json') {
-                $httpBody = \GuzzleHttp\json_encode($formParams);
-
-            } else {
-                // for HTTP post (form)
-                $httpBody = ObjectSerializer::buildQuery($formParams);
-            }
-        }
-
-        // this endpoint requires API key authentication
-        if ($apiKey == null) {
-            $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
-        } else {
-            $apiKey = 'Klaviyo-API-Key '.$apiKey;
-        }
-
-        $headers['Authorization'] = $apiKey;
-
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $defaultHeaders['revision'] = ['2024-10-15'];
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $query = ObjectSerializer::buildQuery($queryParams);
-        return new Request(
-            'GET',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
      * Operation getMetrics
      *
      * Get Metrics
@@ -2967,6 +3147,15 @@ class MetricsApi
     }
 
     /**
+     * Alias of `getPropertiesForMetric`
+     *
+     * @deprecated use `getPropertiesForMetric` instead
+     */
+    public function getMetricProperties(...$args) {
+        return $this->getPropertiesForMetric(...$args);
+    }
+
+    /**
      * Operation getPropertiesForMetricWithHttpInfo
      *
      * Get Properties for Metric
@@ -3146,6 +3335,15 @@ class MetricsApi
     }
 
     /**
+     * Alias of `getPropertiesForMetricWithHttpInfo`
+     *
+     * @deprecated use `getPropertiesForMetricWithHttpInfo` instead
+     */
+    public function getMetricPropertiesWithHttpInfo(...$args) {
+        return $this->getPropertiesForMetricWithHttpInfo(...$args);
+    }
+
+    /**
      * Operation getPropertiesForMetricAsync
      *
      * Get Properties for Metric
@@ -3173,6 +3371,15 @@ class MetricsApi
      * @deprecated use `getPropertiesForMetricAsync` instead
      */
     public function getMetricMetricPropertiesAsync(...$args) {
+        return $this->getPropertiesForMetricAsync(...$args);
+    }
+
+    /**
+     * Alias of `getPropertiesForMetricAsync`
+     *
+     * @deprecated use `getPropertiesForMetricAsync` instead
+     */
+    public function getMetricPropertiesAsync(...$args) {
         return $this->getPropertiesForMetricAsync(...$args);
     }
 
@@ -3240,6 +3447,15 @@ class MetricsApi
      * @deprecated use `getPropertiesForMetricAsyncWithHttpInfo` instead
      */
     public function getMetricMetricPropertiesAsyncWithHttpInfo(...$args) {
+        return $this->getPropertiesForMetricAsyncWithHttpInfo(...$args);
+    }
+
+    /**
+     * Alias of `getPropertiesForMetricAsyncWithHttpInfo`
+     *
+     * @deprecated use `getPropertiesForMetricAsyncWithHttpInfo` instead
+     */
+    public function getMetricPropertiesAsyncWithHttpInfo(...$args) {
         return $this->getPropertiesForMetricAsyncWithHttpInfo(...$args);
     }
 
@@ -3377,6 +3593,15 @@ class MetricsApi
     }
 
     /**
+     * Alias of `getPropertiesForMetricRequest`
+     *
+     * @deprecated use `getPropertiesForMetricRequest` instead
+     */
+    public function getMetricPropertiesRequest(...$args) {
+        return $this->getPropertiesForMetricRequest(...$args);
+    }
+
+    /**
      * Operation getPropertyIdsForMetric
      *
      * Get Property IDs for Metric
@@ -3399,6 +3624,15 @@ class MetricsApi
      * @deprecated use `getPropertyIdsForMetric` instead
      */
     public function getMetricRelationshipsMetricProperties(...$args) {
+        return $this->getPropertyIdsForMetric(...$args);
+    }
+
+    /**
+     * Alias of `getPropertyIdsForMetric`
+     *
+     * @deprecated use `getPropertyIdsForMetric` instead
+     */
+    public function getMetricRelationshipsProperties(...$args) {
         return $this->getPropertyIdsForMetric(...$args);
     }
 
@@ -3580,6 +3814,15 @@ class MetricsApi
     }
 
     /**
+     * Alias of `getPropertyIdsForMetricWithHttpInfo`
+     *
+     * @deprecated use `getPropertyIdsForMetricWithHttpInfo` instead
+     */
+    public function getMetricRelationshipsPropertiesWithHttpInfo(...$args) {
+        return $this->getPropertyIdsForMetricWithHttpInfo(...$args);
+    }
+
+    /**
      * Operation getPropertyIdsForMetricAsync
      *
      * Get Property IDs for Metric
@@ -3605,6 +3848,15 @@ class MetricsApi
      * @deprecated use `getPropertyIdsForMetricAsync` instead
      */
     public function getMetricRelationshipsMetricPropertiesAsync(...$args) {
+        return $this->getPropertyIdsForMetricAsync(...$args);
+    }
+
+    /**
+     * Alias of `getPropertyIdsForMetricAsync`
+     *
+     * @deprecated use `getPropertyIdsForMetricAsync` instead
+     */
+    public function getMetricRelationshipsPropertiesAsync(...$args) {
         return $this->getPropertyIdsForMetricAsync(...$args);
     }
 
@@ -3670,6 +3922,15 @@ class MetricsApi
      * @deprecated use `getPropertyIdsForMetricAsyncWithHttpInfo` instead
      */
     public function getMetricRelationshipsMetricPropertiesAsyncWithHttpInfo(...$args) {
+        return $this->getPropertyIdsForMetricAsyncWithHttpInfo(...$args);
+    }
+
+    /**
+     * Alias of `getPropertyIdsForMetricAsyncWithHttpInfo`
+     *
+     * @deprecated use `getPropertyIdsForMetricAsyncWithHttpInfo` instead
+     */
+    public function getMetricRelationshipsPropertiesAsyncWithHttpInfo(...$args) {
         return $this->getPropertyIdsForMetricAsyncWithHttpInfo(...$args);
     }
 
@@ -3783,6 +4044,15 @@ class MetricsApi
      * @deprecated use `getPropertyIdsForMetricRequest` instead
      */
     public function getMetricRelationshipsMetricPropertiesRequest(...$args) {
+        return $this->getPropertyIdsForMetricRequest(...$args);
+    }
+
+    /**
+     * Alias of `getPropertyIdsForMetricRequest`
+     *
+     * @deprecated use `getPropertyIdsForMetricRequest` instead
+     */
+    public function getMetricRelationshipsPropertiesRequest(...$args) {
         return $this->getPropertyIdsForMetricRequest(...$args);
     }
 

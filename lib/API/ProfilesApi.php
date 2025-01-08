@@ -117,6 +117,459 @@ class ProfilesApi
     }
 
     /**
+     * Operation bulkImportProfiles
+     *
+     * Bulk Import Profiles
+     *
+     * @param  \KlaviyoAPI\Model\ProfileImportJobCreateQuery $profile_import_job_create_query profile_import_job_create_query (required)
+     *
+     * @throws \KlaviyoAPI\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array<string,mixed>|\KlaviyoAPI\Model\GetAccounts400Response|\KlaviyoAPI\Model\GetAccounts400Response
+     */
+    public function bulkImportProfiles($profile_import_job_create_query, $apiKey = null)
+    {
+        list($response) = $this->bulkImportProfilesWithHttpInfo($profile_import_job_create_query, $apiKey);
+        return $response;
+    }
+
+    /**
+     * Alias of `bulkImportProfiles`
+     *
+     * @deprecated use `bulkImportProfiles` instead
+     */
+    public function spawnBulkProfileImportJob(...$args) {
+        return $this->bulkImportProfiles(...$args);
+    }
+
+    /**
+     * Alias of `bulkImportProfiles`
+     *
+     * @deprecated use `bulkImportProfiles` instead
+     */
+    public function createProfileBulkImportJob(...$args) {
+        return $this->bulkImportProfiles(...$args);
+    }
+
+    /**
+     * Operation bulkImportProfilesWithHttpInfo
+     *
+     * Bulk Import Profiles
+     *
+     * @param  \KlaviyoAPI\Model\ProfileImportJobCreateQuery $profile_import_job_create_query (required)
+     *
+     * @throws \KlaviyoAPI\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of array<string,mixed>|\KlaviyoAPI\Model\GetAccounts400Response|\KlaviyoAPI\Model\GetAccounts400Response, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function bulkImportProfilesWithHttpInfo($profile_import_job_create_query, $apiKey = null)
+    {
+        $request = $this->bulkImportProfilesRequest($profile_import_job_create_query, $apiKey);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 202:
+                    if ('array<string,mixed>' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('array&lt;string,mixed&gt;' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+
+                    $parsed_content = json_decode(json_encode($content), TRUE);
+                    if (json_last_error() != JSON_ERROR_NONE) {
+                        $parsed_content = $content;
+                    }
+
+                    return [
+                        $parsed_content,
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 400:
+                    if ('\KlaviyoAPI\Model\GetAccounts400Response' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\KlaviyoAPI\Model\GetAccounts400Response' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+
+                    $parsed_content = json_decode(json_encode($content), TRUE);
+                    if (json_last_error() != JSON_ERROR_NONE) {
+                        $parsed_content = $content;
+                    }
+
+                    return [
+                        $parsed_content,
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 500:
+                    if ('\KlaviyoAPI\Model\GetAccounts400Response' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\KlaviyoAPI\Model\GetAccounts400Response' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+
+                    $parsed_content = json_decode(json_encode($content), TRUE);
+                    if (json_last_error() != JSON_ERROR_NONE) {
+                        $parsed_content = $content;
+                    }
+
+                    return [
+                        $parsed_content,
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = 'array<string,mixed>';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            $parsed_content = json_decode(json_encode($content), TRUE);
+            if (json_last_error() != JSON_ERROR_NONE) {
+                $parsed_content = $content;
+            }
+
+            return [
+                $parsed_content,
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 202:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        'array<string,mixed>',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\KlaviyoAPI\Model\GetAccounts400Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 500:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\KlaviyoAPI\Model\GetAccounts400Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Alias of `bulkImportProfilesWithHttpInfo`
+     *
+     * @deprecated use `bulkImportProfilesWithHttpInfo` instead
+     */
+    public function spawnBulkProfileImportJobWithHttpInfo(...$args) {
+        return $this->bulkImportProfilesWithHttpInfo(...$args);
+    }
+
+    /**
+     * Alias of `bulkImportProfilesWithHttpInfo`
+     *
+     * @deprecated use `bulkImportProfilesWithHttpInfo` instead
+     */
+    public function createProfileBulkImportJobWithHttpInfo(...$args) {
+        return $this->bulkImportProfilesWithHttpInfo(...$args);
+    }
+
+    /**
+     * Operation bulkImportProfilesAsync
+     *
+     * Bulk Import Profiles
+     *
+     * @param  \KlaviyoAPI\Model\ProfileImportJobCreateQuery $profile_import_job_create_query (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function bulkImportProfilesAsync($profile_import_job_create_query, $apiKey = null)
+    {
+        return $this->bulkImportProfilesAsyncWithHttpInfo($profile_import_job_create_query, $apiKey)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Alias of `bulkImportProfilesAsync`
+     *
+     * @deprecated use `bulkImportProfilesAsync` instead
+     */
+    public function spawnBulkProfileImportJobAsync(...$args) {
+        return $this->bulkImportProfilesAsync(...$args);
+    }
+
+    /**
+     * Alias of `bulkImportProfilesAsync`
+     *
+     * @deprecated use `bulkImportProfilesAsync` instead
+     */
+    public function createProfileBulkImportJobAsync(...$args) {
+        return $this->bulkImportProfilesAsync(...$args);
+    }
+
+    /**
+     * Operation bulkImportProfilesAsyncWithHttpInfo
+     *
+     * Bulk Import Profiles
+     *
+     * @param  \KlaviyoAPI\Model\ProfileImportJobCreateQuery $profile_import_job_create_query (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function bulkImportProfilesAsyncWithHttpInfo($profile_import_job_create_query, $apiKey = null)
+    {
+        $returnType = 'array<string,mixed>';
+        $request = $this->bulkImportProfilesRequest($profile_import_job_create_query, $apiKey);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    $parsed_content = json_decode(json_encode($content), TRUE);
+                    if (json_last_error() != JSON_ERROR_NONE) {
+                        $parsed_content = $content;
+                    }
+
+                    return [
+                        $parsed_content,
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Alias of `bulkImportProfilesAsyncWithHttpInfo`
+     *
+     * @deprecated use `bulkImportProfilesAsyncWithHttpInfo` instead
+     */
+    public function spawnBulkProfileImportJobAsyncWithHttpInfo(...$args) {
+        return $this->bulkImportProfilesAsyncWithHttpInfo(...$args);
+    }
+
+    /**
+     * Alias of `bulkImportProfilesAsyncWithHttpInfo`
+     *
+     * @deprecated use `bulkImportProfilesAsyncWithHttpInfo` instead
+     */
+    public function createProfileBulkImportJobAsyncWithHttpInfo(...$args) {
+        return $this->bulkImportProfilesAsyncWithHttpInfo(...$args);
+    }
+
+    /**
+     * Create request for operation 'bulkImportProfiles'
+     *
+     * @param  \KlaviyoAPI\Model\ProfileImportJobCreateQuery $profile_import_job_create_query (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function bulkImportProfilesRequest($profile_import_job_create_query, $apiKey = null)
+    {
+        // verify the required parameter 'profile_import_job_create_query' is set
+        if ($profile_import_job_create_query === null || (is_array($profile_import_job_create_query) && count($profile_import_job_create_query) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $profile_import_job_create_query when calling bulkImportProfiles'
+            );
+        }
+
+        $resourcePath = '/api/profile-bulk-import-jobs';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/vnd.api+json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/vnd.api+json'],
+                ['application/vnd.api+json']
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($profile_import_job_create_query)) {
+            if ($headers['Content-Type'] === 'application/json' || $headers['Content-Type'] === 'application/vnd.api+json') {
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($profile_import_job_create_query));
+            } else {
+                $httpBody = $profile_import_job_create_query;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json' || $headers['Content-Type'] === 'application/vnd.api+json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        if ($apiKey == null) {
+            $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        } else {
+            $apiKey = 'Klaviyo-API-Key '.$apiKey;
+        }
+
+        $headers['Authorization'] = $apiKey;
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $defaultHeaders['revision'] = ['2024-10-15'];
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'POST',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Alias of `bulkImportProfilesRequest`
+     *
+     * @deprecated use `bulkImportProfilesRequest` instead
+     */
+    public function spawnBulkProfileImportJobRequest(...$args) {
+        return $this->bulkImportProfilesRequest(...$args);
+    }
+
+    /**
+     * Alias of `bulkImportProfilesRequest`
+     *
+     * @deprecated use `bulkImportProfilesRequest` instead
+     */
+    public function createProfileBulkImportJobRequest(...$args) {
+        return $this->bulkImportProfilesRequest(...$args);
+    }
+
+    /**
      * Operation bulkSubscribeProfiles
      *
      * Bulk Subscribe Profiles
@@ -915,15 +1368,15 @@ class ProfilesApi
      *
      * Bulk Unsubscribe Profiles
      *
-     * @param  \KlaviyoAPI\Model\SubscriptionDeleteJobCreateQuery $subscription_delete_job_create_query Unsubscribes one or more profiles from marketing. Currently, supports email and SMS only. All profiles will be removed from the provided list. Either email or phone number is required. If a profile cannot be found matching the given identifier(s), a new profile will be created and then unsubscribed. (required)
+     * @param  \KlaviyoAPI\Model\SubscriptionDeleteJobCreateQueryDeprecatedJan25 $subscription_delete_job_create_query_deprecated_jan25 Unsubscribes one or more profiles from marketing. Currently, supports email and SMS only. All profiles will be removed from the provided list. Either email or phone number is required. If a profile cannot be found matching the given identifier(s), a new profile will be created and then unsubscribed. (required)
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function bulkUnsubscribeProfiles($subscription_delete_job_create_query, $apiKey = null)
+    public function bulkUnsubscribeProfiles($subscription_delete_job_create_query_deprecated_jan25, $apiKey = null)
     {
-        $this->bulkUnsubscribeProfilesWithHttpInfo($subscription_delete_job_create_query, $apiKey);
+        $this->bulkUnsubscribeProfilesWithHttpInfo($subscription_delete_job_create_query_deprecated_jan25, $apiKey);
     }
 
     /**
@@ -949,15 +1402,15 @@ class ProfilesApi
      *
      * Bulk Unsubscribe Profiles
      *
-     * @param  \KlaviyoAPI\Model\SubscriptionDeleteJobCreateQuery $subscription_delete_job_create_query Unsubscribes one or more profiles from marketing. Currently, supports email and SMS only. All profiles will be removed from the provided list. Either email or phone number is required. If a profile cannot be found matching the given identifier(s), a new profile will be created and then unsubscribed. (required)
+     * @param  \KlaviyoAPI\Model\SubscriptionDeleteJobCreateQueryDeprecatedJan25 $subscription_delete_job_create_query_deprecated_jan25 Unsubscribes one or more profiles from marketing. Currently, supports email and SMS only. All profiles will be removed from the provided list. Either email or phone number is required. If a profile cannot be found matching the given identifier(s), a new profile will be created and then unsubscribed. (required)
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function bulkUnsubscribeProfilesWithHttpInfo($subscription_delete_job_create_query, $apiKey = null)
+    public function bulkUnsubscribeProfilesWithHttpInfo($subscription_delete_job_create_query_deprecated_jan25, $apiKey = null)
     {
-        $request = $this->bulkUnsubscribeProfilesRequest($subscription_delete_job_create_query, $apiKey);
+        $request = $this->bulkUnsubscribeProfilesRequest($subscription_delete_job_create_query_deprecated_jan25, $apiKey);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1042,14 +1495,14 @@ class ProfilesApi
      *
      * Bulk Unsubscribe Profiles
      *
-     * @param  \KlaviyoAPI\Model\SubscriptionDeleteJobCreateQuery $subscription_delete_job_create_query Unsubscribes one or more profiles from marketing. Currently, supports email and SMS only. All profiles will be removed from the provided list. Either email or phone number is required. If a profile cannot be found matching the given identifier(s), a new profile will be created and then unsubscribed. (required)
+     * @param  \KlaviyoAPI\Model\SubscriptionDeleteJobCreateQueryDeprecatedJan25 $subscription_delete_job_create_query_deprecated_jan25 Unsubscribes one or more profiles from marketing. Currently, supports email and SMS only. All profiles will be removed from the provided list. Either email or phone number is required. If a profile cannot be found matching the given identifier(s), a new profile will be created and then unsubscribed. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function bulkUnsubscribeProfilesAsync($subscription_delete_job_create_query, $apiKey = null)
+    public function bulkUnsubscribeProfilesAsync($subscription_delete_job_create_query_deprecated_jan25, $apiKey = null)
     {
-        return $this->bulkUnsubscribeProfilesAsyncWithHttpInfo($subscription_delete_job_create_query, $apiKey)
+        return $this->bulkUnsubscribeProfilesAsyncWithHttpInfo($subscription_delete_job_create_query_deprecated_jan25, $apiKey)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1080,15 +1533,15 @@ class ProfilesApi
      *
      * Bulk Unsubscribe Profiles
      *
-     * @param  \KlaviyoAPI\Model\SubscriptionDeleteJobCreateQuery $subscription_delete_job_create_query Unsubscribes one or more profiles from marketing. Currently, supports email and SMS only. All profiles will be removed from the provided list. Either email or phone number is required. If a profile cannot be found matching the given identifier(s), a new profile will be created and then unsubscribed. (required)
+     * @param  \KlaviyoAPI\Model\SubscriptionDeleteJobCreateQueryDeprecatedJan25 $subscription_delete_job_create_query_deprecated_jan25 Unsubscribes one or more profiles from marketing. Currently, supports email and SMS only. All profiles will be removed from the provided list. Either email or phone number is required. If a profile cannot be found matching the given identifier(s), a new profile will be created and then unsubscribed. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function bulkUnsubscribeProfilesAsyncWithHttpInfo($subscription_delete_job_create_query, $apiKey = null)
+    public function bulkUnsubscribeProfilesAsyncWithHttpInfo($subscription_delete_job_create_query_deprecated_jan25, $apiKey = null)
     {
         $returnType = '';
-        $request = $this->bulkUnsubscribeProfilesRequest($subscription_delete_job_create_query, $apiKey);
+        $request = $this->bulkUnsubscribeProfilesRequest($subscription_delete_job_create_query_deprecated_jan25, $apiKey);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1134,17 +1587,17 @@ class ProfilesApi
     /**
      * Create request for operation 'bulkUnsubscribeProfiles'
      *
-     * @param  \KlaviyoAPI\Model\SubscriptionDeleteJobCreateQuery $subscription_delete_job_create_query Unsubscribes one or more profiles from marketing. Currently, supports email and SMS only. All profiles will be removed from the provided list. Either email or phone number is required. If a profile cannot be found matching the given identifier(s), a new profile will be created and then unsubscribed. (required)
+     * @param  \KlaviyoAPI\Model\SubscriptionDeleteJobCreateQueryDeprecatedJan25 $subscription_delete_job_create_query_deprecated_jan25 Unsubscribes one or more profiles from marketing. Currently, supports email and SMS only. All profiles will be removed from the provided list. Either email or phone number is required. If a profile cannot be found matching the given identifier(s), a new profile will be created and then unsubscribed. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function bulkUnsubscribeProfilesRequest($subscription_delete_job_create_query, $apiKey = null)
+    public function bulkUnsubscribeProfilesRequest($subscription_delete_job_create_query_deprecated_jan25, $apiKey = null)
     {
-        // verify the required parameter 'subscription_delete_job_create_query' is set
-        if ($subscription_delete_job_create_query === null || (is_array($subscription_delete_job_create_query) && count($subscription_delete_job_create_query) === 0)) {
+        // verify the required parameter 'subscription_delete_job_create_query_deprecated_jan25' is set
+        if ($subscription_delete_job_create_query_deprecated_jan25 === null || (is_array($subscription_delete_job_create_query_deprecated_jan25) && count($subscription_delete_job_create_query_deprecated_jan25) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $subscription_delete_job_create_query when calling bulkUnsubscribeProfiles'
+                'Missing the required parameter $subscription_delete_job_create_query_deprecated_jan25 when calling bulkUnsubscribeProfiles'
             );
         }
 
@@ -1171,11 +1624,11 @@ class ProfilesApi
         }
 
         // for model (json/xml)
-        if (isset($subscription_delete_job_create_query)) {
+        if (isset($subscription_delete_job_create_query_deprecated_jan25)) {
             if ($headers['Content-Type'] === 'application/json' || $headers['Content-Type'] === 'application/vnd.api+json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($subscription_delete_job_create_query));
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($subscription_delete_job_create_query_deprecated_jan25));
             } else {
-                $httpBody = $subscription_delete_job_create_query;
+                $httpBody = $subscription_delete_job_create_query_deprecated_jan25;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -5569,6 +6022,15 @@ class ProfilesApi
      *
      * @deprecated use `getErrorsForBulkImportProfilesJob` instead
      */
+    public function getImportErrorsForProfileBulkImportJob(...$args) {
+        return $this->getErrorsForBulkImportProfilesJob(...$args);
+    }
+
+    /**
+     * Alias of `getErrorsForBulkImportProfilesJob`
+     *
+     * @deprecated use `getErrorsForBulkImportProfilesJob` instead
+     */
     public function getProfileBulkImportJobImportErrors(...$args) {
         return $this->getErrorsForBulkImportProfilesJob(...$args);
     }
@@ -5758,6 +6220,15 @@ class ProfilesApi
      *
      * @deprecated use `getErrorsForBulkImportProfilesJobWithHttpInfo` instead
      */
+    public function getImportErrorsForProfileBulkImportJobWithHttpInfo(...$args) {
+        return $this->getErrorsForBulkImportProfilesJobWithHttpInfo(...$args);
+    }
+
+    /**
+     * Alias of `getErrorsForBulkImportProfilesJobWithHttpInfo`
+     *
+     * @deprecated use `getErrorsForBulkImportProfilesJobWithHttpInfo` instead
+     */
     public function getProfileBulkImportJobImportErrorsWithHttpInfo(...$args) {
         return $this->getErrorsForBulkImportProfilesJobWithHttpInfo(...$args);
     }
@@ -5791,6 +6262,15 @@ class ProfilesApi
      * @deprecated use `getErrorsForBulkImportProfilesJobAsync` instead
      */
     public function getBulkProfileImportJobImportErrorsAsync(...$args) {
+        return $this->getErrorsForBulkImportProfilesJobAsync(...$args);
+    }
+
+    /**
+     * Alias of `getErrorsForBulkImportProfilesJobAsync`
+     *
+     * @deprecated use `getErrorsForBulkImportProfilesJobAsync` instead
+     */
+    public function getImportErrorsForProfileBulkImportJobAsync(...$args) {
         return $this->getErrorsForBulkImportProfilesJobAsync(...$args);
     }
 
@@ -5868,6 +6348,15 @@ class ProfilesApi
      * @deprecated use `getErrorsForBulkImportProfilesJobAsyncWithHttpInfo` instead
      */
     public function getBulkProfileImportJobImportErrorsAsyncWithHttpInfo(...$args) {
+        return $this->getErrorsForBulkImportProfilesJobAsyncWithHttpInfo(...$args);
+    }
+
+    /**
+     * Alias of `getErrorsForBulkImportProfilesJobAsyncWithHttpInfo`
+     *
+     * @deprecated use `getErrorsForBulkImportProfilesJobAsyncWithHttpInfo` instead
+     */
+    public function getImportErrorsForProfileBulkImportJobAsyncWithHttpInfo(...$args) {
         return $this->getErrorsForBulkImportProfilesJobAsyncWithHttpInfo(...$args);
     }
 
@@ -6035,6 +6524,15 @@ class ProfilesApi
      *
      * @deprecated use `getErrorsForBulkImportProfilesJobRequest` instead
      */
+    public function getImportErrorsForProfileBulkImportJobRequest(...$args) {
+        return $this->getErrorsForBulkImportProfilesJobRequest(...$args);
+    }
+
+    /**
+     * Alias of `getErrorsForBulkImportProfilesJobRequest`
+     *
+     * @deprecated use `getErrorsForBulkImportProfilesJobRequest` instead
+     */
     public function getProfileBulkImportJobImportErrorsRequest(...$args) {
         return $this->getErrorsForBulkImportProfilesJobRequest(...$args);
     }
@@ -6063,6 +6561,15 @@ class ProfilesApi
      * @deprecated use `getListForBulkImportProfilesJob` instead
      */
     public function getBulkProfileImportJobLists(...$args) {
+        return $this->getListForBulkImportProfilesJob(...$args);
+    }
+
+    /**
+     * Alias of `getListForBulkImportProfilesJob`
+     *
+     * @deprecated use `getListForBulkImportProfilesJob` instead
+     */
+    public function getListsForProfileBulkImportJob(...$args) {
         return $this->getListForBulkImportProfilesJob(...$args);
     }
 
@@ -6258,6 +6765,15 @@ class ProfilesApi
      *
      * @deprecated use `getListForBulkImportProfilesJobWithHttpInfo` instead
      */
+    public function getListsForProfileBulkImportJobWithHttpInfo(...$args) {
+        return $this->getListForBulkImportProfilesJobWithHttpInfo(...$args);
+    }
+
+    /**
+     * Alias of `getListForBulkImportProfilesJobWithHttpInfo`
+     *
+     * @deprecated use `getListForBulkImportProfilesJobWithHttpInfo` instead
+     */
     public function getProfileBulkImportJobListsWithHttpInfo(...$args) {
         return $this->getListForBulkImportProfilesJobWithHttpInfo(...$args);
     }
@@ -6289,6 +6805,15 @@ class ProfilesApi
      * @deprecated use `getListForBulkImportProfilesJobAsync` instead
      */
     public function getBulkProfileImportJobListsAsync(...$args) {
+        return $this->getListForBulkImportProfilesJobAsync(...$args);
+    }
+
+    /**
+     * Alias of `getListForBulkImportProfilesJobAsync`
+     *
+     * @deprecated use `getListForBulkImportProfilesJobAsync` instead
+     */
+    public function getListsForProfileBulkImportJobAsync(...$args) {
         return $this->getListForBulkImportProfilesJobAsync(...$args);
     }
 
@@ -6364,6 +6889,15 @@ class ProfilesApi
      * @deprecated use `getListForBulkImportProfilesJobAsyncWithHttpInfo` instead
      */
     public function getBulkProfileImportJobListsAsyncWithHttpInfo(...$args) {
+        return $this->getListForBulkImportProfilesJobAsyncWithHttpInfo(...$args);
+    }
+
+    /**
+     * Alias of `getListForBulkImportProfilesJobAsyncWithHttpInfo`
+     *
+     * @deprecated use `getListForBulkImportProfilesJobAsyncWithHttpInfo` instead
+     */
+    public function getListsForProfileBulkImportJobAsyncWithHttpInfo(...$args) {
         return $this->getListForBulkImportProfilesJobAsyncWithHttpInfo(...$args);
     }
 
@@ -6504,6 +7038,15 @@ class ProfilesApi
      *
      * @deprecated use `getListForBulkImportProfilesJobRequest` instead
      */
+    public function getListsForProfileBulkImportJobRequest(...$args) {
+        return $this->getListForBulkImportProfilesJobRequest(...$args);
+    }
+
+    /**
+     * Alias of `getListForBulkImportProfilesJobRequest`
+     *
+     * @deprecated use `getListForBulkImportProfilesJobRequest` instead
+     */
     public function getProfileBulkImportJobListsRequest(...$args) {
         return $this->getListForBulkImportProfilesJobRequest(...$args);
     }
@@ -6531,6 +7074,15 @@ class ProfilesApi
      * @deprecated use `getListIdsForBulkImportProfilesJob` instead
      */
     public function getBulkProfileImportJobRelationshipsLists(...$args) {
+        return $this->getListIdsForBulkImportProfilesJob(...$args);
+    }
+
+    /**
+     * Alias of `getListIdsForBulkImportProfilesJob`
+     *
+     * @deprecated use `getListIdsForBulkImportProfilesJob` instead
+     */
+    public function getListIdsForProfileBulkImportJob(...$args) {
         return $this->getListIdsForBulkImportProfilesJob(...$args);
     }
 
@@ -6725,6 +7277,15 @@ class ProfilesApi
      *
      * @deprecated use `getListIdsForBulkImportProfilesJobWithHttpInfo` instead
      */
+    public function getListIdsForProfileBulkImportJobWithHttpInfo(...$args) {
+        return $this->getListIdsForBulkImportProfilesJobWithHttpInfo(...$args);
+    }
+
+    /**
+     * Alias of `getListIdsForBulkImportProfilesJobWithHttpInfo`
+     *
+     * @deprecated use `getListIdsForBulkImportProfilesJobWithHttpInfo` instead
+     */
     public function getProfileBulkImportJobRelationshipsListsWithHttpInfo(...$args) {
         return $this->getListIdsForBulkImportProfilesJobWithHttpInfo(...$args);
     }
@@ -6755,6 +7316,15 @@ class ProfilesApi
      * @deprecated use `getListIdsForBulkImportProfilesJobAsync` instead
      */
     public function getBulkProfileImportJobRelationshipsListsAsync(...$args) {
+        return $this->getListIdsForBulkImportProfilesJobAsync(...$args);
+    }
+
+    /**
+     * Alias of `getListIdsForBulkImportProfilesJobAsync`
+     *
+     * @deprecated use `getListIdsForBulkImportProfilesJobAsync` instead
+     */
+    public function getListIdsForProfileBulkImportJobAsync(...$args) {
         return $this->getListIdsForBulkImportProfilesJobAsync(...$args);
     }
 
@@ -6829,6 +7399,15 @@ class ProfilesApi
      * @deprecated use `getListIdsForBulkImportProfilesJobAsyncWithHttpInfo` instead
      */
     public function getBulkProfileImportJobRelationshipsListsAsyncWithHttpInfo(...$args) {
+        return $this->getListIdsForBulkImportProfilesJobAsyncWithHttpInfo(...$args);
+    }
+
+    /**
+     * Alias of `getListIdsForBulkImportProfilesJobAsyncWithHttpInfo`
+     *
+     * @deprecated use `getListIdsForBulkImportProfilesJobAsyncWithHttpInfo` instead
+     */
+    public function getListIdsForProfileBulkImportJobAsyncWithHttpInfo(...$args) {
         return $this->getListIdsForBulkImportProfilesJobAsyncWithHttpInfo(...$args);
     }
 
@@ -6951,6 +7530,15 @@ class ProfilesApi
      * @deprecated use `getListIdsForBulkImportProfilesJobRequest` instead
      */
     public function getBulkProfileImportJobRelationshipsListsRequest(...$args) {
+        return $this->getListIdsForBulkImportProfilesJobRequest(...$args);
+    }
+
+    /**
+     * Alias of `getListIdsForBulkImportProfilesJobRequest`
+     *
+     * @deprecated use `getListIdsForBulkImportProfilesJobRequest` instead
+     */
+    public function getListIdsForProfileBulkImportJobRequest(...$args) {
         return $this->getListIdsForBulkImportProfilesJobRequest(...$args);
     }
 
@@ -8270,6 +8858,15 @@ class ProfilesApi
     }
 
     /**
+     * Alias of `getProfileIdsForBulkImportProfilesJob`
+     *
+     * @deprecated use `getProfileIdsForBulkImportProfilesJob` instead
+     */
+    public function getProfileIdsForProfileBulkImportJob(...$args) {
+        return $this->getProfileIdsForBulkImportProfilesJob(...$args);
+    }
+
+    /**
      * Operation getProfileIdsForBulkImportProfilesJobWithHttpInfo
      *
      * Get Profile IDs for Bulk Import Profiles Job
@@ -8458,6 +9055,15 @@ class ProfilesApi
     }
 
     /**
+     * Alias of `getProfileIdsForBulkImportProfilesJobWithHttpInfo`
+     *
+     * @deprecated use `getProfileIdsForBulkImportProfilesJobWithHttpInfo` instead
+     */
+    public function getProfileIdsForProfileBulkImportJobWithHttpInfo(...$args) {
+        return $this->getProfileIdsForBulkImportProfilesJobWithHttpInfo(...$args);
+    }
+
+    /**
      * Operation getProfileIdsForBulkImportProfilesJobAsync
      *
      * Get Profile IDs for Bulk Import Profiles Job
@@ -8494,6 +9100,15 @@ class ProfilesApi
      * @deprecated use `getProfileIdsForBulkImportProfilesJobAsync` instead
      */
     public function getProfileBulkImportJobRelationshipsProfilesAsync(...$args) {
+        return $this->getProfileIdsForBulkImportProfilesJobAsync(...$args);
+    }
+
+    /**
+     * Alias of `getProfileIdsForBulkImportProfilesJobAsync`
+     *
+     * @deprecated use `getProfileIdsForBulkImportProfilesJobAsync` instead
+     */
+    public function getProfileIdsForProfileBulkImportJobAsync(...$args) {
         return $this->getProfileIdsForBulkImportProfilesJobAsync(...$args);
     }
 
@@ -8570,6 +9185,15 @@ class ProfilesApi
      * @deprecated use `getProfileIdsForBulkImportProfilesJobAsyncWithHttpInfo` instead
      */
     public function getProfileBulkImportJobRelationshipsProfilesAsyncWithHttpInfo(...$args) {
+        return $this->getProfileIdsForBulkImportProfilesJobAsyncWithHttpInfo(...$args);
+    }
+
+    /**
+     * Alias of `getProfileIdsForBulkImportProfilesJobAsyncWithHttpInfo`
+     *
+     * @deprecated use `getProfileIdsForBulkImportProfilesJobAsyncWithHttpInfo` instead
+     */
+    public function getProfileIdsForProfileBulkImportJobAsyncWithHttpInfo(...$args) {
         return $this->getProfileIdsForBulkImportProfilesJobAsyncWithHttpInfo(...$args);
     }
 
@@ -8719,6 +9343,15 @@ class ProfilesApi
      * @deprecated use `getProfileIdsForBulkImportProfilesJobRequest` instead
      */
     public function getProfileBulkImportJobRelationshipsProfilesRequest(...$args) {
+        return $this->getProfileIdsForBulkImportProfilesJobRequest(...$args);
+    }
+
+    /**
+     * Alias of `getProfileIdsForBulkImportProfilesJobRequest`
+     *
+     * @deprecated use `getProfileIdsForBulkImportProfilesJobRequest` instead
+     */
+    public function getProfileIdsForProfileBulkImportJobRequest(...$args) {
         return $this->getProfileIdsForBulkImportProfilesJobRequest(...$args);
     }
 
@@ -9199,6 +9832,15 @@ class ProfilesApi
     }
 
     /**
+     * Alias of `getProfilesForBulkImportProfilesJob`
+     *
+     * @deprecated use `getProfilesForBulkImportProfilesJob` instead
+     */
+    public function getProfilesForProfileBulkImportJob(...$args) {
+        return $this->getProfilesForBulkImportProfilesJob(...$args);
+    }
+
+    /**
      * Operation getProfilesForBulkImportProfilesJobWithHttpInfo
      *
      * Get Profiles for Bulk Import Profiles Job
@@ -9389,6 +10031,15 @@ class ProfilesApi
     }
 
     /**
+     * Alias of `getProfilesForBulkImportProfilesJobWithHttpInfo`
+     *
+     * @deprecated use `getProfilesForBulkImportProfilesJobWithHttpInfo` instead
+     */
+    public function getProfilesForProfileBulkImportJobWithHttpInfo(...$args) {
+        return $this->getProfilesForBulkImportProfilesJobWithHttpInfo(...$args);
+    }
+
+    /**
      * Operation getProfilesForBulkImportProfilesJobAsync
      *
      * Get Profiles for Bulk Import Profiles Job
@@ -9427,6 +10078,15 @@ class ProfilesApi
      * @deprecated use `getProfilesForBulkImportProfilesJobAsync` instead
      */
     public function getProfileBulkImportJobProfilesAsync(...$args) {
+        return $this->getProfilesForBulkImportProfilesJobAsync(...$args);
+    }
+
+    /**
+     * Alias of `getProfilesForBulkImportProfilesJobAsync`
+     *
+     * @deprecated use `getProfilesForBulkImportProfilesJobAsync` instead
+     */
+    public function getProfilesForProfileBulkImportJobAsync(...$args) {
         return $this->getProfilesForBulkImportProfilesJobAsync(...$args);
     }
 
@@ -9505,6 +10165,15 @@ class ProfilesApi
      * @deprecated use `getProfilesForBulkImportProfilesJobAsyncWithHttpInfo` instead
      */
     public function getProfileBulkImportJobProfilesAsyncWithHttpInfo(...$args) {
+        return $this->getProfilesForBulkImportProfilesJobAsyncWithHttpInfo(...$args);
+    }
+
+    /**
+     * Alias of `getProfilesForBulkImportProfilesJobAsyncWithHttpInfo`
+     *
+     * @deprecated use `getProfilesForBulkImportProfilesJobAsyncWithHttpInfo` instead
+     */
+    public function getProfilesForProfileBulkImportJobAsyncWithHttpInfo(...$args) {
         return $this->getProfilesForBulkImportProfilesJobAsyncWithHttpInfo(...$args);
     }
 
@@ -9674,6 +10343,15 @@ class ProfilesApi
      * @deprecated use `getProfilesForBulkImportProfilesJobRequest` instead
      */
     public function getProfileBulkImportJobProfilesRequest(...$args) {
+        return $this->getProfilesForBulkImportProfilesJobRequest(...$args);
+    }
+
+    /**
+     * Alias of `getProfilesForBulkImportProfilesJobRequest`
+     *
+     * @deprecated use `getProfilesForBulkImportProfilesJobRequest` instead
+     */
+    public function getProfilesForProfileBulkImportJobRequest(...$args) {
         return $this->getProfilesForBulkImportProfilesJobRequest(...$args);
     }
 
@@ -10917,459 +11595,6 @@ class ProfilesApi
      */
     public function createProfileMergeRequest(...$args) {
         return $this->mergeProfilesRequest(...$args);
-    }
-
-    /**
-     * Operation spawnBulkProfileImportJob
-     *
-     * Spawn Bulk Profile Import Job
-     *
-     * @param  \KlaviyoAPI\Model\ProfileImportJobCreateQuery $profile_import_job_create_query profile_import_job_create_query (required)
-     *
-     * @throws \KlaviyoAPI\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return array<string,mixed>|\KlaviyoAPI\Model\GetAccounts400Response|\KlaviyoAPI\Model\GetAccounts400Response
-     */
-    public function spawnBulkProfileImportJob($profile_import_job_create_query, $apiKey = null)
-    {
-        list($response) = $this->spawnBulkProfileImportJobWithHttpInfo($profile_import_job_create_query, $apiKey);
-        return $response;
-    }
-
-    /**
-     * Alias of `spawnBulkProfileImportJob`
-     *
-     * @deprecated use `spawnBulkProfileImportJob` instead
-     */
-    public function bulkImportProfiles(...$args) {
-        return $this->spawnBulkProfileImportJob(...$args);
-    }
-
-    /**
-     * Alias of `spawnBulkProfileImportJob`
-     *
-     * @deprecated use `spawnBulkProfileImportJob` instead
-     */
-    public function createProfileBulkImportJob(...$args) {
-        return $this->spawnBulkProfileImportJob(...$args);
-    }
-
-    /**
-     * Operation spawnBulkProfileImportJobWithHttpInfo
-     *
-     * Spawn Bulk Profile Import Job
-     *
-     * @param  \KlaviyoAPI\Model\ProfileImportJobCreateQuery $profile_import_job_create_query (required)
-     *
-     * @throws \KlaviyoAPI\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return array of array<string,mixed>|\KlaviyoAPI\Model\GetAccounts400Response|\KlaviyoAPI\Model\GetAccounts400Response, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function spawnBulkProfileImportJobWithHttpInfo($profile_import_job_create_query, $apiKey = null)
-    {
-        $request = $this->spawnBulkProfileImportJobRequest($profile_import_job_create_query, $apiKey);
-
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
-                );
-            } catch (ConnectException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    null,
-                    null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        (string) $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    (string) $response->getBody()
-                );
-            }
-
-            switch($statusCode) {
-                case 202:
-                    if ('array<string,mixed>' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('array&lt;string,mixed&gt;' !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-
-                    $parsed_content = json_decode(json_encode($content), TRUE);
-                    if (json_last_error() != JSON_ERROR_NONE) {
-                        $parsed_content = $content;
-                    }
-
-                    return [
-                        $parsed_content,
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                case 400:
-                    if ('\KlaviyoAPI\Model\GetAccounts400Response' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('\KlaviyoAPI\Model\GetAccounts400Response' !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-
-                    $parsed_content = json_decode(json_encode($content), TRUE);
-                    if (json_last_error() != JSON_ERROR_NONE) {
-                        $parsed_content = $content;
-                    }
-
-                    return [
-                        $parsed_content,
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                case 500:
-                    if ('\KlaviyoAPI\Model\GetAccounts400Response' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('\KlaviyoAPI\Model\GetAccounts400Response' !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-
-                    $parsed_content = json_decode(json_encode($content), TRUE);
-                    if (json_last_error() != JSON_ERROR_NONE) {
-                        $parsed_content = $content;
-                    }
-
-                    return [
-                        $parsed_content,
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-            }
-
-            $returnType = 'array<string,mixed>';
-            if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); //stream goes to serializer
-            } else {
-                $content = (string) $response->getBody();
-                if ($returnType !== 'string') {
-                    $content = json_decode($content);
-                }
-            }
-
-            $parsed_content = json_decode(json_encode($content), TRUE);
-            if (json_last_error() != JSON_ERROR_NONE) {
-                $parsed_content = $content;
-            }
-
-            return [
-                $parsed_content,
-                $response->getStatusCode(),
-                $response->getHeaders()
-            ];
-
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 202:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        'array<string,mixed>',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 400:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\KlaviyoAPI\Model\GetAccounts400Response',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 500:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\KlaviyoAPI\Model\GetAccounts400Response',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-            }
-            throw $e;
-        }
-    }
-
-    /**
-     * Alias of `spawnBulkProfileImportJobWithHttpInfo`
-     *
-     * @deprecated use `spawnBulkProfileImportJobWithHttpInfo` instead
-     */
-    public function bulkImportProfilesWithHttpInfo(...$args) {
-        return $this->spawnBulkProfileImportJobWithHttpInfo(...$args);
-    }
-
-    /**
-     * Alias of `spawnBulkProfileImportJobWithHttpInfo`
-     *
-     * @deprecated use `spawnBulkProfileImportJobWithHttpInfo` instead
-     */
-    public function createProfileBulkImportJobWithHttpInfo(...$args) {
-        return $this->spawnBulkProfileImportJobWithHttpInfo(...$args);
-    }
-
-    /**
-     * Operation spawnBulkProfileImportJobAsync
-     *
-     * Spawn Bulk Profile Import Job
-     *
-     * @param  \KlaviyoAPI\Model\ProfileImportJobCreateQuery $profile_import_job_create_query (required)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function spawnBulkProfileImportJobAsync($profile_import_job_create_query, $apiKey = null)
-    {
-        return $this->spawnBulkProfileImportJobAsyncWithHttpInfo($profile_import_job_create_query, $apiKey)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Alias of `spawnBulkProfileImportJobAsync`
-     *
-     * @deprecated use `spawnBulkProfileImportJobAsync` instead
-     */
-    public function bulkImportProfilesAsync(...$args) {
-        return $this->spawnBulkProfileImportJobAsync(...$args);
-    }
-
-    /**
-     * Alias of `spawnBulkProfileImportJobAsync`
-     *
-     * @deprecated use `spawnBulkProfileImportJobAsync` instead
-     */
-    public function createProfileBulkImportJobAsync(...$args) {
-        return $this->spawnBulkProfileImportJobAsync(...$args);
-    }
-
-    /**
-     * Operation spawnBulkProfileImportJobAsyncWithHttpInfo
-     *
-     * Spawn Bulk Profile Import Job
-     *
-     * @param  \KlaviyoAPI\Model\ProfileImportJobCreateQuery $profile_import_job_create_query (required)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function spawnBulkProfileImportJobAsyncWithHttpInfo($profile_import_job_create_query, $apiKey = null)
-    {
-        $returnType = 'array<string,mixed>';
-        $request = $this->spawnBulkProfileImportJobRequest($profile_import_job_create_query, $apiKey);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ($returnType !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    $parsed_content = json_decode(json_encode($content), TRUE);
-                    if (json_last_error() != JSON_ERROR_NONE) {
-                        $parsed_content = $content;
-                    }
-
-                    return [
-                        $parsed_content,
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        (string) $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Alias of `spawnBulkProfileImportJobAsyncWithHttpInfo`
-     *
-     * @deprecated use `spawnBulkProfileImportJobAsyncWithHttpInfo` instead
-     */
-    public function bulkImportProfilesAsyncWithHttpInfo(...$args) {
-        return $this->spawnBulkProfileImportJobAsyncWithHttpInfo(...$args);
-    }
-
-    /**
-     * Alias of `spawnBulkProfileImportJobAsyncWithHttpInfo`
-     *
-     * @deprecated use `spawnBulkProfileImportJobAsyncWithHttpInfo` instead
-     */
-    public function createProfileBulkImportJobAsyncWithHttpInfo(...$args) {
-        return $this->spawnBulkProfileImportJobAsyncWithHttpInfo(...$args);
-    }
-
-    /**
-     * Create request for operation 'spawnBulkProfileImportJob'
-     *
-     * @param  \KlaviyoAPI\Model\ProfileImportJobCreateQuery $profile_import_job_create_query (required)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    public function spawnBulkProfileImportJobRequest($profile_import_job_create_query, $apiKey = null)
-    {
-        // verify the required parameter 'profile_import_job_create_query' is set
-        if ($profile_import_job_create_query === null || (is_array($profile_import_job_create_query) && count($profile_import_job_create_query) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $profile_import_job_create_query when calling spawnBulkProfileImportJob'
-            );
-        }
-
-        $resourcePath = '/api/profile-bulk-import-jobs';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-
-
-
-
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/vnd.api+json']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/vnd.api+json'],
-                ['application/vnd.api+json']
-            );
-        }
-
-        // for model (json/xml)
-        if (isset($profile_import_job_create_query)) {
-            if ($headers['Content-Type'] === 'application/json' || $headers['Content-Type'] === 'application/vnd.api+json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($profile_import_job_create_query));
-            } else {
-                $httpBody = $profile_import_job_create_query;
-            }
-        } elseif (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
-                    foreach ($formParamValueItems as $formParamValueItem) {
-                        $multipartContents[] = [
-                            'name' => $formParamName,
-                            'contents' => $formParamValueItem
-                        ];
-                    }
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif ($headers['Content-Type'] === 'application/json' || $headers['Content-Type'] === 'application/vnd.api+json') {
-                $httpBody = \GuzzleHttp\json_encode($formParams);
-
-            } else {
-                // for HTTP post (form)
-                $httpBody = ObjectSerializer::buildQuery($formParams);
-            }
-        }
-
-        // this endpoint requires API key authentication
-        if ($apiKey == null) {
-            $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
-        } else {
-            $apiKey = 'Klaviyo-API-Key '.$apiKey;
-        }
-
-        $headers['Authorization'] = $apiKey;
-
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $defaultHeaders['revision'] = ['2024-10-15'];
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $query = ObjectSerializer::buildQuery($queryParams);
-        return new Request(
-            'POST',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
-     * Alias of `spawnBulkProfileImportJobRequest`
-     *
-     * @deprecated use `spawnBulkProfileImportJobRequest` instead
-     */
-    public function bulkImportProfilesRequest(...$args) {
-        return $this->spawnBulkProfileImportJobRequest(...$args);
-    }
-
-    /**
-     * Alias of `spawnBulkProfileImportJobRequest`
-     *
-     * @deprecated use `spawnBulkProfileImportJobRequest` instead
-     */
-    public function createProfileBulkImportJobRequest(...$args) {
-        return $this->spawnBulkProfileImportJobRequest(...$args);
     }
 
     /**

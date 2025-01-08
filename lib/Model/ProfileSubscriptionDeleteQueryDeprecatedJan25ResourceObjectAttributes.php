@@ -1,6 +1,6 @@
 <?php
 /**
- * SubscriptionDeleteJobCreateQueryResourceObjectRelationshipsListData
+ * ProfileSubscriptionDeleteQueryDeprecatedJan25ResourceObjectAttributes
  *
  * PHP version 7.4
  *
@@ -33,7 +33,7 @@ use \ArrayAccess;
 use \KlaviyoAPI\ObjectSerializer;
 
 /**
- * SubscriptionDeleteJobCreateQueryResourceObjectRelationshipsListData Class Doc Comment
+ * ProfileSubscriptionDeleteQueryDeprecatedJan25ResourceObjectAttributes Class Doc Comment
  *
  * @category Class
  * @package  KlaviyoAPI
@@ -41,7 +41,7 @@ use \KlaviyoAPI\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class SubscriptionDeleteJobCreateQueryResourceObjectRelationshipsListData implements ModelInterface, ArrayAccess, \JsonSerializable
+class ProfileSubscriptionDeleteQueryDeprecatedJan25ResourceObjectAttributes implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class SubscriptionDeleteJobCreateQueryResourceObjectRelationshipsListData implem
       *
       * @var string
       */
-    protected static $openAPIModelName = 'SubscriptionDeleteJobCreateQueryResourceObject_relationships_list_data';
+    protected static $openAPIModelName = 'ProfileSubscriptionDeleteQueryDeprecatedJan25ResourceObject_attributes';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,8 +58,9 @@ class SubscriptionDeleteJobCreateQueryResourceObjectRelationshipsListData implem
       * @var string[]
       */
     protected static $openAPITypes = [
-        'type' => '\KlaviyoAPI\Model\ListEnum',
-        'id' => 'string'
+        'email' => 'string',
+        'phone_number' => 'string',
+        'subscriptions' => '\KlaviyoAPI\Model\UnsubscriptionChannels'
     ];
 
     /**
@@ -70,8 +71,9 @@ class SubscriptionDeleteJobCreateQueryResourceObjectRelationshipsListData implem
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'type' => null,
-        'id' => null
+        'email' => null,
+        'phone_number' => null,
+        'subscriptions' => null
     ];
 
     /**
@@ -80,8 +82,9 @@ class SubscriptionDeleteJobCreateQueryResourceObjectRelationshipsListData implem
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'type' => false,
-		'id' => false
+        'email' => true,
+		'phone_number' => true,
+		'subscriptions' => false
     ];
 
     /**
@@ -160,8 +163,9 @@ class SubscriptionDeleteJobCreateQueryResourceObjectRelationshipsListData implem
      * @var string[]
      */
     protected static $attributeMap = [
-        'type' => 'type',
-        'id' => 'id'
+        'email' => 'email',
+        'phone_number' => 'phone_number',
+        'subscriptions' => 'subscriptions'
     ];
 
     /**
@@ -170,8 +174,9 @@ class SubscriptionDeleteJobCreateQueryResourceObjectRelationshipsListData implem
      * @var string[]
      */
     protected static $setters = [
-        'type' => 'setType',
-        'id' => 'setId'
+        'email' => 'setEmail',
+        'phone_number' => 'setPhoneNumber',
+        'subscriptions' => 'setSubscriptions'
     ];
 
     /**
@@ -180,8 +185,9 @@ class SubscriptionDeleteJobCreateQueryResourceObjectRelationshipsListData implem
      * @var string[]
      */
     protected static $getters = [
-        'type' => 'getType',
-        'id' => 'getId'
+        'email' => 'getEmail',
+        'phone_number' => 'getPhoneNumber',
+        'subscriptions' => 'getSubscriptions'
     ];
 
     /**
@@ -241,8 +247,9 @@ class SubscriptionDeleteJobCreateQueryResourceObjectRelationshipsListData implem
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('type', $data ?? [], null);
-        $this->setIfExists('id', $data ?? [], null);
+        $this->setIfExists('email', $data ?? [], null);
+        $this->setIfExists('phone_number', $data ?? [], null);
+        $this->setIfExists('subscriptions', $data ?? [], null);
     }
 
     /**
@@ -272,12 +279,6 @@ class SubscriptionDeleteJobCreateQueryResourceObjectRelationshipsListData implem
     {
         $invalidProperties = [];
 
-        if ($this->container['type'] === null) {
-            $invalidProperties[] = "'type' can't be null";
-        }
-        if ($this->container['id'] === null) {
-            $invalidProperties[] = "'id' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -294,59 +295,102 @@ class SubscriptionDeleteJobCreateQueryResourceObjectRelationshipsListData implem
 
 
     /**
-     * Gets type
+     * Gets email
      *
-     * @return \KlaviyoAPI\Model\ListEnum
+     * @return string|null
      */
-    public function getType()
+    public function getEmail()
     {
-        return $this->container['type'];
+        return $this->container['email'];
     }
 
     /**
-     * Sets type
+     * Sets email
      *
-     * @param \KlaviyoAPI\Model\ListEnum $type type
+     * @param string|null $email The email address to unsubscribe.
      *
      * @return self
      */
-    public function setType($type)
+    public function setEmail($email)
     {
 
-        if (is_null($type)) {
-            throw new \InvalidArgumentException('non-nullable type cannot be null');
+        if (is_null($email)) {
+            array_push($this->openAPINullablesSetToNull, 'email');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('email', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
 
-        $this->container['type'] = $type;
+        $this->container['email'] = $email;
 
         return $this;
     }
 
     /**
-     * Gets id
+     * Gets phone_number
      *
-     * @return string
+     * @return string|null
      */
-    public function getId()
+    public function getPhoneNumber()
     {
-        return $this->container['id'];
+        return $this->container['phone_number'];
     }
 
     /**
-     * Sets id
+     * Sets phone_number
      *
-     * @param string $id The list to remove the profiles from
+     * @param string|null $phone_number The phone number to unsubscribe. This must be in E.164 format.
      *
      * @return self
      */
-    public function setId($id)
+    public function setPhoneNumber($phone_number)
     {
 
-        if (is_null($id)) {
-            throw new \InvalidArgumentException('non-nullable id cannot be null');
+        if (is_null($phone_number)) {
+            array_push($this->openAPINullablesSetToNull, 'phone_number');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('phone_number', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
 
-        $this->container['id'] = $id;
+        $this->container['phone_number'] = $phone_number;
+
+        return $this;
+    }
+
+    /**
+     * Gets subscriptions
+     *
+     * @return \KlaviyoAPI\Model\UnsubscriptionChannels|null
+     */
+    public function getSubscriptions()
+    {
+        return $this->container['subscriptions'];
+    }
+
+    /**
+     * Sets subscriptions
+     *
+     * @param \KlaviyoAPI\Model\UnsubscriptionChannels|null $subscriptions subscriptions
+     *
+     * @return self
+     */
+    public function setSubscriptions($subscriptions)
+    {
+
+        if (is_null($subscriptions)) {
+            throw new \InvalidArgumentException('non-nullable subscriptions cannot be null');
+        }
+
+        $this->container['subscriptions'] = $subscriptions;
 
         return $this;
     }

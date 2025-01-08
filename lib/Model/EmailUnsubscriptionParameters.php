@@ -1,6 +1,6 @@
 <?php
 /**
- * SubscriptionDeleteJobCreateQueryResourceObjectRelationships
+ * EmailUnsubscriptionParameters
  *
  * PHP version 7.4
  *
@@ -33,7 +33,7 @@ use \ArrayAccess;
 use \KlaviyoAPI\ObjectSerializer;
 
 /**
- * SubscriptionDeleteJobCreateQueryResourceObjectRelationships Class Doc Comment
+ * EmailUnsubscriptionParameters Class Doc Comment
  *
  * @category Class
  * @package  KlaviyoAPI
@@ -41,7 +41,7 @@ use \KlaviyoAPI\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class SubscriptionDeleteJobCreateQueryResourceObjectRelationships implements ModelInterface, ArrayAccess, \JsonSerializable
+class EmailUnsubscriptionParameters implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class SubscriptionDeleteJobCreateQueryResourceObjectRelationships implements Mod
       *
       * @var string
       */
-    protected static $openAPIModelName = 'SubscriptionDeleteJobCreateQueryResourceObject_relationships';
+    protected static $openAPIModelName = 'EmailUnsubscriptionParameters';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,7 +58,7 @@ class SubscriptionDeleteJobCreateQueryResourceObjectRelationships implements Mod
       * @var string[]
       */
     protected static $openAPITypes = [
-        'list' => '\KlaviyoAPI\Model\SubscriptionDeleteJobCreateQueryResourceObjectRelationshipsList'
+        'marketing' => '\KlaviyoAPI\Model\UnsubscriptionParameters'
     ];
 
     /**
@@ -69,7 +69,7 @@ class SubscriptionDeleteJobCreateQueryResourceObjectRelationships implements Mod
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'list' => null
+        'marketing' => null
     ];
 
     /**
@@ -78,7 +78,7 @@ class SubscriptionDeleteJobCreateQueryResourceObjectRelationships implements Mod
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'list' => false
+        'marketing' => false
     ];
 
     /**
@@ -157,7 +157,7 @@ class SubscriptionDeleteJobCreateQueryResourceObjectRelationships implements Mod
      * @var string[]
      */
     protected static $attributeMap = [
-        'list' => 'list'
+        'marketing' => 'marketing'
     ];
 
     /**
@@ -166,7 +166,7 @@ class SubscriptionDeleteJobCreateQueryResourceObjectRelationships implements Mod
      * @var string[]
      */
     protected static $setters = [
-        'list' => 'setList'
+        'marketing' => 'setMarketing'
     ];
 
     /**
@@ -175,7 +175,7 @@ class SubscriptionDeleteJobCreateQueryResourceObjectRelationships implements Mod
      * @var string[]
      */
     protected static $getters = [
-        'list' => 'getList'
+        'marketing' => 'getMarketing'
     ];
 
     /**
@@ -235,7 +235,7 @@ class SubscriptionDeleteJobCreateQueryResourceObjectRelationships implements Mod
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('list', $data ?? [], null);
+        $this->setIfExists('marketing', $data ?? [], null);
     }
 
     /**
@@ -265,6 +265,9 @@ class SubscriptionDeleteJobCreateQueryResourceObjectRelationships implements Mod
     {
         $invalidProperties = [];
 
+        if ($this->container['marketing'] === null) {
+            $invalidProperties[] = "'marketing' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -281,30 +284,30 @@ class SubscriptionDeleteJobCreateQueryResourceObjectRelationships implements Mod
 
 
     /**
-     * Gets list
+     * Gets marketing
      *
-     * @return \KlaviyoAPI\Model\SubscriptionDeleteJobCreateQueryResourceObjectRelationshipsList|null
+     * @return \KlaviyoAPI\Model\UnsubscriptionParameters
      */
-    public function getList()
+    public function getMarketing()
     {
-        return $this->container['list'];
+        return $this->container['marketing'];
     }
 
     /**
-     * Sets list
+     * Sets marketing
      *
-     * @param \KlaviyoAPI\Model\SubscriptionDeleteJobCreateQueryResourceObjectRelationshipsList|null $list list
+     * @param \KlaviyoAPI\Model\UnsubscriptionParameters $marketing marketing
      *
      * @return self
      */
-    public function setList($list)
+    public function setMarketing($marketing)
     {
 
-        if (is_null($list)) {
-            throw new \InvalidArgumentException('non-nullable list cannot be null');
+        if (is_null($marketing)) {
+            throw new \InvalidArgumentException('non-nullable marketing cannot be null');
         }
 
-        $this->container['list'] = $list;
+        $this->container['marketing'] = $marketing;
 
         return $this;
     }

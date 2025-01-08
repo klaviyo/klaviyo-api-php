@@ -219,6 +219,21 @@ class CampaignSendJobPartialUpdateQueryResourceObjectAttributes implements Model
         return self::$openAPIModelName;
     }
 
+    public const ACTION_CANCEL = 'cancel';
+    public const ACTION_REVERT = 'revert';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getActionAllowableValues()
+    {
+        return [
+            self::ACTION_CANCEL,
+            self::ACTION_REVERT,
+        ];
+    }
 
     /**
      * Associative array for storing property values
@@ -268,6 +283,15 @@ class CampaignSendJobPartialUpdateQueryResourceObjectAttributes implements Model
         if ($this->container['action'] === null) {
             $invalidProperties[] = "'action' can't be null";
         }
+        $allowedValues = $this->getActionAllowableValues();
+        if (!is_null($this->container['action']) && !in_array($this->container['action'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'action', must be one of '%s'",
+                $this->container['action'],
+                implode("', '", $allowedValues)
+            );
+        }
+
         return $invalidProperties;
     }
 
@@ -302,6 +326,16 @@ class CampaignSendJobPartialUpdateQueryResourceObjectAttributes implements Model
      */
     public function setAction($action)
     {
+        $allowedValues = $this->getActionAllowableValues();
+        if (!in_array($action, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'action', must be one of '%s'",
+                    $action,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
 
         if (is_null($action)) {
             throw new \InvalidArgumentException('non-nullable action cannot be null');
