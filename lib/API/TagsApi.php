@@ -3914,6 +3914,15 @@ class TagsApi
     }
 
     /**
+     * Alias of `getTagGroupForTag`
+     *
+     * @deprecated use `getTagGroupForTag` instead
+     */
+    public function getGroupForTag(...$args) {
+        return $this->getTagGroupForTag(...$args);
+    }
+
+    /**
      * Operation getTagGroupForTagWithHttpInfo
      *
      * Get Tag Group for Tag
@@ -4092,6 +4101,15 @@ class TagsApi
     }
 
     /**
+     * Alias of `getTagGroupForTagWithHttpInfo`
+     *
+     * @deprecated use `getTagGroupForTagWithHttpInfo` instead
+     */
+    public function getGroupForTagWithHttpInfo(...$args) {
+        return $this->getTagGroupForTagWithHttpInfo(...$args);
+    }
+
+    /**
      * Operation getTagGroupForTagAsync
      *
      * Get Tag Group for Tag
@@ -4118,6 +4136,15 @@ class TagsApi
      * @deprecated use `getTagGroupForTagAsync` instead
      */
     public function getTagTagGroupAsync(...$args) {
+        return $this->getTagGroupForTagAsync(...$args);
+    }
+
+    /**
+     * Alias of `getTagGroupForTagAsync`
+     *
+     * @deprecated use `getTagGroupForTagAsync` instead
+     */
+    public function getGroupForTagAsync(...$args) {
         return $this->getTagGroupForTagAsync(...$args);
     }
 
@@ -4184,6 +4211,15 @@ class TagsApi
      * @deprecated use `getTagGroupForTagAsyncWithHttpInfo` instead
      */
     public function getTagTagGroupAsyncWithHttpInfo(...$args) {
+        return $this->getTagGroupForTagAsyncWithHttpInfo(...$args);
+    }
+
+    /**
+     * Alias of `getTagGroupForTagAsyncWithHttpInfo`
+     *
+     * @deprecated use `getTagGroupForTagAsyncWithHttpInfo` instead
+     */
+    public function getGroupForTagAsyncWithHttpInfo(...$args) {
         return $this->getTagGroupForTagAsyncWithHttpInfo(...$args);
     }
 
@@ -4311,6 +4347,15 @@ class TagsApi
     }
 
     /**
+     * Alias of `getTagGroupForTagRequest`
+     *
+     * @deprecated use `getTagGroupForTagRequest` instead
+     */
+    public function getGroupForTagRequest(...$args) {
+        return $this->getTagGroupForTagRequest(...$args);
+    }
+
+    /**
      * Operation getTagGroupIdForTag
      *
      * Get Tag Group ID for Tag
@@ -4333,6 +4378,24 @@ class TagsApi
      * @deprecated use `getTagGroupIdForTag` instead
      */
     public function getTagRelationshipsTagGroup(...$args) {
+        return $this->getTagGroupIdForTag(...$args);
+    }
+
+    /**
+     * Alias of `getTagGroupIdForTag`
+     *
+     * @deprecated use `getTagGroupIdForTag` instead
+     */
+    public function getGroupIdForTag(...$args) {
+        return $this->getTagGroupIdForTag(...$args);
+    }
+
+    /**
+     * Alias of `getTagGroupIdForTag`
+     *
+     * @deprecated use `getTagGroupIdForTag` instead
+     */
+    public function getTagRelationshipsGroup(...$args) {
         return $this->getTagGroupIdForTag(...$args);
     }
 
@@ -4514,6 +4577,24 @@ class TagsApi
     }
 
     /**
+     * Alias of `getTagGroupIdForTagWithHttpInfo`
+     *
+     * @deprecated use `getTagGroupIdForTagWithHttpInfo` instead
+     */
+    public function getGroupIdForTagWithHttpInfo(...$args) {
+        return $this->getTagGroupIdForTagWithHttpInfo(...$args);
+    }
+
+    /**
+     * Alias of `getTagGroupIdForTagWithHttpInfo`
+     *
+     * @deprecated use `getTagGroupIdForTagWithHttpInfo` instead
+     */
+    public function getTagRelationshipsGroupWithHttpInfo(...$args) {
+        return $this->getTagGroupIdForTagWithHttpInfo(...$args);
+    }
+
+    /**
      * Operation getTagGroupIdForTagAsync
      *
      * Get Tag Group ID for Tag
@@ -4539,6 +4620,24 @@ class TagsApi
      * @deprecated use `getTagGroupIdForTagAsync` instead
      */
     public function getTagRelationshipsTagGroupAsync(...$args) {
+        return $this->getTagGroupIdForTagAsync(...$args);
+    }
+
+    /**
+     * Alias of `getTagGroupIdForTagAsync`
+     *
+     * @deprecated use `getTagGroupIdForTagAsync` instead
+     */
+    public function getGroupIdForTagAsync(...$args) {
+        return $this->getTagGroupIdForTagAsync(...$args);
+    }
+
+    /**
+     * Alias of `getTagGroupIdForTagAsync`
+     *
+     * @deprecated use `getTagGroupIdForTagAsync` instead
+     */
+    public function getTagRelationshipsGroupAsync(...$args) {
         return $this->getTagGroupIdForTagAsync(...$args);
     }
 
@@ -4604,6 +4703,24 @@ class TagsApi
      * @deprecated use `getTagGroupIdForTagAsyncWithHttpInfo` instead
      */
     public function getTagRelationshipsTagGroupAsyncWithHttpInfo(...$args) {
+        return $this->getTagGroupIdForTagAsyncWithHttpInfo(...$args);
+    }
+
+    /**
+     * Alias of `getTagGroupIdForTagAsyncWithHttpInfo`
+     *
+     * @deprecated use `getTagGroupIdForTagAsyncWithHttpInfo` instead
+     */
+    public function getGroupIdForTagAsyncWithHttpInfo(...$args) {
+        return $this->getTagGroupIdForTagAsyncWithHttpInfo(...$args);
+    }
+
+    /**
+     * Alias of `getTagGroupIdForTagAsyncWithHttpInfo`
+     *
+     * @deprecated use `getTagGroupIdForTagAsyncWithHttpInfo` instead
+     */
+    public function getTagRelationshipsGroupAsyncWithHttpInfo(...$args) {
         return $this->getTagGroupIdForTagAsyncWithHttpInfo(...$args);
     }
 
@@ -4717,6 +4834,24 @@ class TagsApi
      * @deprecated use `getTagGroupIdForTagRequest` instead
      */
     public function getTagRelationshipsTagGroupRequest(...$args) {
+        return $this->getTagGroupIdForTagRequest(...$args);
+    }
+
+    /**
+     * Alias of `getTagGroupIdForTagRequest`
+     *
+     * @deprecated use `getTagGroupIdForTagRequest` instead
+     */
+    public function getGroupIdForTagRequest(...$args) {
+        return $this->getTagGroupIdForTagRequest(...$args);
+    }
+
+    /**
+     * Alias of `getTagGroupIdForTagRequest`
+     *
+     * @deprecated use `getTagGroupIdForTagRequest` instead
+     */
+    public function getTagRelationshipsGroupRequest(...$args) {
         return $this->getTagGroupIdForTagRequest(...$args);
     }
 
@@ -6413,6 +6548,15 @@ class TagsApi
     }
 
     /**
+     * Alias of `removeTagFromCampaigns`
+     *
+     * @deprecated use `removeTagFromCampaigns` instead
+     */
+    public function removeCampaignsFromTag(...$args) {
+        return $this->removeTagFromCampaigns(...$args);
+    }
+
+    /**
      * Operation removeTagFromCampaignsWithHttpInfo
      *
      * Remove Tag from Campaigns
@@ -6498,6 +6642,15 @@ class TagsApi
     }
 
     /**
+     * Alias of `removeTagFromCampaignsWithHttpInfo`
+     *
+     * @deprecated use `removeTagFromCampaignsWithHttpInfo` instead
+     */
+    public function removeCampaignsFromTagWithHttpInfo(...$args) {
+        return $this->removeTagFromCampaignsWithHttpInfo(...$args);
+    }
+
+    /**
      * Operation removeTagFromCampaignsAsync
      *
      * Remove Tag from Campaigns
@@ -6524,6 +6677,15 @@ class TagsApi
      * @deprecated use `removeTagFromCampaignsAsync` instead
      */
     public function deleteTagRelationshipsCampaignsAsync(...$args) {
+        return $this->removeTagFromCampaignsAsync(...$args);
+    }
+
+    /**
+     * Alias of `removeTagFromCampaignsAsync`
+     *
+     * @deprecated use `removeTagFromCampaignsAsync` instead
+     */
+    public function removeCampaignsFromTagAsync(...$args) {
         return $this->removeTagFromCampaignsAsync(...$args);
     }
 
@@ -6572,6 +6734,15 @@ class TagsApi
      * @deprecated use `removeTagFromCampaignsAsyncWithHttpInfo` instead
      */
     public function deleteTagRelationshipsCampaignsAsyncWithHttpInfo(...$args) {
+        return $this->removeTagFromCampaignsAsyncWithHttpInfo(...$args);
+    }
+
+    /**
+     * Alias of `removeTagFromCampaignsAsyncWithHttpInfo`
+     *
+     * @deprecated use `removeTagFromCampaignsAsyncWithHttpInfo` instead
+     */
+    public function removeCampaignsFromTagAsyncWithHttpInfo(...$args) {
         return $this->removeTagFromCampaignsAsyncWithHttpInfo(...$args);
     }
 
@@ -6702,6 +6873,15 @@ class TagsApi
     }
 
     /**
+     * Alias of `removeTagFromCampaignsRequest`
+     *
+     * @deprecated use `removeTagFromCampaignsRequest` instead
+     */
+    public function removeCampaignsFromTagRequest(...$args) {
+        return $this->removeTagFromCampaignsRequest(...$args);
+    }
+
+    /**
      * Operation removeTagFromFlows
      *
      * Remove Tag from Flows
@@ -6724,6 +6904,15 @@ class TagsApi
      * @deprecated use `removeTagFromFlows` instead
      */
     public function deleteTagRelationshipsFlows(...$args) {
+        return $this->removeTagFromFlows(...$args);
+    }
+
+    /**
+     * Alias of `removeTagFromFlows`
+     *
+     * @deprecated use `removeTagFromFlows` instead
+     */
+    public function removeFlowsFromTag(...$args) {
         return $this->removeTagFromFlows(...$args);
     }
 
@@ -6813,6 +7002,15 @@ class TagsApi
     }
 
     /**
+     * Alias of `removeTagFromFlowsWithHttpInfo`
+     *
+     * @deprecated use `removeTagFromFlowsWithHttpInfo` instead
+     */
+    public function removeFlowsFromTagWithHttpInfo(...$args) {
+        return $this->removeTagFromFlowsWithHttpInfo(...$args);
+    }
+
+    /**
      * Operation removeTagFromFlowsAsync
      *
      * Remove Tag from Flows
@@ -6839,6 +7037,15 @@ class TagsApi
      * @deprecated use `removeTagFromFlowsAsync` instead
      */
     public function deleteTagRelationshipsFlowsAsync(...$args) {
+        return $this->removeTagFromFlowsAsync(...$args);
+    }
+
+    /**
+     * Alias of `removeTagFromFlowsAsync`
+     *
+     * @deprecated use `removeTagFromFlowsAsync` instead
+     */
+    public function removeFlowsFromTagAsync(...$args) {
         return $this->removeTagFromFlowsAsync(...$args);
     }
 
@@ -6887,6 +7094,15 @@ class TagsApi
      * @deprecated use `removeTagFromFlowsAsyncWithHttpInfo` instead
      */
     public function deleteTagRelationshipsFlowsAsyncWithHttpInfo(...$args) {
+        return $this->removeTagFromFlowsAsyncWithHttpInfo(...$args);
+    }
+
+    /**
+     * Alias of `removeTagFromFlowsAsyncWithHttpInfo`
+     *
+     * @deprecated use `removeTagFromFlowsAsyncWithHttpInfo` instead
+     */
+    public function removeFlowsFromTagAsyncWithHttpInfo(...$args) {
         return $this->removeTagFromFlowsAsyncWithHttpInfo(...$args);
     }
 
@@ -7017,6 +7233,15 @@ class TagsApi
     }
 
     /**
+     * Alias of `removeTagFromFlowsRequest`
+     *
+     * @deprecated use `removeTagFromFlowsRequest` instead
+     */
+    public function removeFlowsFromTagRequest(...$args) {
+        return $this->removeTagFromFlowsRequest(...$args);
+    }
+
+    /**
      * Operation removeTagFromLists
      *
      * Remove Tag from Lists
@@ -7039,6 +7264,15 @@ class TagsApi
      * @deprecated use `removeTagFromLists` instead
      */
     public function deleteTagRelationshipsLists(...$args) {
+        return $this->removeTagFromLists(...$args);
+    }
+
+    /**
+     * Alias of `removeTagFromLists`
+     *
+     * @deprecated use `removeTagFromLists` instead
+     */
+    public function removeListsFromTag(...$args) {
         return $this->removeTagFromLists(...$args);
     }
 
@@ -7128,6 +7362,15 @@ class TagsApi
     }
 
     /**
+     * Alias of `removeTagFromListsWithHttpInfo`
+     *
+     * @deprecated use `removeTagFromListsWithHttpInfo` instead
+     */
+    public function removeListsFromTagWithHttpInfo(...$args) {
+        return $this->removeTagFromListsWithHttpInfo(...$args);
+    }
+
+    /**
      * Operation removeTagFromListsAsync
      *
      * Remove Tag from Lists
@@ -7154,6 +7397,15 @@ class TagsApi
      * @deprecated use `removeTagFromListsAsync` instead
      */
     public function deleteTagRelationshipsListsAsync(...$args) {
+        return $this->removeTagFromListsAsync(...$args);
+    }
+
+    /**
+     * Alias of `removeTagFromListsAsync`
+     *
+     * @deprecated use `removeTagFromListsAsync` instead
+     */
+    public function removeListsFromTagAsync(...$args) {
         return $this->removeTagFromListsAsync(...$args);
     }
 
@@ -7202,6 +7454,15 @@ class TagsApi
      * @deprecated use `removeTagFromListsAsyncWithHttpInfo` instead
      */
     public function deleteTagRelationshipsListsAsyncWithHttpInfo(...$args) {
+        return $this->removeTagFromListsAsyncWithHttpInfo(...$args);
+    }
+
+    /**
+     * Alias of `removeTagFromListsAsyncWithHttpInfo`
+     *
+     * @deprecated use `removeTagFromListsAsyncWithHttpInfo` instead
+     */
+    public function removeListsFromTagAsyncWithHttpInfo(...$args) {
         return $this->removeTagFromListsAsyncWithHttpInfo(...$args);
     }
 
@@ -7332,6 +7593,15 @@ class TagsApi
     }
 
     /**
+     * Alias of `removeTagFromListsRequest`
+     *
+     * @deprecated use `removeTagFromListsRequest` instead
+     */
+    public function removeListsFromTagRequest(...$args) {
+        return $this->removeTagFromListsRequest(...$args);
+    }
+
+    /**
      * Operation removeTagFromSegments
      *
      * Remove Tag from Segments
@@ -7354,6 +7624,15 @@ class TagsApi
      * @deprecated use `removeTagFromSegments` instead
      */
     public function deleteTagRelationshipsSegments(...$args) {
+        return $this->removeTagFromSegments(...$args);
+    }
+
+    /**
+     * Alias of `removeTagFromSegments`
+     *
+     * @deprecated use `removeTagFromSegments` instead
+     */
+    public function removeSegmentsFromTag(...$args) {
         return $this->removeTagFromSegments(...$args);
     }
 
@@ -7443,6 +7722,15 @@ class TagsApi
     }
 
     /**
+     * Alias of `removeTagFromSegmentsWithHttpInfo`
+     *
+     * @deprecated use `removeTagFromSegmentsWithHttpInfo` instead
+     */
+    public function removeSegmentsFromTagWithHttpInfo(...$args) {
+        return $this->removeTagFromSegmentsWithHttpInfo(...$args);
+    }
+
+    /**
      * Operation removeTagFromSegmentsAsync
      *
      * Remove Tag from Segments
@@ -7469,6 +7757,15 @@ class TagsApi
      * @deprecated use `removeTagFromSegmentsAsync` instead
      */
     public function deleteTagRelationshipsSegmentsAsync(...$args) {
+        return $this->removeTagFromSegmentsAsync(...$args);
+    }
+
+    /**
+     * Alias of `removeTagFromSegmentsAsync`
+     *
+     * @deprecated use `removeTagFromSegmentsAsync` instead
+     */
+    public function removeSegmentsFromTagAsync(...$args) {
         return $this->removeTagFromSegmentsAsync(...$args);
     }
 
@@ -7517,6 +7814,15 @@ class TagsApi
      * @deprecated use `removeTagFromSegmentsAsyncWithHttpInfo` instead
      */
     public function deleteTagRelationshipsSegmentsAsyncWithHttpInfo(...$args) {
+        return $this->removeTagFromSegmentsAsyncWithHttpInfo(...$args);
+    }
+
+    /**
+     * Alias of `removeTagFromSegmentsAsyncWithHttpInfo`
+     *
+     * @deprecated use `removeTagFromSegmentsAsyncWithHttpInfo` instead
+     */
+    public function removeSegmentsFromTagAsyncWithHttpInfo(...$args) {
         return $this->removeTagFromSegmentsAsyncWithHttpInfo(...$args);
     }
 
@@ -7647,6 +7953,15 @@ class TagsApi
     }
 
     /**
+     * Alias of `removeTagFromSegmentsRequest`
+     *
+     * @deprecated use `removeTagFromSegmentsRequest` instead
+     */
+    public function removeSegmentsFromTagRequest(...$args) {
+        return $this->removeTagFromSegmentsRequest(...$args);
+    }
+
+    /**
      * Operation tagCampaigns
      *
      * Tag Campaigns
@@ -7668,7 +7983,7 @@ class TagsApi
      *
      * @deprecated use `tagCampaigns` instead
      */
-    public function createTagRelationshipsCampaigns(...$args) {
+    public function createTagRelationshipsCampaign(...$args) {
         return $this->tagCampaigns(...$args);
     }
 
@@ -7677,7 +7992,16 @@ class TagsApi
      *
      * @deprecated use `tagCampaigns` instead
      */
-    public function createTagRelationshipsCampaign(...$args) {
+    public function addCampaignsToTag(...$args) {
+        return $this->tagCampaigns(...$args);
+    }
+
+    /**
+     * Alias of `tagCampaigns`
+     *
+     * @deprecated use `tagCampaigns` instead
+     */
+    public function createTagRelationshipsCampaigns(...$args) {
         return $this->tagCampaigns(...$args);
     }
 
@@ -7762,7 +8086,7 @@ class TagsApi
      *
      * @deprecated use `tagCampaignsWithHttpInfo` instead
      */
-    public function createTagRelationshipsCampaignsWithHttpInfo(...$args) {
+    public function createTagRelationshipsCampaignWithHttpInfo(...$args) {
         return $this->tagCampaignsWithHttpInfo(...$args);
     }
 
@@ -7771,7 +8095,16 @@ class TagsApi
      *
      * @deprecated use `tagCampaignsWithHttpInfo` instead
      */
-    public function createTagRelationshipsCampaignWithHttpInfo(...$args) {
+    public function addCampaignsToTagWithHttpInfo(...$args) {
+        return $this->tagCampaignsWithHttpInfo(...$args);
+    }
+
+    /**
+     * Alias of `tagCampaignsWithHttpInfo`
+     *
+     * @deprecated use `tagCampaignsWithHttpInfo` instead
+     */
+    public function createTagRelationshipsCampaignsWithHttpInfo(...$args) {
         return $this->tagCampaignsWithHttpInfo(...$args);
     }
 
@@ -7801,7 +8134,7 @@ class TagsApi
      *
      * @deprecated use `tagCampaignsAsync` instead
      */
-    public function createTagRelationshipsCampaignsAsync(...$args) {
+    public function createTagRelationshipsCampaignAsync(...$args) {
         return $this->tagCampaignsAsync(...$args);
     }
 
@@ -7810,7 +8143,16 @@ class TagsApi
      *
      * @deprecated use `tagCampaignsAsync` instead
      */
-    public function createTagRelationshipsCampaignAsync(...$args) {
+    public function addCampaignsToTagAsync(...$args) {
+        return $this->tagCampaignsAsync(...$args);
+    }
+
+    /**
+     * Alias of `tagCampaignsAsync`
+     *
+     * @deprecated use `tagCampaignsAsync` instead
+     */
+    public function createTagRelationshipsCampaignsAsync(...$args) {
         return $this->tagCampaignsAsync(...$args);
     }
 
@@ -7858,7 +8200,7 @@ class TagsApi
      *
      * @deprecated use `tagCampaignsAsyncWithHttpInfo` instead
      */
-    public function createTagRelationshipsCampaignsAsyncWithHttpInfo(...$args) {
+    public function createTagRelationshipsCampaignAsyncWithHttpInfo(...$args) {
         return $this->tagCampaignsAsyncWithHttpInfo(...$args);
     }
 
@@ -7867,7 +8209,16 @@ class TagsApi
      *
      * @deprecated use `tagCampaignsAsyncWithHttpInfo` instead
      */
-    public function createTagRelationshipsCampaignAsyncWithHttpInfo(...$args) {
+    public function addCampaignsToTagAsyncWithHttpInfo(...$args) {
+        return $this->tagCampaignsAsyncWithHttpInfo(...$args);
+    }
+
+    /**
+     * Alias of `tagCampaignsAsyncWithHttpInfo`
+     *
+     * @deprecated use `tagCampaignsAsyncWithHttpInfo` instead
+     */
+    public function createTagRelationshipsCampaignsAsyncWithHttpInfo(...$args) {
         return $this->tagCampaignsAsyncWithHttpInfo(...$args);
     }
 
@@ -7993,7 +8344,7 @@ class TagsApi
      *
      * @deprecated use `tagCampaignsRequest` instead
      */
-    public function createTagRelationshipsCampaignsRequest(...$args) {
+    public function createTagRelationshipsCampaignRequest(...$args) {
         return $this->tagCampaignsRequest(...$args);
     }
 
@@ -8002,7 +8353,16 @@ class TagsApi
      *
      * @deprecated use `tagCampaignsRequest` instead
      */
-    public function createTagRelationshipsCampaignRequest(...$args) {
+    public function addCampaignsToTagRequest(...$args) {
+        return $this->tagCampaignsRequest(...$args);
+    }
+
+    /**
+     * Alias of `tagCampaignsRequest`
+     *
+     * @deprecated use `tagCampaignsRequest` instead
+     */
+    public function createTagRelationshipsCampaignsRequest(...$args) {
         return $this->tagCampaignsRequest(...$args);
     }
 
@@ -8028,7 +8388,7 @@ class TagsApi
      *
      * @deprecated use `tagFlows` instead
      */
-    public function createTagRelationshipsFlows(...$args) {
+    public function createTagRelationshipsFlow(...$args) {
         return $this->tagFlows(...$args);
     }
 
@@ -8037,7 +8397,16 @@ class TagsApi
      *
      * @deprecated use `tagFlows` instead
      */
-    public function createTagRelationshipsFlow(...$args) {
+    public function addFlowsToTag(...$args) {
+        return $this->tagFlows(...$args);
+    }
+
+    /**
+     * Alias of `tagFlows`
+     *
+     * @deprecated use `tagFlows` instead
+     */
+    public function createTagRelationshipsFlows(...$args) {
         return $this->tagFlows(...$args);
     }
 
@@ -8122,7 +8491,7 @@ class TagsApi
      *
      * @deprecated use `tagFlowsWithHttpInfo` instead
      */
-    public function createTagRelationshipsFlowsWithHttpInfo(...$args) {
+    public function createTagRelationshipsFlowWithHttpInfo(...$args) {
         return $this->tagFlowsWithHttpInfo(...$args);
     }
 
@@ -8131,7 +8500,16 @@ class TagsApi
      *
      * @deprecated use `tagFlowsWithHttpInfo` instead
      */
-    public function createTagRelationshipsFlowWithHttpInfo(...$args) {
+    public function addFlowsToTagWithHttpInfo(...$args) {
+        return $this->tagFlowsWithHttpInfo(...$args);
+    }
+
+    /**
+     * Alias of `tagFlowsWithHttpInfo`
+     *
+     * @deprecated use `tagFlowsWithHttpInfo` instead
+     */
+    public function createTagRelationshipsFlowsWithHttpInfo(...$args) {
         return $this->tagFlowsWithHttpInfo(...$args);
     }
 
@@ -8161,7 +8539,7 @@ class TagsApi
      *
      * @deprecated use `tagFlowsAsync` instead
      */
-    public function createTagRelationshipsFlowsAsync(...$args) {
+    public function createTagRelationshipsFlowAsync(...$args) {
         return $this->tagFlowsAsync(...$args);
     }
 
@@ -8170,7 +8548,16 @@ class TagsApi
      *
      * @deprecated use `tagFlowsAsync` instead
      */
-    public function createTagRelationshipsFlowAsync(...$args) {
+    public function addFlowsToTagAsync(...$args) {
+        return $this->tagFlowsAsync(...$args);
+    }
+
+    /**
+     * Alias of `tagFlowsAsync`
+     *
+     * @deprecated use `tagFlowsAsync` instead
+     */
+    public function createTagRelationshipsFlowsAsync(...$args) {
         return $this->tagFlowsAsync(...$args);
     }
 
@@ -8218,7 +8605,7 @@ class TagsApi
      *
      * @deprecated use `tagFlowsAsyncWithHttpInfo` instead
      */
-    public function createTagRelationshipsFlowsAsyncWithHttpInfo(...$args) {
+    public function createTagRelationshipsFlowAsyncWithHttpInfo(...$args) {
         return $this->tagFlowsAsyncWithHttpInfo(...$args);
     }
 
@@ -8227,7 +8614,16 @@ class TagsApi
      *
      * @deprecated use `tagFlowsAsyncWithHttpInfo` instead
      */
-    public function createTagRelationshipsFlowAsyncWithHttpInfo(...$args) {
+    public function addFlowsToTagAsyncWithHttpInfo(...$args) {
+        return $this->tagFlowsAsyncWithHttpInfo(...$args);
+    }
+
+    /**
+     * Alias of `tagFlowsAsyncWithHttpInfo`
+     *
+     * @deprecated use `tagFlowsAsyncWithHttpInfo` instead
+     */
+    public function createTagRelationshipsFlowsAsyncWithHttpInfo(...$args) {
         return $this->tagFlowsAsyncWithHttpInfo(...$args);
     }
 
@@ -8353,7 +8749,7 @@ class TagsApi
      *
      * @deprecated use `tagFlowsRequest` instead
      */
-    public function createTagRelationshipsFlowsRequest(...$args) {
+    public function createTagRelationshipsFlowRequest(...$args) {
         return $this->tagFlowsRequest(...$args);
     }
 
@@ -8362,7 +8758,16 @@ class TagsApi
      *
      * @deprecated use `tagFlowsRequest` instead
      */
-    public function createTagRelationshipsFlowRequest(...$args) {
+    public function addFlowsToTagRequest(...$args) {
+        return $this->tagFlowsRequest(...$args);
+    }
+
+    /**
+     * Alias of `tagFlowsRequest`
+     *
+     * @deprecated use `tagFlowsRequest` instead
+     */
+    public function createTagRelationshipsFlowsRequest(...$args) {
         return $this->tagFlowsRequest(...$args);
     }
 
@@ -8388,7 +8793,7 @@ class TagsApi
      *
      * @deprecated use `tagLists` instead
      */
-    public function createTagRelationshipsLists(...$args) {
+    public function createTagRelationshipsList(...$args) {
         return $this->tagLists(...$args);
     }
 
@@ -8397,7 +8802,16 @@ class TagsApi
      *
      * @deprecated use `tagLists` instead
      */
-    public function createTagRelationshipsList(...$args) {
+    public function addListsToTag(...$args) {
+        return $this->tagLists(...$args);
+    }
+
+    /**
+     * Alias of `tagLists`
+     *
+     * @deprecated use `tagLists` instead
+     */
+    public function createTagRelationshipsLists(...$args) {
         return $this->tagLists(...$args);
     }
 
@@ -8482,7 +8896,7 @@ class TagsApi
      *
      * @deprecated use `tagListsWithHttpInfo` instead
      */
-    public function createTagRelationshipsListsWithHttpInfo(...$args) {
+    public function createTagRelationshipsListWithHttpInfo(...$args) {
         return $this->tagListsWithHttpInfo(...$args);
     }
 
@@ -8491,7 +8905,16 @@ class TagsApi
      *
      * @deprecated use `tagListsWithHttpInfo` instead
      */
-    public function createTagRelationshipsListWithHttpInfo(...$args) {
+    public function addListsToTagWithHttpInfo(...$args) {
+        return $this->tagListsWithHttpInfo(...$args);
+    }
+
+    /**
+     * Alias of `tagListsWithHttpInfo`
+     *
+     * @deprecated use `tagListsWithHttpInfo` instead
+     */
+    public function createTagRelationshipsListsWithHttpInfo(...$args) {
         return $this->tagListsWithHttpInfo(...$args);
     }
 
@@ -8521,7 +8944,7 @@ class TagsApi
      *
      * @deprecated use `tagListsAsync` instead
      */
-    public function createTagRelationshipsListsAsync(...$args) {
+    public function createTagRelationshipsListAsync(...$args) {
         return $this->tagListsAsync(...$args);
     }
 
@@ -8530,7 +8953,16 @@ class TagsApi
      *
      * @deprecated use `tagListsAsync` instead
      */
-    public function createTagRelationshipsListAsync(...$args) {
+    public function addListsToTagAsync(...$args) {
+        return $this->tagListsAsync(...$args);
+    }
+
+    /**
+     * Alias of `tagListsAsync`
+     *
+     * @deprecated use `tagListsAsync` instead
+     */
+    public function createTagRelationshipsListsAsync(...$args) {
         return $this->tagListsAsync(...$args);
     }
 
@@ -8578,7 +9010,7 @@ class TagsApi
      *
      * @deprecated use `tagListsAsyncWithHttpInfo` instead
      */
-    public function createTagRelationshipsListsAsyncWithHttpInfo(...$args) {
+    public function createTagRelationshipsListAsyncWithHttpInfo(...$args) {
         return $this->tagListsAsyncWithHttpInfo(...$args);
     }
 
@@ -8587,7 +9019,16 @@ class TagsApi
      *
      * @deprecated use `tagListsAsyncWithHttpInfo` instead
      */
-    public function createTagRelationshipsListAsyncWithHttpInfo(...$args) {
+    public function addListsToTagAsyncWithHttpInfo(...$args) {
+        return $this->tagListsAsyncWithHttpInfo(...$args);
+    }
+
+    /**
+     * Alias of `tagListsAsyncWithHttpInfo`
+     *
+     * @deprecated use `tagListsAsyncWithHttpInfo` instead
+     */
+    public function createTagRelationshipsListsAsyncWithHttpInfo(...$args) {
         return $this->tagListsAsyncWithHttpInfo(...$args);
     }
 
@@ -8713,7 +9154,7 @@ class TagsApi
      *
      * @deprecated use `tagListsRequest` instead
      */
-    public function createTagRelationshipsListsRequest(...$args) {
+    public function createTagRelationshipsListRequest(...$args) {
         return $this->tagListsRequest(...$args);
     }
 
@@ -8722,7 +9163,16 @@ class TagsApi
      *
      * @deprecated use `tagListsRequest` instead
      */
-    public function createTagRelationshipsListRequest(...$args) {
+    public function addListsToTagRequest(...$args) {
+        return $this->tagListsRequest(...$args);
+    }
+
+    /**
+     * Alias of `tagListsRequest`
+     *
+     * @deprecated use `tagListsRequest` instead
+     */
+    public function createTagRelationshipsListsRequest(...$args) {
         return $this->tagListsRequest(...$args);
     }
 
@@ -8748,7 +9198,7 @@ class TagsApi
      *
      * @deprecated use `tagSegments` instead
      */
-    public function createTagRelationshipsSegments(...$args) {
+    public function createTagRelationshipsSegment(...$args) {
         return $this->tagSegments(...$args);
     }
 
@@ -8757,7 +9207,16 @@ class TagsApi
      *
      * @deprecated use `tagSegments` instead
      */
-    public function createTagRelationshipsSegment(...$args) {
+    public function addSegmentsToTag(...$args) {
+        return $this->tagSegments(...$args);
+    }
+
+    /**
+     * Alias of `tagSegments`
+     *
+     * @deprecated use `tagSegments` instead
+     */
+    public function createTagRelationshipsSegments(...$args) {
         return $this->tagSegments(...$args);
     }
 
@@ -8842,7 +9301,7 @@ class TagsApi
      *
      * @deprecated use `tagSegmentsWithHttpInfo` instead
      */
-    public function createTagRelationshipsSegmentsWithHttpInfo(...$args) {
+    public function createTagRelationshipsSegmentWithHttpInfo(...$args) {
         return $this->tagSegmentsWithHttpInfo(...$args);
     }
 
@@ -8851,7 +9310,16 @@ class TagsApi
      *
      * @deprecated use `tagSegmentsWithHttpInfo` instead
      */
-    public function createTagRelationshipsSegmentWithHttpInfo(...$args) {
+    public function addSegmentsToTagWithHttpInfo(...$args) {
+        return $this->tagSegmentsWithHttpInfo(...$args);
+    }
+
+    /**
+     * Alias of `tagSegmentsWithHttpInfo`
+     *
+     * @deprecated use `tagSegmentsWithHttpInfo` instead
+     */
+    public function createTagRelationshipsSegmentsWithHttpInfo(...$args) {
         return $this->tagSegmentsWithHttpInfo(...$args);
     }
 
@@ -8881,7 +9349,7 @@ class TagsApi
      *
      * @deprecated use `tagSegmentsAsync` instead
      */
-    public function createTagRelationshipsSegmentsAsync(...$args) {
+    public function createTagRelationshipsSegmentAsync(...$args) {
         return $this->tagSegmentsAsync(...$args);
     }
 
@@ -8890,7 +9358,16 @@ class TagsApi
      *
      * @deprecated use `tagSegmentsAsync` instead
      */
-    public function createTagRelationshipsSegmentAsync(...$args) {
+    public function addSegmentsToTagAsync(...$args) {
+        return $this->tagSegmentsAsync(...$args);
+    }
+
+    /**
+     * Alias of `tagSegmentsAsync`
+     *
+     * @deprecated use `tagSegmentsAsync` instead
+     */
+    public function createTagRelationshipsSegmentsAsync(...$args) {
         return $this->tagSegmentsAsync(...$args);
     }
 
@@ -8938,7 +9415,7 @@ class TagsApi
      *
      * @deprecated use `tagSegmentsAsyncWithHttpInfo` instead
      */
-    public function createTagRelationshipsSegmentsAsyncWithHttpInfo(...$args) {
+    public function createTagRelationshipsSegmentAsyncWithHttpInfo(...$args) {
         return $this->tagSegmentsAsyncWithHttpInfo(...$args);
     }
 
@@ -8947,7 +9424,16 @@ class TagsApi
      *
      * @deprecated use `tagSegmentsAsyncWithHttpInfo` instead
      */
-    public function createTagRelationshipsSegmentAsyncWithHttpInfo(...$args) {
+    public function addSegmentsToTagAsyncWithHttpInfo(...$args) {
+        return $this->tagSegmentsAsyncWithHttpInfo(...$args);
+    }
+
+    /**
+     * Alias of `tagSegmentsAsyncWithHttpInfo`
+     *
+     * @deprecated use `tagSegmentsAsyncWithHttpInfo` instead
+     */
+    public function createTagRelationshipsSegmentsAsyncWithHttpInfo(...$args) {
         return $this->tagSegmentsAsyncWithHttpInfo(...$args);
     }
 
@@ -9073,7 +9559,7 @@ class TagsApi
      *
      * @deprecated use `tagSegmentsRequest` instead
      */
-    public function createTagRelationshipsSegmentsRequest(...$args) {
+    public function createTagRelationshipsSegmentRequest(...$args) {
         return $this->tagSegmentsRequest(...$args);
     }
 
@@ -9082,7 +9568,16 @@ class TagsApi
      *
      * @deprecated use `tagSegmentsRequest` instead
      */
-    public function createTagRelationshipsSegmentRequest(...$args) {
+    public function addSegmentsToTagRequest(...$args) {
+        return $this->tagSegmentsRequest(...$args);
+    }
+
+    /**
+     * Alias of `tagSegmentsRequest`
+     *
+     * @deprecated use `tagSegmentsRequest` instead
+     */
+    public function createTagRelationshipsSegmentsRequest(...$args) {
         return $this->tagSegmentsRequest(...$args);
     }
 

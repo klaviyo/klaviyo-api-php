@@ -144,6 +144,15 @@ class ReportingApi
     }
 
     /**
+     * Alias of `queryCampaignValues`
+     *
+     * @deprecated use `queryCampaignValues` instead
+     */
+    public function createCampaignValuesReport(...$args) {
+        return $this->queryCampaignValues(...$args);
+    }
+
+    /**
      * Operation queryCampaignValuesWithHttpInfo
      *
      * Query Campaign Values
@@ -322,6 +331,15 @@ class ReportingApi
     }
 
     /**
+     * Alias of `queryCampaignValuesWithHttpInfo`
+     *
+     * @deprecated use `queryCampaignValuesWithHttpInfo` instead
+     */
+    public function createCampaignValuesReportWithHttpInfo(...$args) {
+        return $this->queryCampaignValuesWithHttpInfo(...$args);
+    }
+
+    /**
      * Operation queryCampaignValuesAsync
      *
      * Query Campaign Values
@@ -348,6 +366,15 @@ class ReportingApi
      * @deprecated use `queryCampaignValuesAsync` instead
      */
     public function createCampaignValueReportAsync(...$args) {
+        return $this->queryCampaignValuesAsync(...$args);
+    }
+
+    /**
+     * Alias of `queryCampaignValuesAsync`
+     *
+     * @deprecated use `queryCampaignValuesAsync` instead
+     */
+    public function createCampaignValuesReportAsync(...$args) {
         return $this->queryCampaignValuesAsync(...$args);
     }
 
@@ -414,6 +441,15 @@ class ReportingApi
      * @deprecated use `queryCampaignValuesAsyncWithHttpInfo` instead
      */
     public function createCampaignValueReportAsyncWithHttpInfo(...$args) {
+        return $this->queryCampaignValuesAsyncWithHttpInfo(...$args);
+    }
+
+    /**
+     * Alias of `queryCampaignValuesAsyncWithHttpInfo`
+     *
+     * @deprecated use `queryCampaignValuesAsyncWithHttpInfo` instead
+     */
+    public function createCampaignValuesReportAsyncWithHttpInfo(...$args) {
         return $this->queryCampaignValuesAsyncWithHttpInfo(...$args);
     }
 
@@ -539,6 +575,15 @@ class ReportingApi
     }
 
     /**
+     * Alias of `queryCampaignValuesRequest`
+     *
+     * @deprecated use `queryCampaignValuesRequest` instead
+     */
+    public function createCampaignValuesReportRequest(...$args) {
+        return $this->queryCampaignValuesRequest(...$args);
+    }
+
+    /**
      * Operation queryFlowSeries
      *
      * Query Flow Series
@@ -562,6 +607,15 @@ class ReportingApi
      * @deprecated use `queryFlowSeries` instead
      */
     public function createFlowSeryReport(...$args) {
+        return $this->queryFlowSeries(...$args);
+    }
+
+    /**
+     * Alias of `queryFlowSeries`
+     *
+     * @deprecated use `queryFlowSeries` instead
+     */
+    public function createFlowSeriesReport(...$args) {
         return $this->queryFlowSeries(...$args);
     }
 
@@ -744,6 +798,15 @@ class ReportingApi
     }
 
     /**
+     * Alias of `queryFlowSeriesWithHttpInfo`
+     *
+     * @deprecated use `queryFlowSeriesWithHttpInfo` instead
+     */
+    public function createFlowSeriesReportWithHttpInfo(...$args) {
+        return $this->queryFlowSeriesWithHttpInfo(...$args);
+    }
+
+    /**
      * Operation queryFlowSeriesAsync
      *
      * Query Flow Series
@@ -770,6 +833,15 @@ class ReportingApi
      * @deprecated use `queryFlowSeriesAsync` instead
      */
     public function createFlowSeryReportAsync(...$args) {
+        return $this->queryFlowSeriesAsync(...$args);
+    }
+
+    /**
+     * Alias of `queryFlowSeriesAsync`
+     *
+     * @deprecated use `queryFlowSeriesAsync` instead
+     */
+    public function createFlowSeriesReportAsync(...$args) {
         return $this->queryFlowSeriesAsync(...$args);
     }
 
@@ -836,6 +908,15 @@ class ReportingApi
      * @deprecated use `queryFlowSeriesAsyncWithHttpInfo` instead
      */
     public function createFlowSeryReportAsyncWithHttpInfo(...$args) {
+        return $this->queryFlowSeriesAsyncWithHttpInfo(...$args);
+    }
+
+    /**
+     * Alias of `queryFlowSeriesAsyncWithHttpInfo`
+     *
+     * @deprecated use `queryFlowSeriesAsyncWithHttpInfo` instead
+     */
+    public function createFlowSeriesReportAsyncWithHttpInfo(...$args) {
         return $this->queryFlowSeriesAsyncWithHttpInfo(...$args);
     }
 
@@ -961,6 +1042,15 @@ class ReportingApi
     }
 
     /**
+     * Alias of `queryFlowSeriesRequest`
+     *
+     * @deprecated use `queryFlowSeriesRequest` instead
+     */
+    public function createFlowSeriesReportRequest(...$args) {
+        return $this->queryFlowSeriesRequest(...$args);
+    }
+
+    /**
      * Operation queryFlowValues
      *
      * Query Flow Values
@@ -984,6 +1074,15 @@ class ReportingApi
      * @deprecated use `queryFlowValues` instead
      */
     public function createFlowValueReport(...$args) {
+        return $this->queryFlowValues(...$args);
+    }
+
+    /**
+     * Alias of `queryFlowValues`
+     *
+     * @deprecated use `queryFlowValues` instead
+     */
+    public function createFlowValuesReport(...$args) {
         return $this->queryFlowValues(...$args);
     }
 
@@ -1166,6 +1265,15 @@ class ReportingApi
     }
 
     /**
+     * Alias of `queryFlowValuesWithHttpInfo`
+     *
+     * @deprecated use `queryFlowValuesWithHttpInfo` instead
+     */
+    public function createFlowValuesReportWithHttpInfo(...$args) {
+        return $this->queryFlowValuesWithHttpInfo(...$args);
+    }
+
+    /**
      * Operation queryFlowValuesAsync
      *
      * Query Flow Values
@@ -1192,6 +1300,15 @@ class ReportingApi
      * @deprecated use `queryFlowValuesAsync` instead
      */
     public function createFlowValueReportAsync(...$args) {
+        return $this->queryFlowValuesAsync(...$args);
+    }
+
+    /**
+     * Alias of `queryFlowValuesAsync`
+     *
+     * @deprecated use `queryFlowValuesAsync` instead
+     */
+    public function createFlowValuesReportAsync(...$args) {
         return $this->queryFlowValuesAsync(...$args);
     }
 
@@ -1258,6 +1375,15 @@ class ReportingApi
      * @deprecated use `queryFlowValuesAsyncWithHttpInfo` instead
      */
     public function createFlowValueReportAsyncWithHttpInfo(...$args) {
+        return $this->queryFlowValuesAsyncWithHttpInfo(...$args);
+    }
+
+    /**
+     * Alias of `queryFlowValuesAsyncWithHttpInfo`
+     *
+     * @deprecated use `queryFlowValuesAsyncWithHttpInfo` instead
+     */
+    public function createFlowValuesReportAsyncWithHttpInfo(...$args) {
         return $this->queryFlowValuesAsyncWithHttpInfo(...$args);
     }
 
@@ -1383,6 +1509,15 @@ class ReportingApi
     }
 
     /**
+     * Alias of `queryFlowValuesRequest`
+     *
+     * @deprecated use `queryFlowValuesRequest` instead
+     */
+    public function createFlowValuesReportRequest(...$args) {
+        return $this->queryFlowValuesRequest(...$args);
+    }
+
+    /**
      * Operation queryFormSeries
      *
      * Query Form Series
@@ -1405,6 +1540,15 @@ class ReportingApi
      * @deprecated use `queryFormSeries` instead
      */
     public function createFormSeryReport(...$args) {
+        return $this->queryFormSeries(...$args);
+    }
+
+    /**
+     * Alias of `queryFormSeries`
+     *
+     * @deprecated use `queryFormSeries` instead
+     */
+    public function createFormSeriesReport(...$args) {
         return $this->queryFormSeries(...$args);
     }
 
@@ -1586,6 +1730,15 @@ class ReportingApi
     }
 
     /**
+     * Alias of `queryFormSeriesWithHttpInfo`
+     *
+     * @deprecated use `queryFormSeriesWithHttpInfo` instead
+     */
+    public function createFormSeriesReportWithHttpInfo(...$args) {
+        return $this->queryFormSeriesWithHttpInfo(...$args);
+    }
+
+    /**
      * Operation queryFormSeriesAsync
      *
      * Query Form Series
@@ -1611,6 +1764,15 @@ class ReportingApi
      * @deprecated use `queryFormSeriesAsync` instead
      */
     public function createFormSeryReportAsync(...$args) {
+        return $this->queryFormSeriesAsync(...$args);
+    }
+
+    /**
+     * Alias of `queryFormSeriesAsync`
+     *
+     * @deprecated use `queryFormSeriesAsync` instead
+     */
+    public function createFormSeriesReportAsync(...$args) {
         return $this->queryFormSeriesAsync(...$args);
     }
 
@@ -1676,6 +1838,15 @@ class ReportingApi
      * @deprecated use `queryFormSeriesAsyncWithHttpInfo` instead
      */
     public function createFormSeryReportAsyncWithHttpInfo(...$args) {
+        return $this->queryFormSeriesAsyncWithHttpInfo(...$args);
+    }
+
+    /**
+     * Alias of `queryFormSeriesAsyncWithHttpInfo`
+     *
+     * @deprecated use `queryFormSeriesAsyncWithHttpInfo` instead
+     */
+    public function createFormSeriesReportAsyncWithHttpInfo(...$args) {
         return $this->queryFormSeriesAsyncWithHttpInfo(...$args);
     }
 
@@ -1791,6 +1962,15 @@ class ReportingApi
     }
 
     /**
+     * Alias of `queryFormSeriesRequest`
+     *
+     * @deprecated use `queryFormSeriesRequest` instead
+     */
+    public function createFormSeriesReportRequest(...$args) {
+        return $this->queryFormSeriesRequest(...$args);
+    }
+
+    /**
      * Operation queryFormValues
      *
      * Query Form Values
@@ -1813,6 +1993,15 @@ class ReportingApi
      * @deprecated use `queryFormValues` instead
      */
     public function createFormValueReport(...$args) {
+        return $this->queryFormValues(...$args);
+    }
+
+    /**
+     * Alias of `queryFormValues`
+     *
+     * @deprecated use `queryFormValues` instead
+     */
+    public function createFormValuesReport(...$args) {
         return $this->queryFormValues(...$args);
     }
 
@@ -1994,6 +2183,15 @@ class ReportingApi
     }
 
     /**
+     * Alias of `queryFormValuesWithHttpInfo`
+     *
+     * @deprecated use `queryFormValuesWithHttpInfo` instead
+     */
+    public function createFormValuesReportWithHttpInfo(...$args) {
+        return $this->queryFormValuesWithHttpInfo(...$args);
+    }
+
+    /**
      * Operation queryFormValuesAsync
      *
      * Query Form Values
@@ -2019,6 +2217,15 @@ class ReportingApi
      * @deprecated use `queryFormValuesAsync` instead
      */
     public function createFormValueReportAsync(...$args) {
+        return $this->queryFormValuesAsync(...$args);
+    }
+
+    /**
+     * Alias of `queryFormValuesAsync`
+     *
+     * @deprecated use `queryFormValuesAsync` instead
+     */
+    public function createFormValuesReportAsync(...$args) {
         return $this->queryFormValuesAsync(...$args);
     }
 
@@ -2084,6 +2291,15 @@ class ReportingApi
      * @deprecated use `queryFormValuesAsyncWithHttpInfo` instead
      */
     public function createFormValueReportAsyncWithHttpInfo(...$args) {
+        return $this->queryFormValuesAsyncWithHttpInfo(...$args);
+    }
+
+    /**
+     * Alias of `queryFormValuesAsyncWithHttpInfo`
+     *
+     * @deprecated use `queryFormValuesAsyncWithHttpInfo` instead
+     */
+    public function createFormValuesReportAsyncWithHttpInfo(...$args) {
         return $this->queryFormValuesAsyncWithHttpInfo(...$args);
     }
 
@@ -2199,6 +2415,15 @@ class ReportingApi
     }
 
     /**
+     * Alias of `queryFormValuesRequest`
+     *
+     * @deprecated use `queryFormValuesRequest` instead
+     */
+    public function createFormValuesReportRequest(...$args) {
+        return $this->queryFormValuesRequest(...$args);
+    }
+
+    /**
      * Operation querySegmentSeries
      *
      * Query Segment Series
@@ -2221,6 +2446,15 @@ class ReportingApi
      * @deprecated use `querySegmentSeries` instead
      */
     public function createSegmentSeryReport(...$args) {
+        return $this->querySegmentSeries(...$args);
+    }
+
+    /**
+     * Alias of `querySegmentSeries`
+     *
+     * @deprecated use `querySegmentSeries` instead
+     */
+    public function createSegmentSeriesReport(...$args) {
         return $this->querySegmentSeries(...$args);
     }
 
@@ -2402,6 +2636,15 @@ class ReportingApi
     }
 
     /**
+     * Alias of `querySegmentSeriesWithHttpInfo`
+     *
+     * @deprecated use `querySegmentSeriesWithHttpInfo` instead
+     */
+    public function createSegmentSeriesReportWithHttpInfo(...$args) {
+        return $this->querySegmentSeriesWithHttpInfo(...$args);
+    }
+
+    /**
      * Operation querySegmentSeriesAsync
      *
      * Query Segment Series
@@ -2427,6 +2670,15 @@ class ReportingApi
      * @deprecated use `querySegmentSeriesAsync` instead
      */
     public function createSegmentSeryReportAsync(...$args) {
+        return $this->querySegmentSeriesAsync(...$args);
+    }
+
+    /**
+     * Alias of `querySegmentSeriesAsync`
+     *
+     * @deprecated use `querySegmentSeriesAsync` instead
+     */
+    public function createSegmentSeriesReportAsync(...$args) {
         return $this->querySegmentSeriesAsync(...$args);
     }
 
@@ -2492,6 +2744,15 @@ class ReportingApi
      * @deprecated use `querySegmentSeriesAsyncWithHttpInfo` instead
      */
     public function createSegmentSeryReportAsyncWithHttpInfo(...$args) {
+        return $this->querySegmentSeriesAsyncWithHttpInfo(...$args);
+    }
+
+    /**
+     * Alias of `querySegmentSeriesAsyncWithHttpInfo`
+     *
+     * @deprecated use `querySegmentSeriesAsyncWithHttpInfo` instead
+     */
+    public function createSegmentSeriesReportAsyncWithHttpInfo(...$args) {
         return $this->querySegmentSeriesAsyncWithHttpInfo(...$args);
     }
 
@@ -2607,6 +2868,15 @@ class ReportingApi
     }
 
     /**
+     * Alias of `querySegmentSeriesRequest`
+     *
+     * @deprecated use `querySegmentSeriesRequest` instead
+     */
+    public function createSegmentSeriesReportRequest(...$args) {
+        return $this->querySegmentSeriesRequest(...$args);
+    }
+
+    /**
      * Operation querySegmentValues
      *
      * Query Segment Values
@@ -2629,6 +2899,15 @@ class ReportingApi
      * @deprecated use `querySegmentValues` instead
      */
     public function createSegmentValueReport(...$args) {
+        return $this->querySegmentValues(...$args);
+    }
+
+    /**
+     * Alias of `querySegmentValues`
+     *
+     * @deprecated use `querySegmentValues` instead
+     */
+    public function createSegmentValuesReport(...$args) {
         return $this->querySegmentValues(...$args);
     }
 
@@ -2810,6 +3089,15 @@ class ReportingApi
     }
 
     /**
+     * Alias of `querySegmentValuesWithHttpInfo`
+     *
+     * @deprecated use `querySegmentValuesWithHttpInfo` instead
+     */
+    public function createSegmentValuesReportWithHttpInfo(...$args) {
+        return $this->querySegmentValuesWithHttpInfo(...$args);
+    }
+
+    /**
      * Operation querySegmentValuesAsync
      *
      * Query Segment Values
@@ -2835,6 +3123,15 @@ class ReportingApi
      * @deprecated use `querySegmentValuesAsync` instead
      */
     public function createSegmentValueReportAsync(...$args) {
+        return $this->querySegmentValuesAsync(...$args);
+    }
+
+    /**
+     * Alias of `querySegmentValuesAsync`
+     *
+     * @deprecated use `querySegmentValuesAsync` instead
+     */
+    public function createSegmentValuesReportAsync(...$args) {
         return $this->querySegmentValuesAsync(...$args);
     }
 
@@ -2900,6 +3197,15 @@ class ReportingApi
      * @deprecated use `querySegmentValuesAsyncWithHttpInfo` instead
      */
     public function createSegmentValueReportAsyncWithHttpInfo(...$args) {
+        return $this->querySegmentValuesAsyncWithHttpInfo(...$args);
+    }
+
+    /**
+     * Alias of `querySegmentValuesAsyncWithHttpInfo`
+     *
+     * @deprecated use `querySegmentValuesAsyncWithHttpInfo` instead
+     */
+    public function createSegmentValuesReportAsyncWithHttpInfo(...$args) {
         return $this->querySegmentValuesAsyncWithHttpInfo(...$args);
     }
 
@@ -3011,6 +3317,15 @@ class ReportingApi
      * @deprecated use `querySegmentValuesRequest` instead
      */
     public function createSegmentValueReportRequest(...$args) {
+        return $this->querySegmentValuesRequest(...$args);
+    }
+
+    /**
+     * Alias of `querySegmentValuesRequest`
+     *
+     * @deprecated use `querySegmentValuesRequest` instead
+     */
+    public function createSegmentValuesReportRequest(...$args) {
         return $this->querySegmentValuesRequest(...$args);
     }
 

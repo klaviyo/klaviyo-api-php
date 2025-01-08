@@ -1,6 +1,6 @@
 <?php
 /**
- * CatalogCategoryItemOp
+ * UnsubscriptionParameters
  *
  * PHP version 7.4
  *
@@ -33,7 +33,7 @@ use \ArrayAccess;
 use \KlaviyoAPI\ObjectSerializer;
 
 /**
- * CatalogCategoryItemOp Class Doc Comment
+ * UnsubscriptionParameters Class Doc Comment
  *
  * @category Class
  * @package  KlaviyoAPI
@@ -41,7 +41,7 @@ use \KlaviyoAPI\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class CatalogCategoryItemOp implements ModelInterface, ArrayAccess, \JsonSerializable
+class UnsubscriptionParameters implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class CatalogCategoryItemOp implements ModelInterface, ArrayAccess, \JsonSeriali
       *
       * @var string
       */
-    protected static $openAPIModelName = 'CatalogCategoryItemOp';
+    protected static $openAPIModelName = 'UnsubscriptionParameters';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,7 +58,7 @@ class CatalogCategoryItemOp implements ModelInterface, ArrayAccess, \JsonSeriali
       * @var string[]
       */
     protected static $openAPITypes = [
-        'data' => '\KlaviyoAPI\Model\CatalogCategoryItemOpDataInner[]'
+        'consent' => 'string'
     ];
 
     /**
@@ -69,7 +69,7 @@ class CatalogCategoryItemOp implements ModelInterface, ArrayAccess, \JsonSeriali
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'data' => null
+        'consent' => null
     ];
 
     /**
@@ -78,7 +78,7 @@ class CatalogCategoryItemOp implements ModelInterface, ArrayAccess, \JsonSeriali
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'data' => false
+        'consent' => false
     ];
 
     /**
@@ -157,7 +157,7 @@ class CatalogCategoryItemOp implements ModelInterface, ArrayAccess, \JsonSeriali
      * @var string[]
      */
     protected static $attributeMap = [
-        'data' => 'data'
+        'consent' => 'consent'
     ];
 
     /**
@@ -166,7 +166,7 @@ class CatalogCategoryItemOp implements ModelInterface, ArrayAccess, \JsonSeriali
      * @var string[]
      */
     protected static $setters = [
-        'data' => 'setData'
+        'consent' => 'setConsent'
     ];
 
     /**
@@ -175,7 +175,7 @@ class CatalogCategoryItemOp implements ModelInterface, ArrayAccess, \JsonSeriali
      * @var string[]
      */
     protected static $getters = [
-        'data' => 'getData'
+        'consent' => 'getConsent'
     ];
 
     /**
@@ -219,6 +219,19 @@ class CatalogCategoryItemOp implements ModelInterface, ArrayAccess, \JsonSeriali
         return self::$openAPIModelName;
     }
 
+    public const CONSENT_UNSUBSCRIBED = 'UNSUBSCRIBED';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getConsentAllowableValues()
+    {
+        return [
+            self::CONSENT_UNSUBSCRIBED,
+        ];
+    }
 
     /**
      * Associative array for storing property values
@@ -235,7 +248,7 @@ class CatalogCategoryItemOp implements ModelInterface, ArrayAccess, \JsonSeriali
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('data', $data ?? [], null);
+        $this->setIfExists('consent', $data ?? [], null);
     }
 
     /**
@@ -265,9 +278,18 @@ class CatalogCategoryItemOp implements ModelInterface, ArrayAccess, \JsonSeriali
     {
         $invalidProperties = [];
 
-        if ($this->container['data'] === null) {
-            $invalidProperties[] = "'data' can't be null";
+        if ($this->container['consent'] === null) {
+            $invalidProperties[] = "'consent' can't be null";
         }
+        $allowedValues = $this->getConsentAllowableValues();
+        if (!is_null($this->container['consent']) && !in_array($this->container['consent'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'consent', must be one of '%s'",
+                $this->container['consent'],
+                implode("', '", $allowedValues)
+            );
+        }
+
         return $invalidProperties;
     }
 
@@ -284,30 +306,40 @@ class CatalogCategoryItemOp implements ModelInterface, ArrayAccess, \JsonSeriali
 
 
     /**
-     * Gets data
+     * Gets consent
      *
-     * @return \KlaviyoAPI\Model\CatalogCategoryItemOpDataInner[]
+     * @return string
      */
-    public function getData()
+    public function getConsent()
     {
-        return $this->container['data'];
+        return $this->container['consent'];
     }
 
     /**
-     * Sets data
+     * Sets consent
      *
-     * @param \KlaviyoAPI\Model\CatalogCategoryItemOpDataInner[] $data data
+     * @param string $consent The Consent status to be set as part of the unsubscribe call. Currently supports \"UNSUBSCRIBED\".
      *
      * @return self
      */
-    public function setData($data)
+    public function setConsent($consent)
     {
-
-        if (is_null($data)) {
-            throw new \InvalidArgumentException('non-nullable data cannot be null');
+        $allowedValues = $this->getConsentAllowableValues();
+        if (!in_array($consent, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'consent', must be one of '%s'",
+                    $consent,
+                    implode("', '", $allowedValues)
+                )
+            );
         }
 
-        $this->container['data'] = $data;
+        if (is_null($consent)) {
+            throw new \InvalidArgumentException('non-nullable consent cannot be null');
+        }
+
+        $this->container['consent'] = $consent;
 
         return $this;
     }

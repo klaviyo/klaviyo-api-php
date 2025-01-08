@@ -1,6 +1,6 @@
 <?php
 /**
- * ProfileSubscriptionDeleteQueryResourceObjectAttributes
+ * SubscriptionDeleteJobCreateQueryDeprecatedJan25ResourceObject
  *
  * PHP version 7.4
  *
@@ -33,7 +33,7 @@ use \ArrayAccess;
 use \KlaviyoAPI\ObjectSerializer;
 
 /**
- * ProfileSubscriptionDeleteQueryResourceObjectAttributes Class Doc Comment
+ * SubscriptionDeleteJobCreateQueryDeprecatedJan25ResourceObject Class Doc Comment
  *
  * @category Class
  * @package  KlaviyoAPI
@@ -41,7 +41,7 @@ use \KlaviyoAPI\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class ProfileSubscriptionDeleteQueryResourceObjectAttributes implements ModelInterface, ArrayAccess, \JsonSerializable
+class SubscriptionDeleteJobCreateQueryDeprecatedJan25ResourceObject implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class ProfileSubscriptionDeleteQueryResourceObjectAttributes implements ModelInt
       *
       * @var string
       */
-    protected static $openAPIModelName = 'ProfileSubscriptionDeleteQueryResourceObject_attributes';
+    protected static $openAPIModelName = 'SubscriptionDeleteJobCreateQueryDeprecatedJan25ResourceObject';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,8 +58,9 @@ class ProfileSubscriptionDeleteQueryResourceObjectAttributes implements ModelInt
       * @var string[]
       */
     protected static $openAPITypes = [
-        'email' => 'string',
-        'phone_number' => 'string'
+        'type' => '\KlaviyoAPI\Model\ProfileSubscriptionBulkDeleteJobEnum',
+        'attributes' => '\KlaviyoAPI\Model\SubscriptionDeleteJobCreateQueryDeprecatedJan25ResourceObjectAttributes',
+        'relationships' => '\KlaviyoAPI\Model\SubscriptionDeleteJobCreateQueryDeprecatedJan25ResourceObjectRelationships'
     ];
 
     /**
@@ -70,8 +71,9 @@ class ProfileSubscriptionDeleteQueryResourceObjectAttributes implements ModelInt
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'email' => null,
-        'phone_number' => null
+        'type' => null,
+        'attributes' => null,
+        'relationships' => null
     ];
 
     /**
@@ -80,8 +82,9 @@ class ProfileSubscriptionDeleteQueryResourceObjectAttributes implements ModelInt
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'email' => true,
-		'phone_number' => true
+        'type' => false,
+		'attributes' => false,
+		'relationships' => false
     ];
 
     /**
@@ -160,8 +163,9 @@ class ProfileSubscriptionDeleteQueryResourceObjectAttributes implements ModelInt
      * @var string[]
      */
     protected static $attributeMap = [
-        'email' => 'email',
-        'phone_number' => 'phone_number'
+        'type' => 'type',
+        'attributes' => 'attributes',
+        'relationships' => 'relationships'
     ];
 
     /**
@@ -170,8 +174,9 @@ class ProfileSubscriptionDeleteQueryResourceObjectAttributes implements ModelInt
      * @var string[]
      */
     protected static $setters = [
-        'email' => 'setEmail',
-        'phone_number' => 'setPhoneNumber'
+        'type' => 'setType',
+        'attributes' => 'setAttributes',
+        'relationships' => 'setRelationships'
     ];
 
     /**
@@ -180,8 +185,9 @@ class ProfileSubscriptionDeleteQueryResourceObjectAttributes implements ModelInt
      * @var string[]
      */
     protected static $getters = [
-        'email' => 'getEmail',
-        'phone_number' => 'getPhoneNumber'
+        'type' => 'getType',
+        'attributes' => 'getAttributes',
+        'relationships' => 'getRelationships'
     ];
 
     /**
@@ -241,8 +247,9 @@ class ProfileSubscriptionDeleteQueryResourceObjectAttributes implements ModelInt
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('email', $data ?? [], null);
-        $this->setIfExists('phone_number', $data ?? [], null);
+        $this->setIfExists('type', $data ?? [], null);
+        $this->setIfExists('attributes', $data ?? [], null);
+        $this->setIfExists('relationships', $data ?? [], null);
     }
 
     /**
@@ -272,6 +279,12 @@ class ProfileSubscriptionDeleteQueryResourceObjectAttributes implements ModelInt
     {
         $invalidProperties = [];
 
+        if ($this->container['type'] === null) {
+            $invalidProperties[] = "'type' can't be null";
+        }
+        if ($this->container['attributes'] === null) {
+            $invalidProperties[] = "'attributes' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -288,73 +301,88 @@ class ProfileSubscriptionDeleteQueryResourceObjectAttributes implements ModelInt
 
 
     /**
-     * Gets email
+     * Gets type
      *
-     * @return string|null
+     * @return \KlaviyoAPI\Model\ProfileSubscriptionBulkDeleteJobEnum
      */
-    public function getEmail()
+    public function getType()
     {
-        return $this->container['email'];
+        return $this->container['type'];
     }
 
     /**
-     * Sets email
+     * Sets type
      *
-     * @param string|null $email The email address to unsubscribe.
+     * @param \KlaviyoAPI\Model\ProfileSubscriptionBulkDeleteJobEnum $type type
      *
      * @return self
      */
-    public function setEmail($email)
+    public function setType($type)
     {
 
-        if (is_null($email)) {
-            array_push($this->openAPINullablesSetToNull, 'email');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('email', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+        if (is_null($type)) {
+            throw new \InvalidArgumentException('non-nullable type cannot be null');
         }
 
-        $this->container['email'] = $email;
+        $this->container['type'] = $type;
 
         return $this;
     }
 
     /**
-     * Gets phone_number
+     * Gets attributes
      *
-     * @return string|null
+     * @return \KlaviyoAPI\Model\SubscriptionDeleteJobCreateQueryDeprecatedJan25ResourceObjectAttributes
      */
-    public function getPhoneNumber()
+    public function getAttributes()
     {
-        return $this->container['phone_number'];
+        return $this->container['attributes'];
     }
 
     /**
-     * Sets phone_number
+     * Sets attributes
      *
-     * @param string|null $phone_number The phone number to unsubscribe. This must be in E.164 format.
+     * @param \KlaviyoAPI\Model\SubscriptionDeleteJobCreateQueryDeprecatedJan25ResourceObjectAttributes $attributes attributes
      *
      * @return self
      */
-    public function setPhoneNumber($phone_number)
+    public function setAttributes($attributes)
     {
 
-        if (is_null($phone_number)) {
-            array_push($this->openAPINullablesSetToNull, 'phone_number');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('phone_number', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+        if (is_null($attributes)) {
+            throw new \InvalidArgumentException('non-nullable attributes cannot be null');
         }
 
-        $this->container['phone_number'] = $phone_number;
+        $this->container['attributes'] = $attributes;
+
+        return $this;
+    }
+
+    /**
+     * Gets relationships
+     *
+     * @return \KlaviyoAPI\Model\SubscriptionDeleteJobCreateQueryDeprecatedJan25ResourceObjectRelationships|null
+     */
+    public function getRelationships()
+    {
+        return $this->container['relationships'];
+    }
+
+    /**
+     * Sets relationships
+     *
+     * @param \KlaviyoAPI\Model\SubscriptionDeleteJobCreateQueryDeprecatedJan25ResourceObjectRelationships|null $relationships relationships
+     *
+     * @return self
+     */
+    public function setRelationships($relationships)
+    {
+
+        if (is_null($relationships)) {
+            throw new \InvalidArgumentException('non-nullable relationships cannot be null');
+        }
+
+        $this->container['relationships'] = $relationships;
 
         return $this;
     }

@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 NOTE: For more granular API-specific changes, please see our [API Changelog](https://developers.klaviyo.com/en/docs/changelog_)
 
+## [12.1.0] - revision 2024-10-15
+### Changed
+- Updated REAME to use named arguments
+- Some methods have been renamed- the old methods are now deprecated aliases
+
 ## [12.0.1] - revision 2024-10-15
 ### Fixed
 - Updated [Uploading Image From File](https://github.com/klaviyo/klaviyo-api-php#uploading-image-from-file) section of README

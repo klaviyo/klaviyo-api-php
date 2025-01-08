@@ -2687,430 +2687,6 @@ class CouponsApi
     }
 
     /**
-     * Operation getCodeIdsForCoupon
-     *
-     * Get Code IDs for Coupon
-     *
-     * @param  string $id The ID of the coupon to look up the relationship of. (required)
-     * @param  string $page_cursor For more information please visit https://developers.klaviyo.com/en/v2024-10-15/reference/api-overview#pagination (optional)
-     *
-     * @throws \KlaviyoAPI\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return array<string,mixed>|\KlaviyoAPI\Model\GetAccounts400Response|\KlaviyoAPI\Model\GetAccounts400Response
-     */
-    public function getCodeIdsForCoupon($id, $page_cursor = null, $apiKey = null)
-    {
-        list($response) = $this->getCodeIdsForCouponWithHttpInfo($id, $page_cursor, $apiKey);
-        return $response;
-    }
-
-    /**
-     * Alias of `getCodeIdsForCoupon`
-     *
-     * @deprecated use `getCodeIdsForCoupon` instead
-     */
-    public function getCouponCodeRelationshipsCoupon(...$args) {
-        return $this->getCodeIdsForCoupon(...$args);
-    }
-
-    /**
-     * Operation getCodeIdsForCouponWithHttpInfo
-     *
-     * Get Code IDs for Coupon
-     *
-     * @param  string $id The ID of the coupon to look up the relationship of. (required)
-     * @param  string $page_cursor For more information please visit https://developers.klaviyo.com/en/v2024-10-15/reference/api-overview#pagination (optional)
-     *
-     * @throws \KlaviyoAPI\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return array of array<string,mixed>|\KlaviyoAPI\Model\GetAccounts400Response|\KlaviyoAPI\Model\GetAccounts400Response, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function getCodeIdsForCouponWithHttpInfo($id, $page_cursor = null, $apiKey = null)
-    {
-        $request = $this->getCodeIdsForCouponRequest($id, $page_cursor, $apiKey);
-
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
-                );
-            } catch (ConnectException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    null,
-                    null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        (string) $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    (string) $response->getBody()
-                );
-            }
-
-            switch($statusCode) {
-                case 200:
-                    if ('array<string,mixed>' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('array&lt;string,mixed&gt;' !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-
-                    $parsed_content = json_decode(json_encode($content), TRUE);
-                    if (json_last_error() != JSON_ERROR_NONE) {
-                        $parsed_content = $content;
-                    }
-
-                    return [
-                        $parsed_content,
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                case 400:
-                    if ('\KlaviyoAPI\Model\GetAccounts400Response' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('\KlaviyoAPI\Model\GetAccounts400Response' !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-
-                    $parsed_content = json_decode(json_encode($content), TRUE);
-                    if (json_last_error() != JSON_ERROR_NONE) {
-                        $parsed_content = $content;
-                    }
-
-                    return [
-                        $parsed_content,
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                case 500:
-                    if ('\KlaviyoAPI\Model\GetAccounts400Response' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('\KlaviyoAPI\Model\GetAccounts400Response' !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-
-                    $parsed_content = json_decode(json_encode($content), TRUE);
-                    if (json_last_error() != JSON_ERROR_NONE) {
-                        $parsed_content = $content;
-                    }
-
-                    return [
-                        $parsed_content,
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-            }
-
-            $returnType = 'array<string,mixed>';
-            if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); //stream goes to serializer
-            } else {
-                $content = (string) $response->getBody();
-                if ($returnType !== 'string') {
-                    $content = json_decode($content);
-                }
-            }
-
-            $parsed_content = json_decode(json_encode($content), TRUE);
-            if (json_last_error() != JSON_ERROR_NONE) {
-                $parsed_content = $content;
-            }
-
-            return [
-                $parsed_content,
-                $response->getStatusCode(),
-                $response->getHeaders()
-            ];
-
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 200:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        'array<string,mixed>',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 400:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\KlaviyoAPI\Model\GetAccounts400Response',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 500:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\KlaviyoAPI\Model\GetAccounts400Response',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-            }
-            throw $e;
-        }
-    }
-
-    /**
-     * Alias of `getCodeIdsForCouponWithHttpInfo`
-     *
-     * @deprecated use `getCodeIdsForCouponWithHttpInfo` instead
-     */
-    public function getCouponCodeRelationshipsCouponWithHttpInfo(...$args) {
-        return $this->getCodeIdsForCouponWithHttpInfo(...$args);
-    }
-
-    /**
-     * Operation getCodeIdsForCouponAsync
-     *
-     * Get Code IDs for Coupon
-     *
-     * @param  string $id The ID of the coupon to look up the relationship of. (required)
-     * @param  string $page_cursor For more information please visit https://developers.klaviyo.com/en/v2024-10-15/reference/api-overview#pagination (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function getCodeIdsForCouponAsync($id, $page_cursor = null, $apiKey = null)
-    {
-        return $this->getCodeIdsForCouponAsyncWithHttpInfo($id, $page_cursor, $apiKey)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Alias of `getCodeIdsForCouponAsync`
-     *
-     * @deprecated use `getCodeIdsForCouponAsync` instead
-     */
-    public function getCouponCodeRelationshipsCouponAsync(...$args) {
-        return $this->getCodeIdsForCouponAsync(...$args);
-    }
-
-    /**
-     * Operation getCodeIdsForCouponAsyncWithHttpInfo
-     *
-     * Get Code IDs for Coupon
-     *
-     * @param  string $id The ID of the coupon to look up the relationship of. (required)
-     * @param  string $page_cursor For more information please visit https://developers.klaviyo.com/en/v2024-10-15/reference/api-overview#pagination (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function getCodeIdsForCouponAsyncWithHttpInfo($id, $page_cursor = null, $apiKey = null)
-    {
-        $returnType = 'array<string,mixed>';
-        $request = $this->getCodeIdsForCouponRequest($id, $page_cursor, $apiKey);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ($returnType !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    $parsed_content = json_decode(json_encode($content), TRUE);
-                    if (json_last_error() != JSON_ERROR_NONE) {
-                        $parsed_content = $content;
-                    }
-
-                    return [
-                        $parsed_content,
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        (string) $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Alias of `getCodeIdsForCouponAsyncWithHttpInfo`
-     *
-     * @deprecated use `getCodeIdsForCouponAsyncWithHttpInfo` instead
-     */
-    public function getCouponCodeRelationshipsCouponAsyncWithHttpInfo(...$args) {
-        return $this->getCodeIdsForCouponAsyncWithHttpInfo(...$args);
-    }
-
-    /**
-     * Create request for operation 'getCodeIdsForCoupon'
-     *
-     * @param  string $id The ID of the coupon to look up the relationship of. (required)
-     * @param  string $page_cursor For more information please visit https://developers.klaviyo.com/en/v2024-10-15/reference/api-overview#pagination (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    public function getCodeIdsForCouponRequest($id, $page_cursor = null, $apiKey = null)
-    {
-        // verify the required parameter 'id' is set
-        if ($id === null || (is_array($id) && count($id) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $id when calling getCodeIdsForCoupon'
-            );
-        }
-
-        $resourcePath = '/api/coupons/{id}/relationships/coupon-codes';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-        // query params
-        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-            $page_cursor,
-            'page[cursor]', // param base name
-            'string', // openApiType
-            'form', // style
-            true, // explode
-            false // required
-        ) ?? []);
-
-
-        // path params
-        if ($id !== null) {
-            $resourcePath = str_replace(
-                '{' . 'id' . '}',
-                ObjectSerializer::toPathValue($id),
-                $resourcePath
-            );
-        }
-
-
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/vnd.api+json']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/vnd.api+json'],
-                []
-            );
-        }
-
-        // for model (json/xml)
-        if (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
-                    foreach ($formParamValueItems as $formParamValueItem) {
-                        $multipartContents[] = [
-                            'name' => $formParamName,
-                            'contents' => $formParamValueItem
-                        ];
-                    }
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif ($headers['Content-Type'] === 'application/json' || $headers['Content-Type'] === 'application/vnd.api+json') {
-                $httpBody = \GuzzleHttp\json_encode($formParams);
-
-            } else {
-                // for HTTP post (form)
-                $httpBody = ObjectSerializer::buildQuery($formParams);
-            }
-        }
-
-        // this endpoint requires API key authentication
-        if ($apiKey == null) {
-            $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
-        } else {
-            $apiKey = 'Klaviyo-API-Key '.$apiKey;
-        }
-
-        $headers['Authorization'] = $apiKey;
-
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $defaultHeaders['revision'] = ['2024-10-15'];
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $query = ObjectSerializer::buildQuery($queryParams);
-        return new Request(
-            'GET',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
-     * Alias of `getCodeIdsForCouponRequest`
-     *
-     * @deprecated use `getCodeIdsForCouponRequest` instead
-     */
-    public function getCouponCodeRelationshipsCouponRequest(...$args) {
-        return $this->getCodeIdsForCouponRequest(...$args);
-    }
-
-    /**
      * Operation getCoupon
      *
      * Get Coupon
@@ -3897,6 +3473,534 @@ class CouponsApi
     }
 
     /**
+     * Operation getCouponCodeIdsForCoupon
+     *
+     * Get Coupon Code IDs for Coupon
+     *
+     * @param  string $id The ID of the coupon to look up the relationship of. (required)
+     * @param  string $filter For more information please visit https://developers.klaviyo.com/en/v2024-10-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;expires_at&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60;&lt;br&gt;&#x60;status&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;coupon.id&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;profile.id&#x60;: &#x60;any&#x60;, &#x60;equals&#x60; (optional)
+     * @param  string $page_cursor For more information please visit https://developers.klaviyo.com/en/v2024-10-15/reference/api-overview#pagination (optional)
+     *
+     * @throws \KlaviyoAPI\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array<string,mixed>|\KlaviyoAPI\Model\GetAccounts400Response|\KlaviyoAPI\Model\GetAccounts400Response
+     */
+    public function getCouponCodeIdsForCoupon($id, $filter = null, $page_cursor = null, $apiKey = null)
+    {
+        list($response) = $this->getCouponCodeIdsForCouponWithHttpInfo($id, $filter, $page_cursor, $apiKey);
+        return $response;
+    }
+
+    /**
+     * Alias of `getCouponCodeIdsForCoupon`
+     *
+     * @deprecated use `getCouponCodeIdsForCoupon` instead
+     */
+    public function getCouponCodeRelationshipsCoupon(...$args) {
+        return $this->getCouponCodeIdsForCoupon(...$args);
+    }
+
+    /**
+     * Alias of `getCouponCodeIdsForCoupon`
+     *
+     * @deprecated use `getCouponCodeIdsForCoupon` instead
+     */
+    public function getCodeIdsForCoupon(...$args) {
+        return $this->getCouponCodeIdsForCoupon(...$args);
+    }
+
+    /**
+     * Alias of `getCouponCodeIdsForCoupon`
+     *
+     * @deprecated use `getCouponCodeIdsForCoupon` instead
+     */
+    public function getCouponRelationshipsCodes(...$args) {
+        return $this->getCouponCodeIdsForCoupon(...$args);
+    }
+
+    /**
+     * Operation getCouponCodeIdsForCouponWithHttpInfo
+     *
+     * Get Coupon Code IDs for Coupon
+     *
+     * @param  string $id The ID of the coupon to look up the relationship of. (required)
+     * @param  string $filter For more information please visit https://developers.klaviyo.com/en/v2024-10-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;expires_at&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60;&lt;br&gt;&#x60;status&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;coupon.id&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;profile.id&#x60;: &#x60;any&#x60;, &#x60;equals&#x60; (optional)
+     * @param  string $page_cursor For more information please visit https://developers.klaviyo.com/en/v2024-10-15/reference/api-overview#pagination (optional)
+     *
+     * @throws \KlaviyoAPI\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of array<string,mixed>|\KlaviyoAPI\Model\GetAccounts400Response|\KlaviyoAPI\Model\GetAccounts400Response, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getCouponCodeIdsForCouponWithHttpInfo($id, $filter = null, $page_cursor = null, $apiKey = null)
+    {
+        $request = $this->getCouponCodeIdsForCouponRequest($id, $filter, $page_cursor, $apiKey);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('array<string,mixed>' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('array&lt;string,mixed&gt;' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+
+                    $parsed_content = json_decode(json_encode($content), TRUE);
+                    if (json_last_error() != JSON_ERROR_NONE) {
+                        $parsed_content = $content;
+                    }
+
+                    return [
+                        $parsed_content,
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 400:
+                    if ('\KlaviyoAPI\Model\GetAccounts400Response' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\KlaviyoAPI\Model\GetAccounts400Response' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+
+                    $parsed_content = json_decode(json_encode($content), TRUE);
+                    if (json_last_error() != JSON_ERROR_NONE) {
+                        $parsed_content = $content;
+                    }
+
+                    return [
+                        $parsed_content,
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 500:
+                    if ('\KlaviyoAPI\Model\GetAccounts400Response' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\KlaviyoAPI\Model\GetAccounts400Response' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+
+                    $parsed_content = json_decode(json_encode($content), TRUE);
+                    if (json_last_error() != JSON_ERROR_NONE) {
+                        $parsed_content = $content;
+                    }
+
+                    return [
+                        $parsed_content,
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = 'array<string,mixed>';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            $parsed_content = json_decode(json_encode($content), TRUE);
+            if (json_last_error() != JSON_ERROR_NONE) {
+                $parsed_content = $content;
+            }
+
+            return [
+                $parsed_content,
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        'array<string,mixed>',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\KlaviyoAPI\Model\GetAccounts400Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 500:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\KlaviyoAPI\Model\GetAccounts400Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Alias of `getCouponCodeIdsForCouponWithHttpInfo`
+     *
+     * @deprecated use `getCouponCodeIdsForCouponWithHttpInfo` instead
+     */
+    public function getCouponCodeRelationshipsCouponWithHttpInfo(...$args) {
+        return $this->getCouponCodeIdsForCouponWithHttpInfo(...$args);
+    }
+
+    /**
+     * Alias of `getCouponCodeIdsForCouponWithHttpInfo`
+     *
+     * @deprecated use `getCouponCodeIdsForCouponWithHttpInfo` instead
+     */
+    public function getCodeIdsForCouponWithHttpInfo(...$args) {
+        return $this->getCouponCodeIdsForCouponWithHttpInfo(...$args);
+    }
+
+    /**
+     * Alias of `getCouponCodeIdsForCouponWithHttpInfo`
+     *
+     * @deprecated use `getCouponCodeIdsForCouponWithHttpInfo` instead
+     */
+    public function getCouponRelationshipsCodesWithHttpInfo(...$args) {
+        return $this->getCouponCodeIdsForCouponWithHttpInfo(...$args);
+    }
+
+    /**
+     * Operation getCouponCodeIdsForCouponAsync
+     *
+     * Get Coupon Code IDs for Coupon
+     *
+     * @param  string $id The ID of the coupon to look up the relationship of. (required)
+     * @param  string $filter For more information please visit https://developers.klaviyo.com/en/v2024-10-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;expires_at&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60;&lt;br&gt;&#x60;status&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;coupon.id&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;profile.id&#x60;: &#x60;any&#x60;, &#x60;equals&#x60; (optional)
+     * @param  string $page_cursor For more information please visit https://developers.klaviyo.com/en/v2024-10-15/reference/api-overview#pagination (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getCouponCodeIdsForCouponAsync($id, $filter = null, $page_cursor = null, $apiKey = null)
+    {
+        return $this->getCouponCodeIdsForCouponAsyncWithHttpInfo($id, $filter, $page_cursor, $apiKey)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Alias of `getCouponCodeIdsForCouponAsync`
+     *
+     * @deprecated use `getCouponCodeIdsForCouponAsync` instead
+     */
+    public function getCouponCodeRelationshipsCouponAsync(...$args) {
+        return $this->getCouponCodeIdsForCouponAsync(...$args);
+    }
+
+    /**
+     * Alias of `getCouponCodeIdsForCouponAsync`
+     *
+     * @deprecated use `getCouponCodeIdsForCouponAsync` instead
+     */
+    public function getCodeIdsForCouponAsync(...$args) {
+        return $this->getCouponCodeIdsForCouponAsync(...$args);
+    }
+
+    /**
+     * Alias of `getCouponCodeIdsForCouponAsync`
+     *
+     * @deprecated use `getCouponCodeIdsForCouponAsync` instead
+     */
+    public function getCouponRelationshipsCodesAsync(...$args) {
+        return $this->getCouponCodeIdsForCouponAsync(...$args);
+    }
+
+    /**
+     * Operation getCouponCodeIdsForCouponAsyncWithHttpInfo
+     *
+     * Get Coupon Code IDs for Coupon
+     *
+     * @param  string $id The ID of the coupon to look up the relationship of. (required)
+     * @param  string $filter For more information please visit https://developers.klaviyo.com/en/v2024-10-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;expires_at&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60;&lt;br&gt;&#x60;status&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;coupon.id&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;profile.id&#x60;: &#x60;any&#x60;, &#x60;equals&#x60; (optional)
+     * @param  string $page_cursor For more information please visit https://developers.klaviyo.com/en/v2024-10-15/reference/api-overview#pagination (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getCouponCodeIdsForCouponAsyncWithHttpInfo($id, $filter = null, $page_cursor = null, $apiKey = null)
+    {
+        $returnType = 'array<string,mixed>';
+        $request = $this->getCouponCodeIdsForCouponRequest($id, $filter, $page_cursor, $apiKey);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    $parsed_content = json_decode(json_encode($content), TRUE);
+                    if (json_last_error() != JSON_ERROR_NONE) {
+                        $parsed_content = $content;
+                    }
+
+                    return [
+                        $parsed_content,
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Alias of `getCouponCodeIdsForCouponAsyncWithHttpInfo`
+     *
+     * @deprecated use `getCouponCodeIdsForCouponAsyncWithHttpInfo` instead
+     */
+    public function getCouponCodeRelationshipsCouponAsyncWithHttpInfo(...$args) {
+        return $this->getCouponCodeIdsForCouponAsyncWithHttpInfo(...$args);
+    }
+
+    /**
+     * Alias of `getCouponCodeIdsForCouponAsyncWithHttpInfo`
+     *
+     * @deprecated use `getCouponCodeIdsForCouponAsyncWithHttpInfo` instead
+     */
+    public function getCodeIdsForCouponAsyncWithHttpInfo(...$args) {
+        return $this->getCouponCodeIdsForCouponAsyncWithHttpInfo(...$args);
+    }
+
+    /**
+     * Alias of `getCouponCodeIdsForCouponAsyncWithHttpInfo`
+     *
+     * @deprecated use `getCouponCodeIdsForCouponAsyncWithHttpInfo` instead
+     */
+    public function getCouponRelationshipsCodesAsyncWithHttpInfo(...$args) {
+        return $this->getCouponCodeIdsForCouponAsyncWithHttpInfo(...$args);
+    }
+
+    /**
+     * Create request for operation 'getCouponCodeIdsForCoupon'
+     *
+     * @param  string $id The ID of the coupon to look up the relationship of. (required)
+     * @param  string $filter For more information please visit https://developers.klaviyo.com/en/v2024-10-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;expires_at&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60;&lt;br&gt;&#x60;status&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;coupon.id&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;profile.id&#x60;: &#x60;any&#x60;, &#x60;equals&#x60; (optional)
+     * @param  string $page_cursor For more information please visit https://developers.klaviyo.com/en/v2024-10-15/reference/api-overview#pagination (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function getCouponCodeIdsForCouponRequest($id, $filter = null, $page_cursor = null, $apiKey = null)
+    {
+        // verify the required parameter 'id' is set
+        if ($id === null || (is_array($id) && count($id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $id when calling getCouponCodeIdsForCoupon'
+            );
+        }
+
+        $resourcePath = '/api/coupons/{id}/relationships/coupon-codes';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $filter,
+            'filter', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $page_cursor,
+            'page[cursor]', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+
+
+        // path params
+        if ($id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'id' . '}',
+                ObjectSerializer::toPathValue($id),
+                $resourcePath
+            );
+        }
+
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/vnd.api+json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/vnd.api+json'],
+                []
+            );
+        }
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json' || $headers['Content-Type'] === 'application/vnd.api+json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        if ($apiKey == null) {
+            $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        } else {
+            $apiKey = 'Klaviyo-API-Key '.$apiKey;
+        }
+
+        $headers['Authorization'] = $apiKey;
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $defaultHeaders['revision'] = ['2024-10-15'];
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Alias of `getCouponCodeIdsForCouponRequest`
+     *
+     * @deprecated use `getCouponCodeIdsForCouponRequest` instead
+     */
+    public function getCouponCodeRelationshipsCouponRequest(...$args) {
+        return $this->getCouponCodeIdsForCouponRequest(...$args);
+    }
+
+    /**
+     * Alias of `getCouponCodeIdsForCouponRequest`
+     *
+     * @deprecated use `getCouponCodeIdsForCouponRequest` instead
+     */
+    public function getCodeIdsForCouponRequest(...$args) {
+        return $this->getCouponCodeIdsForCouponRequest(...$args);
+    }
+
+    /**
+     * Alias of `getCouponCodeIdsForCouponRequest`
+     *
+     * @deprecated use `getCouponCodeIdsForCouponRequest` instead
+     */
+    public function getCouponRelationshipsCodesRequest(...$args) {
+        return $this->getCouponCodeIdsForCouponRequest(...$args);
+    }
+
+    /**
      * Operation getCouponCodes
      *
      * Get Coupon Codes
@@ -4315,9 +4419,9 @@ class CouponsApi
     /**
      * Operation getCouponCodesForCoupon
      *
-     * Get Coupon Codes For Coupon
+     * Get Coupon Codes for Coupon
      *
-     * @param  string $id  (required)
+     * @param  string $id The ID of the coupon to look up the relationship of. (required)
      * @param  string[] $fields_coupon_code For more information please visit https://developers.klaviyo.com/en/v2024-10-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $filter For more information please visit https://developers.klaviyo.com/en/v2024-10-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;expires_at&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60;&lt;br&gt;&#x60;status&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;coupon.id&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;profile.id&#x60;: &#x60;any&#x60;, &#x60;equals&#x60; (optional)
      * @param  string $page_cursor For more information please visit https://developers.klaviyo.com/en/v2024-10-15/reference/api-overview#pagination (optional)
@@ -4342,11 +4446,20 @@ class CouponsApi
     }
 
     /**
+     * Alias of `getCouponCodesForCoupon`
+     *
+     * @deprecated use `getCouponCodesForCoupon` instead
+     */
+    public function getCodesForCoupon(...$args) {
+        return $this->getCouponCodesForCoupon(...$args);
+    }
+
+    /**
      * Operation getCouponCodesForCouponWithHttpInfo
      *
-     * Get Coupon Codes For Coupon
+     * Get Coupon Codes for Coupon
      *
-     * @param  string $id  (required)
+     * @param  string $id The ID of the coupon to look up the relationship of. (required)
      * @param  string[] $fields_coupon_code For more information please visit https://developers.klaviyo.com/en/v2024-10-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $filter For more information please visit https://developers.klaviyo.com/en/v2024-10-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;expires_at&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60;&lt;br&gt;&#x60;status&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;coupon.id&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;profile.id&#x60;: &#x60;any&#x60;, &#x60;equals&#x60; (optional)
      * @param  string $page_cursor For more information please visit https://developers.klaviyo.com/en/v2024-10-15/reference/api-overview#pagination (optional)
@@ -4522,11 +4635,20 @@ class CouponsApi
     }
 
     /**
+     * Alias of `getCouponCodesForCouponWithHttpInfo`
+     *
+     * @deprecated use `getCouponCodesForCouponWithHttpInfo` instead
+     */
+    public function getCodesForCouponWithHttpInfo(...$args) {
+        return $this->getCouponCodesForCouponWithHttpInfo(...$args);
+    }
+
+    /**
      * Operation getCouponCodesForCouponAsync
      *
-     * Get Coupon Codes For Coupon
+     * Get Coupon Codes for Coupon
      *
-     * @param  string $id  (required)
+     * @param  string $id The ID of the coupon to look up the relationship of. (required)
      * @param  string[] $fields_coupon_code For more information please visit https://developers.klaviyo.com/en/v2024-10-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $filter For more information please visit https://developers.klaviyo.com/en/v2024-10-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;expires_at&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60;&lt;br&gt;&#x60;status&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;coupon.id&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;profile.id&#x60;: &#x60;any&#x60;, &#x60;equals&#x60; (optional)
      * @param  string $page_cursor For more information please visit https://developers.klaviyo.com/en/v2024-10-15/reference/api-overview#pagination (optional)
@@ -4554,11 +4676,20 @@ class CouponsApi
     }
 
     /**
+     * Alias of `getCouponCodesForCouponAsync`
+     *
+     * @deprecated use `getCouponCodesForCouponAsync` instead
+     */
+    public function getCodesForCouponAsync(...$args) {
+        return $this->getCouponCodesForCouponAsync(...$args);
+    }
+
+    /**
      * Operation getCouponCodesForCouponAsyncWithHttpInfo
      *
-     * Get Coupon Codes For Coupon
+     * Get Coupon Codes for Coupon
      *
-     * @param  string $id  (required)
+     * @param  string $id The ID of the coupon to look up the relationship of. (required)
      * @param  string[] $fields_coupon_code For more information please visit https://developers.klaviyo.com/en/v2024-10-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $filter For more information please visit https://developers.klaviyo.com/en/v2024-10-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;expires_at&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60;&lt;br&gt;&#x60;status&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;coupon.id&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;profile.id&#x60;: &#x60;any&#x60;, &#x60;equals&#x60; (optional)
      * @param  string $page_cursor For more information please visit https://developers.klaviyo.com/en/v2024-10-15/reference/api-overview#pagination (optional)
@@ -4622,9 +4753,18 @@ class CouponsApi
     }
 
     /**
+     * Alias of `getCouponCodesForCouponAsyncWithHttpInfo`
+     *
+     * @deprecated use `getCouponCodesForCouponAsyncWithHttpInfo` instead
+     */
+    public function getCodesForCouponAsyncWithHttpInfo(...$args) {
+        return $this->getCouponCodesForCouponAsyncWithHttpInfo(...$args);
+    }
+
+    /**
      * Create request for operation 'getCouponCodesForCoupon'
      *
-     * @param  string $id  (required)
+     * @param  string $id The ID of the coupon to look up the relationship of. (required)
      * @param  string[] $fields_coupon_code For more information please visit https://developers.klaviyo.com/en/v2024-10-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $filter For more information please visit https://developers.klaviyo.com/en/v2024-10-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;expires_at&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60;&lt;br&gt;&#x60;status&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;coupon.id&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;profile.id&#x60;: &#x60;any&#x60;, &#x60;equals&#x60; (optional)
      * @param  string $page_cursor For more information please visit https://developers.klaviyo.com/en/v2024-10-15/reference/api-overview#pagination (optional)
@@ -4761,6 +4901,15 @@ class CouponsApi
      * @deprecated use `getCouponCodesForCouponRequest` instead
      */
     public function getCouponCouponCodesRequest(...$args) {
+        return $this->getCouponCodesForCouponRequest(...$args);
+    }
+
+    /**
+     * Alias of `getCouponCodesForCouponRequest`
+     *
+     * @deprecated use `getCouponCodesForCouponRequest` instead
+     */
+    public function getCodesForCouponRequest(...$args) {
         return $this->getCouponCodesForCouponRequest(...$args);
     }
 
@@ -5193,7 +5342,7 @@ class CouponsApi
      *
      * Get Coupon ID for Coupon Code
      *
-     * @param  string $id The ID of the coupon code to look up the relationship of. (required)
+     * @param  string $id The ID of the coupon to look up the relationship of. (required)
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -5219,7 +5368,7 @@ class CouponsApi
      *
      * Get Coupon ID for Coupon Code
      *
-     * @param  string $id The ID of the coupon code to look up the relationship of. (required)
+     * @param  string $id The ID of the coupon to look up the relationship of. (required)
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -5396,7 +5545,7 @@ class CouponsApi
      *
      * Get Coupon ID for Coupon Code
      *
-     * @param  string $id The ID of the coupon code to look up the relationship of. (required)
+     * @param  string $id The ID of the coupon to look up the relationship of. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -5425,7 +5574,7 @@ class CouponsApi
      *
      * Get Coupon ID for Coupon Code
      *
-     * @param  string $id The ID of the coupon code to look up the relationship of. (required)
+     * @param  string $id The ID of the coupon to look up the relationship of. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -5488,7 +5637,7 @@ class CouponsApi
     /**
      * Create request for operation 'getCouponIdForCouponCode'
      *
-     * @param  string $id The ID of the coupon code to look up the relationship of. (required)
+     * @param  string $id The ID of the coupon to look up the relationship of. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request

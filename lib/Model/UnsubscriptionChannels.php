@@ -1,6 +1,6 @@
 <?php
 /**
- * CatalogCategoryItemOp
+ * UnsubscriptionChannels
  *
  * PHP version 7.4
  *
@@ -33,7 +33,7 @@ use \ArrayAccess;
 use \KlaviyoAPI\ObjectSerializer;
 
 /**
- * CatalogCategoryItemOp Class Doc Comment
+ * UnsubscriptionChannels Class Doc Comment
  *
  * @category Class
  * @package  KlaviyoAPI
@@ -41,7 +41,7 @@ use \KlaviyoAPI\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class CatalogCategoryItemOp implements ModelInterface, ArrayAccess, \JsonSerializable
+class UnsubscriptionChannels implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class CatalogCategoryItemOp implements ModelInterface, ArrayAccess, \JsonSeriali
       *
       * @var string
       */
-    protected static $openAPIModelName = 'CatalogCategoryItemOp';
+    protected static $openAPIModelName = 'UnsubscriptionChannels';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,7 +58,8 @@ class CatalogCategoryItemOp implements ModelInterface, ArrayAccess, \JsonSeriali
       * @var string[]
       */
     protected static $openAPITypes = [
-        'data' => '\KlaviyoAPI\Model\CatalogCategoryItemOpDataInner[]'
+        'email' => '\KlaviyoAPI\Model\EmailUnsubscriptionParameters',
+        'sms' => '\KlaviyoAPI\Model\SMSUnsubscriptionParameters'
     ];
 
     /**
@@ -69,7 +70,8 @@ class CatalogCategoryItemOp implements ModelInterface, ArrayAccess, \JsonSeriali
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'data' => null
+        'email' => null,
+        'sms' => null
     ];
 
     /**
@@ -78,7 +80,8 @@ class CatalogCategoryItemOp implements ModelInterface, ArrayAccess, \JsonSeriali
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'data' => false
+        'email' => false,
+		'sms' => false
     ];
 
     /**
@@ -157,7 +160,8 @@ class CatalogCategoryItemOp implements ModelInterface, ArrayAccess, \JsonSeriali
      * @var string[]
      */
     protected static $attributeMap = [
-        'data' => 'data'
+        'email' => 'email',
+        'sms' => 'sms'
     ];
 
     /**
@@ -166,7 +170,8 @@ class CatalogCategoryItemOp implements ModelInterface, ArrayAccess, \JsonSeriali
      * @var string[]
      */
     protected static $setters = [
-        'data' => 'setData'
+        'email' => 'setEmail',
+        'sms' => 'setSms'
     ];
 
     /**
@@ -175,7 +180,8 @@ class CatalogCategoryItemOp implements ModelInterface, ArrayAccess, \JsonSeriali
      * @var string[]
      */
     protected static $getters = [
-        'data' => 'getData'
+        'email' => 'getEmail',
+        'sms' => 'getSms'
     ];
 
     /**
@@ -235,7 +241,8 @@ class CatalogCategoryItemOp implements ModelInterface, ArrayAccess, \JsonSeriali
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('data', $data ?? [], null);
+        $this->setIfExists('email', $data ?? [], null);
+        $this->setIfExists('sms', $data ?? [], null);
     }
 
     /**
@@ -265,9 +272,6 @@ class CatalogCategoryItemOp implements ModelInterface, ArrayAccess, \JsonSeriali
     {
         $invalidProperties = [];
 
-        if ($this->container['data'] === null) {
-            $invalidProperties[] = "'data' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -284,30 +288,59 @@ class CatalogCategoryItemOp implements ModelInterface, ArrayAccess, \JsonSeriali
 
 
     /**
-     * Gets data
+     * Gets email
      *
-     * @return \KlaviyoAPI\Model\CatalogCategoryItemOpDataInner[]
+     * @return \KlaviyoAPI\Model\EmailUnsubscriptionParameters|null
      */
-    public function getData()
+    public function getEmail()
     {
-        return $this->container['data'];
+        return $this->container['email'];
     }
 
     /**
-     * Sets data
+     * Sets email
      *
-     * @param \KlaviyoAPI\Model\CatalogCategoryItemOpDataInner[] $data data
+     * @param \KlaviyoAPI\Model\EmailUnsubscriptionParameters|null $email email
      *
      * @return self
      */
-    public function setData($data)
+    public function setEmail($email)
     {
 
-        if (is_null($data)) {
-            throw new \InvalidArgumentException('non-nullable data cannot be null');
+        if (is_null($email)) {
+            throw new \InvalidArgumentException('non-nullable email cannot be null');
         }
 
-        $this->container['data'] = $data;
+        $this->container['email'] = $email;
+
+        return $this;
+    }
+
+    /**
+     * Gets sms
+     *
+     * @return \KlaviyoAPI\Model\SMSUnsubscriptionParameters|null
+     */
+    public function getSms()
+    {
+        return $this->container['sms'];
+    }
+
+    /**
+     * Sets sms
+     *
+     * @param \KlaviyoAPI\Model\SMSUnsubscriptionParameters|null $sms sms
+     *
+     * @return self
+     */
+    public function setSms($sms)
+    {
+
+        if (is_null($sms)) {
+            throw new \InvalidArgumentException('non-nullable sms cannot be null');
+        }
+
+        $this->container['sms'] = $sms;
 
         return $this;
     }

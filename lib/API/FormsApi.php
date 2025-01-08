@@ -2165,14 +2165,18 @@ class FormsApi
      * Get Version IDs for Form
      *
      * @param  string $id The ID of the form (required)
+     * @param  string $filter For more information please visit https://developers.klaviyo.com/en/v2024-10-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;form_type&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;status&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;updated_at&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60;&lt;br&gt;&#x60;created_at&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60; (optional)
+     * @param  string $page_cursor For more information please visit https://developers.klaviyo.com/en/v2024-10-15/reference/api-overview#pagination (optional)
+     * @param  int $page_size Default: 20. Min: 1. Max: 100. (optional, default to 20)
+     * @param  string $sort For more information please visit https://developers.klaviyo.com/en/v2024-10-15/reference/api-overview#sorting (optional)
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array<string,mixed>|\KlaviyoAPI\Model\GetAccounts400Response|\KlaviyoAPI\Model\GetAccounts400Response
      */
-    public function getVersionIdsForForm($id, $apiKey = null)
+    public function getVersionIdsForForm($id, $filter = null, $page_cursor = null, $page_size = 20, $sort = null, $apiKey = null)
     {
-        list($response) = $this->getVersionIdsForFormWithHttpInfo($id, $apiKey);
+        list($response) = $this->getVersionIdsForFormWithHttpInfo($id, $filter, $page_cursor, $page_size, $sort, $apiKey);
         return $response;
     }
 
@@ -2186,19 +2190,32 @@ class FormsApi
     }
 
     /**
+     * Alias of `getVersionIdsForForm`
+     *
+     * @deprecated use `getVersionIdsForForm` instead
+     */
+    public function getFormRelationshipsVersions(...$args) {
+        return $this->getVersionIdsForForm(...$args);
+    }
+
+    /**
      * Operation getVersionIdsForFormWithHttpInfo
      *
      * Get Version IDs for Form
      *
      * @param  string $id The ID of the form (required)
+     * @param  string $filter For more information please visit https://developers.klaviyo.com/en/v2024-10-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;form_type&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;status&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;updated_at&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60;&lt;br&gt;&#x60;created_at&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60; (optional)
+     * @param  string $page_cursor For more information please visit https://developers.klaviyo.com/en/v2024-10-15/reference/api-overview#pagination (optional)
+     * @param  int $page_size Default: 20. Min: 1. Max: 100. (optional, default to 20)
+     * @param  string $sort For more information please visit https://developers.klaviyo.com/en/v2024-10-15/reference/api-overview#sorting (optional)
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of array<string,mixed>|\KlaviyoAPI\Model\GetAccounts400Response|\KlaviyoAPI\Model\GetAccounts400Response, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getVersionIdsForFormWithHttpInfo($id, $apiKey = null)
+    public function getVersionIdsForFormWithHttpInfo($id, $filter = null, $page_cursor = null, $page_size = 20, $sort = null, $apiKey = null)
     {
-        $request = $this->getVersionIdsForFormRequest($id, $apiKey);
+        $request = $this->getVersionIdsForFormRequest($id, $filter, $page_cursor, $page_size, $sort, $apiKey);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2363,18 +2380,31 @@ class FormsApi
     }
 
     /**
+     * Alias of `getVersionIdsForFormWithHttpInfo`
+     *
+     * @deprecated use `getVersionIdsForFormWithHttpInfo` instead
+     */
+    public function getFormRelationshipsVersionsWithHttpInfo(...$args) {
+        return $this->getVersionIdsForFormWithHttpInfo(...$args);
+    }
+
+    /**
      * Operation getVersionIdsForFormAsync
      *
      * Get Version IDs for Form
      *
      * @param  string $id The ID of the form (required)
+     * @param  string $filter For more information please visit https://developers.klaviyo.com/en/v2024-10-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;form_type&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;status&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;updated_at&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60;&lt;br&gt;&#x60;created_at&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60; (optional)
+     * @param  string $page_cursor For more information please visit https://developers.klaviyo.com/en/v2024-10-15/reference/api-overview#pagination (optional)
+     * @param  int $page_size Default: 20. Min: 1. Max: 100. (optional, default to 20)
+     * @param  string $sort For more information please visit https://developers.klaviyo.com/en/v2024-10-15/reference/api-overview#sorting (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getVersionIdsForFormAsync($id, $apiKey = null)
+    public function getVersionIdsForFormAsync($id, $filter = null, $page_cursor = null, $page_size = 20, $sort = null, $apiKey = null)
     {
-        return $this->getVersionIdsForFormAsyncWithHttpInfo($id, $apiKey)
+        return $this->getVersionIdsForFormAsyncWithHttpInfo($id, $filter, $page_cursor, $page_size, $sort, $apiKey)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2392,19 +2422,32 @@ class FormsApi
     }
 
     /**
+     * Alias of `getVersionIdsForFormAsync`
+     *
+     * @deprecated use `getVersionIdsForFormAsync` instead
+     */
+    public function getFormRelationshipsVersionsAsync(...$args) {
+        return $this->getVersionIdsForFormAsync(...$args);
+    }
+
+    /**
      * Operation getVersionIdsForFormAsyncWithHttpInfo
      *
      * Get Version IDs for Form
      *
      * @param  string $id The ID of the form (required)
+     * @param  string $filter For more information please visit https://developers.klaviyo.com/en/v2024-10-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;form_type&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;status&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;updated_at&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60;&lt;br&gt;&#x60;created_at&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60; (optional)
+     * @param  string $page_cursor For more information please visit https://developers.klaviyo.com/en/v2024-10-15/reference/api-overview#pagination (optional)
+     * @param  int $page_size Default: 20. Min: 1. Max: 100. (optional, default to 20)
+     * @param  string $sort For more information please visit https://developers.klaviyo.com/en/v2024-10-15/reference/api-overview#sorting (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getVersionIdsForFormAsyncWithHttpInfo($id, $apiKey = null)
+    public function getVersionIdsForFormAsyncWithHttpInfo($id, $filter = null, $page_cursor = null, $page_size = 20, $sort = null, $apiKey = null)
     {
         $returnType = 'array<string,mixed>';
-        $request = $this->getVersionIdsForFormRequest($id, $apiKey);
+        $request = $this->getVersionIdsForFormRequest($id, $filter, $page_cursor, $page_size, $sort, $apiKey);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2457,14 +2500,27 @@ class FormsApi
     }
 
     /**
+     * Alias of `getVersionIdsForFormAsyncWithHttpInfo`
+     *
+     * @deprecated use `getVersionIdsForFormAsyncWithHttpInfo` instead
+     */
+    public function getFormRelationshipsVersionsAsyncWithHttpInfo(...$args) {
+        return $this->getVersionIdsForFormAsyncWithHttpInfo(...$args);
+    }
+
+    /**
      * Create request for operation 'getVersionIdsForForm'
      *
      * @param  string $id The ID of the form (required)
+     * @param  string $filter For more information please visit https://developers.klaviyo.com/en/v2024-10-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;form_type&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;status&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;updated_at&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60;&lt;br&gt;&#x60;created_at&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60; (optional)
+     * @param  string $page_cursor For more information please visit https://developers.klaviyo.com/en/v2024-10-15/reference/api-overview#pagination (optional)
+     * @param  int $page_size Default: 20. Min: 1. Max: 100. (optional, default to 20)
+     * @param  string $sort For more information please visit https://developers.klaviyo.com/en/v2024-10-15/reference/api-overview#sorting (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getVersionIdsForFormRequest($id, $apiKey = null)
+    public function getVersionIdsForFormRequest($id, $filter = null, $page_cursor = null, $page_size = 20, $sort = null, $apiKey = null)
     {
         // verify the required parameter 'id' is set
         if ($id === null || (is_array($id) && count($id) === 0)) {
@@ -2472,6 +2528,13 @@ class FormsApi
                 'Missing the required parameter $id when calling getVersionIdsForForm'
             );
         }
+        if ($page_size !== null && $page_size > 100) {
+            throw new \InvalidArgumentException('invalid value for "$page_size" when calling FormsApi.getVersionIdsForForm, must be smaller than or equal to 100.');
+        }
+        if ($page_size !== null && $page_size < 1) {
+            throw new \InvalidArgumentException('invalid value for "$page_size" when calling FormsApi.getVersionIdsForForm, must be bigger than or equal to 1.');
+        }
+
 
         $resourcePath = '/api/forms/{id}/relationships/form-versions';
         $formParams = [];
@@ -2480,6 +2543,42 @@ class FormsApi
         $httpBody = '';
         $multipart = false;
 
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $filter,
+            'filter', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $page_cursor,
+            'page[cursor]', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $page_size,
+            'page[size]', // param base name
+            'integer', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $sort,
+            'sort', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
 
 
         // path params
@@ -2570,6 +2669,15 @@ class FormsApi
     }
 
     /**
+     * Alias of `getVersionIdsForFormRequest`
+     *
+     * @deprecated use `getVersionIdsForFormRequest` instead
+     */
+    public function getFormRelationshipsVersionsRequest(...$args) {
+        return $this->getVersionIdsForFormRequest(...$args);
+    }
+
+    /**
      * Operation getVersionsForForm
      *
      * Get Versions for Form
@@ -2597,6 +2705,15 @@ class FormsApi
      * @deprecated use `getVersionsForForm` instead
      */
     public function getFormFormVersions(...$args) {
+        return $this->getVersionsForForm(...$args);
+    }
+
+    /**
+     * Alias of `getVersionsForForm`
+     *
+     * @deprecated use `getVersionsForForm` instead
+     */
+    public function getFormVersions(...$args) {
         return $this->getVersionsForForm(...$args);
     }
 
@@ -2783,6 +2900,15 @@ class FormsApi
     }
 
     /**
+     * Alias of `getVersionsForFormWithHttpInfo`
+     *
+     * @deprecated use `getVersionsForFormWithHttpInfo` instead
+     */
+    public function getFormVersionsWithHttpInfo(...$args) {
+        return $this->getVersionsForFormWithHttpInfo(...$args);
+    }
+
+    /**
      * Operation getVersionsForFormAsync
      *
      * Get Versions for Form
@@ -2813,6 +2939,15 @@ class FormsApi
      * @deprecated use `getVersionsForFormAsync` instead
      */
     public function getFormFormVersionsAsync(...$args) {
+        return $this->getVersionsForFormAsync(...$args);
+    }
+
+    /**
+     * Alias of `getVersionsForFormAsync`
+     *
+     * @deprecated use `getVersionsForFormAsync` instead
+     */
+    public function getFormVersionsAsync(...$args) {
         return $this->getVersionsForFormAsync(...$args);
     }
 
@@ -2883,6 +3018,15 @@ class FormsApi
      * @deprecated use `getVersionsForFormAsyncWithHttpInfo` instead
      */
     public function getFormFormVersionsAsyncWithHttpInfo(...$args) {
+        return $this->getVersionsForFormAsyncWithHttpInfo(...$args);
+    }
+
+    /**
+     * Alias of `getVersionsForFormAsyncWithHttpInfo`
+     *
+     * @deprecated use `getVersionsForFormAsyncWithHttpInfo` instead
+     */
+    public function getFormVersionsAsyncWithHttpInfo(...$args) {
         return $this->getVersionsForFormAsyncWithHttpInfo(...$args);
     }
 
@@ -3053,6 +3197,15 @@ class FormsApi
      * @deprecated use `getVersionsForFormRequest` instead
      */
     public function getFormFormVersionsRequest(...$args) {
+        return $this->getVersionsForFormRequest(...$args);
+    }
+
+    /**
+     * Alias of `getVersionsForFormRequest`
+     *
+     * @deprecated use `getVersionsForFormRequest` instead
+     */
+    public function getFormVersionsRequest(...$args) {
         return $this->getVersionsForFormRequest(...$args);
     }
 

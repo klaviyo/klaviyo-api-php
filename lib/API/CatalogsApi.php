@@ -117,9 +117,9 @@ class CatalogsApi
     }
 
     /**
-     * Operation addCategoryToCatalogItem
+     * Operation addCategoriesToCatalogItem
      *
-     * Add Category to Catalog Item
+     * Add Categories to Catalog Item
      *
      * @param  string $id The catalog item ID is a compound ID (string), with format: &#x60;{integration}:::{catalog}:::{external_id}&#x60;. Currently, the only supported integration type is &#x60;$custom&#x60;, and the only supported catalog is &#x60;$default&#x60;. (required)
      * @param  \KlaviyoAPI\Model\CatalogItemCategoryOp $catalog_item_category_op catalog_item_category_op (required)
@@ -128,33 +128,42 @@ class CatalogsApi
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function addCategoryToCatalogItem($id, $catalog_item_category_op, $apiKey = null)
+    public function addCategoriesToCatalogItem($id, $catalog_item_category_op, $apiKey = null)
     {
-        $this->addCategoryToCatalogItemWithHttpInfo($id, $catalog_item_category_op, $apiKey);
+        $this->addCategoriesToCatalogItemWithHttpInfo($id, $catalog_item_category_op, $apiKey);
     }
 
     /**
-     * Alias of `addCategoryToCatalogItem`
+     * Alias of `addCategoriesToCatalogItem`
      *
-     * @deprecated use `addCategoryToCatalogItem` instead
+     * @deprecated use `addCategoriesToCatalogItem` instead
      */
-    public function createCatalogItemRelationshipsCategories(...$args) {
-        return $this->addCategoryToCatalogItem(...$args);
+    public function addCategoryToCatalogItem(...$args) {
+        return $this->addCategoriesToCatalogItem(...$args);
     }
 
     /**
-     * Alias of `addCategoryToCatalogItem`
+     * Alias of `addCategoriesToCatalogItem`
      *
-     * @deprecated use `addCategoryToCatalogItem` instead
+     * @deprecated use `addCategoriesToCatalogItem` instead
      */
     public function createCatalogItemRelationshipsCategory(...$args) {
-        return $this->addCategoryToCatalogItem(...$args);
+        return $this->addCategoriesToCatalogItem(...$args);
     }
 
     /**
-     * Operation addCategoryToCatalogItemWithHttpInfo
+     * Alias of `addCategoriesToCatalogItem`
      *
-     * Add Category to Catalog Item
+     * @deprecated use `addCategoriesToCatalogItem` instead
+     */
+    public function createCatalogItemRelationshipsCategories(...$args) {
+        return $this->addCategoriesToCatalogItem(...$args);
+    }
+
+    /**
+     * Operation addCategoriesToCatalogItemWithHttpInfo
+     *
+     * Add Categories to Catalog Item
      *
      * @param  string $id The catalog item ID is a compound ID (string), with format: &#x60;{integration}:::{catalog}:::{external_id}&#x60;. Currently, the only supported integration type is &#x60;$custom&#x60;, and the only supported catalog is &#x60;$default&#x60;. (required)
      * @param  \KlaviyoAPI\Model\CatalogItemCategoryOp $catalog_item_category_op (required)
@@ -163,9 +172,9 @@ class CatalogsApi
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function addCategoryToCatalogItemWithHttpInfo($id, $catalog_item_category_op, $apiKey = null)
+    public function addCategoriesToCatalogItemWithHttpInfo($id, $catalog_item_category_op, $apiKey = null)
     {
-        $request = $this->addCategoryToCatalogItemRequest($id, $catalog_item_category_op, $apiKey);
+        $request = $this->addCategoriesToCatalogItemRequest($id, $catalog_item_category_op, $apiKey);
 
         try {
             $options = $this->createHttpClientOption();
@@ -228,27 +237,36 @@ class CatalogsApi
     }
 
     /**
-     * Alias of `addCategoryToCatalogItemWithHttpInfo`
+     * Alias of `addCategoriesToCatalogItemWithHttpInfo`
      *
-     * @deprecated use `addCategoryToCatalogItemWithHttpInfo` instead
+     * @deprecated use `addCategoriesToCatalogItemWithHttpInfo` instead
      */
-    public function createCatalogItemRelationshipsCategoriesWithHttpInfo(...$args) {
-        return $this->addCategoryToCatalogItemWithHttpInfo(...$args);
+    public function addCategoryToCatalogItemWithHttpInfo(...$args) {
+        return $this->addCategoriesToCatalogItemWithHttpInfo(...$args);
     }
 
     /**
-     * Alias of `addCategoryToCatalogItemWithHttpInfo`
+     * Alias of `addCategoriesToCatalogItemWithHttpInfo`
      *
-     * @deprecated use `addCategoryToCatalogItemWithHttpInfo` instead
+     * @deprecated use `addCategoriesToCatalogItemWithHttpInfo` instead
      */
     public function createCatalogItemRelationshipsCategoryWithHttpInfo(...$args) {
-        return $this->addCategoryToCatalogItemWithHttpInfo(...$args);
+        return $this->addCategoriesToCatalogItemWithHttpInfo(...$args);
     }
 
     /**
-     * Operation addCategoryToCatalogItemAsync
+     * Alias of `addCategoriesToCatalogItemWithHttpInfo`
      *
-     * Add Category to Catalog Item
+     * @deprecated use `addCategoriesToCatalogItemWithHttpInfo` instead
+     */
+    public function createCatalogItemRelationshipsCategoriesWithHttpInfo(...$args) {
+        return $this->addCategoriesToCatalogItemWithHttpInfo(...$args);
+    }
+
+    /**
+     * Operation addCategoriesToCatalogItemAsync
+     *
+     * Add Categories to Catalog Item
      *
      * @param  string $id The catalog item ID is a compound ID (string), with format: &#x60;{integration}:::{catalog}:::{external_id}&#x60;. Currently, the only supported integration type is &#x60;$custom&#x60;, and the only supported catalog is &#x60;$default&#x60;. (required)
      * @param  \KlaviyoAPI\Model\CatalogItemCategoryOp $catalog_item_category_op (required)
@@ -256,9 +274,9 @@ class CatalogsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function addCategoryToCatalogItemAsync($id, $catalog_item_category_op, $apiKey = null)
+    public function addCategoriesToCatalogItemAsync($id, $catalog_item_category_op, $apiKey = null)
     {
-        return $this->addCategoryToCatalogItemAsyncWithHttpInfo($id, $catalog_item_category_op, $apiKey)
+        return $this->addCategoriesToCatalogItemAsyncWithHttpInfo($id, $catalog_item_category_op, $apiKey)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -267,27 +285,36 @@ class CatalogsApi
     }
 
     /**
-     * Alias of `addCategoryToCatalogItemAsync`
+     * Alias of `addCategoriesToCatalogItemAsync`
      *
-     * @deprecated use `addCategoryToCatalogItemAsync` instead
+     * @deprecated use `addCategoriesToCatalogItemAsync` instead
      */
-    public function createCatalogItemRelationshipsCategoriesAsync(...$args) {
-        return $this->addCategoryToCatalogItemAsync(...$args);
+    public function addCategoryToCatalogItemAsync(...$args) {
+        return $this->addCategoriesToCatalogItemAsync(...$args);
     }
 
     /**
-     * Alias of `addCategoryToCatalogItemAsync`
+     * Alias of `addCategoriesToCatalogItemAsync`
      *
-     * @deprecated use `addCategoryToCatalogItemAsync` instead
+     * @deprecated use `addCategoriesToCatalogItemAsync` instead
      */
     public function createCatalogItemRelationshipsCategoryAsync(...$args) {
-        return $this->addCategoryToCatalogItemAsync(...$args);
+        return $this->addCategoriesToCatalogItemAsync(...$args);
     }
 
     /**
-     * Operation addCategoryToCatalogItemAsyncWithHttpInfo
+     * Alias of `addCategoriesToCatalogItemAsync`
      *
-     * Add Category to Catalog Item
+     * @deprecated use `addCategoriesToCatalogItemAsync` instead
+     */
+    public function createCatalogItemRelationshipsCategoriesAsync(...$args) {
+        return $this->addCategoriesToCatalogItemAsync(...$args);
+    }
+
+    /**
+     * Operation addCategoriesToCatalogItemAsyncWithHttpInfo
+     *
+     * Add Categories to Catalog Item
      *
      * @param  string $id The catalog item ID is a compound ID (string), with format: &#x60;{integration}:::{catalog}:::{external_id}&#x60;. Currently, the only supported integration type is &#x60;$custom&#x60;, and the only supported catalog is &#x60;$default&#x60;. (required)
      * @param  \KlaviyoAPI\Model\CatalogItemCategoryOp $catalog_item_category_op (required)
@@ -295,10 +322,10 @@ class CatalogsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function addCategoryToCatalogItemAsyncWithHttpInfo($id, $catalog_item_category_op, $apiKey = null)
+    public function addCategoriesToCatalogItemAsyncWithHttpInfo($id, $catalog_item_category_op, $apiKey = null)
     {
         $returnType = '';
-        $request = $this->addCategoryToCatalogItemRequest($id, $catalog_item_category_op, $apiKey);
+        $request = $this->addCategoriesToCatalogItemRequest($id, $catalog_item_category_op, $apiKey);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -324,25 +351,34 @@ class CatalogsApi
     }
 
     /**
-     * Alias of `addCategoryToCatalogItemAsyncWithHttpInfo`
+     * Alias of `addCategoriesToCatalogItemAsyncWithHttpInfo`
      *
-     * @deprecated use `addCategoryToCatalogItemAsyncWithHttpInfo` instead
+     * @deprecated use `addCategoriesToCatalogItemAsyncWithHttpInfo` instead
      */
-    public function createCatalogItemRelationshipsCategoriesAsyncWithHttpInfo(...$args) {
-        return $this->addCategoryToCatalogItemAsyncWithHttpInfo(...$args);
+    public function addCategoryToCatalogItemAsyncWithHttpInfo(...$args) {
+        return $this->addCategoriesToCatalogItemAsyncWithHttpInfo(...$args);
     }
 
     /**
-     * Alias of `addCategoryToCatalogItemAsyncWithHttpInfo`
+     * Alias of `addCategoriesToCatalogItemAsyncWithHttpInfo`
      *
-     * @deprecated use `addCategoryToCatalogItemAsyncWithHttpInfo` instead
+     * @deprecated use `addCategoriesToCatalogItemAsyncWithHttpInfo` instead
      */
     public function createCatalogItemRelationshipsCategoryAsyncWithHttpInfo(...$args) {
-        return $this->addCategoryToCatalogItemAsyncWithHttpInfo(...$args);
+        return $this->addCategoriesToCatalogItemAsyncWithHttpInfo(...$args);
     }
 
     /**
-     * Create request for operation 'addCategoryToCatalogItem'
+     * Alias of `addCategoriesToCatalogItemAsyncWithHttpInfo`
+     *
+     * @deprecated use `addCategoriesToCatalogItemAsyncWithHttpInfo` instead
+     */
+    public function createCatalogItemRelationshipsCategoriesAsyncWithHttpInfo(...$args) {
+        return $this->addCategoriesToCatalogItemAsyncWithHttpInfo(...$args);
+    }
+
+    /**
+     * Create request for operation 'addCategoriesToCatalogItem'
      *
      * @param  string $id The catalog item ID is a compound ID (string), with format: &#x60;{integration}:::{catalog}:::{external_id}&#x60;. Currently, the only supported integration type is &#x60;$custom&#x60;, and the only supported catalog is &#x60;$default&#x60;. (required)
      * @param  \KlaviyoAPI\Model\CatalogItemCategoryOp $catalog_item_category_op (required)
@@ -350,18 +386,18 @@ class CatalogsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function addCategoryToCatalogItemRequest($id, $catalog_item_category_op, $apiKey = null)
+    public function addCategoriesToCatalogItemRequest($id, $catalog_item_category_op, $apiKey = null)
     {
         // verify the required parameter 'id' is set
         if ($id === null || (is_array($id) && count($id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $id when calling addCategoryToCatalogItem'
+                'Missing the required parameter $id when calling addCategoriesToCatalogItem'
             );
         }
         // verify the required parameter 'catalog_item_category_op' is set
         if ($catalog_item_category_op === null || (is_array($catalog_item_category_op) && count($catalog_item_category_op) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $catalog_item_category_op when calling addCategoryToCatalogItem'
+                'Missing the required parameter $catalog_item_category_op when calling addCategoriesToCatalogItem'
             );
         }
 
@@ -459,21 +495,30 @@ class CatalogsApi
     }
 
     /**
-     * Alias of `addCategoryToCatalogItemRequest`
+     * Alias of `addCategoriesToCatalogItemRequest`
      *
-     * @deprecated use `addCategoryToCatalogItemRequest` instead
+     * @deprecated use `addCategoriesToCatalogItemRequest` instead
      */
-    public function createCatalogItemRelationshipsCategoriesRequest(...$args) {
-        return $this->addCategoryToCatalogItemRequest(...$args);
+    public function addCategoryToCatalogItemRequest(...$args) {
+        return $this->addCategoriesToCatalogItemRequest(...$args);
     }
 
     /**
-     * Alias of `addCategoryToCatalogItemRequest`
+     * Alias of `addCategoriesToCatalogItemRequest`
      *
-     * @deprecated use `addCategoryToCatalogItemRequest` instead
+     * @deprecated use `addCategoriesToCatalogItemRequest` instead
      */
     public function createCatalogItemRelationshipsCategoryRequest(...$args) {
-        return $this->addCategoryToCatalogItemRequest(...$args);
+        return $this->addCategoriesToCatalogItemRequest(...$args);
+    }
+
+    /**
+     * Alias of `addCategoriesToCatalogItemRequest`
+     *
+     * @deprecated use `addCategoriesToCatalogItemRequest` instead
+     */
+    public function createCatalogItemRelationshipsCategoriesRequest(...$args) {
+        return $this->addCategoriesToCatalogItemRequest(...$args);
     }
 
     /**
@@ -498,7 +543,7 @@ class CatalogsApi
      *
      * @deprecated use `addItemsToCatalogCategory` instead
      */
-    public function createCatalogCategoryRelationshipsItems(...$args) {
+    public function createCatalogCategoryRelationshipsItem(...$args) {
         return $this->addItemsToCatalogCategory(...$args);
     }
 
@@ -507,7 +552,7 @@ class CatalogsApi
      *
      * @deprecated use `addItemsToCatalogCategory` instead
      */
-    public function createCatalogCategoryRelationshipsItem(...$args) {
+    public function createCatalogCategoryRelationshipsItems(...$args) {
         return $this->addItemsToCatalogCategory(...$args);
     }
 
@@ -592,7 +637,7 @@ class CatalogsApi
      *
      * @deprecated use `addItemsToCatalogCategoryWithHttpInfo` instead
      */
-    public function createCatalogCategoryRelationshipsItemsWithHttpInfo(...$args) {
+    public function createCatalogCategoryRelationshipsItemWithHttpInfo(...$args) {
         return $this->addItemsToCatalogCategoryWithHttpInfo(...$args);
     }
 
@@ -601,7 +646,7 @@ class CatalogsApi
      *
      * @deprecated use `addItemsToCatalogCategoryWithHttpInfo` instead
      */
-    public function createCatalogCategoryRelationshipsItemWithHttpInfo(...$args) {
+    public function createCatalogCategoryRelationshipsItemsWithHttpInfo(...$args) {
         return $this->addItemsToCatalogCategoryWithHttpInfo(...$args);
     }
 
@@ -631,7 +676,7 @@ class CatalogsApi
      *
      * @deprecated use `addItemsToCatalogCategoryAsync` instead
      */
-    public function createCatalogCategoryRelationshipsItemsAsync(...$args) {
+    public function createCatalogCategoryRelationshipsItemAsync(...$args) {
         return $this->addItemsToCatalogCategoryAsync(...$args);
     }
 
@@ -640,7 +685,7 @@ class CatalogsApi
      *
      * @deprecated use `addItemsToCatalogCategoryAsync` instead
      */
-    public function createCatalogCategoryRelationshipsItemAsync(...$args) {
+    public function createCatalogCategoryRelationshipsItemsAsync(...$args) {
         return $this->addItemsToCatalogCategoryAsync(...$args);
     }
 
@@ -688,7 +733,7 @@ class CatalogsApi
      *
      * @deprecated use `addItemsToCatalogCategoryAsyncWithHttpInfo` instead
      */
-    public function createCatalogCategoryRelationshipsItemsAsyncWithHttpInfo(...$args) {
+    public function createCatalogCategoryRelationshipsItemAsyncWithHttpInfo(...$args) {
         return $this->addItemsToCatalogCategoryAsyncWithHttpInfo(...$args);
     }
 
@@ -697,7 +742,7 @@ class CatalogsApi
      *
      * @deprecated use `addItemsToCatalogCategoryAsyncWithHttpInfo` instead
      */
-    public function createCatalogCategoryRelationshipsItemAsyncWithHttpInfo(...$args) {
+    public function createCatalogCategoryRelationshipsItemsAsyncWithHttpInfo(...$args) {
         return $this->addItemsToCatalogCategoryAsyncWithHttpInfo(...$args);
     }
 
@@ -823,7 +868,7 @@ class CatalogsApi
      *
      * @deprecated use `addItemsToCatalogCategoryRequest` instead
      */
-    public function createCatalogCategoryRelationshipsItemsRequest(...$args) {
+    public function createCatalogCategoryRelationshipsItemRequest(...$args) {
         return $this->addItemsToCatalogCategoryRequest(...$args);
     }
 
@@ -832,7 +877,7 @@ class CatalogsApi
      *
      * @deprecated use `addItemsToCatalogCategoryRequest` instead
      */
-    public function createCatalogCategoryRelationshipsItemRequest(...$args) {
+    public function createCatalogCategoryRelationshipsItemsRequest(...$args) {
         return $this->addItemsToCatalogCategoryRequest(...$args);
     }
 
@@ -12780,15 +12825,17 @@ class CatalogsApi
      * Get Category IDs for Catalog Item
      *
      * @param  string $id The catalog item ID is a compound ID (string), with format: &#x60;{integration}:::{catalog}:::{external_id}&#x60;. Currently, the only supported integration type is &#x60;$custom&#x60;, and the only supported catalog is &#x60;$default&#x60;. (required)
+     * @param  string $filter For more information please visit https://developers.klaviyo.com/en/v2024-10-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;ids&#x60;: &#x60;any&#x60;&lt;br&gt;&#x60;item.id&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;name&#x60;: &#x60;contains&#x60; (optional)
      * @param  string $page_cursor For more information please visit https://developers.klaviyo.com/en/v2024-10-15/reference/api-overview#pagination (optional)
+     * @param  string $sort For more information please visit https://developers.klaviyo.com/en/v2024-10-15/reference/api-overview#sorting (optional)
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array<string,mixed>|\KlaviyoAPI\Model\GetAccounts400Response|\KlaviyoAPI\Model\GetAccounts400Response
      */
-    public function getCategoryIdsForCatalogItem($id, $page_cursor = null, $apiKey = null)
+    public function getCategoryIdsForCatalogItem($id, $filter = null, $page_cursor = null, $sort = null, $apiKey = null)
     {
-        list($response) = $this->getCategoryIdsForCatalogItemWithHttpInfo($id, $page_cursor, $apiKey);
+        list($response) = $this->getCategoryIdsForCatalogItemWithHttpInfo($id, $filter, $page_cursor, $sort, $apiKey);
         return $response;
     }
 
@@ -12807,15 +12854,17 @@ class CatalogsApi
      * Get Category IDs for Catalog Item
      *
      * @param  string $id The catalog item ID is a compound ID (string), with format: &#x60;{integration}:::{catalog}:::{external_id}&#x60;. Currently, the only supported integration type is &#x60;$custom&#x60;, and the only supported catalog is &#x60;$default&#x60;. (required)
+     * @param  string $filter For more information please visit https://developers.klaviyo.com/en/v2024-10-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;ids&#x60;: &#x60;any&#x60;&lt;br&gt;&#x60;item.id&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;name&#x60;: &#x60;contains&#x60; (optional)
      * @param  string $page_cursor For more information please visit https://developers.klaviyo.com/en/v2024-10-15/reference/api-overview#pagination (optional)
+     * @param  string $sort For more information please visit https://developers.klaviyo.com/en/v2024-10-15/reference/api-overview#sorting (optional)
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of array<string,mixed>|\KlaviyoAPI\Model\GetAccounts400Response|\KlaviyoAPI\Model\GetAccounts400Response, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getCategoryIdsForCatalogItemWithHttpInfo($id, $page_cursor = null, $apiKey = null)
+    public function getCategoryIdsForCatalogItemWithHttpInfo($id, $filter = null, $page_cursor = null, $sort = null, $apiKey = null)
     {
-        $request = $this->getCategoryIdsForCatalogItemRequest($id, $page_cursor, $apiKey);
+        $request = $this->getCategoryIdsForCatalogItemRequest($id, $filter, $page_cursor, $sort, $apiKey);
 
         try {
             $options = $this->createHttpClientOption();
@@ -12985,14 +13034,16 @@ class CatalogsApi
      * Get Category IDs for Catalog Item
      *
      * @param  string $id The catalog item ID is a compound ID (string), with format: &#x60;{integration}:::{catalog}:::{external_id}&#x60;. Currently, the only supported integration type is &#x60;$custom&#x60;, and the only supported catalog is &#x60;$default&#x60;. (required)
+     * @param  string $filter For more information please visit https://developers.klaviyo.com/en/v2024-10-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;ids&#x60;: &#x60;any&#x60;&lt;br&gt;&#x60;item.id&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;name&#x60;: &#x60;contains&#x60; (optional)
      * @param  string $page_cursor For more information please visit https://developers.klaviyo.com/en/v2024-10-15/reference/api-overview#pagination (optional)
+     * @param  string $sort For more information please visit https://developers.klaviyo.com/en/v2024-10-15/reference/api-overview#sorting (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getCategoryIdsForCatalogItemAsync($id, $page_cursor = null, $apiKey = null)
+    public function getCategoryIdsForCatalogItemAsync($id, $filter = null, $page_cursor = null, $sort = null, $apiKey = null)
     {
-        return $this->getCategoryIdsForCatalogItemAsyncWithHttpInfo($id, $page_cursor, $apiKey)
+        return $this->getCategoryIdsForCatalogItemAsyncWithHttpInfo($id, $filter, $page_cursor, $sort, $apiKey)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -13015,15 +13066,17 @@ class CatalogsApi
      * Get Category IDs for Catalog Item
      *
      * @param  string $id The catalog item ID is a compound ID (string), with format: &#x60;{integration}:::{catalog}:::{external_id}&#x60;. Currently, the only supported integration type is &#x60;$custom&#x60;, and the only supported catalog is &#x60;$default&#x60;. (required)
+     * @param  string $filter For more information please visit https://developers.klaviyo.com/en/v2024-10-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;ids&#x60;: &#x60;any&#x60;&lt;br&gt;&#x60;item.id&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;name&#x60;: &#x60;contains&#x60; (optional)
      * @param  string $page_cursor For more information please visit https://developers.klaviyo.com/en/v2024-10-15/reference/api-overview#pagination (optional)
+     * @param  string $sort For more information please visit https://developers.klaviyo.com/en/v2024-10-15/reference/api-overview#sorting (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getCategoryIdsForCatalogItemAsyncWithHttpInfo($id, $page_cursor = null, $apiKey = null)
+    public function getCategoryIdsForCatalogItemAsyncWithHttpInfo($id, $filter = null, $page_cursor = null, $sort = null, $apiKey = null)
     {
         $returnType = 'array<string,mixed>';
-        $request = $this->getCategoryIdsForCatalogItemRequest($id, $page_cursor, $apiKey);
+        $request = $this->getCategoryIdsForCatalogItemRequest($id, $filter, $page_cursor, $sort, $apiKey);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -13079,12 +13132,14 @@ class CatalogsApi
      * Create request for operation 'getCategoryIdsForCatalogItem'
      *
      * @param  string $id The catalog item ID is a compound ID (string), with format: &#x60;{integration}:::{catalog}:::{external_id}&#x60;. Currently, the only supported integration type is &#x60;$custom&#x60;, and the only supported catalog is &#x60;$default&#x60;. (required)
+     * @param  string $filter For more information please visit https://developers.klaviyo.com/en/v2024-10-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;ids&#x60;: &#x60;any&#x60;&lt;br&gt;&#x60;item.id&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;name&#x60;: &#x60;contains&#x60; (optional)
      * @param  string $page_cursor For more information please visit https://developers.klaviyo.com/en/v2024-10-15/reference/api-overview#pagination (optional)
+     * @param  string $sort For more information please visit https://developers.klaviyo.com/en/v2024-10-15/reference/api-overview#sorting (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getCategoryIdsForCatalogItemRequest($id, $page_cursor = null, $apiKey = null)
+    public function getCategoryIdsForCatalogItemRequest($id, $filter = null, $page_cursor = null, $sort = null, $apiKey = null)
     {
         // verify the required parameter 'id' is set
         if ($id === null || (is_array($id) && count($id) === 0)) {
@@ -13102,8 +13157,26 @@ class CatalogsApi
 
         // query params
         $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $filter,
+            'filter', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
             $page_cursor,
             'page[cursor]', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $sort,
+            'sort', // param base name
             'string', // openApiType
             'form', // style
             true, // explode
@@ -16688,15 +16761,17 @@ class CatalogsApi
      * Get Item IDs for Catalog Category
      *
      * @param  string $id The catalog category ID is a compound ID (string), with format: &#x60;{integration}:::{catalog}:::{external_id}&#x60;. Currently, the only supported integration type is &#x60;$custom&#x60;, and the only supported catalog is &#x60;$default&#x60;. (required)
+     * @param  string $filter For more information please visit https://developers.klaviyo.com/en/v2024-10-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;ids&#x60;: &#x60;any&#x60;&lt;br&gt;&#x60;category.id&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;title&#x60;: &#x60;contains&#x60;&lt;br&gt;&#x60;published&#x60;: &#x60;equals&#x60; (optional)
      * @param  string $page_cursor For more information please visit https://developers.klaviyo.com/en/v2024-10-15/reference/api-overview#pagination (optional)
+     * @param  string $sort For more information please visit https://developers.klaviyo.com/en/v2024-10-15/reference/api-overview#sorting (optional)
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array<string,mixed>|\KlaviyoAPI\Model\GetAccounts400Response|\KlaviyoAPI\Model\GetAccounts400Response
      */
-    public function getItemIdsForCatalogCategory($id, $page_cursor = null, $apiKey = null)
+    public function getItemIdsForCatalogCategory($id, $filter = null, $page_cursor = null, $sort = null, $apiKey = null)
     {
-        list($response) = $this->getItemIdsForCatalogCategoryWithHttpInfo($id, $page_cursor, $apiKey);
+        list($response) = $this->getItemIdsForCatalogCategoryWithHttpInfo($id, $filter, $page_cursor, $sort, $apiKey);
         return $response;
     }
 
@@ -16715,15 +16790,17 @@ class CatalogsApi
      * Get Item IDs for Catalog Category
      *
      * @param  string $id The catalog category ID is a compound ID (string), with format: &#x60;{integration}:::{catalog}:::{external_id}&#x60;. Currently, the only supported integration type is &#x60;$custom&#x60;, and the only supported catalog is &#x60;$default&#x60;. (required)
+     * @param  string $filter For more information please visit https://developers.klaviyo.com/en/v2024-10-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;ids&#x60;: &#x60;any&#x60;&lt;br&gt;&#x60;category.id&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;title&#x60;: &#x60;contains&#x60;&lt;br&gt;&#x60;published&#x60;: &#x60;equals&#x60; (optional)
      * @param  string $page_cursor For more information please visit https://developers.klaviyo.com/en/v2024-10-15/reference/api-overview#pagination (optional)
+     * @param  string $sort For more information please visit https://developers.klaviyo.com/en/v2024-10-15/reference/api-overview#sorting (optional)
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of array<string,mixed>|\KlaviyoAPI\Model\GetAccounts400Response|\KlaviyoAPI\Model\GetAccounts400Response, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getItemIdsForCatalogCategoryWithHttpInfo($id, $page_cursor = null, $apiKey = null)
+    public function getItemIdsForCatalogCategoryWithHttpInfo($id, $filter = null, $page_cursor = null, $sort = null, $apiKey = null)
     {
-        $request = $this->getItemIdsForCatalogCategoryRequest($id, $page_cursor, $apiKey);
+        $request = $this->getItemIdsForCatalogCategoryRequest($id, $filter, $page_cursor, $sort, $apiKey);
 
         try {
             $options = $this->createHttpClientOption();
@@ -16893,14 +16970,16 @@ class CatalogsApi
      * Get Item IDs for Catalog Category
      *
      * @param  string $id The catalog category ID is a compound ID (string), with format: &#x60;{integration}:::{catalog}:::{external_id}&#x60;. Currently, the only supported integration type is &#x60;$custom&#x60;, and the only supported catalog is &#x60;$default&#x60;. (required)
+     * @param  string $filter For more information please visit https://developers.klaviyo.com/en/v2024-10-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;ids&#x60;: &#x60;any&#x60;&lt;br&gt;&#x60;category.id&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;title&#x60;: &#x60;contains&#x60;&lt;br&gt;&#x60;published&#x60;: &#x60;equals&#x60; (optional)
      * @param  string $page_cursor For more information please visit https://developers.klaviyo.com/en/v2024-10-15/reference/api-overview#pagination (optional)
+     * @param  string $sort For more information please visit https://developers.klaviyo.com/en/v2024-10-15/reference/api-overview#sorting (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getItemIdsForCatalogCategoryAsync($id, $page_cursor = null, $apiKey = null)
+    public function getItemIdsForCatalogCategoryAsync($id, $filter = null, $page_cursor = null, $sort = null, $apiKey = null)
     {
-        return $this->getItemIdsForCatalogCategoryAsyncWithHttpInfo($id, $page_cursor, $apiKey)
+        return $this->getItemIdsForCatalogCategoryAsyncWithHttpInfo($id, $filter, $page_cursor, $sort, $apiKey)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -16923,15 +17002,17 @@ class CatalogsApi
      * Get Item IDs for Catalog Category
      *
      * @param  string $id The catalog category ID is a compound ID (string), with format: &#x60;{integration}:::{catalog}:::{external_id}&#x60;. Currently, the only supported integration type is &#x60;$custom&#x60;, and the only supported catalog is &#x60;$default&#x60;. (required)
+     * @param  string $filter For more information please visit https://developers.klaviyo.com/en/v2024-10-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;ids&#x60;: &#x60;any&#x60;&lt;br&gt;&#x60;category.id&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;title&#x60;: &#x60;contains&#x60;&lt;br&gt;&#x60;published&#x60;: &#x60;equals&#x60; (optional)
      * @param  string $page_cursor For more information please visit https://developers.klaviyo.com/en/v2024-10-15/reference/api-overview#pagination (optional)
+     * @param  string $sort For more information please visit https://developers.klaviyo.com/en/v2024-10-15/reference/api-overview#sorting (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getItemIdsForCatalogCategoryAsyncWithHttpInfo($id, $page_cursor = null, $apiKey = null)
+    public function getItemIdsForCatalogCategoryAsyncWithHttpInfo($id, $filter = null, $page_cursor = null, $sort = null, $apiKey = null)
     {
         $returnType = 'array<string,mixed>';
-        $request = $this->getItemIdsForCatalogCategoryRequest($id, $page_cursor, $apiKey);
+        $request = $this->getItemIdsForCatalogCategoryRequest($id, $filter, $page_cursor, $sort, $apiKey);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -16987,12 +17068,14 @@ class CatalogsApi
      * Create request for operation 'getItemIdsForCatalogCategory'
      *
      * @param  string $id The catalog category ID is a compound ID (string), with format: &#x60;{integration}:::{catalog}:::{external_id}&#x60;. Currently, the only supported integration type is &#x60;$custom&#x60;, and the only supported catalog is &#x60;$default&#x60;. (required)
+     * @param  string $filter For more information please visit https://developers.klaviyo.com/en/v2024-10-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;ids&#x60;: &#x60;any&#x60;&lt;br&gt;&#x60;category.id&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;title&#x60;: &#x60;contains&#x60;&lt;br&gt;&#x60;published&#x60;: &#x60;equals&#x60; (optional)
      * @param  string $page_cursor For more information please visit https://developers.klaviyo.com/en/v2024-10-15/reference/api-overview#pagination (optional)
+     * @param  string $sort For more information please visit https://developers.klaviyo.com/en/v2024-10-15/reference/api-overview#sorting (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getItemIdsForCatalogCategoryRequest($id, $page_cursor = null, $apiKey = null)
+    public function getItemIdsForCatalogCategoryRequest($id, $filter = null, $page_cursor = null, $sort = null, $apiKey = null)
     {
         // verify the required parameter 'id' is set
         if ($id === null || (is_array($id) && count($id) === 0)) {
@@ -17010,8 +17093,26 @@ class CatalogsApi
 
         // query params
         $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $filter,
+            'filter', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
             $page_cursor,
             'page[cursor]', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $sort,
+            'sort', // param base name
             'string', // openApiType
             'form', // style
             true, // explode
@@ -19368,6 +19469,458 @@ class CatalogsApi
      */
     public function getCatalogVariantBulkUpdateJobsRequest(...$args) {
         return $this->getUpdateVariantsJobsRequest(...$args);
+    }
+
+    /**
+     * Operation getVariantIdsForCatalogItem
+     *
+     * Get Variant IDs for Catalog Item
+     *
+     * @param  string $id The catalog item ID is a compound ID (string), with format: &#x60;{integration}:::{catalog}:::{external_id}&#x60;. Currently, the only supported integration type is &#x60;$custom&#x60;, and the only supported catalog is &#x60;$default&#x60;. (required)
+     * @param  string $filter For more information please visit https://developers.klaviyo.com/en/v2024-10-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;ids&#x60;: &#x60;any&#x60;&lt;br&gt;&#x60;item.id&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;sku&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;title&#x60;: &#x60;contains&#x60;&lt;br&gt;&#x60;published&#x60;: &#x60;equals&#x60; (optional)
+     * @param  string $page_cursor For more information please visit https://developers.klaviyo.com/en/v2024-10-15/reference/api-overview#pagination (optional)
+     * @param  string $sort For more information please visit https://developers.klaviyo.com/en/v2024-10-15/reference/api-overview#sorting (optional)
+     *
+     * @throws \KlaviyoAPI\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array<string,mixed>|\KlaviyoAPI\Model\GetAccounts400Response|\KlaviyoAPI\Model\GetAccounts400Response
+     */
+    public function getVariantIdsForCatalogItem($id, $filter = null, $page_cursor = null, $sort = null, $apiKey = null)
+    {
+        list($response) = $this->getVariantIdsForCatalogItemWithHttpInfo($id, $filter, $page_cursor, $sort, $apiKey);
+        return $response;
+    }
+
+    /**
+     * Alias of `getVariantIdsForCatalogItem`
+     *
+     * @deprecated use `getVariantIdsForCatalogItem` instead
+     */
+    public function getCatalogItemRelationshipsVariants(...$args) {
+        return $this->getVariantIdsForCatalogItem(...$args);
+    }
+
+    /**
+     * Operation getVariantIdsForCatalogItemWithHttpInfo
+     *
+     * Get Variant IDs for Catalog Item
+     *
+     * @param  string $id The catalog item ID is a compound ID (string), with format: &#x60;{integration}:::{catalog}:::{external_id}&#x60;. Currently, the only supported integration type is &#x60;$custom&#x60;, and the only supported catalog is &#x60;$default&#x60;. (required)
+     * @param  string $filter For more information please visit https://developers.klaviyo.com/en/v2024-10-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;ids&#x60;: &#x60;any&#x60;&lt;br&gt;&#x60;item.id&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;sku&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;title&#x60;: &#x60;contains&#x60;&lt;br&gt;&#x60;published&#x60;: &#x60;equals&#x60; (optional)
+     * @param  string $page_cursor For more information please visit https://developers.klaviyo.com/en/v2024-10-15/reference/api-overview#pagination (optional)
+     * @param  string $sort For more information please visit https://developers.klaviyo.com/en/v2024-10-15/reference/api-overview#sorting (optional)
+     *
+     * @throws \KlaviyoAPI\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of array<string,mixed>|\KlaviyoAPI\Model\GetAccounts400Response|\KlaviyoAPI\Model\GetAccounts400Response, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getVariantIdsForCatalogItemWithHttpInfo($id, $filter = null, $page_cursor = null, $sort = null, $apiKey = null)
+    {
+        $request = $this->getVariantIdsForCatalogItemRequest($id, $filter, $page_cursor, $sort, $apiKey);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('array<string,mixed>' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('array&lt;string,mixed&gt;' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+
+                    $parsed_content = json_decode(json_encode($content), TRUE);
+                    if (json_last_error() != JSON_ERROR_NONE) {
+                        $parsed_content = $content;
+                    }
+
+                    return [
+                        $parsed_content,
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 400:
+                    if ('\KlaviyoAPI\Model\GetAccounts400Response' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\KlaviyoAPI\Model\GetAccounts400Response' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+
+                    $parsed_content = json_decode(json_encode($content), TRUE);
+                    if (json_last_error() != JSON_ERROR_NONE) {
+                        $parsed_content = $content;
+                    }
+
+                    return [
+                        $parsed_content,
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 500:
+                    if ('\KlaviyoAPI\Model\GetAccounts400Response' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\KlaviyoAPI\Model\GetAccounts400Response' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+
+                    $parsed_content = json_decode(json_encode($content), TRUE);
+                    if (json_last_error() != JSON_ERROR_NONE) {
+                        $parsed_content = $content;
+                    }
+
+                    return [
+                        $parsed_content,
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = 'array<string,mixed>';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            $parsed_content = json_decode(json_encode($content), TRUE);
+            if (json_last_error() != JSON_ERROR_NONE) {
+                $parsed_content = $content;
+            }
+
+            return [
+                $parsed_content,
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        'array<string,mixed>',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\KlaviyoAPI\Model\GetAccounts400Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 500:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\KlaviyoAPI\Model\GetAccounts400Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Alias of `getVariantIdsForCatalogItemWithHttpInfo`
+     *
+     * @deprecated use `getVariantIdsForCatalogItemWithHttpInfo` instead
+     */
+    public function getCatalogItemRelationshipsVariantsWithHttpInfo(...$args) {
+        return $this->getVariantIdsForCatalogItemWithHttpInfo(...$args);
+    }
+
+    /**
+     * Operation getVariantIdsForCatalogItemAsync
+     *
+     * Get Variant IDs for Catalog Item
+     *
+     * @param  string $id The catalog item ID is a compound ID (string), with format: &#x60;{integration}:::{catalog}:::{external_id}&#x60;. Currently, the only supported integration type is &#x60;$custom&#x60;, and the only supported catalog is &#x60;$default&#x60;. (required)
+     * @param  string $filter For more information please visit https://developers.klaviyo.com/en/v2024-10-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;ids&#x60;: &#x60;any&#x60;&lt;br&gt;&#x60;item.id&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;sku&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;title&#x60;: &#x60;contains&#x60;&lt;br&gt;&#x60;published&#x60;: &#x60;equals&#x60; (optional)
+     * @param  string $page_cursor For more information please visit https://developers.klaviyo.com/en/v2024-10-15/reference/api-overview#pagination (optional)
+     * @param  string $sort For more information please visit https://developers.klaviyo.com/en/v2024-10-15/reference/api-overview#sorting (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getVariantIdsForCatalogItemAsync($id, $filter = null, $page_cursor = null, $sort = null, $apiKey = null)
+    {
+        return $this->getVariantIdsForCatalogItemAsyncWithHttpInfo($id, $filter, $page_cursor, $sort, $apiKey)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Alias of `getVariantIdsForCatalogItemAsync`
+     *
+     * @deprecated use `getVariantIdsForCatalogItemAsync` instead
+     */
+    public function getCatalogItemRelationshipsVariantsAsync(...$args) {
+        return $this->getVariantIdsForCatalogItemAsync(...$args);
+    }
+
+    /**
+     * Operation getVariantIdsForCatalogItemAsyncWithHttpInfo
+     *
+     * Get Variant IDs for Catalog Item
+     *
+     * @param  string $id The catalog item ID is a compound ID (string), with format: &#x60;{integration}:::{catalog}:::{external_id}&#x60;. Currently, the only supported integration type is &#x60;$custom&#x60;, and the only supported catalog is &#x60;$default&#x60;. (required)
+     * @param  string $filter For more information please visit https://developers.klaviyo.com/en/v2024-10-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;ids&#x60;: &#x60;any&#x60;&lt;br&gt;&#x60;item.id&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;sku&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;title&#x60;: &#x60;contains&#x60;&lt;br&gt;&#x60;published&#x60;: &#x60;equals&#x60; (optional)
+     * @param  string $page_cursor For more information please visit https://developers.klaviyo.com/en/v2024-10-15/reference/api-overview#pagination (optional)
+     * @param  string $sort For more information please visit https://developers.klaviyo.com/en/v2024-10-15/reference/api-overview#sorting (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getVariantIdsForCatalogItemAsyncWithHttpInfo($id, $filter = null, $page_cursor = null, $sort = null, $apiKey = null)
+    {
+        $returnType = 'array<string,mixed>';
+        $request = $this->getVariantIdsForCatalogItemRequest($id, $filter, $page_cursor, $sort, $apiKey);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    $parsed_content = json_decode(json_encode($content), TRUE);
+                    if (json_last_error() != JSON_ERROR_NONE) {
+                        $parsed_content = $content;
+                    }
+
+                    return [
+                        $parsed_content,
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Alias of `getVariantIdsForCatalogItemAsyncWithHttpInfo`
+     *
+     * @deprecated use `getVariantIdsForCatalogItemAsyncWithHttpInfo` instead
+     */
+    public function getCatalogItemRelationshipsVariantsAsyncWithHttpInfo(...$args) {
+        return $this->getVariantIdsForCatalogItemAsyncWithHttpInfo(...$args);
+    }
+
+    /**
+     * Create request for operation 'getVariantIdsForCatalogItem'
+     *
+     * @param  string $id The catalog item ID is a compound ID (string), with format: &#x60;{integration}:::{catalog}:::{external_id}&#x60;. Currently, the only supported integration type is &#x60;$custom&#x60;, and the only supported catalog is &#x60;$default&#x60;. (required)
+     * @param  string $filter For more information please visit https://developers.klaviyo.com/en/v2024-10-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;ids&#x60;: &#x60;any&#x60;&lt;br&gt;&#x60;item.id&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;sku&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;title&#x60;: &#x60;contains&#x60;&lt;br&gt;&#x60;published&#x60;: &#x60;equals&#x60; (optional)
+     * @param  string $page_cursor For more information please visit https://developers.klaviyo.com/en/v2024-10-15/reference/api-overview#pagination (optional)
+     * @param  string $sort For more information please visit https://developers.klaviyo.com/en/v2024-10-15/reference/api-overview#sorting (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function getVariantIdsForCatalogItemRequest($id, $filter = null, $page_cursor = null, $sort = null, $apiKey = null)
+    {
+        // verify the required parameter 'id' is set
+        if ($id === null || (is_array($id) && count($id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $id when calling getVariantIdsForCatalogItem'
+            );
+        }
+
+        $resourcePath = '/api/catalog-items/{id}/relationships/variants';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $filter,
+            'filter', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $page_cursor,
+            'page[cursor]', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $sort,
+            'sort', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+
+
+        // path params
+        if ($id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'id' . '}',
+                ObjectSerializer::toPathValue($id),
+                $resourcePath
+            );
+        }
+
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/vnd.api+json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/vnd.api+json'],
+                []
+            );
+        }
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json' || $headers['Content-Type'] === 'application/vnd.api+json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        if ($apiKey == null) {
+            $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        } else {
+            $apiKey = 'Klaviyo-API-Key '.$apiKey;
+        }
+
+        $headers['Authorization'] = $apiKey;
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $defaultHeaders['revision'] = ['2024-10-15'];
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Alias of `getVariantIdsForCatalogItemRequest`
+     *
+     * @deprecated use `getVariantIdsForCatalogItemRequest` instead
+     */
+    public function getCatalogItemRelationshipsVariantsRequest(...$args) {
+        return $this->getVariantIdsForCatalogItemRequest(...$args);
     }
 
     /**

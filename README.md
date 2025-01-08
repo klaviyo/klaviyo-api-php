@@ -1,6 +1,6 @@
 # Klaviyo PHP SDK
 
-- SDK version: 12.0.1
+- SDK version: 12.1.0
 - API Revision: 2024-10-15
 
 ## Helpful Resources
@@ -107,6 +107,8 @@ composer require klaviyo/api
 
 ## Usage Example
 
+> **Note**: The following examples use [named arguments](https://www.php.net/manual/en/functions.arguments.php#functions.named-arguments), which were introduced in PHP 8. If using an older version of PHP, you may need to explicitly pass omitted positional arguments. For example, if a given function has the following optional parameters `someFunction($a=1, $b=2, $c=3)`, and you wish to only set `$b`, you must pass in `someFunction($a=null, $b=$YOUR_VALUE)`.
+
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
@@ -115,9 +117,9 @@ use KlaviyoAPI\KlaviyoAPI;
 
 $klaviyo = new KlaviyoAPI(
     'YOUR_API_KEY',
-    $num_retries = 3,
-    $guzzle_options = [],
-    $user_agent_suffix = "/YOUR_APP_NAME");
+    num_retries: 3,
+    guzzle_options: [],
+    user_agent_suffix: "/YOUR_APP_NAME");
 
 $response = $klaviyo->Metrics->getMetrics();
 ```
@@ -130,13 +132,9 @@ $response = $klaviyo->Metrics->getMetrics();
 
 ```php
 $klaviyo->Events->getEvents(
-    $fields_event=['event_properties'], 
-    $fields_metric=NULL, 
-    $fields_profile=NULL, 
-    $filter="equals(metric_id,\"UMTLbD\")", 
-    $include=NULL, 
-    $page_cursor=NULL, 
-    $sort='-datetime'
+    fields_event: ['event_properties'],
+    filter: "equals(metric_id,\"UMTLbD\")",
+    sort: '-datetime'
 );
 ```
 
@@ -148,9 +146,7 @@ NOTE: the filter param values need to be url-encoded
 
 ```php
 $klaviyo->Profiles->getProfiles(
-    $additional_fields_profile=NULL, 
-    $fields_profile=NULL, 
-    $filter='less-than(updated,2023-04-26T00:00:00Z),greater-than(updated,2023-04-19T00:00:00Z)', 
+    filter: 'less-than(updated,2023-04-26T00:00:00Z),greater-than(updated,2023-04-19T00:00:00Z)'
 );
 ```
 
@@ -160,11 +156,8 @@ $klaviyo->Profiles->getProfiles(
 
 ```php
 $klaviyo->Profiles->getProfiles(
-    $additional_fields_profile=NULL, 
-    $fields_profile=NULL, 
-    $filter=NULL,
-    $page_cursor="https://a.klaviyo.com/api/profiles/?page%5Bcursor%5D=bmV4dDo6aWQ6OjAxRjNaWk5ITlRYMUtFVEhQMzJTUzRBN0ZY", 
-    $page_size=20, 
+    page_cursor: "https://a.klaviyo.com/api/profiles/?page%5Bcursor%5D=bmV4dDo6aWQ6OjAxRjNaWk5ITlRYMUtFVEhQMzJTUzRBN0ZY", 
+    page_size: 20
 );
 ```
 
@@ -177,11 +170,8 @@ NOTE: This page cursor value is exactly what is returned in the `self`/`next`/`p
 ```php
 $klaviyo->Profiles->getProfile(
     '01F3ZZNHPY4YZFVGNBH5THCNXE', 
-    $additional_fields_profile=['predictive_analytics'], 
-    $fields_list=NULL, 
-    $fields_profile=NULL, 
-    $fields_segment=NULL, 
-    $include=['lists']
+    additional_fields_profile: ['predictive_analytics'],
+    include: ['lists']
 );
 ```
 
@@ -258,9 +248,6 @@ try {
 - For example values / data types, as well as whether parameters are required/optional, please reference the corresponding API Reference link.
 - Some keyword args are required for the API call to succeed, the API docs above are the source of truth regarding which keyword args are required.
 - JSON payloads should be passed in as associative arrays
-- A strange quirk of PHP is that default/optional arguments must be passed in in order, and MUST be included and set as `null`, at least up to the last default value you wish to use. 
-  - For example, if a given function has the following optional parameters `someFunction($a=1, $b=2, $c=3)`, and you wish to only set `$b`, you MUST pass in `someFunction($a=null, $b=$YOUR_VALUE)`
-  - Otherwise, if you pass in something such as `someFunction($b=$YOUR_VALUE)`, PHP will actually assign the `$YOUR_VALUE` to parameter `$a`, which is wrong.
 - `$api_key` is optional, as it is set at client-level. However, you can override the client key wherever by passing in `$api_key` as the LAST optional param. Reminder: **DO NOT** use private API keys client-side / onsite.
 - Paging: Where applicable, `$page_cursor` can be passed in either as a parsed string, or as the entire `self.link` response returned by paged API endpoints.
 
@@ -283,7 +270,7 @@ try {
 
 # $fields_account | string[]
 
-$klaviyo->Accounts->getAccount($id, $fields_account=$fields_account);
+$klaviyo->Accounts->getAccount($id, fields_account: $fields_account);
 ```
 
 
@@ -297,7 +284,7 @@ $klaviyo->Accounts->getAccount($id, $fields_account=$fields_account);
 
 # $fields_account | string[]
 
-$klaviyo->Accounts->getAccounts($fields_account=$fields_account);
+$klaviyo->Accounts->getAccounts(fields_account: $fields_account);
 ```
 
 
@@ -399,7 +386,7 @@ $klaviyo->Campaigns->deleteCampaign($id);
 # $fields_tag | string[]
 # $include | string[]
 
-$klaviyo->Campaigns->getCampaign($id, $fields_campaign_message=$fields_campaign_message, $fields_campaign=$fields_campaign, $fields_tag=$fields_tag, $include=$include);
+$klaviyo->Campaigns->getCampaign($id, fields_campaign_message: $fields_campaign_message, fields_campaign: $fields_campaign, fields_tag: $fields_tag, include: $include);
 ```
 
 
@@ -416,11 +403,11 @@ $klaviyo->Campaigns->getCampaign($id, $fields_campaign_message=$fields_campaign_
 
 # $fields_campaign | string[]
 
-$klaviyo->Campaigns->getCampaignForCampaignMessage($id, $fields_campaign=$fields_campaign);
+$klaviyo->Campaigns->getCampaignForCampaignMessage($id, fields_campaign: $fields_campaign);
 ```
 ##### Method alias:
 ```php
-$klaviyo->Campaigns->getCampaignMessageCampaign($id, $fields_campaign=$fields_campaign);
+$klaviyo->Campaigns->getCampaignMessageCampaign($id, fields_campaign: $fields_campaign);
 ```
 
 
@@ -457,7 +444,7 @@ $klaviyo->Campaigns->getCampaignMessageRelationshipsCampaign($id);
 # $fields_template | string[]
 # $include | string[]
 
-$klaviyo->Campaigns->getCampaignMessage($id, $fields_campaign_message=$fields_campaign_message, $fields_campaign=$fields_campaign, $fields_template=$fields_template, $include=$include);
+$klaviyo->Campaigns->getCampaignMessage($id, fields_campaign_message: $fields_campaign_message, fields_campaign: $fields_campaign, fields_template: $fields_template, include: $include);
 ```
 
 
@@ -474,7 +461,7 @@ $klaviyo->Campaigns->getCampaignMessage($id, $fields_campaign_message=$fields_ca
 
 # $fields_campaign_recipient_estimation | string[]
 
-$klaviyo->Campaigns->getCampaignRecipientEstimation($id, $fields_campaign_recipient_estimation=$fields_campaign_recipient_estimation);
+$klaviyo->Campaigns->getCampaignRecipientEstimation($id, fields_campaign_recipient_estimation: $fields_campaign_recipient_estimation);
 ```
 
 
@@ -491,7 +478,7 @@ $klaviyo->Campaigns->getCampaignRecipientEstimation($id, $fields_campaign_recipi
 
 # $fields_campaign_recipient_estimation_job | string[]
 
-$klaviyo->Campaigns->getCampaignRecipientEstimationJob($id, $fields_campaign_recipient_estimation_job=$fields_campaign_recipient_estimation_job);
+$klaviyo->Campaigns->getCampaignRecipientEstimationJob($id, fields_campaign_recipient_estimation_job: $fields_campaign_recipient_estimation_job);
 ```
 
 
@@ -508,24 +495,7 @@ $klaviyo->Campaigns->getCampaignRecipientEstimationJob($id, $fields_campaign_rec
 
 # $fields_campaign_send_job | string[]
 
-$klaviyo->Campaigns->getCampaignSendJob($id, $fields_campaign_send_job=$fields_campaign_send_job);
-```
-
-
-
-
-#### [Get Campaign Tags](https://developers.klaviyo.com/en/v2024-10-15/reference/get_campaign_tags)
-
-```php
-## Positional Arguments
-
-# $id | string
-
-## Keyword Arguments
-
-# $fields_tag | string[]
-
-$klaviyo->Campaigns->getCampaignTags($id, $fields_tag=$fields_tag);
+$klaviyo->Campaigns->getCampaignSendJob($id, fields_campaign_send_job: $fields_campaign_send_job);
 ```
 
 
@@ -547,7 +517,7 @@ $klaviyo->Campaigns->getCampaignTags($id, $fields_tag=$fields_tag);
 # $page_cursor | string
 # $sort | string
 
-$klaviyo->Campaigns->getCampaigns($filter, $fields_campaign_message=$fields_campaign_message, $fields_campaign=$fields_campaign, $fields_tag=$fields_tag, $include=$include, $page_cursor=$page_cursor, $sort=$sort);
+$klaviyo->Campaigns->getCampaigns($filter, fields_campaign_message: $fields_campaign_message, fields_campaign: $fields_campaign, fields_tag: $fields_tag, include: $include, page_cursor: $page_cursor, sort: $sort);
 ```
 
 
@@ -565,6 +535,10 @@ $klaviyo->Campaigns->getMessageIdsForCampaign($id);
 ##### Method alias:
 ```php
 $klaviyo->Campaigns->getCampaignRelationshipsCampaignMessages($id);
+```
+##### Method alias:
+```php
+$klaviyo->Campaigns->getCampaignRelationshipsMessages($id);
 ```
 
 
@@ -584,11 +558,15 @@ $klaviyo->Campaigns->getCampaignRelationshipsCampaignMessages($id);
 # $fields_template | string[]
 # $include | string[]
 
-$klaviyo->Campaigns->getMessagesForCampaign($id, $fields_campaign_message=$fields_campaign_message, $fields_campaign=$fields_campaign, $fields_template=$fields_template, $include=$include);
+$klaviyo->Campaigns->getMessagesForCampaign($id, fields_campaign_message: $fields_campaign_message, fields_campaign: $fields_campaign, fields_template: $fields_template, include: $include);
 ```
 ##### Method alias:
 ```php
-$klaviyo->Campaigns->getCampaignCampaignMessages($id, $fields_campaign_message=$fields_campaign_message, $fields_campaign=$fields_campaign, $fields_template=$fields_template, $include=$include);
+$klaviyo->Campaigns->getCampaignCampaignMessages($id, fields_campaign_message: $fields_campaign_message, fields_campaign: $fields_campaign, fields_template: $fields_template, include: $include);
+```
+##### Method alias:
+```php
+$klaviyo->Campaigns->getCampaignMessages($id, fields_campaign_message: $fields_campaign_message, fields_campaign: $fields_campaign, fields_template: $fields_template, include: $include);
 ```
 
 
@@ -611,6 +589,27 @@ $klaviyo->Campaigns->getCampaignRelationshipsTags($id);
 
 
 
+#### [Get Tags for Campaign](https://developers.klaviyo.com/en/v2024-10-15/reference/get_tags_for_campaign)
+
+```php
+## Positional Arguments
+
+# $id | string
+
+## Keyword Arguments
+
+# $fields_tag | string[]
+
+$klaviyo->Campaigns->getTagsForCampaign($id, fields_tag: $fields_tag);
+```
+##### Method alias:
+```php
+$klaviyo->Campaigns->getCampaignTags($id, fields_tag: $fields_tag);
+```
+
+
+
+
 #### [Get Template for Campaign Message](https://developers.klaviyo.com/en/v2024-10-15/reference/get_template_for_campaign_message)
 
 ```php
@@ -622,11 +621,11 @@ $klaviyo->Campaigns->getCampaignRelationshipsTags($id);
 
 # $fields_template | string[]
 
-$klaviyo->Campaigns->getTemplateForCampaignMessage($id, $fields_template=$fields_template);
+$klaviyo->Campaigns->getTemplateForCampaignMessage($id, fields_template: $fields_template);
 ```
 ##### Method alias:
 ```php
-$klaviyo->Campaigns->getCampaignMessageTemplate($id, $fields_template=$fields_template);
+$klaviyo->Campaigns->getCampaignMessageTemplate($id, fields_template: $fields_template);
 ```
 
 
@@ -715,7 +714,7 @@ $klaviyo->Campaigns->updateCampaignMessage($id, $body);
 
 ## Catalogs
 
-#### [Add Category to Catalog Item](https://developers.klaviyo.com/en/v2024-10-15/reference/add_category_to_catalog_item)
+#### [Add Categories to Catalog Item](https://developers.klaviyo.com/en/v2024-10-15/reference/add_categories_to_catalog_item)
 
 ```php
 ## Positional Arguments
@@ -723,15 +722,19 @@ $klaviyo->Campaigns->updateCampaignMessage($id, $body);
 # $id | string
 # $body | associative array
 
+$klaviyo->Catalogs->addCategoriesToCatalogItem($id, $body);
+```
+##### Method alias:
+```php
 $klaviyo->Catalogs->addCategoryToCatalogItem($id, $body);
 ```
 ##### Method alias:
 ```php
-$klaviyo->Catalogs->createCatalogItemRelationshipsCategories($id, $body);
+$klaviyo->Catalogs->createCatalogItemRelationshipsCategory($id, $body);
 ```
 ##### Method alias:
 ```php
-$klaviyo->Catalogs->createCatalogItemRelationshipsCategory($id, $body);
+$klaviyo->Catalogs->createCatalogItemRelationshipsCategories($id, $body);
 ```
 
 
@@ -749,11 +752,11 @@ $klaviyo->Catalogs->addItemsToCatalogCategory($id, $body);
 ```
 ##### Method alias:
 ```php
-$klaviyo->Catalogs->createCatalogCategoryRelationshipsItems($id, $body);
+$klaviyo->Catalogs->createCatalogCategoryRelationshipsItem($id, $body);
 ```
 ##### Method alias:
 ```php
-$klaviyo->Catalogs->createCatalogCategoryRelationshipsItem($id, $body);
+$klaviyo->Catalogs->createCatalogCategoryRelationshipsItems($id, $body);
 ```
 
 
@@ -1052,15 +1055,15 @@ $klaviyo->Catalogs->deleteCatalogVariant($id);
 # $fields_catalog_item | string[]
 # $include | string[]
 
-$klaviyo->Catalogs->getBulkCreateCatalogItemsJob($job_id, $fields_catalog_item_bulk_create_job=$fields_catalog_item_bulk_create_job, $fields_catalog_item=$fields_catalog_item, $include=$include);
+$klaviyo->Catalogs->getBulkCreateCatalogItemsJob($job_id, fields_catalog_item_bulk_create_job: $fields_catalog_item_bulk_create_job, fields_catalog_item: $fields_catalog_item, include: $include);
 ```
 ##### Method alias:
 ```php
-$klaviyo->Catalogs->getCreateItemsJob($job_id, $fields_catalog_item_bulk_create_job=$fields_catalog_item_bulk_create_job, $fields_catalog_item=$fields_catalog_item, $include=$include);
+$klaviyo->Catalogs->getCreateItemsJob($job_id, fields_catalog_item_bulk_create_job: $fields_catalog_item_bulk_create_job, fields_catalog_item: $fields_catalog_item, include: $include);
 ```
 ##### Method alias:
 ```php
-$klaviyo->Catalogs->getCatalogItemBulkCreateJob($job_id, $fields_catalog_item_bulk_create_job=$fields_catalog_item_bulk_create_job, $fields_catalog_item=$fields_catalog_item, $include=$include);
+$klaviyo->Catalogs->getCatalogItemBulkCreateJob($job_id, fields_catalog_item_bulk_create_job: $fields_catalog_item_bulk_create_job, fields_catalog_item: $fields_catalog_item, include: $include);
 ```
 
 
@@ -1076,15 +1079,15 @@ $klaviyo->Catalogs->getCatalogItemBulkCreateJob($job_id, $fields_catalog_item_bu
 # $filter | string
 # $page_cursor | string
 
-$klaviyo->Catalogs->getBulkCreateCatalogItemsJobs($fields_catalog_item_bulk_create_job=$fields_catalog_item_bulk_create_job, $filter=$filter, $page_cursor=$page_cursor);
+$klaviyo->Catalogs->getBulkCreateCatalogItemsJobs(fields_catalog_item_bulk_create_job: $fields_catalog_item_bulk_create_job, filter: $filter, page_cursor: $page_cursor);
 ```
 ##### Method alias:
 ```php
-$klaviyo->Catalogs->getCreateItemsJobs($fields_catalog_item_bulk_create_job=$fields_catalog_item_bulk_create_job, $filter=$filter, $page_cursor=$page_cursor);
+$klaviyo->Catalogs->getCreateItemsJobs(fields_catalog_item_bulk_create_job: $fields_catalog_item_bulk_create_job, filter: $filter, page_cursor: $page_cursor);
 ```
 ##### Method alias:
 ```php
-$klaviyo->Catalogs->getCatalogItemBulkCreateJobs($fields_catalog_item_bulk_create_job=$fields_catalog_item_bulk_create_job, $filter=$filter, $page_cursor=$page_cursor);
+$klaviyo->Catalogs->getCatalogItemBulkCreateJobs(fields_catalog_item_bulk_create_job: $fields_catalog_item_bulk_create_job, filter: $filter, page_cursor: $page_cursor);
 ```
 
 
@@ -1101,15 +1104,15 @@ $klaviyo->Catalogs->getCatalogItemBulkCreateJobs($fields_catalog_item_bulk_creat
 
 # $fields_catalog_item_bulk_delete_job | string[]
 
-$klaviyo->Catalogs->getBulkDeleteCatalogItemsJob($job_id, $fields_catalog_item_bulk_delete_job=$fields_catalog_item_bulk_delete_job);
+$klaviyo->Catalogs->getBulkDeleteCatalogItemsJob($job_id, fields_catalog_item_bulk_delete_job: $fields_catalog_item_bulk_delete_job);
 ```
 ##### Method alias:
 ```php
-$klaviyo->Catalogs->getDeleteItemsJob($job_id, $fields_catalog_item_bulk_delete_job=$fields_catalog_item_bulk_delete_job);
+$klaviyo->Catalogs->getDeleteItemsJob($job_id, fields_catalog_item_bulk_delete_job: $fields_catalog_item_bulk_delete_job);
 ```
 ##### Method alias:
 ```php
-$klaviyo->Catalogs->getCatalogItemBulkDeleteJob($job_id, $fields_catalog_item_bulk_delete_job=$fields_catalog_item_bulk_delete_job);
+$klaviyo->Catalogs->getCatalogItemBulkDeleteJob($job_id, fields_catalog_item_bulk_delete_job: $fields_catalog_item_bulk_delete_job);
 ```
 
 
@@ -1125,15 +1128,15 @@ $klaviyo->Catalogs->getCatalogItemBulkDeleteJob($job_id, $fields_catalog_item_bu
 # $filter | string
 # $page_cursor | string
 
-$klaviyo->Catalogs->getBulkDeleteCatalogItemsJobs($fields_catalog_item_bulk_delete_job=$fields_catalog_item_bulk_delete_job, $filter=$filter, $page_cursor=$page_cursor);
+$klaviyo->Catalogs->getBulkDeleteCatalogItemsJobs(fields_catalog_item_bulk_delete_job: $fields_catalog_item_bulk_delete_job, filter: $filter, page_cursor: $page_cursor);
 ```
 ##### Method alias:
 ```php
-$klaviyo->Catalogs->getDeleteItemsJobs($fields_catalog_item_bulk_delete_job=$fields_catalog_item_bulk_delete_job, $filter=$filter, $page_cursor=$page_cursor);
+$klaviyo->Catalogs->getDeleteItemsJobs(fields_catalog_item_bulk_delete_job: $fields_catalog_item_bulk_delete_job, filter: $filter, page_cursor: $page_cursor);
 ```
 ##### Method alias:
 ```php
-$klaviyo->Catalogs->getCatalogItemBulkDeleteJobs($fields_catalog_item_bulk_delete_job=$fields_catalog_item_bulk_delete_job, $filter=$filter, $page_cursor=$page_cursor);
+$klaviyo->Catalogs->getCatalogItemBulkDeleteJobs(fields_catalog_item_bulk_delete_job: $fields_catalog_item_bulk_delete_job, filter: $filter, page_cursor: $page_cursor);
 ```
 
 
@@ -1152,15 +1155,15 @@ $klaviyo->Catalogs->getCatalogItemBulkDeleteJobs($fields_catalog_item_bulk_delet
 # $fields_catalog_item | string[]
 # $include | string[]
 
-$klaviyo->Catalogs->getBulkUpdateCatalogItemsJob($job_id, $fields_catalog_item_bulk_update_job=$fields_catalog_item_bulk_update_job, $fields_catalog_item=$fields_catalog_item, $include=$include);
+$klaviyo->Catalogs->getBulkUpdateCatalogItemsJob($job_id, fields_catalog_item_bulk_update_job: $fields_catalog_item_bulk_update_job, fields_catalog_item: $fields_catalog_item, include: $include);
 ```
 ##### Method alias:
 ```php
-$klaviyo->Catalogs->getUpdateItemsJob($job_id, $fields_catalog_item_bulk_update_job=$fields_catalog_item_bulk_update_job, $fields_catalog_item=$fields_catalog_item, $include=$include);
+$klaviyo->Catalogs->getUpdateItemsJob($job_id, fields_catalog_item_bulk_update_job: $fields_catalog_item_bulk_update_job, fields_catalog_item: $fields_catalog_item, include: $include);
 ```
 ##### Method alias:
 ```php
-$klaviyo->Catalogs->getCatalogItemBulkUpdateJob($job_id, $fields_catalog_item_bulk_update_job=$fields_catalog_item_bulk_update_job, $fields_catalog_item=$fields_catalog_item, $include=$include);
+$klaviyo->Catalogs->getCatalogItemBulkUpdateJob($job_id, fields_catalog_item_bulk_update_job: $fields_catalog_item_bulk_update_job, fields_catalog_item: $fields_catalog_item, include: $include);
 ```
 
 
@@ -1176,15 +1179,15 @@ $klaviyo->Catalogs->getCatalogItemBulkUpdateJob($job_id, $fields_catalog_item_bu
 # $filter | string
 # $page_cursor | string
 
-$klaviyo->Catalogs->getBulkUpdateCatalogItemsJobs($fields_catalog_item_bulk_update_job=$fields_catalog_item_bulk_update_job, $filter=$filter, $page_cursor=$page_cursor);
+$klaviyo->Catalogs->getBulkUpdateCatalogItemsJobs(fields_catalog_item_bulk_update_job: $fields_catalog_item_bulk_update_job, filter: $filter, page_cursor: $page_cursor);
 ```
 ##### Method alias:
 ```php
-$klaviyo->Catalogs->getUpdateItemsJobs($fields_catalog_item_bulk_update_job=$fields_catalog_item_bulk_update_job, $filter=$filter, $page_cursor=$page_cursor);
+$klaviyo->Catalogs->getUpdateItemsJobs(fields_catalog_item_bulk_update_job: $fields_catalog_item_bulk_update_job, filter: $filter, page_cursor: $page_cursor);
 ```
 ##### Method alias:
 ```php
-$klaviyo->Catalogs->getCatalogItemBulkUpdateJobs($fields_catalog_item_bulk_update_job=$fields_catalog_item_bulk_update_job, $filter=$filter, $page_cursor=$page_cursor);
+$klaviyo->Catalogs->getCatalogItemBulkUpdateJobs(fields_catalog_item_bulk_update_job: $fields_catalog_item_bulk_update_job, filter: $filter, page_cursor: $page_cursor);
 ```
 
 
@@ -1201,7 +1204,7 @@ $klaviyo->Catalogs->getCatalogItemBulkUpdateJobs($fields_catalog_item_bulk_updat
 # $page_cursor | string
 # $sort | string
 
-$klaviyo->Catalogs->getCatalogCategories($fields_catalog_category=$fields_catalog_category, $filter=$filter, $page_cursor=$page_cursor, $sort=$sort);
+$klaviyo->Catalogs->getCatalogCategories(fields_catalog_category: $fields_catalog_category, filter: $filter, page_cursor: $page_cursor, sort: $sort);
 ```
 
 
@@ -1218,7 +1221,7 @@ $klaviyo->Catalogs->getCatalogCategories($fields_catalog_category=$fields_catalo
 
 # $fields_catalog_category | string[]
 
-$klaviyo->Catalogs->getCatalogCategory($id, $fields_catalog_category=$fields_catalog_category);
+$klaviyo->Catalogs->getCatalogCategory($id, fields_catalog_category: $fields_catalog_category);
 ```
 
 
@@ -1237,7 +1240,7 @@ $klaviyo->Catalogs->getCatalogCategory($id, $fields_catalog_category=$fields_cat
 # $fields_catalog_variant | string[]
 # $include | string[]
 
-$klaviyo->Catalogs->getCatalogItem($id, $fields_catalog_item=$fields_catalog_item, $fields_catalog_variant=$fields_catalog_variant, $include=$include);
+$klaviyo->Catalogs->getCatalogItem($id, fields_catalog_item: $fields_catalog_item, fields_catalog_variant: $fields_catalog_variant, include: $include);
 ```
 
 
@@ -1256,7 +1259,7 @@ $klaviyo->Catalogs->getCatalogItem($id, $fields_catalog_item=$fields_catalog_ite
 # $page_cursor | string
 # $sort | string
 
-$klaviyo->Catalogs->getCatalogItems($fields_catalog_item=$fields_catalog_item, $fields_catalog_variant=$fields_catalog_variant, $filter=$filter, $include=$include, $page_cursor=$page_cursor, $sort=$sort);
+$klaviyo->Catalogs->getCatalogItems(fields_catalog_item: $fields_catalog_item, fields_catalog_variant: $fields_catalog_variant, filter: $filter, include: $include, page_cursor: $page_cursor, sort: $sort);
 ```
 
 
@@ -1273,7 +1276,7 @@ $klaviyo->Catalogs->getCatalogItems($fields_catalog_item=$fields_catalog_item, $
 
 # $fields_catalog_variant | string[]
 
-$klaviyo->Catalogs->getCatalogVariant($id, $fields_catalog_variant=$fields_catalog_variant);
+$klaviyo->Catalogs->getCatalogVariant($id, fields_catalog_variant: $fields_catalog_variant);
 ```
 
 
@@ -1290,7 +1293,7 @@ $klaviyo->Catalogs->getCatalogVariant($id, $fields_catalog_variant=$fields_catal
 # $page_cursor | string
 # $sort | string
 
-$klaviyo->Catalogs->getCatalogVariants($fields_catalog_variant=$fields_catalog_variant, $filter=$filter, $page_cursor=$page_cursor, $sort=$sort);
+$klaviyo->Catalogs->getCatalogVariants(fields_catalog_variant: $fields_catalog_variant, filter: $filter, page_cursor: $page_cursor, sort: $sort);
 ```
 
 
@@ -1310,11 +1313,11 @@ $klaviyo->Catalogs->getCatalogVariants($fields_catalog_variant=$fields_catalog_v
 # $page_cursor | string
 # $sort | string
 
-$klaviyo->Catalogs->getCategoriesForCatalogItem($id, $fields_catalog_category=$fields_catalog_category, $filter=$filter, $page_cursor=$page_cursor, $sort=$sort);
+$klaviyo->Catalogs->getCategoriesForCatalogItem($id, fields_catalog_category: $fields_catalog_category, filter: $filter, page_cursor: $page_cursor, sort: $sort);
 ```
 ##### Method alias:
 ```php
-$klaviyo->Catalogs->getCatalogItemCategories($id, $fields_catalog_category=$fields_catalog_category, $filter=$filter, $page_cursor=$page_cursor, $sort=$sort);
+$klaviyo->Catalogs->getCatalogItemCategories($id, fields_catalog_category: $fields_catalog_category, filter: $filter, page_cursor: $page_cursor, sort: $sort);
 ```
 
 
@@ -1329,13 +1332,15 @@ $klaviyo->Catalogs->getCatalogItemCategories($id, $fields_catalog_category=$fiel
 
 ## Keyword Arguments
 
+# $filter | string
 # $page_cursor | string
+# $sort | string
 
-$klaviyo->Catalogs->getCategoryIdsForCatalogItem($id, $page_cursor=$page_cursor);
+$klaviyo->Catalogs->getCategoryIdsForCatalogItem($id, filter: $filter, page_cursor: $page_cursor, sort: $sort);
 ```
 ##### Method alias:
 ```php
-$klaviyo->Catalogs->getCatalogItemRelationshipsCategories($id, $page_cursor=$page_cursor);
+$klaviyo->Catalogs->getCatalogItemRelationshipsCategories($id, filter: $filter, page_cursor: $page_cursor, sort: $sort);
 ```
 
 
@@ -1354,11 +1359,11 @@ $klaviyo->Catalogs->getCatalogItemRelationshipsCategories($id, $page_cursor=$pag
 # $fields_catalog_category | string[]
 # $include | string[]
 
-$klaviyo->Catalogs->getCreateCategoriesJob($job_id, $fields_catalog_category_bulk_create_job=$fields_catalog_category_bulk_create_job, $fields_catalog_category=$fields_catalog_category, $include=$include);
+$klaviyo->Catalogs->getCreateCategoriesJob($job_id, fields_catalog_category_bulk_create_job: $fields_catalog_category_bulk_create_job, fields_catalog_category: $fields_catalog_category, include: $include);
 ```
 ##### Method alias:
 ```php
-$klaviyo->Catalogs->getCatalogCategoryBulkCreateJob($job_id, $fields_catalog_category_bulk_create_job=$fields_catalog_category_bulk_create_job, $fields_catalog_category=$fields_catalog_category, $include=$include);
+$klaviyo->Catalogs->getCatalogCategoryBulkCreateJob($job_id, fields_catalog_category_bulk_create_job: $fields_catalog_category_bulk_create_job, fields_catalog_category: $fields_catalog_category, include: $include);
 ```
 
 
@@ -1374,11 +1379,11 @@ $klaviyo->Catalogs->getCatalogCategoryBulkCreateJob($job_id, $fields_catalog_cat
 # $filter | string
 # $page_cursor | string
 
-$klaviyo->Catalogs->getCreateCategoriesJobs($fields_catalog_category_bulk_create_job=$fields_catalog_category_bulk_create_job, $filter=$filter, $page_cursor=$page_cursor);
+$klaviyo->Catalogs->getCreateCategoriesJobs(fields_catalog_category_bulk_create_job: $fields_catalog_category_bulk_create_job, filter: $filter, page_cursor: $page_cursor);
 ```
 ##### Method alias:
 ```php
-$klaviyo->Catalogs->getCatalogCategoryBulkCreateJobs($fields_catalog_category_bulk_create_job=$fields_catalog_category_bulk_create_job, $filter=$filter, $page_cursor=$page_cursor);
+$klaviyo->Catalogs->getCatalogCategoryBulkCreateJobs(fields_catalog_category_bulk_create_job: $fields_catalog_category_bulk_create_job, filter: $filter, page_cursor: $page_cursor);
 ```
 
 
@@ -1397,11 +1402,11 @@ $klaviyo->Catalogs->getCatalogCategoryBulkCreateJobs($fields_catalog_category_bu
 # $fields_catalog_variant | string[]
 # $include | string[]
 
-$klaviyo->Catalogs->getCreateVariantsJob($job_id, $fields_catalog_variant_bulk_create_job=$fields_catalog_variant_bulk_create_job, $fields_catalog_variant=$fields_catalog_variant, $include=$include);
+$klaviyo->Catalogs->getCreateVariantsJob($job_id, fields_catalog_variant_bulk_create_job: $fields_catalog_variant_bulk_create_job, fields_catalog_variant: $fields_catalog_variant, include: $include);
 ```
 ##### Method alias:
 ```php
-$klaviyo->Catalogs->getCatalogVariantBulkCreateJob($job_id, $fields_catalog_variant_bulk_create_job=$fields_catalog_variant_bulk_create_job, $fields_catalog_variant=$fields_catalog_variant, $include=$include);
+$klaviyo->Catalogs->getCatalogVariantBulkCreateJob($job_id, fields_catalog_variant_bulk_create_job: $fields_catalog_variant_bulk_create_job, fields_catalog_variant: $fields_catalog_variant, include: $include);
 ```
 
 
@@ -1417,11 +1422,11 @@ $klaviyo->Catalogs->getCatalogVariantBulkCreateJob($job_id, $fields_catalog_vari
 # $filter | string
 # $page_cursor | string
 
-$klaviyo->Catalogs->getCreateVariantsJobs($fields_catalog_variant_bulk_create_job=$fields_catalog_variant_bulk_create_job, $filter=$filter, $page_cursor=$page_cursor);
+$klaviyo->Catalogs->getCreateVariantsJobs(fields_catalog_variant_bulk_create_job: $fields_catalog_variant_bulk_create_job, filter: $filter, page_cursor: $page_cursor);
 ```
 ##### Method alias:
 ```php
-$klaviyo->Catalogs->getCatalogVariantBulkCreateJobs($fields_catalog_variant_bulk_create_job=$fields_catalog_variant_bulk_create_job, $filter=$filter, $page_cursor=$page_cursor);
+$klaviyo->Catalogs->getCatalogVariantBulkCreateJobs(fields_catalog_variant_bulk_create_job: $fields_catalog_variant_bulk_create_job, filter: $filter, page_cursor: $page_cursor);
 ```
 
 
@@ -1438,11 +1443,11 @@ $klaviyo->Catalogs->getCatalogVariantBulkCreateJobs($fields_catalog_variant_bulk
 
 # $fields_catalog_category_bulk_delete_job | string[]
 
-$klaviyo->Catalogs->getDeleteCategoriesJob($job_id, $fields_catalog_category_bulk_delete_job=$fields_catalog_category_bulk_delete_job);
+$klaviyo->Catalogs->getDeleteCategoriesJob($job_id, fields_catalog_category_bulk_delete_job: $fields_catalog_category_bulk_delete_job);
 ```
 ##### Method alias:
 ```php
-$klaviyo->Catalogs->getCatalogCategoryBulkDeleteJob($job_id, $fields_catalog_category_bulk_delete_job=$fields_catalog_category_bulk_delete_job);
+$klaviyo->Catalogs->getCatalogCategoryBulkDeleteJob($job_id, fields_catalog_category_bulk_delete_job: $fields_catalog_category_bulk_delete_job);
 ```
 
 
@@ -1458,11 +1463,11 @@ $klaviyo->Catalogs->getCatalogCategoryBulkDeleteJob($job_id, $fields_catalog_cat
 # $filter | string
 # $page_cursor | string
 
-$klaviyo->Catalogs->getDeleteCategoriesJobs($fields_catalog_category_bulk_delete_job=$fields_catalog_category_bulk_delete_job, $filter=$filter, $page_cursor=$page_cursor);
+$klaviyo->Catalogs->getDeleteCategoriesJobs(fields_catalog_category_bulk_delete_job: $fields_catalog_category_bulk_delete_job, filter: $filter, page_cursor: $page_cursor);
 ```
 ##### Method alias:
 ```php
-$klaviyo->Catalogs->getCatalogCategoryBulkDeleteJobs($fields_catalog_category_bulk_delete_job=$fields_catalog_category_bulk_delete_job, $filter=$filter, $page_cursor=$page_cursor);
+$klaviyo->Catalogs->getCatalogCategoryBulkDeleteJobs(fields_catalog_category_bulk_delete_job: $fields_catalog_category_bulk_delete_job, filter: $filter, page_cursor: $page_cursor);
 ```
 
 
@@ -1479,11 +1484,11 @@ $klaviyo->Catalogs->getCatalogCategoryBulkDeleteJobs($fields_catalog_category_bu
 
 # $fields_catalog_variant_bulk_delete_job | string[]
 
-$klaviyo->Catalogs->getDeleteVariantsJob($job_id, $fields_catalog_variant_bulk_delete_job=$fields_catalog_variant_bulk_delete_job);
+$klaviyo->Catalogs->getDeleteVariantsJob($job_id, fields_catalog_variant_bulk_delete_job: $fields_catalog_variant_bulk_delete_job);
 ```
 ##### Method alias:
 ```php
-$klaviyo->Catalogs->getCatalogVariantBulkDeleteJob($job_id, $fields_catalog_variant_bulk_delete_job=$fields_catalog_variant_bulk_delete_job);
+$klaviyo->Catalogs->getCatalogVariantBulkDeleteJob($job_id, fields_catalog_variant_bulk_delete_job: $fields_catalog_variant_bulk_delete_job);
 ```
 
 
@@ -1499,11 +1504,11 @@ $klaviyo->Catalogs->getCatalogVariantBulkDeleteJob($job_id, $fields_catalog_vari
 # $filter | string
 # $page_cursor | string
 
-$klaviyo->Catalogs->getDeleteVariantsJobs($fields_catalog_variant_bulk_delete_job=$fields_catalog_variant_bulk_delete_job, $filter=$filter, $page_cursor=$page_cursor);
+$klaviyo->Catalogs->getDeleteVariantsJobs(fields_catalog_variant_bulk_delete_job: $fields_catalog_variant_bulk_delete_job, filter: $filter, page_cursor: $page_cursor);
 ```
 ##### Method alias:
 ```php
-$klaviyo->Catalogs->getCatalogVariantBulkDeleteJobs($fields_catalog_variant_bulk_delete_job=$fields_catalog_variant_bulk_delete_job, $filter=$filter, $page_cursor=$page_cursor);
+$klaviyo->Catalogs->getCatalogVariantBulkDeleteJobs(fields_catalog_variant_bulk_delete_job: $fields_catalog_variant_bulk_delete_job, filter: $filter, page_cursor: $page_cursor);
 ```
 
 
@@ -1518,13 +1523,15 @@ $klaviyo->Catalogs->getCatalogVariantBulkDeleteJobs($fields_catalog_variant_bulk
 
 ## Keyword Arguments
 
+# $filter | string
 # $page_cursor | string
+# $sort | string
 
-$klaviyo->Catalogs->getItemIdsForCatalogCategory($id, $page_cursor=$page_cursor);
+$klaviyo->Catalogs->getItemIdsForCatalogCategory($id, filter: $filter, page_cursor: $page_cursor, sort: $sort);
 ```
 ##### Method alias:
 ```php
-$klaviyo->Catalogs->getCatalogCategoryRelationshipsItems($id, $page_cursor=$page_cursor);
+$klaviyo->Catalogs->getCatalogCategoryRelationshipsItems($id, filter: $filter, page_cursor: $page_cursor, sort: $sort);
 ```
 
 
@@ -1546,11 +1553,11 @@ $klaviyo->Catalogs->getCatalogCategoryRelationshipsItems($id, $page_cursor=$page
 # $page_cursor | string
 # $sort | string
 
-$klaviyo->Catalogs->getItemsForCatalogCategory($id, $fields_catalog_item=$fields_catalog_item, $fields_catalog_variant=$fields_catalog_variant, $filter=$filter, $include=$include, $page_cursor=$page_cursor, $sort=$sort);
+$klaviyo->Catalogs->getItemsForCatalogCategory($id, fields_catalog_item: $fields_catalog_item, fields_catalog_variant: $fields_catalog_variant, filter: $filter, include: $include, page_cursor: $page_cursor, sort: $sort);
 ```
 ##### Method alias:
 ```php
-$klaviyo->Catalogs->getCatalogCategoryItems($id, $fields_catalog_item=$fields_catalog_item, $fields_catalog_variant=$fields_catalog_variant, $filter=$filter, $include=$include, $page_cursor=$page_cursor, $sort=$sort);
+$klaviyo->Catalogs->getCatalogCategoryItems($id, fields_catalog_item: $fields_catalog_item, fields_catalog_variant: $fields_catalog_variant, filter: $filter, include: $include, page_cursor: $page_cursor, sort: $sort);
 ```
 
 
@@ -1569,11 +1576,11 @@ $klaviyo->Catalogs->getCatalogCategoryItems($id, $fields_catalog_item=$fields_ca
 # $fields_catalog_category | string[]
 # $include | string[]
 
-$klaviyo->Catalogs->getUpdateCategoriesJob($job_id, $fields_catalog_category_bulk_update_job=$fields_catalog_category_bulk_update_job, $fields_catalog_category=$fields_catalog_category, $include=$include);
+$klaviyo->Catalogs->getUpdateCategoriesJob($job_id, fields_catalog_category_bulk_update_job: $fields_catalog_category_bulk_update_job, fields_catalog_category: $fields_catalog_category, include: $include);
 ```
 ##### Method alias:
 ```php
-$klaviyo->Catalogs->getCatalogCategoryBulkUpdateJob($job_id, $fields_catalog_category_bulk_update_job=$fields_catalog_category_bulk_update_job, $fields_catalog_category=$fields_catalog_category, $include=$include);
+$klaviyo->Catalogs->getCatalogCategoryBulkUpdateJob($job_id, fields_catalog_category_bulk_update_job: $fields_catalog_category_bulk_update_job, fields_catalog_category: $fields_catalog_category, include: $include);
 ```
 
 
@@ -1589,11 +1596,11 @@ $klaviyo->Catalogs->getCatalogCategoryBulkUpdateJob($job_id, $fields_catalog_cat
 # $filter | string
 # $page_cursor | string
 
-$klaviyo->Catalogs->getUpdateCategoriesJobs($fields_catalog_category_bulk_update_job=$fields_catalog_category_bulk_update_job, $filter=$filter, $page_cursor=$page_cursor);
+$klaviyo->Catalogs->getUpdateCategoriesJobs(fields_catalog_category_bulk_update_job: $fields_catalog_category_bulk_update_job, filter: $filter, page_cursor: $page_cursor);
 ```
 ##### Method alias:
 ```php
-$klaviyo->Catalogs->getCatalogCategoryBulkUpdateJobs($fields_catalog_category_bulk_update_job=$fields_catalog_category_bulk_update_job, $filter=$filter, $page_cursor=$page_cursor);
+$klaviyo->Catalogs->getCatalogCategoryBulkUpdateJobs(fields_catalog_category_bulk_update_job: $fields_catalog_category_bulk_update_job, filter: $filter, page_cursor: $page_cursor);
 ```
 
 
@@ -1612,11 +1619,11 @@ $klaviyo->Catalogs->getCatalogCategoryBulkUpdateJobs($fields_catalog_category_bu
 # $fields_catalog_variant | string[]
 # $include | string[]
 
-$klaviyo->Catalogs->getUpdateVariantsJob($job_id, $fields_catalog_variant_bulk_update_job=$fields_catalog_variant_bulk_update_job, $fields_catalog_variant=$fields_catalog_variant, $include=$include);
+$klaviyo->Catalogs->getUpdateVariantsJob($job_id, fields_catalog_variant_bulk_update_job: $fields_catalog_variant_bulk_update_job, fields_catalog_variant: $fields_catalog_variant, include: $include);
 ```
 ##### Method alias:
 ```php
-$klaviyo->Catalogs->getCatalogVariantBulkUpdateJob($job_id, $fields_catalog_variant_bulk_update_job=$fields_catalog_variant_bulk_update_job, $fields_catalog_variant=$fields_catalog_variant, $include=$include);
+$klaviyo->Catalogs->getCatalogVariantBulkUpdateJob($job_id, fields_catalog_variant_bulk_update_job: $fields_catalog_variant_bulk_update_job, fields_catalog_variant: $fields_catalog_variant, include: $include);
 ```
 
 
@@ -1632,11 +1639,34 @@ $klaviyo->Catalogs->getCatalogVariantBulkUpdateJob($job_id, $fields_catalog_vari
 # $filter | string
 # $page_cursor | string
 
-$klaviyo->Catalogs->getUpdateVariantsJobs($fields_catalog_variant_bulk_update_job=$fields_catalog_variant_bulk_update_job, $filter=$filter, $page_cursor=$page_cursor);
+$klaviyo->Catalogs->getUpdateVariantsJobs(fields_catalog_variant_bulk_update_job: $fields_catalog_variant_bulk_update_job, filter: $filter, page_cursor: $page_cursor);
 ```
 ##### Method alias:
 ```php
-$klaviyo->Catalogs->getCatalogVariantBulkUpdateJobs($fields_catalog_variant_bulk_update_job=$fields_catalog_variant_bulk_update_job, $filter=$filter, $page_cursor=$page_cursor);
+$klaviyo->Catalogs->getCatalogVariantBulkUpdateJobs(fields_catalog_variant_bulk_update_job: $fields_catalog_variant_bulk_update_job, filter: $filter, page_cursor: $page_cursor);
+```
+
+
+
+
+#### [Get Variant IDs for Catalog Item](https://developers.klaviyo.com/en/v2024-10-15/reference/get_variant_ids_for_catalog_item)
+
+```php
+## Positional Arguments
+
+# $id | string
+
+## Keyword Arguments
+
+# $filter | string
+# $page_cursor | string
+# $sort | string
+
+$klaviyo->Catalogs->getVariantIdsForCatalogItem($id, filter: $filter, page_cursor: $page_cursor, sort: $sort);
+```
+##### Method alias:
+```php
+$klaviyo->Catalogs->getCatalogItemRelationshipsVariants($id, filter: $filter, page_cursor: $page_cursor, sort: $sort);
 ```
 
 
@@ -1656,11 +1686,11 @@ $klaviyo->Catalogs->getCatalogVariantBulkUpdateJobs($fields_catalog_variant_bulk
 # $page_cursor | string
 # $sort | string
 
-$klaviyo->Catalogs->getVariantsForCatalogItem($id, $fields_catalog_variant=$fields_catalog_variant, $filter=$filter, $page_cursor=$page_cursor, $sort=$sort);
+$klaviyo->Catalogs->getVariantsForCatalogItem($id, fields_catalog_variant: $fields_catalog_variant, filter: $filter, page_cursor: $page_cursor, sort: $sort);
 ```
 ##### Method alias:
 ```php
-$klaviyo->Catalogs->getCatalogItemVariants($id, $fields_catalog_variant=$fields_catalog_variant, $filter=$filter, $page_cursor=$page_cursor, $sort=$sort);
+$klaviyo->Catalogs->getCatalogItemVariants($id, fields_catalog_variant: $fields_catalog_variant, filter: $filter, page_cursor: $page_cursor, sort: $sort);
 ```
 
 
@@ -1867,11 +1897,11 @@ $klaviyo->Coupons->deleteCouponCode($id);
 # $filter | string
 # $page_cursor | string
 
-$klaviyo->Coupons->getBulkCreateCouponCodeJobs($fields_coupon_code_bulk_create_job=$fields_coupon_code_bulk_create_job, $filter=$filter, $page_cursor=$page_cursor);
+$klaviyo->Coupons->getBulkCreateCouponCodeJobs(fields_coupon_code_bulk_create_job: $fields_coupon_code_bulk_create_job, filter: $filter, page_cursor: $page_cursor);
 ```
 ##### Method alias:
 ```php
-$klaviyo->Coupons->getCouponCodeBulkCreateJobs($fields_coupon_code_bulk_create_job=$fields_coupon_code_bulk_create_job, $filter=$filter, $page_cursor=$page_cursor);
+$klaviyo->Coupons->getCouponCodeBulkCreateJobs(fields_coupon_code_bulk_create_job: $fields_coupon_code_bulk_create_job, filter: $filter, page_cursor: $page_cursor);
 ```
 
 
@@ -1890,32 +1920,11 @@ $klaviyo->Coupons->getCouponCodeBulkCreateJobs($fields_coupon_code_bulk_create_j
 # $fields_coupon_code | string[]
 # $include | string[]
 
-$klaviyo->Coupons->getBulkCreateCouponCodesJob($job_id, $fields_coupon_code_bulk_create_job=$fields_coupon_code_bulk_create_job, $fields_coupon_code=$fields_coupon_code, $include=$include);
+$klaviyo->Coupons->getBulkCreateCouponCodesJob($job_id, fields_coupon_code_bulk_create_job: $fields_coupon_code_bulk_create_job, fields_coupon_code: $fields_coupon_code, include: $include);
 ```
 ##### Method alias:
 ```php
-$klaviyo->Coupons->getCouponCodeBulkCreateJob($job_id, $fields_coupon_code_bulk_create_job=$fields_coupon_code_bulk_create_job, $fields_coupon_code=$fields_coupon_code, $include=$include);
-```
-
-
-
-
-#### [Get Code IDs for Coupon](https://developers.klaviyo.com/en/v2024-10-15/reference/get_code_ids_for_coupon)
-
-```php
-## Positional Arguments
-
-# $id | string
-
-## Keyword Arguments
-
-# $page_cursor | string
-
-$klaviyo->Coupons->getCodeIdsForCoupon($id, $page_cursor=$page_cursor);
-```
-##### Method alias:
-```php
-$klaviyo->Coupons->getCouponCodeRelationshipsCoupon($id, $page_cursor=$page_cursor);
+$klaviyo->Coupons->getCouponCodeBulkCreateJob($job_id, fields_coupon_code_bulk_create_job: $fields_coupon_code_bulk_create_job, fields_coupon_code: $fields_coupon_code, include: $include);
 ```
 
 
@@ -1932,7 +1941,7 @@ $klaviyo->Coupons->getCouponCodeRelationshipsCoupon($id, $page_cursor=$page_curs
 
 # $fields_coupon | string[]
 
-$klaviyo->Coupons->getCoupon($id, $fields_coupon=$fields_coupon);
+$klaviyo->Coupons->getCoupon($id, fields_coupon: $fields_coupon);
 ```
 
 
@@ -1951,7 +1960,37 @@ $klaviyo->Coupons->getCoupon($id, $fields_coupon=$fields_coupon);
 # $fields_coupon | string[]
 # $include | string[]
 
-$klaviyo->Coupons->getCouponCode($id, $fields_coupon_code=$fields_coupon_code, $fields_coupon=$fields_coupon, $include=$include);
+$klaviyo->Coupons->getCouponCode($id, fields_coupon_code: $fields_coupon_code, fields_coupon: $fields_coupon, include: $include);
+```
+
+
+
+
+#### [Get Coupon Code IDs for Coupon](https://developers.klaviyo.com/en/v2024-10-15/reference/get_coupon_code_ids_for_coupon)
+
+```php
+## Positional Arguments
+
+# $id | string
+
+## Keyword Arguments
+
+# $filter | string
+# $page_cursor | string
+
+$klaviyo->Coupons->getCouponCodeIdsForCoupon($id, filter: $filter, page_cursor: $page_cursor);
+```
+##### Method alias:
+```php
+$klaviyo->Coupons->getCouponCodeRelationshipsCoupon($id, filter: $filter, page_cursor: $page_cursor);
+```
+##### Method alias:
+```php
+$klaviyo->Coupons->getCodeIdsForCoupon($id, filter: $filter, page_cursor: $page_cursor);
+```
+##### Method alias:
+```php
+$klaviyo->Coupons->getCouponRelationshipsCodes($id, filter: $filter, page_cursor: $page_cursor);
 ```
 
 
@@ -1969,13 +2008,13 @@ $klaviyo->Coupons->getCouponCode($id, $fields_coupon_code=$fields_coupon_code, $
 # $include | string[]
 # $page_cursor | string
 
-$klaviyo->Coupons->getCouponCodes($fields_coupon_code=$fields_coupon_code, $fields_coupon=$fields_coupon, $filter=$filter, $include=$include, $page_cursor=$page_cursor);
+$klaviyo->Coupons->getCouponCodes(fields_coupon_code: $fields_coupon_code, fields_coupon: $fields_coupon, filter: $filter, include: $include, page_cursor: $page_cursor);
 ```
 
 
 
 
-#### [Get Coupon Codes For Coupon](https://developers.klaviyo.com/en/v2024-10-15/reference/get_coupon_codes_for_coupon)
+#### [Get Coupon Codes for Coupon](https://developers.klaviyo.com/en/v2024-10-15/reference/get_coupon_codes_for_coupon)
 
 ```php
 ## Positional Arguments
@@ -1988,11 +2027,15 @@ $klaviyo->Coupons->getCouponCodes($fields_coupon_code=$fields_coupon_code, $fiel
 # $filter | string
 # $page_cursor | string
 
-$klaviyo->Coupons->getCouponCodesForCoupon($id, $fields_coupon_code=$fields_coupon_code, $filter=$filter, $page_cursor=$page_cursor);
+$klaviyo->Coupons->getCouponCodesForCoupon($id, fields_coupon_code: $fields_coupon_code, filter: $filter, page_cursor: $page_cursor);
 ```
 ##### Method alias:
 ```php
-$klaviyo->Coupons->getCouponCouponCodes($id, $fields_coupon_code=$fields_coupon_code, $filter=$filter, $page_cursor=$page_cursor);
+$klaviyo->Coupons->getCouponCouponCodes($id, fields_coupon_code: $fields_coupon_code, filter: $filter, page_cursor: $page_cursor);
+```
+##### Method alias:
+```php
+$klaviyo->Coupons->getCodesForCoupon($id, fields_coupon_code: $fields_coupon_code, filter: $filter, page_cursor: $page_cursor);
 ```
 
 
@@ -2009,11 +2052,11 @@ $klaviyo->Coupons->getCouponCouponCodes($id, $fields_coupon_code=$fields_coupon_
 
 # $fields_coupon | string[]
 
-$klaviyo->Coupons->getCouponForCouponCode($id, $fields_coupon=$fields_coupon);
+$klaviyo->Coupons->getCouponForCouponCode($id, fields_coupon: $fields_coupon);
 ```
 ##### Method alias:
 ```php
-$klaviyo->Coupons->getCouponCodeCoupon($id, $fields_coupon=$fields_coupon);
+$klaviyo->Coupons->getCouponCodeCoupon($id, fields_coupon: $fields_coupon);
 ```
 
 
@@ -2045,7 +2088,7 @@ $klaviyo->Coupons->getCouponRelationshipsCouponCodes($id);
 # $fields_coupon | string[]
 # $page_cursor | string
 
-$klaviyo->Coupons->getCoupons($fields_coupon=$fields_coupon, $page_cursor=$page_cursor);
+$klaviyo->Coupons->getCoupons(fields_coupon: $fields_coupon, page_cursor: $page_cursor);
 ```
 
 
@@ -2148,42 +2191,7 @@ $klaviyo->Events->createEvent($body);
 # $fields_profile | string[]
 # $include | string[]
 
-$klaviyo->Events->getEvent($id, $fields_event=$fields_event, $fields_metric=$fields_metric, $fields_profile=$fields_profile, $include=$include);
-```
-
-
-
-
-#### [Get Event Metric](https://developers.klaviyo.com/en/v2024-10-15/reference/get_event_metric)
-
-```php
-## Positional Arguments
-
-# $id | string
-
-## Keyword Arguments
-
-# $fields_metric | string[]
-
-$klaviyo->Events->getEventMetric($id, $fields_metric=$fields_metric);
-```
-
-
-
-
-#### [Get Event Profile](https://developers.klaviyo.com/en/v2024-10-15/reference/get_event_profile)
-
-```php
-## Positional Arguments
-
-# $id | string
-
-## Keyword Arguments
-
-# $additional_fields_profile | string[]
-# $fields_profile | string[]
-
-$klaviyo->Events->getEventProfile($id, $additional_fields_profile=$additional_fields_profile, $fields_profile=$fields_profile);
+$klaviyo->Events->getEvent($id, fields_event: $fields_event, fields_metric: $fields_metric, fields_profile: $fields_profile, include: $include);
 ```
 
 
@@ -2203,7 +2211,28 @@ $klaviyo->Events->getEventProfile($id, $additional_fields_profile=$additional_fi
 # $page_cursor | string
 # $sort | string
 
-$klaviyo->Events->getEvents($fields_event=$fields_event, $fields_metric=$fields_metric, $fields_profile=$fields_profile, $filter=$filter, $include=$include, $page_cursor=$page_cursor, $sort=$sort);
+$klaviyo->Events->getEvents(fields_event: $fields_event, fields_metric: $fields_metric, fields_profile: $fields_profile, filter: $filter, include: $include, page_cursor: $page_cursor, sort: $sort);
+```
+
+
+
+
+#### [Get Metric for Event](https://developers.klaviyo.com/en/v2024-10-15/reference/get_metric_for_event)
+
+```php
+## Positional Arguments
+
+# $id | string
+
+## Keyword Arguments
+
+# $fields_metric | string[]
+
+$klaviyo->Events->getMetricForEvent($id, fields_metric: $fields_metric);
+```
+##### Method alias:
+```php
+$klaviyo->Events->getEventMetric($id, fields_metric: $fields_metric);
 ```
 
 
@@ -2221,6 +2250,28 @@ $klaviyo->Events->getMetricIdForEvent($id);
 ##### Method alias:
 ```php
 $klaviyo->Events->getEventRelationshipsMetric($id);
+```
+
+
+
+
+#### [Get Profile for Event](https://developers.klaviyo.com/en/v2024-10-15/reference/get_profile_for_event)
+
+```php
+## Positional Arguments
+
+# $id | string
+
+## Keyword Arguments
+
+# $additional_fields_profile | string[]
+# $fields_profile | string[]
+
+$klaviyo->Events->getProfileForEvent($id, additional_fields_profile: $additional_fields_profile, fields_profile: $fields_profile);
+```
+##### Method alias:
+```php
+$klaviyo->Events->getEventProfile($id, additional_fields_profile: $additional_fields_profile, fields_profile: $fields_profile);
 ```
 
 
@@ -2260,6 +2311,27 @@ $klaviyo->Flows->deleteFlow($id);
 
 
 
+#### [Get Action for Flow Message](https://developers.klaviyo.com/en/v2024-10-15/reference/get_action_for_flow_message)
+
+```php
+## Positional Arguments
+
+# $id | string
+
+## Keyword Arguments
+
+# $fields_flow_action | string[]
+
+$klaviyo->Flows->getActionForFlowMessage($id, fields_flow_action: $fields_flow_action);
+```
+##### Method alias:
+```php
+$klaviyo->Flows->getFlowMessageAction($id, fields_flow_action: $fields_flow_action);
+```
+
+
+
+
 #### [Get Action ID for Flow Message](https://developers.klaviyo.com/en/v2024-10-15/reference/get_action_id_for_flow_message)
 
 ```php
@@ -2290,11 +2362,15 @@ $klaviyo->Flows->getFlowMessageRelationshipsAction($id);
 # $page_size | int
 # $sort | string
 
-$klaviyo->Flows->getActionIdsForFlow($id, $filter=$filter, $page_size=$page_size, $sort=$sort);
+$klaviyo->Flows->getActionIdsForFlow($id, filter: $filter, page_size: $page_size, sort: $sort);
 ```
 ##### Method alias:
 ```php
-$klaviyo->Flows->getFlowRelationshipsFlowActions($id, $filter=$filter, $page_size=$page_size, $sort=$sort);
+$klaviyo->Flows->getFlowRelationshipsFlowActions($id, filter: $filter, page_size: $page_size, sort: $sort);
+```
+##### Method alias:
+```php
+$klaviyo->Flows->getFlowRelationshipsActions($id, filter: $filter, page_size: $page_size, sort: $sort);
 ```
 
 
@@ -2315,11 +2391,15 @@ $klaviyo->Flows->getFlowRelationshipsFlowActions($id, $filter=$filter, $page_siz
 # $page_size | int
 # $sort | string
 
-$klaviyo->Flows->getActionsForFlow($id, $fields_flow_action=$fields_flow_action, $filter=$filter, $page_cursor=$page_cursor, $page_size=$page_size, $sort=$sort);
+$klaviyo->Flows->getActionsForFlow($id, fields_flow_action: $fields_flow_action, filter: $filter, page_cursor: $page_cursor, page_size: $page_size, sort: $sort);
 ```
 ##### Method alias:
 ```php
-$klaviyo->Flows->getFlowFlowActions($id, $fields_flow_action=$fields_flow_action, $filter=$filter, $page_cursor=$page_cursor, $page_size=$page_size, $sort=$sort);
+$klaviyo->Flows->getFlowFlowActions($id, fields_flow_action: $fields_flow_action, filter: $filter, page_cursor: $page_cursor, page_size: $page_size, sort: $sort);
+```
+##### Method alias:
+```php
+$klaviyo->Flows->getFlowActions($id, fields_flow_action: $fields_flow_action, filter: $filter, page_cursor: $page_cursor, page_size: $page_size, sort: $sort);
 ```
 
 
@@ -2339,7 +2419,7 @@ $klaviyo->Flows->getFlowFlowActions($id, $fields_flow_action=$fields_flow_action
 # $fields_tag | string[]
 # $include | string[]
 
-$klaviyo->Flows->getFlow($id, $fields_flow_action=$fields_flow_action, $fields_flow=$fields_flow, $fields_tag=$fields_tag, $include=$include);
+$klaviyo->Flows->getFlow($id, fields_flow_action: $fields_flow_action, fields_flow: $fields_flow, fields_tag: $fields_tag, include: $include);
 ```
 
 
@@ -2359,13 +2439,13 @@ $klaviyo->Flows->getFlow($id, $fields_flow_action=$fields_flow_action, $fields_f
 # $fields_flow | string[]
 # $include | string[]
 
-$klaviyo->Flows->getFlowAction($id, $fields_flow_action=$fields_flow_action, $fields_flow_message=$fields_flow_message, $fields_flow=$fields_flow, $include=$include);
+$klaviyo->Flows->getFlowAction($id, fields_flow_action: $fields_flow_action, fields_flow_message: $fields_flow_message, fields_flow: $fields_flow, include: $include);
 ```
 
 
 
 
-#### [Get Flow For Flow Action](https://developers.klaviyo.com/en/v2024-10-15/reference/get_flow_action_flow)
+#### [Get Flow for Flow Action](https://developers.klaviyo.com/en/v2024-10-15/reference/get_flow_for_flow_action)
 
 ```php
 ## Positional Arguments
@@ -2376,7 +2456,11 @@ $klaviyo->Flows->getFlowAction($id, $fields_flow_action=$fields_flow_action, $fi
 
 # $fields_flow | string[]
 
-$klaviyo->Flows->getFlowActionFlow($id, $fields_flow=$fields_flow);
+$klaviyo->Flows->getFlowForFlowAction($id, fields_flow: $fields_flow);
+```
+##### Method alias:
+```php
+$klaviyo->Flows->getFlowActionFlow($id, fields_flow: $fields_flow);
 ```
 
 
@@ -2413,41 +2497,7 @@ $klaviyo->Flows->getFlowActionRelationshipsFlow($id);
 # $fields_template | string[]
 # $include | string[]
 
-$klaviyo->Flows->getFlowMessage($id, $fields_flow_action=$fields_flow_action, $fields_flow_message=$fields_flow_message, $fields_template=$fields_template, $include=$include);
-```
-
-
-
-
-#### [Get Flow Action For Message](https://developers.klaviyo.com/en/v2024-10-15/reference/get_flow_message_action)
-
-```php
-## Positional Arguments
-
-# $id | string
-
-## Keyword Arguments
-
-# $fields_flow_action | string[]
-
-$klaviyo->Flows->getFlowMessageAction($id, $fields_flow_action=$fields_flow_action);
-```
-
-
-
-
-#### [Get Flow Tags](https://developers.klaviyo.com/en/v2024-10-15/reference/get_flow_tags)
-
-```php
-## Positional Arguments
-
-# $id | string
-
-## Keyword Arguments
-
-# $fields_tag | string[]
-
-$klaviyo->Flows->getFlowTags($id, $fields_tag=$fields_tag);
+$klaviyo->Flows->getFlowMessage($id, fields_flow_action: $fields_flow_action, fields_flow_message: $fields_flow_message, fields_template: $fields_template, include: $include);
 ```
 
 
@@ -2468,7 +2518,7 @@ $klaviyo->Flows->getFlowTags($id, $fields_tag=$fields_tag);
 # $page_size | int
 # $sort | string
 
-$klaviyo->Flows->getFlows($fields_flow_action=$fields_flow_action, $fields_flow=$fields_flow, $fields_tag=$fields_tag, $filter=$filter, $include=$include, $page_cursor=$page_cursor, $page_size=$page_size, $sort=$sort);
+$klaviyo->Flows->getFlows(fields_flow_action: $fields_flow_action, fields_flow: $fields_flow, fields_tag: $fields_tag, filter: $filter, include: $include, page_cursor: $page_cursor, page_size: $page_size, sort: $sort);
 ```
 
 
@@ -2488,11 +2538,11 @@ $klaviyo->Flows->getFlows($fields_flow_action=$fields_flow_action, $fields_flow=
 # $page_size | int
 # $sort | string
 
-$klaviyo->Flows->getMessageIdsForFlowAction($id, $filter=$filter, $page_cursor=$page_cursor, $page_size=$page_size, $sort=$sort);
+$klaviyo->Flows->getMessageIdsForFlowAction($id, filter: $filter, page_cursor: $page_cursor, page_size: $page_size, sort: $sort);
 ```
 ##### Method alias:
 ```php
-$klaviyo->Flows->getFlowActionRelationshipsMessages($id, $filter=$filter, $page_cursor=$page_cursor, $page_size=$page_size, $sort=$sort);
+$klaviyo->Flows->getFlowActionRelationshipsMessages($id, filter: $filter, page_cursor: $page_cursor, page_size: $page_size, sort: $sort);
 ```
 
 
@@ -2512,11 +2562,11 @@ $klaviyo->Flows->getFlowActionRelationshipsMessages($id, $filter=$filter, $page_
 # $page_size | int
 # $sort | string
 
-$klaviyo->Flows->getMessagesForFlowAction($id, $fields_flow_message=$fields_flow_message, $filter=$filter, $page_size=$page_size, $sort=$sort);
+$klaviyo->Flows->getMessagesForFlowAction($id, fields_flow_message: $fields_flow_message, filter: $filter, page_size: $page_size, sort: $sort);
 ```
 ##### Method alias:
 ```php
-$klaviyo->Flows->getFlowActionMessages($id, $fields_flow_message=$fields_flow_message, $filter=$filter, $page_size=$page_size, $sort=$sort);
+$klaviyo->Flows->getFlowActionMessages($id, fields_flow_message: $fields_flow_message, filter: $filter, page_size: $page_size, sort: $sort);
 ```
 
 
@@ -2539,6 +2589,27 @@ $klaviyo->Flows->getFlowRelationshipsTags($id);
 
 
 
+#### [Get Tags for Flow](https://developers.klaviyo.com/en/v2024-10-15/reference/get_tags_for_flow)
+
+```php
+## Positional Arguments
+
+# $id | string
+
+## Keyword Arguments
+
+# $fields_tag | string[]
+
+$klaviyo->Flows->getTagsForFlow($id, fields_tag: $fields_tag);
+```
+##### Method alias:
+```php
+$klaviyo->Flows->getFlowTags($id, fields_tag: $fields_tag);
+```
+
+
+
+
 #### [Get Template for Flow Message](https://developers.klaviyo.com/en/v2024-10-15/reference/get_template_for_flow_message)
 
 ```php
@@ -2550,11 +2621,11 @@ $klaviyo->Flows->getFlowRelationshipsTags($id);
 
 # $fields_template | string[]
 
-$klaviyo->Flows->getTemplateForFlowMessage($id, $fields_template=$fields_template);
+$klaviyo->Flows->getTemplateForFlowMessage($id, fields_template: $fields_template);
 ```
 ##### Method alias:
 ```php
-$klaviyo->Flows->getFlowMessageTemplate($id, $fields_template=$fields_template);
+$klaviyo->Flows->getFlowMessageTemplate($id, fields_template: $fields_template);
 ```
 
 
@@ -2608,7 +2679,7 @@ $klaviyo->Flows->updateFlow($id, $body);
 # $fields_form | string[]
 # $include | string[]
 
-$klaviyo->Forms->getForm($id, $fields_form_version=$fields_form_version, $fields_form=$fields_form, $include=$include);
+$klaviyo->Forms->getForm($id, fields_form_version: $fields_form_version, fields_form: $fields_form, include: $include);
 ```
 
 
@@ -2625,11 +2696,11 @@ $klaviyo->Forms->getForm($id, $fields_form_version=$fields_form_version, $fields
 
 # $fields_form | string[]
 
-$klaviyo->Forms->getFormForFormVersion($id, $fields_form=$fields_form);
+$klaviyo->Forms->getFormForFormVersion($id, fields_form: $fields_form);
 ```
 ##### Method alias:
 ```php
-$klaviyo->Forms->getFormVersionForm($id, $fields_form=$fields_form);
+$klaviyo->Forms->getFormVersionForm($id, fields_form: $fields_form);
 ```
 
 
@@ -2663,7 +2734,7 @@ $klaviyo->Forms->getFormVersionRelationshipsForm($id);
 
 # $fields_form_version | string[]
 
-$klaviyo->Forms->getFormVersion($id, $fields_form_version=$fields_form_version);
+$klaviyo->Forms->getFormVersion($id, fields_form_version: $fields_form_version);
 ```
 
 
@@ -2681,7 +2752,7 @@ $klaviyo->Forms->getFormVersion($id, $fields_form_version=$fields_form_version);
 # $page_size | int
 # $sort | string
 
-$klaviyo->Forms->getForms($fields_form=$fields_form, $filter=$filter, $page_cursor=$page_cursor, $page_size=$page_size, $sort=$sort);
+$klaviyo->Forms->getForms(fields_form: $fields_form, filter: $filter, page_cursor: $page_cursor, page_size: $page_size, sort: $sort);
 ```
 
 
@@ -2694,11 +2765,22 @@ $klaviyo->Forms->getForms($fields_form=$fields_form, $filter=$filter, $page_curs
 
 # $id | string
 
-$klaviyo->Forms->getVersionIdsForForm($id);
+## Keyword Arguments
+
+# $filter | string
+# $page_cursor | string
+# $page_size | int
+# $sort | string
+
+$klaviyo->Forms->getVersionIdsForForm($id, filter: $filter, page_cursor: $page_cursor, page_size: $page_size, sort: $sort);
 ```
 ##### Method alias:
 ```php
-$klaviyo->Forms->getFormRelationshipsFormVersions($id);
+$klaviyo->Forms->getFormRelationshipsFormVersions($id, filter: $filter, page_cursor: $page_cursor, page_size: $page_size, sort: $sort);
+```
+##### Method alias:
+```php
+$klaviyo->Forms->getFormRelationshipsVersions($id, filter: $filter, page_cursor: $page_cursor, page_size: $page_size, sort: $sort);
 ```
 
 
@@ -2719,11 +2801,15 @@ $klaviyo->Forms->getFormRelationshipsFormVersions($id);
 # $page_size | int
 # $sort | string
 
-$klaviyo->Forms->getVersionsForForm($id, $fields_form_version=$fields_form_version, $filter=$filter, $page_cursor=$page_cursor, $page_size=$page_size, $sort=$sort);
+$klaviyo->Forms->getVersionsForForm($id, fields_form_version: $fields_form_version, filter: $filter, page_cursor: $page_cursor, page_size: $page_size, sort: $sort);
 ```
 ##### Method alias:
 ```php
-$klaviyo->Forms->getFormFormVersions($id, $fields_form_version=$fields_form_version, $filter=$filter, $page_cursor=$page_cursor, $page_size=$page_size, $sort=$sort);
+$klaviyo->Forms->getFormFormVersions($id, fields_form_version: $fields_form_version, filter: $filter, page_cursor: $page_cursor, page_size: $page_size, sort: $sort);
+```
+##### Method alias:
+```php
+$klaviyo->Forms->getFormVersions($id, fields_form_version: $fields_form_version, filter: $filter, page_cursor: $page_cursor, page_size: $page_size, sort: $sort);
 ```
 
 
@@ -2744,7 +2830,7 @@ $klaviyo->Forms->getFormFormVersions($id, $fields_form_version=$fields_form_vers
 
 # $fields_image | string[]
 
-$klaviyo->Images->getImage($id, $fields_image=$fields_image);
+$klaviyo->Images->getImage($id, fields_image: $fields_image);
 ```
 
 
@@ -2762,7 +2848,7 @@ $klaviyo->Images->getImage($id, $fields_image=$fields_image);
 # $page_size | int
 # $sort | string
 
-$klaviyo->Images->getImages($fields_image=$fields_image, $filter=$filter, $page_cursor=$page_cursor, $page_size=$page_size, $sort=$sort);
+$klaviyo->Images->getImages(fields_image: $fields_image, filter: $filter, page_cursor: $page_cursor, page_size: $page_size, sort: $sort);
 ```
 
 
@@ -2794,11 +2880,11 @@ $klaviyo->Images->updateImage($id, $body);
 # $name | string
 # $hidden | bool
 
-$klaviyo->Images->uploadImageFromFile($file, $name=$name, $hidden=$hidden);
+$klaviyo->Images->uploadImageFromFile($file, name: $name, hidden: $hidden);
 ```
 ##### Method alias:
 ```php
-$klaviyo->Images->createImageUpload($file, $name=$name, $hidden=$hidden);
+$klaviyo->Images->createImageUpload($file, name: $name, hidden: $hidden);
 ```
 
 
@@ -2825,6 +2911,32 @@ $klaviyo->Images->createImage($body);
 
 ## Lists
 
+#### [Add Profiles to List](https://developers.klaviyo.com/en/v2024-10-15/reference/add_profiles_to_list)
+
+```php
+## Positional Arguments
+
+# $id | string
+# $body | associative array
+
+$klaviyo->Lists->addProfilesToList($id, $body);
+```
+##### Method alias:
+```php
+$klaviyo->Lists->createListRelationships($id, $body);
+```
+##### Method alias:
+```php
+$klaviyo->Lists->createListRelationshipsProfile($id, $body);
+```
+##### Method alias:
+```php
+$klaviyo->Lists->createListRelationshipsProfiles($id, $body);
+```
+
+
+
+
 #### [Create List](https://developers.klaviyo.com/en/v2024-10-15/reference/create_list)
 
 ```php
@@ -2833,24 +2945,6 @@ $klaviyo->Images->createImage($body);
 # $body | associative array
 
 $klaviyo->Lists->createList($body);
-```
-
-
-
-
-#### [Add Profile To List](https://developers.klaviyo.com/en/v2024-10-15/reference/create_list_relationships)
-
-```php
-## Positional Arguments
-
-# $id | string
-# $body | associative array
-
-$klaviyo->Lists->createListRelationships($id, $body);
-```
-##### Method alias:
-```php
-$klaviyo->Lists->createListRelationshipsProfile($id, $body);
 ```
 
 
@@ -2869,19 +2963,47 @@ $klaviyo->Lists->deleteList($id);
 
 
 
-#### [Remove Profile From List](https://developers.klaviyo.com/en/v2024-10-15/reference/delete_list_relationships)
+#### [Get Flows Triggered by List](https://developers.klaviyo.com/en/v2024-10-15/reference/get_flows_triggered_by_list)
 
 ```php
 ## Positional Arguments
 
 # $id | string
-# $body | associative array
 
-$klaviyo->Lists->deleteListRelationships($id, $body);
+## Keyword Arguments
+
+# $fields_flow | string[]
+
+$klaviyo->Lists->getFlowsTriggeredByList($id, fields_flow: $fields_flow);
 ```
 ##### Method alias:
 ```php
-$klaviyo->Lists->deleteListRelationshipsProfiles($id, $body);
+$klaviyo->Lists->getFlowTriggersForList($id, fields_flow: $fields_flow);
+```
+##### Method alias:
+```php
+$klaviyo->Lists->getListFlowTriggers($id, fields_flow: $fields_flow);
+```
+
+
+
+
+#### [Get IDs for Flows Triggered by List](https://developers.klaviyo.com/en/v2024-10-15/reference/get_ids_for_flows_triggered_by_list)
+
+```php
+## Positional Arguments
+
+# $id | string
+
+$klaviyo->Lists->getIdsForFlowsTriggeredByList($id);
+```
+##### Method alias:
+```php
+$klaviyo->Lists->getFlowTriggerIdsForList($id);
+```
+##### Method alias:
+```php
+$klaviyo->Lists->getListRelationshipsFlowTriggers($id);
 ```
 
 
@@ -2902,76 +3024,7 @@ $klaviyo->Lists->deleteListRelationshipsProfiles($id, $body);
 # $fields_tag | string[]
 # $include | string[]
 
-$klaviyo->Lists->getList($id, $additional_fields_list=$additional_fields_list, $fields_flow=$fields_flow, $fields_list=$fields_list, $fields_tag=$fields_tag, $include=$include);
-```
-
-
-
-
-#### [Get List Flow Triggers](https://developers.klaviyo.com/en/v2024-10-15/reference/get_list_flow_triggers)
-
-```php
-## Positional Arguments
-
-# $id | string
-
-## Keyword Arguments
-
-# $fields_flow | string[]
-
-$klaviyo->Lists->getListFlowTriggers($id, $fields_flow=$fields_flow);
-```
-
-
-
-
-#### [Get List Profiles](https://developers.klaviyo.com/en/v2024-10-15/reference/get_list_profiles)
-
-```php
-## Positional Arguments
-
-# $id | string
-
-## Keyword Arguments
-
-# $additional_fields_profile | string[]
-# $fields_profile | string[]
-# $filter | string
-# $page_cursor | string
-# $page_size | int
-# $sort | string
-
-$klaviyo->Lists->getListProfiles($id, $additional_fields_profile=$additional_fields_profile, $fields_profile=$fields_profile, $filter=$filter, $page_cursor=$page_cursor, $page_size=$page_size, $sort=$sort);
-```
-
-
-
-
-#### [Get List Relationships Flow Triggers](https://developers.klaviyo.com/en/v2024-10-15/reference/get_list_relationships_flow_triggers)
-
-```php
-## Positional Arguments
-
-# $id | string
-
-$klaviyo->Lists->getListRelationshipsFlowTriggers($id);
-```
-
-
-
-
-#### [Get List Tags](https://developers.klaviyo.com/en/v2024-10-15/reference/get_list_tags)
-
-```php
-## Positional Arguments
-
-# $id | string
-
-## Keyword Arguments
-
-# $fields_tag | string[]
-
-$klaviyo->Lists->getListTags($id, $fields_tag=$fields_tag);
+$klaviyo->Lists->getList($id, additional_fields_list: $additional_fields_list, fields_flow: $fields_flow, fields_list: $fields_list, fields_tag: $fields_tag, include: $include);
 ```
 
 
@@ -2991,7 +3044,7 @@ $klaviyo->Lists->getListTags($id, $fields_tag=$fields_tag);
 # $page_cursor | string
 # $sort | string
 
-$klaviyo->Lists->getLists($fields_flow=$fields_flow, $fields_list=$fields_list, $fields_tag=$fields_tag, $filter=$filter, $include=$include, $page_cursor=$page_cursor, $sort=$sort);
+$klaviyo->Lists->getLists(fields_flow: $fields_flow, fields_list: $fields_list, fields_tag: $fields_tag, filter: $filter, include: $include, page_cursor: $page_cursor, sort: $sort);
 ```
 
 
@@ -3011,11 +3064,37 @@ $klaviyo->Lists->getLists($fields_flow=$fields_flow, $fields_list=$fields_list, 
 # $page_size | int
 # $sort | string
 
-$klaviyo->Lists->getProfileIdsForList($id, $filter=$filter, $page_cursor=$page_cursor, $page_size=$page_size, $sort=$sort);
+$klaviyo->Lists->getProfileIdsForList($id, filter: $filter, page_cursor: $page_cursor, page_size: $page_size, sort: $sort);
 ```
 ##### Method alias:
 ```php
-$klaviyo->Lists->getListRelationshipsProfiles($id, $filter=$filter, $page_cursor=$page_cursor, $page_size=$page_size, $sort=$sort);
+$klaviyo->Lists->getListRelationshipsProfiles($id, filter: $filter, page_cursor: $page_cursor, page_size: $page_size, sort: $sort);
+```
+
+
+
+
+#### [Get Profiles for List](https://developers.klaviyo.com/en/v2024-10-15/reference/get_profiles_for_list)
+
+```php
+## Positional Arguments
+
+# $id | string
+
+## Keyword Arguments
+
+# $additional_fields_profile | string[]
+# $fields_profile | string[]
+# $filter | string
+# $page_cursor | string
+# $page_size | int
+# $sort | string
+
+$klaviyo->Lists->getProfilesForList($id, additional_fields_profile: $additional_fields_profile, fields_profile: $fields_profile, filter: $filter, page_cursor: $page_cursor, page_size: $page_size, sort: $sort);
+```
+##### Method alias:
+```php
+$klaviyo->Lists->getListProfiles($id, additional_fields_profile: $additional_fields_profile, fields_profile: $fields_profile, filter: $filter, page_cursor: $page_cursor, page_size: $page_size, sort: $sort);
 ```
 
 
@@ -3033,6 +3112,49 @@ $klaviyo->Lists->getTagIdsForList($id);
 ##### Method alias:
 ```php
 $klaviyo->Lists->getListRelationshipsTags($id);
+```
+
+
+
+
+#### [Get Tags for List](https://developers.klaviyo.com/en/v2024-10-15/reference/get_tags_for_list)
+
+```php
+## Positional Arguments
+
+# $id | string
+
+## Keyword Arguments
+
+# $fields_tag | string[]
+
+$klaviyo->Lists->getTagsForList($id, fields_tag: $fields_tag);
+```
+##### Method alias:
+```php
+$klaviyo->Lists->getListTags($id, fields_tag: $fields_tag);
+```
+
+
+
+
+#### [Remove Profiles from List](https://developers.klaviyo.com/en/v2024-10-15/reference/remove_profiles_from_list)
+
+```php
+## Positional Arguments
+
+# $id | string
+# $body | associative array
+
+$klaviyo->Lists->removeProfilesFromList($id, $body);
+```
+##### Method alias:
+```php
+$klaviyo->Lists->deleteListRelationships($id, $body);
+```
+##### Method alias:
+```php
+$klaviyo->Lists->deleteListRelationshipsProfiles($id, $body);
 ```
 
 
@@ -3056,6 +3178,52 @@ $klaviyo->Lists->updateList($id, $body);
 
 ## Metrics
 
+#### [Get Flows Triggered by Metric](https://developers.klaviyo.com/en/v2024-10-15/reference/get_flows_triggered_by_metric)
+
+```php
+## Positional Arguments
+
+# $id | string
+
+## Keyword Arguments
+
+# $fields_flow | string[]
+
+$klaviyo->Metrics->getFlowsTriggeredByMetric($id, fields_flow: $fields_flow);
+```
+##### Method alias:
+```php
+$klaviyo->Metrics->getFlowTriggersForMetric($id, fields_flow: $fields_flow);
+```
+##### Method alias:
+```php
+$klaviyo->Metrics->getMetricFlowTriggers($id, fields_flow: $fields_flow);
+```
+
+
+
+
+#### [Get IDs for Flows Triggered by Metric](https://developers.klaviyo.com/en/v2024-10-15/reference/get_ids_for_flows_triggered_by_metric)
+
+```php
+## Positional Arguments
+
+# $id | string
+
+$klaviyo->Metrics->getIdsForFlowsTriggeredByMetric($id);
+```
+##### Method alias:
+```php
+$klaviyo->Metrics->getFlowTriggerIdsForMetric($id);
+```
+##### Method alias:
+```php
+$klaviyo->Metrics->getMetricRelationshipsFlowTriggers($id);
+```
+
+
+
+
 #### [Get Metric](https://developers.klaviyo.com/en/v2024-10-15/reference/get_metric)
 
 ```php
@@ -3069,24 +3237,7 @@ $klaviyo->Lists->updateList($id, $body);
 # $fields_metric | string[]
 # $include | string[]
 
-$klaviyo->Metrics->getMetric($id, $fields_flow=$fields_flow, $fields_metric=$fields_metric, $include=$include);
-```
-
-
-
-
-#### [Get Metric Flow Triggers](https://developers.klaviyo.com/en/v2024-10-15/reference/get_metric_flow_triggers)
-
-```php
-## Positional Arguments
-
-# $id | string
-
-## Keyword Arguments
-
-# $fields_flow | string[]
-
-$klaviyo->Metrics->getMetricFlowTriggers($id, $fields_flow=$fields_flow);
+$klaviyo->Metrics->getMetric($id, fields_flow: $fields_flow, fields_metric: $fields_metric, include: $include);
 ```
 
 
@@ -3103,11 +3254,11 @@ $klaviyo->Metrics->getMetricFlowTriggers($id, $fields_flow=$fields_flow);
 
 # $fields_metric | string[]
 
-$klaviyo->Metrics->getMetricForMetricProperty($id, $fields_metric=$fields_metric);
+$klaviyo->Metrics->getMetricForMetricProperty($id, fields_metric: $fields_metric);
 ```
 ##### Method alias:
 ```php
-$klaviyo->Metrics->getMetricPropertyMetric($id, $fields_metric=$fields_metric);
+$klaviyo->Metrics->getMetricPropertyMetric($id, fields_metric: $fields_metric);
 ```
 
 
@@ -3144,20 +3295,7 @@ $klaviyo->Metrics->getMetricPropertyRelationshipsMetric($id);
 # $fields_metric | string[]
 # $include | string[]
 
-$klaviyo->Metrics->getMetricProperty($id, $additional_fields_metric_property=$additional_fields_metric_property, $fields_metric_property=$fields_metric_property, $fields_metric=$fields_metric, $include=$include);
-```
-
-
-
-
-#### [Get Metric Relationships Flow Triggers](https://developers.klaviyo.com/en/v2024-10-15/reference/get_metric_relationships_flow_triggers)
-
-```php
-## Positional Arguments
-
-# $id | string
-
-$klaviyo->Metrics->getMetricRelationshipsFlowTriggers($id);
+$klaviyo->Metrics->getMetricProperty($id, additional_fields_metric_property: $additional_fields_metric_property, fields_metric_property: $fields_metric_property, fields_metric: $fields_metric, include: $include);
 ```
 
 
@@ -3175,7 +3313,7 @@ $klaviyo->Metrics->getMetricRelationshipsFlowTriggers($id);
 # $include | string[]
 # $page_cursor | string
 
-$klaviyo->Metrics->getMetrics($fields_flow=$fields_flow, $fields_metric=$fields_metric, $filter=$filter, $include=$include, $page_cursor=$page_cursor);
+$klaviyo->Metrics->getMetrics(fields_flow: $fields_flow, fields_metric: $fields_metric, filter: $filter, include: $include, page_cursor: $page_cursor);
 ```
 
 
@@ -3193,11 +3331,15 @@ $klaviyo->Metrics->getMetrics($fields_flow=$fields_flow, $fields_metric=$fields_
 # $additional_fields_metric_property | string[]
 # $fields_metric_property | string[]
 
-$klaviyo->Metrics->getPropertiesForMetric($id, $additional_fields_metric_property=$additional_fields_metric_property, $fields_metric_property=$fields_metric_property);
+$klaviyo->Metrics->getPropertiesForMetric($id, additional_fields_metric_property: $additional_fields_metric_property, fields_metric_property: $fields_metric_property);
 ```
 ##### Method alias:
 ```php
-$klaviyo->Metrics->getMetricMetricProperties($id, $additional_fields_metric_property=$additional_fields_metric_property, $fields_metric_property=$fields_metric_property);
+$klaviyo->Metrics->getMetricMetricProperties($id, additional_fields_metric_property: $additional_fields_metric_property, fields_metric_property: $fields_metric_property);
+```
+##### Method alias:
+```php
+$klaviyo->Metrics->getMetricProperties($id, additional_fields_metric_property: $additional_fields_metric_property, fields_metric_property: $fields_metric_property);
 ```
 
 
@@ -3215,6 +3357,10 @@ $klaviyo->Metrics->getPropertyIdsForMetric($id);
 ##### Method alias:
 ```php
 $klaviyo->Metrics->getMetricRelationshipsMetricProperties($id);
+```
+##### Method alias:
+```php
+$klaviyo->Metrics->getMetricRelationshipsProperties($id);
 ```
 
 
@@ -3240,6 +3386,27 @@ $klaviyo->Metrics->createMetricAggregate($body);
 
 
 ## Profiles
+
+#### [Bulk Import Profiles](https://developers.klaviyo.com/en/v2024-10-15/reference/bulk_import_profiles)
+
+```php
+## Positional Arguments
+
+# $body | associative array
+
+$klaviyo->Profiles->bulkImportProfiles($body);
+```
+##### Method alias:
+```php
+$klaviyo->Profiles->spawnBulkProfileImportJob($body);
+```
+##### Method alias:
+```php
+$klaviyo->Profiles->createProfileBulkImportJob($body);
+```
+
+
+
 
 #### [Bulk Subscribe Profiles](https://developers.klaviyo.com/en/v2024-10-15/reference/bulk_subscribe_profiles)
 
@@ -3336,11 +3503,11 @@ $klaviyo->Profiles->createProfileSuppressionBulkDeleteJob($body);
 
 # $additional_fields_profile | string[]
 
-$klaviyo->Profiles->createOrUpdateProfile($body, $additional_fields_profile=$additional_fields_profile);
+$klaviyo->Profiles->createOrUpdateProfile($body, additional_fields_profile: $additional_fields_profile);
 ```
 ##### Method alias:
 ```php
-$klaviyo->Profiles->createProfileImport($body, $additional_fields_profile=$additional_fields_profile);
+$klaviyo->Profiles->createProfileImport($body, additional_fields_profile: $additional_fields_profile);
 ```
 
 
@@ -3357,7 +3524,7 @@ $klaviyo->Profiles->createProfileImport($body, $additional_fields_profile=$addit
 
 # $additional_fields_profile | string[]
 
-$klaviyo->Profiles->createProfile($body, $additional_fields_profile=$additional_fields_profile);
+$klaviyo->Profiles->createProfile($body, additional_fields_profile: $additional_fields_profile);
 ```
 
 
@@ -3389,15 +3556,15 @@ $klaviyo->Profiles->createPushToken($body);
 # $fields_profile_bulk_import_job | string[]
 # $include | string[]
 
-$klaviyo->Profiles->getBulkImportProfilesJob($job_id, $fields_list=$fields_list, $fields_profile_bulk_import_job=$fields_profile_bulk_import_job, $include=$include);
+$klaviyo->Profiles->getBulkImportProfilesJob($job_id, fields_list: $fields_list, fields_profile_bulk_import_job: $fields_profile_bulk_import_job, include: $include);
 ```
 ##### Method alias:
 ```php
-$klaviyo->Profiles->getBulkProfileImportJob($job_id, $fields_list=$fields_list, $fields_profile_bulk_import_job=$fields_profile_bulk_import_job, $include=$include);
+$klaviyo->Profiles->getBulkProfileImportJob($job_id, fields_list: $fields_list, fields_profile_bulk_import_job: $fields_profile_bulk_import_job, include: $include);
 ```
 ##### Method alias:
 ```php
-$klaviyo->Profiles->getProfileBulkImportJob($job_id, $fields_list=$fields_list, $fields_profile_bulk_import_job=$fields_profile_bulk_import_job, $include=$include);
+$klaviyo->Profiles->getProfileBulkImportJob($job_id, fields_list: $fields_list, fields_profile_bulk_import_job: $fields_profile_bulk_import_job, include: $include);
 ```
 
 
@@ -3415,15 +3582,15 @@ $klaviyo->Profiles->getProfileBulkImportJob($job_id, $fields_list=$fields_list, 
 # $page_size | int
 # $sort | string
 
-$klaviyo->Profiles->getBulkImportProfilesJobs($fields_profile_bulk_import_job=$fields_profile_bulk_import_job, $filter=$filter, $page_cursor=$page_cursor, $page_size=$page_size, $sort=$sort);
+$klaviyo->Profiles->getBulkImportProfilesJobs(fields_profile_bulk_import_job: $fields_profile_bulk_import_job, filter: $filter, page_cursor: $page_cursor, page_size: $page_size, sort: $sort);
 ```
 ##### Method alias:
 ```php
-$klaviyo->Profiles->getBulkProfileImportJobs($fields_profile_bulk_import_job=$fields_profile_bulk_import_job, $filter=$filter, $page_cursor=$page_cursor, $page_size=$page_size, $sort=$sort);
+$klaviyo->Profiles->getBulkProfileImportJobs(fields_profile_bulk_import_job: $fields_profile_bulk_import_job, filter: $filter, page_cursor: $page_cursor, page_size: $page_size, sort: $sort);
 ```
 ##### Method alias:
 ```php
-$klaviyo->Profiles->getProfileBulkImportJobs($fields_profile_bulk_import_job=$fields_profile_bulk_import_job, $filter=$filter, $page_cursor=$page_cursor, $page_size=$page_size, $sort=$sort);
+$klaviyo->Profiles->getProfileBulkImportJobs(fields_profile_bulk_import_job: $fields_profile_bulk_import_job, filter: $filter, page_cursor: $page_cursor, page_size: $page_size, sort: $sort);
 ```
 
 
@@ -3440,11 +3607,11 @@ $klaviyo->Profiles->getProfileBulkImportJobs($fields_profile_bulk_import_job=$fi
 
 # $fields_profile_suppression_bulk_create_job | string[]
 
-$klaviyo->Profiles->getBulkSuppressProfilesJob($job_id, $fields_profile_suppression_bulk_create_job=$fields_profile_suppression_bulk_create_job);
+$klaviyo->Profiles->getBulkSuppressProfilesJob($job_id, fields_profile_suppression_bulk_create_job: $fields_profile_suppression_bulk_create_job);
 ```
 ##### Method alias:
 ```php
-$klaviyo->Profiles->getProfileSuppressionBulkCreateJob($job_id, $fields_profile_suppression_bulk_create_job=$fields_profile_suppression_bulk_create_job);
+$klaviyo->Profiles->getProfileSuppressionBulkCreateJob($job_id, fields_profile_suppression_bulk_create_job: $fields_profile_suppression_bulk_create_job);
 ```
 
 
@@ -3461,11 +3628,11 @@ $klaviyo->Profiles->getProfileSuppressionBulkCreateJob($job_id, $fields_profile_
 # $page_cursor | string
 # $sort | string
 
-$klaviyo->Profiles->getBulkSuppressProfilesJobs($fields_profile_suppression_bulk_create_job=$fields_profile_suppression_bulk_create_job, $filter=$filter, $page_cursor=$page_cursor, $sort=$sort);
+$klaviyo->Profiles->getBulkSuppressProfilesJobs(fields_profile_suppression_bulk_create_job: $fields_profile_suppression_bulk_create_job, filter: $filter, page_cursor: $page_cursor, sort: $sort);
 ```
 ##### Method alias:
 ```php
-$klaviyo->Profiles->getProfileSuppressionBulkCreateJobs($fields_profile_suppression_bulk_create_job=$fields_profile_suppression_bulk_create_job, $filter=$filter, $page_cursor=$page_cursor, $sort=$sort);
+$klaviyo->Profiles->getProfileSuppressionBulkCreateJobs(fields_profile_suppression_bulk_create_job: $fields_profile_suppression_bulk_create_job, filter: $filter, page_cursor: $page_cursor, sort: $sort);
 ```
 
 
@@ -3482,11 +3649,11 @@ $klaviyo->Profiles->getProfileSuppressionBulkCreateJobs($fields_profile_suppress
 
 # $fields_profile_suppression_bulk_delete_job | string[]
 
-$klaviyo->Profiles->getBulkUnsuppressProfilesJob($job_id, $fields_profile_suppression_bulk_delete_job=$fields_profile_suppression_bulk_delete_job);
+$klaviyo->Profiles->getBulkUnsuppressProfilesJob($job_id, fields_profile_suppression_bulk_delete_job: $fields_profile_suppression_bulk_delete_job);
 ```
 ##### Method alias:
 ```php
-$klaviyo->Profiles->getProfileSuppressionBulkDeleteJob($job_id, $fields_profile_suppression_bulk_delete_job=$fields_profile_suppression_bulk_delete_job);
+$klaviyo->Profiles->getProfileSuppressionBulkDeleteJob($job_id, fields_profile_suppression_bulk_delete_job: $fields_profile_suppression_bulk_delete_job);
 ```
 
 
@@ -3503,11 +3670,11 @@ $klaviyo->Profiles->getProfileSuppressionBulkDeleteJob($job_id, $fields_profile_
 # $page_cursor | string
 # $sort | string
 
-$klaviyo->Profiles->getBulkUnsuppressProfilesJobs($fields_profile_suppression_bulk_delete_job=$fields_profile_suppression_bulk_delete_job, $filter=$filter, $page_cursor=$page_cursor, $sort=$sort);
+$klaviyo->Profiles->getBulkUnsuppressProfilesJobs(fields_profile_suppression_bulk_delete_job: $fields_profile_suppression_bulk_delete_job, filter: $filter, page_cursor: $page_cursor, sort: $sort);
 ```
 ##### Method alias:
 ```php
-$klaviyo->Profiles->getProfileSuppressionBulkDeleteJobs($fields_profile_suppression_bulk_delete_job=$fields_profile_suppression_bulk_delete_job, $filter=$filter, $page_cursor=$page_cursor, $sort=$sort);
+$klaviyo->Profiles->getProfileSuppressionBulkDeleteJobs(fields_profile_suppression_bulk_delete_job: $fields_profile_suppression_bulk_delete_job, filter: $filter, page_cursor: $page_cursor, sort: $sort);
 ```
 
 
@@ -3526,15 +3693,19 @@ $klaviyo->Profiles->getProfileSuppressionBulkDeleteJobs($fields_profile_suppress
 # $page_cursor | string
 # $page_size | int
 
-$klaviyo->Profiles->getErrorsForBulkImportProfilesJob($id, $fields_import_error=$fields_import_error, $page_cursor=$page_cursor, $page_size=$page_size);
+$klaviyo->Profiles->getErrorsForBulkImportProfilesJob($id, fields_import_error: $fields_import_error, page_cursor: $page_cursor, page_size: $page_size);
 ```
 ##### Method alias:
 ```php
-$klaviyo->Profiles->getBulkProfileImportJobImportErrors($id, $fields_import_error=$fields_import_error, $page_cursor=$page_cursor, $page_size=$page_size);
+$klaviyo->Profiles->getBulkProfileImportJobImportErrors($id, fields_import_error: $fields_import_error, page_cursor: $page_cursor, page_size: $page_size);
 ```
 ##### Method alias:
 ```php
-$klaviyo->Profiles->getProfileBulkImportJobImportErrors($id, $fields_import_error=$fields_import_error, $page_cursor=$page_cursor, $page_size=$page_size);
+$klaviyo->Profiles->getImportErrorsForProfileBulkImportJob($id, fields_import_error: $fields_import_error, page_cursor: $page_cursor, page_size: $page_size);
+```
+##### Method alias:
+```php
+$klaviyo->Profiles->getProfileBulkImportJobImportErrors($id, fields_import_error: $fields_import_error, page_cursor: $page_cursor, page_size: $page_size);
 ```
 
 
@@ -3551,15 +3722,19 @@ $klaviyo->Profiles->getProfileBulkImportJobImportErrors($id, $fields_import_erro
 
 # $fields_list | string[]
 
-$klaviyo->Profiles->getListForBulkImportProfilesJob($id, $fields_list=$fields_list);
+$klaviyo->Profiles->getListForBulkImportProfilesJob($id, fields_list: $fields_list);
 ```
 ##### Method alias:
 ```php
-$klaviyo->Profiles->getBulkProfileImportJobLists($id, $fields_list=$fields_list);
+$klaviyo->Profiles->getBulkProfileImportJobLists($id, fields_list: $fields_list);
 ```
 ##### Method alias:
 ```php
-$klaviyo->Profiles->getProfileBulkImportJobLists($id, $fields_list=$fields_list);
+$klaviyo->Profiles->getListsForProfileBulkImportJob($id, fields_list: $fields_list);
+```
+##### Method alias:
+```php
+$klaviyo->Profiles->getProfileBulkImportJobLists($id, fields_list: $fields_list);
 ```
 
 
@@ -3577,6 +3752,10 @@ $klaviyo->Profiles->getListIdsForBulkImportProfilesJob($id);
 ##### Method alias:
 ```php
 $klaviyo->Profiles->getBulkProfileImportJobRelationshipsLists($id);
+```
+##### Method alias:
+```php
+$klaviyo->Profiles->getListIdsForProfileBulkImportJob($id);
 ```
 ##### Method alias:
 ```php
@@ -3614,11 +3793,11 @@ $klaviyo->Profiles->getProfileRelationshipsLists($id);
 
 # $fields_list | string[]
 
-$klaviyo->Profiles->getListsForProfile($id, $fields_list=$fields_list);
+$klaviyo->Profiles->getListsForProfile($id, fields_list: $fields_list);
 ```
 ##### Method alias:
 ```php
-$klaviyo->Profiles->getProfileLists($id, $fields_list=$fields_list);
+$klaviyo->Profiles->getProfileLists($id, fields_list: $fields_list);
 ```
 
 
@@ -3639,7 +3818,7 @@ $klaviyo->Profiles->getProfileLists($id, $fields_list=$fields_list);
 # $fields_segment | string[]
 # $include | string[]
 
-$klaviyo->Profiles->getProfile($id, $additional_fields_profile=$additional_fields_profile, $fields_list=$fields_list, $fields_profile=$fields_profile, $fields_segment=$fields_segment, $include=$include);
+$klaviyo->Profiles->getProfile($id, additional_fields_profile: $additional_fields_profile, fields_list: $fields_list, fields_profile: $fields_profile, fields_segment: $fields_segment, include: $include);
 ```
 
 
@@ -3657,15 +3836,19 @@ $klaviyo->Profiles->getProfile($id, $additional_fields_profile=$additional_field
 # $page_cursor | string
 # $page_size | int
 
-$klaviyo->Profiles->getProfileIdsForBulkImportProfilesJob($id, $page_cursor=$page_cursor, $page_size=$page_size);
+$klaviyo->Profiles->getProfileIdsForBulkImportProfilesJob($id, page_cursor: $page_cursor, page_size: $page_size);
 ```
 ##### Method alias:
 ```php
-$klaviyo->Profiles->getBulkProfileImportJobRelationshipsProfiles($id, $page_cursor=$page_cursor, $page_size=$page_size);
+$klaviyo->Profiles->getBulkProfileImportJobRelationshipsProfiles($id, page_cursor: $page_cursor, page_size: $page_size);
 ```
 ##### Method alias:
 ```php
-$klaviyo->Profiles->getProfileBulkImportJobRelationshipsProfiles($id, $page_cursor=$page_cursor, $page_size=$page_size);
+$klaviyo->Profiles->getProfileBulkImportJobRelationshipsProfiles($id, page_cursor: $page_cursor, page_size: $page_size);
+```
+##### Method alias:
+```php
+$klaviyo->Profiles->getProfileIdsForProfileBulkImportJob($id, page_cursor: $page_cursor, page_size: $page_size);
 ```
 
 
@@ -3684,7 +3867,7 @@ $klaviyo->Profiles->getProfileBulkImportJobRelationshipsProfiles($id, $page_curs
 # $page_size | int
 # $sort | string
 
-$klaviyo->Profiles->getProfiles($additional_fields_profile=$additional_fields_profile, $fields_profile=$fields_profile, $filter=$filter, $page_cursor=$page_cursor, $page_size=$page_size, $sort=$sort);
+$klaviyo->Profiles->getProfiles(additional_fields_profile: $additional_fields_profile, fields_profile: $fields_profile, filter: $filter, page_cursor: $page_cursor, page_size: $page_size, sort: $sort);
 ```
 
 
@@ -3704,15 +3887,19 @@ $klaviyo->Profiles->getProfiles($additional_fields_profile=$additional_fields_pr
 # $page_cursor | string
 # $page_size | int
 
-$klaviyo->Profiles->getProfilesForBulkImportProfilesJob($id, $additional_fields_profile=$additional_fields_profile, $fields_profile=$fields_profile, $page_cursor=$page_cursor, $page_size=$page_size);
+$klaviyo->Profiles->getProfilesForBulkImportProfilesJob($id, additional_fields_profile: $additional_fields_profile, fields_profile: $fields_profile, page_cursor: $page_cursor, page_size: $page_size);
 ```
 ##### Method alias:
 ```php
-$klaviyo->Profiles->getBulkProfileImportJobProfiles($id, $additional_fields_profile=$additional_fields_profile, $fields_profile=$fields_profile, $page_cursor=$page_cursor, $page_size=$page_size);
+$klaviyo->Profiles->getBulkProfileImportJobProfiles($id, additional_fields_profile: $additional_fields_profile, fields_profile: $fields_profile, page_cursor: $page_cursor, page_size: $page_size);
 ```
 ##### Method alias:
 ```php
-$klaviyo->Profiles->getProfileBulkImportJobProfiles($id, $additional_fields_profile=$additional_fields_profile, $fields_profile=$fields_profile, $page_cursor=$page_cursor, $page_size=$page_size);
+$klaviyo->Profiles->getProfileBulkImportJobProfiles($id, additional_fields_profile: $additional_fields_profile, fields_profile: $fields_profile, page_cursor: $page_cursor, page_size: $page_size);
+```
+##### Method alias:
+```php
+$klaviyo->Profiles->getProfilesForProfileBulkImportJob($id, additional_fields_profile: $additional_fields_profile, fields_profile: $fields_profile, page_cursor: $page_cursor, page_size: $page_size);
 ```
 
 
@@ -3746,11 +3933,11 @@ $klaviyo->Profiles->getProfileRelationshipsSegments($id);
 
 # $fields_segment | string[]
 
-$klaviyo->Profiles->getSegmentsForProfile($id, $fields_segment=$fields_segment);
+$klaviyo->Profiles->getSegmentsForProfile($id, fields_segment: $fields_segment);
 ```
 ##### Method alias:
 ```php
-$klaviyo->Profiles->getProfileSegments($id, $fields_segment=$fields_segment);
+$klaviyo->Profiles->getProfileSegments($id, fields_segment: $fields_segment);
 ```
 
 
@@ -3773,27 +3960,6 @@ $klaviyo->Profiles->createProfileMerge($body);
 
 
 
-#### [Spawn Bulk Profile Import Job](https://developers.klaviyo.com/en/v2024-10-15/reference/spawn_bulk_profile_import_job)
-
-```php
-## Positional Arguments
-
-# $body | associative array
-
-$klaviyo->Profiles->spawnBulkProfileImportJob($body);
-```
-##### Method alias:
-```php
-$klaviyo->Profiles->bulkImportProfiles($body);
-```
-##### Method alias:
-```php
-$klaviyo->Profiles->createProfileBulkImportJob($body);
-```
-
-
-
-
 #### [Update Profile](https://developers.klaviyo.com/en/v2024-10-15/reference/update_profile)
 
 ```php
@@ -3806,7 +3972,7 @@ $klaviyo->Profiles->createProfileBulkImportJob($body);
 
 # $additional_fields_profile | string[]
 
-$klaviyo->Profiles->updateProfile($id, $body, $additional_fields_profile=$additional_fields_profile);
+$klaviyo->Profiles->updateProfile($id, $body, additional_fields_profile: $additional_fields_profile);
 ```
 
 
@@ -3827,11 +3993,15 @@ $klaviyo->Profiles->updateProfile($id, $body, $additional_fields_profile=$additi
 
 # $page_cursor | string
 
-$klaviyo->Reporting->queryCampaignValues($body, $page_cursor=$page_cursor);
+$klaviyo->Reporting->queryCampaignValues($body, page_cursor: $page_cursor);
 ```
 ##### Method alias:
 ```php
-$klaviyo->Reporting->createCampaignValueReport($body, $page_cursor=$page_cursor);
+$klaviyo->Reporting->createCampaignValueReport($body, page_cursor: $page_cursor);
+```
+##### Method alias:
+```php
+$klaviyo->Reporting->createCampaignValuesReport($body, page_cursor: $page_cursor);
 ```
 
 
@@ -3848,11 +4018,15 @@ $klaviyo->Reporting->createCampaignValueReport($body, $page_cursor=$page_cursor)
 
 # $page_cursor | string
 
-$klaviyo->Reporting->queryFlowSeries($body, $page_cursor=$page_cursor);
+$klaviyo->Reporting->queryFlowSeries($body, page_cursor: $page_cursor);
 ```
 ##### Method alias:
 ```php
-$klaviyo->Reporting->createFlowSeryReport($body, $page_cursor=$page_cursor);
+$klaviyo->Reporting->createFlowSeryReport($body, page_cursor: $page_cursor);
+```
+##### Method alias:
+```php
+$klaviyo->Reporting->createFlowSeriesReport($body, page_cursor: $page_cursor);
 ```
 
 
@@ -3869,11 +4043,15 @@ $klaviyo->Reporting->createFlowSeryReport($body, $page_cursor=$page_cursor);
 
 # $page_cursor | string
 
-$klaviyo->Reporting->queryFlowValues($body, $page_cursor=$page_cursor);
+$klaviyo->Reporting->queryFlowValues($body, page_cursor: $page_cursor);
 ```
 ##### Method alias:
 ```php
-$klaviyo->Reporting->createFlowValueReport($body, $page_cursor=$page_cursor);
+$klaviyo->Reporting->createFlowValueReport($body, page_cursor: $page_cursor);
+```
+##### Method alias:
+```php
+$klaviyo->Reporting->createFlowValuesReport($body, page_cursor: $page_cursor);
 ```
 
 
@@ -3892,6 +4070,10 @@ $klaviyo->Reporting->queryFormSeries($body);
 ```php
 $klaviyo->Reporting->createFormSeryReport($body);
 ```
+##### Method alias:
+```php
+$klaviyo->Reporting->createFormSeriesReport($body);
+```
 
 
 
@@ -3908,6 +4090,10 @@ $klaviyo->Reporting->queryFormValues($body);
 ##### Method alias:
 ```php
 $klaviyo->Reporting->createFormValueReport($body);
+```
+##### Method alias:
+```php
+$klaviyo->Reporting->createFormValuesReport($body);
 ```
 
 
@@ -3926,6 +4112,10 @@ $klaviyo->Reporting->querySegmentSeries($body);
 ```php
 $klaviyo->Reporting->createSegmentSeryReport($body);
 ```
+##### Method alias:
+```php
+$klaviyo->Reporting->createSegmentSeriesReport($body);
+```
 
 
 
@@ -3942,6 +4132,10 @@ $klaviyo->Reporting->querySegmentValues($body);
 ##### Method alias:
 ```php
 $klaviyo->Reporting->createSegmentValueReport($body);
+```
+##### Method alias:
+```php
+$klaviyo->Reporting->createSegmentValuesReport($body);
 ```
 
 
@@ -3964,7 +4158,7 @@ $klaviyo->Reporting->createSegmentValueReport($body);
 # $fields_review | string[]
 # $include | string[]
 
-$klaviyo->Reviews->getReview($id, $fields_event=$fields_event, $fields_review=$fields_review, $include=$include);
+$klaviyo->Reviews->getReview($id, fields_event: $fields_event, fields_review: $fields_review, include: $include);
 ```
 
 
@@ -3984,7 +4178,7 @@ $klaviyo->Reviews->getReview($id, $fields_event=$fields_event, $fields_review=$f
 # $page_size | int
 # $sort | string
 
-$klaviyo->Reviews->getReviews($fields_event=$fields_event, $fields_review=$fields_review, $filter=$filter, $include=$include, $page_cursor=$page_cursor, $page_size=$page_size, $sort=$sort);
+$klaviyo->Reviews->getReviews(fields_event: $fields_event, fields_review: $fields_review, filter: $filter, include: $include, page_cursor: $page_cursor, page_size: $page_size, sort: $sort);
 ```
 
 
@@ -4020,6 +4214,52 @@ $klaviyo->Segments->deleteSegment($id);
 
 
 
+#### [Get Flows Triggered by Segment](https://developers.klaviyo.com/en/v2024-10-15/reference/get_flows_triggered_by_segment)
+
+```php
+## Positional Arguments
+
+# $id | string
+
+## Keyword Arguments
+
+# $fields_flow | string[]
+
+$klaviyo->Segments->getFlowsTriggeredBySegment($id, fields_flow: $fields_flow);
+```
+##### Method alias:
+```php
+$klaviyo->Segments->getFlowTriggersForSegment($id, fields_flow: $fields_flow);
+```
+##### Method alias:
+```php
+$klaviyo->Segments->getSegmentFlowTriggers($id, fields_flow: $fields_flow);
+```
+
+
+
+
+#### [Get IDs for Flows Triggered by Segment](https://developers.klaviyo.com/en/v2024-10-15/reference/get_ids_for_flows_triggered_by_segment)
+
+```php
+## Positional Arguments
+
+# $id | string
+
+$klaviyo->Segments->getIdsForFlowsTriggeredBySegment($id);
+```
+##### Method alias:
+```php
+$klaviyo->Segments->getFlowTriggerIdsForSegment($id);
+```
+##### Method alias:
+```php
+$klaviyo->Segments->getSegmentRelationshipsFlowTriggers($id);
+```
+
+
+
+
 #### [Get Profile IDs for Segment](https://developers.klaviyo.com/en/v2024-10-15/reference/get_profile_ids_for_segment)
 
 ```php
@@ -4034,11 +4274,11 @@ $klaviyo->Segments->deleteSegment($id);
 # $page_size | int
 # $sort | string
 
-$klaviyo->Segments->getProfileIdsForSegment($id, $filter=$filter, $page_cursor=$page_cursor, $page_size=$page_size, $sort=$sort);
+$klaviyo->Segments->getProfileIdsForSegment($id, filter: $filter, page_cursor: $page_cursor, page_size: $page_size, sort: $sort);
 ```
 ##### Method alias:
 ```php
-$klaviyo->Segments->getSegmentRelationshipsProfiles($id, $filter=$filter, $page_cursor=$page_cursor, $page_size=$page_size, $sort=$sort);
+$klaviyo->Segments->getSegmentRelationshipsProfiles($id, filter: $filter, page_cursor: $page_cursor, page_size: $page_size, sort: $sort);
 ```
 
 
@@ -4060,11 +4300,11 @@ $klaviyo->Segments->getSegmentRelationshipsProfiles($id, $filter=$filter, $page_
 # $page_size | int
 # $sort | string
 
-$klaviyo->Segments->getProfilesForSegment($id, $additional_fields_profile=$additional_fields_profile, $fields_profile=$fields_profile, $filter=$filter, $page_cursor=$page_cursor, $page_size=$page_size, $sort=$sort);
+$klaviyo->Segments->getProfilesForSegment($id, additional_fields_profile: $additional_fields_profile, fields_profile: $fields_profile, filter: $filter, page_cursor: $page_cursor, page_size: $page_size, sort: $sort);
 ```
 ##### Method alias:
 ```php
-$klaviyo->Segments->getSegmentProfiles($id, $additional_fields_profile=$additional_fields_profile, $fields_profile=$fields_profile, $filter=$filter, $page_cursor=$page_cursor, $page_size=$page_size, $sort=$sort);
+$klaviyo->Segments->getSegmentProfiles($id, additional_fields_profile: $additional_fields_profile, fields_profile: $fields_profile, filter: $filter, page_cursor: $page_cursor, page_size: $page_size, sort: $sort);
 ```
 
 
@@ -4085,37 +4325,7 @@ $klaviyo->Segments->getSegmentProfiles($id, $additional_fields_profile=$addition
 # $fields_tag | string[]
 # $include | string[]
 
-$klaviyo->Segments->getSegment($id, $additional_fields_segment=$additional_fields_segment, $fields_flow=$fields_flow, $fields_segment=$fields_segment, $fields_tag=$fields_tag, $include=$include);
-```
-
-
-
-
-#### [Get Segment Flow Triggers](https://developers.klaviyo.com/en/v2024-10-15/reference/get_segment_flow_triggers)
-
-```php
-## Positional Arguments
-
-# $id | string
-
-## Keyword Arguments
-
-# $fields_flow | string[]
-
-$klaviyo->Segments->getSegmentFlowTriggers($id, $fields_flow=$fields_flow);
-```
-
-
-
-
-#### [Get Segment Relationships Flow Triggers](https://developers.klaviyo.com/en/v2024-10-15/reference/get_segment_relationships_flow_triggers)
-
-```php
-## Positional Arguments
-
-# $id | string
-
-$klaviyo->Segments->getSegmentRelationshipsFlowTriggers($id);
+$klaviyo->Segments->getSegment($id, additional_fields_segment: $additional_fields_segment, fields_flow: $fields_flow, fields_segment: $fields_segment, fields_tag: $fields_tag, include: $include);
 ```
 
 
@@ -4135,7 +4345,7 @@ $klaviyo->Segments->getSegmentRelationshipsFlowTriggers($id);
 # $page_cursor | string
 # $sort | string
 
-$klaviyo->Segments->getSegments($fields_flow=$fields_flow, $fields_segment=$fields_segment, $fields_tag=$fields_tag, $filter=$filter, $include=$include, $page_cursor=$page_cursor, $sort=$sort);
+$klaviyo->Segments->getSegments(fields_flow: $fields_flow, fields_segment: $fields_segment, fields_tag: $fields_tag, filter: $filter, include: $include, page_cursor: $page_cursor, sort: $sort);
 ```
 
 
@@ -4169,11 +4379,11 @@ $klaviyo->Segments->getSegmentRelationshipsTags($id);
 
 # $fields_tag | string[]
 
-$klaviyo->Segments->getTagsForSegment($id, $fields_tag=$fields_tag);
+$klaviyo->Segments->getTagsForSegment($id, fields_tag: $fields_tag);
 ```
 ##### Method alias:
 ```php
-$klaviyo->Segments->getSegmentTags($id, $fields_tag=$fields_tag);
+$klaviyo->Segments->getSegmentTags($id, fields_tag: $fields_tag);
 ```
 
 
@@ -4330,7 +4540,7 @@ $klaviyo->Tags->getTagRelationshipsSegments($id);
 # $fields_tag | string[]
 # $include | string[]
 
-$klaviyo->Tags->getTag($id, $fields_tag_group=$fields_tag_group, $fields_tag=$fields_tag, $include=$include);
+$klaviyo->Tags->getTag($id, fields_tag_group: $fields_tag_group, fields_tag: $fields_tag, include: $include);
 ```
 
 
@@ -4347,7 +4557,7 @@ $klaviyo->Tags->getTag($id, $fields_tag_group=$fields_tag_group, $fields_tag=$fi
 
 # $fields_tag_group | string[]
 
-$klaviyo->Tags->getTagGroup($id, $fields_tag_group=$fields_tag_group);
+$klaviyo->Tags->getTagGroup($id, fields_tag_group: $fields_tag_group);
 ```
 
 
@@ -4364,11 +4574,15 @@ $klaviyo->Tags->getTagGroup($id, $fields_tag_group=$fields_tag_group);
 
 # $fields_tag_group | string[]
 
-$klaviyo->Tags->getTagGroupForTag($id, $fields_tag_group=$fields_tag_group);
+$klaviyo->Tags->getTagGroupForTag($id, fields_tag_group: $fields_tag_group);
 ```
 ##### Method alias:
 ```php
-$klaviyo->Tags->getTagTagGroup($id, $fields_tag_group=$fields_tag_group);
+$klaviyo->Tags->getTagTagGroup($id, fields_tag_group: $fields_tag_group);
+```
+##### Method alias:
+```php
+$klaviyo->Tags->getGroupForTag($id, fields_tag_group: $fields_tag_group);
 ```
 
 
@@ -4387,6 +4601,14 @@ $klaviyo->Tags->getTagGroupIdForTag($id);
 ```php
 $klaviyo->Tags->getTagRelationshipsTagGroup($id);
 ```
+##### Method alias:
+```php
+$klaviyo->Tags->getGroupIdForTag($id);
+```
+##### Method alias:
+```php
+$klaviyo->Tags->getTagRelationshipsGroup($id);
+```
 
 
 
@@ -4402,7 +4624,7 @@ $klaviyo->Tags->getTagRelationshipsTagGroup($id);
 # $page_cursor | string
 # $sort | string
 
-$klaviyo->Tags->getTagGroups($fields_tag_group=$fields_tag_group, $filter=$filter, $page_cursor=$page_cursor, $sort=$sort);
+$klaviyo->Tags->getTagGroups(fields_tag_group: $fields_tag_group, filter: $filter, page_cursor: $page_cursor, sort: $sort);
 ```
 
 
@@ -4438,7 +4660,7 @@ $klaviyo->Tags->getTagGroupRelationshipsTags($id);
 # $page_cursor | string
 # $sort | string
 
-$klaviyo->Tags->getTags($fields_tag_group=$fields_tag_group, $fields_tag=$fields_tag, $filter=$filter, $include=$include, $page_cursor=$page_cursor, $sort=$sort);
+$klaviyo->Tags->getTags(fields_tag_group: $fields_tag_group, fields_tag: $fields_tag, filter: $filter, include: $include, page_cursor: $page_cursor, sort: $sort);
 ```
 
 
@@ -4455,11 +4677,11 @@ $klaviyo->Tags->getTags($fields_tag_group=$fields_tag_group, $fields_tag=$fields
 
 # $fields_tag | string[]
 
-$klaviyo->Tags->getTagsForTagGroup($id, $fields_tag=$fields_tag);
+$klaviyo->Tags->getTagsForTagGroup($id, fields_tag: $fields_tag);
 ```
 ##### Method alias:
 ```php
-$klaviyo->Tags->getTagGroupTags($id, $fields_tag=$fields_tag);
+$klaviyo->Tags->getTagGroupTags($id, fields_tag: $fields_tag);
 ```
 
 
@@ -4479,6 +4701,10 @@ $klaviyo->Tags->removeTagFromCampaigns($id, $body);
 ```php
 $klaviyo->Tags->deleteTagRelationshipsCampaigns($id, $body);
 ```
+##### Method alias:
+```php
+$klaviyo->Tags->removeCampaignsFromTag($id, $body);
+```
 
 
 
@@ -4496,6 +4722,10 @@ $klaviyo->Tags->removeTagFromFlows($id, $body);
 ##### Method alias:
 ```php
 $klaviyo->Tags->deleteTagRelationshipsFlows($id, $body);
+```
+##### Method alias:
+```php
+$klaviyo->Tags->removeFlowsFromTag($id, $body);
 ```
 
 
@@ -4515,6 +4745,10 @@ $klaviyo->Tags->removeTagFromLists($id, $body);
 ```php
 $klaviyo->Tags->deleteTagRelationshipsLists($id, $body);
 ```
+##### Method alias:
+```php
+$klaviyo->Tags->removeListsFromTag($id, $body);
+```
 
 
 
@@ -4533,6 +4767,10 @@ $klaviyo->Tags->removeTagFromSegments($id, $body);
 ```php
 $klaviyo->Tags->deleteTagRelationshipsSegments($id, $body);
 ```
+##### Method alias:
+```php
+$klaviyo->Tags->removeSegmentsFromTag($id, $body);
+```
 
 
 
@@ -4549,11 +4787,15 @@ $klaviyo->Tags->tagCampaigns($id, $body);
 ```
 ##### Method alias:
 ```php
-$klaviyo->Tags->createTagRelationshipsCampaigns($id, $body);
+$klaviyo->Tags->createTagRelationshipsCampaign($id, $body);
 ```
 ##### Method alias:
 ```php
-$klaviyo->Tags->createTagRelationshipsCampaign($id, $body);
+$klaviyo->Tags->addCampaignsToTag($id, $body);
+```
+##### Method alias:
+```php
+$klaviyo->Tags->createTagRelationshipsCampaigns($id, $body);
 ```
 
 
@@ -4571,11 +4813,15 @@ $klaviyo->Tags->tagFlows($id, $body);
 ```
 ##### Method alias:
 ```php
-$klaviyo->Tags->createTagRelationshipsFlows($id, $body);
+$klaviyo->Tags->createTagRelationshipsFlow($id, $body);
 ```
 ##### Method alias:
 ```php
-$klaviyo->Tags->createTagRelationshipsFlow($id, $body);
+$klaviyo->Tags->addFlowsToTag($id, $body);
+```
+##### Method alias:
+```php
+$klaviyo->Tags->createTagRelationshipsFlows($id, $body);
 ```
 
 
@@ -4593,11 +4839,15 @@ $klaviyo->Tags->tagLists($id, $body);
 ```
 ##### Method alias:
 ```php
-$klaviyo->Tags->createTagRelationshipsLists($id, $body);
+$klaviyo->Tags->createTagRelationshipsList($id, $body);
 ```
 ##### Method alias:
 ```php
-$klaviyo->Tags->createTagRelationshipsList($id, $body);
+$klaviyo->Tags->addListsToTag($id, $body);
+```
+##### Method alias:
+```php
+$klaviyo->Tags->createTagRelationshipsLists($id, $body);
 ```
 
 
@@ -4615,11 +4865,15 @@ $klaviyo->Tags->tagSegments($id, $body);
 ```
 ##### Method alias:
 ```php
-$klaviyo->Tags->createTagRelationshipsSegments($id, $body);
+$klaviyo->Tags->createTagRelationshipsSegment($id, $body);
 ```
 ##### Method alias:
 ```php
-$klaviyo->Tags->createTagRelationshipsSegment($id, $body);
+$klaviyo->Tags->addSegmentsToTag($id, $body);
+```
+##### Method alias:
+```php
+$klaviyo->Tags->createTagRelationshipsSegments($id, $body);
 ```
 
 
@@ -4746,11 +5000,11 @@ $klaviyo->Templates->deleteTemplateUniversalContent($id);
 # $page_size | int
 # $sort | string
 
-$klaviyo->Templates->getAllUniversalContent($fields_template_universal_content=$fields_template_universal_content, $filter=$filter, $page_cursor=$page_cursor, $page_size=$page_size, $sort=$sort);
+$klaviyo->Templates->getAllUniversalContent(fields_template_universal_content: $fields_template_universal_content, filter: $filter, page_cursor: $page_cursor, page_size: $page_size, sort: $sort);
 ```
 ##### Method alias:
 ```php
-$klaviyo->Templates->getTemplateUniversalContent($fields_template_universal_content=$fields_template_universal_content, $filter=$filter, $page_cursor=$page_cursor, $page_size=$page_size, $sort=$sort);
+$klaviyo->Templates->getTemplateUniversalContent(fields_template_universal_content: $fields_template_universal_content, filter: $filter, page_cursor: $page_cursor, page_size: $page_size, sort: $sort);
 ```
 
 
@@ -4767,7 +5021,7 @@ $klaviyo->Templates->getTemplateUniversalContent($fields_template_universal_cont
 
 # $fields_template | string[]
 
-$klaviyo->Templates->getTemplate($id, $fields_template=$fields_template);
+$klaviyo->Templates->getTemplate($id, fields_template: $fields_template);
 ```
 
 
@@ -4784,7 +5038,7 @@ $klaviyo->Templates->getTemplate($id, $fields_template=$fields_template);
 # $page_cursor | string
 # $sort | string
 
-$klaviyo->Templates->getTemplates($fields_template=$fields_template, $filter=$filter, $page_cursor=$page_cursor, $sort=$sort);
+$klaviyo->Templates->getTemplates(fields_template: $fields_template, filter: $filter, page_cursor: $page_cursor, sort: $sort);
 ```
 
 
@@ -4801,7 +5055,7 @@ $klaviyo->Templates->getTemplates($fields_template=$fields_template, $filter=$fi
 
 # $fields_template_universal_content | string[]
 
-$klaviyo->Templates->getUniversalContent($id, $fields_template_universal_content=$fields_template_universal_content);
+$klaviyo->Templates->getUniversalContent($id, fields_template_universal_content: $fields_template_universal_content);
 ```
 
 
@@ -4871,7 +5125,7 @@ $klaviyo->Templates->updateTemplateUniversalContent($id, $body);
 
 # $fields_tracking_setting | string[]
 
-$klaviyo->TrackingSettings->getTrackingSetting($id, $fields_tracking_setting=$fields_tracking_setting);
+$klaviyo->TrackingSettings->getTrackingSetting($id, fields_tracking_setting: $fields_tracking_setting);
 ```
 
 
@@ -4887,7 +5141,7 @@ $klaviyo->TrackingSettings->getTrackingSetting($id, $fields_tracking_setting=$fi
 # $page_cursor | string
 # $page_size | int
 
-$klaviyo->TrackingSettings->getTrackingSettings($fields_tracking_setting=$fields_tracking_setting, $page_cursor=$page_cursor, $page_size=$page_size);
+$klaviyo->TrackingSettings->getTrackingSettings(fields_tracking_setting: $fields_tracking_setting, page_cursor: $page_cursor, page_size: $page_size);
 ```
 
 
@@ -4949,7 +5203,7 @@ $klaviyo->Webhooks->deleteWebhook($id);
 # $fields_webhook | string[]
 # $include | string[]
 
-$klaviyo->Webhooks->getWebhook($id, $fields_webhook=$fields_webhook, $include=$include);
+$klaviyo->Webhooks->getWebhook($id, fields_webhook: $fields_webhook, include: $include);
 ```
 
 
@@ -4987,7 +5241,7 @@ $klaviyo->Webhooks->getWebhookTopics();
 # $fields_webhook | string[]
 # $include | string[]
 
-$klaviyo->Webhooks->getWebhooks($fields_webhook=$fields_webhook, $include=$include);
+$klaviyo->Webhooks->getWebhooks(fields_webhook: $fields_webhook, include: $include);
 ```
 
 

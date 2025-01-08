@@ -286,6 +286,9 @@ class ProfileSubscriptionCreateQueryResourceObjectAttributes implements ModelInt
     {
         $invalidProperties = [];
 
+        if ($this->container['subscriptions'] === null) {
+            $invalidProperties[] = "'subscriptions' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -314,7 +317,7 @@ class ProfileSubscriptionCreateQueryResourceObjectAttributes implements ModelInt
     /**
      * Sets email
      *
-     * @param string|null $email The email address to subscribe or to set on the profile if `channels` is specified and the email channel is omitted.
+     * @param string|null $email The email address relating to the email subscription included in `subscriptions`. If the email channel is omitted from `subscriptions`, this will be set on the profile.
      *
      * @return self
      */
@@ -350,7 +353,7 @@ class ProfileSubscriptionCreateQueryResourceObjectAttributes implements ModelInt
     /**
      * Sets phone_number
      *
-     * @param string|null $phone_number The phone number to subscribe or to set on the profile if `channels` is specified and the SMS channel is omitted. This must be in E.164 format.
+     * @param string|null $phone_number The phone number relating to the SMS subscription included in `subscriptions`. If the SMS channel is omitted from `subscriptions`, this will be set on the profile. This must be in E.164 format.
      *
      * @return self
      */
@@ -376,7 +379,7 @@ class ProfileSubscriptionCreateQueryResourceObjectAttributes implements ModelInt
     /**
      * Gets subscriptions
      *
-     * @return \KlaviyoAPI\Model\SubscriptionChannels|null
+     * @return \KlaviyoAPI\Model\SubscriptionChannels
      */
     public function getSubscriptions()
     {
@@ -386,7 +389,7 @@ class ProfileSubscriptionCreateQueryResourceObjectAttributes implements ModelInt
     /**
      * Sets subscriptions
      *
-     * @param \KlaviyoAPI\Model\SubscriptionChannels|null $subscriptions subscriptions
+     * @param \KlaviyoAPI\Model\SubscriptionChannels $subscriptions subscriptions
      *
      * @return self
      */

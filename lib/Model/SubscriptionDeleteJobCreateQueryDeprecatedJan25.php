@@ -1,6 +1,6 @@
 <?php
 /**
- * ProfileSubscriptionDeleteQueryResourceObject
+ * SubscriptionDeleteJobCreateQueryDeprecatedJan25
  *
  * PHP version 7.4
  *
@@ -33,7 +33,7 @@ use \ArrayAccess;
 use \KlaviyoAPI\ObjectSerializer;
 
 /**
- * ProfileSubscriptionDeleteQueryResourceObject Class Doc Comment
+ * SubscriptionDeleteJobCreateQueryDeprecatedJan25 Class Doc Comment
  *
  * @category Class
  * @package  KlaviyoAPI
@@ -41,7 +41,7 @@ use \KlaviyoAPI\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class ProfileSubscriptionDeleteQueryResourceObject implements ModelInterface, ArrayAccess, \JsonSerializable
+class SubscriptionDeleteJobCreateQueryDeprecatedJan25 implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class ProfileSubscriptionDeleteQueryResourceObject implements ModelInterface, Ar
       *
       * @var string
       */
-    protected static $openAPIModelName = 'ProfileSubscriptionDeleteQueryResourceObject';
+    protected static $openAPIModelName = 'SubscriptionDeleteJobCreateQueryDeprecatedJan25';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,8 +58,7 @@ class ProfileSubscriptionDeleteQueryResourceObject implements ModelInterface, Ar
       * @var string[]
       */
     protected static $openAPITypes = [
-        'type' => '\KlaviyoAPI\Model\ProfileEnum',
-        'attributes' => '\KlaviyoAPI\Model\ProfileSubscriptionDeleteQueryResourceObjectAttributes'
+        'data' => '\KlaviyoAPI\Model\SubscriptionDeleteJobCreateQueryDeprecatedJan25ResourceObject'
     ];
 
     /**
@@ -70,8 +69,7 @@ class ProfileSubscriptionDeleteQueryResourceObject implements ModelInterface, Ar
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'type' => null,
-        'attributes' => null
+        'data' => null
     ];
 
     /**
@@ -80,8 +78,7 @@ class ProfileSubscriptionDeleteQueryResourceObject implements ModelInterface, Ar
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'type' => false,
-		'attributes' => false
+        'data' => false
     ];
 
     /**
@@ -160,8 +157,7 @@ class ProfileSubscriptionDeleteQueryResourceObject implements ModelInterface, Ar
      * @var string[]
      */
     protected static $attributeMap = [
-        'type' => 'type',
-        'attributes' => 'attributes'
+        'data' => 'data'
     ];
 
     /**
@@ -170,8 +166,7 @@ class ProfileSubscriptionDeleteQueryResourceObject implements ModelInterface, Ar
      * @var string[]
      */
     protected static $setters = [
-        'type' => 'setType',
-        'attributes' => 'setAttributes'
+        'data' => 'setData'
     ];
 
     /**
@@ -180,8 +175,7 @@ class ProfileSubscriptionDeleteQueryResourceObject implements ModelInterface, Ar
      * @var string[]
      */
     protected static $getters = [
-        'type' => 'getType',
-        'attributes' => 'getAttributes'
+        'data' => 'getData'
     ];
 
     /**
@@ -241,8 +235,7 @@ class ProfileSubscriptionDeleteQueryResourceObject implements ModelInterface, Ar
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('type', $data ?? [], null);
-        $this->setIfExists('attributes', $data ?? [], null);
+        $this->setIfExists('data', $data ?? [], null);
     }
 
     /**
@@ -272,11 +265,8 @@ class ProfileSubscriptionDeleteQueryResourceObject implements ModelInterface, Ar
     {
         $invalidProperties = [];
 
-        if ($this->container['type'] === null) {
-            $invalidProperties[] = "'type' can't be null";
-        }
-        if ($this->container['attributes'] === null) {
-            $invalidProperties[] = "'attributes' can't be null";
+        if ($this->container['data'] === null) {
+            $invalidProperties[] = "'data' can't be null";
         }
         return $invalidProperties;
     }
@@ -294,59 +284,30 @@ class ProfileSubscriptionDeleteQueryResourceObject implements ModelInterface, Ar
 
 
     /**
-     * Gets type
+     * Gets data
      *
-     * @return \KlaviyoAPI\Model\ProfileEnum
+     * @return \KlaviyoAPI\Model\SubscriptionDeleteJobCreateQueryDeprecatedJan25ResourceObject
      */
-    public function getType()
+    public function getData()
     {
-        return $this->container['type'];
+        return $this->container['data'];
     }
 
     /**
-     * Sets type
+     * Sets data
      *
-     * @param \KlaviyoAPI\Model\ProfileEnum $type type
+     * @param \KlaviyoAPI\Model\SubscriptionDeleteJobCreateQueryDeprecatedJan25ResourceObject $data data
      *
      * @return self
      */
-    public function setType($type)
+    public function setData($data)
     {
 
-        if (is_null($type)) {
-            throw new \InvalidArgumentException('non-nullable type cannot be null');
+        if (is_null($data)) {
+            throw new \InvalidArgumentException('non-nullable data cannot be null');
         }
 
-        $this->container['type'] = $type;
-
-        return $this;
-    }
-
-    /**
-     * Gets attributes
-     *
-     * @return \KlaviyoAPI\Model\ProfileSubscriptionDeleteQueryResourceObjectAttributes
-     */
-    public function getAttributes()
-    {
-        return $this->container['attributes'];
-    }
-
-    /**
-     * Sets attributes
-     *
-     * @param \KlaviyoAPI\Model\ProfileSubscriptionDeleteQueryResourceObjectAttributes $attributes attributes
-     *
-     * @return self
-     */
-    public function setAttributes($attributes)
-    {
-
-        if (is_null($attributes)) {
-            throw new \InvalidArgumentException('non-nullable attributes cannot be null');
-        }
-
-        $this->container['attributes'] = $attributes;
+        $this->container['data'] = $data;
 
         return $this;
     }
