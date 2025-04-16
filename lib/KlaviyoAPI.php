@@ -23,6 +23,7 @@ use KlaviyoAPI\API\SegmentsApi;
 use KlaviyoAPI\API\TagsApi;
 use KlaviyoAPI\API\TemplatesApi;
 use KlaviyoAPI\API\TrackingSettingsApi;
+use KlaviyoAPI\API\WebFeedsApi;
 use KlaviyoAPI\API\WebhooksApi;
 
 
@@ -52,6 +53,7 @@ class KlaviyoAPI {
     public $Tags;
     public $Templates;
     public $TrackingSettings;
+    public $WebFeeds;
     public $Webhooks;
     
 
@@ -182,6 +184,12 @@ class KlaviyoAPI {
         
         $this->TrackingSettings = new Subclient(
                 new TrackingSettingsApi(new GuzzleClient($this->guzzle_options),$this->config),
+                $wait_seconds = $this->wait_seconds,
+                $num_retries = $this->num_retries,
+            );
+        
+        $this->WebFeeds = new Subclient(
+                new WebFeedsApi(new GuzzleClient($this->guzzle_options),$this->config),
                 $wait_seconds = $this->wait_seconds,
                 $num_retries = $this->num_retries,
             );
