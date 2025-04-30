@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 NOTE: For more granular API-specific changes, please see our [API Changelog](https://developers.klaviyo.com/en/docs/changelog_)
 
+## [14.0.1] - revision 2025-04-15
+### Changed
+- Removed API revision from comment on files
+
 ## [14.0.0] - revision 2025-04-15
 ### Added
 #### Web Feeds API
