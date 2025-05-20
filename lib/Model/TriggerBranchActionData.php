@@ -57,7 +57,7 @@ class TriggerBranchActionData implements ModelInterface, ArrayAccess, \JsonSeria
       * @var string[]
       */
     protected static $openAPITypes = [
-        'trigger_filter' => '\KlaviyoAPI\Model\TriggerBranchActionDataTriggerFilter',
+        'trigger_filter' => '\KlaviyoAPI\Model\MetricPropertyConditionFilter',
         'trigger_id' => 'string',
         'trigger_type' => 'string',
         'trigger_subtype' => 'string'
@@ -83,7 +83,7 @@ class TriggerBranchActionData implements ModelInterface, ArrayAccess, \JsonSeria
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'trigger_filter' => true,
+        'trigger_filter' => false,
 		'trigger_id' => false,
 		'trigger_type' => false,
 		'trigger_subtype' => true
@@ -374,7 +374,7 @@ class TriggerBranchActionData implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Gets trigger_filter
      *
-     * @return \KlaviyoAPI\Model\TriggerBranchActionDataTriggerFilter
+     * @return \KlaviyoAPI\Model\MetricPropertyConditionFilter
      */
     public function getTriggerFilter()
     {
@@ -384,7 +384,7 @@ class TriggerBranchActionData implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Sets trigger_filter
      *
-     * @param \KlaviyoAPI\Model\TriggerBranchActionDataTriggerFilter $trigger_filter trigger_filter
+     * @param \KlaviyoAPI\Model\MetricPropertyConditionFilter $trigger_filter trigger_filter
      *
      * @return self
      */
@@ -392,14 +392,7 @@ class TriggerBranchActionData implements ModelInterface, ArrayAccess, \JsonSeria
     {
 
         if (is_null($trigger_filter)) {
-            array_push($this->openAPINullablesSetToNull, 'trigger_filter');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('trigger_filter', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable trigger_filter cannot be null');
         }
 
         $this->container['trigger_filter'] = $trigger_filter;

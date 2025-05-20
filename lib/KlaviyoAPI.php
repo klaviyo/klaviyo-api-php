@@ -30,34 +30,65 @@ use KlaviyoAPI\API\WebhooksApi;
 
 
 class KlaviyoAPI {
+    /** @var string */
     public $api_key = "API_KEY";
+    /** @var int */
     public $wait_seconds;
+    /** @var int */
     public $num_retries;
+    /** @var string */
     public $config;
+    /** @var array */
     public $guzzle_options;
+    /** @var Subclient<AccountsApi> */
     public $Accounts;
+    /** @var Subclient<CampaignsApi> */
     public $Campaigns;
+    /** @var Subclient<CatalogsApi> */
     public $Catalogs;
+    /** @var Subclient<CouponsApi> */
     public $Coupons;
+    /** @var Subclient<DataPrivacyApi> */
     public $DataPrivacy;
+    /** @var Subclient<EventsApi> */
     public $Events;
+    /** @var Subclient<FlowsApi> */
     public $Flows;
+    /** @var Subclient<FormsApi> */
     public $Forms;
+    /** @var Subclient<ImagesApi> */
     public $Images;
+    /** @var Subclient<ListsApi> */
     public $Lists;
+    /** @var Subclient<MetricsApi> */
     public $Metrics;
+    /** @var Subclient<ProfilesApi> */
     public $Profiles;
+    /** @var Subclient<ReportingApi> */
     public $Reporting;
+    /** @var Subclient<ReviewsApi> */
     public $Reviews;
+    /** @var Subclient<SegmentsApi> */
     public $Segments;
+    /** @var Subclient<TagsApi> */
     public $Tags;
+    /** @var Subclient<TemplatesApi> */
     public $Templates;
+    /** @var Subclient<TrackingSettingsApi> */
     public $TrackingSettings;
+    /** @var Subclient<WebFeedsApi> */
     public $WebFeeds;
+    /** @var Subclient<WebhooksApi> */
     public $Webhooks;
     
 
-
+    /**
+     * @param string $api_key
+     * @param int $num_retries
+     * @param ?int $wait_seconds
+     * @param array $guzzle_options
+     * @param string $user_agent_suffix
+     */
     public function __construct($api_key, $num_retries = 3, $wait_seconds = null, $guzzle_options = [], $user_agent_suffix = "") {
 
         if (gettype($num_retries) == 'NULL'){
