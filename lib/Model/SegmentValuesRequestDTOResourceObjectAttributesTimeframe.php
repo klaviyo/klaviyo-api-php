@@ -35,7 +35,7 @@ use \KlaviyoAPI\ObjectSerializer;
  * SegmentValuesRequestDTOResourceObjectAttributesTimeframe Class Doc Comment
  *
  * @category Class
- * @description The timeframe to query for data within. Data is unavailable before June 1st, 2023. Please use a timeframe after this date. The max length a timeframe can be is 1 year
+ * @description The time frame to pull data from (Max length: 1 year). Data is unavailable before June 1st, 2023. Please use a time frame after this date. See [available time frames](https://developers.klaviyo.com/en/reference/reporting_api_overview#available-time-frames).
  * @package  KlaviyoAPI
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech

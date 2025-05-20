@@ -3,21 +3,39 @@ namespace KlaviyoAPI;
 
 use KlaviyoAPI\ApiException;
 
+/**
+ * @template TWraps object
+ * @mixin TWraps
+ */
 class Subclient {
 
+    /** @var object */
     public $api_instance;
+    /** @var int */
     public $wait_seconds;
+    /** @var int */
     public $num_retries;
+    /** @var array */
     public $retry_codes;
 
     // vars for exponential backoff
+    /** @var float */
     public $base_interval = 0.5;
+    /** @var int */
     public $max_interval = 60;
+    /** @var float */
     public $multiplier = 1.5;
+    /** @var float */
     public $rand_factor = 0.5;
 
     public $_CURSOR_SEARCH_TOKENS;
 
+    /**
+     * @param object $api_instance
+     * @param ?int $wait_seconds
+     * @param int $num_retries
+     * @param array<int> $retry_codes
+     */
     public function __construct(
         $api_instance, 
         $wait_seconds = null,
