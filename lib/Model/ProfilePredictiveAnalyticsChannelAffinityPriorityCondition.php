@@ -1,6 +1,6 @@
 <?php
 /**
- * EventCreateQueryV2ResourceObjectAttributes
+ * ProfilePredictiveAnalyticsChannelAffinityPriorityCondition
  *
  * PHP version 7.4
  *
@@ -32,7 +32,7 @@ use \ArrayAccess;
 use \KlaviyoAPI\ObjectSerializer;
 
 /**
- * EventCreateQueryV2ResourceObjectAttributes Class Doc Comment
+ * ProfilePredictiveAnalyticsChannelAffinityPriorityCondition Class Doc Comment
  *
  * @category Class
  * @package  KlaviyoAPI
@@ -40,7 +40,7 @@ use \KlaviyoAPI\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class EventCreateQueryV2ResourceObjectAttributes implements ModelInterface, ArrayAccess, \JsonSerializable
+class ProfilePredictiveAnalyticsChannelAffinityPriorityCondition implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class EventCreateQueryV2ResourceObjectAttributes implements ModelInterface, Arra
       *
       * @var string
       */
-    protected static $openAPIModelName = 'EventCreateQueryV2ResourceObject_attributes';
+    protected static $openAPIModelName = 'ProfilePredictiveAnalyticsChannelAffinityPriorityCondition';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,13 +57,11 @@ class EventCreateQueryV2ResourceObjectAttributes implements ModelInterface, Arra
       * @var string[]
       */
     protected static $openAPITypes = [
-        'properties' => 'object',
-        'time' => '\DateTime',
-        'value' => 'float',
-        'value_currency' => 'string',
-        'unique_id' => 'string',
-        'metric' => '\KlaviyoAPI\Model\EventCreateQueryV2ResourceObjectAttributesMetric',
-        'profile' => '\KlaviyoAPI\Model\EventCreateQueryV2ResourceObjectAttributesProfile'
+        'type' => '\KlaviyoAPI\Model\ProfilePredictiveAnalyticsEnum',
+        'dimension' => 'string',
+        'measurement' => '\KlaviyoAPI\Model\PriorityEnum',
+        'predicted_channel' => 'string',
+        'filter' => '\KlaviyoAPI\Model\ProfilePredictiveAnalyticsChannelAffinityPriorityFilter'
     ];
 
     /**
@@ -74,13 +72,11 @@ class EventCreateQueryV2ResourceObjectAttributes implements ModelInterface, Arra
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'properties' => null,
-        'time' => 'date-time',
-        'value' => null,
-        'value_currency' => null,
-        'unique_id' => null,
-        'metric' => null,
-        'profile' => null
+        'type' => null,
+        'dimension' => null,
+        'measurement' => null,
+        'predicted_channel' => null,
+        'filter' => null
     ];
 
     /**
@@ -89,13 +85,11 @@ class EventCreateQueryV2ResourceObjectAttributes implements ModelInterface, Arra
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'properties' => false,
-		'time' => true,
-		'value' => true,
-		'value_currency' => true,
-		'unique_id' => true,
-		'metric' => false,
-		'profile' => false
+        'type' => false,
+		'dimension' => false,
+		'measurement' => false,
+		'predicted_channel' => false,
+		'filter' => false
     ];
 
     /**
@@ -174,13 +168,11 @@ class EventCreateQueryV2ResourceObjectAttributes implements ModelInterface, Arra
      * @var string[]
      */
     protected static $attributeMap = [
-        'properties' => 'properties',
-        'time' => 'time',
-        'value' => 'value',
-        'value_currency' => 'value_currency',
-        'unique_id' => 'unique_id',
-        'metric' => 'metric',
-        'profile' => 'profile'
+        'type' => 'type',
+        'dimension' => 'dimension',
+        'measurement' => 'measurement',
+        'predicted_channel' => 'predicted_channel',
+        'filter' => 'filter'
     ];
 
     /**
@@ -189,13 +181,11 @@ class EventCreateQueryV2ResourceObjectAttributes implements ModelInterface, Arra
      * @var string[]
      */
     protected static $setters = [
-        'properties' => 'setProperties',
-        'time' => 'setTime',
-        'value' => 'setValue',
-        'value_currency' => 'setValueCurrency',
-        'unique_id' => 'setUniqueId',
-        'metric' => 'setMetric',
-        'profile' => 'setProfile'
+        'type' => 'setType',
+        'dimension' => 'setDimension',
+        'measurement' => 'setMeasurement',
+        'predicted_channel' => 'setPredictedChannel',
+        'filter' => 'setFilter'
     ];
 
     /**
@@ -204,13 +194,11 @@ class EventCreateQueryV2ResourceObjectAttributes implements ModelInterface, Arra
      * @var string[]
      */
     protected static $getters = [
-        'properties' => 'getProperties',
-        'time' => 'getTime',
-        'value' => 'getValue',
-        'value_currency' => 'getValueCurrency',
-        'unique_id' => 'getUniqueId',
-        'metric' => 'getMetric',
-        'profile' => 'getProfile'
+        'type' => 'getType',
+        'dimension' => 'getDimension',
+        'measurement' => 'getMeasurement',
+        'predicted_channel' => 'getPredictedChannel',
+        'filter' => 'getFilter'
     ];
 
     /**
@@ -254,6 +242,36 @@ class EventCreateQueryV2ResourceObjectAttributes implements ModelInterface, Arra
         return self::$openAPIModelName;
     }
 
+    public const DIMENSION_CHANNEL_AFFINITY = 'channel_affinity';
+    public const PREDICTED_CHANNEL_EMAIL = 'email';
+    public const PREDICTED_CHANNEL_PUSH = 'push';
+    public const PREDICTED_CHANNEL_SMS = 'sms';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getDimensionAllowableValues()
+    {
+        return [
+            self::DIMENSION_CHANNEL_AFFINITY,
+        ];
+    }
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getPredictedChannelAllowableValues()
+    {
+        return [
+            self::PREDICTED_CHANNEL_EMAIL,
+            self::PREDICTED_CHANNEL_PUSH,
+            self::PREDICTED_CHANNEL_SMS,
+        ];
+    }
 
     /**
      * Associative array for storing property values
@@ -270,13 +288,11 @@ class EventCreateQueryV2ResourceObjectAttributes implements ModelInterface, Arra
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('properties', $data ?? [], null);
-        $this->setIfExists('time', $data ?? [], null);
-        $this->setIfExists('value', $data ?? [], null);
-        $this->setIfExists('value_currency', $data ?? [], null);
-        $this->setIfExists('unique_id', $data ?? [], null);
-        $this->setIfExists('metric', $data ?? [], null);
-        $this->setIfExists('profile', $data ?? [], null);
+        $this->setIfExists('type', $data ?? [], null);
+        $this->setIfExists('dimension', $data ?? [], null);
+        $this->setIfExists('measurement', $data ?? [], null);
+        $this->setIfExists('predicted_channel', $data ?? [], null);
+        $this->setIfExists('filter', $data ?? [], null);
     }
 
     /**
@@ -306,14 +322,38 @@ class EventCreateQueryV2ResourceObjectAttributes implements ModelInterface, Arra
     {
         $invalidProperties = [];
 
-        if ($this->container['properties'] === null) {
-            $invalidProperties[] = "'properties' can't be null";
+        if ($this->container['type'] === null) {
+            $invalidProperties[] = "'type' can't be null";
         }
-        if ($this->container['metric'] === null) {
-            $invalidProperties[] = "'metric' can't be null";
+        if ($this->container['dimension'] === null) {
+            $invalidProperties[] = "'dimension' can't be null";
         }
-        if ($this->container['profile'] === null) {
-            $invalidProperties[] = "'profile' can't be null";
+        $allowedValues = $this->getDimensionAllowableValues();
+        if (!is_null($this->container['dimension']) && !in_array($this->container['dimension'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'dimension', must be one of '%s'",
+                $this->container['dimension'],
+                implode("', '", $allowedValues)
+            );
+        }
+
+        if ($this->container['measurement'] === null) {
+            $invalidProperties[] = "'measurement' can't be null";
+        }
+        if ($this->container['predicted_channel'] === null) {
+            $invalidProperties[] = "'predicted_channel' can't be null";
+        }
+        $allowedValues = $this->getPredictedChannelAllowableValues();
+        if (!is_null($this->container['predicted_channel']) && !in_array($this->container['predicted_channel'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'predicted_channel', must be one of '%s'",
+                $this->container['predicted_channel'],
+                implode("', '", $allowedValues)
+            );
+        }
+
+        if ($this->container['filter'] === null) {
+            $invalidProperties[] = "'filter' can't be null";
         }
         return $invalidProperties;
     }
@@ -331,232 +371,166 @@ class EventCreateQueryV2ResourceObjectAttributes implements ModelInterface, Arra
 
 
     /**
-     * Gets properties
+     * Gets type
      *
-     * @return object
+     * @return \KlaviyoAPI\Model\ProfilePredictiveAnalyticsEnum
      */
-    public function getProperties()
+    public function getType()
     {
-        return $this->container['properties'];
+        return $this->container['type'];
     }
 
     /**
-     * Sets properties
+     * Sets type
      *
-     * @param object $properties Properties of this event (must not exceed 400 properties). The size of the event payload must not exceed 5 MB, and each string cannot be larger than 100 KB. For a full list of data limits on event payloads, see [Limitations](https://developers.klaviyo.com/en/reference/events_api_overview#limitations).  Note any top-level property that is not an object can be used to create segments. The `$extra` property records any non-segmentable values that can be referenced later, e.g., HTML templates are useful on a segment but are not used to create a segment.
+     * @param \KlaviyoAPI\Model\ProfilePredictiveAnalyticsEnum $type type
      *
      * @return self
      */
-    public function setProperties($properties)
+    public function setType($type)
     {
 
-        if (is_null($properties)) {
-            throw new \InvalidArgumentException('non-nullable properties cannot be null');
+        if (is_null($type)) {
+            throw new \InvalidArgumentException('non-nullable type cannot be null');
         }
 
-        $this->container['properties'] = $properties;
+        $this->container['type'] = $type;
 
         return $this;
     }
 
     /**
-     * Gets time
+     * Gets dimension
      *
-     * @return \DateTime|null
+     * @return string
      */
-    public function getTime()
+    public function getDimension()
     {
-        return $this->container['time'];
+        return $this->container['dimension'];
     }
 
     /**
-     * Sets time
+     * Sets dimension
      *
-     * @param \DateTime|null $time When this event occurred. By default, the time the request was received will be used. The time is truncated to the second. The time must be after the year 2000 and can only be up to 1 year in the future.
+     * @param string $dimension Possible dimension for channel affinity criterion.
      *
      * @return self
      */
-    public function setTime($time)
+    public function setDimension($dimension)
     {
-
-        if (is_null($time)) {
-            array_push($this->openAPINullablesSetToNull, 'time');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('time', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+        $allowedValues = $this->getDimensionAllowableValues();
+        if (!in_array($dimension, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'dimension', must be one of '%s'",
+                    $dimension,
+                    implode("', '", $allowedValues)
+                )
+            );
         }
 
-        $this->container['time'] = $time;
+        if (is_null($dimension)) {
+            throw new \InvalidArgumentException('non-nullable dimension cannot be null');
+        }
+
+        $this->container['dimension'] = $dimension;
 
         return $this;
     }
 
     /**
-     * Gets value
+     * Gets measurement
      *
-     * @return float|null
+     * @return \KlaviyoAPI\Model\PriorityEnum
      */
-    public function getValue()
+    public function getMeasurement()
     {
-        return $this->container['value'];
+        return $this->container['measurement'];
     }
 
     /**
-     * Sets value
+     * Sets measurement
      *
-     * @param float|null $value A numeric, monetary value to associate with this event. For example, the dollar amount of a purchase.
+     * @param \KlaviyoAPI\Model\PriorityEnum $measurement measurement
      *
      * @return self
      */
-    public function setValue($value)
+    public function setMeasurement($measurement)
     {
 
-        if (is_null($value)) {
-            array_push($this->openAPINullablesSetToNull, 'value');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('value', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+        if (is_null($measurement)) {
+            throw new \InvalidArgumentException('non-nullable measurement cannot be null');
         }
 
-        $this->container['value'] = $value;
+        $this->container['measurement'] = $measurement;
 
         return $this;
     }
 
     /**
-     * Gets value_currency
+     * Gets predicted_channel
      *
-     * @return string|null
+     * @return string
      */
-    public function getValueCurrency()
+    public function getPredictedChannel()
     {
-        return $this->container['value_currency'];
+        return $this->container['predicted_channel'];
     }
 
     /**
-     * Sets value_currency
+     * Sets predicted_channel
      *
-     * @param string|null $value_currency The ISO 4217 currency code of the value associated with the event.
+     * @param string $predicted_channel Possible channels in a channel affinity definition.
      *
      * @return self
      */
-    public function setValueCurrency($value_currency)
+    public function setPredictedChannel($predicted_channel)
     {
-
-        if (is_null($value_currency)) {
-            array_push($this->openAPINullablesSetToNull, 'value_currency');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('value_currency', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+        $allowedValues = $this->getPredictedChannelAllowableValues();
+        if (!in_array($predicted_channel, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'predicted_channel', must be one of '%s'",
+                    $predicted_channel,
+                    implode("', '", $allowedValues)
+                )
+            );
         }
 
-        $this->container['value_currency'] = $value_currency;
+        if (is_null($predicted_channel)) {
+            throw new \InvalidArgumentException('non-nullable predicted_channel cannot be null');
+        }
+
+        $this->container['predicted_channel'] = $predicted_channel;
 
         return $this;
     }
 
     /**
-     * Gets unique_id
+     * Gets filter
      *
-     * @return string|null
+     * @return \KlaviyoAPI\Model\ProfilePredictiveAnalyticsChannelAffinityPriorityFilter
      */
-    public function getUniqueId()
+    public function getFilter()
     {
-        return $this->container['unique_id'];
+        return $this->container['filter'];
     }
 
     /**
-     * Sets unique_id
+     * Sets filter
      *
-     * @param string|null $unique_id A unique identifier for an event. If the unique_id is repeated for the same profile and metric, only the first processed event will be recorded. If this is not present, this will use the time to the second. Using the default, this limits only one event per profile per second.
+     * @param \KlaviyoAPI\Model\ProfilePredictiveAnalyticsChannelAffinityPriorityFilter $filter filter
      *
      * @return self
      */
-    public function setUniqueId($unique_id)
+    public function setFilter($filter)
     {
 
-        if (is_null($unique_id)) {
-            array_push($this->openAPINullablesSetToNull, 'unique_id');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('unique_id', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+        if (is_null($filter)) {
+            throw new \InvalidArgumentException('non-nullable filter cannot be null');
         }
 
-        $this->container['unique_id'] = $unique_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets metric
-     *
-     * @return \KlaviyoAPI\Model\EventCreateQueryV2ResourceObjectAttributesMetric
-     */
-    public function getMetric()
-    {
-        return $this->container['metric'];
-    }
-
-    /**
-     * Sets metric
-     *
-     * @param \KlaviyoAPI\Model\EventCreateQueryV2ResourceObjectAttributesMetric $metric metric
-     *
-     * @return self
-     */
-    public function setMetric($metric)
-    {
-
-        if (is_null($metric)) {
-            throw new \InvalidArgumentException('non-nullable metric cannot be null');
-        }
-
-        $this->container['metric'] = $metric;
-
-        return $this;
-    }
-
-    /**
-     * Gets profile
-     *
-     * @return \KlaviyoAPI\Model\EventCreateQueryV2ResourceObjectAttributesProfile
-     */
-    public function getProfile()
-    {
-        return $this->container['profile'];
-    }
-
-    /**
-     * Sets profile
-     *
-     * @param \KlaviyoAPI\Model\EventCreateQueryV2ResourceObjectAttributesProfile $profile profile
-     *
-     * @return self
-     */
-    public function setProfile($profile)
-    {
-
-        if (is_null($profile)) {
-            throw new \InvalidArgumentException('non-nullable profile cannot be null');
-        }
-
-        $this->container['profile'] = $profile;
+        $this->container['filter'] = $filter;
 
         return $this;
     }

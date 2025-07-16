@@ -121,7 +121,7 @@ class AccountsApi
      * Get Account
      *
      * @param  string $id The ID of the account (required)
-     * @param  string[] $fields_account For more information please visit https://developers.klaviyo.com/en/v2025-04-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[] $fields_account For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -139,7 +139,7 @@ class AccountsApi
      * Get Account
      *
      * @param  string $id The ID of the account (required)
-     * @param  string[] $fields_account For more information please visit https://developers.klaviyo.com/en/v2025-04-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[] $fields_account For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -308,7 +308,7 @@ class AccountsApi
      * Get Account
      *
      * @param  string $id The ID of the account (required)
-     * @param  string[] $fields_account For more information please visit https://developers.klaviyo.com/en/v2025-04-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[] $fields_account For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -329,7 +329,7 @@ class AccountsApi
      * Get Account
      *
      * @param  string $id The ID of the account (required)
-     * @param  string[] $fields_account For more information please visit https://developers.klaviyo.com/en/v2025-04-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[] $fields_account For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -384,7 +384,7 @@ class AccountsApi
      * Create request for operation 'getAccount'
      *
      * @param  string $id The ID of the account (required)
-     * @param  string[] $fields_account For more information please visit https://developers.klaviyo.com/en/v2025-04-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[] $fields_account For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -477,7 +477,7 @@ class AccountsApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2025-04-15'];
+        $defaultHeaders['revision'] = ['2025-07-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -499,7 +499,7 @@ class AccountsApi
      *
      * Get Accounts
      *
-     * @param  string[] $fields_account For more information please visit https://developers.klaviyo.com/en/v2025-04-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[] $fields_account For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -516,7 +516,7 @@ class AccountsApi
      *
      * Get Accounts
      *
-     * @param  string[] $fields_account For more information please visit https://developers.klaviyo.com/en/v2025-04-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[] $fields_account For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -684,7 +684,7 @@ class AccountsApi
      *
      * Get Accounts
      *
-     * @param  string[] $fields_account For more information please visit https://developers.klaviyo.com/en/v2025-04-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[] $fields_account For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -704,7 +704,7 @@ class AccountsApi
      *
      * Get Accounts
      *
-     * @param  string[] $fields_account For more information please visit https://developers.klaviyo.com/en/v2025-04-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[] $fields_account For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -758,7 +758,7 @@ class AccountsApi
     /**
      * Create request for operation 'getAccounts'
      *
-     * @param  string[] $fields_account For more information please visit https://developers.klaviyo.com/en/v2025-04-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[] $fields_account For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -837,7 +837,7 @@ class AccountsApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2025-04-15'];
+        $defaultHeaders['revision'] = ['2025-07-15'];
 
         $headers = array_merge(
             $defaultHeaders,

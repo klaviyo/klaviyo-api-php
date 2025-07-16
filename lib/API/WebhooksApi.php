@@ -461,7 +461,7 @@ class WebhooksApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2025-04-15'];
+        $defaultHeaders['revision'] = ['2025-07-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -714,7 +714,7 @@ class WebhooksApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2025-04-15'];
+        $defaultHeaders['revision'] = ['2025-07-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -737,8 +737,8 @@ class WebhooksApi
      * Get Webhook
      *
      * @param  string $id The ID of the webhook. (required)
-     * @param  string[] $fields_webhook For more information please visit https://developers.klaviyo.com/en/v2025-04-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[] $include For more information please visit https://developers.klaviyo.com/en/v2025-04-15/reference/api-overview#relationships (optional)
+     * @param  string[] $fields_webhook For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[] $include For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#relationships (optional)
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -756,8 +756,8 @@ class WebhooksApi
      * Get Webhook
      *
      * @param  string $id The ID of the webhook. (required)
-     * @param  string[] $fields_webhook For more information please visit https://developers.klaviyo.com/en/v2025-04-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[] $include For more information please visit https://developers.klaviyo.com/en/v2025-04-15/reference/api-overview#relationships (optional)
+     * @param  string[] $fields_webhook For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[] $include For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#relationships (optional)
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -926,8 +926,8 @@ class WebhooksApi
      * Get Webhook
      *
      * @param  string $id The ID of the webhook. (required)
-     * @param  string[] $fields_webhook For more information please visit https://developers.klaviyo.com/en/v2025-04-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[] $include For more information please visit https://developers.klaviyo.com/en/v2025-04-15/reference/api-overview#relationships (optional)
+     * @param  string[] $fields_webhook For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[] $include For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#relationships (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -948,8 +948,8 @@ class WebhooksApi
      * Get Webhook
      *
      * @param  string $id The ID of the webhook. (required)
-     * @param  string[] $fields_webhook For more information please visit https://developers.klaviyo.com/en/v2025-04-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[] $include For more information please visit https://developers.klaviyo.com/en/v2025-04-15/reference/api-overview#relationships (optional)
+     * @param  string[] $fields_webhook For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[] $include For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#relationships (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1004,8 +1004,8 @@ class WebhooksApi
      * Create request for operation 'getWebhook'
      *
      * @param  string $id The ID of the webhook. (required)
-     * @param  string[] $fields_webhook For more information please visit https://developers.klaviyo.com/en/v2025-04-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[] $include For more information please visit https://developers.klaviyo.com/en/v2025-04-15/reference/api-overview#relationships (optional)
+     * @param  string[] $fields_webhook For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[] $include For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#relationships (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -1107,7 +1107,7 @@ class WebhooksApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2025-04-15'];
+        $defaultHeaders['revision'] = ['2025-07-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -1472,7 +1472,7 @@ class WebhooksApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2025-04-15'];
+        $defaultHeaders['revision'] = ['2025-07-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -1818,7 +1818,7 @@ class WebhooksApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2025-04-15'];
+        $defaultHeaders['revision'] = ['2025-07-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -1840,8 +1840,8 @@ class WebhooksApi
      *
      * Get Webhooks
      *
-     * @param  string[] $fields_webhook For more information please visit https://developers.klaviyo.com/en/v2025-04-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[] $include For more information please visit https://developers.klaviyo.com/en/v2025-04-15/reference/api-overview#relationships (optional)
+     * @param  string[] $fields_webhook For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[] $include For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#relationships (optional)
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -1858,8 +1858,8 @@ class WebhooksApi
      *
      * Get Webhooks
      *
-     * @param  string[] $fields_webhook For more information please visit https://developers.klaviyo.com/en/v2025-04-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[] $include For more information please visit https://developers.klaviyo.com/en/v2025-04-15/reference/api-overview#relationships (optional)
+     * @param  string[] $fields_webhook For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[] $include For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#relationships (optional)
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -2027,8 +2027,8 @@ class WebhooksApi
      *
      * Get Webhooks
      *
-     * @param  string[] $fields_webhook For more information please visit https://developers.klaviyo.com/en/v2025-04-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[] $include For more information please visit https://developers.klaviyo.com/en/v2025-04-15/reference/api-overview#relationships (optional)
+     * @param  string[] $fields_webhook For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[] $include For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#relationships (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -2048,8 +2048,8 @@ class WebhooksApi
      *
      * Get Webhooks
      *
-     * @param  string[] $fields_webhook For more information please visit https://developers.klaviyo.com/en/v2025-04-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[] $include For more information please visit https://developers.klaviyo.com/en/v2025-04-15/reference/api-overview#relationships (optional)
+     * @param  string[] $fields_webhook For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[] $include For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#relationships (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -2103,8 +2103,8 @@ class WebhooksApi
     /**
      * Create request for operation 'getWebhooks'
      *
-     * @param  string[] $fields_webhook For more information please visit https://developers.klaviyo.com/en/v2025-04-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[] $include For more information please visit https://developers.klaviyo.com/en/v2025-04-15/reference/api-overview#relationships (optional)
+     * @param  string[] $fields_webhook For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[] $include For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#relationships (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -2192,7 +2192,7 @@ class WebhooksApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2025-04-15'];
+        $defaultHeaders['revision'] = ['2025-07-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -2574,7 +2574,7 @@ class WebhooksApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2025-04-15'];
+        $defaultHeaders['revision'] = ['2025-07-15'];
 
         $headers = array_merge(
             $defaultHeaders,

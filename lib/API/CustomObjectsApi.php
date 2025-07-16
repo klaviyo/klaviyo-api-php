@@ -1,6 +1,6 @@
 <?php
 /**
- * WebFeedsApi
+ * CustomObjectsApi
  * PHP version 7.4
  *
  * @category Class
@@ -40,14 +40,14 @@ use KlaviyoAPI\HeaderSelector;
 use KlaviyoAPI\ObjectSerializer;
 
 /**
- * WebFeedsApi Class Doc Comment
+ * CustomObjectsApi Class Doc Comment
  *
  * @category Class
  * @package  KlaviyoAPI
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class WebFeedsApi
+class CustomObjectsApi
 {
     /**
      * @var ClientInterface
@@ -116,36 +116,332 @@ class WebFeedsApi
     }
 
     /**
-     * Operation createWebFeed
+     * Operation bulkCreateDataSourceRecords
      *
-     * Create Web Feed
+     * Bulk Create Data Source Records
      *
-     * @param  \KlaviyoAPI\Model\WebFeedCreateQuery $web_feed_create_query Create a web feed (required)
+     * @param  \KlaviyoAPI\Model\DataSourceRecordBulkCreateJobCreateQuery $data_source_record_bulk_create_job_create_query Create a data source record job (required)
+     *
+     * @throws \KlaviyoAPI\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return void
+     */
+    public function bulkCreateDataSourceRecords($data_source_record_bulk_create_job_create_query, $apiKey = null)
+    {
+        $this->bulkCreateDataSourceRecordsWithHttpInfo($data_source_record_bulk_create_job_create_query, $apiKey);
+    }
+
+    /**
+     * Alias of `bulkCreateDataSourceRecords`
+     *
+     * @deprecated use `bulkCreateDataSourceRecords` instead
+     */
+    public function createDataSourceRecordBulkCreateJob(...$args) {
+        return $this->bulkCreateDataSourceRecords(...$args);
+    }
+
+    /**
+     * Operation bulkCreateDataSourceRecordsWithHttpInfo
+     *
+     * Bulk Create Data Source Records
+     *
+     * @param  \KlaviyoAPI\Model\DataSourceRecordBulkCreateJobCreateQuery $data_source_record_bulk_create_job_create_query Create a data source record job (required)
+     *
+     * @throws \KlaviyoAPI\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function bulkCreateDataSourceRecordsWithHttpInfo($data_source_record_bulk_create_job_create_query, $apiKey = null)
+    {
+        $request = $this->bulkCreateDataSourceRecordsRequest($data_source_record_bulk_create_job_create_query, $apiKey);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            return [null, $statusCode, $response->getHeaders()];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\KlaviyoAPI\Model\GetAccounts400Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 500:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\KlaviyoAPI\Model\GetAccounts400Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Alias of `bulkCreateDataSourceRecordsWithHttpInfo`
+     *
+     * @deprecated use `bulkCreateDataSourceRecordsWithHttpInfo` instead
+     */
+    public function createDataSourceRecordBulkCreateJobWithHttpInfo(...$args) {
+        return $this->bulkCreateDataSourceRecordsWithHttpInfo(...$args);
+    }
+
+    /**
+     * Operation bulkCreateDataSourceRecordsAsync
+     *
+     * Bulk Create Data Source Records
+     *
+     * @param  \KlaviyoAPI\Model\DataSourceRecordBulkCreateJobCreateQuery $data_source_record_bulk_create_job_create_query Create a data source record job (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function bulkCreateDataSourceRecordsAsync($data_source_record_bulk_create_job_create_query, $apiKey = null)
+    {
+        return $this->bulkCreateDataSourceRecordsAsyncWithHttpInfo($data_source_record_bulk_create_job_create_query, $apiKey)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Alias of `bulkCreateDataSourceRecordsAsync`
+     *
+     * @deprecated use `bulkCreateDataSourceRecordsAsync` instead
+     */
+    public function createDataSourceRecordBulkCreateJobAsync(...$args) {
+        return $this->bulkCreateDataSourceRecordsAsync(...$args);
+    }
+
+    /**
+     * Operation bulkCreateDataSourceRecordsAsyncWithHttpInfo
+     *
+     * Bulk Create Data Source Records
+     *
+     * @param  \KlaviyoAPI\Model\DataSourceRecordBulkCreateJobCreateQuery $data_source_record_bulk_create_job_create_query Create a data source record job (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function bulkCreateDataSourceRecordsAsyncWithHttpInfo($data_source_record_bulk_create_job_create_query, $apiKey = null)
+    {
+        $returnType = '';
+        $request = $this->bulkCreateDataSourceRecordsRequest($data_source_record_bulk_create_job_create_query, $apiKey);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    return [null, $response->getStatusCode(), $response->getHeaders()];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Alias of `bulkCreateDataSourceRecordsAsyncWithHttpInfo`
+     *
+     * @deprecated use `bulkCreateDataSourceRecordsAsyncWithHttpInfo` instead
+     */
+    public function createDataSourceRecordBulkCreateJobAsyncWithHttpInfo(...$args) {
+        return $this->bulkCreateDataSourceRecordsAsyncWithHttpInfo(...$args);
+    }
+
+    /**
+     * Create request for operation 'bulkCreateDataSourceRecords'
+     *
+     * @param  \KlaviyoAPI\Model\DataSourceRecordBulkCreateJobCreateQuery $data_source_record_bulk_create_job_create_query Create a data source record job (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function bulkCreateDataSourceRecordsRequest($data_source_record_bulk_create_job_create_query, $apiKey = null)
+    {
+        // verify the required parameter 'data_source_record_bulk_create_job_create_query' is set
+        if ($data_source_record_bulk_create_job_create_query === null || (is_array($data_source_record_bulk_create_job_create_query) && count($data_source_record_bulk_create_job_create_query) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $data_source_record_bulk_create_job_create_query when calling bulkCreateDataSourceRecords'
+            );
+        }
+
+        $resourcePath = '/api/data-source-record-bulk-create-jobs';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/vnd.api+json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/vnd.api+json'],
+                ['application/vnd.api+json']
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($data_source_record_bulk_create_job_create_query)) {
+            if ($headers['Content-Type'] === 'application/json' || $headers['Content-Type'] === 'application/vnd.api+json') {
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($data_source_record_bulk_create_job_create_query));
+            } else {
+                $httpBody = $data_source_record_bulk_create_job_create_query;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json' || $headers['Content-Type'] === 'application/vnd.api+json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        if ($apiKey == null) {
+            $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        } else {
+            $apiKey = 'Klaviyo-API-Key '.$apiKey;
+        }
+
+        $headers['Authorization'] = $apiKey;
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $defaultHeaders['revision'] = ['2025-07-15'];
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'POST',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Alias of `bulkCreateDataSourceRecordsRequest`
+     *
+     * @deprecated use `bulkCreateDataSourceRecordsRequest` instead
+     */
+    public function createDataSourceRecordBulkCreateJobRequest(...$args) {
+        return $this->bulkCreateDataSourceRecordsRequest(...$args);
+    }
+
+    /**
+     * Operation createDataSource
+     *
+     * Create Data Source
+     *
+     * @param  \KlaviyoAPI\Model\DataSourceCreateQuery $data_source_create_query Create data source (required)
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array<string,mixed>|\KlaviyoAPI\Model\GetAccounts400Response|\KlaviyoAPI\Model\GetAccounts400Response
      */
-    public function createWebFeed($web_feed_create_query, $apiKey = null)
+    public function createDataSource($data_source_create_query, $apiKey = null)
     {
-        list($response) = $this->createWebFeedWithHttpInfo($web_feed_create_query, $apiKey);
+        list($response) = $this->createDataSourceWithHttpInfo($data_source_create_query, $apiKey);
         return $response;
     }
 
     /**
-     * Operation createWebFeedWithHttpInfo
+     * Operation createDataSourceWithHttpInfo
      *
-     * Create Web Feed
+     * Create Data Source
      *
-     * @param  \KlaviyoAPI\Model\WebFeedCreateQuery $web_feed_create_query Create a web feed (required)
+     * @param  \KlaviyoAPI\Model\DataSourceCreateQuery $data_source_create_query Create data source (required)
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of array<string,mixed>|\KlaviyoAPI\Model\GetAccounts400Response|\KlaviyoAPI\Model\GetAccounts400Response, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createWebFeedWithHttpInfo($web_feed_create_query, $apiKey = null)
+    public function createDataSourceWithHttpInfo($data_source_create_query, $apiKey = null)
     {
-        $request = $this->createWebFeedRequest($web_feed_create_query, $apiKey);
+        $request = $this->createDataSourceRequest($data_source_create_query, $apiKey);
 
         try {
             $options = $this->createHttpClientOption();
@@ -301,18 +597,18 @@ class WebFeedsApi
     }
 
     /**
-     * Operation createWebFeedAsync
+     * Operation createDataSourceAsync
      *
-     * Create Web Feed
+     * Create Data Source
      *
-     * @param  \KlaviyoAPI\Model\WebFeedCreateQuery $web_feed_create_query Create a web feed (required)
+     * @param  \KlaviyoAPI\Model\DataSourceCreateQuery $data_source_create_query Create data source (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createWebFeedAsync($web_feed_create_query, $apiKey = null)
+    public function createDataSourceAsync($data_source_create_query, $apiKey = null)
     {
-        return $this->createWebFeedAsyncWithHttpInfo($web_feed_create_query, $apiKey)
+        return $this->createDataSourceAsyncWithHttpInfo($data_source_create_query, $apiKey)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -321,19 +617,19 @@ class WebFeedsApi
     }
 
     /**
-     * Operation createWebFeedAsyncWithHttpInfo
+     * Operation createDataSourceAsyncWithHttpInfo
      *
-     * Create Web Feed
+     * Create Data Source
      *
-     * @param  \KlaviyoAPI\Model\WebFeedCreateQuery $web_feed_create_query Create a web feed (required)
+     * @param  \KlaviyoAPI\Model\DataSourceCreateQuery $data_source_create_query Create data source (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createWebFeedAsyncWithHttpInfo($web_feed_create_query, $apiKey = null)
+    public function createDataSourceAsyncWithHttpInfo($data_source_create_query, $apiKey = null)
     {
         $returnType = 'array<string,mixed>';
-        $request = $this->createWebFeedRequest($web_feed_create_query, $apiKey);
+        $request = $this->createDataSourceRequest($data_source_create_query, $apiKey);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -377,23 +673,23 @@ class WebFeedsApi
     }
 
     /**
-     * Create request for operation 'createWebFeed'
+     * Create request for operation 'createDataSource'
      *
-     * @param  \KlaviyoAPI\Model\WebFeedCreateQuery $web_feed_create_query Create a web feed (required)
+     * @param  \KlaviyoAPI\Model\DataSourceCreateQuery $data_source_create_query Create data source (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function createWebFeedRequest($web_feed_create_query, $apiKey = null)
+    public function createDataSourceRequest($data_source_create_query, $apiKey = null)
     {
-        // verify the required parameter 'web_feed_create_query' is set
-        if ($web_feed_create_query === null || (is_array($web_feed_create_query) && count($web_feed_create_query) === 0)) {
+        // verify the required parameter 'data_source_create_query' is set
+        if ($data_source_create_query === null || (is_array($data_source_create_query) && count($data_source_create_query) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $web_feed_create_query when calling createWebFeed'
+                'Missing the required parameter $data_source_create_query when calling createDataSource'
             );
         }
 
-        $resourcePath = '/api/web-feeds';
+        $resourcePath = '/api/data-sources';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -416,11 +712,11 @@ class WebFeedsApi
         }
 
         // for model (json/xml)
-        if (isset($web_feed_create_query)) {
+        if (isset($data_source_create_query)) {
             if ($headers['Content-Type'] === 'application/json' || $headers['Content-Type'] === 'application/vnd.api+json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($web_feed_create_query));
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($data_source_create_query));
             } else {
-                $httpBody = $web_feed_create_query;
+                $httpBody = $data_source_create_query;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -479,35 +775,35 @@ class WebFeedsApi
     }
 
     /**
-     * Operation deleteWebFeed
+     * Operation deleteDataSource
      *
-     * Delete Web Feed
+     * Delete Data Source
      *
-     * @param  string $id The ID of the web feed (required)
+     * @param  string $id The ID of the data source to delete (required)
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function deleteWebFeed($id, $apiKey = null)
+    public function deleteDataSource($id, $apiKey = null)
     {
-        $this->deleteWebFeedWithHttpInfo($id, $apiKey);
+        $this->deleteDataSourceWithHttpInfo($id, $apiKey);
     }
 
     /**
-     * Operation deleteWebFeedWithHttpInfo
+     * Operation deleteDataSourceWithHttpInfo
      *
-     * Delete Web Feed
+     * Delete Data Source
      *
-     * @param  string $id The ID of the web feed (required)
+     * @param  string $id The ID of the data source to delete (required)
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function deleteWebFeedWithHttpInfo($id, $apiKey = null)
+    public function deleteDataSourceWithHttpInfo($id, $apiKey = null)
     {
-        $request = $this->deleteWebFeedRequest($id, $apiKey);
+        $request = $this->deleteDataSourceRequest($id, $apiKey);
 
         try {
             $options = $this->createHttpClientOption();
@@ -570,18 +866,18 @@ class WebFeedsApi
     }
 
     /**
-     * Operation deleteWebFeedAsync
+     * Operation deleteDataSourceAsync
      *
-     * Delete Web Feed
+     * Delete Data Source
      *
-     * @param  string $id The ID of the web feed (required)
+     * @param  string $id The ID of the data source to delete (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteWebFeedAsync($id, $apiKey = null)
+    public function deleteDataSourceAsync($id, $apiKey = null)
     {
-        return $this->deleteWebFeedAsyncWithHttpInfo($id, $apiKey)
+        return $this->deleteDataSourceAsyncWithHttpInfo($id, $apiKey)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -590,19 +886,19 @@ class WebFeedsApi
     }
 
     /**
-     * Operation deleteWebFeedAsyncWithHttpInfo
+     * Operation deleteDataSourceAsyncWithHttpInfo
      *
-     * Delete Web Feed
+     * Delete Data Source
      *
-     * @param  string $id The ID of the web feed (required)
+     * @param  string $id The ID of the data source to delete (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteWebFeedAsyncWithHttpInfo($id, $apiKey = null)
+    public function deleteDataSourceAsyncWithHttpInfo($id, $apiKey = null)
     {
         $returnType = '';
-        $request = $this->deleteWebFeedRequest($id, $apiKey);
+        $request = $this->deleteDataSourceRequest($id, $apiKey);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -628,23 +924,23 @@ class WebFeedsApi
     }
 
     /**
-     * Create request for operation 'deleteWebFeed'
+     * Create request for operation 'deleteDataSource'
      *
-     * @param  string $id The ID of the web feed (required)
+     * @param  string $id The ID of the data source to delete (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function deleteWebFeedRequest($id, $apiKey = null)
+    public function deleteDataSourceRequest($id, $apiKey = null)
     {
         // verify the required parameter 'id' is set
         if ($id === null || (is_array($id) && count($id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $id when calling deleteWebFeed'
+                'Missing the required parameter $id when calling deleteDataSource'
             );
         }
 
-        $resourcePath = '/api/web-feeds/{id}';
+        $resourcePath = '/api/data-sources/{id}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -732,38 +1028,38 @@ class WebFeedsApi
     }
 
     /**
-     * Operation getWebFeed
+     * Operation getDataSource
      *
-     * Get Web Feed
+     * Get Data Source
      *
-     * @param  string $id The ID of the web feed (required)
-     * @param  string[] $fields_web_feed For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string $id The ID of the data source (required)
+     * @param  string[] $fields_data_source For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array<string,mixed>|\KlaviyoAPI\Model\GetAccounts400Response|\KlaviyoAPI\Model\GetAccounts400Response
      */
-    public function getWebFeed($id, $fields_web_feed = null, $apiKey = null)
+    public function getDataSource($id, $fields_data_source = null, $apiKey = null)
     {
-        list($response) = $this->getWebFeedWithHttpInfo($id, $fields_web_feed, $apiKey);
+        list($response) = $this->getDataSourceWithHttpInfo($id, $fields_data_source, $apiKey);
         return $response;
     }
 
     /**
-     * Operation getWebFeedWithHttpInfo
+     * Operation getDataSourceWithHttpInfo
      *
-     * Get Web Feed
+     * Get Data Source
      *
-     * @param  string $id The ID of the web feed (required)
-     * @param  string[] $fields_web_feed For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string $id The ID of the data source (required)
+     * @param  string[] $fields_data_source For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of array<string,mixed>|\KlaviyoAPI\Model\GetAccounts400Response|\KlaviyoAPI\Model\GetAccounts400Response, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getWebFeedWithHttpInfo($id, $fields_web_feed = null, $apiKey = null)
+    public function getDataSourceWithHttpInfo($id, $fields_data_source = null, $apiKey = null)
     {
-        $request = $this->getWebFeedRequest($id, $fields_web_feed, $apiKey);
+        $request = $this->getDataSourceRequest($id, $fields_data_source, $apiKey);
 
         try {
             $options = $this->createHttpClientOption();
@@ -919,19 +1215,19 @@ class WebFeedsApi
     }
 
     /**
-     * Operation getWebFeedAsync
+     * Operation getDataSourceAsync
      *
-     * Get Web Feed
+     * Get Data Source
      *
-     * @param  string $id The ID of the web feed (required)
-     * @param  string[] $fields_web_feed For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string $id The ID of the data source (required)
+     * @param  string[] $fields_data_source For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getWebFeedAsync($id, $fields_web_feed = null, $apiKey = null)
+    public function getDataSourceAsync($id, $fields_data_source = null, $apiKey = null)
     {
-        return $this->getWebFeedAsyncWithHttpInfo($id, $fields_web_feed, $apiKey)
+        return $this->getDataSourceAsyncWithHttpInfo($id, $fields_data_source, $apiKey)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -940,20 +1236,20 @@ class WebFeedsApi
     }
 
     /**
-     * Operation getWebFeedAsyncWithHttpInfo
+     * Operation getDataSourceAsyncWithHttpInfo
      *
-     * Get Web Feed
+     * Get Data Source
      *
-     * @param  string $id The ID of the web feed (required)
-     * @param  string[] $fields_web_feed For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string $id The ID of the data source (required)
+     * @param  string[] $fields_data_source For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getWebFeedAsyncWithHttpInfo($id, $fields_web_feed = null, $apiKey = null)
+    public function getDataSourceAsyncWithHttpInfo($id, $fields_data_source = null, $apiKey = null)
     {
         $returnType = 'array<string,mixed>';
-        $request = $this->getWebFeedRequest($id, $fields_web_feed, $apiKey);
+        $request = $this->getDataSourceRequest($id, $fields_data_source, $apiKey);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -997,24 +1293,24 @@ class WebFeedsApi
     }
 
     /**
-     * Create request for operation 'getWebFeed'
+     * Create request for operation 'getDataSource'
      *
-     * @param  string $id The ID of the web feed (required)
-     * @param  string[] $fields_web_feed For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string $id The ID of the data source (required)
+     * @param  string[] $fields_data_source For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getWebFeedRequest($id, $fields_web_feed = null, $apiKey = null)
+    public function getDataSourceRequest($id, $fields_data_source = null, $apiKey = null)
     {
         // verify the required parameter 'id' is set
         if ($id === null || (is_array($id) && count($id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $id when calling getWebFeed'
+                'Missing the required parameter $id when calling getDataSource'
             );
         }
 
-        $resourcePath = '/api/web-feeds/{id}';
+        $resourcePath = '/api/data-sources/{id}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1023,8 +1319,8 @@ class WebFeedsApi
 
         // query params
         $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-            $fields_web_feed,
-            'fields[web-feed]', // param base name
+            $fields_data_source,
+            'fields[data-source]', // param base name
             'array', // openApiType
             'form', // style
             false, // explode
@@ -1111,44 +1407,40 @@ class WebFeedsApi
     }
 
     /**
-     * Operation getWebFeeds
+     * Operation getDataSources
      *
-     * Get Web Feeds
+     * Get Data Sources
      *
-     * @param  string[] $fields_web_feed For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string $filter For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;name&#x60;: &#x60;any&#x60;, &#x60;contains&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;created&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60;&lt;br&gt;&#x60;updated&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60; (optional)
+     * @param  string[] $fields_data_source For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#pagination (optional)
-     * @param  int $page_size Default: 5. Min: 1. Max: 20. (optional, default to 5)
-     * @param  string $sort For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sorting (optional)
+     * @param  int $page_size Default: 20. Min: 1. Max: 100. (optional, default to 20)
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array<string,mixed>|\KlaviyoAPI\Model\GetAccounts400Response|\KlaviyoAPI\Model\GetAccounts400Response
      */
-    public function getWebFeeds($fields_web_feed = null, $filter = null, $page_cursor = null, $page_size = 5, $sort = null, $apiKey = null)
+    public function getDataSources($fields_data_source = null, $page_cursor = null, $page_size = 20, $apiKey = null)
     {
-        list($response) = $this->getWebFeedsWithHttpInfo($fields_web_feed, $filter, $page_cursor, $page_size, $sort, $apiKey);
+        list($response) = $this->getDataSourcesWithHttpInfo($fields_data_source, $page_cursor, $page_size, $apiKey);
         return $response;
     }
 
     /**
-     * Operation getWebFeedsWithHttpInfo
+     * Operation getDataSourcesWithHttpInfo
      *
-     * Get Web Feeds
+     * Get Data Sources
      *
-     * @param  string[] $fields_web_feed For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string $filter For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;name&#x60;: &#x60;any&#x60;, &#x60;contains&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;created&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60;&lt;br&gt;&#x60;updated&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60; (optional)
+     * @param  string[] $fields_data_source For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#pagination (optional)
-     * @param  int $page_size Default: 5. Min: 1. Max: 20. (optional, default to 5)
-     * @param  string $sort For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sorting (optional)
+     * @param  int $page_size Default: 20. Min: 1. Max: 100. (optional, default to 20)
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of array<string,mixed>|\KlaviyoAPI\Model\GetAccounts400Response|\KlaviyoAPI\Model\GetAccounts400Response, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getWebFeedsWithHttpInfo($fields_web_feed = null, $filter = null, $page_cursor = null, $page_size = 5, $sort = null, $apiKey = null)
+    public function getDataSourcesWithHttpInfo($fields_data_source = null, $page_cursor = null, $page_size = 20, $apiKey = null)
     {
-        $request = $this->getWebFeedsRequest($fields_web_feed, $filter, $page_cursor, $page_size, $sort, $apiKey);
+        $request = $this->getDataSourcesRequest($fields_data_source, $page_cursor, $page_size, $apiKey);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1304,22 +1596,20 @@ class WebFeedsApi
     }
 
     /**
-     * Operation getWebFeedsAsync
+     * Operation getDataSourcesAsync
      *
-     * Get Web Feeds
+     * Get Data Sources
      *
-     * @param  string[] $fields_web_feed For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string $filter For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;name&#x60;: &#x60;any&#x60;, &#x60;contains&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;created&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60;&lt;br&gt;&#x60;updated&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60; (optional)
+     * @param  string[] $fields_data_source For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#pagination (optional)
-     * @param  int $page_size Default: 5. Min: 1. Max: 20. (optional, default to 5)
-     * @param  string $sort For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sorting (optional)
+     * @param  int $page_size Default: 20. Min: 1. Max: 100. (optional, default to 20)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getWebFeedsAsync($fields_web_feed = null, $filter = null, $page_cursor = null, $page_size = 5, $sort = null, $apiKey = null)
+    public function getDataSourcesAsync($fields_data_source = null, $page_cursor = null, $page_size = 20, $apiKey = null)
     {
-        return $this->getWebFeedsAsyncWithHttpInfo($fields_web_feed, $filter, $page_cursor, $page_size, $sort, $apiKey)
+        return $this->getDataSourcesAsyncWithHttpInfo($fields_data_source, $page_cursor, $page_size, $apiKey)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1328,23 +1618,21 @@ class WebFeedsApi
     }
 
     /**
-     * Operation getWebFeedsAsyncWithHttpInfo
+     * Operation getDataSourcesAsyncWithHttpInfo
      *
-     * Get Web Feeds
+     * Get Data Sources
      *
-     * @param  string[] $fields_web_feed For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string $filter For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;name&#x60;: &#x60;any&#x60;, &#x60;contains&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;created&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60;&lt;br&gt;&#x60;updated&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60; (optional)
+     * @param  string[] $fields_data_source For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#pagination (optional)
-     * @param  int $page_size Default: 5. Min: 1. Max: 20. (optional, default to 5)
-     * @param  string $sort For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sorting (optional)
+     * @param  int $page_size Default: 20. Min: 1. Max: 100. (optional, default to 20)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getWebFeedsAsyncWithHttpInfo($fields_web_feed = null, $filter = null, $page_cursor = null, $page_size = 5, $sort = null, $apiKey = null)
+    public function getDataSourcesAsyncWithHttpInfo($fields_data_source = null, $page_cursor = null, $page_size = 20, $apiKey = null)
     {
         $returnType = 'array<string,mixed>';
-        $request = $this->getWebFeedsRequest($fields_web_feed, $filter, $page_cursor, $page_size, $sort, $apiKey);
+        $request = $this->getDataSourcesRequest($fields_data_source, $page_cursor, $page_size, $apiKey);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1388,28 +1676,26 @@ class WebFeedsApi
     }
 
     /**
-     * Create request for operation 'getWebFeeds'
+     * Create request for operation 'getDataSources'
      *
-     * @param  string[] $fields_web_feed For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string $filter For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;name&#x60;: &#x60;any&#x60;, &#x60;contains&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;created&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60;&lt;br&gt;&#x60;updated&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60; (optional)
+     * @param  string[] $fields_data_source For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#pagination (optional)
-     * @param  int $page_size Default: 5. Min: 1. Max: 20. (optional, default to 5)
-     * @param  string $sort For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sorting (optional)
+     * @param  int $page_size Default: 20. Min: 1. Max: 100. (optional, default to 20)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getWebFeedsRequest($fields_web_feed = null, $filter = null, $page_cursor = null, $page_size = 5, $sort = null, $apiKey = null)
+    public function getDataSourcesRequest($fields_data_source = null, $page_cursor = null, $page_size = 20, $apiKey = null)
     {
-        if ($page_size !== null && $page_size > 20) {
-            throw new \InvalidArgumentException('invalid value for "$page_size" when calling WebFeedsApi.getWebFeeds, must be smaller than or equal to 20.');
+        if ($page_size !== null && $page_size > 100) {
+            throw new \InvalidArgumentException('invalid value for "$page_size" when calling CustomObjectsApi.getDataSources, must be smaller than or equal to 100.');
         }
         if ($page_size !== null && $page_size < 1) {
-            throw new \InvalidArgumentException('invalid value for "$page_size" when calling WebFeedsApi.getWebFeeds, must be bigger than or equal to 1.');
+            throw new \InvalidArgumentException('invalid value for "$page_size" when calling CustomObjectsApi.getDataSources, must be bigger than or equal to 1.');
         }
 
 
-        $resourcePath = '/api/web-feeds';
+        $resourcePath = '/api/data-sources';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1418,20 +1704,11 @@ class WebFeedsApi
 
         // query params
         $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-            $fields_web_feed,
-            'fields[web-feed]', // param base name
+            $fields_data_source,
+            'fields[data-source]', // param base name
             'array', // openApiType
             'form', // style
             false, // explode
-            false // required
-        ) ?? []);
-        // query params
-        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-            $filter,
-            'filter', // param base name
-            'string', // openApiType
-            'form', // style
-            true, // explode
             false // required
         ) ?? []);
         // query params
@@ -1452,15 +1729,6 @@ class WebFeedsApi
             true, // explode
             false // required
         ) ?? []);
-        // query params
-        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-            $sort,
-            'sort', // param base name
-            'string', // openApiType
-            'form', // style
-            true, // explode
-            false // required
-        ) ?? []);
 
 
 
@@ -1527,388 +1795,6 @@ class WebFeedsApi
         $query = ObjectSerializer::buildQuery($queryParams);
         return new Request(
             'GET',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
-     * Operation updateWebFeed
-     *
-     * Update Web Feed
-     *
-     * @param  string $id The ID of the web feed (required)
-     * @param  \KlaviyoAPI\Model\WebFeedPartialUpdateQuery $web_feed_partial_update_query Update a web feed by ID (required)
-     *
-     * @throws \KlaviyoAPI\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return array<string,mixed>|\KlaviyoAPI\Model\GetAccounts400Response|\KlaviyoAPI\Model\GetAccounts400Response
-     */
-    public function updateWebFeed($id, $web_feed_partial_update_query, $apiKey = null)
-    {
-        list($response) = $this->updateWebFeedWithHttpInfo($id, $web_feed_partial_update_query, $apiKey);
-        return $response;
-    }
-
-    /**
-     * Operation updateWebFeedWithHttpInfo
-     *
-     * Update Web Feed
-     *
-     * @param  string $id The ID of the web feed (required)
-     * @param  \KlaviyoAPI\Model\WebFeedPartialUpdateQuery $web_feed_partial_update_query Update a web feed by ID (required)
-     *
-     * @throws \KlaviyoAPI\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return array of array<string,mixed>|\KlaviyoAPI\Model\GetAccounts400Response|\KlaviyoAPI\Model\GetAccounts400Response, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function updateWebFeedWithHttpInfo($id, $web_feed_partial_update_query, $apiKey = null)
-    {
-        $request = $this->updateWebFeedRequest($id, $web_feed_partial_update_query, $apiKey);
-
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
-                );
-            } catch (ConnectException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    null,
-                    null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        (string) $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    (string) $response->getBody()
-                );
-            }
-
-            switch($statusCode) {
-                case 200:
-                    if ('array<string,mixed>' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('array&lt;string,mixed&gt;' !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-
-                    $parsed_content = json_decode(json_encode($content), TRUE);
-                    if (json_last_error() != JSON_ERROR_NONE) {
-                        $parsed_content = $content;
-                    }
-
-                    return [
-                        $parsed_content,
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                case 400:
-                    if ('\KlaviyoAPI\Model\GetAccounts400Response' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('\KlaviyoAPI\Model\GetAccounts400Response' !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-
-                    $parsed_content = json_decode(json_encode($content), TRUE);
-                    if (json_last_error() != JSON_ERROR_NONE) {
-                        $parsed_content = $content;
-                    }
-
-                    return [
-                        $parsed_content,
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                case 500:
-                    if ('\KlaviyoAPI\Model\GetAccounts400Response' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('\KlaviyoAPI\Model\GetAccounts400Response' !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-
-                    $parsed_content = json_decode(json_encode($content), TRUE);
-                    if (json_last_error() != JSON_ERROR_NONE) {
-                        $parsed_content = $content;
-                    }
-
-                    return [
-                        $parsed_content,
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-            }
-
-            $returnType = 'array<string,mixed>';
-            if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); //stream goes to serializer
-            } else {
-                $content = (string) $response->getBody();
-                if ($returnType !== 'string') {
-                    $content = json_decode($content);
-                }
-            }
-
-            $parsed_content = json_decode(json_encode($content), TRUE);
-            if (json_last_error() != JSON_ERROR_NONE) {
-                $parsed_content = $content;
-            }
-
-            return [
-                $parsed_content,
-                $response->getStatusCode(),
-                $response->getHeaders()
-            ];
-
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 200:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        'array<string,mixed>',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 400:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\KlaviyoAPI\Model\GetAccounts400Response',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 500:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\KlaviyoAPI\Model\GetAccounts400Response',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-            }
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation updateWebFeedAsync
-     *
-     * Update Web Feed
-     *
-     * @param  string $id The ID of the web feed (required)
-     * @param  \KlaviyoAPI\Model\WebFeedPartialUpdateQuery $web_feed_partial_update_query Update a web feed by ID (required)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function updateWebFeedAsync($id, $web_feed_partial_update_query, $apiKey = null)
-    {
-        return $this->updateWebFeedAsyncWithHttpInfo($id, $web_feed_partial_update_query, $apiKey)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation updateWebFeedAsyncWithHttpInfo
-     *
-     * Update Web Feed
-     *
-     * @param  string $id The ID of the web feed (required)
-     * @param  \KlaviyoAPI\Model\WebFeedPartialUpdateQuery $web_feed_partial_update_query Update a web feed by ID (required)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function updateWebFeedAsyncWithHttpInfo($id, $web_feed_partial_update_query, $apiKey = null)
-    {
-        $returnType = 'array<string,mixed>';
-        $request = $this->updateWebFeedRequest($id, $web_feed_partial_update_query, $apiKey);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ($returnType !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    $parsed_content = json_decode(json_encode($content), TRUE);
-                    if (json_last_error() != JSON_ERROR_NONE) {
-                        $parsed_content = $content;
-                    }
-
-                    return [
-                        $parsed_content,
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        (string) $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'updateWebFeed'
-     *
-     * @param  string $id The ID of the web feed (required)
-     * @param  \KlaviyoAPI\Model\WebFeedPartialUpdateQuery $web_feed_partial_update_query Update a web feed by ID (required)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    public function updateWebFeedRequest($id, $web_feed_partial_update_query, $apiKey = null)
-    {
-        // verify the required parameter 'id' is set
-        if ($id === null || (is_array($id) && count($id) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $id when calling updateWebFeed'
-            );
-        }
-        // verify the required parameter 'web_feed_partial_update_query' is set
-        if ($web_feed_partial_update_query === null || (is_array($web_feed_partial_update_query) && count($web_feed_partial_update_query) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $web_feed_partial_update_query when calling updateWebFeed'
-            );
-        }
-
-        $resourcePath = '/api/web-feeds/{id}';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-
-
-        // path params
-        if ($id !== null) {
-            $resourcePath = str_replace(
-                '{' . 'id' . '}',
-                ObjectSerializer::toPathValue($id),
-                $resourcePath
-            );
-        }
-
-
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/vnd.api+json']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/vnd.api+json'],
-                ['application/vnd.api+json']
-            );
-        }
-
-        // for model (json/xml)
-        if (isset($web_feed_partial_update_query)) {
-            if ($headers['Content-Type'] === 'application/json' || $headers['Content-Type'] === 'application/vnd.api+json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($web_feed_partial_update_query));
-            } else {
-                $httpBody = $web_feed_partial_update_query;
-            }
-        } elseif (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
-                    foreach ($formParamValueItems as $formParamValueItem) {
-                        $multipartContents[] = [
-                            'name' => $formParamName,
-                            'contents' => $formParamValueItem
-                        ];
-                    }
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif ($headers['Content-Type'] === 'application/json' || $headers['Content-Type'] === 'application/vnd.api+json') {
-                $httpBody = \GuzzleHttp\json_encode($formParams);
-
-            } else {
-                // for HTTP post (form)
-                $httpBody = ObjectSerializer::buildQuery($formParams);
-            }
-        }
-
-        // this endpoint requires API key authentication
-        if ($apiKey == null) {
-            $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
-        } else {
-            $apiKey = 'Klaviyo-API-Key '.$apiKey;
-        }
-
-        $headers['Authorization'] = $apiKey;
-
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $defaultHeaders['revision'] = ['2025-07-15'];
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $query = ObjectSerializer::buildQuery($queryParams);
-        return new Request(
-            'PATCH',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody

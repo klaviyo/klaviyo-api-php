@@ -62,18 +62,19 @@ class ConditionGroupConditionsInner implements ModelInterface, ArrayAccess, \Jso
         'group_ids' => 'string[]',
         'timeframe_filter' => '\KlaviyoAPI\Model\SegmentsProfileMetricConditionTimeframeFilter',
         'metric_id' => 'string',
-        'measurement' => 'string',
+        'measurement' => '\KlaviyoAPI\Model\RankEnum',
         'measurement_filter' => '\KlaviyoAPI\Model\NumericOperatorFilter',
         'metric_filters' => '\KlaviyoAPI\Model\ProfileMetricPropertyFilter[]',
         'consent' => '\KlaviyoAPI\Model\ProfileMarketingConsentConditionConsent',
         'country_code' => 'string',
         'postal_code' => 'string',
         'unit' => 'string',
-        'filter' => '\KlaviyoAPI\Model\ProfilePredictiveAnalyticsStringFilter',
+        'filter' => '\KlaviyoAPI\Model\ProfilePredictiveAnalyticsChannelAffinityRankFilter',
         'property' => 'string',
         'in_region' => 'bool',
         'region' => 'string',
-        'dimension' => 'string'
+        'dimension' => 'string',
+        'predicted_channel' => 'string'
     ];
 
     /**
@@ -100,7 +101,8 @@ class ConditionGroupConditionsInner implements ModelInterface, ArrayAccess, \Jso
         'property' => null,
         'in_region' => null,
         'region' => null,
-        'dimension' => null
+        'dimension' => null,
+        'predicted_channel' => null
     ];
 
     /**
@@ -125,7 +127,8 @@ class ConditionGroupConditionsInner implements ModelInterface, ArrayAccess, \Jso
 		'property' => false,
 		'in_region' => false,
 		'region' => false,
-		'dimension' => false
+		'dimension' => false,
+		'predicted_channel' => false
     ];
 
     /**
@@ -220,7 +223,8 @@ class ConditionGroupConditionsInner implements ModelInterface, ArrayAccess, \Jso
         'property' => 'property',
         'in_region' => 'in_region',
         'region' => 'region',
-        'dimension' => 'dimension'
+        'dimension' => 'dimension',
+        'predicted_channel' => 'predicted_channel'
     ];
 
     /**
@@ -245,7 +249,8 @@ class ConditionGroupConditionsInner implements ModelInterface, ArrayAccess, \Jso
         'property' => 'setProperty',
         'in_region' => 'setInRegion',
         'region' => 'setRegion',
-        'dimension' => 'setDimension'
+        'dimension' => 'setDimension',
+        'predicted_channel' => 'setPredictedChannel'
     ];
 
     /**
@@ -270,7 +275,8 @@ class ConditionGroupConditionsInner implements ModelInterface, ArrayAccess, \Jso
         'property' => 'getProperty',
         'in_region' => 'getInRegion',
         'region' => 'getRegion',
-        'dimension' => 'getDimension'
+        'dimension' => 'getDimension',
+        'predicted_channel' => 'getPredictedChannel'
     ];
 
     /**
@@ -315,13 +321,14 @@ class ConditionGroupConditionsInner implements ModelInterface, ArrayAccess, \Jso
     }
 
     public const IS_MEMBER_FALSE = 'false';
-    public const MEASUREMENT_COUNT = 'count';
-    public const MEASUREMENT_SUM = 'sum';
     public const UNIT_KILOMETERS = 'kilometers';
     public const UNIT_MILES = 'miles';
     public const REGION_EUROPEAN_UNION = 'european_union';
     public const REGION_UNITED_STATES = 'united_states';
-    public const DIMENSION_PREDICTED_GENDER = 'predicted_gender';
+    public const DIMENSION_CHANNEL_AFFINITY = 'channel_affinity';
+    public const PREDICTED_CHANNEL_EMAIL = 'email';
+    public const PREDICTED_CHANNEL_PUSH = 'push';
+    public const PREDICTED_CHANNEL_SMS = 'sms';
 
     /**
      * Gets allowable values of the enum
@@ -332,19 +339,6 @@ class ConditionGroupConditionsInner implements ModelInterface, ArrayAccess, \Jso
     {
         return [
             self::IS_MEMBER_FALSE,
-        ];
-    }
-
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getMeasurementAllowableValues()
-    {
-        return [
-            self::MEASUREMENT_COUNT,
-            self::MEASUREMENT_SUM,
         ];
     }
 
@@ -382,7 +376,21 @@ class ConditionGroupConditionsInner implements ModelInterface, ArrayAccess, \Jso
     public function getDimensionAllowableValues()
     {
         return [
-            self::DIMENSION_PREDICTED_GENDER,
+            self::DIMENSION_CHANNEL_AFFINITY,
+        ];
+    }
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getPredictedChannelAllowableValues()
+    {
+        return [
+            self::PREDICTED_CHANNEL_EMAIL,
+            self::PREDICTED_CHANNEL_PUSH,
+            self::PREDICTED_CHANNEL_SMS,
         ];
     }
 
@@ -418,6 +426,7 @@ class ConditionGroupConditionsInner implements ModelInterface, ArrayAccess, \Jso
         $this->setIfExists('in_region', $data ?? [], null);
         $this->setIfExists('region', $data ?? [], null);
         $this->setIfExists('dimension', $data ?? [], null);
+        $this->setIfExists('predicted_channel', $data ?? [], null);
     }
 
     /**
@@ -474,15 +483,6 @@ class ConditionGroupConditionsInner implements ModelInterface, ArrayAccess, \Jso
         if ($this->container['measurement'] === null) {
             $invalidProperties[] = "'measurement' can't be null";
         }
-        $allowedValues = $this->getMeasurementAllowableValues();
-        if (!is_null($this->container['measurement']) && !in_array($this->container['measurement'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value '%s' for 'measurement', must be one of '%s'",
-                $this->container['measurement'],
-                implode("', '", $allowedValues)
-            );
-        }
-
         if ($this->container['measurement_filter'] === null) {
             $invalidProperties[] = "'measurement_filter' can't be null";
         }
@@ -536,6 +536,18 @@ class ConditionGroupConditionsInner implements ModelInterface, ArrayAccess, \Jso
             $invalidProperties[] = sprintf(
                 "invalid value '%s' for 'dimension', must be one of '%s'",
                 $this->container['dimension'],
+                implode("', '", $allowedValues)
+            );
+        }
+
+        if ($this->container['predicted_channel'] === null) {
+            $invalidProperties[] = "'predicted_channel' can't be null";
+        }
+        $allowedValues = $this->getPredictedChannelAllowableValues();
+        if (!is_null($this->container['predicted_channel']) && !in_array($this->container['predicted_channel'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'predicted_channel', must be one of '%s'",
+                $this->container['predicted_channel'],
                 implode("', '", $allowedValues)
             );
         }
@@ -713,7 +725,7 @@ class ConditionGroupConditionsInner implements ModelInterface, ArrayAccess, \Jso
     /**
      * Gets measurement
      *
-     * @return string
+     * @return \KlaviyoAPI\Model\RankEnum
      */
     public function getMeasurement()
     {
@@ -723,22 +735,12 @@ class ConditionGroupConditionsInner implements ModelInterface, ArrayAccess, \Jso
     /**
      * Sets measurement
      *
-     * @param string $measurement Measurements for profile metrics.
+     * @param \KlaviyoAPI\Model\RankEnum $measurement measurement
      *
      * @return self
      */
     public function setMeasurement($measurement)
     {
-        $allowedValues = $this->getMeasurementAllowableValues();
-        if (!in_array($measurement, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value '%s' for 'measurement', must be one of '%s'",
-                    $measurement,
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
 
         if (is_null($measurement)) {
             throw new \InvalidArgumentException('non-nullable measurement cannot be null');
@@ -943,7 +945,7 @@ class ConditionGroupConditionsInner implements ModelInterface, ArrayAccess, \Jso
     /**
      * Gets filter
      *
-     * @return \KlaviyoAPI\Model\ProfilePredictiveAnalyticsStringFilter
+     * @return \KlaviyoAPI\Model\ProfilePredictiveAnalyticsChannelAffinityRankFilter
      */
     public function getFilter()
     {
@@ -953,7 +955,7 @@ class ConditionGroupConditionsInner implements ModelInterface, ArrayAccess, \Jso
     /**
      * Sets filter
      *
-     * @param \KlaviyoAPI\Model\ProfilePredictiveAnalyticsStringFilter $filter filter
+     * @param \KlaviyoAPI\Model\ProfilePredictiveAnalyticsChannelAffinityRankFilter $filter filter
      *
      * @return self
      */
@@ -1079,7 +1081,7 @@ class ConditionGroupConditionsInner implements ModelInterface, ArrayAccess, \Jso
     /**
      * Sets dimension
      *
-     * @param string $dimension Dimension for string profile predictive analytics conditions.
+     * @param string $dimension Possible dimension for channel affinity criterion.
      *
      * @return self
      */
@@ -1101,6 +1103,45 @@ class ConditionGroupConditionsInner implements ModelInterface, ArrayAccess, \Jso
         }
 
         $this->container['dimension'] = $dimension;
+
+        return $this;
+    }
+
+    /**
+     * Gets predicted_channel
+     *
+     * @return string
+     */
+    public function getPredictedChannel()
+    {
+        return $this->container['predicted_channel'];
+    }
+
+    /**
+     * Sets predicted_channel
+     *
+     * @param string $predicted_channel Possible channels in a channel affinity definition.
+     *
+     * @return self
+     */
+    public function setPredictedChannel($predicted_channel)
+    {
+        $allowedValues = $this->getPredictedChannelAllowableValues();
+        if (!in_array($predicted_channel, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'predicted_channel', must be one of '%s'",
+                    $predicted_channel,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+
+        if (is_null($predicted_channel)) {
+            throw new \InvalidArgumentException('non-nullable predicted_channel cannot be null');
+        }
+
+        $this->container['predicted_channel'] = $predicted_channel;
 
         return $this;
     }
