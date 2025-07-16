@@ -121,7 +121,7 @@ class ReportingApi
      * Query Campaign Values
      *
      * @param  \KlaviyoAPI\Model\CampaignValuesRequestDTO $campaign_values_request_dto campaign_values_request_dto (required)
-     * @param  string $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-04-15/reference/api-overview#pagination (optional)
+     * @param  string $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#pagination (optional)
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -157,7 +157,7 @@ class ReportingApi
      * Query Campaign Values
      *
      * @param  \KlaviyoAPI\Model\CampaignValuesRequestDTO $campaign_values_request_dto (required)
-     * @param  string $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-04-15/reference/api-overview#pagination (optional)
+     * @param  string $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#pagination (optional)
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -344,7 +344,7 @@ class ReportingApi
      * Query Campaign Values
      *
      * @param  \KlaviyoAPI\Model\CampaignValuesRequestDTO $campaign_values_request_dto (required)
-     * @param  string $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-04-15/reference/api-overview#pagination (optional)
+     * @param  string $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#pagination (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -383,7 +383,7 @@ class ReportingApi
      * Query Campaign Values
      *
      * @param  \KlaviyoAPI\Model\CampaignValuesRequestDTO $campaign_values_request_dto (required)
-     * @param  string $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-04-15/reference/api-overview#pagination (optional)
+     * @param  string $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#pagination (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -456,7 +456,7 @@ class ReportingApi
      * Create request for operation 'queryCampaignValues'
      *
      * @param  \KlaviyoAPI\Model\CampaignValuesRequestDTO $campaign_values_request_dto (required)
-     * @param  string $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-04-15/reference/api-overview#pagination (optional)
+     * @param  string $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#pagination (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -547,7 +547,7 @@ class ReportingApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2025-04-15'];
+        $defaultHeaders['revision'] = ['2025-07-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -588,7 +588,7 @@ class ReportingApi
      * Query Flow Series
      *
      * @param  \KlaviyoAPI\Model\FlowSeriesRequestDTO $flow_series_request_dto flow_series_request_dto (required)
-     * @param  string $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-04-15/reference/api-overview#pagination (optional)
+     * @param  string $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#pagination (optional)
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -624,7 +624,7 @@ class ReportingApi
      * Query Flow Series
      *
      * @param  \KlaviyoAPI\Model\FlowSeriesRequestDTO $flow_series_request_dto (required)
-     * @param  string $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-04-15/reference/api-overview#pagination (optional)
+     * @param  string $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#pagination (optional)
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -811,7 +811,7 @@ class ReportingApi
      * Query Flow Series
      *
      * @param  \KlaviyoAPI\Model\FlowSeriesRequestDTO $flow_series_request_dto (required)
-     * @param  string $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-04-15/reference/api-overview#pagination (optional)
+     * @param  string $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#pagination (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -850,7 +850,7 @@ class ReportingApi
      * Query Flow Series
      *
      * @param  \KlaviyoAPI\Model\FlowSeriesRequestDTO $flow_series_request_dto (required)
-     * @param  string $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-04-15/reference/api-overview#pagination (optional)
+     * @param  string $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#pagination (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -923,7 +923,7 @@ class ReportingApi
      * Create request for operation 'queryFlowSeries'
      *
      * @param  \KlaviyoAPI\Model\FlowSeriesRequestDTO $flow_series_request_dto (required)
-     * @param  string $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-04-15/reference/api-overview#pagination (optional)
+     * @param  string $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#pagination (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -1014,7 +1014,7 @@ class ReportingApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2025-04-15'];
+        $defaultHeaders['revision'] = ['2025-07-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -1055,7 +1055,7 @@ class ReportingApi
      * Query Flow Values
      *
      * @param  \KlaviyoAPI\Model\FlowValuesRequestDTO $flow_values_request_dto flow_values_request_dto (required)
-     * @param  string $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-04-15/reference/api-overview#pagination (optional)
+     * @param  string $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#pagination (optional)
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -1091,7 +1091,7 @@ class ReportingApi
      * Query Flow Values
      *
      * @param  \KlaviyoAPI\Model\FlowValuesRequestDTO $flow_values_request_dto (required)
-     * @param  string $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-04-15/reference/api-overview#pagination (optional)
+     * @param  string $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#pagination (optional)
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -1278,7 +1278,7 @@ class ReportingApi
      * Query Flow Values
      *
      * @param  \KlaviyoAPI\Model\FlowValuesRequestDTO $flow_values_request_dto (required)
-     * @param  string $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-04-15/reference/api-overview#pagination (optional)
+     * @param  string $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#pagination (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1317,7 +1317,7 @@ class ReportingApi
      * Query Flow Values
      *
      * @param  \KlaviyoAPI\Model\FlowValuesRequestDTO $flow_values_request_dto (required)
-     * @param  string $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-04-15/reference/api-overview#pagination (optional)
+     * @param  string $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#pagination (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1390,7 +1390,7 @@ class ReportingApi
      * Create request for operation 'queryFlowValues'
      *
      * @param  \KlaviyoAPI\Model\FlowValuesRequestDTO $flow_values_request_dto (required)
-     * @param  string $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-04-15/reference/api-overview#pagination (optional)
+     * @param  string $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#pagination (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -1481,7 +1481,7 @@ class ReportingApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2025-04-15'];
+        $defaultHeaders['revision'] = ['2025-07-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -1934,7 +1934,7 @@ class ReportingApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2025-04-15'];
+        $defaultHeaders['revision'] = ['2025-07-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -2387,7 +2387,7 @@ class ReportingApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2025-04-15'];
+        $defaultHeaders['revision'] = ['2025-07-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -2840,7 +2840,7 @@ class ReportingApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2025-04-15'];
+        $defaultHeaders['revision'] = ['2025-07-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -3293,7 +3293,7 @@ class ReportingApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2025-04-15'];
+        $defaultHeaders['revision'] = ['2025-07-15'];
 
         $headers = array_merge(
             $defaultHeaders,

@@ -9,6 +9,7 @@ use KlaviyoAPI\API\AccountsApi;
 use KlaviyoAPI\API\CampaignsApi;
 use KlaviyoAPI\API\CatalogsApi;
 use KlaviyoAPI\API\CouponsApi;
+use KlaviyoAPI\API\CustomObjectsApi;
 use KlaviyoAPI\API\DataPrivacyApi;
 use KlaviyoAPI\API\EventsApi;
 use KlaviyoAPI\API\FlowsApi;
@@ -48,6 +49,8 @@ class KlaviyoAPI {
     public $Catalogs;
     /** @var Subclient<CouponsApi> */
     public $Coupons;
+    /** @var Subclient<CustomObjectsApi> */
+    public $CustomObjects;
     /** @var Subclient<DataPrivacyApi> */
     public $DataPrivacy;
     /** @var Subclient<EventsApi> */
@@ -131,6 +134,12 @@ class KlaviyoAPI {
         
         $this->Coupons = new Subclient(
                 new CouponsApi(new GuzzleClient($this->guzzle_options),$this->config),
+                $wait_seconds = $this->wait_seconds,
+                $num_retries = $this->num_retries,
+            );
+        
+        $this->CustomObjects = new Subclient(
+                new CustomObjectsApi(new GuzzleClient($this->guzzle_options),$this->config),
                 $wait_seconds = $this->wait_seconds,
                 $num_retries = $this->num_retries,
             );

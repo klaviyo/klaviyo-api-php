@@ -1,6 +1,6 @@
 <?php
 /**
- * EventCreateQueryV2ResourceObjectAttributes
+ * DataSourceCreateQueryResourceObjectAttributes
  *
  * PHP version 7.4
  *
@@ -32,7 +32,7 @@ use \ArrayAccess;
 use \KlaviyoAPI\ObjectSerializer;
 
 /**
- * EventCreateQueryV2ResourceObjectAttributes Class Doc Comment
+ * DataSourceCreateQueryResourceObjectAttributes Class Doc Comment
  *
  * @category Class
  * @package  KlaviyoAPI
@@ -40,7 +40,7 @@ use \KlaviyoAPI\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class EventCreateQueryV2ResourceObjectAttributes implements ModelInterface, ArrayAccess, \JsonSerializable
+class DataSourceCreateQueryResourceObjectAttributes implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class EventCreateQueryV2ResourceObjectAttributes implements ModelInterface, Arra
       *
       * @var string
       */
-    protected static $openAPIModelName = 'EventCreateQueryV2ResourceObject_attributes';
+    protected static $openAPIModelName = 'DataSourceCreateQueryResourceObject_attributes';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,13 +57,9 @@ class EventCreateQueryV2ResourceObjectAttributes implements ModelInterface, Arra
       * @var string[]
       */
     protected static $openAPITypes = [
-        'properties' => 'object',
-        'time' => '\DateTime',
-        'value' => 'float',
-        'value_currency' => 'string',
-        'unique_id' => 'string',
-        'metric' => '\KlaviyoAPI\Model\EventCreateQueryV2ResourceObjectAttributesMetric',
-        'profile' => '\KlaviyoAPI\Model\EventCreateQueryV2ResourceObjectAttributesProfile'
+        'title' => 'string',
+        'visibility' => 'string',
+        'description' => 'string'
     ];
 
     /**
@@ -74,13 +70,9 @@ class EventCreateQueryV2ResourceObjectAttributes implements ModelInterface, Arra
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'properties' => null,
-        'time' => 'date-time',
-        'value' => null,
-        'value_currency' => null,
-        'unique_id' => null,
-        'metric' => null,
-        'profile' => null
+        'title' => null,
+        'visibility' => null,
+        'description' => null
     ];
 
     /**
@@ -89,13 +81,9 @@ class EventCreateQueryV2ResourceObjectAttributes implements ModelInterface, Arra
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'properties' => false,
-		'time' => true,
-		'value' => true,
-		'value_currency' => true,
-		'unique_id' => true,
-		'metric' => false,
-		'profile' => false
+        'title' => false,
+		'visibility' => false,
+		'description' => true
     ];
 
     /**
@@ -174,13 +162,9 @@ class EventCreateQueryV2ResourceObjectAttributes implements ModelInterface, Arra
      * @var string[]
      */
     protected static $attributeMap = [
-        'properties' => 'properties',
-        'time' => 'time',
-        'value' => 'value',
-        'value_currency' => 'value_currency',
-        'unique_id' => 'unique_id',
-        'metric' => 'metric',
-        'profile' => 'profile'
+        'title' => 'title',
+        'visibility' => 'visibility',
+        'description' => 'description'
     ];
 
     /**
@@ -189,13 +173,9 @@ class EventCreateQueryV2ResourceObjectAttributes implements ModelInterface, Arra
      * @var string[]
      */
     protected static $setters = [
-        'properties' => 'setProperties',
-        'time' => 'setTime',
-        'value' => 'setValue',
-        'value_currency' => 'setValueCurrency',
-        'unique_id' => 'setUniqueId',
-        'metric' => 'setMetric',
-        'profile' => 'setProfile'
+        'title' => 'setTitle',
+        'visibility' => 'setVisibility',
+        'description' => 'setDescription'
     ];
 
     /**
@@ -204,13 +184,9 @@ class EventCreateQueryV2ResourceObjectAttributes implements ModelInterface, Arra
      * @var string[]
      */
     protected static $getters = [
-        'properties' => 'getProperties',
-        'time' => 'getTime',
-        'value' => 'getValue',
-        'value_currency' => 'getValueCurrency',
-        'unique_id' => 'getUniqueId',
-        'metric' => 'getMetric',
-        'profile' => 'getProfile'
+        'title' => 'getTitle',
+        'visibility' => 'getVisibility',
+        'description' => 'getDescription'
     ];
 
     /**
@@ -254,6 +230,21 @@ class EventCreateQueryV2ResourceObjectAttributes implements ModelInterface, Arra
         return self::$openAPIModelName;
     }
 
+    public const VISIBILITY__PRIVATE = 'private';
+    public const VISIBILITY_SHARED = 'shared';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getVisibilityAllowableValues()
+    {
+        return [
+            self::VISIBILITY__PRIVATE,
+            self::VISIBILITY_SHARED,
+        ];
+    }
 
     /**
      * Associative array for storing property values
@@ -270,13 +261,9 @@ class EventCreateQueryV2ResourceObjectAttributes implements ModelInterface, Arra
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('properties', $data ?? [], null);
-        $this->setIfExists('time', $data ?? [], null);
-        $this->setIfExists('value', $data ?? [], null);
-        $this->setIfExists('value_currency', $data ?? [], null);
-        $this->setIfExists('unique_id', $data ?? [], null);
-        $this->setIfExists('metric', $data ?? [], null);
-        $this->setIfExists('profile', $data ?? [], null);
+        $this->setIfExists('title', $data ?? [], null);
+        $this->setIfExists('visibility', $data ?? [], null);
+        $this->setIfExists('description', $data ?? [], '');
     }
 
     /**
@@ -306,15 +293,21 @@ class EventCreateQueryV2ResourceObjectAttributes implements ModelInterface, Arra
     {
         $invalidProperties = [];
 
-        if ($this->container['properties'] === null) {
-            $invalidProperties[] = "'properties' can't be null";
+        if ($this->container['title'] === null) {
+            $invalidProperties[] = "'title' can't be null";
         }
-        if ($this->container['metric'] === null) {
-            $invalidProperties[] = "'metric' can't be null";
+        if ($this->container['visibility'] === null) {
+            $invalidProperties[] = "'visibility' can't be null";
         }
-        if ($this->container['profile'] === null) {
-            $invalidProperties[] = "'profile' can't be null";
+        $allowedValues = $this->getVisibilityAllowableValues();
+        if (!is_null($this->container['visibility']) && !in_array($this->container['visibility'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'visibility', must be one of '%s'",
+                $this->container['visibility'],
+                implode("', '", $allowedValues)
+            );
         }
+
         return $invalidProperties;
     }
 
@@ -331,232 +324,105 @@ class EventCreateQueryV2ResourceObjectAttributes implements ModelInterface, Arra
 
 
     /**
-     * Gets properties
+     * Gets title
      *
-     * @return object
+     * @return string
      */
-    public function getProperties()
+    public function getTitle()
     {
-        return $this->container['properties'];
+        return $this->container['title'];
     }
 
     /**
-     * Sets properties
+     * Sets title
      *
-     * @param object $properties Properties of this event (must not exceed 400 properties). The size of the event payload must not exceed 5 MB, and each string cannot be larger than 100 KB. For a full list of data limits on event payloads, see [Limitations](https://developers.klaviyo.com/en/reference/events_api_overview#limitations).  Note any top-level property that is not an object can be used to create segments. The `$extra` property records any non-segmentable values that can be referenced later, e.g., HTML templates are useful on a segment but are not used to create a segment.
+     * @param string $title title
      *
      * @return self
      */
-    public function setProperties($properties)
+    public function setTitle($title)
     {
 
-        if (is_null($properties)) {
-            throw new \InvalidArgumentException('non-nullable properties cannot be null');
+        if (is_null($title)) {
+            throw new \InvalidArgumentException('non-nullable title cannot be null');
         }
 
-        $this->container['properties'] = $properties;
+        $this->container['title'] = $title;
 
         return $this;
     }
 
     /**
-     * Gets time
+     * Gets visibility
      *
-     * @return \DateTime|null
+     * @return string
      */
-    public function getTime()
+    public function getVisibility()
     {
-        return $this->container['time'];
+        return $this->container['visibility'];
     }
 
     /**
-     * Sets time
+     * Sets visibility
      *
-     * @param \DateTime|null $time When this event occurred. By default, the time the request was received will be used. The time is truncated to the second. The time must be after the year 2000 and can only be up to 1 year in the future.
+     * @param string $visibility Visibility of data source. Currently only PRIVATE is supported.
      *
      * @return self
      */
-    public function setTime($time)
+    public function setVisibility($visibility)
     {
-
-        if (is_null($time)) {
-            array_push($this->openAPINullablesSetToNull, 'time');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('time', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+        $allowedValues = $this->getVisibilityAllowableValues();
+        if (!in_array($visibility, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'visibility', must be one of '%s'",
+                    $visibility,
+                    implode("', '", $allowedValues)
+                )
+            );
         }
 
-        $this->container['time'] = $time;
+        if (is_null($visibility)) {
+            throw new \InvalidArgumentException('non-nullable visibility cannot be null');
+        }
+
+        $this->container['visibility'] = $visibility;
 
         return $this;
     }
 
     /**
-     * Gets value
-     *
-     * @return float|null
-     */
-    public function getValue()
-    {
-        return $this->container['value'];
-    }
-
-    /**
-     * Sets value
-     *
-     * @param float|null $value A numeric, monetary value to associate with this event. For example, the dollar amount of a purchase.
-     *
-     * @return self
-     */
-    public function setValue($value)
-    {
-
-        if (is_null($value)) {
-            array_push($this->openAPINullablesSetToNull, 'value');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('value', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-
-        $this->container['value'] = $value;
-
-        return $this;
-    }
-
-    /**
-     * Gets value_currency
+     * Gets description
      *
      * @return string|null
      */
-    public function getValueCurrency()
+    public function getDescription()
     {
-        return $this->container['value_currency'];
+        return $this->container['description'];
     }
 
     /**
-     * Sets value_currency
+     * Sets description
      *
-     * @param string|null $value_currency The ISO 4217 currency code of the value associated with the event.
+     * @param string|null $description description
      *
      * @return self
      */
-    public function setValueCurrency($value_currency)
+    public function setDescription($description)
     {
 
-        if (is_null($value_currency)) {
-            array_push($this->openAPINullablesSetToNull, 'value_currency');
+        if (is_null($description)) {
+            array_push($this->openAPINullablesSetToNull, 'description');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('value_currency', $nullablesSetToNull);
+            $index = array_search('description', $nullablesSetToNull);
             if ($index !== FALSE) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
 
-        $this->container['value_currency'] = $value_currency;
-
-        return $this;
-    }
-
-    /**
-     * Gets unique_id
-     *
-     * @return string|null
-     */
-    public function getUniqueId()
-    {
-        return $this->container['unique_id'];
-    }
-
-    /**
-     * Sets unique_id
-     *
-     * @param string|null $unique_id A unique identifier for an event. If the unique_id is repeated for the same profile and metric, only the first processed event will be recorded. If this is not present, this will use the time to the second. Using the default, this limits only one event per profile per second.
-     *
-     * @return self
-     */
-    public function setUniqueId($unique_id)
-    {
-
-        if (is_null($unique_id)) {
-            array_push($this->openAPINullablesSetToNull, 'unique_id');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('unique_id', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-
-        $this->container['unique_id'] = $unique_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets metric
-     *
-     * @return \KlaviyoAPI\Model\EventCreateQueryV2ResourceObjectAttributesMetric
-     */
-    public function getMetric()
-    {
-        return $this->container['metric'];
-    }
-
-    /**
-     * Sets metric
-     *
-     * @param \KlaviyoAPI\Model\EventCreateQueryV2ResourceObjectAttributesMetric $metric metric
-     *
-     * @return self
-     */
-    public function setMetric($metric)
-    {
-
-        if (is_null($metric)) {
-            throw new \InvalidArgumentException('non-nullable metric cannot be null');
-        }
-
-        $this->container['metric'] = $metric;
-
-        return $this;
-    }
-
-    /**
-     * Gets profile
-     *
-     * @return \KlaviyoAPI\Model\EventCreateQueryV2ResourceObjectAttributesProfile
-     */
-    public function getProfile()
-    {
-        return $this->container['profile'];
-    }
-
-    /**
-     * Sets profile
-     *
-     * @param \KlaviyoAPI\Model\EventCreateQueryV2ResourceObjectAttributesProfile $profile profile
-     *
-     * @return self
-     */
-    public function setProfile($profile)
-    {
-
-        if (is_null($profile)) {
-            throw new \InvalidArgumentException('non-nullable profile cannot be null');
-        }
-
-        $this->container['profile'] = $profile;
+        $this->container['description'] = $description;
 
         return $this;
     }
