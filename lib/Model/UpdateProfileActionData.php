@@ -257,7 +257,7 @@ class UpdateProfileActionData implements ModelInterface, ArrayAccess, \JsonSeria
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->setIfExists('profile_operations', $data ?? [], null);
         $this->setIfExists('status', $data ?? [], 'draft');

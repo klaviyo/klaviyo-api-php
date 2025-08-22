@@ -252,7 +252,7 @@ class StaticSendStrategyOptions implements ModelInterface, ArrayAccess, \JsonSer
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->setIfExists('is_local', $data ?? [], null);
         $this->setIfExists('send_past_recipients_immediately', $data ?? [], false);

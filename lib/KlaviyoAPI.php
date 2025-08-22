@@ -92,7 +92,7 @@ class KlaviyoAPI {
      * @param array $guzzle_options
      * @param string $user_agent_suffix
      */
-    public function __construct($api_key, $num_retries = 3, $wait_seconds = null, $guzzle_options = [], $user_agent_suffix = "") {
+    public function __construct($api_key, $num_retries = 3, ?int $wait_seconds = null, $guzzle_options = [], $user_agent_suffix = "") {
 
         if (gettype($num_retries) == 'NULL'){
             $num_retries = 3;
