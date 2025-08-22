@@ -261,7 +261,7 @@ class BlockDisplayOptions implements ModelInterface, ArrayAccess, \JsonSerializa
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->setIfExists('show_on', $data ?? [], null);
         $this->setIfExists('visible_check', $data ?? [], null);

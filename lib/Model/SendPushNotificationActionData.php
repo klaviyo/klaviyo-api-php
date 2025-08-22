@@ -257,7 +257,7 @@ class SendPushNotificationActionData implements ModelInterface, ArrayAccess, \Js
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->setIfExists('message', $data ?? [], null);
         $this->setIfExists('status', $data ?? [], 'draft');

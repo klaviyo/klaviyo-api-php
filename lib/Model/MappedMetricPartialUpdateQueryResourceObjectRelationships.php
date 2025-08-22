@@ -238,7 +238,7 @@ class MappedMetricPartialUpdateQueryResourceObjectRelationships implements Model
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->setIfExists('metric', $data ?? [], null);
         $this->setIfExists('custom_metric', $data ?? [], null);

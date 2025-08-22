@@ -251,7 +251,7 @@ class MobilePushBadge implements ModelInterface, ArrayAccess, \JsonSerializable
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->setIfExists('display', $data ?? [], null);
         $this->setIfExists('badge_options', $data ?? [], null);

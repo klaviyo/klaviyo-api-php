@@ -268,7 +268,7 @@ class TrackingSettingPartialUpdateQueryResourceObjectAttributes implements Model
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->setIfExists('auto_add_parameters', $data ?? [], null);
         $this->setIfExists('utm_source', $data ?? [], null);
