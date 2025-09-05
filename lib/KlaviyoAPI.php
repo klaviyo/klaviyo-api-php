@@ -37,7 +37,7 @@ class KlaviyoAPI {
     public $wait_seconds;
     /** @var int */
     public $num_retries;
-    /** @var string */
+    /** @var Configuration */
     public $config;
     /** @var array */
     public $guzzle_options;
