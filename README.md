@@ -1,6 +1,6 @@
 # Klaviyo PHP SDK
 
-- SDK version: 15.0.0
+- SDK version: 16.0.0
 - API Revision: 2025-07-15
 
 ## Helpful Resources
@@ -105,6 +105,10 @@ This SDK is organized into the following resources:
 
 
 
+### Requirements
+
+PHP 8.1 and later.
+
 ## Installation
 
 You can install this package using [our Packagist package](https://packagist.org/packages/klaviyo/api):
@@ -201,15 +205,8 @@ $klaviyo->Tags->getTagRelationshipsCampaigns('f4bc6670-1aa5-47df-827a-d30a7e5430
 
 #### Uploading Image From File
 
-When using `$klaviyo->Images->uploadImageFromFile($file, $name)`, `$file` can be either a file path string OR a `SplFileObject`.
+When using `$klaviyo->Images->uploadImageFromFile($file, $name)`, `$file` must be a `SplFileObject`.
 
-*as a file path*
-```php
-$filepath = '/path/to/image.png';
-$klaviyo->Images->uploadImageFromFile($filepath);
-```
-
-*as a `SplFileObject`*
 ```php
 $filepath = '/path/to/image.png';
 $file = new SplFileObject($filepath);

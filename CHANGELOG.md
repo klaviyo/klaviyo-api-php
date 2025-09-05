@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 NOTE: For more granular API-specific changes, please see our [API Changelog](https://developers.klaviyo.com/en/docs/changelog_)
 
+## [16.0.0] - revision 2025-07-15
+### Changed
+- Various changes to improve support for PHP 8
+- **Breaking:** Now requires PHP 8.1
+- **Breaking:** A `SplFileObject` is required for uploading an image; you can no longer use a raw string
+
 ## [15.0.0] - revision 2025-07-15
 ### Added
 #### Mapped Metrics API

@@ -1,6 +1,6 @@
 {
     "name": "klaviyo/api",
-    "version": "15.0.0",
+    "version": "16.0.0",
     "description": "PHP SDK for Klaviyo's API.",
     "keywords": [
         "openapitools",
@@ -20,7 +20,7 @@
         }
     ],
     "require": {
-        "php": "^7.4 || ^8.0",
+        "php": "^8.1",
         "ext-curl": "*",
         "ext-json": "*",
         "ext-mbstring": "*",
