@@ -1,6 +1,6 @@
 <?php
 /**
- * ProfileNotInFlowConditionTimeframeFilter
+ * CountdownTimerProperties
  *
  * PHP version 8.1
  *
@@ -32,7 +32,7 @@ use \ArrayAccess;
 use \KlaviyoAPI\ObjectSerializer;
 
 /**
- * ProfileNotInFlowConditionTimeframeFilter Class Doc Comment
+ * CountdownTimerProperties Class Doc Comment
  *
  * @category Class
  * @package  KlaviyoAPI
@@ -40,7 +40,7 @@ use \KlaviyoAPI\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class ProfileNotInFlowConditionTimeframeFilter implements ModelInterface, ArrayAccess, \JsonSerializable
+class CountdownTimerProperties implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class ProfileNotInFlowConditionTimeframeFilter implements ModelInterface, ArrayA
       *
       * @var string
       */
-    protected static $openAPIModelName = 'ProfileNotInFlowCondition_timeframe_filter';
+    protected static $openAPIModelName = 'CountdownTimerProperties';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,10 +57,10 @@ class ProfileNotInFlowConditionTimeframeFilter implements ModelInterface, ArrayA
       * @var string[]
       */
     protected static $openAPITypes = [
-        'type' => '\KlaviyoAPI\Model\DateEnum',
-        'operator' => '\KlaviyoAPI\Model\InTheLastEnum',
-        'unit' => 'string',
-        'quantity' => 'int'
+        'display_device' => 'string[]',
+        'clock_face' => 'string',
+        'animation' => 'string',
+        'configuration' => '\KlaviyoAPI\Model\CountdownTimerPropertiesConfiguration'
     ];
 
     /**
@@ -71,10 +71,10 @@ class ProfileNotInFlowConditionTimeframeFilter implements ModelInterface, ArrayA
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'type' => null,
-        'operator' => null,
-        'unit' => null,
-        'quantity' => null
+        'display_device' => null,
+        'clock_face' => null,
+        'animation' => null,
+        'configuration' => null
     ];
 
     /**
@@ -83,10 +83,10 @@ class ProfileNotInFlowConditionTimeframeFilter implements ModelInterface, ArrayA
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'type' => false,
-        'operator' => false,
-        'unit' => false,
-        'quantity' => false
+        'display_device' => false,
+        'clock_face' => false,
+        'animation' => true,
+        'configuration' => false
     ];
 
     /**
@@ -175,10 +175,10 @@ class ProfileNotInFlowConditionTimeframeFilter implements ModelInterface, ArrayA
      * @var string[]
      */
     protected static $attributeMap = [
-        'type' => 'type',
-        'operator' => 'operator',
-        'unit' => 'unit',
-        'quantity' => 'quantity'
+        'display_device' => 'display_device',
+        'clock_face' => 'clock_face',
+        'animation' => 'animation',
+        'configuration' => 'configuration'
     ];
 
     /**
@@ -187,10 +187,10 @@ class ProfileNotInFlowConditionTimeframeFilter implements ModelInterface, ArrayA
      * @var string[]
      */
     protected static $setters = [
-        'type' => 'setType',
-        'operator' => 'setOperator',
-        'unit' => 'setUnit',
-        'quantity' => 'setQuantity'
+        'display_device' => 'setDisplayDevice',
+        'clock_face' => 'setClockFace',
+        'animation' => 'setAnimation',
+        'configuration' => 'setConfiguration'
     ];
 
     /**
@@ -199,10 +199,10 @@ class ProfileNotInFlowConditionTimeframeFilter implements ModelInterface, ArrayA
      * @var string[]
      */
     protected static $getters = [
-        'type' => 'getType',
-        'operator' => 'getOperator',
-        'unit' => 'getUnit',
-        'quantity' => 'getQuantity'
+        'display_device' => 'getDisplayDevice',
+        'clock_face' => 'getClockFace',
+        'animation' => 'getAnimation',
+        'configuration' => 'getConfiguration'
     ];
 
     /**
@@ -246,21 +246,53 @@ class ProfileNotInFlowConditionTimeframeFilter implements ModelInterface, ArrayA
         return self::$openAPIModelName;
     }
 
-    public const UNIT_DAY = 'day';
-    public const UNIT_HOUR = 'hour';
-    public const UNIT_WEEK = 'week';
+    public const DISPLAY_DEVICE_BOTH = 'both';
+    public const DISPLAY_DEVICE_DESKTOP = 'desktop';
+    public const DISPLAY_DEVICE_MOBILE = 'mobile';
+    public const CLOCK_FACE_FLIP = 'flip';
+    public const CLOCK_FACE_SIMPLE = 'simple';
+    public const ANIMATION_FLASH = 'flash';
+    public const ANIMATION_HEARTBEAT = 'heartbeat';
+    public const ANIMATION_PULSE = 'pulse';
 
     /**
      * Gets allowable values of the enum
      *
      * @return string[]
      */
-    public function getUnitAllowableValues()
+    public function getDisplayDeviceAllowableValues()
     {
         return [
-            self::UNIT_DAY,
-            self::UNIT_HOUR,
-            self::UNIT_WEEK,
+            self::DISPLAY_DEVICE_BOTH,
+            self::DISPLAY_DEVICE_DESKTOP,
+            self::DISPLAY_DEVICE_MOBILE,
+        ];
+    }
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getClockFaceAllowableValues()
+    {
+        return [
+            self::CLOCK_FACE_FLIP,
+            self::CLOCK_FACE_SIMPLE,
+        ];
+    }
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getAnimationAllowableValues()
+    {
+        return [
+            self::ANIMATION_FLASH,
+            self::ANIMATION_HEARTBEAT,
+            self::ANIMATION_PULSE,
         ];
     }
 
@@ -279,10 +311,10 @@ class ProfileNotInFlowConditionTimeframeFilter implements ModelInterface, ArrayA
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('type', $data ?? [], null);
-        $this->setIfExists('operator', $data ?? [], null);
-        $this->setIfExists('unit', $data ?? [], null);
-        $this->setIfExists('quantity', $data ?? [], null);
+        $this->setIfExists('display_device', $data ?? [], null);
+        $this->setIfExists('clock_face', $data ?? [], 'simple');
+        $this->setIfExists('animation', $data ?? [], 'heartbeat');
+        $this->setIfExists('configuration', $data ?? [], null);
     }
 
     /**
@@ -312,26 +344,26 @@ class ProfileNotInFlowConditionTimeframeFilter implements ModelInterface, ArrayA
     {
         $invalidProperties = [];
 
-        if ($this->container['type'] === null) {
-            $invalidProperties[] = "'type' can't be null";
-        }
-        if ($this->container['operator'] === null) {
-            $invalidProperties[] = "'operator' can't be null";
-        }
-        if ($this->container['unit'] === null) {
-            $invalidProperties[] = "'unit' can't be null";
-        }
-        $allowedValues = $this->getUnitAllowableValues();
-        if (!is_null($this->container['unit']) && !in_array($this->container['unit'], $allowedValues, true)) {
+        $allowedValues = $this->getClockFaceAllowableValues();
+        if (!is_null($this->container['clock_face']) && !in_array($this->container['clock_face'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
-                "invalid value '%s' for 'unit', must be one of '%s'",
-                $this->container['unit'],
+                "invalid value '%s' for 'clock_face', must be one of '%s'",
+                $this->container['clock_face'],
                 implode("', '", $allowedValues)
             );
         }
 
-        if ($this->container['quantity'] === null) {
-            $invalidProperties[] = "'quantity' can't be null";
+        $allowedValues = $this->getAnimationAllowableValues();
+        if (!is_null($this->container['animation']) && !in_array($this->container['animation'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'animation', must be one of '%s'",
+                $this->container['animation'],
+                implode("', '", $allowedValues)
+            );
+        }
+
+        if ($this->container['configuration'] === null) {
+            $invalidProperties[] = "'configuration' can't be null";
         }
         return $invalidProperties;
     }
@@ -349,119 +381,145 @@ class ProfileNotInFlowConditionTimeframeFilter implements ModelInterface, ArrayA
 
 
     /**
-     * Gets type
+     * Gets display_device
      *
-     * @return \KlaviyoAPI\Model\DateEnum
+     * @return string[]|null
      */
-    public function getType()
+    public function getDisplayDevice()
     {
-        return $this->container['type'];
+        return $this->container['display_device'];
     }
 
     /**
-     * Sets type
+     * Sets display_device
      *
-     * @param \KlaviyoAPI\Model\DateEnum $type type
+     * @param string[]|null $display_device display_device
      *
      * @return self
      */
-    public function setType($type)
+    public function setDisplayDevice($display_device)
     {
-        if (is_null($type)) {
-            throw new \InvalidArgumentException('non-nullable type cannot be null');
+        if (is_null($display_device)) {
+            throw new \InvalidArgumentException('non-nullable display_device cannot be null');
         }
-        $this->container['type'] = $type;
-
-        return $this;
-    }
-
-    /**
-     * Gets operator
-     *
-     * @return \KlaviyoAPI\Model\InTheLastEnum
-     */
-    public function getOperator()
-    {
-        return $this->container['operator'];
-    }
-
-    /**
-     * Sets operator
-     *
-     * @param \KlaviyoAPI\Model\InTheLastEnum $operator operator
-     *
-     * @return self
-     */
-    public function setOperator($operator)
-    {
-        if (is_null($operator)) {
-            throw new \InvalidArgumentException('non-nullable operator cannot be null');
-        }
-        $this->container['operator'] = $operator;
-
-        return $this;
-    }
-
-    /**
-     * Gets unit
-     *
-     * @return string
-     */
-    public function getUnit()
-    {
-        return $this->container['unit'];
-    }
-
-    /**
-     * Sets unit
-     *
-     * @param string $unit Units for relative date filters.
-     *
-     * @return self
-     */
-    public function setUnit($unit)
-    {
-        if (is_null($unit)) {
-            throw new \InvalidArgumentException('non-nullable unit cannot be null');
-        }
-        $allowedValues = $this->getUnitAllowableValues();
-        if (!in_array($unit, $allowedValues, true)) {
+        $allowedValues = $this->getDisplayDeviceAllowableValues();
+        if (array_diff($display_device, $allowedValues)) {
             throw new \InvalidArgumentException(
                 sprintf(
-                    "Invalid value '%s' for 'unit', must be one of '%s'",
-                    $unit,
+                    "Invalid value for 'display_device', must be one of '%s'",
                     implode("', '", $allowedValues)
                 )
             );
         }
-        $this->container['unit'] = $unit;
+        $this->container['display_device'] = $display_device;
 
         return $this;
     }
 
     /**
-     * Gets quantity
+     * Gets clock_face
      *
-     * @return int
+     * @return string|null
      */
-    public function getQuantity()
+    public function getClockFace()
     {
-        return $this->container['quantity'];
+        return $this->container['clock_face'];
     }
 
     /**
-     * Sets quantity
+     * Sets clock_face
      *
-     * @param int $quantity quantity
+     * @param string|null $clock_face Options for displaying a timer.
      *
      * @return self
      */
-    public function setQuantity($quantity)
+    public function setClockFace($clock_face)
     {
-        if (is_null($quantity)) {
-            throw new \InvalidArgumentException('non-nullable quantity cannot be null');
+        if (is_null($clock_face)) {
+            throw new \InvalidArgumentException('non-nullable clock_face cannot be null');
         }
-        $this->container['quantity'] = $quantity;
+        $allowedValues = $this->getClockFaceAllowableValues();
+        if (!in_array($clock_face, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'clock_face', must be one of '%s'",
+                    $clock_face,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['clock_face'] = $clock_face;
+
+        return $this;
+    }
+
+    /**
+     * Gets animation
+     *
+     * @return string|null
+     */
+    public function getAnimation()
+    {
+        return $this->container['animation'];
+    }
+
+    /**
+     * Sets animation
+     *
+     * @param string|null $animation Options for timer completion animations.
+     *
+     * @return self
+     */
+    public function setAnimation($animation)
+    {
+        if (is_null($animation)) {
+            array_push($this->openAPINullablesSetToNull, 'animation');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('animation', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $allowedValues = $this->getAnimationAllowableValues();
+        if (!is_null($animation) && !in_array($animation, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'animation', must be one of '%s'",
+                    $animation,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['animation'] = $animation;
+
+        return $this;
+    }
+
+    /**
+     * Gets configuration
+     *
+     * @return \KlaviyoAPI\Model\CountdownTimerPropertiesConfiguration
+     */
+    public function getConfiguration()
+    {
+        return $this->container['configuration'];
+    }
+
+    /**
+     * Sets configuration
+     *
+     * @param \KlaviyoAPI\Model\CountdownTimerPropertiesConfiguration $configuration configuration
+     *
+     * @return self
+     */
+    public function setConfiguration($configuration)
+    {
+        if (is_null($configuration)) {
+            throw new \InvalidArgumentException('non-nullable configuration cannot be null');
+        }
+        $this->container['configuration'] = $configuration;
 
         return $this;
     }

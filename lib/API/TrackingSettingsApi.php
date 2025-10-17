@@ -137,7 +137,7 @@ class TrackingSettingsApi
      * Get Tracking Setting
      *
      * @param  string $id The id of the tracking setting (account ID). (required)
-     * @param  string[]|null $fields_tracking_setting For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_tracking_setting For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTrackingSetting'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -156,7 +156,7 @@ class TrackingSettingsApi
      * Get Tracking Setting
      *
      * @param  string $id The id of the tracking setting (account ID). (required)
-     * @param  string[]|null $fields_tracking_setting For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_tracking_setting For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTrackingSetting'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -270,7 +270,7 @@ class TrackingSettingsApi
      * Get Tracking Setting
      *
      * @param  string $id The id of the tracking setting (account ID). (required)
-     * @param  string[]|null $fields_tracking_setting For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_tracking_setting For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTrackingSetting'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -292,7 +292,7 @@ class TrackingSettingsApi
      * Get Tracking Setting
      *
      * @param  string $id The id of the tracking setting (account ID). (required)
-     * @param  string[]|null $fields_tracking_setting For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_tracking_setting For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTrackingSetting'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -348,7 +348,7 @@ class TrackingSettingsApi
      * Create request for operation 'getTrackingSetting'
      *
      * @param  string $id The id of the tracking setting (account ID). (required)
-     * @param  string[]|null $fields_tracking_setting For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_tracking_setting For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTrackingSetting'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -440,7 +440,7 @@ class TrackingSettingsApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2025-07-15'];
+        $defaultHeaders['revision'] = ['2025-10-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -462,8 +462,8 @@ class TrackingSettingsApi
      *
      * Get Tracking Settings
      *
-     * @param  string[]|null $fields_tracking_setting For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#pagination (optional)
+     * @param  string[]|null $fields_tracking_setting For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#pagination (optional)
      * @param  int|null $page_size Default: 1. Min: 1. Max: 1. (optional, default to 1)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTrackingSettings'] to see the possible values for this operation
      *
@@ -482,8 +482,8 @@ class TrackingSettingsApi
      *
      * Get Tracking Settings
      *
-     * @param  string[]|null $fields_tracking_setting For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#pagination (optional)
+     * @param  string[]|null $fields_tracking_setting For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#pagination (optional)
      * @param  int|null $page_size Default: 1. Min: 1. Max: 1. (optional, default to 1)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTrackingSettings'] to see the possible values for this operation
      *
@@ -597,8 +597,8 @@ class TrackingSettingsApi
      *
      * Get Tracking Settings
      *
-     * @param  string[]|null $fields_tracking_setting For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#pagination (optional)
+     * @param  string[]|null $fields_tracking_setting For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#pagination (optional)
      * @param  int|null $page_size Default: 1. Min: 1. Max: 1. (optional, default to 1)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTrackingSettings'] to see the possible values for this operation
      *
@@ -620,8 +620,8 @@ class TrackingSettingsApi
      *
      * Get Tracking Settings
      *
-     * @param  string[]|null $fields_tracking_setting For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#pagination (optional)
+     * @param  string[]|null $fields_tracking_setting For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#pagination (optional)
      * @param  int|null $page_size Default: 1. Min: 1. Max: 1. (optional, default to 1)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTrackingSettings'] to see the possible values for this operation
      *
@@ -677,8 +677,8 @@ class TrackingSettingsApi
     /**
      * Create request for operation 'getTrackingSettings'
      *
-     * @param  string[]|null $fields_tracking_setting For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#pagination (optional)
+     * @param  string[]|null $fields_tracking_setting For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#pagination (optional)
      * @param  int|null $page_size Default: 1. Min: 1. Max: 1. (optional, default to 1)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTrackingSettings'] to see the possible values for this operation
      *
@@ -782,7 +782,7 @@ class TrackingSettingsApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2025-07-15'];
+        $defaultHeaders['revision'] = ['2025-10-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -1112,7 +1112,7 @@ class TrackingSettingsApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2025-07-15'];
+        $defaultHeaders['revision'] = ['2025-10-15'];
 
         $headers = array_merge(
             $defaultHeaders,

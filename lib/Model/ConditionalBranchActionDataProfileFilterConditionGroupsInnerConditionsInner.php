@@ -57,7 +57,7 @@ class ConditionalBranchActionDataProfileFilterConditionGroupsInnerConditionsInne
       * @var string[]
       */
     protected static $openAPITypes = [
-        'type' => '\KlaviyoAPI\Model\ProfileSampleEnum',
+        'type' => '\KlaviyoAPI\Model\ProfilePermissionsEnum',
         'property' => 'string',
         'filter' => '\KlaviyoAPI\Model\NumericOperatorFilter',
         'is_member' => 'bool',
@@ -74,7 +74,9 @@ class ConditionalBranchActionDataProfileFilterConditionGroupsInnerConditionsInne
         'measurement' => 'string',
         'measurement_filter' => '\KlaviyoAPI\Model\NumericOperatorFilter',
         'metric_filters' => '\KlaviyoAPI\Model\ProfileMetricPropertyFilter[]',
-        'percentage' => 'int'
+        'percentage' => 'int',
+        'permission' => '\KlaviyoAPI\Model\ProfilePermissionsConditionPermission',
+        'channel' => 'string'
     ];
 
     /**
@@ -102,7 +104,9 @@ class ConditionalBranchActionDataProfileFilterConditionGroupsInnerConditionsInne
         'measurement' => null,
         'measurement_filter' => null,
         'metric_filters' => null,
-        'percentage' => null
+        'percentage' => null,
+        'permission' => null,
+        'channel' => null
     ];
 
     /**
@@ -128,7 +132,9 @@ class ConditionalBranchActionDataProfileFilterConditionGroupsInnerConditionsInne
         'measurement' => false,
         'measurement_filter' => false,
         'metric_filters' => true,
-        'percentage' => false
+        'percentage' => false,
+        'permission' => false,
+        'channel' => false
     ];
 
     /**
@@ -234,7 +240,9 @@ class ConditionalBranchActionDataProfileFilterConditionGroupsInnerConditionsInne
         'measurement' => 'measurement',
         'measurement_filter' => 'measurement_filter',
         'metric_filters' => 'metric_filters',
-        'percentage' => 'percentage'
+        'percentage' => 'percentage',
+        'permission' => 'permission',
+        'channel' => 'channel'
     ];
 
     /**
@@ -260,7 +268,9 @@ class ConditionalBranchActionDataProfileFilterConditionGroupsInnerConditionsInne
         'measurement' => 'setMeasurement',
         'measurement_filter' => 'setMeasurementFilter',
         'metric_filters' => 'setMetricFilters',
-        'percentage' => 'setPercentage'
+        'percentage' => 'setPercentage',
+        'permission' => 'setPermission',
+        'channel' => 'setChannel'
     ];
 
     /**
@@ -286,7 +296,9 @@ class ConditionalBranchActionDataProfileFilterConditionGroupsInnerConditionsInne
         'measurement' => 'getMeasurement',
         'measurement_filter' => 'getMeasurementFilter',
         'metric_filters' => 'getMetricFilters',
-        'percentage' => 'getPercentage'
+        'percentage' => 'getPercentage',
+        'permission' => 'getPermission',
+        'channel' => 'getChannel'
     ];
 
     /**
@@ -330,7 +342,6 @@ class ConditionalBranchActionDataProfileFilterConditionGroupsInnerConditionsInne
         return self::$openAPIModelName;
     }
 
-    public const IS_MEMBER_FALSE = 'false';
     public const REGION_EUROPEAN_UNION = 'european_union';
     public const REGION_UNITED_STATES = 'united_states';
     public const UNIT_KILOMETERS = 'kilometers';
@@ -345,18 +356,8 @@ class ConditionalBranchActionDataProfileFilterConditionGroupsInnerConditionsInne
     public const DIMENSION_TOTAL_CLV = 'total_clv';
     public const MEASUREMENT_COUNT = 'count';
     public const MEASUREMENT_SUM = 'sum';
-
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getIsMemberAllowableValues()
-    {
-        return [
-            self::IS_MEMBER_FALSE,
-        ];
-    }
+    public const CHANNEL_WHATSAPP_MARKETING = 'whatsapp_marketing';
+    public const CHANNEL_WHATSAPP_TRANSACTIONAL = 'whatsapp_transactional';
 
     /**
      * Gets allowable values of the enum
@@ -417,6 +418,19 @@ class ConditionalBranchActionDataProfileFilterConditionGroupsInnerConditionsInne
     }
 
     /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getChannelAllowableValues()
+    {
+        return [
+            self::CHANNEL_WHATSAPP_MARKETING,
+            self::CHANNEL_WHATSAPP_TRANSACTIONAL,
+        ];
+    }
+
+    /**
      * Associative array for storing property values
      *
      * @var mixed[]
@@ -449,6 +463,8 @@ class ConditionalBranchActionDataProfileFilterConditionGroupsInnerConditionsInne
         $this->setIfExists('measurement_filter', $data ?? [], null);
         $this->setIfExists('metric_filters', $data ?? [], null);
         $this->setIfExists('percentage', $data ?? [], null);
+        $this->setIfExists('permission', $data ?? [], null);
+        $this->setIfExists('channel', $data ?? [], null);
     }
 
     /**
@@ -490,15 +506,6 @@ class ConditionalBranchActionDataProfileFilterConditionGroupsInnerConditionsInne
         if ($this->container['is_member'] === null) {
             $invalidProperties[] = "'is_member' can't be null";
         }
-        $allowedValues = $this->getIsMemberAllowableValues();
-        if (!is_null($this->container['is_member']) && !in_array($this->container['is_member'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value '%s' for 'is_member', must be one of '%s'",
-                $this->container['is_member'],
-                implode("', '", $allowedValues)
-            );
-        }
-
         if ($this->container['group_ids'] === null) {
             $invalidProperties[] = "'group_ids' can't be null";
         }
@@ -574,6 +581,21 @@ class ConditionalBranchActionDataProfileFilterConditionGroupsInnerConditionsInne
         if ($this->container['percentage'] === null) {
             $invalidProperties[] = "'percentage' can't be null";
         }
+        if ($this->container['permission'] === null) {
+            $invalidProperties[] = "'permission' can't be null";
+        }
+        if ($this->container['channel'] === null) {
+            $invalidProperties[] = "'channel' can't be null";
+        }
+        $allowedValues = $this->getChannelAllowableValues();
+        if (!is_null($this->container['channel']) && !in_array($this->container['channel'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'channel', must be one of '%s'",
+                $this->container['channel'],
+                implode("', '", $allowedValues)
+            );
+        }
+
         return $invalidProperties;
     }
 
@@ -592,7 +614,7 @@ class ConditionalBranchActionDataProfileFilterConditionGroupsInnerConditionsInne
     /**
      * Gets type
      *
-     * @return \KlaviyoAPI\Model\ProfileSampleEnum
+     * @return \KlaviyoAPI\Model\ProfilePermissionsEnum
      */
     public function getType()
     {
@@ -602,7 +624,7 @@ class ConditionalBranchActionDataProfileFilterConditionGroupsInnerConditionsInne
     /**
      * Sets type
      *
-     * @param \KlaviyoAPI\Model\ProfileSampleEnum $type type
+     * @param \KlaviyoAPI\Model\ProfilePermissionsEnum $type type
      *
      * @return self
      */
@@ -691,16 +713,6 @@ class ConditionalBranchActionDataProfileFilterConditionGroupsInnerConditionsInne
     {
         if (is_null($is_member)) {
             throw new \InvalidArgumentException('non-nullable is_member cannot be null');
-        }
-        $allowedValues = $this->getIsMemberAllowableValues();
-        if (!in_array($is_member, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value '%s' for 'is_member', must be one of '%s'",
-                    $is_member,
-                    implode("', '", $allowedValues)
-                )
-            );
         }
         $this->container['is_member'] = $is_member;
 
@@ -1128,6 +1140,70 @@ class ConditionalBranchActionDataProfileFilterConditionGroupsInnerConditionsInne
             throw new \InvalidArgumentException('non-nullable percentage cannot be null');
         }
         $this->container['percentage'] = $percentage;
+
+        return $this;
+    }
+
+    /**
+     * Gets permission
+     *
+     * @return \KlaviyoAPI\Model\ProfilePermissionsConditionPermission
+     */
+    public function getPermission()
+    {
+        return $this->container['permission'];
+    }
+
+    /**
+     * Sets permission
+     *
+     * @param \KlaviyoAPI\Model\ProfilePermissionsConditionPermission $permission permission
+     *
+     * @return self
+     */
+    public function setPermission($permission)
+    {
+        if (is_null($permission)) {
+            throw new \InvalidArgumentException('non-nullable permission cannot be null');
+        }
+        $this->container['permission'] = $permission;
+
+        return $this;
+    }
+
+    /**
+     * Gets channel
+     *
+     * @return string
+     */
+    public function getChannel()
+    {
+        return $this->container['channel'];
+    }
+
+    /**
+     * Sets channel
+     *
+     * @param string $channel Possible channels for profile permissions criterion.
+     *
+     * @return self
+     */
+    public function setChannel($channel)
+    {
+        if (is_null($channel)) {
+            throw new \InvalidArgumentException('non-nullable channel cannot be null');
+        }
+        $allowedValues = $this->getChannelAllowableValues();
+        if (!in_array($channel, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'channel', must be one of '%s'",
+                    $channel,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['channel'] = $channel;
 
         return $this;
     }

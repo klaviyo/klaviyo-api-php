@@ -408,7 +408,7 @@ class EventsApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2025-07-15'];
+        $defaultHeaders['revision'] = ['2025-10-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -660,7 +660,7 @@ class EventsApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2025-07-15'];
+        $defaultHeaders['revision'] = ['2025-10-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -683,10 +683,10 @@ class EventsApi
      * Get Event
      *
      * @param  string $id ID of the event (required)
-     * @param  string[]|null $fields_event For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_metric For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_profile For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#relationships (optional)
+     * @param  string[]|null $fields_event For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_metric For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_profile For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#relationships (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getEvent'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -705,10 +705,10 @@ class EventsApi
      * Get Event
      *
      * @param  string $id ID of the event (required)
-     * @param  string[]|null $fields_event For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_metric For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_profile For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#relationships (optional)
+     * @param  string[]|null $fields_event For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_metric For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_profile For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#relationships (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getEvent'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -822,10 +822,10 @@ class EventsApi
      * Get Event
      *
      * @param  string $id ID of the event (required)
-     * @param  string[]|null $fields_event For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_metric For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_profile For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#relationships (optional)
+     * @param  string[]|null $fields_event For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_metric For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_profile For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#relationships (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getEvent'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -847,10 +847,10 @@ class EventsApi
      * Get Event
      *
      * @param  string $id ID of the event (required)
-     * @param  string[]|null $fields_event For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_metric For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_profile For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#relationships (optional)
+     * @param  string[]|null $fields_event For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_metric For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_profile For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#relationships (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getEvent'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -906,10 +906,10 @@ class EventsApi
      * Create request for operation 'getEvent'
      *
      * @param  string $id ID of the event (required)
-     * @param  string[]|null $fields_event For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_metric For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_profile For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#relationships (optional)
+     * @param  string[]|null $fields_event For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_metric For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_profile For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#relationships (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getEvent'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1031,7 +1031,7 @@ class EventsApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2025-07-15'];
+        $defaultHeaders['revision'] = ['2025-10-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -1053,13 +1053,13 @@ class EventsApi
      *
      * Get Events
      *
-     * @param  string[]|null $fields_event For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_metric For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_profile For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;metric_id&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;profile_id&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;profile&#x60;: &#x60;has&#x60;&lt;br&gt;&#x60;datetime&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60;&lt;br&gt;&#x60;timestamp&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60; (optional)
-     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#relationships (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#pagination (optional)
-     * @param  string|null $sort For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sorting (optional)
+     * @param  string[]|null $fields_event For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_metric For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_profile For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;metric_id&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;profile_id&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;profile&#x60;: &#x60;has&#x60;&lt;br&gt;&#x60;datetime&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60;&lt;br&gt;&#x60;timestamp&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60; (optional)
+     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#relationships (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#pagination (optional)
+     * @param  string|null $sort For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sorting (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getEvents'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -1077,13 +1077,13 @@ class EventsApi
      *
      * Get Events
      *
-     * @param  string[]|null $fields_event For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_metric For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_profile For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;metric_id&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;profile_id&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;profile&#x60;: &#x60;has&#x60;&lt;br&gt;&#x60;datetime&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60;&lt;br&gt;&#x60;timestamp&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60; (optional)
-     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#relationships (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#pagination (optional)
-     * @param  string|null $sort For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sorting (optional)
+     * @param  string[]|null $fields_event For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_metric For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_profile For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;metric_id&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;profile_id&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;profile&#x60;: &#x60;has&#x60;&lt;br&gt;&#x60;datetime&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60;&lt;br&gt;&#x60;timestamp&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60; (optional)
+     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#relationships (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#pagination (optional)
+     * @param  string|null $sort For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sorting (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getEvents'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -1196,13 +1196,13 @@ class EventsApi
      *
      * Get Events
      *
-     * @param  string[]|null $fields_event For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_metric For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_profile For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;metric_id&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;profile_id&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;profile&#x60;: &#x60;has&#x60;&lt;br&gt;&#x60;datetime&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60;&lt;br&gt;&#x60;timestamp&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60; (optional)
-     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#relationships (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#pagination (optional)
-     * @param  string|null $sort For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sorting (optional)
+     * @param  string[]|null $fields_event For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_metric For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_profile For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;metric_id&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;profile_id&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;profile&#x60;: &#x60;has&#x60;&lt;br&gt;&#x60;datetime&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60;&lt;br&gt;&#x60;timestamp&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60; (optional)
+     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#relationships (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#pagination (optional)
+     * @param  string|null $sort For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sorting (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getEvents'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1223,13 +1223,13 @@ class EventsApi
      *
      * Get Events
      *
-     * @param  string[]|null $fields_event For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_metric For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_profile For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;metric_id&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;profile_id&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;profile&#x60;: &#x60;has&#x60;&lt;br&gt;&#x60;datetime&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60;&lt;br&gt;&#x60;timestamp&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60; (optional)
-     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#relationships (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#pagination (optional)
-     * @param  string|null $sort For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sorting (optional)
+     * @param  string[]|null $fields_event For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_metric For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_profile For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;metric_id&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;profile_id&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;profile&#x60;: &#x60;has&#x60;&lt;br&gt;&#x60;datetime&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60;&lt;br&gt;&#x60;timestamp&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60; (optional)
+     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#relationships (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#pagination (optional)
+     * @param  string|null $sort For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sorting (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getEvents'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1284,13 +1284,13 @@ class EventsApi
     /**
      * Create request for operation 'getEvents'
      *
-     * @param  string[]|null $fields_event For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_metric For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_profile For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;metric_id&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;profile_id&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;profile&#x60;: &#x60;has&#x60;&lt;br&gt;&#x60;datetime&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60;&lt;br&gt;&#x60;timestamp&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60; (optional)
-     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#relationships (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#pagination (optional)
-     * @param  string|null $sort For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sorting (optional)
+     * @param  string[]|null $fields_event For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_metric For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_profile For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;metric_id&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;profile_id&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;profile&#x60;: &#x60;has&#x60;&lt;br&gt;&#x60;datetime&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60;&lt;br&gt;&#x60;timestamp&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60; (optional)
+     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#relationships (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#pagination (optional)
+     * @param  string|null $sort For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sorting (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getEvents'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1427,7 +1427,7 @@ class EventsApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2025-07-15'];
+        $defaultHeaders['revision'] = ['2025-10-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -1450,7 +1450,7 @@ class EventsApi
      * Get Metric for Event
      *
      * @param  string $id ID of the event (required)
-     * @param  string[]|null $fields_metric For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_metric For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMetricForEvent'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -1478,7 +1478,7 @@ class EventsApi
      * Get Metric for Event
      *
      * @param  string $id ID of the event (required)
-     * @param  string[]|null $fields_metric For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_metric For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMetricForEvent'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -1601,7 +1601,7 @@ class EventsApi
      * Get Metric for Event
      *
      * @param  string $id ID of the event (required)
-     * @param  string[]|null $fields_metric For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_metric For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMetricForEvent'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1632,7 +1632,7 @@ class EventsApi
      * Get Metric for Event
      *
      * @param  string $id ID of the event (required)
-     * @param  string[]|null $fields_metric For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_metric For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMetricForEvent'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1697,7 +1697,7 @@ class EventsApi
      * Create request for operation 'getMetricForEvent'
      *
      * @param  string $id ID of the event (required)
-     * @param  string[]|null $fields_metric For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_metric For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMetricForEvent'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1789,7 +1789,7 @@ class EventsApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2025-07-15'];
+        $defaultHeaders['revision'] = ['2025-10-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -2145,7 +2145,7 @@ class EventsApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2025-07-15'];
+        $defaultHeaders['revision'] = ['2025-10-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -2178,7 +2178,7 @@ class EventsApi
      *
      * @param  string $id ID of the event (required)
      * @param  string[]|null $additional_fields_profile Request additional fields not included by default in the response. Supported values: &#39;subscriptions&#39;, &#39;predictive_analytics&#39; (optional)
-     * @param  string[]|null $fields_profile For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_profile For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getProfileForEvent'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -2207,7 +2207,7 @@ class EventsApi
      *
      * @param  string $id ID of the event (required)
      * @param  string[]|null $additional_fields_profile Request additional fields not included by default in the response. Supported values: &#39;subscriptions&#39;, &#39;predictive_analytics&#39; (optional)
-     * @param  string[]|null $fields_profile For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_profile For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getProfileForEvent'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -2331,7 +2331,7 @@ class EventsApi
      *
      * @param  string $id ID of the event (required)
      * @param  string[]|null $additional_fields_profile Request additional fields not included by default in the response. Supported values: &#39;subscriptions&#39;, &#39;predictive_analytics&#39; (optional)
-     * @param  string[]|null $fields_profile For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_profile For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getProfileForEvent'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -2363,7 +2363,7 @@ class EventsApi
      *
      * @param  string $id ID of the event (required)
      * @param  string[]|null $additional_fields_profile Request additional fields not included by default in the response. Supported values: &#39;subscriptions&#39;, &#39;predictive_analytics&#39; (optional)
-     * @param  string[]|null $fields_profile For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_profile For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getProfileForEvent'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -2429,7 +2429,7 @@ class EventsApi
      *
      * @param  string $id ID of the event (required)
      * @param  string[]|null $additional_fields_profile Request additional fields not included by default in the response. Supported values: &#39;subscriptions&#39;, &#39;predictive_analytics&#39; (optional)
-     * @param  string[]|null $fields_profile For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_profile For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getProfileForEvent'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -2531,7 +2531,7 @@ class EventsApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2025-07-15'];
+        $defaultHeaders['revision'] = ['2025-10-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -2887,7 +2887,7 @@ class EventsApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2025-07-15'];
+        $defaultHeaders['revision'] = ['2025-10-15'];
 
         $headers = array_merge(
             $defaultHeaders,

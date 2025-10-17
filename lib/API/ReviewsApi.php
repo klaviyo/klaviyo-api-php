@@ -137,9 +137,9 @@ class ReviewsApi
      * Get Review
      *
      * @param  string $id The ID of the review (required)
-     * @param  string[]|null $fields_event For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_review For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#relationships (optional)
+     * @param  string[]|null $fields_event For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_review For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#relationships (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getReview'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -158,9 +158,9 @@ class ReviewsApi
      * Get Review
      *
      * @param  string $id The ID of the review (required)
-     * @param  string[]|null $fields_event For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_review For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#relationships (optional)
+     * @param  string[]|null $fields_event For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_review For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#relationships (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getReview'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -274,9 +274,9 @@ class ReviewsApi
      * Get Review
      *
      * @param  string $id The ID of the review (required)
-     * @param  string[]|null $fields_event For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_review For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#relationships (optional)
+     * @param  string[]|null $fields_event For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_review For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#relationships (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getReview'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -298,9 +298,9 @@ class ReviewsApi
      * Get Review
      *
      * @param  string $id The ID of the review (required)
-     * @param  string[]|null $fields_event For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_review For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#relationships (optional)
+     * @param  string[]|null $fields_event For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_review For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#relationships (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getReview'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -356,9 +356,9 @@ class ReviewsApi
      * Create request for operation 'getReview'
      *
      * @param  string $id The ID of the review (required)
-     * @param  string[]|null $fields_event For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_review For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#relationships (optional)
+     * @param  string[]|null $fields_event For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_review For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#relationships (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getReview'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -470,7 +470,7 @@ class ReviewsApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2025-07-15'];
+        $defaultHeaders['revision'] = ['2025-10-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -492,13 +492,13 @@ class ReviewsApi
      *
      * Get Reviews
      *
-     * @param  string[]|null $fields_event For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_review For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;created&#x60;: &#x60;greater-or-equal&#x60;, &#x60;less-or-equal&#x60;&lt;br&gt;&#x60;rating&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;, &#x60;greater-or-equal&#x60;, &#x60;less-or-equal&#x60;&lt;br&gt;&#x60;id&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;item.id&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;content&#x60;: &#x60;contains&#x60;&lt;br&gt;&#x60;status&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;review_type&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;verified&#x60;: &#x60;equals&#x60; (optional)
-     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#relationships (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#pagination (optional)
+     * @param  string[]|null $fields_event For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_review For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;created&#x60;: &#x60;greater-or-equal&#x60;, &#x60;less-or-equal&#x60;&lt;br&gt;&#x60;rating&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;, &#x60;greater-or-equal&#x60;, &#x60;less-or-equal&#x60;&lt;br&gt;&#x60;id&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;item.id&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;content&#x60;: &#x60;contains&#x60;&lt;br&gt;&#x60;status&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;review_type&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;verified&#x60;: &#x60;equals&#x60; (optional)
+     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#relationships (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#pagination (optional)
      * @param  int|null $page_size Default: 20. Min: 1. Max: 100. (optional, default to 20)
-     * @param  string|null $sort For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sorting (optional)
+     * @param  string|null $sort For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sorting (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getReviews'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -516,13 +516,13 @@ class ReviewsApi
      *
      * Get Reviews
      *
-     * @param  string[]|null $fields_event For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_review For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;created&#x60;: &#x60;greater-or-equal&#x60;, &#x60;less-or-equal&#x60;&lt;br&gt;&#x60;rating&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;, &#x60;greater-or-equal&#x60;, &#x60;less-or-equal&#x60;&lt;br&gt;&#x60;id&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;item.id&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;content&#x60;: &#x60;contains&#x60;&lt;br&gt;&#x60;status&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;review_type&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;verified&#x60;: &#x60;equals&#x60; (optional)
-     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#relationships (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#pagination (optional)
+     * @param  string[]|null $fields_event For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_review For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;created&#x60;: &#x60;greater-or-equal&#x60;, &#x60;less-or-equal&#x60;&lt;br&gt;&#x60;rating&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;, &#x60;greater-or-equal&#x60;, &#x60;less-or-equal&#x60;&lt;br&gt;&#x60;id&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;item.id&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;content&#x60;: &#x60;contains&#x60;&lt;br&gt;&#x60;status&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;review_type&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;verified&#x60;: &#x60;equals&#x60; (optional)
+     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#relationships (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#pagination (optional)
      * @param  int|null $page_size Default: 20. Min: 1. Max: 100. (optional, default to 20)
-     * @param  string|null $sort For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sorting (optional)
+     * @param  string|null $sort For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sorting (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getReviews'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -635,13 +635,13 @@ class ReviewsApi
      *
      * Get Reviews
      *
-     * @param  string[]|null $fields_event For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_review For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;created&#x60;: &#x60;greater-or-equal&#x60;, &#x60;less-or-equal&#x60;&lt;br&gt;&#x60;rating&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;, &#x60;greater-or-equal&#x60;, &#x60;less-or-equal&#x60;&lt;br&gt;&#x60;id&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;item.id&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;content&#x60;: &#x60;contains&#x60;&lt;br&gt;&#x60;status&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;review_type&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;verified&#x60;: &#x60;equals&#x60; (optional)
-     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#relationships (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#pagination (optional)
+     * @param  string[]|null $fields_event For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_review For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;created&#x60;: &#x60;greater-or-equal&#x60;, &#x60;less-or-equal&#x60;&lt;br&gt;&#x60;rating&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;, &#x60;greater-or-equal&#x60;, &#x60;less-or-equal&#x60;&lt;br&gt;&#x60;id&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;item.id&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;content&#x60;: &#x60;contains&#x60;&lt;br&gt;&#x60;status&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;review_type&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;verified&#x60;: &#x60;equals&#x60; (optional)
+     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#relationships (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#pagination (optional)
      * @param  int|null $page_size Default: 20. Min: 1. Max: 100. (optional, default to 20)
-     * @param  string|null $sort For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sorting (optional)
+     * @param  string|null $sort For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sorting (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getReviews'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -662,13 +662,13 @@ class ReviewsApi
      *
      * Get Reviews
      *
-     * @param  string[]|null $fields_event For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_review For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;created&#x60;: &#x60;greater-or-equal&#x60;, &#x60;less-or-equal&#x60;&lt;br&gt;&#x60;rating&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;, &#x60;greater-or-equal&#x60;, &#x60;less-or-equal&#x60;&lt;br&gt;&#x60;id&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;item.id&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;content&#x60;: &#x60;contains&#x60;&lt;br&gt;&#x60;status&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;review_type&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;verified&#x60;: &#x60;equals&#x60; (optional)
-     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#relationships (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#pagination (optional)
+     * @param  string[]|null $fields_event For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_review For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;created&#x60;: &#x60;greater-or-equal&#x60;, &#x60;less-or-equal&#x60;&lt;br&gt;&#x60;rating&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;, &#x60;greater-or-equal&#x60;, &#x60;less-or-equal&#x60;&lt;br&gt;&#x60;id&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;item.id&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;content&#x60;: &#x60;contains&#x60;&lt;br&gt;&#x60;status&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;review_type&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;verified&#x60;: &#x60;equals&#x60; (optional)
+     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#relationships (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#pagination (optional)
      * @param  int|null $page_size Default: 20. Min: 1. Max: 100. (optional, default to 20)
-     * @param  string|null $sort For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sorting (optional)
+     * @param  string|null $sort For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sorting (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getReviews'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -723,13 +723,13 @@ class ReviewsApi
     /**
      * Create request for operation 'getReviews'
      *
-     * @param  string[]|null $fields_event For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_review For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;created&#x60;: &#x60;greater-or-equal&#x60;, &#x60;less-or-equal&#x60;&lt;br&gt;&#x60;rating&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;, &#x60;greater-or-equal&#x60;, &#x60;less-or-equal&#x60;&lt;br&gt;&#x60;id&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;item.id&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;content&#x60;: &#x60;contains&#x60;&lt;br&gt;&#x60;status&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;review_type&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;verified&#x60;: &#x60;equals&#x60; (optional)
-     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#relationships (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#pagination (optional)
+     * @param  string[]|null $fields_event For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_review For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;created&#x60;: &#x60;greater-or-equal&#x60;, &#x60;less-or-equal&#x60;&lt;br&gt;&#x60;rating&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;, &#x60;greater-or-equal&#x60;, &#x60;less-or-equal&#x60;&lt;br&gt;&#x60;id&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;item.id&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;content&#x60;: &#x60;contains&#x60;&lt;br&gt;&#x60;status&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;review_type&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;verified&#x60;: &#x60;equals&#x60; (optional)
+     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#relationships (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#pagination (optional)
      * @param  int|null $page_size Default: 20. Min: 1. Max: 100. (optional, default to 20)
-     * @param  string|null $sort For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sorting (optional)
+     * @param  string|null $sort For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sorting (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getReviews'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -872,7 +872,7 @@ class ReviewsApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2025-07-15'];
+        $defaultHeaders['revision'] = ['2025-10-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -1202,7 +1202,7 @@ class ReviewsApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2025-07-15'];
+        $defaultHeaders['revision'] = ['2025-10-15'];
 
         $headers = array_merge(
             $defaultHeaders,

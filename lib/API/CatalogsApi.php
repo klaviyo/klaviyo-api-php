@@ -641,7 +641,7 @@ class CatalogsApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2025-07-15'];
+        $defaultHeaders['revision'] = ['2025-10-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -1003,7 +1003,7 @@ class CatalogsApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2025-07-15'];
+        $defaultHeaders['revision'] = ['2025-10-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -1403,7 +1403,7 @@ class CatalogsApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2025-07-15'];
+        $defaultHeaders['revision'] = ['2025-10-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -1803,7 +1803,7 @@ class CatalogsApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2025-07-15'];
+        $defaultHeaders['revision'] = ['2025-10-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -2203,7 +2203,7 @@ class CatalogsApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2025-07-15'];
+        $defaultHeaders['revision'] = ['2025-10-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -2603,7 +2603,7 @@ class CatalogsApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2025-07-15'];
+        $defaultHeaders['revision'] = ['2025-10-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -3003,7 +3003,7 @@ class CatalogsApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2025-07-15'];
+        $defaultHeaders['revision'] = ['2025-10-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -3403,7 +3403,7 @@ class CatalogsApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2025-07-15'];
+        $defaultHeaders['revision'] = ['2025-10-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -3803,7 +3803,7 @@ class CatalogsApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2025-07-15'];
+        $defaultHeaders['revision'] = ['2025-10-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -4203,7 +4203,7 @@ class CatalogsApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2025-07-15'];
+        $defaultHeaders['revision'] = ['2025-10-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -4603,7 +4603,7 @@ class CatalogsApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2025-07-15'];
+        $defaultHeaders['revision'] = ['2025-10-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -4864,7 +4864,7 @@ class CatalogsApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2025-07-15'];
+        $defaultHeaders['revision'] = ['2025-10-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -5174,7 +5174,7 @@ class CatalogsApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2025-07-15'];
+        $defaultHeaders['revision'] = ['2025-10-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -5484,7 +5484,7 @@ class CatalogsApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2025-07-15'];
+        $defaultHeaders['revision'] = ['2025-10-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -5794,7 +5794,7 @@ class CatalogsApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2025-07-15'];
+        $defaultHeaders['revision'] = ['2025-10-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -6038,7 +6038,7 @@ class CatalogsApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2025-07-15'];
+        $defaultHeaders['revision'] = ['2025-10-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -6282,7 +6282,7 @@ class CatalogsApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2025-07-15'];
+        $defaultHeaders['revision'] = ['2025-10-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -6526,7 +6526,7 @@ class CatalogsApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2025-07-15'];
+        $defaultHeaders['revision'] = ['2025-10-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -6549,9 +6549,9 @@ class CatalogsApi
      * Get Bulk Create Catalog Items Job
      *
      * @param  string $job_id ID of the job to retrieve. (required)
-     * @param  string[]|null $fields_catalog_item_bulk_create_job For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_catalog_item For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#relationships (optional)
+     * @param  string[]|null $fields_catalog_item_bulk_create_job For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_catalog_item For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#relationships (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBulkCreateCatalogItemsJob'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -6588,9 +6588,9 @@ class CatalogsApi
      * Get Bulk Create Catalog Items Job
      *
      * @param  string $job_id ID of the job to retrieve. (required)
-     * @param  string[]|null $fields_catalog_item_bulk_create_job For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_catalog_item For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#relationships (optional)
+     * @param  string[]|null $fields_catalog_item_bulk_create_job For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_catalog_item For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#relationships (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBulkCreateCatalogItemsJob'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -6722,9 +6722,9 @@ class CatalogsApi
      * Get Bulk Create Catalog Items Job
      *
      * @param  string $job_id ID of the job to retrieve. (required)
-     * @param  string[]|null $fields_catalog_item_bulk_create_job For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_catalog_item For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#relationships (optional)
+     * @param  string[]|null $fields_catalog_item_bulk_create_job For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_catalog_item For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#relationships (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBulkCreateCatalogItemsJob'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -6764,9 +6764,9 @@ class CatalogsApi
      * Get Bulk Create Catalog Items Job
      *
      * @param  string $job_id ID of the job to retrieve. (required)
-     * @param  string[]|null $fields_catalog_item_bulk_create_job For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_catalog_item For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#relationships (optional)
+     * @param  string[]|null $fields_catalog_item_bulk_create_job For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_catalog_item For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#relationships (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBulkCreateCatalogItemsJob'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -6840,9 +6840,9 @@ class CatalogsApi
      * Create request for operation 'getBulkCreateCatalogItemsJob'
      *
      * @param  string $job_id ID of the job to retrieve. (required)
-     * @param  string[]|null $fields_catalog_item_bulk_create_job For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_catalog_item For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#relationships (optional)
+     * @param  string[]|null $fields_catalog_item_bulk_create_job For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_catalog_item For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#relationships (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBulkCreateCatalogItemsJob'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -6954,7 +6954,7 @@ class CatalogsApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2025-07-15'];
+        $defaultHeaders['revision'] = ['2025-10-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -6994,9 +6994,9 @@ class CatalogsApi
      *
      * Get Bulk Create Catalog Items Jobs
      *
-     * @param  string[]|null $fields_catalog_item_bulk_create_job For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;status&#x60;: &#x60;equals&#x60; (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#pagination (optional)
+     * @param  string[]|null $fields_catalog_item_bulk_create_job For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;status&#x60;: &#x60;equals&#x60; (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#pagination (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBulkCreateCatalogItemsJobs'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -7032,9 +7032,9 @@ class CatalogsApi
      *
      * Get Bulk Create Catalog Items Jobs
      *
-     * @param  string[]|null $fields_catalog_item_bulk_create_job For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;status&#x60;: &#x60;equals&#x60; (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#pagination (optional)
+     * @param  string[]|null $fields_catalog_item_bulk_create_job For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;status&#x60;: &#x60;equals&#x60; (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#pagination (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBulkCreateCatalogItemsJobs'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -7165,9 +7165,9 @@ class CatalogsApi
      *
      * Get Bulk Create Catalog Items Jobs
      *
-     * @param  string[]|null $fields_catalog_item_bulk_create_job For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;status&#x60;: &#x60;equals&#x60; (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#pagination (optional)
+     * @param  string[]|null $fields_catalog_item_bulk_create_job For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;status&#x60;: &#x60;equals&#x60; (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#pagination (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBulkCreateCatalogItemsJobs'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -7206,9 +7206,9 @@ class CatalogsApi
      *
      * Get Bulk Create Catalog Items Jobs
      *
-     * @param  string[]|null $fields_catalog_item_bulk_create_job For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;status&#x60;: &#x60;equals&#x60; (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#pagination (optional)
+     * @param  string[]|null $fields_catalog_item_bulk_create_job For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;status&#x60;: &#x60;equals&#x60; (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#pagination (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBulkCreateCatalogItemsJobs'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -7281,9 +7281,9 @@ class CatalogsApi
     /**
      * Create request for operation 'getBulkCreateCatalogItemsJobs'
      *
-     * @param  string[]|null $fields_catalog_item_bulk_create_job For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;status&#x60;: &#x60;equals&#x60; (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#pagination (optional)
+     * @param  string[]|null $fields_catalog_item_bulk_create_job For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;status&#x60;: &#x60;equals&#x60; (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#pagination (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBulkCreateCatalogItemsJobs'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -7380,7 +7380,7 @@ class CatalogsApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2025-07-15'];
+        $defaultHeaders['revision'] = ['2025-10-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -7421,9 +7421,9 @@ class CatalogsApi
      * Get Bulk Create Categories Job
      *
      * @param  string $job_id ID of the job to retrieve. (required)
-     * @param  string[]|null $fields_catalog_category_bulk_create_job For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_catalog_category For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#relationships (optional)
+     * @param  string[]|null $fields_catalog_category_bulk_create_job For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_catalog_category For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#relationships (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBulkCreateCategoriesJob'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -7460,9 +7460,9 @@ class CatalogsApi
      * Get Bulk Create Categories Job
      *
      * @param  string $job_id ID of the job to retrieve. (required)
-     * @param  string[]|null $fields_catalog_category_bulk_create_job For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_catalog_category For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#relationships (optional)
+     * @param  string[]|null $fields_catalog_category_bulk_create_job For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_catalog_category For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#relationships (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBulkCreateCategoriesJob'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -7594,9 +7594,9 @@ class CatalogsApi
      * Get Bulk Create Categories Job
      *
      * @param  string $job_id ID of the job to retrieve. (required)
-     * @param  string[]|null $fields_catalog_category_bulk_create_job For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_catalog_category For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#relationships (optional)
+     * @param  string[]|null $fields_catalog_category_bulk_create_job For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_catalog_category For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#relationships (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBulkCreateCategoriesJob'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -7636,9 +7636,9 @@ class CatalogsApi
      * Get Bulk Create Categories Job
      *
      * @param  string $job_id ID of the job to retrieve. (required)
-     * @param  string[]|null $fields_catalog_category_bulk_create_job For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_catalog_category For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#relationships (optional)
+     * @param  string[]|null $fields_catalog_category_bulk_create_job For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_catalog_category For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#relationships (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBulkCreateCategoriesJob'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -7712,9 +7712,9 @@ class CatalogsApi
      * Create request for operation 'getBulkCreateCategoriesJob'
      *
      * @param  string $job_id ID of the job to retrieve. (required)
-     * @param  string[]|null $fields_catalog_category_bulk_create_job For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_catalog_category For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#relationships (optional)
+     * @param  string[]|null $fields_catalog_category_bulk_create_job For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_catalog_category For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#relationships (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBulkCreateCategoriesJob'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -7826,7 +7826,7 @@ class CatalogsApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2025-07-15'];
+        $defaultHeaders['revision'] = ['2025-10-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -7866,9 +7866,9 @@ class CatalogsApi
      *
      * Get Bulk Create Categories Jobs
      *
-     * @param  string[]|null $fields_catalog_category_bulk_create_job For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;status&#x60;: &#x60;equals&#x60; (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#pagination (optional)
+     * @param  string[]|null $fields_catalog_category_bulk_create_job For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;status&#x60;: &#x60;equals&#x60; (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#pagination (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBulkCreateCategoriesJobs'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -7904,9 +7904,9 @@ class CatalogsApi
      *
      * Get Bulk Create Categories Jobs
      *
-     * @param  string[]|null $fields_catalog_category_bulk_create_job For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;status&#x60;: &#x60;equals&#x60; (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#pagination (optional)
+     * @param  string[]|null $fields_catalog_category_bulk_create_job For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;status&#x60;: &#x60;equals&#x60; (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#pagination (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBulkCreateCategoriesJobs'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -8037,9 +8037,9 @@ class CatalogsApi
      *
      * Get Bulk Create Categories Jobs
      *
-     * @param  string[]|null $fields_catalog_category_bulk_create_job For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;status&#x60;: &#x60;equals&#x60; (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#pagination (optional)
+     * @param  string[]|null $fields_catalog_category_bulk_create_job For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;status&#x60;: &#x60;equals&#x60; (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#pagination (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBulkCreateCategoriesJobs'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -8078,9 +8078,9 @@ class CatalogsApi
      *
      * Get Bulk Create Categories Jobs
      *
-     * @param  string[]|null $fields_catalog_category_bulk_create_job For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;status&#x60;: &#x60;equals&#x60; (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#pagination (optional)
+     * @param  string[]|null $fields_catalog_category_bulk_create_job For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;status&#x60;: &#x60;equals&#x60; (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#pagination (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBulkCreateCategoriesJobs'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -8153,9 +8153,9 @@ class CatalogsApi
     /**
      * Create request for operation 'getBulkCreateCategoriesJobs'
      *
-     * @param  string[]|null $fields_catalog_category_bulk_create_job For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;status&#x60;: &#x60;equals&#x60; (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#pagination (optional)
+     * @param  string[]|null $fields_catalog_category_bulk_create_job For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;status&#x60;: &#x60;equals&#x60; (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#pagination (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBulkCreateCategoriesJobs'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -8252,7 +8252,7 @@ class CatalogsApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2025-07-15'];
+        $defaultHeaders['revision'] = ['2025-10-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -8293,9 +8293,9 @@ class CatalogsApi
      * Get Bulk Create Variants Job
      *
      * @param  string $job_id ID of the job to retrieve. (required)
-     * @param  string[]|null $fields_catalog_variant_bulk_create_job For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_catalog_variant For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#relationships (optional)
+     * @param  string[]|null $fields_catalog_variant_bulk_create_job For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_catalog_variant For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#relationships (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBulkCreateVariantsJob'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -8332,9 +8332,9 @@ class CatalogsApi
      * Get Bulk Create Variants Job
      *
      * @param  string $job_id ID of the job to retrieve. (required)
-     * @param  string[]|null $fields_catalog_variant_bulk_create_job For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_catalog_variant For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#relationships (optional)
+     * @param  string[]|null $fields_catalog_variant_bulk_create_job For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_catalog_variant For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#relationships (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBulkCreateVariantsJob'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -8466,9 +8466,9 @@ class CatalogsApi
      * Get Bulk Create Variants Job
      *
      * @param  string $job_id ID of the job to retrieve. (required)
-     * @param  string[]|null $fields_catalog_variant_bulk_create_job For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_catalog_variant For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#relationships (optional)
+     * @param  string[]|null $fields_catalog_variant_bulk_create_job For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_catalog_variant For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#relationships (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBulkCreateVariantsJob'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -8508,9 +8508,9 @@ class CatalogsApi
      * Get Bulk Create Variants Job
      *
      * @param  string $job_id ID of the job to retrieve. (required)
-     * @param  string[]|null $fields_catalog_variant_bulk_create_job For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_catalog_variant For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#relationships (optional)
+     * @param  string[]|null $fields_catalog_variant_bulk_create_job For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_catalog_variant For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#relationships (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBulkCreateVariantsJob'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -8584,9 +8584,9 @@ class CatalogsApi
      * Create request for operation 'getBulkCreateVariantsJob'
      *
      * @param  string $job_id ID of the job to retrieve. (required)
-     * @param  string[]|null $fields_catalog_variant_bulk_create_job For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_catalog_variant For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#relationships (optional)
+     * @param  string[]|null $fields_catalog_variant_bulk_create_job For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_catalog_variant For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#relationships (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBulkCreateVariantsJob'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -8698,7 +8698,7 @@ class CatalogsApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2025-07-15'];
+        $defaultHeaders['revision'] = ['2025-10-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -8738,9 +8738,9 @@ class CatalogsApi
      *
      * Get Bulk Create Variants Jobs
      *
-     * @param  string[]|null $fields_catalog_variant_bulk_create_job For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;status&#x60;: &#x60;equals&#x60; (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#pagination (optional)
+     * @param  string[]|null $fields_catalog_variant_bulk_create_job For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;status&#x60;: &#x60;equals&#x60; (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#pagination (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBulkCreateVariantsJobs'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -8776,9 +8776,9 @@ class CatalogsApi
      *
      * Get Bulk Create Variants Jobs
      *
-     * @param  string[]|null $fields_catalog_variant_bulk_create_job For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;status&#x60;: &#x60;equals&#x60; (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#pagination (optional)
+     * @param  string[]|null $fields_catalog_variant_bulk_create_job For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;status&#x60;: &#x60;equals&#x60; (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#pagination (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBulkCreateVariantsJobs'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -8909,9 +8909,9 @@ class CatalogsApi
      *
      * Get Bulk Create Variants Jobs
      *
-     * @param  string[]|null $fields_catalog_variant_bulk_create_job For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;status&#x60;: &#x60;equals&#x60; (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#pagination (optional)
+     * @param  string[]|null $fields_catalog_variant_bulk_create_job For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;status&#x60;: &#x60;equals&#x60; (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#pagination (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBulkCreateVariantsJobs'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -8950,9 +8950,9 @@ class CatalogsApi
      *
      * Get Bulk Create Variants Jobs
      *
-     * @param  string[]|null $fields_catalog_variant_bulk_create_job For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;status&#x60;: &#x60;equals&#x60; (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#pagination (optional)
+     * @param  string[]|null $fields_catalog_variant_bulk_create_job For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;status&#x60;: &#x60;equals&#x60; (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#pagination (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBulkCreateVariantsJobs'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -9025,9 +9025,9 @@ class CatalogsApi
     /**
      * Create request for operation 'getBulkCreateVariantsJobs'
      *
-     * @param  string[]|null $fields_catalog_variant_bulk_create_job For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;status&#x60;: &#x60;equals&#x60; (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#pagination (optional)
+     * @param  string[]|null $fields_catalog_variant_bulk_create_job For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;status&#x60;: &#x60;equals&#x60; (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#pagination (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBulkCreateVariantsJobs'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -9124,7 +9124,7 @@ class CatalogsApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2025-07-15'];
+        $defaultHeaders['revision'] = ['2025-10-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -9165,7 +9165,7 @@ class CatalogsApi
      * Get Bulk Delete Catalog Items Job
      *
      * @param  string $job_id ID of the job to retrieve. (required)
-     * @param  string[]|null $fields_catalog_item_bulk_delete_job For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_catalog_item_bulk_delete_job For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBulkDeleteCatalogItemsJob'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -9202,7 +9202,7 @@ class CatalogsApi
      * Get Bulk Delete Catalog Items Job
      *
      * @param  string $job_id ID of the job to retrieve. (required)
-     * @param  string[]|null $fields_catalog_item_bulk_delete_job For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_catalog_item_bulk_delete_job For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBulkDeleteCatalogItemsJob'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -9334,7 +9334,7 @@ class CatalogsApi
      * Get Bulk Delete Catalog Items Job
      *
      * @param  string $job_id ID of the job to retrieve. (required)
-     * @param  string[]|null $fields_catalog_item_bulk_delete_job For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_catalog_item_bulk_delete_job For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBulkDeleteCatalogItemsJob'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -9374,7 +9374,7 @@ class CatalogsApi
      * Get Bulk Delete Catalog Items Job
      *
      * @param  string $job_id ID of the job to retrieve. (required)
-     * @param  string[]|null $fields_catalog_item_bulk_delete_job For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_catalog_item_bulk_delete_job For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBulkDeleteCatalogItemsJob'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -9448,7 +9448,7 @@ class CatalogsApi
      * Create request for operation 'getBulkDeleteCatalogItemsJob'
      *
      * @param  string $job_id ID of the job to retrieve. (required)
-     * @param  string[]|null $fields_catalog_item_bulk_delete_job For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_catalog_item_bulk_delete_job For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBulkDeleteCatalogItemsJob'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -9540,7 +9540,7 @@ class CatalogsApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2025-07-15'];
+        $defaultHeaders['revision'] = ['2025-10-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -9580,9 +9580,9 @@ class CatalogsApi
      *
      * Get Bulk Delete Catalog Items Jobs
      *
-     * @param  string[]|null $fields_catalog_item_bulk_delete_job For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;status&#x60;: &#x60;equals&#x60; (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#pagination (optional)
+     * @param  string[]|null $fields_catalog_item_bulk_delete_job For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;status&#x60;: &#x60;equals&#x60; (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#pagination (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBulkDeleteCatalogItemsJobs'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -9618,9 +9618,9 @@ class CatalogsApi
      *
      * Get Bulk Delete Catalog Items Jobs
      *
-     * @param  string[]|null $fields_catalog_item_bulk_delete_job For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;status&#x60;: &#x60;equals&#x60; (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#pagination (optional)
+     * @param  string[]|null $fields_catalog_item_bulk_delete_job For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;status&#x60;: &#x60;equals&#x60; (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#pagination (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBulkDeleteCatalogItemsJobs'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -9751,9 +9751,9 @@ class CatalogsApi
      *
      * Get Bulk Delete Catalog Items Jobs
      *
-     * @param  string[]|null $fields_catalog_item_bulk_delete_job For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;status&#x60;: &#x60;equals&#x60; (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#pagination (optional)
+     * @param  string[]|null $fields_catalog_item_bulk_delete_job For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;status&#x60;: &#x60;equals&#x60; (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#pagination (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBulkDeleteCatalogItemsJobs'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -9792,9 +9792,9 @@ class CatalogsApi
      *
      * Get Bulk Delete Catalog Items Jobs
      *
-     * @param  string[]|null $fields_catalog_item_bulk_delete_job For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;status&#x60;: &#x60;equals&#x60; (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#pagination (optional)
+     * @param  string[]|null $fields_catalog_item_bulk_delete_job For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;status&#x60;: &#x60;equals&#x60; (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#pagination (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBulkDeleteCatalogItemsJobs'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -9867,9 +9867,9 @@ class CatalogsApi
     /**
      * Create request for operation 'getBulkDeleteCatalogItemsJobs'
      *
-     * @param  string[]|null $fields_catalog_item_bulk_delete_job For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;status&#x60;: &#x60;equals&#x60; (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#pagination (optional)
+     * @param  string[]|null $fields_catalog_item_bulk_delete_job For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;status&#x60;: &#x60;equals&#x60; (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#pagination (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBulkDeleteCatalogItemsJobs'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -9966,7 +9966,7 @@ class CatalogsApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2025-07-15'];
+        $defaultHeaders['revision'] = ['2025-10-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -10007,7 +10007,7 @@ class CatalogsApi
      * Get Bulk Delete Categories Job
      *
      * @param  string $job_id ID of the job to retrieve. (required)
-     * @param  string[]|null $fields_catalog_category_bulk_delete_job For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_catalog_category_bulk_delete_job For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBulkDeleteCategoriesJob'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -10044,7 +10044,7 @@ class CatalogsApi
      * Get Bulk Delete Categories Job
      *
      * @param  string $job_id ID of the job to retrieve. (required)
-     * @param  string[]|null $fields_catalog_category_bulk_delete_job For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_catalog_category_bulk_delete_job For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBulkDeleteCategoriesJob'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -10176,7 +10176,7 @@ class CatalogsApi
      * Get Bulk Delete Categories Job
      *
      * @param  string $job_id ID of the job to retrieve. (required)
-     * @param  string[]|null $fields_catalog_category_bulk_delete_job For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_catalog_category_bulk_delete_job For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBulkDeleteCategoriesJob'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -10216,7 +10216,7 @@ class CatalogsApi
      * Get Bulk Delete Categories Job
      *
      * @param  string $job_id ID of the job to retrieve. (required)
-     * @param  string[]|null $fields_catalog_category_bulk_delete_job For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_catalog_category_bulk_delete_job For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBulkDeleteCategoriesJob'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -10290,7 +10290,7 @@ class CatalogsApi
      * Create request for operation 'getBulkDeleteCategoriesJob'
      *
      * @param  string $job_id ID of the job to retrieve. (required)
-     * @param  string[]|null $fields_catalog_category_bulk_delete_job For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_catalog_category_bulk_delete_job For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBulkDeleteCategoriesJob'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -10382,7 +10382,7 @@ class CatalogsApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2025-07-15'];
+        $defaultHeaders['revision'] = ['2025-10-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -10422,9 +10422,9 @@ class CatalogsApi
      *
      * Get Bulk Delete Categories Jobs
      *
-     * @param  string[]|null $fields_catalog_category_bulk_delete_job For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;status&#x60;: &#x60;equals&#x60; (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#pagination (optional)
+     * @param  string[]|null $fields_catalog_category_bulk_delete_job For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;status&#x60;: &#x60;equals&#x60; (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#pagination (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBulkDeleteCategoriesJobs'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -10460,9 +10460,9 @@ class CatalogsApi
      *
      * Get Bulk Delete Categories Jobs
      *
-     * @param  string[]|null $fields_catalog_category_bulk_delete_job For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;status&#x60;: &#x60;equals&#x60; (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#pagination (optional)
+     * @param  string[]|null $fields_catalog_category_bulk_delete_job For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;status&#x60;: &#x60;equals&#x60; (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#pagination (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBulkDeleteCategoriesJobs'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -10593,9 +10593,9 @@ class CatalogsApi
      *
      * Get Bulk Delete Categories Jobs
      *
-     * @param  string[]|null $fields_catalog_category_bulk_delete_job For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;status&#x60;: &#x60;equals&#x60; (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#pagination (optional)
+     * @param  string[]|null $fields_catalog_category_bulk_delete_job For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;status&#x60;: &#x60;equals&#x60; (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#pagination (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBulkDeleteCategoriesJobs'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -10634,9 +10634,9 @@ class CatalogsApi
      *
      * Get Bulk Delete Categories Jobs
      *
-     * @param  string[]|null $fields_catalog_category_bulk_delete_job For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;status&#x60;: &#x60;equals&#x60; (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#pagination (optional)
+     * @param  string[]|null $fields_catalog_category_bulk_delete_job For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;status&#x60;: &#x60;equals&#x60; (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#pagination (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBulkDeleteCategoriesJobs'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -10709,9 +10709,9 @@ class CatalogsApi
     /**
      * Create request for operation 'getBulkDeleteCategoriesJobs'
      *
-     * @param  string[]|null $fields_catalog_category_bulk_delete_job For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;status&#x60;: &#x60;equals&#x60; (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#pagination (optional)
+     * @param  string[]|null $fields_catalog_category_bulk_delete_job For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;status&#x60;: &#x60;equals&#x60; (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#pagination (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBulkDeleteCategoriesJobs'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -10808,7 +10808,7 @@ class CatalogsApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2025-07-15'];
+        $defaultHeaders['revision'] = ['2025-10-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -10849,7 +10849,7 @@ class CatalogsApi
      * Get Bulk Delete Variants Job
      *
      * @param  string $job_id ID of the job to retrieve. (required)
-     * @param  string[]|null $fields_catalog_variant_bulk_delete_job For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_catalog_variant_bulk_delete_job For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBulkDeleteVariantsJob'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -10886,7 +10886,7 @@ class CatalogsApi
      * Get Bulk Delete Variants Job
      *
      * @param  string $job_id ID of the job to retrieve. (required)
-     * @param  string[]|null $fields_catalog_variant_bulk_delete_job For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_catalog_variant_bulk_delete_job For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBulkDeleteVariantsJob'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -11018,7 +11018,7 @@ class CatalogsApi
      * Get Bulk Delete Variants Job
      *
      * @param  string $job_id ID of the job to retrieve. (required)
-     * @param  string[]|null $fields_catalog_variant_bulk_delete_job For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_catalog_variant_bulk_delete_job For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBulkDeleteVariantsJob'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -11058,7 +11058,7 @@ class CatalogsApi
      * Get Bulk Delete Variants Job
      *
      * @param  string $job_id ID of the job to retrieve. (required)
-     * @param  string[]|null $fields_catalog_variant_bulk_delete_job For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_catalog_variant_bulk_delete_job For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBulkDeleteVariantsJob'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -11132,7 +11132,7 @@ class CatalogsApi
      * Create request for operation 'getBulkDeleteVariantsJob'
      *
      * @param  string $job_id ID of the job to retrieve. (required)
-     * @param  string[]|null $fields_catalog_variant_bulk_delete_job For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_catalog_variant_bulk_delete_job For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBulkDeleteVariantsJob'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -11224,7 +11224,7 @@ class CatalogsApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2025-07-15'];
+        $defaultHeaders['revision'] = ['2025-10-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -11264,9 +11264,9 @@ class CatalogsApi
      *
      * Get Bulk Delete Variants Jobs
      *
-     * @param  string[]|null $fields_catalog_variant_bulk_delete_job For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;status&#x60;: &#x60;equals&#x60; (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#pagination (optional)
+     * @param  string[]|null $fields_catalog_variant_bulk_delete_job For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;status&#x60;: &#x60;equals&#x60; (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#pagination (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBulkDeleteVariantsJobs'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -11302,9 +11302,9 @@ class CatalogsApi
      *
      * Get Bulk Delete Variants Jobs
      *
-     * @param  string[]|null $fields_catalog_variant_bulk_delete_job For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;status&#x60;: &#x60;equals&#x60; (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#pagination (optional)
+     * @param  string[]|null $fields_catalog_variant_bulk_delete_job For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;status&#x60;: &#x60;equals&#x60; (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#pagination (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBulkDeleteVariantsJobs'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -11435,9 +11435,9 @@ class CatalogsApi
      *
      * Get Bulk Delete Variants Jobs
      *
-     * @param  string[]|null $fields_catalog_variant_bulk_delete_job For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;status&#x60;: &#x60;equals&#x60; (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#pagination (optional)
+     * @param  string[]|null $fields_catalog_variant_bulk_delete_job For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;status&#x60;: &#x60;equals&#x60; (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#pagination (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBulkDeleteVariantsJobs'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -11476,9 +11476,9 @@ class CatalogsApi
      *
      * Get Bulk Delete Variants Jobs
      *
-     * @param  string[]|null $fields_catalog_variant_bulk_delete_job For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;status&#x60;: &#x60;equals&#x60; (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#pagination (optional)
+     * @param  string[]|null $fields_catalog_variant_bulk_delete_job For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;status&#x60;: &#x60;equals&#x60; (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#pagination (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBulkDeleteVariantsJobs'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -11551,9 +11551,9 @@ class CatalogsApi
     /**
      * Create request for operation 'getBulkDeleteVariantsJobs'
      *
-     * @param  string[]|null $fields_catalog_variant_bulk_delete_job For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;status&#x60;: &#x60;equals&#x60; (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#pagination (optional)
+     * @param  string[]|null $fields_catalog_variant_bulk_delete_job For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;status&#x60;: &#x60;equals&#x60; (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#pagination (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBulkDeleteVariantsJobs'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -11650,7 +11650,7 @@ class CatalogsApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2025-07-15'];
+        $defaultHeaders['revision'] = ['2025-10-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -11691,9 +11691,9 @@ class CatalogsApi
      * Get Bulk Update Catalog Items Job
      *
      * @param  string $job_id ID of the job to retrieve. (required)
-     * @param  string[]|null $fields_catalog_item_bulk_update_job For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_catalog_item For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#relationships (optional)
+     * @param  string[]|null $fields_catalog_item_bulk_update_job For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_catalog_item For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#relationships (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBulkUpdateCatalogItemsJob'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -11730,9 +11730,9 @@ class CatalogsApi
      * Get Bulk Update Catalog Items Job
      *
      * @param  string $job_id ID of the job to retrieve. (required)
-     * @param  string[]|null $fields_catalog_item_bulk_update_job For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_catalog_item For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#relationships (optional)
+     * @param  string[]|null $fields_catalog_item_bulk_update_job For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_catalog_item For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#relationships (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBulkUpdateCatalogItemsJob'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -11864,9 +11864,9 @@ class CatalogsApi
      * Get Bulk Update Catalog Items Job
      *
      * @param  string $job_id ID of the job to retrieve. (required)
-     * @param  string[]|null $fields_catalog_item_bulk_update_job For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_catalog_item For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#relationships (optional)
+     * @param  string[]|null $fields_catalog_item_bulk_update_job For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_catalog_item For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#relationships (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBulkUpdateCatalogItemsJob'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -11906,9 +11906,9 @@ class CatalogsApi
      * Get Bulk Update Catalog Items Job
      *
      * @param  string $job_id ID of the job to retrieve. (required)
-     * @param  string[]|null $fields_catalog_item_bulk_update_job For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_catalog_item For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#relationships (optional)
+     * @param  string[]|null $fields_catalog_item_bulk_update_job For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_catalog_item For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#relationships (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBulkUpdateCatalogItemsJob'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -11982,9 +11982,9 @@ class CatalogsApi
      * Create request for operation 'getBulkUpdateCatalogItemsJob'
      *
      * @param  string $job_id ID of the job to retrieve. (required)
-     * @param  string[]|null $fields_catalog_item_bulk_update_job For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_catalog_item For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#relationships (optional)
+     * @param  string[]|null $fields_catalog_item_bulk_update_job For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_catalog_item For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#relationships (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBulkUpdateCatalogItemsJob'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -12096,7 +12096,7 @@ class CatalogsApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2025-07-15'];
+        $defaultHeaders['revision'] = ['2025-10-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -12136,9 +12136,9 @@ class CatalogsApi
      *
      * Get Bulk Update Catalog Items Jobs
      *
-     * @param  string[]|null $fields_catalog_item_bulk_update_job For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;status&#x60;: &#x60;equals&#x60; (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#pagination (optional)
+     * @param  string[]|null $fields_catalog_item_bulk_update_job For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;status&#x60;: &#x60;equals&#x60; (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#pagination (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBulkUpdateCatalogItemsJobs'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -12174,9 +12174,9 @@ class CatalogsApi
      *
      * Get Bulk Update Catalog Items Jobs
      *
-     * @param  string[]|null $fields_catalog_item_bulk_update_job For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;status&#x60;: &#x60;equals&#x60; (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#pagination (optional)
+     * @param  string[]|null $fields_catalog_item_bulk_update_job For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;status&#x60;: &#x60;equals&#x60; (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#pagination (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBulkUpdateCatalogItemsJobs'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -12307,9 +12307,9 @@ class CatalogsApi
      *
      * Get Bulk Update Catalog Items Jobs
      *
-     * @param  string[]|null $fields_catalog_item_bulk_update_job For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;status&#x60;: &#x60;equals&#x60; (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#pagination (optional)
+     * @param  string[]|null $fields_catalog_item_bulk_update_job For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;status&#x60;: &#x60;equals&#x60; (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#pagination (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBulkUpdateCatalogItemsJobs'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -12348,9 +12348,9 @@ class CatalogsApi
      *
      * Get Bulk Update Catalog Items Jobs
      *
-     * @param  string[]|null $fields_catalog_item_bulk_update_job For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;status&#x60;: &#x60;equals&#x60; (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#pagination (optional)
+     * @param  string[]|null $fields_catalog_item_bulk_update_job For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;status&#x60;: &#x60;equals&#x60; (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#pagination (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBulkUpdateCatalogItemsJobs'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -12423,9 +12423,9 @@ class CatalogsApi
     /**
      * Create request for operation 'getBulkUpdateCatalogItemsJobs'
      *
-     * @param  string[]|null $fields_catalog_item_bulk_update_job For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;status&#x60;: &#x60;equals&#x60; (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#pagination (optional)
+     * @param  string[]|null $fields_catalog_item_bulk_update_job For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;status&#x60;: &#x60;equals&#x60; (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#pagination (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBulkUpdateCatalogItemsJobs'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -12522,7 +12522,7 @@ class CatalogsApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2025-07-15'];
+        $defaultHeaders['revision'] = ['2025-10-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -12563,9 +12563,9 @@ class CatalogsApi
      * Get Bulk Update Categories Job
      *
      * @param  string $job_id ID of the job to retrieve. (required)
-     * @param  string[]|null $fields_catalog_category_bulk_update_job For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_catalog_category For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#relationships (optional)
+     * @param  string[]|null $fields_catalog_category_bulk_update_job For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_catalog_category For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#relationships (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBulkUpdateCategoriesJob'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -12602,9 +12602,9 @@ class CatalogsApi
      * Get Bulk Update Categories Job
      *
      * @param  string $job_id ID of the job to retrieve. (required)
-     * @param  string[]|null $fields_catalog_category_bulk_update_job For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_catalog_category For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#relationships (optional)
+     * @param  string[]|null $fields_catalog_category_bulk_update_job For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_catalog_category For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#relationships (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBulkUpdateCategoriesJob'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -12736,9 +12736,9 @@ class CatalogsApi
      * Get Bulk Update Categories Job
      *
      * @param  string $job_id ID of the job to retrieve. (required)
-     * @param  string[]|null $fields_catalog_category_bulk_update_job For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_catalog_category For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#relationships (optional)
+     * @param  string[]|null $fields_catalog_category_bulk_update_job For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_catalog_category For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#relationships (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBulkUpdateCategoriesJob'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -12778,9 +12778,9 @@ class CatalogsApi
      * Get Bulk Update Categories Job
      *
      * @param  string $job_id ID of the job to retrieve. (required)
-     * @param  string[]|null $fields_catalog_category_bulk_update_job For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_catalog_category For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#relationships (optional)
+     * @param  string[]|null $fields_catalog_category_bulk_update_job For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_catalog_category For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#relationships (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBulkUpdateCategoriesJob'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -12854,9 +12854,9 @@ class CatalogsApi
      * Create request for operation 'getBulkUpdateCategoriesJob'
      *
      * @param  string $job_id ID of the job to retrieve. (required)
-     * @param  string[]|null $fields_catalog_category_bulk_update_job For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_catalog_category For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#relationships (optional)
+     * @param  string[]|null $fields_catalog_category_bulk_update_job For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_catalog_category For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#relationships (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBulkUpdateCategoriesJob'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -12968,7 +12968,7 @@ class CatalogsApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2025-07-15'];
+        $defaultHeaders['revision'] = ['2025-10-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -13008,9 +13008,9 @@ class CatalogsApi
      *
      * Get Bulk Update Categories Jobs
      *
-     * @param  string[]|null $fields_catalog_category_bulk_update_job For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;status&#x60;: &#x60;equals&#x60; (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#pagination (optional)
+     * @param  string[]|null $fields_catalog_category_bulk_update_job For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;status&#x60;: &#x60;equals&#x60; (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#pagination (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBulkUpdateCategoriesJobs'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -13046,9 +13046,9 @@ class CatalogsApi
      *
      * Get Bulk Update Categories Jobs
      *
-     * @param  string[]|null $fields_catalog_category_bulk_update_job For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;status&#x60;: &#x60;equals&#x60; (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#pagination (optional)
+     * @param  string[]|null $fields_catalog_category_bulk_update_job For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;status&#x60;: &#x60;equals&#x60; (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#pagination (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBulkUpdateCategoriesJobs'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -13179,9 +13179,9 @@ class CatalogsApi
      *
      * Get Bulk Update Categories Jobs
      *
-     * @param  string[]|null $fields_catalog_category_bulk_update_job For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;status&#x60;: &#x60;equals&#x60; (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#pagination (optional)
+     * @param  string[]|null $fields_catalog_category_bulk_update_job For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;status&#x60;: &#x60;equals&#x60; (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#pagination (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBulkUpdateCategoriesJobs'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -13220,9 +13220,9 @@ class CatalogsApi
      *
      * Get Bulk Update Categories Jobs
      *
-     * @param  string[]|null $fields_catalog_category_bulk_update_job For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;status&#x60;: &#x60;equals&#x60; (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#pagination (optional)
+     * @param  string[]|null $fields_catalog_category_bulk_update_job For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;status&#x60;: &#x60;equals&#x60; (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#pagination (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBulkUpdateCategoriesJobs'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -13295,9 +13295,9 @@ class CatalogsApi
     /**
      * Create request for operation 'getBulkUpdateCategoriesJobs'
      *
-     * @param  string[]|null $fields_catalog_category_bulk_update_job For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;status&#x60;: &#x60;equals&#x60; (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#pagination (optional)
+     * @param  string[]|null $fields_catalog_category_bulk_update_job For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;status&#x60;: &#x60;equals&#x60; (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#pagination (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBulkUpdateCategoriesJobs'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -13394,7 +13394,7 @@ class CatalogsApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2025-07-15'];
+        $defaultHeaders['revision'] = ['2025-10-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -13435,9 +13435,9 @@ class CatalogsApi
      * Get Bulk Update Variants Job
      *
      * @param  string $job_id ID of the job to retrieve. (required)
-     * @param  string[]|null $fields_catalog_variant_bulk_update_job For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_catalog_variant For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#relationships (optional)
+     * @param  string[]|null $fields_catalog_variant_bulk_update_job For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_catalog_variant For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#relationships (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBulkUpdateVariantsJob'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -13474,9 +13474,9 @@ class CatalogsApi
      * Get Bulk Update Variants Job
      *
      * @param  string $job_id ID of the job to retrieve. (required)
-     * @param  string[]|null $fields_catalog_variant_bulk_update_job For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_catalog_variant For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#relationships (optional)
+     * @param  string[]|null $fields_catalog_variant_bulk_update_job For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_catalog_variant For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#relationships (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBulkUpdateVariantsJob'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -13608,9 +13608,9 @@ class CatalogsApi
      * Get Bulk Update Variants Job
      *
      * @param  string $job_id ID of the job to retrieve. (required)
-     * @param  string[]|null $fields_catalog_variant_bulk_update_job For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_catalog_variant For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#relationships (optional)
+     * @param  string[]|null $fields_catalog_variant_bulk_update_job For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_catalog_variant For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#relationships (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBulkUpdateVariantsJob'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -13650,9 +13650,9 @@ class CatalogsApi
      * Get Bulk Update Variants Job
      *
      * @param  string $job_id ID of the job to retrieve. (required)
-     * @param  string[]|null $fields_catalog_variant_bulk_update_job For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_catalog_variant For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#relationships (optional)
+     * @param  string[]|null $fields_catalog_variant_bulk_update_job For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_catalog_variant For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#relationships (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBulkUpdateVariantsJob'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -13726,9 +13726,9 @@ class CatalogsApi
      * Create request for operation 'getBulkUpdateVariantsJob'
      *
      * @param  string $job_id ID of the job to retrieve. (required)
-     * @param  string[]|null $fields_catalog_variant_bulk_update_job For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_catalog_variant For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#relationships (optional)
+     * @param  string[]|null $fields_catalog_variant_bulk_update_job For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_catalog_variant For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#relationships (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBulkUpdateVariantsJob'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -13840,7 +13840,7 @@ class CatalogsApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2025-07-15'];
+        $defaultHeaders['revision'] = ['2025-10-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -13880,9 +13880,9 @@ class CatalogsApi
      *
      * Get Bulk Update Variants Jobs
      *
-     * @param  string[]|null $fields_catalog_variant_bulk_update_job For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;status&#x60;: &#x60;equals&#x60; (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#pagination (optional)
+     * @param  string[]|null $fields_catalog_variant_bulk_update_job For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;status&#x60;: &#x60;equals&#x60; (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#pagination (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBulkUpdateVariantsJobs'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -13918,9 +13918,9 @@ class CatalogsApi
      *
      * Get Bulk Update Variants Jobs
      *
-     * @param  string[]|null $fields_catalog_variant_bulk_update_job For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;status&#x60;: &#x60;equals&#x60; (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#pagination (optional)
+     * @param  string[]|null $fields_catalog_variant_bulk_update_job For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;status&#x60;: &#x60;equals&#x60; (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#pagination (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBulkUpdateVariantsJobs'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -14051,9 +14051,9 @@ class CatalogsApi
      *
      * Get Bulk Update Variants Jobs
      *
-     * @param  string[]|null $fields_catalog_variant_bulk_update_job For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;status&#x60;: &#x60;equals&#x60; (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#pagination (optional)
+     * @param  string[]|null $fields_catalog_variant_bulk_update_job For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;status&#x60;: &#x60;equals&#x60; (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#pagination (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBulkUpdateVariantsJobs'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -14092,9 +14092,9 @@ class CatalogsApi
      *
      * Get Bulk Update Variants Jobs
      *
-     * @param  string[]|null $fields_catalog_variant_bulk_update_job For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;status&#x60;: &#x60;equals&#x60; (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#pagination (optional)
+     * @param  string[]|null $fields_catalog_variant_bulk_update_job For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;status&#x60;: &#x60;equals&#x60; (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#pagination (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBulkUpdateVariantsJobs'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -14167,9 +14167,9 @@ class CatalogsApi
     /**
      * Create request for operation 'getBulkUpdateVariantsJobs'
      *
-     * @param  string[]|null $fields_catalog_variant_bulk_update_job For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;status&#x60;: &#x60;equals&#x60; (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#pagination (optional)
+     * @param  string[]|null $fields_catalog_variant_bulk_update_job For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;status&#x60;: &#x60;equals&#x60; (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#pagination (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBulkUpdateVariantsJobs'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -14266,7 +14266,7 @@ class CatalogsApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2025-07-15'];
+        $defaultHeaders['revision'] = ['2025-10-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -14306,10 +14306,10 @@ class CatalogsApi
      *
      * Get Catalog Categories
      *
-     * @param  string[]|null $fields_catalog_category For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;ids&#x60;: &#x60;any&#x60;&lt;br&gt;&#x60;item.id&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;name&#x60;: &#x60;contains&#x60; (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#pagination (optional)
-     * @param  string|null $sort For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sorting (optional)
+     * @param  string[]|null $fields_catalog_category For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;ids&#x60;: &#x60;any&#x60;&lt;br&gt;&#x60;item.id&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;name&#x60;: &#x60;contains&#x60; (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#pagination (optional)
+     * @param  string|null $sort For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sorting (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCatalogCategories'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -14327,10 +14327,10 @@ class CatalogsApi
      *
      * Get Catalog Categories
      *
-     * @param  string[]|null $fields_catalog_category For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;ids&#x60;: &#x60;any&#x60;&lt;br&gt;&#x60;item.id&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;name&#x60;: &#x60;contains&#x60; (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#pagination (optional)
-     * @param  string|null $sort For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sorting (optional)
+     * @param  string[]|null $fields_catalog_category For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;ids&#x60;: &#x60;any&#x60;&lt;br&gt;&#x60;item.id&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;name&#x60;: &#x60;contains&#x60; (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#pagination (optional)
+     * @param  string|null $sort For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sorting (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCatalogCategories'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -14443,10 +14443,10 @@ class CatalogsApi
      *
      * Get Catalog Categories
      *
-     * @param  string[]|null $fields_catalog_category For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;ids&#x60;: &#x60;any&#x60;&lt;br&gt;&#x60;item.id&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;name&#x60;: &#x60;contains&#x60; (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#pagination (optional)
-     * @param  string|null $sort For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sorting (optional)
+     * @param  string[]|null $fields_catalog_category For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;ids&#x60;: &#x60;any&#x60;&lt;br&gt;&#x60;item.id&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;name&#x60;: &#x60;contains&#x60; (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#pagination (optional)
+     * @param  string|null $sort For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sorting (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCatalogCategories'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -14467,10 +14467,10 @@ class CatalogsApi
      *
      * Get Catalog Categories
      *
-     * @param  string[]|null $fields_catalog_category For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;ids&#x60;: &#x60;any&#x60;&lt;br&gt;&#x60;item.id&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;name&#x60;: &#x60;contains&#x60; (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#pagination (optional)
-     * @param  string|null $sort For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sorting (optional)
+     * @param  string[]|null $fields_catalog_category For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;ids&#x60;: &#x60;any&#x60;&lt;br&gt;&#x60;item.id&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;name&#x60;: &#x60;contains&#x60; (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#pagination (optional)
+     * @param  string|null $sort For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sorting (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCatalogCategories'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -14525,10 +14525,10 @@ class CatalogsApi
     /**
      * Create request for operation 'getCatalogCategories'
      *
-     * @param  string[]|null $fields_catalog_category For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;ids&#x60;: &#x60;any&#x60;&lt;br&gt;&#x60;item.id&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;name&#x60;: &#x60;contains&#x60; (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#pagination (optional)
-     * @param  string|null $sort For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sorting (optional)
+     * @param  string[]|null $fields_catalog_category For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;ids&#x60;: &#x60;any&#x60;&lt;br&gt;&#x60;item.id&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;name&#x60;: &#x60;contains&#x60; (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#pagination (optional)
+     * @param  string|null $sort For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sorting (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCatalogCategories'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -14635,7 +14635,7 @@ class CatalogsApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2025-07-15'];
+        $defaultHeaders['revision'] = ['2025-10-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -14658,7 +14658,7 @@ class CatalogsApi
      * Get Catalog Category
      *
      * @param  string $id The catalog category ID is a compound ID (string), with format: &#x60;{integration}:::{catalog}:::{external_id}&#x60;. Currently, the only supported integration type is &#x60;$custom&#x60;, and the only supported catalog is &#x60;$default&#x60;. (required)
-     * @param  string[]|null $fields_catalog_category For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_catalog_category For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCatalogCategory'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -14677,7 +14677,7 @@ class CatalogsApi
      * Get Catalog Category
      *
      * @param  string $id The catalog category ID is a compound ID (string), with format: &#x60;{integration}:::{catalog}:::{external_id}&#x60;. Currently, the only supported integration type is &#x60;$custom&#x60;, and the only supported catalog is &#x60;$default&#x60;. (required)
-     * @param  string[]|null $fields_catalog_category For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_catalog_category For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCatalogCategory'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -14791,7 +14791,7 @@ class CatalogsApi
      * Get Catalog Category
      *
      * @param  string $id The catalog category ID is a compound ID (string), with format: &#x60;{integration}:::{catalog}:::{external_id}&#x60;. Currently, the only supported integration type is &#x60;$custom&#x60;, and the only supported catalog is &#x60;$default&#x60;. (required)
-     * @param  string[]|null $fields_catalog_category For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_catalog_category For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCatalogCategory'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -14813,7 +14813,7 @@ class CatalogsApi
      * Get Catalog Category
      *
      * @param  string $id The catalog category ID is a compound ID (string), with format: &#x60;{integration}:::{catalog}:::{external_id}&#x60;. Currently, the only supported integration type is &#x60;$custom&#x60;, and the only supported catalog is &#x60;$default&#x60;. (required)
-     * @param  string[]|null $fields_catalog_category For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_catalog_category For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCatalogCategory'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -14869,7 +14869,7 @@ class CatalogsApi
      * Create request for operation 'getCatalogCategory'
      *
      * @param  string $id The catalog category ID is a compound ID (string), with format: &#x60;{integration}:::{catalog}:::{external_id}&#x60;. Currently, the only supported integration type is &#x60;$custom&#x60;, and the only supported catalog is &#x60;$default&#x60;. (required)
-     * @param  string[]|null $fields_catalog_category For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_catalog_category For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCatalogCategory'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -14961,7 +14961,7 @@ class CatalogsApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2025-07-15'];
+        $defaultHeaders['revision'] = ['2025-10-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -14984,9 +14984,9 @@ class CatalogsApi
      * Get Catalog Item
      *
      * @param  string $id The catalog item ID is a compound ID (string), with format: &#x60;{integration}:::{catalog}:::{external_id}&#x60;. Currently, the only supported integration type is &#x60;$custom&#x60;, and the only supported catalog is &#x60;$default&#x60;. (required)
-     * @param  string[]|null $fields_catalog_item For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_catalog_variant For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#relationships (optional)
+     * @param  string[]|null $fields_catalog_item For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_catalog_variant For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#relationships (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCatalogItem'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -15005,9 +15005,9 @@ class CatalogsApi
      * Get Catalog Item
      *
      * @param  string $id The catalog item ID is a compound ID (string), with format: &#x60;{integration}:::{catalog}:::{external_id}&#x60;. Currently, the only supported integration type is &#x60;$custom&#x60;, and the only supported catalog is &#x60;$default&#x60;. (required)
-     * @param  string[]|null $fields_catalog_item For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_catalog_variant For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#relationships (optional)
+     * @param  string[]|null $fields_catalog_item For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_catalog_variant For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#relationships (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCatalogItem'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -15121,9 +15121,9 @@ class CatalogsApi
      * Get Catalog Item
      *
      * @param  string $id The catalog item ID is a compound ID (string), with format: &#x60;{integration}:::{catalog}:::{external_id}&#x60;. Currently, the only supported integration type is &#x60;$custom&#x60;, and the only supported catalog is &#x60;$default&#x60;. (required)
-     * @param  string[]|null $fields_catalog_item For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_catalog_variant For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#relationships (optional)
+     * @param  string[]|null $fields_catalog_item For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_catalog_variant For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#relationships (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCatalogItem'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -15145,9 +15145,9 @@ class CatalogsApi
      * Get Catalog Item
      *
      * @param  string $id The catalog item ID is a compound ID (string), with format: &#x60;{integration}:::{catalog}:::{external_id}&#x60;. Currently, the only supported integration type is &#x60;$custom&#x60;, and the only supported catalog is &#x60;$default&#x60;. (required)
-     * @param  string[]|null $fields_catalog_item For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_catalog_variant For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#relationships (optional)
+     * @param  string[]|null $fields_catalog_item For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_catalog_variant For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#relationships (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCatalogItem'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -15203,9 +15203,9 @@ class CatalogsApi
      * Create request for operation 'getCatalogItem'
      *
      * @param  string $id The catalog item ID is a compound ID (string), with format: &#x60;{integration}:::{catalog}:::{external_id}&#x60;. Currently, the only supported integration type is &#x60;$custom&#x60;, and the only supported catalog is &#x60;$default&#x60;. (required)
-     * @param  string[]|null $fields_catalog_item For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_catalog_variant For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#relationships (optional)
+     * @param  string[]|null $fields_catalog_item For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_catalog_variant For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#relationships (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCatalogItem'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -15317,7 +15317,7 @@ class CatalogsApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2025-07-15'];
+        $defaultHeaders['revision'] = ['2025-10-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -15339,12 +15339,12 @@ class CatalogsApi
      *
      * Get Catalog Items
      *
-     * @param  string[]|null $fields_catalog_item For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_catalog_variant For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;ids&#x60;: &#x60;any&#x60;&lt;br&gt;&#x60;category.id&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;title&#x60;: &#x60;contains&#x60;&lt;br&gt;&#x60;published&#x60;: &#x60;equals&#x60; (optional)
-     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#relationships (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#pagination (optional)
-     * @param  string|null $sort For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sorting (optional)
+     * @param  string[]|null $fields_catalog_item For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_catalog_variant For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;ids&#x60;: &#x60;any&#x60;&lt;br&gt;&#x60;category.id&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;title&#x60;: &#x60;contains&#x60;&lt;br&gt;&#x60;published&#x60;: &#x60;equals&#x60; (optional)
+     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#relationships (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#pagination (optional)
+     * @param  string|null $sort For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sorting (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCatalogItems'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -15362,12 +15362,12 @@ class CatalogsApi
      *
      * Get Catalog Items
      *
-     * @param  string[]|null $fields_catalog_item For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_catalog_variant For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;ids&#x60;: &#x60;any&#x60;&lt;br&gt;&#x60;category.id&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;title&#x60;: &#x60;contains&#x60;&lt;br&gt;&#x60;published&#x60;: &#x60;equals&#x60; (optional)
-     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#relationships (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#pagination (optional)
-     * @param  string|null $sort For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sorting (optional)
+     * @param  string[]|null $fields_catalog_item For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_catalog_variant For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;ids&#x60;: &#x60;any&#x60;&lt;br&gt;&#x60;category.id&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;title&#x60;: &#x60;contains&#x60;&lt;br&gt;&#x60;published&#x60;: &#x60;equals&#x60; (optional)
+     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#relationships (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#pagination (optional)
+     * @param  string|null $sort For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sorting (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCatalogItems'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -15480,12 +15480,12 @@ class CatalogsApi
      *
      * Get Catalog Items
      *
-     * @param  string[]|null $fields_catalog_item For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_catalog_variant For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;ids&#x60;: &#x60;any&#x60;&lt;br&gt;&#x60;category.id&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;title&#x60;: &#x60;contains&#x60;&lt;br&gt;&#x60;published&#x60;: &#x60;equals&#x60; (optional)
-     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#relationships (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#pagination (optional)
-     * @param  string|null $sort For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sorting (optional)
+     * @param  string[]|null $fields_catalog_item For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_catalog_variant For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;ids&#x60;: &#x60;any&#x60;&lt;br&gt;&#x60;category.id&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;title&#x60;: &#x60;contains&#x60;&lt;br&gt;&#x60;published&#x60;: &#x60;equals&#x60; (optional)
+     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#relationships (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#pagination (optional)
+     * @param  string|null $sort For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sorting (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCatalogItems'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -15506,12 +15506,12 @@ class CatalogsApi
      *
      * Get Catalog Items
      *
-     * @param  string[]|null $fields_catalog_item For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_catalog_variant For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;ids&#x60;: &#x60;any&#x60;&lt;br&gt;&#x60;category.id&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;title&#x60;: &#x60;contains&#x60;&lt;br&gt;&#x60;published&#x60;: &#x60;equals&#x60; (optional)
-     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#relationships (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#pagination (optional)
-     * @param  string|null $sort For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sorting (optional)
+     * @param  string[]|null $fields_catalog_item For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_catalog_variant For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;ids&#x60;: &#x60;any&#x60;&lt;br&gt;&#x60;category.id&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;title&#x60;: &#x60;contains&#x60;&lt;br&gt;&#x60;published&#x60;: &#x60;equals&#x60; (optional)
+     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#relationships (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#pagination (optional)
+     * @param  string|null $sort For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sorting (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCatalogItems'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -15566,12 +15566,12 @@ class CatalogsApi
     /**
      * Create request for operation 'getCatalogItems'
      *
-     * @param  string[]|null $fields_catalog_item For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_catalog_variant For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;ids&#x60;: &#x60;any&#x60;&lt;br&gt;&#x60;category.id&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;title&#x60;: &#x60;contains&#x60;&lt;br&gt;&#x60;published&#x60;: &#x60;equals&#x60; (optional)
-     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#relationships (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#pagination (optional)
-     * @param  string|null $sort For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sorting (optional)
+     * @param  string[]|null $fields_catalog_item For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_catalog_variant For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;ids&#x60;: &#x60;any&#x60;&lt;br&gt;&#x60;category.id&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;title&#x60;: &#x60;contains&#x60;&lt;br&gt;&#x60;published&#x60;: &#x60;equals&#x60; (optional)
+     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#relationships (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#pagination (optional)
+     * @param  string|null $sort For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sorting (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCatalogItems'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -15698,7 +15698,7 @@ class CatalogsApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2025-07-15'];
+        $defaultHeaders['revision'] = ['2025-10-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -15721,7 +15721,7 @@ class CatalogsApi
      * Get Catalog Variant
      *
      * @param  string $id The catalog variant ID is a compound ID (string), with format: &#x60;{integration}:::{catalog}:::{external_id}&#x60;. Currently, the only supported integration type is &#x60;$custom&#x60;, and the only supported catalog is &#x60;$default&#x60;. (required)
-     * @param  string[]|null $fields_catalog_variant For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_catalog_variant For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCatalogVariant'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -15740,7 +15740,7 @@ class CatalogsApi
      * Get Catalog Variant
      *
      * @param  string $id The catalog variant ID is a compound ID (string), with format: &#x60;{integration}:::{catalog}:::{external_id}&#x60;. Currently, the only supported integration type is &#x60;$custom&#x60;, and the only supported catalog is &#x60;$default&#x60;. (required)
-     * @param  string[]|null $fields_catalog_variant For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_catalog_variant For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCatalogVariant'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -15854,7 +15854,7 @@ class CatalogsApi
      * Get Catalog Variant
      *
      * @param  string $id The catalog variant ID is a compound ID (string), with format: &#x60;{integration}:::{catalog}:::{external_id}&#x60;. Currently, the only supported integration type is &#x60;$custom&#x60;, and the only supported catalog is &#x60;$default&#x60;. (required)
-     * @param  string[]|null $fields_catalog_variant For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_catalog_variant For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCatalogVariant'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -15876,7 +15876,7 @@ class CatalogsApi
      * Get Catalog Variant
      *
      * @param  string $id The catalog variant ID is a compound ID (string), with format: &#x60;{integration}:::{catalog}:::{external_id}&#x60;. Currently, the only supported integration type is &#x60;$custom&#x60;, and the only supported catalog is &#x60;$default&#x60;. (required)
-     * @param  string[]|null $fields_catalog_variant For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_catalog_variant For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCatalogVariant'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -15932,7 +15932,7 @@ class CatalogsApi
      * Create request for operation 'getCatalogVariant'
      *
      * @param  string $id The catalog variant ID is a compound ID (string), with format: &#x60;{integration}:::{catalog}:::{external_id}&#x60;. Currently, the only supported integration type is &#x60;$custom&#x60;, and the only supported catalog is &#x60;$default&#x60;. (required)
-     * @param  string[]|null $fields_catalog_variant For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_catalog_variant For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCatalogVariant'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -16024,7 +16024,7 @@ class CatalogsApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2025-07-15'];
+        $defaultHeaders['revision'] = ['2025-10-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -16046,10 +16046,10 @@ class CatalogsApi
      *
      * Get Catalog Variants
      *
-     * @param  string[]|null $fields_catalog_variant For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;ids&#x60;: &#x60;any&#x60;&lt;br&gt;&#x60;item.id&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;sku&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;title&#x60;: &#x60;contains&#x60;&lt;br&gt;&#x60;published&#x60;: &#x60;equals&#x60; (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#pagination (optional)
-     * @param  string|null $sort For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sorting (optional)
+     * @param  string[]|null $fields_catalog_variant For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;ids&#x60;: &#x60;any&#x60;&lt;br&gt;&#x60;item.id&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;sku&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;title&#x60;: &#x60;contains&#x60;&lt;br&gt;&#x60;published&#x60;: &#x60;equals&#x60; (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#pagination (optional)
+     * @param  string|null $sort For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sorting (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCatalogVariants'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -16067,10 +16067,10 @@ class CatalogsApi
      *
      * Get Catalog Variants
      *
-     * @param  string[]|null $fields_catalog_variant For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;ids&#x60;: &#x60;any&#x60;&lt;br&gt;&#x60;item.id&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;sku&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;title&#x60;: &#x60;contains&#x60;&lt;br&gt;&#x60;published&#x60;: &#x60;equals&#x60; (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#pagination (optional)
-     * @param  string|null $sort For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sorting (optional)
+     * @param  string[]|null $fields_catalog_variant For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;ids&#x60;: &#x60;any&#x60;&lt;br&gt;&#x60;item.id&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;sku&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;title&#x60;: &#x60;contains&#x60;&lt;br&gt;&#x60;published&#x60;: &#x60;equals&#x60; (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#pagination (optional)
+     * @param  string|null $sort For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sorting (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCatalogVariants'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -16183,10 +16183,10 @@ class CatalogsApi
      *
      * Get Catalog Variants
      *
-     * @param  string[]|null $fields_catalog_variant For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;ids&#x60;: &#x60;any&#x60;&lt;br&gt;&#x60;item.id&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;sku&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;title&#x60;: &#x60;contains&#x60;&lt;br&gt;&#x60;published&#x60;: &#x60;equals&#x60; (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#pagination (optional)
-     * @param  string|null $sort For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sorting (optional)
+     * @param  string[]|null $fields_catalog_variant For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;ids&#x60;: &#x60;any&#x60;&lt;br&gt;&#x60;item.id&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;sku&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;title&#x60;: &#x60;contains&#x60;&lt;br&gt;&#x60;published&#x60;: &#x60;equals&#x60; (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#pagination (optional)
+     * @param  string|null $sort For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sorting (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCatalogVariants'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -16207,10 +16207,10 @@ class CatalogsApi
      *
      * Get Catalog Variants
      *
-     * @param  string[]|null $fields_catalog_variant For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;ids&#x60;: &#x60;any&#x60;&lt;br&gt;&#x60;item.id&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;sku&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;title&#x60;: &#x60;contains&#x60;&lt;br&gt;&#x60;published&#x60;: &#x60;equals&#x60; (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#pagination (optional)
-     * @param  string|null $sort For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sorting (optional)
+     * @param  string[]|null $fields_catalog_variant For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;ids&#x60;: &#x60;any&#x60;&lt;br&gt;&#x60;item.id&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;sku&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;title&#x60;: &#x60;contains&#x60;&lt;br&gt;&#x60;published&#x60;: &#x60;equals&#x60; (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#pagination (optional)
+     * @param  string|null $sort For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sorting (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCatalogVariants'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -16265,10 +16265,10 @@ class CatalogsApi
     /**
      * Create request for operation 'getCatalogVariants'
      *
-     * @param  string[]|null $fields_catalog_variant For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;ids&#x60;: &#x60;any&#x60;&lt;br&gt;&#x60;item.id&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;sku&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;title&#x60;: &#x60;contains&#x60;&lt;br&gt;&#x60;published&#x60;: &#x60;equals&#x60; (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#pagination (optional)
-     * @param  string|null $sort For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sorting (optional)
+     * @param  string[]|null $fields_catalog_variant For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;ids&#x60;: &#x60;any&#x60;&lt;br&gt;&#x60;item.id&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;sku&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;title&#x60;: &#x60;contains&#x60;&lt;br&gt;&#x60;published&#x60;: &#x60;equals&#x60; (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#pagination (optional)
+     * @param  string|null $sort For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sorting (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCatalogVariants'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -16375,7 +16375,7 @@ class CatalogsApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2025-07-15'];
+        $defaultHeaders['revision'] = ['2025-10-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -16398,10 +16398,10 @@ class CatalogsApi
      * Get Categories for Catalog Item
      *
      * @param  string $id The catalog item ID is a compound ID (string), with format: &#x60;{integration}:::{catalog}:::{external_id}&#x60;. Currently, the only supported integration type is &#x60;$custom&#x60;, and the only supported catalog is &#x60;$default&#x60;. (required)
-     * @param  string[]|null $fields_catalog_category For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;ids&#x60;: &#x60;any&#x60;&lt;br&gt;&#x60;item.id&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;name&#x60;: &#x60;contains&#x60; (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#pagination (optional)
-     * @param  string|null $sort For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sorting (optional)
+     * @param  string[]|null $fields_catalog_category For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;ids&#x60;: &#x60;any&#x60;&lt;br&gt;&#x60;item.id&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;name&#x60;: &#x60;contains&#x60; (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#pagination (optional)
+     * @param  string|null $sort For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sorting (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCategoriesForCatalogItem'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -16429,10 +16429,10 @@ class CatalogsApi
      * Get Categories for Catalog Item
      *
      * @param  string $id The catalog item ID is a compound ID (string), with format: &#x60;{integration}:::{catalog}:::{external_id}&#x60;. Currently, the only supported integration type is &#x60;$custom&#x60;, and the only supported catalog is &#x60;$default&#x60;. (required)
-     * @param  string[]|null $fields_catalog_category For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;ids&#x60;: &#x60;any&#x60;&lt;br&gt;&#x60;item.id&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;name&#x60;: &#x60;contains&#x60; (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#pagination (optional)
-     * @param  string|null $sort For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sorting (optional)
+     * @param  string[]|null $fields_catalog_category For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;ids&#x60;: &#x60;any&#x60;&lt;br&gt;&#x60;item.id&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;name&#x60;: &#x60;contains&#x60; (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#pagination (optional)
+     * @param  string|null $sort For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sorting (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCategoriesForCatalogItem'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -16555,10 +16555,10 @@ class CatalogsApi
      * Get Categories for Catalog Item
      *
      * @param  string $id The catalog item ID is a compound ID (string), with format: &#x60;{integration}:::{catalog}:::{external_id}&#x60;. Currently, the only supported integration type is &#x60;$custom&#x60;, and the only supported catalog is &#x60;$default&#x60;. (required)
-     * @param  string[]|null $fields_catalog_category For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;ids&#x60;: &#x60;any&#x60;&lt;br&gt;&#x60;item.id&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;name&#x60;: &#x60;contains&#x60; (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#pagination (optional)
-     * @param  string|null $sort For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sorting (optional)
+     * @param  string[]|null $fields_catalog_category For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;ids&#x60;: &#x60;any&#x60;&lt;br&gt;&#x60;item.id&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;name&#x60;: &#x60;contains&#x60; (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#pagination (optional)
+     * @param  string|null $sort For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sorting (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCategoriesForCatalogItem'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -16589,10 +16589,10 @@ class CatalogsApi
      * Get Categories for Catalog Item
      *
      * @param  string $id The catalog item ID is a compound ID (string), with format: &#x60;{integration}:::{catalog}:::{external_id}&#x60;. Currently, the only supported integration type is &#x60;$custom&#x60;, and the only supported catalog is &#x60;$default&#x60;. (required)
-     * @param  string[]|null $fields_catalog_category For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;ids&#x60;: &#x60;any&#x60;&lt;br&gt;&#x60;item.id&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;name&#x60;: &#x60;contains&#x60; (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#pagination (optional)
-     * @param  string|null $sort For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sorting (optional)
+     * @param  string[]|null $fields_catalog_category For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;ids&#x60;: &#x60;any&#x60;&lt;br&gt;&#x60;item.id&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;name&#x60;: &#x60;contains&#x60; (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#pagination (optional)
+     * @param  string|null $sort For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sorting (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCategoriesForCatalogItem'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -16657,10 +16657,10 @@ class CatalogsApi
      * Create request for operation 'getCategoriesForCatalogItem'
      *
      * @param  string $id The catalog item ID is a compound ID (string), with format: &#x60;{integration}:::{catalog}:::{external_id}&#x60;. Currently, the only supported integration type is &#x60;$custom&#x60;, and the only supported catalog is &#x60;$default&#x60;. (required)
-     * @param  string[]|null $fields_catalog_category For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;ids&#x60;: &#x60;any&#x60;&lt;br&gt;&#x60;item.id&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;name&#x60;: &#x60;contains&#x60; (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#pagination (optional)
-     * @param  string|null $sort For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sorting (optional)
+     * @param  string[]|null $fields_catalog_category For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;ids&#x60;: &#x60;any&#x60;&lt;br&gt;&#x60;item.id&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;name&#x60;: &#x60;contains&#x60; (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#pagination (optional)
+     * @param  string|null $sort For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sorting (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCategoriesForCatalogItem'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -16782,7 +16782,7 @@ class CatalogsApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2025-07-15'];
+        $defaultHeaders['revision'] = ['2025-10-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -16814,9 +16814,9 @@ class CatalogsApi
      * Get Category IDs for Catalog Item
      *
      * @param  string $id The catalog item ID is a compound ID (string), with format: &#x60;{integration}:::{catalog}:::{external_id}&#x60;. Currently, the only supported integration type is &#x60;$custom&#x60;, and the only supported catalog is &#x60;$default&#x60;. (required)
-     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;ids&#x60;: &#x60;any&#x60;&lt;br&gt;&#x60;item.id&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;name&#x60;: &#x60;contains&#x60; (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#pagination (optional)
-     * @param  string|null $sort For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sorting (optional)
+     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;ids&#x60;: &#x60;any&#x60;&lt;br&gt;&#x60;item.id&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;name&#x60;: &#x60;contains&#x60; (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#pagination (optional)
+     * @param  string|null $sort For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sorting (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCategoryIdsForCatalogItem'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -16844,9 +16844,9 @@ class CatalogsApi
      * Get Category IDs for Catalog Item
      *
      * @param  string $id The catalog item ID is a compound ID (string), with format: &#x60;{integration}:::{catalog}:::{external_id}&#x60;. Currently, the only supported integration type is &#x60;$custom&#x60;, and the only supported catalog is &#x60;$default&#x60;. (required)
-     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;ids&#x60;: &#x60;any&#x60;&lt;br&gt;&#x60;item.id&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;name&#x60;: &#x60;contains&#x60; (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#pagination (optional)
-     * @param  string|null $sort For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sorting (optional)
+     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;ids&#x60;: &#x60;any&#x60;&lt;br&gt;&#x60;item.id&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;name&#x60;: &#x60;contains&#x60; (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#pagination (optional)
+     * @param  string|null $sort For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sorting (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCategoryIdsForCatalogItem'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -16969,9 +16969,9 @@ class CatalogsApi
      * Get Category IDs for Catalog Item
      *
      * @param  string $id The catalog item ID is a compound ID (string), with format: &#x60;{integration}:::{catalog}:::{external_id}&#x60;. Currently, the only supported integration type is &#x60;$custom&#x60;, and the only supported catalog is &#x60;$default&#x60;. (required)
-     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;ids&#x60;: &#x60;any&#x60;&lt;br&gt;&#x60;item.id&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;name&#x60;: &#x60;contains&#x60; (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#pagination (optional)
-     * @param  string|null $sort For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sorting (optional)
+     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;ids&#x60;: &#x60;any&#x60;&lt;br&gt;&#x60;item.id&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;name&#x60;: &#x60;contains&#x60; (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#pagination (optional)
+     * @param  string|null $sort For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sorting (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCategoryIdsForCatalogItem'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -17002,9 +17002,9 @@ class CatalogsApi
      * Get Category IDs for Catalog Item
      *
      * @param  string $id The catalog item ID is a compound ID (string), with format: &#x60;{integration}:::{catalog}:::{external_id}&#x60;. Currently, the only supported integration type is &#x60;$custom&#x60;, and the only supported catalog is &#x60;$default&#x60;. (required)
-     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;ids&#x60;: &#x60;any&#x60;&lt;br&gt;&#x60;item.id&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;name&#x60;: &#x60;contains&#x60; (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#pagination (optional)
-     * @param  string|null $sort For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sorting (optional)
+     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;ids&#x60;: &#x60;any&#x60;&lt;br&gt;&#x60;item.id&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;name&#x60;: &#x60;contains&#x60; (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#pagination (optional)
+     * @param  string|null $sort For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sorting (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCategoryIdsForCatalogItem'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -17069,9 +17069,9 @@ class CatalogsApi
      * Create request for operation 'getCategoryIdsForCatalogItem'
      *
      * @param  string $id The catalog item ID is a compound ID (string), with format: &#x60;{integration}:::{catalog}:::{external_id}&#x60;. Currently, the only supported integration type is &#x60;$custom&#x60;, and the only supported catalog is &#x60;$default&#x60;. (required)
-     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;ids&#x60;: &#x60;any&#x60;&lt;br&gt;&#x60;item.id&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;name&#x60;: &#x60;contains&#x60; (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#pagination (optional)
-     * @param  string|null $sort For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sorting (optional)
+     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;ids&#x60;: &#x60;any&#x60;&lt;br&gt;&#x60;item.id&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;name&#x60;: &#x60;contains&#x60; (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#pagination (optional)
+     * @param  string|null $sort For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sorting (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCategoryIdsForCatalogItem'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -17183,7 +17183,7 @@ class CatalogsApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2025-07-15'];
+        $defaultHeaders['revision'] = ['2025-10-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -17215,9 +17215,9 @@ class CatalogsApi
      * Get Item IDs for Catalog Category
      *
      * @param  string $id The catalog category ID is a compound ID (string), with format: &#x60;{integration}:::{catalog}:::{external_id}&#x60;. Currently, the only supported integration type is &#x60;$custom&#x60;, and the only supported catalog is &#x60;$default&#x60;. (required)
-     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;ids&#x60;: &#x60;any&#x60;&lt;br&gt;&#x60;category.id&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;title&#x60;: &#x60;contains&#x60;&lt;br&gt;&#x60;published&#x60;: &#x60;equals&#x60; (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#pagination (optional)
-     * @param  string|null $sort For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sorting (optional)
+     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;ids&#x60;: &#x60;any&#x60;&lt;br&gt;&#x60;category.id&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;title&#x60;: &#x60;contains&#x60;&lt;br&gt;&#x60;published&#x60;: &#x60;equals&#x60; (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#pagination (optional)
+     * @param  string|null $sort For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sorting (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getItemIdsForCatalogCategory'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -17245,9 +17245,9 @@ class CatalogsApi
      * Get Item IDs for Catalog Category
      *
      * @param  string $id The catalog category ID is a compound ID (string), with format: &#x60;{integration}:::{catalog}:::{external_id}&#x60;. Currently, the only supported integration type is &#x60;$custom&#x60;, and the only supported catalog is &#x60;$default&#x60;. (required)
-     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;ids&#x60;: &#x60;any&#x60;&lt;br&gt;&#x60;category.id&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;title&#x60;: &#x60;contains&#x60;&lt;br&gt;&#x60;published&#x60;: &#x60;equals&#x60; (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#pagination (optional)
-     * @param  string|null $sort For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sorting (optional)
+     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;ids&#x60;: &#x60;any&#x60;&lt;br&gt;&#x60;category.id&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;title&#x60;: &#x60;contains&#x60;&lt;br&gt;&#x60;published&#x60;: &#x60;equals&#x60; (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#pagination (optional)
+     * @param  string|null $sort For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sorting (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getItemIdsForCatalogCategory'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -17370,9 +17370,9 @@ class CatalogsApi
      * Get Item IDs for Catalog Category
      *
      * @param  string $id The catalog category ID is a compound ID (string), with format: &#x60;{integration}:::{catalog}:::{external_id}&#x60;. Currently, the only supported integration type is &#x60;$custom&#x60;, and the only supported catalog is &#x60;$default&#x60;. (required)
-     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;ids&#x60;: &#x60;any&#x60;&lt;br&gt;&#x60;category.id&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;title&#x60;: &#x60;contains&#x60;&lt;br&gt;&#x60;published&#x60;: &#x60;equals&#x60; (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#pagination (optional)
-     * @param  string|null $sort For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sorting (optional)
+     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;ids&#x60;: &#x60;any&#x60;&lt;br&gt;&#x60;category.id&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;title&#x60;: &#x60;contains&#x60;&lt;br&gt;&#x60;published&#x60;: &#x60;equals&#x60; (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#pagination (optional)
+     * @param  string|null $sort For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sorting (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getItemIdsForCatalogCategory'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -17403,9 +17403,9 @@ class CatalogsApi
      * Get Item IDs for Catalog Category
      *
      * @param  string $id The catalog category ID is a compound ID (string), with format: &#x60;{integration}:::{catalog}:::{external_id}&#x60;. Currently, the only supported integration type is &#x60;$custom&#x60;, and the only supported catalog is &#x60;$default&#x60;. (required)
-     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;ids&#x60;: &#x60;any&#x60;&lt;br&gt;&#x60;category.id&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;title&#x60;: &#x60;contains&#x60;&lt;br&gt;&#x60;published&#x60;: &#x60;equals&#x60; (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#pagination (optional)
-     * @param  string|null $sort For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sorting (optional)
+     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;ids&#x60;: &#x60;any&#x60;&lt;br&gt;&#x60;category.id&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;title&#x60;: &#x60;contains&#x60;&lt;br&gt;&#x60;published&#x60;: &#x60;equals&#x60; (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#pagination (optional)
+     * @param  string|null $sort For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sorting (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getItemIdsForCatalogCategory'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -17470,9 +17470,9 @@ class CatalogsApi
      * Create request for operation 'getItemIdsForCatalogCategory'
      *
      * @param  string $id The catalog category ID is a compound ID (string), with format: &#x60;{integration}:::{catalog}:::{external_id}&#x60;. Currently, the only supported integration type is &#x60;$custom&#x60;, and the only supported catalog is &#x60;$default&#x60;. (required)
-     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;ids&#x60;: &#x60;any&#x60;&lt;br&gt;&#x60;category.id&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;title&#x60;: &#x60;contains&#x60;&lt;br&gt;&#x60;published&#x60;: &#x60;equals&#x60; (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#pagination (optional)
-     * @param  string|null $sort For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sorting (optional)
+     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;ids&#x60;: &#x60;any&#x60;&lt;br&gt;&#x60;category.id&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;title&#x60;: &#x60;contains&#x60;&lt;br&gt;&#x60;published&#x60;: &#x60;equals&#x60; (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#pagination (optional)
+     * @param  string|null $sort For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sorting (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getItemIdsForCatalogCategory'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -17584,7 +17584,7 @@ class CatalogsApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2025-07-15'];
+        $defaultHeaders['revision'] = ['2025-10-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -17616,12 +17616,12 @@ class CatalogsApi
      * Get Items for Catalog Category
      *
      * @param  string $id The catalog category ID is a compound ID (string), with format: &#x60;{integration}:::{catalog}:::{external_id}&#x60;. Currently, the only supported integration type is &#x60;$custom&#x60;, and the only supported catalog is &#x60;$default&#x60;. (required)
-     * @param  string[]|null $fields_catalog_item For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_catalog_variant For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;ids&#x60;: &#x60;any&#x60;&lt;br&gt;&#x60;category.id&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;title&#x60;: &#x60;contains&#x60;&lt;br&gt;&#x60;published&#x60;: &#x60;equals&#x60; (optional)
-     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#relationships (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#pagination (optional)
-     * @param  string|null $sort For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sorting (optional)
+     * @param  string[]|null $fields_catalog_item For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_catalog_variant For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;ids&#x60;: &#x60;any&#x60;&lt;br&gt;&#x60;category.id&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;title&#x60;: &#x60;contains&#x60;&lt;br&gt;&#x60;published&#x60;: &#x60;equals&#x60; (optional)
+     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#relationships (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#pagination (optional)
+     * @param  string|null $sort For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sorting (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getItemsForCatalogCategory'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -17649,12 +17649,12 @@ class CatalogsApi
      * Get Items for Catalog Category
      *
      * @param  string $id The catalog category ID is a compound ID (string), with format: &#x60;{integration}:::{catalog}:::{external_id}&#x60;. Currently, the only supported integration type is &#x60;$custom&#x60;, and the only supported catalog is &#x60;$default&#x60;. (required)
-     * @param  string[]|null $fields_catalog_item For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_catalog_variant For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;ids&#x60;: &#x60;any&#x60;&lt;br&gt;&#x60;category.id&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;title&#x60;: &#x60;contains&#x60;&lt;br&gt;&#x60;published&#x60;: &#x60;equals&#x60; (optional)
-     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#relationships (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#pagination (optional)
-     * @param  string|null $sort For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sorting (optional)
+     * @param  string[]|null $fields_catalog_item For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_catalog_variant For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;ids&#x60;: &#x60;any&#x60;&lt;br&gt;&#x60;category.id&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;title&#x60;: &#x60;contains&#x60;&lt;br&gt;&#x60;published&#x60;: &#x60;equals&#x60; (optional)
+     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#relationships (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#pagination (optional)
+     * @param  string|null $sort For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sorting (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getItemsForCatalogCategory'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -17777,12 +17777,12 @@ class CatalogsApi
      * Get Items for Catalog Category
      *
      * @param  string $id The catalog category ID is a compound ID (string), with format: &#x60;{integration}:::{catalog}:::{external_id}&#x60;. Currently, the only supported integration type is &#x60;$custom&#x60;, and the only supported catalog is &#x60;$default&#x60;. (required)
-     * @param  string[]|null $fields_catalog_item For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_catalog_variant For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;ids&#x60;: &#x60;any&#x60;&lt;br&gt;&#x60;category.id&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;title&#x60;: &#x60;contains&#x60;&lt;br&gt;&#x60;published&#x60;: &#x60;equals&#x60; (optional)
-     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#relationships (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#pagination (optional)
-     * @param  string|null $sort For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sorting (optional)
+     * @param  string[]|null $fields_catalog_item For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_catalog_variant For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;ids&#x60;: &#x60;any&#x60;&lt;br&gt;&#x60;category.id&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;title&#x60;: &#x60;contains&#x60;&lt;br&gt;&#x60;published&#x60;: &#x60;equals&#x60; (optional)
+     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#relationships (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#pagination (optional)
+     * @param  string|null $sort For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sorting (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getItemsForCatalogCategory'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -17813,12 +17813,12 @@ class CatalogsApi
      * Get Items for Catalog Category
      *
      * @param  string $id The catalog category ID is a compound ID (string), with format: &#x60;{integration}:::{catalog}:::{external_id}&#x60;. Currently, the only supported integration type is &#x60;$custom&#x60;, and the only supported catalog is &#x60;$default&#x60;. (required)
-     * @param  string[]|null $fields_catalog_item For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_catalog_variant For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;ids&#x60;: &#x60;any&#x60;&lt;br&gt;&#x60;category.id&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;title&#x60;: &#x60;contains&#x60;&lt;br&gt;&#x60;published&#x60;: &#x60;equals&#x60; (optional)
-     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#relationships (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#pagination (optional)
-     * @param  string|null $sort For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sorting (optional)
+     * @param  string[]|null $fields_catalog_item For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_catalog_variant For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;ids&#x60;: &#x60;any&#x60;&lt;br&gt;&#x60;category.id&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;title&#x60;: &#x60;contains&#x60;&lt;br&gt;&#x60;published&#x60;: &#x60;equals&#x60; (optional)
+     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#relationships (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#pagination (optional)
+     * @param  string|null $sort For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sorting (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getItemsForCatalogCategory'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -17883,12 +17883,12 @@ class CatalogsApi
      * Create request for operation 'getItemsForCatalogCategory'
      *
      * @param  string $id The catalog category ID is a compound ID (string), with format: &#x60;{integration}:::{catalog}:::{external_id}&#x60;. Currently, the only supported integration type is &#x60;$custom&#x60;, and the only supported catalog is &#x60;$default&#x60;. (required)
-     * @param  string[]|null $fields_catalog_item For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_catalog_variant For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;ids&#x60;: &#x60;any&#x60;&lt;br&gt;&#x60;category.id&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;title&#x60;: &#x60;contains&#x60;&lt;br&gt;&#x60;published&#x60;: &#x60;equals&#x60; (optional)
-     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#relationships (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#pagination (optional)
-     * @param  string|null $sort For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sorting (optional)
+     * @param  string[]|null $fields_catalog_item For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_catalog_variant For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;ids&#x60;: &#x60;any&#x60;&lt;br&gt;&#x60;category.id&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;title&#x60;: &#x60;contains&#x60;&lt;br&gt;&#x60;published&#x60;: &#x60;equals&#x60; (optional)
+     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#relationships (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#pagination (optional)
+     * @param  string|null $sort For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sorting (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getItemsForCatalogCategory'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -18030,7 +18030,7 @@ class CatalogsApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2025-07-15'];
+        $defaultHeaders['revision'] = ['2025-10-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -18062,9 +18062,9 @@ class CatalogsApi
      * Get Variant IDs for Catalog Item
      *
      * @param  string $id The catalog item ID is a compound ID (string), with format: &#x60;{integration}:::{catalog}:::{external_id}&#x60;. Currently, the only supported integration type is &#x60;$custom&#x60;, and the only supported catalog is &#x60;$default&#x60;. (required)
-     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;ids&#x60;: &#x60;any&#x60;&lt;br&gt;&#x60;item.id&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;sku&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;title&#x60;: &#x60;contains&#x60;&lt;br&gt;&#x60;published&#x60;: &#x60;equals&#x60; (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#pagination (optional)
-     * @param  string|null $sort For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sorting (optional)
+     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;ids&#x60;: &#x60;any&#x60;&lt;br&gt;&#x60;item.id&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;sku&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;title&#x60;: &#x60;contains&#x60;&lt;br&gt;&#x60;published&#x60;: &#x60;equals&#x60; (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#pagination (optional)
+     * @param  string|null $sort For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sorting (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getVariantIdsForCatalogItem'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -18092,9 +18092,9 @@ class CatalogsApi
      * Get Variant IDs for Catalog Item
      *
      * @param  string $id The catalog item ID is a compound ID (string), with format: &#x60;{integration}:::{catalog}:::{external_id}&#x60;. Currently, the only supported integration type is &#x60;$custom&#x60;, and the only supported catalog is &#x60;$default&#x60;. (required)
-     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;ids&#x60;: &#x60;any&#x60;&lt;br&gt;&#x60;item.id&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;sku&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;title&#x60;: &#x60;contains&#x60;&lt;br&gt;&#x60;published&#x60;: &#x60;equals&#x60; (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#pagination (optional)
-     * @param  string|null $sort For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sorting (optional)
+     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;ids&#x60;: &#x60;any&#x60;&lt;br&gt;&#x60;item.id&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;sku&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;title&#x60;: &#x60;contains&#x60;&lt;br&gt;&#x60;published&#x60;: &#x60;equals&#x60; (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#pagination (optional)
+     * @param  string|null $sort For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sorting (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getVariantIdsForCatalogItem'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -18217,9 +18217,9 @@ class CatalogsApi
      * Get Variant IDs for Catalog Item
      *
      * @param  string $id The catalog item ID is a compound ID (string), with format: &#x60;{integration}:::{catalog}:::{external_id}&#x60;. Currently, the only supported integration type is &#x60;$custom&#x60;, and the only supported catalog is &#x60;$default&#x60;. (required)
-     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;ids&#x60;: &#x60;any&#x60;&lt;br&gt;&#x60;item.id&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;sku&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;title&#x60;: &#x60;contains&#x60;&lt;br&gt;&#x60;published&#x60;: &#x60;equals&#x60; (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#pagination (optional)
-     * @param  string|null $sort For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sorting (optional)
+     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;ids&#x60;: &#x60;any&#x60;&lt;br&gt;&#x60;item.id&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;sku&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;title&#x60;: &#x60;contains&#x60;&lt;br&gt;&#x60;published&#x60;: &#x60;equals&#x60; (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#pagination (optional)
+     * @param  string|null $sort For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sorting (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getVariantIdsForCatalogItem'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -18250,9 +18250,9 @@ class CatalogsApi
      * Get Variant IDs for Catalog Item
      *
      * @param  string $id The catalog item ID is a compound ID (string), with format: &#x60;{integration}:::{catalog}:::{external_id}&#x60;. Currently, the only supported integration type is &#x60;$custom&#x60;, and the only supported catalog is &#x60;$default&#x60;. (required)
-     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;ids&#x60;: &#x60;any&#x60;&lt;br&gt;&#x60;item.id&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;sku&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;title&#x60;: &#x60;contains&#x60;&lt;br&gt;&#x60;published&#x60;: &#x60;equals&#x60; (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#pagination (optional)
-     * @param  string|null $sort For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sorting (optional)
+     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;ids&#x60;: &#x60;any&#x60;&lt;br&gt;&#x60;item.id&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;sku&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;title&#x60;: &#x60;contains&#x60;&lt;br&gt;&#x60;published&#x60;: &#x60;equals&#x60; (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#pagination (optional)
+     * @param  string|null $sort For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sorting (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getVariantIdsForCatalogItem'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -18317,9 +18317,9 @@ class CatalogsApi
      * Create request for operation 'getVariantIdsForCatalogItem'
      *
      * @param  string $id The catalog item ID is a compound ID (string), with format: &#x60;{integration}:::{catalog}:::{external_id}&#x60;. Currently, the only supported integration type is &#x60;$custom&#x60;, and the only supported catalog is &#x60;$default&#x60;. (required)
-     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;ids&#x60;: &#x60;any&#x60;&lt;br&gt;&#x60;item.id&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;sku&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;title&#x60;: &#x60;contains&#x60;&lt;br&gt;&#x60;published&#x60;: &#x60;equals&#x60; (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#pagination (optional)
-     * @param  string|null $sort For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sorting (optional)
+     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;ids&#x60;: &#x60;any&#x60;&lt;br&gt;&#x60;item.id&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;sku&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;title&#x60;: &#x60;contains&#x60;&lt;br&gt;&#x60;published&#x60;: &#x60;equals&#x60; (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#pagination (optional)
+     * @param  string|null $sort For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sorting (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getVariantIdsForCatalogItem'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -18431,7 +18431,7 @@ class CatalogsApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2025-07-15'];
+        $defaultHeaders['revision'] = ['2025-10-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -18463,10 +18463,10 @@ class CatalogsApi
      * Get Variants for Catalog Item
      *
      * @param  string $id The catalog item ID is a compound ID (string), with format: &#x60;{integration}:::{catalog}:::{external_id}&#x60;. Currently, the only supported integration type is &#x60;$custom&#x60;, and the only supported catalog is &#x60;$default&#x60;. (required)
-     * @param  string[]|null $fields_catalog_variant For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;ids&#x60;: &#x60;any&#x60;&lt;br&gt;&#x60;item.id&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;sku&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;title&#x60;: &#x60;contains&#x60;&lt;br&gt;&#x60;published&#x60;: &#x60;equals&#x60; (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#pagination (optional)
-     * @param  string|null $sort For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sorting (optional)
+     * @param  string[]|null $fields_catalog_variant For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;ids&#x60;: &#x60;any&#x60;&lt;br&gt;&#x60;item.id&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;sku&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;title&#x60;: &#x60;contains&#x60;&lt;br&gt;&#x60;published&#x60;: &#x60;equals&#x60; (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#pagination (optional)
+     * @param  string|null $sort For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sorting (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getVariantsForCatalogItem'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -18494,10 +18494,10 @@ class CatalogsApi
      * Get Variants for Catalog Item
      *
      * @param  string $id The catalog item ID is a compound ID (string), with format: &#x60;{integration}:::{catalog}:::{external_id}&#x60;. Currently, the only supported integration type is &#x60;$custom&#x60;, and the only supported catalog is &#x60;$default&#x60;. (required)
-     * @param  string[]|null $fields_catalog_variant For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;ids&#x60;: &#x60;any&#x60;&lt;br&gt;&#x60;item.id&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;sku&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;title&#x60;: &#x60;contains&#x60;&lt;br&gt;&#x60;published&#x60;: &#x60;equals&#x60; (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#pagination (optional)
-     * @param  string|null $sort For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sorting (optional)
+     * @param  string[]|null $fields_catalog_variant For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;ids&#x60;: &#x60;any&#x60;&lt;br&gt;&#x60;item.id&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;sku&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;title&#x60;: &#x60;contains&#x60;&lt;br&gt;&#x60;published&#x60;: &#x60;equals&#x60; (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#pagination (optional)
+     * @param  string|null $sort For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sorting (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getVariantsForCatalogItem'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -18620,10 +18620,10 @@ class CatalogsApi
      * Get Variants for Catalog Item
      *
      * @param  string $id The catalog item ID is a compound ID (string), with format: &#x60;{integration}:::{catalog}:::{external_id}&#x60;. Currently, the only supported integration type is &#x60;$custom&#x60;, and the only supported catalog is &#x60;$default&#x60;. (required)
-     * @param  string[]|null $fields_catalog_variant For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;ids&#x60;: &#x60;any&#x60;&lt;br&gt;&#x60;item.id&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;sku&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;title&#x60;: &#x60;contains&#x60;&lt;br&gt;&#x60;published&#x60;: &#x60;equals&#x60; (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#pagination (optional)
-     * @param  string|null $sort For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sorting (optional)
+     * @param  string[]|null $fields_catalog_variant For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;ids&#x60;: &#x60;any&#x60;&lt;br&gt;&#x60;item.id&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;sku&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;title&#x60;: &#x60;contains&#x60;&lt;br&gt;&#x60;published&#x60;: &#x60;equals&#x60; (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#pagination (optional)
+     * @param  string|null $sort For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sorting (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getVariantsForCatalogItem'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -18654,10 +18654,10 @@ class CatalogsApi
      * Get Variants for Catalog Item
      *
      * @param  string $id The catalog item ID is a compound ID (string), with format: &#x60;{integration}:::{catalog}:::{external_id}&#x60;. Currently, the only supported integration type is &#x60;$custom&#x60;, and the only supported catalog is &#x60;$default&#x60;. (required)
-     * @param  string[]|null $fields_catalog_variant For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;ids&#x60;: &#x60;any&#x60;&lt;br&gt;&#x60;item.id&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;sku&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;title&#x60;: &#x60;contains&#x60;&lt;br&gt;&#x60;published&#x60;: &#x60;equals&#x60; (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#pagination (optional)
-     * @param  string|null $sort For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sorting (optional)
+     * @param  string[]|null $fields_catalog_variant For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;ids&#x60;: &#x60;any&#x60;&lt;br&gt;&#x60;item.id&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;sku&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;title&#x60;: &#x60;contains&#x60;&lt;br&gt;&#x60;published&#x60;: &#x60;equals&#x60; (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#pagination (optional)
+     * @param  string|null $sort For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sorting (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getVariantsForCatalogItem'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -18722,10 +18722,10 @@ class CatalogsApi
      * Create request for operation 'getVariantsForCatalogItem'
      *
      * @param  string $id The catalog item ID is a compound ID (string), with format: &#x60;{integration}:::{catalog}:::{external_id}&#x60;. Currently, the only supported integration type is &#x60;$custom&#x60;, and the only supported catalog is &#x60;$default&#x60;. (required)
-     * @param  string[]|null $fields_catalog_variant For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;ids&#x60;: &#x60;any&#x60;&lt;br&gt;&#x60;item.id&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;sku&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;title&#x60;: &#x60;contains&#x60;&lt;br&gt;&#x60;published&#x60;: &#x60;equals&#x60; (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#pagination (optional)
-     * @param  string|null $sort For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sorting (optional)
+     * @param  string[]|null $fields_catalog_variant For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;ids&#x60;: &#x60;any&#x60;&lt;br&gt;&#x60;item.id&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;sku&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;title&#x60;: &#x60;contains&#x60;&lt;br&gt;&#x60;published&#x60;: &#x60;equals&#x60; (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#pagination (optional)
+     * @param  string|null $sort For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sorting (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getVariantsForCatalogItem'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -18847,7 +18847,7 @@ class CatalogsApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2025-07-15'];
+        $defaultHeaders['revision'] = ['2025-10-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -19155,7 +19155,7 @@ class CatalogsApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2025-07-15'];
+        $defaultHeaders['revision'] = ['2025-10-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -19463,7 +19463,7 @@ class CatalogsApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2025-07-15'];
+        $defaultHeaders['revision'] = ['2025-10-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -19802,7 +19802,7 @@ class CatalogsApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2025-07-15'];
+        $defaultHeaders['revision'] = ['2025-10-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -20132,7 +20132,7 @@ class CatalogsApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2025-07-15'];
+        $defaultHeaders['revision'] = ['2025-10-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -20462,7 +20462,7 @@ class CatalogsApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2025-07-15'];
+        $defaultHeaders['revision'] = ['2025-10-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -20761,7 +20761,7 @@ class CatalogsApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2025-07-15'];
+        $defaultHeaders['revision'] = ['2025-10-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -21069,7 +21069,7 @@ class CatalogsApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2025-07-15'];
+        $defaultHeaders['revision'] = ['2025-10-15'];
 
         $headers = array_merge(
             $defaultHeaders,

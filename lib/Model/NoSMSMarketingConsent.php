@@ -240,19 +240,6 @@ class NoSMSMarketingConsent implements ModelInterface, ArrayAccess, \JsonSeriali
         return self::$openAPIModelName;
     }
 
-    public const CAN_RECEIVE_MARKETING_FALSE = 'false';
-
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getCanReceiveMarketingAllowableValues()
-    {
-        return [
-            self::CAN_RECEIVE_MARKETING_FALSE,
-        ];
-    }
 
     /**
      * Associative array for storing property values
@@ -307,15 +294,6 @@ class NoSMSMarketingConsent implements ModelInterface, ArrayAccess, \JsonSeriali
         if ($this->container['can_receive_marketing'] === null) {
             $invalidProperties[] = "'can_receive_marketing' can't be null";
         }
-        $allowedValues = $this->getCanReceiveMarketingAllowableValues();
-        if (!is_null($this->container['can_receive_marketing']) && !in_array($this->container['can_receive_marketing'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value '%s' for 'can_receive_marketing', must be one of '%s'",
-                $this->container['can_receive_marketing'],
-                implode("', '", $allowedValues)
-            );
-        }
-
         if ($this->container['consent_status'] === null) {
             $invalidProperties[] = "'consent_status' can't be null";
         }
@@ -382,16 +360,6 @@ class NoSMSMarketingConsent implements ModelInterface, ArrayAccess, \JsonSeriali
     {
         if (is_null($can_receive_marketing)) {
             throw new \InvalidArgumentException('non-nullable can_receive_marketing cannot be null');
-        }
-        $allowedValues = $this->getCanReceiveMarketingAllowableValues();
-        if (!in_array($can_receive_marketing, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value '%s' for 'can_receive_marketing', must be one of '%s'",
-                    $can_receive_marketing,
-                    implode("', '", $allowedValues)
-                )
-            );
         }
         $this->container['can_receive_marketing'] = $can_receive_marketing;
 

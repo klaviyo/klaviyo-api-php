@@ -134,7 +134,7 @@ class AccountsApi
      * Get Account
      *
      * @param  string $id The ID of the account (required)
-     * @param  string[]|null $fields_account For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_account For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAccount'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -153,7 +153,7 @@ class AccountsApi
      * Get Account
      *
      * @param  string $id The ID of the account (required)
-     * @param  string[]|null $fields_account For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_account For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAccount'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -267,7 +267,7 @@ class AccountsApi
      * Get Account
      *
      * @param  string $id The ID of the account (required)
-     * @param  string[]|null $fields_account For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_account For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAccount'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -289,7 +289,7 @@ class AccountsApi
      * Get Account
      *
      * @param  string $id The ID of the account (required)
-     * @param  string[]|null $fields_account For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_account For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAccount'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -345,7 +345,7 @@ class AccountsApi
      * Create request for operation 'getAccount'
      *
      * @param  string $id The ID of the account (required)
-     * @param  string[]|null $fields_account For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_account For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAccount'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -437,7 +437,7 @@ class AccountsApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2025-07-15'];
+        $defaultHeaders['revision'] = ['2025-10-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -459,7 +459,7 @@ class AccountsApi
      *
      * Get Accounts
      *
-     * @param  string[]|null $fields_account For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_account For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAccounts'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -477,7 +477,7 @@ class AccountsApi
      *
      * Get Accounts
      *
-     * @param  string[]|null $fields_account For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_account For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAccounts'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -590,7 +590,7 @@ class AccountsApi
      *
      * Get Accounts
      *
-     * @param  string[]|null $fields_account For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_account For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAccounts'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -611,7 +611,7 @@ class AccountsApi
      *
      * Get Accounts
      *
-     * @param  string[]|null $fields_account For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_account For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAccounts'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -666,7 +666,7 @@ class AccountsApi
     /**
      * Create request for operation 'getAccounts'
      *
-     * @param  string[]|null $fields_account For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_account For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAccounts'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -743,7 +743,7 @@ class AccountsApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2025-07-15'];
+        $defaultHeaders['revision'] = ['2025-10-15'];
 
         $headers = array_merge(
             $defaultHeaders,

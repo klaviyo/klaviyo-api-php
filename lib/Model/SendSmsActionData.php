@@ -300,9 +300,6 @@ class SendSmsActionData implements ModelInterface, ArrayAccess, \JsonSerializabl
     {
         $invalidProperties = [];
 
-        if ($this->container['message'] === null) {
-            $invalidProperties[] = "'message' can't be null";
-        }
         $allowedValues = $this->getStatusAllowableValues();
         if (!is_null($this->container['status']) && !in_array($this->container['status'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
@@ -330,7 +327,7 @@ class SendSmsActionData implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Gets message
      *
-     * @return \KlaviyoAPI\Model\FlowSms
+     * @return \KlaviyoAPI\Model\FlowSms|null
      */
     public function getMessage()
     {
@@ -340,7 +337,7 @@ class SendSmsActionData implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Sets message
      *
-     * @param \KlaviyoAPI\Model\FlowSms $message message
+     * @param \KlaviyoAPI\Model\FlowSms|null $message message
      *
      * @return self
      */

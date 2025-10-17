@@ -430,7 +430,7 @@ class WebFeedsApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2025-07-15'];
+        $defaultHeaders['revision'] = ['2025-10-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -674,7 +674,7 @@ class WebFeedsApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2025-07-15'];
+        $defaultHeaders['revision'] = ['2025-10-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -697,7 +697,7 @@ class WebFeedsApi
      * Get Web Feed
      *
      * @param  string $id The ID of the web feed (required)
-     * @param  string[]|null $fields_web_feed For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_web_feed For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWebFeed'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -716,7 +716,7 @@ class WebFeedsApi
      * Get Web Feed
      *
      * @param  string $id The ID of the web feed (required)
-     * @param  string[]|null $fields_web_feed For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_web_feed For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWebFeed'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -830,7 +830,7 @@ class WebFeedsApi
      * Get Web Feed
      *
      * @param  string $id The ID of the web feed (required)
-     * @param  string[]|null $fields_web_feed For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_web_feed For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWebFeed'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -852,7 +852,7 @@ class WebFeedsApi
      * Get Web Feed
      *
      * @param  string $id The ID of the web feed (required)
-     * @param  string[]|null $fields_web_feed For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_web_feed For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWebFeed'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -908,7 +908,7 @@ class WebFeedsApi
      * Create request for operation 'getWebFeed'
      *
      * @param  string $id The ID of the web feed (required)
-     * @param  string[]|null $fields_web_feed For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_web_feed For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWebFeed'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1000,7 +1000,7 @@ class WebFeedsApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2025-07-15'];
+        $defaultHeaders['revision'] = ['2025-10-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -1022,11 +1022,11 @@ class WebFeedsApi
      *
      * Get Web Feeds
      *
-     * @param  string[]|null $fields_web_feed For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;name&#x60;: &#x60;any&#x60;, &#x60;contains&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;created&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60;&lt;br&gt;&#x60;updated&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60; (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#pagination (optional)
+     * @param  string[]|null $fields_web_feed For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;name&#x60;: &#x60;any&#x60;, &#x60;contains&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;created&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60;&lt;br&gt;&#x60;updated&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60; (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#pagination (optional)
      * @param  int|null $page_size Default: 5. Min: 1. Max: 20. (optional, default to 5)
-     * @param  string|null $sort For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sorting (optional)
+     * @param  string|null $sort For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sorting (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWebFeeds'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -1044,11 +1044,11 @@ class WebFeedsApi
      *
      * Get Web Feeds
      *
-     * @param  string[]|null $fields_web_feed For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;name&#x60;: &#x60;any&#x60;, &#x60;contains&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;created&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60;&lt;br&gt;&#x60;updated&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60; (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#pagination (optional)
+     * @param  string[]|null $fields_web_feed For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;name&#x60;: &#x60;any&#x60;, &#x60;contains&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;created&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60;&lt;br&gt;&#x60;updated&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60; (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#pagination (optional)
      * @param  int|null $page_size Default: 5. Min: 1. Max: 20. (optional, default to 5)
-     * @param  string|null $sort For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sorting (optional)
+     * @param  string|null $sort For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sorting (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWebFeeds'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -1161,11 +1161,11 @@ class WebFeedsApi
      *
      * Get Web Feeds
      *
-     * @param  string[]|null $fields_web_feed For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;name&#x60;: &#x60;any&#x60;, &#x60;contains&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;created&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60;&lt;br&gt;&#x60;updated&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60; (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#pagination (optional)
+     * @param  string[]|null $fields_web_feed For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;name&#x60;: &#x60;any&#x60;, &#x60;contains&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;created&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60;&lt;br&gt;&#x60;updated&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60; (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#pagination (optional)
      * @param  int|null $page_size Default: 5. Min: 1. Max: 20. (optional, default to 5)
-     * @param  string|null $sort For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sorting (optional)
+     * @param  string|null $sort For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sorting (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWebFeeds'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1186,11 +1186,11 @@ class WebFeedsApi
      *
      * Get Web Feeds
      *
-     * @param  string[]|null $fields_web_feed For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;name&#x60;: &#x60;any&#x60;, &#x60;contains&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;created&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60;&lt;br&gt;&#x60;updated&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60; (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#pagination (optional)
+     * @param  string[]|null $fields_web_feed For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;name&#x60;: &#x60;any&#x60;, &#x60;contains&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;created&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60;&lt;br&gt;&#x60;updated&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60; (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#pagination (optional)
      * @param  int|null $page_size Default: 5. Min: 1. Max: 20. (optional, default to 5)
-     * @param  string|null $sort For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sorting (optional)
+     * @param  string|null $sort For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sorting (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWebFeeds'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1245,11 +1245,11 @@ class WebFeedsApi
     /**
      * Create request for operation 'getWebFeeds'
      *
-     * @param  string[]|null $fields_web_feed For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;name&#x60;: &#x60;any&#x60;, &#x60;contains&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;created&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60;&lt;br&gt;&#x60;updated&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60; (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#pagination (optional)
+     * @param  string[]|null $fields_web_feed For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;name&#x60;: &#x60;any&#x60;, &#x60;contains&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;created&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60;&lt;br&gt;&#x60;updated&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60; (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#pagination (optional)
      * @param  int|null $page_size Default: 5. Min: 1. Max: 20. (optional, default to 5)
-     * @param  string|null $sort For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sorting (optional)
+     * @param  string|null $sort For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sorting (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWebFeeds'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1372,7 +1372,7 @@ class WebFeedsApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2025-07-15'];
+        $defaultHeaders['revision'] = ['2025-10-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -1702,7 +1702,7 @@ class WebFeedsApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2025-07-15'];
+        $defaultHeaders['revision'] = ['2025-10-15'];
 
         $headers = array_merge(
             $defaultHeaders,

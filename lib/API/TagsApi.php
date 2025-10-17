@@ -493,7 +493,7 @@ class TagsApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2025-07-15'];
+        $defaultHeaders['revision'] = ['2025-10-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -803,7 +803,7 @@ class TagsApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2025-07-15'];
+        $defaultHeaders['revision'] = ['2025-10-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -1047,7 +1047,7 @@ class TagsApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2025-07-15'];
+        $defaultHeaders['revision'] = ['2025-10-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -1358,7 +1358,7 @@ class TagsApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2025-07-15'];
+        $defaultHeaders['revision'] = ['2025-10-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -1705,7 +1705,7 @@ class TagsApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2025-07-15'];
+        $defaultHeaders['revision'] = ['2025-10-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -2061,7 +2061,7 @@ class TagsApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2025-07-15'];
+        $defaultHeaders['revision'] = ['2025-10-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -2417,7 +2417,7 @@ class TagsApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2025-07-15'];
+        $defaultHeaders['revision'] = ['2025-10-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -2773,7 +2773,7 @@ class TagsApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2025-07-15'];
+        $defaultHeaders['revision'] = ['2025-10-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -2805,9 +2805,9 @@ class TagsApi
      * Get Tag
      *
      * @param  string $id The Tag ID (required)
-     * @param  string[]|null $fields_tag_group For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_tag For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#relationships (optional)
+     * @param  string[]|null $fields_tag_group For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_tag For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#relationships (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTag'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -2826,9 +2826,9 @@ class TagsApi
      * Get Tag
      *
      * @param  string $id The Tag ID (required)
-     * @param  string[]|null $fields_tag_group For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_tag For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#relationships (optional)
+     * @param  string[]|null $fields_tag_group For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_tag For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#relationships (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTag'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -2942,9 +2942,9 @@ class TagsApi
      * Get Tag
      *
      * @param  string $id The Tag ID (required)
-     * @param  string[]|null $fields_tag_group For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_tag For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#relationships (optional)
+     * @param  string[]|null $fields_tag_group For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_tag For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#relationships (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTag'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -2966,9 +2966,9 @@ class TagsApi
      * Get Tag
      *
      * @param  string $id The Tag ID (required)
-     * @param  string[]|null $fields_tag_group For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_tag For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#relationships (optional)
+     * @param  string[]|null $fields_tag_group For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_tag For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#relationships (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTag'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -3024,9 +3024,9 @@ class TagsApi
      * Create request for operation 'getTag'
      *
      * @param  string $id The Tag ID (required)
-     * @param  string[]|null $fields_tag_group For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_tag For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#relationships (optional)
+     * @param  string[]|null $fields_tag_group For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_tag For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#relationships (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTag'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -3138,7 +3138,7 @@ class TagsApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2025-07-15'];
+        $defaultHeaders['revision'] = ['2025-10-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -3161,7 +3161,7 @@ class TagsApi
      * Get Tag Group
      *
      * @param  string $id The Tag Group ID (required)
-     * @param  string[]|null $fields_tag_group For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_tag_group For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTagGroup'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -3180,7 +3180,7 @@ class TagsApi
      * Get Tag Group
      *
      * @param  string $id The Tag Group ID (required)
-     * @param  string[]|null $fields_tag_group For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_tag_group For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTagGroup'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -3294,7 +3294,7 @@ class TagsApi
      * Get Tag Group
      *
      * @param  string $id The Tag Group ID (required)
-     * @param  string[]|null $fields_tag_group For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_tag_group For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTagGroup'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -3316,7 +3316,7 @@ class TagsApi
      * Get Tag Group
      *
      * @param  string $id The Tag Group ID (required)
-     * @param  string[]|null $fields_tag_group For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_tag_group For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTagGroup'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -3372,7 +3372,7 @@ class TagsApi
      * Create request for operation 'getTagGroup'
      *
      * @param  string $id The Tag Group ID (required)
-     * @param  string[]|null $fields_tag_group For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_tag_group For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTagGroup'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -3464,7 +3464,7 @@ class TagsApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2025-07-15'];
+        $defaultHeaders['revision'] = ['2025-10-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -3487,7 +3487,7 @@ class TagsApi
      * Get Tag Group for Tag
      *
      * @param  string $id The Tag ID (required)
-     * @param  string[]|null $fields_tag_group For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_tag_group For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTagGroupForTag'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -3524,7 +3524,7 @@ class TagsApi
      * Get Tag Group for Tag
      *
      * @param  string $id The Tag ID (required)
-     * @param  string[]|null $fields_tag_group For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_tag_group For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTagGroupForTag'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -3656,7 +3656,7 @@ class TagsApi
      * Get Tag Group for Tag
      *
      * @param  string $id The Tag ID (required)
-     * @param  string[]|null $fields_tag_group For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_tag_group For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTagGroupForTag'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -3696,7 +3696,7 @@ class TagsApi
      * Get Tag Group for Tag
      *
      * @param  string $id The Tag ID (required)
-     * @param  string[]|null $fields_tag_group For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_tag_group For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTagGroupForTag'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -3770,7 +3770,7 @@ class TagsApi
      * Create request for operation 'getTagGroupForTag'
      *
      * @param  string $id The Tag ID (required)
-     * @param  string[]|null $fields_tag_group For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_tag_group For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTagGroupForTag'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -3862,7 +3862,7 @@ class TagsApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2025-07-15'];
+        $defaultHeaders['revision'] = ['2025-10-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -4299,7 +4299,7 @@ class TagsApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2025-07-15'];
+        $defaultHeaders['revision'] = ['2025-10-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -4348,10 +4348,10 @@ class TagsApi
      *
      * Get Tag Groups
      *
-     * @param  string[]|null $fields_tag_group For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;name&#x60;: &#x60;contains&#x60;, &#x60;ends-with&#x60;, &#x60;equals&#x60;, &#x60;starts-with&#x60;&lt;br&gt;&#x60;exclusive&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;default&#x60;: &#x60;equals&#x60; (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#pagination (optional)
-     * @param  string|null $sort For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sorting (optional)
+     * @param  string[]|null $fields_tag_group For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;name&#x60;: &#x60;contains&#x60;, &#x60;ends-with&#x60;, &#x60;equals&#x60;, &#x60;starts-with&#x60;&lt;br&gt;&#x60;exclusive&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;default&#x60;: &#x60;equals&#x60; (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#pagination (optional)
+     * @param  string|null $sort For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sorting (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTagGroups'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -4369,10 +4369,10 @@ class TagsApi
      *
      * Get Tag Groups
      *
-     * @param  string[]|null $fields_tag_group For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;name&#x60;: &#x60;contains&#x60;, &#x60;ends-with&#x60;, &#x60;equals&#x60;, &#x60;starts-with&#x60;&lt;br&gt;&#x60;exclusive&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;default&#x60;: &#x60;equals&#x60; (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#pagination (optional)
-     * @param  string|null $sort For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sorting (optional)
+     * @param  string[]|null $fields_tag_group For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;name&#x60;: &#x60;contains&#x60;, &#x60;ends-with&#x60;, &#x60;equals&#x60;, &#x60;starts-with&#x60;&lt;br&gt;&#x60;exclusive&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;default&#x60;: &#x60;equals&#x60; (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#pagination (optional)
+     * @param  string|null $sort For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sorting (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTagGroups'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -4485,10 +4485,10 @@ class TagsApi
      *
      * Get Tag Groups
      *
-     * @param  string[]|null $fields_tag_group For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;name&#x60;: &#x60;contains&#x60;, &#x60;ends-with&#x60;, &#x60;equals&#x60;, &#x60;starts-with&#x60;&lt;br&gt;&#x60;exclusive&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;default&#x60;: &#x60;equals&#x60; (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#pagination (optional)
-     * @param  string|null $sort For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sorting (optional)
+     * @param  string[]|null $fields_tag_group For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;name&#x60;: &#x60;contains&#x60;, &#x60;ends-with&#x60;, &#x60;equals&#x60;, &#x60;starts-with&#x60;&lt;br&gt;&#x60;exclusive&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;default&#x60;: &#x60;equals&#x60; (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#pagination (optional)
+     * @param  string|null $sort For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sorting (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTagGroups'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -4509,10 +4509,10 @@ class TagsApi
      *
      * Get Tag Groups
      *
-     * @param  string[]|null $fields_tag_group For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;name&#x60;: &#x60;contains&#x60;, &#x60;ends-with&#x60;, &#x60;equals&#x60;, &#x60;starts-with&#x60;&lt;br&gt;&#x60;exclusive&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;default&#x60;: &#x60;equals&#x60; (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#pagination (optional)
-     * @param  string|null $sort For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sorting (optional)
+     * @param  string[]|null $fields_tag_group For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;name&#x60;: &#x60;contains&#x60;, &#x60;ends-with&#x60;, &#x60;equals&#x60;, &#x60;starts-with&#x60;&lt;br&gt;&#x60;exclusive&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;default&#x60;: &#x60;equals&#x60; (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#pagination (optional)
+     * @param  string|null $sort For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sorting (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTagGroups'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -4567,10 +4567,10 @@ class TagsApi
     /**
      * Create request for operation 'getTagGroups'
      *
-     * @param  string[]|null $fields_tag_group For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;name&#x60;: &#x60;contains&#x60;, &#x60;ends-with&#x60;, &#x60;equals&#x60;, &#x60;starts-with&#x60;&lt;br&gt;&#x60;exclusive&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;default&#x60;: &#x60;equals&#x60; (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#pagination (optional)
-     * @param  string|null $sort For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sorting (optional)
+     * @param  string[]|null $fields_tag_group For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;name&#x60;: &#x60;contains&#x60;, &#x60;ends-with&#x60;, &#x60;equals&#x60;, &#x60;starts-with&#x60;&lt;br&gt;&#x60;exclusive&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;default&#x60;: &#x60;equals&#x60; (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#pagination (optional)
+     * @param  string|null $sort For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sorting (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTagGroups'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -4677,7 +4677,7 @@ class TagsApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2025-07-15'];
+        $defaultHeaders['revision'] = ['2025-10-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -5024,7 +5024,7 @@ class TagsApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2025-07-15'];
+        $defaultHeaders['revision'] = ['2025-10-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -5055,12 +5055,12 @@ class TagsApi
      *
      * Get Tags
      *
-     * @param  string[]|null $fields_tag_group For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_tag For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;name&#x60;: &#x60;contains&#x60;, &#x60;ends-with&#x60;, &#x60;equals&#x60;, &#x60;starts-with&#x60; (optional)
-     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#relationships (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#pagination (optional)
-     * @param  string|null $sort For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sorting (optional)
+     * @param  string[]|null $fields_tag_group For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_tag For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;name&#x60;: &#x60;contains&#x60;, &#x60;ends-with&#x60;, &#x60;equals&#x60;, &#x60;starts-with&#x60; (optional)
+     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#relationships (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#pagination (optional)
+     * @param  string|null $sort For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sorting (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTags'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -5078,12 +5078,12 @@ class TagsApi
      *
      * Get Tags
      *
-     * @param  string[]|null $fields_tag_group For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_tag For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;name&#x60;: &#x60;contains&#x60;, &#x60;ends-with&#x60;, &#x60;equals&#x60;, &#x60;starts-with&#x60; (optional)
-     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#relationships (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#pagination (optional)
-     * @param  string|null $sort For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sorting (optional)
+     * @param  string[]|null $fields_tag_group For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_tag For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;name&#x60;: &#x60;contains&#x60;, &#x60;ends-with&#x60;, &#x60;equals&#x60;, &#x60;starts-with&#x60; (optional)
+     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#relationships (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#pagination (optional)
+     * @param  string|null $sort For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sorting (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTags'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -5196,12 +5196,12 @@ class TagsApi
      *
      * Get Tags
      *
-     * @param  string[]|null $fields_tag_group For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_tag For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;name&#x60;: &#x60;contains&#x60;, &#x60;ends-with&#x60;, &#x60;equals&#x60;, &#x60;starts-with&#x60; (optional)
-     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#relationships (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#pagination (optional)
-     * @param  string|null $sort For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sorting (optional)
+     * @param  string[]|null $fields_tag_group For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_tag For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;name&#x60;: &#x60;contains&#x60;, &#x60;ends-with&#x60;, &#x60;equals&#x60;, &#x60;starts-with&#x60; (optional)
+     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#relationships (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#pagination (optional)
+     * @param  string|null $sort For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sorting (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTags'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -5222,12 +5222,12 @@ class TagsApi
      *
      * Get Tags
      *
-     * @param  string[]|null $fields_tag_group For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_tag For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;name&#x60;: &#x60;contains&#x60;, &#x60;ends-with&#x60;, &#x60;equals&#x60;, &#x60;starts-with&#x60; (optional)
-     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#relationships (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#pagination (optional)
-     * @param  string|null $sort For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sorting (optional)
+     * @param  string[]|null $fields_tag_group For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_tag For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;name&#x60;: &#x60;contains&#x60;, &#x60;ends-with&#x60;, &#x60;equals&#x60;, &#x60;starts-with&#x60; (optional)
+     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#relationships (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#pagination (optional)
+     * @param  string|null $sort For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sorting (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTags'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -5282,12 +5282,12 @@ class TagsApi
     /**
      * Create request for operation 'getTags'
      *
-     * @param  string[]|null $fields_tag_group For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_tag For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;name&#x60;: &#x60;contains&#x60;, &#x60;ends-with&#x60;, &#x60;equals&#x60;, &#x60;starts-with&#x60; (optional)
-     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#relationships (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#pagination (optional)
-     * @param  string|null $sort For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sorting (optional)
+     * @param  string[]|null $fields_tag_group For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_tag For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;name&#x60;: &#x60;contains&#x60;, &#x60;ends-with&#x60;, &#x60;equals&#x60;, &#x60;starts-with&#x60; (optional)
+     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#relationships (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#pagination (optional)
+     * @param  string|null $sort For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sorting (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTags'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -5414,7 +5414,7 @@ class TagsApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2025-07-15'];
+        $defaultHeaders['revision'] = ['2025-10-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -5437,7 +5437,7 @@ class TagsApi
      * Get Tags for Tag Group
      *
      * @param  string $id The Tag Group ID (required)
-     * @param  string[]|null $fields_tag For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_tag For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTagsForTagGroup'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -5465,7 +5465,7 @@ class TagsApi
      * Get Tags for Tag Group
      *
      * @param  string $id The Tag Group ID (required)
-     * @param  string[]|null $fields_tag For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_tag For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTagsForTagGroup'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -5588,7 +5588,7 @@ class TagsApi
      * Get Tags for Tag Group
      *
      * @param  string $id The Tag Group ID (required)
-     * @param  string[]|null $fields_tag For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_tag For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTagsForTagGroup'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -5619,7 +5619,7 @@ class TagsApi
      * Get Tags for Tag Group
      *
      * @param  string $id The Tag Group ID (required)
-     * @param  string[]|null $fields_tag For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_tag For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTagsForTagGroup'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -5684,7 +5684,7 @@ class TagsApi
      * Create request for operation 'getTagsForTagGroup'
      *
      * @param  string $id The Tag Group ID (required)
-     * @param  string[]|null $fields_tag For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_tag For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTagsForTagGroup'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -5776,7 +5776,7 @@ class TagsApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2025-07-15'];
+        $defaultHeaders['revision'] = ['2025-10-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -6120,7 +6120,7 @@ class TagsApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2025-07-15'];
+        $defaultHeaders['revision'] = ['2025-10-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -6473,7 +6473,7 @@ class TagsApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2025-07-15'];
+        $defaultHeaders['revision'] = ['2025-10-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -6826,7 +6826,7 @@ class TagsApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2025-07-15'];
+        $defaultHeaders['revision'] = ['2025-10-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -7179,7 +7179,7 @@ class TagsApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2025-07-15'];
+        $defaultHeaders['revision'] = ['2025-10-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -7568,7 +7568,7 @@ class TagsApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2025-07-15'];
+        $defaultHeaders['revision'] = ['2025-10-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -7966,7 +7966,7 @@ class TagsApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2025-07-15'];
+        $defaultHeaders['revision'] = ['2025-10-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -8364,7 +8364,7 @@ class TagsApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2025-07-15'];
+        $defaultHeaders['revision'] = ['2025-10-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -8762,7 +8762,7 @@ class TagsApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2025-07-15'];
+        $defaultHeaders['revision'] = ['2025-10-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -9052,7 +9052,7 @@ class TagsApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2025-07-15'];
+        $defaultHeaders['revision'] = ['2025-10-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -9382,7 +9382,7 @@ class TagsApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2025-07-15'];
+        $defaultHeaders['revision'] = ['2025-10-15'];
 
         $headers = array_merge(
             $defaultHeaders,

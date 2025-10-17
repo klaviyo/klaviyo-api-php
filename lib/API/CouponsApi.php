@@ -538,7 +538,7 @@ class CouponsApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2025-07-15'];
+        $defaultHeaders['revision'] = ['2025-10-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -866,7 +866,7 @@ class CouponsApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2025-07-15'];
+        $defaultHeaders['revision'] = ['2025-10-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -1176,7 +1176,7 @@ class CouponsApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2025-07-15'];
+        $defaultHeaders['revision'] = ['2025-10-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -1420,7 +1420,7 @@ class CouponsApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2025-07-15'];
+        $defaultHeaders['revision'] = ['2025-10-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -1664,7 +1664,7 @@ class CouponsApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2025-07-15'];
+        $defaultHeaders['revision'] = ['2025-10-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -1686,9 +1686,9 @@ class CouponsApi
      *
      * Get Bulk Create Coupon Code Jobs
      *
-     * @param  string[]|null $fields_coupon_code_bulk_create_job For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;status&#x60;: &#x60;equals&#x60; (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#pagination (optional)
+     * @param  string[]|null $fields_coupon_code_bulk_create_job For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;status&#x60;: &#x60;equals&#x60; (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#pagination (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBulkCreateCouponCodeJobs'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -1715,9 +1715,9 @@ class CouponsApi
      *
      * Get Bulk Create Coupon Code Jobs
      *
-     * @param  string[]|null $fields_coupon_code_bulk_create_job For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;status&#x60;: &#x60;equals&#x60; (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#pagination (optional)
+     * @param  string[]|null $fields_coupon_code_bulk_create_job For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;status&#x60;: &#x60;equals&#x60; (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#pagination (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBulkCreateCouponCodeJobs'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -1839,9 +1839,9 @@ class CouponsApi
      *
      * Get Bulk Create Coupon Code Jobs
      *
-     * @param  string[]|null $fields_coupon_code_bulk_create_job For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;status&#x60;: &#x60;equals&#x60; (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#pagination (optional)
+     * @param  string[]|null $fields_coupon_code_bulk_create_job For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;status&#x60;: &#x60;equals&#x60; (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#pagination (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBulkCreateCouponCodeJobs'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1871,9 +1871,9 @@ class CouponsApi
      *
      * Get Bulk Create Coupon Code Jobs
      *
-     * @param  string[]|null $fields_coupon_code_bulk_create_job For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;status&#x60;: &#x60;equals&#x60; (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#pagination (optional)
+     * @param  string[]|null $fields_coupon_code_bulk_create_job For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;status&#x60;: &#x60;equals&#x60; (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#pagination (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBulkCreateCouponCodeJobs'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1937,9 +1937,9 @@ class CouponsApi
     /**
      * Create request for operation 'getBulkCreateCouponCodeJobs'
      *
-     * @param  string[]|null $fields_coupon_code_bulk_create_job For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;status&#x60;: &#x60;equals&#x60; (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#pagination (optional)
+     * @param  string[]|null $fields_coupon_code_bulk_create_job For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;status&#x60;: &#x60;equals&#x60; (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#pagination (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBulkCreateCouponCodeJobs'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -2036,7 +2036,7 @@ class CouponsApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2025-07-15'];
+        $defaultHeaders['revision'] = ['2025-10-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -2068,9 +2068,9 @@ class CouponsApi
      * Get Bulk Create Coupon Codes Job
      *
      * @param  string $job_id ID of the job to retrieve. (required)
-     * @param  string[]|null $fields_coupon_code_bulk_create_job For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_coupon_code For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#relationships (optional)
+     * @param  string[]|null $fields_coupon_code_bulk_create_job For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_coupon_code For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#relationships (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBulkCreateCouponCodesJob'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -2098,9 +2098,9 @@ class CouponsApi
      * Get Bulk Create Coupon Codes Job
      *
      * @param  string $job_id ID of the job to retrieve. (required)
-     * @param  string[]|null $fields_coupon_code_bulk_create_job For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_coupon_code For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#relationships (optional)
+     * @param  string[]|null $fields_coupon_code_bulk_create_job For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_coupon_code For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#relationships (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBulkCreateCouponCodesJob'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -2223,9 +2223,9 @@ class CouponsApi
      * Get Bulk Create Coupon Codes Job
      *
      * @param  string $job_id ID of the job to retrieve. (required)
-     * @param  string[]|null $fields_coupon_code_bulk_create_job For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_coupon_code For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#relationships (optional)
+     * @param  string[]|null $fields_coupon_code_bulk_create_job For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_coupon_code For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#relationships (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBulkCreateCouponCodesJob'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -2256,9 +2256,9 @@ class CouponsApi
      * Get Bulk Create Coupon Codes Job
      *
      * @param  string $job_id ID of the job to retrieve. (required)
-     * @param  string[]|null $fields_coupon_code_bulk_create_job For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_coupon_code For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#relationships (optional)
+     * @param  string[]|null $fields_coupon_code_bulk_create_job For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_coupon_code For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#relationships (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBulkCreateCouponCodesJob'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -2323,9 +2323,9 @@ class CouponsApi
      * Create request for operation 'getBulkCreateCouponCodesJob'
      *
      * @param  string $job_id ID of the job to retrieve. (required)
-     * @param  string[]|null $fields_coupon_code_bulk_create_job For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_coupon_code For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#relationships (optional)
+     * @param  string[]|null $fields_coupon_code_bulk_create_job For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_coupon_code For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#relationships (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBulkCreateCouponCodesJob'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -2437,7 +2437,7 @@ class CouponsApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2025-07-15'];
+        $defaultHeaders['revision'] = ['2025-10-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -2469,7 +2469,7 @@ class CouponsApi
      * Get Coupon
      *
      * @param  string $id The internal id of a Coupon is equivalent to its external id stored within an integration. (required)
-     * @param  string[]|null $fields_coupon For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_coupon For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCoupon'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -2488,7 +2488,7 @@ class CouponsApi
      * Get Coupon
      *
      * @param  string $id The internal id of a Coupon is equivalent to its external id stored within an integration. (required)
-     * @param  string[]|null $fields_coupon For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_coupon For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCoupon'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -2602,7 +2602,7 @@ class CouponsApi
      * Get Coupon
      *
      * @param  string $id The internal id of a Coupon is equivalent to its external id stored within an integration. (required)
-     * @param  string[]|null $fields_coupon For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_coupon For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCoupon'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -2624,7 +2624,7 @@ class CouponsApi
      * Get Coupon
      *
      * @param  string $id The internal id of a Coupon is equivalent to its external id stored within an integration. (required)
-     * @param  string[]|null $fields_coupon For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_coupon For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCoupon'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -2680,7 +2680,7 @@ class CouponsApi
      * Create request for operation 'getCoupon'
      *
      * @param  string $id The internal id of a Coupon is equivalent to its external id stored within an integration. (required)
-     * @param  string[]|null $fields_coupon For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_coupon For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCoupon'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -2772,7 +2772,7 @@ class CouponsApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2025-07-15'];
+        $defaultHeaders['revision'] = ['2025-10-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -2795,9 +2795,9 @@ class CouponsApi
      * Get Coupon Code
      *
      * @param  string $id The id of a coupon code is a combination of its unique code and the id of the coupon it is associated with. (required)
-     * @param  string[]|null $fields_coupon_code For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_coupon For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#relationships (optional)
+     * @param  string[]|null $fields_coupon_code For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_coupon For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#relationships (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCouponCode'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -2816,9 +2816,9 @@ class CouponsApi
      * Get Coupon Code
      *
      * @param  string $id The id of a coupon code is a combination of its unique code and the id of the coupon it is associated with. (required)
-     * @param  string[]|null $fields_coupon_code For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_coupon For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#relationships (optional)
+     * @param  string[]|null $fields_coupon_code For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_coupon For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#relationships (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCouponCode'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -2932,9 +2932,9 @@ class CouponsApi
      * Get Coupon Code
      *
      * @param  string $id The id of a coupon code is a combination of its unique code and the id of the coupon it is associated with. (required)
-     * @param  string[]|null $fields_coupon_code For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_coupon For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#relationships (optional)
+     * @param  string[]|null $fields_coupon_code For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_coupon For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#relationships (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCouponCode'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -2956,9 +2956,9 @@ class CouponsApi
      * Get Coupon Code
      *
      * @param  string $id The id of a coupon code is a combination of its unique code and the id of the coupon it is associated with. (required)
-     * @param  string[]|null $fields_coupon_code For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_coupon For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#relationships (optional)
+     * @param  string[]|null $fields_coupon_code For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_coupon For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#relationships (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCouponCode'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -3014,9 +3014,9 @@ class CouponsApi
      * Create request for operation 'getCouponCode'
      *
      * @param  string $id The id of a coupon code is a combination of its unique code and the id of the coupon it is associated with. (required)
-     * @param  string[]|null $fields_coupon_code For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_coupon For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#relationships (optional)
+     * @param  string[]|null $fields_coupon_code For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_coupon For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#relationships (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCouponCode'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -3128,7 +3128,7 @@ class CouponsApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2025-07-15'];
+        $defaultHeaders['revision'] = ['2025-10-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -3151,8 +3151,8 @@ class CouponsApi
      * Get Coupon Code IDs for Coupon
      *
      * @param  string $id The ID of the coupon to look up the relationship of. (required)
-     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;expires_at&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60;&lt;br&gt;&#x60;status&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;coupon.id&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;profile.id&#x60;: &#x60;any&#x60;, &#x60;equals&#x60; (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#pagination (optional)
+     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;expires_at&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60;&lt;br&gt;&#x60;status&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;coupon.id&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;profile.id&#x60;: &#x60;any&#x60;, &#x60;equals&#x60; (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#pagination (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCouponCodeIdsForCoupon'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -3198,8 +3198,8 @@ class CouponsApi
      * Get Coupon Code IDs for Coupon
      *
      * @param  string $id The ID of the coupon to look up the relationship of. (required)
-     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;expires_at&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60;&lt;br&gt;&#x60;status&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;coupon.id&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;profile.id&#x60;: &#x60;any&#x60;, &#x60;equals&#x60; (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#pagination (optional)
+     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;expires_at&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60;&lt;br&gt;&#x60;status&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;coupon.id&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;profile.id&#x60;: &#x60;any&#x60;, &#x60;equals&#x60; (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#pagination (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCouponCodeIdsForCoupon'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -3340,8 +3340,8 @@ class CouponsApi
      * Get Coupon Code IDs for Coupon
      *
      * @param  string $id The ID of the coupon to look up the relationship of. (required)
-     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;expires_at&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60;&lt;br&gt;&#x60;status&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;coupon.id&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;profile.id&#x60;: &#x60;any&#x60;, &#x60;equals&#x60; (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#pagination (optional)
+     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;expires_at&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60;&lt;br&gt;&#x60;status&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;coupon.id&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;profile.id&#x60;: &#x60;any&#x60;, &#x60;equals&#x60; (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#pagination (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCouponCodeIdsForCoupon'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -3390,8 +3390,8 @@ class CouponsApi
      * Get Coupon Code IDs for Coupon
      *
      * @param  string $id The ID of the coupon to look up the relationship of. (required)
-     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;expires_at&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60;&lt;br&gt;&#x60;status&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;coupon.id&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;profile.id&#x60;: &#x60;any&#x60;, &#x60;equals&#x60; (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#pagination (optional)
+     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;expires_at&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60;&lt;br&gt;&#x60;status&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;coupon.id&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;profile.id&#x60;: &#x60;any&#x60;, &#x60;equals&#x60; (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#pagination (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCouponCodeIdsForCoupon'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -3474,8 +3474,8 @@ class CouponsApi
      * Create request for operation 'getCouponCodeIdsForCoupon'
      *
      * @param  string $id The ID of the coupon to look up the relationship of. (required)
-     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;expires_at&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60;&lt;br&gt;&#x60;status&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;coupon.id&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;profile.id&#x60;: &#x60;any&#x60;, &#x60;equals&#x60; (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#pagination (optional)
+     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;expires_at&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60;&lt;br&gt;&#x60;status&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;coupon.id&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;profile.id&#x60;: &#x60;any&#x60;, &#x60;equals&#x60; (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#pagination (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCouponCodeIdsForCoupon'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -3577,7 +3577,7 @@ class CouponsApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2025-07-15'];
+        $defaultHeaders['revision'] = ['2025-10-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -3626,11 +3626,11 @@ class CouponsApi
      *
      * Get Coupon Codes
      *
-     * @param  string $filter For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;expires_at&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60;&lt;br&gt;&#x60;status&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;coupon.id&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;profile.id&#x60;: &#x60;any&#x60;, &#x60;equals&#x60; (required)
-     * @param  string[]|null $fields_coupon_code For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_coupon For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#relationships (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#pagination (optional)
+     * @param  string $filter For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;expires_at&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60;&lt;br&gt;&#x60;status&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;coupon.id&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;profile.id&#x60;: &#x60;any&#x60;, &#x60;equals&#x60; (required)
+     * @param  string[]|null $fields_coupon_code For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_coupon For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#relationships (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#pagination (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCouponCodes'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -3648,11 +3648,11 @@ class CouponsApi
      *
      * Get Coupon Codes
      *
-     * @param  string $filter For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;expires_at&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60;&lt;br&gt;&#x60;status&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;coupon.id&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;profile.id&#x60;: &#x60;any&#x60;, &#x60;equals&#x60; (required)
-     * @param  string[]|null $fields_coupon_code For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_coupon For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#relationships (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#pagination (optional)
+     * @param  string $filter For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;expires_at&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60;&lt;br&gt;&#x60;status&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;coupon.id&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;profile.id&#x60;: &#x60;any&#x60;, &#x60;equals&#x60; (required)
+     * @param  string[]|null $fields_coupon_code For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_coupon For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#relationships (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#pagination (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCouponCodes'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -3765,11 +3765,11 @@ class CouponsApi
      *
      * Get Coupon Codes
      *
-     * @param  string $filter For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;expires_at&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60;&lt;br&gt;&#x60;status&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;coupon.id&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;profile.id&#x60;: &#x60;any&#x60;, &#x60;equals&#x60; (required)
-     * @param  string[]|null $fields_coupon_code For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_coupon For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#relationships (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#pagination (optional)
+     * @param  string $filter For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;expires_at&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60;&lt;br&gt;&#x60;status&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;coupon.id&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;profile.id&#x60;: &#x60;any&#x60;, &#x60;equals&#x60; (required)
+     * @param  string[]|null $fields_coupon_code For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_coupon For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#relationships (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#pagination (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCouponCodes'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -3790,11 +3790,11 @@ class CouponsApi
      *
      * Get Coupon Codes
      *
-     * @param  string $filter For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;expires_at&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60;&lt;br&gt;&#x60;status&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;coupon.id&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;profile.id&#x60;: &#x60;any&#x60;, &#x60;equals&#x60; (required)
-     * @param  string[]|null $fields_coupon_code For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_coupon For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#relationships (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#pagination (optional)
+     * @param  string $filter For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;expires_at&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60;&lt;br&gt;&#x60;status&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;coupon.id&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;profile.id&#x60;: &#x60;any&#x60;, &#x60;equals&#x60; (required)
+     * @param  string[]|null $fields_coupon_code For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_coupon For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#relationships (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#pagination (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCouponCodes'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -3849,11 +3849,11 @@ class CouponsApi
     /**
      * Create request for operation 'getCouponCodes'
      *
-     * @param  string $filter For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;expires_at&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60;&lt;br&gt;&#x60;status&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;coupon.id&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;profile.id&#x60;: &#x60;any&#x60;, &#x60;equals&#x60; (required)
-     * @param  string[]|null $fields_coupon_code For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_coupon For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#relationships (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#pagination (optional)
+     * @param  string $filter For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;expires_at&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60;&lt;br&gt;&#x60;status&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;coupon.id&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;profile.id&#x60;: &#x60;any&#x60;, &#x60;equals&#x60; (required)
+     * @param  string[]|null $fields_coupon_code For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_coupon For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#relationships (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#pagination (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCouponCodes'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -3976,7 +3976,7 @@ class CouponsApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2025-07-15'];
+        $defaultHeaders['revision'] = ['2025-10-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -3999,9 +3999,9 @@ class CouponsApi
      * Get Coupon Codes for Coupon
      *
      * @param  string $id The ID of the coupon to look up the relationship of. (required)
-     * @param  string[]|null $fields_coupon_code For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;expires_at&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60;&lt;br&gt;&#x60;status&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;coupon.id&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;profile.id&#x60;: &#x60;any&#x60;, &#x60;equals&#x60; (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#pagination (optional)
+     * @param  string[]|null $fields_coupon_code For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;expires_at&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60;&lt;br&gt;&#x60;status&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;coupon.id&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;profile.id&#x60;: &#x60;any&#x60;, &#x60;equals&#x60; (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#pagination (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCouponCodesForCoupon'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -4038,9 +4038,9 @@ class CouponsApi
      * Get Coupon Codes for Coupon
      *
      * @param  string $id The ID of the coupon to look up the relationship of. (required)
-     * @param  string[]|null $fields_coupon_code For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;expires_at&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60;&lt;br&gt;&#x60;status&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;coupon.id&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;profile.id&#x60;: &#x60;any&#x60;, &#x60;equals&#x60; (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#pagination (optional)
+     * @param  string[]|null $fields_coupon_code For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;expires_at&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60;&lt;br&gt;&#x60;status&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;coupon.id&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;profile.id&#x60;: &#x60;any&#x60;, &#x60;equals&#x60; (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#pagination (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCouponCodesForCoupon'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -4172,9 +4172,9 @@ class CouponsApi
      * Get Coupon Codes for Coupon
      *
      * @param  string $id The ID of the coupon to look up the relationship of. (required)
-     * @param  string[]|null $fields_coupon_code For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;expires_at&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60;&lt;br&gt;&#x60;status&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;coupon.id&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;profile.id&#x60;: &#x60;any&#x60;, &#x60;equals&#x60; (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#pagination (optional)
+     * @param  string[]|null $fields_coupon_code For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;expires_at&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60;&lt;br&gt;&#x60;status&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;coupon.id&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;profile.id&#x60;: &#x60;any&#x60;, &#x60;equals&#x60; (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#pagination (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCouponCodesForCoupon'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -4214,9 +4214,9 @@ class CouponsApi
      * Get Coupon Codes for Coupon
      *
      * @param  string $id The ID of the coupon to look up the relationship of. (required)
-     * @param  string[]|null $fields_coupon_code For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;expires_at&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60;&lt;br&gt;&#x60;status&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;coupon.id&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;profile.id&#x60;: &#x60;any&#x60;, &#x60;equals&#x60; (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#pagination (optional)
+     * @param  string[]|null $fields_coupon_code For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;expires_at&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60;&lt;br&gt;&#x60;status&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;coupon.id&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;profile.id&#x60;: &#x60;any&#x60;, &#x60;equals&#x60; (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#pagination (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCouponCodesForCoupon'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -4290,9 +4290,9 @@ class CouponsApi
      * Create request for operation 'getCouponCodesForCoupon'
      *
      * @param  string $id The ID of the coupon to look up the relationship of. (required)
-     * @param  string[]|null $fields_coupon_code For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;expires_at&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60;&lt;br&gt;&#x60;status&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;coupon.id&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;profile.id&#x60;: &#x60;any&#x60;, &#x60;equals&#x60; (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#pagination (optional)
+     * @param  string[]|null $fields_coupon_code For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;expires_at&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60;&lt;br&gt;&#x60;status&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;coupon.id&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;profile.id&#x60;: &#x60;any&#x60;, &#x60;equals&#x60; (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#pagination (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCouponCodesForCoupon'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -4404,7 +4404,7 @@ class CouponsApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2025-07-15'];
+        $defaultHeaders['revision'] = ['2025-10-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -4445,7 +4445,7 @@ class CouponsApi
      * Get Coupon For Coupon Code
      *
      * @param  string $id The ID of the coupon to look up the relationship of. (required)
-     * @param  string[]|null $fields_coupon For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_coupon For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCouponForCouponCode'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -4473,7 +4473,7 @@ class CouponsApi
      * Get Coupon For Coupon Code
      *
      * @param  string $id The ID of the coupon to look up the relationship of. (required)
-     * @param  string[]|null $fields_coupon For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_coupon For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCouponForCouponCode'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -4596,7 +4596,7 @@ class CouponsApi
      * Get Coupon For Coupon Code
      *
      * @param  string $id The ID of the coupon to look up the relationship of. (required)
-     * @param  string[]|null $fields_coupon For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_coupon For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCouponForCouponCode'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -4627,7 +4627,7 @@ class CouponsApi
      * Get Coupon For Coupon Code
      *
      * @param  string $id The ID of the coupon to look up the relationship of. (required)
-     * @param  string[]|null $fields_coupon For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_coupon For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCouponForCouponCode'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -4692,7 +4692,7 @@ class CouponsApi
      * Create request for operation 'getCouponForCouponCode'
      *
      * @param  string $id The ID of the coupon to look up the relationship of. (required)
-     * @param  string[]|null $fields_coupon For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_coupon For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCouponForCouponCode'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -4784,7 +4784,7 @@ class CouponsApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2025-07-15'];
+        $defaultHeaders['revision'] = ['2025-10-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -5140,7 +5140,7 @@ class CouponsApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2025-07-15'];
+        $defaultHeaders['revision'] = ['2025-10-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -5171,8 +5171,8 @@ class CouponsApi
      *
      * Get Coupons
      *
-     * @param  string[]|null $fields_coupon For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#pagination (optional)
+     * @param  string[]|null $fields_coupon For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#pagination (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCoupons'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -5190,8 +5190,8 @@ class CouponsApi
      *
      * Get Coupons
      *
-     * @param  string[]|null $fields_coupon For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#pagination (optional)
+     * @param  string[]|null $fields_coupon For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#pagination (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCoupons'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -5304,8 +5304,8 @@ class CouponsApi
      *
      * Get Coupons
      *
-     * @param  string[]|null $fields_coupon For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#pagination (optional)
+     * @param  string[]|null $fields_coupon For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#pagination (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCoupons'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -5326,8 +5326,8 @@ class CouponsApi
      *
      * Get Coupons
      *
-     * @param  string[]|null $fields_coupon For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#pagination (optional)
+     * @param  string[]|null $fields_coupon For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#pagination (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCoupons'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -5382,8 +5382,8 @@ class CouponsApi
     /**
      * Create request for operation 'getCoupons'
      *
-     * @param  string[]|null $fields_coupon For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#pagination (optional)
+     * @param  string[]|null $fields_coupon For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#pagination (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCoupons'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -5470,7 +5470,7 @@ class CouponsApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2025-07-15'];
+        $defaultHeaders['revision'] = ['2025-10-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -5800,7 +5800,7 @@ class CouponsApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2025-07-15'];
+        $defaultHeaders['revision'] = ['2025-10-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -6130,7 +6130,7 @@ class CouponsApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2025-07-15'];
+        $defaultHeaders['revision'] = ['2025-10-15'];
 
         $headers = array_merge(
             $defaultHeaders,

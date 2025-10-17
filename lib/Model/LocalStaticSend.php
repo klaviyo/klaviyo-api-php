@@ -234,19 +234,6 @@ class LocalStaticSend implements ModelInterface, ArrayAccess, \JsonSerializable
         return self::$openAPIModelName;
     }
 
-    public const IS_LOCAL_TRUE = 'true';
-
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getIsLocalAllowableValues()
-    {
-        return [
-            self::IS_LOCAL_TRUE,
-        ];
-    }
 
     /**
      * Associative array for storing property values
@@ -297,15 +284,6 @@ class LocalStaticSend implements ModelInterface, ArrayAccess, \JsonSerializable
         if ($this->container['is_local'] === null) {
             $invalidProperties[] = "'is_local' can't be null";
         }
-        $allowedValues = $this->getIsLocalAllowableValues();
-        if (!is_null($this->container['is_local']) && !in_array($this->container['is_local'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value '%s' for 'is_local', must be one of '%s'",
-                $this->container['is_local'],
-                implode("', '", $allowedValues)
-            );
-        }
-
         return $invalidProperties;
     }
 
@@ -342,16 +320,6 @@ class LocalStaticSend implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         if (is_null($is_local)) {
             throw new \InvalidArgumentException('non-nullable is_local cannot be null');
-        }
-        $allowedValues = $this->getIsLocalAllowableValues();
-        if (!in_array($is_local, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value '%s' for 'is_local', must be one of '%s'",
-                    $is_local,
-                    implode("', '", $allowedValues)
-                )
-            );
         }
         $this->container['is_local'] = $is_local;
 

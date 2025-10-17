@@ -235,19 +235,6 @@ class MobilePushOptionsBadge implements ModelInterface, ArrayAccess, \JsonSerial
         return self::$openAPIModelName;
     }
 
-    public const DISPLAY_FALSE = 'false';
-
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getDisplayAllowableValues()
-    {
-        return [
-            self::DISPLAY_FALSE,
-        ];
-    }
 
     /**
      * Associative array for storing property values
@@ -298,15 +285,6 @@ class MobilePushOptionsBadge implements ModelInterface, ArrayAccess, \JsonSerial
         if ($this->container['display'] === null) {
             $invalidProperties[] = "'display' can't be null";
         }
-        $allowedValues = $this->getDisplayAllowableValues();
-        if (!is_null($this->container['display']) && !in_array($this->container['display'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value '%s' for 'display', must be one of '%s'",
-                $this->container['display'],
-                implode("', '", $allowedValues)
-            );
-        }
-
         return $invalidProperties;
     }
 
@@ -343,16 +321,6 @@ class MobilePushOptionsBadge implements ModelInterface, ArrayAccess, \JsonSerial
     {
         if (is_null($display)) {
             throw new \InvalidArgumentException('non-nullable display cannot be null');
-        }
-        $allowedValues = $this->getDisplayAllowableValues();
-        if (!in_array($display, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value '%s' for 'display', must be one of '%s'",
-                    $display,
-                    implode("', '", $allowedValues)
-                )
-            );
         }
         $this->container['display'] = $display;
 

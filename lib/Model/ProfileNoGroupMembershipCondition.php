@@ -240,19 +240,6 @@ class ProfileNoGroupMembershipCondition implements ModelInterface, ArrayAccess, 
         return self::$openAPIModelName;
     }
 
-    public const IS_MEMBER_FALSE = 'false';
-
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getIsMemberAllowableValues()
-    {
-        return [
-            self::IS_MEMBER_FALSE,
-        ];
-    }
 
     /**
      * Associative array for storing property values
@@ -307,15 +294,6 @@ class ProfileNoGroupMembershipCondition implements ModelInterface, ArrayAccess, 
         if ($this->container['is_member'] === null) {
             $invalidProperties[] = "'is_member' can't be null";
         }
-        $allowedValues = $this->getIsMemberAllowableValues();
-        if (!is_null($this->container['is_member']) && !in_array($this->container['is_member'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value '%s' for 'is_member', must be one of '%s'",
-                $this->container['is_member'],
-                implode("', '", $allowedValues)
-            );
-        }
-
         if ($this->container['group_ids'] === null) {
             $invalidProperties[] = "'group_ids' can't be null";
         }
@@ -382,16 +360,6 @@ class ProfileNoGroupMembershipCondition implements ModelInterface, ArrayAccess, 
     {
         if (is_null($is_member)) {
             throw new \InvalidArgumentException('non-nullable is_member cannot be null');
-        }
-        $allowedValues = $this->getIsMemberAllowableValues();
-        if (!in_array($is_member, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value '%s' for 'is_member', must be one of '%s'",
-                    $is_member,
-                    implode("', '", $allowedValues)
-                )
-            );
         }
         $this->container['is_member'] = $is_member;
 

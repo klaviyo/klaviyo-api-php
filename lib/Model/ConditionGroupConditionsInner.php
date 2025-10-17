@@ -57,7 +57,7 @@ class ConditionGroupConditionsInner implements ModelInterface, ArrayAccess, \Jso
       * @var string[]
       */
     protected static $openAPITypes = [
-        'type' => '\KlaviyoAPI\Model\ProfilePredictiveAnalyticsEnum',
+        'type' => '\KlaviyoAPI\Model\ProfilePermissionsEnum',
         'is_member' => 'bool',
         'group_ids' => 'string[]',
         'timeframe_filter' => '\KlaviyoAPI\Model\SegmentsProfileMetricConditionTimeframeFilter',
@@ -74,7 +74,9 @@ class ConditionGroupConditionsInner implements ModelInterface, ArrayAccess, \Jso
         'in_region' => 'bool',
         'region' => 'string',
         'dimension' => 'string',
-        'predicted_channel' => 'string'
+        'predicted_channel' => 'string',
+        'permission' => '\KlaviyoAPI\Model\ProfilePermissionsConditionPermission',
+        'channel' => 'string'
     ];
 
     /**
@@ -102,7 +104,9 @@ class ConditionGroupConditionsInner implements ModelInterface, ArrayAccess, \Jso
         'in_region' => null,
         'region' => null,
         'dimension' => null,
-        'predicted_channel' => null
+        'predicted_channel' => null,
+        'permission' => null,
+        'channel' => null
     ];
 
     /**
@@ -128,7 +132,9 @@ class ConditionGroupConditionsInner implements ModelInterface, ArrayAccess, \Jso
         'in_region' => false,
         'region' => false,
         'dimension' => false,
-        'predicted_channel' => false
+        'predicted_channel' => false,
+        'permission' => false,
+        'channel' => false
     ];
 
     /**
@@ -234,7 +240,9 @@ class ConditionGroupConditionsInner implements ModelInterface, ArrayAccess, \Jso
         'in_region' => 'in_region',
         'region' => 'region',
         'dimension' => 'dimension',
-        'predicted_channel' => 'predicted_channel'
+        'predicted_channel' => 'predicted_channel',
+        'permission' => 'permission',
+        'channel' => 'channel'
     ];
 
     /**
@@ -260,7 +268,9 @@ class ConditionGroupConditionsInner implements ModelInterface, ArrayAccess, \Jso
         'in_region' => 'setInRegion',
         'region' => 'setRegion',
         'dimension' => 'setDimension',
-        'predicted_channel' => 'setPredictedChannel'
+        'predicted_channel' => 'setPredictedChannel',
+        'permission' => 'setPermission',
+        'channel' => 'setChannel'
     ];
 
     /**
@@ -286,7 +296,9 @@ class ConditionGroupConditionsInner implements ModelInterface, ArrayAccess, \Jso
         'in_region' => 'getInRegion',
         'region' => 'getRegion',
         'dimension' => 'getDimension',
-        'predicted_channel' => 'getPredictedChannel'
+        'predicted_channel' => 'getPredictedChannel',
+        'permission' => 'getPermission',
+        'channel' => 'getChannel'
     ];
 
     /**
@@ -330,7 +342,6 @@ class ConditionGroupConditionsInner implements ModelInterface, ArrayAccess, \Jso
         return self::$openAPIModelName;
     }
 
-    public const IS_MEMBER_FALSE = 'false';
     public const UNIT_KILOMETERS = 'kilometers';
     public const UNIT_MILES = 'miles';
     public const REGION_EUROPEAN_UNION = 'european_union';
@@ -339,18 +350,8 @@ class ConditionGroupConditionsInner implements ModelInterface, ArrayAccess, \Jso
     public const PREDICTED_CHANNEL_EMAIL = 'email';
     public const PREDICTED_CHANNEL_PUSH = 'push';
     public const PREDICTED_CHANNEL_SMS = 'sms';
-
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getIsMemberAllowableValues()
-    {
-        return [
-            self::IS_MEMBER_FALSE,
-        ];
-    }
+    public const CHANNEL_WHATSAPP_MARKETING = 'whatsapp_marketing';
+    public const CHANNEL_WHATSAPP_TRANSACTIONAL = 'whatsapp_transactional';
 
     /**
      * Gets allowable values of the enum
@@ -405,6 +406,19 @@ class ConditionGroupConditionsInner implements ModelInterface, ArrayAccess, \Jso
     }
 
     /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getChannelAllowableValues()
+    {
+        return [
+            self::CHANNEL_WHATSAPP_MARKETING,
+            self::CHANNEL_WHATSAPP_TRANSACTIONAL,
+        ];
+    }
+
+    /**
      * Associative array for storing property values
      *
      * @var mixed[]
@@ -437,6 +451,8 @@ class ConditionGroupConditionsInner implements ModelInterface, ArrayAccess, \Jso
         $this->setIfExists('region', $data ?? [], null);
         $this->setIfExists('dimension', $data ?? [], null);
         $this->setIfExists('predicted_channel', $data ?? [], null);
+        $this->setIfExists('permission', $data ?? [], null);
+        $this->setIfExists('channel', $data ?? [], null);
     }
 
     /**
@@ -472,15 +488,6 @@ class ConditionGroupConditionsInner implements ModelInterface, ArrayAccess, \Jso
         if ($this->container['is_member'] === null) {
             $invalidProperties[] = "'is_member' can't be null";
         }
-        $allowedValues = $this->getIsMemberAllowableValues();
-        if (!is_null($this->container['is_member']) && !in_array($this->container['is_member'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value '%s' for 'is_member', must be one of '%s'",
-                $this->container['is_member'],
-                implode("', '", $allowedValues)
-            );
-        }
-
         if ($this->container['group_ids'] === null) {
             $invalidProperties[] = "'group_ids' can't be null";
         }
@@ -562,6 +569,21 @@ class ConditionGroupConditionsInner implements ModelInterface, ArrayAccess, \Jso
             );
         }
 
+        if ($this->container['permission'] === null) {
+            $invalidProperties[] = "'permission' can't be null";
+        }
+        if ($this->container['channel'] === null) {
+            $invalidProperties[] = "'channel' can't be null";
+        }
+        $allowedValues = $this->getChannelAllowableValues();
+        if (!is_null($this->container['channel']) && !in_array($this->container['channel'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'channel', must be one of '%s'",
+                $this->container['channel'],
+                implode("', '", $allowedValues)
+            );
+        }
+
         return $invalidProperties;
     }
 
@@ -580,7 +602,7 @@ class ConditionGroupConditionsInner implements ModelInterface, ArrayAccess, \Jso
     /**
      * Gets type
      *
-     * @return \KlaviyoAPI\Model\ProfilePredictiveAnalyticsEnum
+     * @return \KlaviyoAPI\Model\ProfilePermissionsEnum
      */
     public function getType()
     {
@@ -590,7 +612,7 @@ class ConditionGroupConditionsInner implements ModelInterface, ArrayAccess, \Jso
     /**
      * Sets type
      *
-     * @param \KlaviyoAPI\Model\ProfilePredictiveAnalyticsEnum $type type
+     * @param \KlaviyoAPI\Model\ProfilePermissionsEnum $type type
      *
      * @return self
      */
@@ -625,16 +647,6 @@ class ConditionGroupConditionsInner implements ModelInterface, ArrayAccess, \Jso
     {
         if (is_null($is_member)) {
             throw new \InvalidArgumentException('non-nullable is_member cannot be null');
-        }
-        $allowedValues = $this->getIsMemberAllowableValues();
-        if (!in_array($is_member, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value '%s' for 'is_member', must be one of '%s'",
-                    $is_member,
-                    implode("', '", $allowedValues)
-                )
-            );
         }
         $this->container['is_member'] = $is_member;
 
@@ -1116,6 +1128,70 @@ class ConditionGroupConditionsInner implements ModelInterface, ArrayAccess, \Jso
             );
         }
         $this->container['predicted_channel'] = $predicted_channel;
+
+        return $this;
+    }
+
+    /**
+     * Gets permission
+     *
+     * @return \KlaviyoAPI\Model\ProfilePermissionsConditionPermission
+     */
+    public function getPermission()
+    {
+        return $this->container['permission'];
+    }
+
+    /**
+     * Sets permission
+     *
+     * @param \KlaviyoAPI\Model\ProfilePermissionsConditionPermission $permission permission
+     *
+     * @return self
+     */
+    public function setPermission($permission)
+    {
+        if (is_null($permission)) {
+            throw new \InvalidArgumentException('non-nullable permission cannot be null');
+        }
+        $this->container['permission'] = $permission;
+
+        return $this;
+    }
+
+    /**
+     * Gets channel
+     *
+     * @return string
+     */
+    public function getChannel()
+    {
+        return $this->container['channel'];
+    }
+
+    /**
+     * Sets channel
+     *
+     * @param string $channel Possible channels for profile permissions criterion.
+     *
+     * @return self
+     */
+    public function setChannel($channel)
+    {
+        if (is_null($channel)) {
+            throw new \InvalidArgumentException('non-nullable channel cannot be null');
+        }
+        $allowedValues = $this->getChannelAllowableValues();
+        if (!in_array($channel, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'channel', must be one of '%s'",
+                    $channel,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['channel'] = $channel;
 
         return $this;
     }

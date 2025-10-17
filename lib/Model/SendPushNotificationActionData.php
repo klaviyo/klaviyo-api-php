@@ -300,9 +300,6 @@ class SendPushNotificationActionData implements ModelInterface, ArrayAccess, \Js
     {
         $invalidProperties = [];
 
-        if ($this->container['message'] === null) {
-            $invalidProperties[] = "'message' can't be null";
-        }
         $allowedValues = $this->getStatusAllowableValues();
         if (!is_null($this->container['status']) && !in_array($this->container['status'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
@@ -330,7 +327,7 @@ class SendPushNotificationActionData implements ModelInterface, ArrayAccess, \Js
     /**
      * Gets message
      *
-     * @return \KlaviyoAPI\Model\FlowPushNotification
+     * @return \KlaviyoAPI\Model\FlowPushNotification|null
      */
     public function getMessage()
     {
@@ -340,7 +337,7 @@ class SendPushNotificationActionData implements ModelInterface, ArrayAccess, \Js
     /**
      * Sets message
      *
-     * @param \KlaviyoAPI\Model\FlowPushNotification $message message
+     * @param \KlaviyoAPI\Model\FlowPushNotification|null $message message
      *
      * @return self
      */

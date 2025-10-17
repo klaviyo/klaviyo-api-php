@@ -269,6 +269,7 @@ class FlowSeriesRequestDTOResourceObjectAttributes implements ModelInterface, Ar
     public const STATISTICS_DELIVERY_RATE = 'delivery_rate';
     public const STATISTICS_FAILED = 'failed';
     public const STATISTICS_FAILED_RATE = 'failed_rate';
+    public const STATISTICS_MESSAGE_SEGMENT_COUNT_SUM = 'message_segment_count_sum';
     public const STATISTICS_OPEN_RATE = 'open_rate';
     public const STATISTICS_OPENS = 'opens';
     public const STATISTICS_OPENS_UNIQUE = 'opens_unique';
@@ -276,6 +277,9 @@ class FlowSeriesRequestDTOResourceObjectAttributes implements ModelInterface, Ar
     public const STATISTICS_REVENUE_PER_RECIPIENT = 'revenue_per_recipient';
     public const STATISTICS_SPAM_COMPLAINT_RATE = 'spam_complaint_rate';
     public const STATISTICS_SPAM_COMPLAINTS = 'spam_complaints';
+    public const STATISTICS_TEXT_MESSAGE_CREDIT_USAGE_AMOUNT = 'text_message_credit_usage_amount';
+    public const STATISTICS_TEXT_MESSAGE_ROI = 'text_message_roi';
+    public const STATISTICS_TEXT_MESSAGE_SPEND = 'text_message_spend';
     public const STATISTICS_UNSUBSCRIBE_RATE = 'unsubscribe_rate';
     public const STATISTICS_UNSUBSCRIBE_UNIQUES = 'unsubscribe_uniques';
     public const STATISTICS_UNSUBSCRIBES = 'unsubscribes';
@@ -309,6 +313,7 @@ class FlowSeriesRequestDTOResourceObjectAttributes implements ModelInterface, Ar
             self::STATISTICS_DELIVERY_RATE,
             self::STATISTICS_FAILED,
             self::STATISTICS_FAILED_RATE,
+            self::STATISTICS_MESSAGE_SEGMENT_COUNT_SUM,
             self::STATISTICS_OPEN_RATE,
             self::STATISTICS_OPENS,
             self::STATISTICS_OPENS_UNIQUE,
@@ -316,6 +321,9 @@ class FlowSeriesRequestDTOResourceObjectAttributes implements ModelInterface, Ar
             self::STATISTICS_REVENUE_PER_RECIPIENT,
             self::STATISTICS_SPAM_COMPLAINT_RATE,
             self::STATISTICS_SPAM_COMPLAINTS,
+            self::STATISTICS_TEXT_MESSAGE_CREDIT_USAGE_AMOUNT,
+            self::STATISTICS_TEXT_MESSAGE_ROI,
+            self::STATISTICS_TEXT_MESSAGE_SPEND,
             self::STATISTICS_UNSUBSCRIBE_RATE,
             self::STATISTICS_UNSUBSCRIBE_UNIQUES,
             self::STATISTICS_UNSUBSCRIBES,

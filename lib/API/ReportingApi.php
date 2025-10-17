@@ -149,7 +149,7 @@ class ReportingApi
      * Query Campaign Values
      *
      * @param  \KlaviyoAPI\Model\CampaignValuesRequestDTO $campaign_values_request_dto campaign_values_request_dto (required)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#pagination (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#pagination (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['queryCampaignValues'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -186,7 +186,7 @@ class ReportingApi
      * Query Campaign Values
      *
      * @param  \KlaviyoAPI\Model\CampaignValuesRequestDTO $campaign_values_request_dto (required)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#pagination (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#pagination (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['queryCampaignValues'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -318,7 +318,7 @@ class ReportingApi
      * Query Campaign Values
      *
      * @param  \KlaviyoAPI\Model\CampaignValuesRequestDTO $campaign_values_request_dto (required)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#pagination (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#pagination (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['queryCampaignValues'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -358,7 +358,7 @@ class ReportingApi
      * Query Campaign Values
      *
      * @param  \KlaviyoAPI\Model\CampaignValuesRequestDTO $campaign_values_request_dto (required)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#pagination (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#pagination (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['queryCampaignValues'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -432,7 +432,7 @@ class ReportingApi
      * Create request for operation 'queryCampaignValues'
      *
      * @param  \KlaviyoAPI\Model\CampaignValuesRequestDTO $campaign_values_request_dto (required)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#pagination (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#pagination (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['queryCampaignValues'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -523,7 +523,7 @@ class ReportingApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2025-07-15'];
+        $defaultHeaders['revision'] = ['2025-10-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -564,7 +564,7 @@ class ReportingApi
      * Query Flow Series
      *
      * @param  \KlaviyoAPI\Model\FlowSeriesRequestDTO $flow_series_request_dto flow_series_request_dto (required)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#pagination (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#pagination (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['queryFlowSeries'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -601,7 +601,7 @@ class ReportingApi
      * Query Flow Series
      *
      * @param  \KlaviyoAPI\Model\FlowSeriesRequestDTO $flow_series_request_dto (required)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#pagination (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#pagination (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['queryFlowSeries'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -733,7 +733,7 @@ class ReportingApi
      * Query Flow Series
      *
      * @param  \KlaviyoAPI\Model\FlowSeriesRequestDTO $flow_series_request_dto (required)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#pagination (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#pagination (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['queryFlowSeries'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -773,7 +773,7 @@ class ReportingApi
      * Query Flow Series
      *
      * @param  \KlaviyoAPI\Model\FlowSeriesRequestDTO $flow_series_request_dto (required)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#pagination (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#pagination (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['queryFlowSeries'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -847,7 +847,7 @@ class ReportingApi
      * Create request for operation 'queryFlowSeries'
      *
      * @param  \KlaviyoAPI\Model\FlowSeriesRequestDTO $flow_series_request_dto (required)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#pagination (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#pagination (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['queryFlowSeries'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -938,7 +938,7 @@ class ReportingApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2025-07-15'];
+        $defaultHeaders['revision'] = ['2025-10-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -979,7 +979,7 @@ class ReportingApi
      * Query Flow Values
      *
      * @param  \KlaviyoAPI\Model\FlowValuesRequestDTO $flow_values_request_dto flow_values_request_dto (required)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#pagination (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#pagination (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['queryFlowValues'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -1016,7 +1016,7 @@ class ReportingApi
      * Query Flow Values
      *
      * @param  \KlaviyoAPI\Model\FlowValuesRequestDTO $flow_values_request_dto (required)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#pagination (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#pagination (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['queryFlowValues'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -1148,7 +1148,7 @@ class ReportingApi
      * Query Flow Values
      *
      * @param  \KlaviyoAPI\Model\FlowValuesRequestDTO $flow_values_request_dto (required)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#pagination (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#pagination (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['queryFlowValues'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1188,7 +1188,7 @@ class ReportingApi
      * Query Flow Values
      *
      * @param  \KlaviyoAPI\Model\FlowValuesRequestDTO $flow_values_request_dto (required)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#pagination (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#pagination (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['queryFlowValues'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1262,7 +1262,7 @@ class ReportingApi
      * Create request for operation 'queryFlowValues'
      *
      * @param  \KlaviyoAPI\Model\FlowValuesRequestDTO $flow_values_request_dto (required)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#pagination (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#pagination (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['queryFlowValues'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1353,7 +1353,7 @@ class ReportingApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2025-07-15'];
+        $defaultHeaders['revision'] = ['2025-10-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -1753,7 +1753,7 @@ class ReportingApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2025-07-15'];
+        $defaultHeaders['revision'] = ['2025-10-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -2153,7 +2153,7 @@ class ReportingApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2025-07-15'];
+        $defaultHeaders['revision'] = ['2025-10-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -2553,7 +2553,7 @@ class ReportingApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2025-07-15'];
+        $defaultHeaders['revision'] = ['2025-10-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -2953,7 +2953,7 @@ class ReportingApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2025-07-15'];
+        $defaultHeaders['revision'] = ['2025-10-15'];
 
         $headers = array_merge(
             $defaultHeaders,

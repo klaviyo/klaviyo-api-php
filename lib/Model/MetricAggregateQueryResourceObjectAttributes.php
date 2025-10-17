@@ -298,6 +298,7 @@ class MetricAggregateQueryResourceObjectAttributes implements ModelInterface, Ar
     public const BY__FLOW_CHANNEL = '$flow_channel';
     public const BY__MESSAGE = '$message';
     public const BY__MESSAGE_SEND_COHORT = '$message_send_cohort';
+    public const BY__USAGE_AMOUNT = '$usage_amount';
     public const BY__VALUE_CURRENCY = '$value_currency';
     public const BY__VARIATION = '$variation';
     public const BY__VARIATION_SEND_COHORT = '$variation_send_cohort';
@@ -317,6 +318,7 @@ class MetricAggregateQueryResourceObjectAttributes implements ModelInterface, Ar
     public const BY_MESSAGE_NAME = 'Message Name';
     public const BY_MESSAGE_TYPE = 'Message Type';
     public const BY_METHOD = 'Method';
+    public const BY_SEGMENT_COUNT = 'Segment Count';
     public const BY_SUBJECT = 'Subject';
     public const BY_TO_NUMBER = 'To Number';
     public const BY_TO_PHONE_REGION = 'To Phone Region';
@@ -340,6 +342,8 @@ class MetricAggregateQueryResourceObjectAttributes implements ModelInterface, Ar
     public const SORT__MESSAGE_DESC = '-$message';
     public const SORT__MESSAGE_SEND_COHORT = '$message_send_cohort';
     public const SORT__MESSAGE_SEND_COHORT_DESC = '-$message_send_cohort';
+    public const SORT__USAGE_AMOUNT = '$usage_amount';
+    public const SORT__USAGE_AMOUNT_DESC = '-$usage_amount';
     public const SORT__VALUE_CURRENCY = '$value_currency';
     public const SORT__VALUE_CURRENCY_DESC = '-$value_currency';
     public const SORT__VARIATION = '$variation';
@@ -378,6 +382,8 @@ class MetricAggregateQueryResourceObjectAttributes implements ModelInterface, Ar
     public const SORT_MESSAGE_TYPE_DESC = '-Message Type';
     public const SORT_METHOD = 'Method';
     public const SORT_METHOD_DESC = '-Method';
+    public const SORT_SEGMENT_COUNT = 'Segment Count';
+    public const SORT_SEGMENT_COUNT_DESC = '-Segment Count';
     public const SORT_SUBJECT = 'Subject';
     public const SORT_SUBJECT_DESC = '-Subject';
     public const SORT_TO_NUMBER = 'To Number';
@@ -441,6 +447,7 @@ class MetricAggregateQueryResourceObjectAttributes implements ModelInterface, Ar
             self::BY__FLOW_CHANNEL,
             self::BY__MESSAGE,
             self::BY__MESSAGE_SEND_COHORT,
+            self::BY__USAGE_AMOUNT,
             self::BY__VALUE_CURRENCY,
             self::BY__VARIATION,
             self::BY__VARIATION_SEND_COHORT,
@@ -460,6 +467,7 @@ class MetricAggregateQueryResourceObjectAttributes implements ModelInterface, Ar
             self::BY_MESSAGE_NAME,
             self::BY_MESSAGE_TYPE,
             self::BY_METHOD,
+            self::BY_SEGMENT_COUNT,
             self::BY_SUBJECT,
             self::BY_TO_NUMBER,
             self::BY_TO_PHONE_REGION,
@@ -494,6 +502,8 @@ class MetricAggregateQueryResourceObjectAttributes implements ModelInterface, Ar
             self::SORT__MESSAGE_DESC,
             self::SORT__MESSAGE_SEND_COHORT,
             self::SORT__MESSAGE_SEND_COHORT_DESC,
+            self::SORT__USAGE_AMOUNT,
+            self::SORT__USAGE_AMOUNT_DESC,
             self::SORT__VALUE_CURRENCY,
             self::SORT__VALUE_CURRENCY_DESC,
             self::SORT__VARIATION,
@@ -532,6 +542,8 @@ class MetricAggregateQueryResourceObjectAttributes implements ModelInterface, Ar
             self::SORT_MESSAGE_TYPE_DESC,
             self::SORT_METHOD,
             self::SORT_METHOD_DESC,
+            self::SORT_SEGMENT_COUNT,
+            self::SORT_SEGMENT_COUNT_DESC,
             self::SORT_SUBJECT,
             self::SORT_SUBJECT_DESC,
             self::SORT_TO_NUMBER,
