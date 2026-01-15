@@ -58,8 +58,8 @@ class VersionTriggersInner implements ModelInterface, ArrayAccess, \JsonSerializ
       */
     protected static $openAPITypes = [
         'id' => 'string',
-        'type' => '\KlaviyoAPI\Model\UrlPatternsEnum',
-        'properties' => '\KlaviyoAPI\Model\URLPatternsProperties'
+        'type' => '\KlaviyoAPI\Model\BackInStockEnum',
+        'properties' => '\KlaviyoAPI\Model\BackInStockProperties'
     ];
 
     /**
@@ -346,7 +346,7 @@ class VersionTriggersInner implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Gets type
      *
-     * @return \KlaviyoAPI\Model\UrlPatternsEnum
+     * @return \KlaviyoAPI\Model\BackInStockEnum
      */
     public function getType()
     {
@@ -356,7 +356,7 @@ class VersionTriggersInner implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Sets type
      *
-     * @param \KlaviyoAPI\Model\UrlPatternsEnum $type type
+     * @param \KlaviyoAPI\Model\BackInStockEnum $type type
      *
      * @return self
      */
@@ -373,7 +373,7 @@ class VersionTriggersInner implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Gets properties
      *
-     * @return \KlaviyoAPI\Model\URLPatternsProperties
+     * @return \KlaviyoAPI\Model\BackInStockProperties
      */
     public function getProperties()
     {
@@ -383,7 +383,7 @@ class VersionTriggersInner implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Sets properties
      *
-     * @param \KlaviyoAPI\Model\URLPatternsProperties $properties properties
+     * @param \KlaviyoAPI\Model\BackInStockProperties $properties properties
      *
      * @return self
      */

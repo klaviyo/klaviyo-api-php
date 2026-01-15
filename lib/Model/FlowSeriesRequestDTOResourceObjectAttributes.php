@@ -61,6 +61,7 @@ class FlowSeriesRequestDTOResourceObjectAttributes implements ModelInterface, Ar
         'timeframe' => '\KlaviyoAPI\Model\CampaignValuesRequestDTOResourceObjectAttributesTimeframe',
         'interval' => 'string',
         'conversion_metric_id' => 'string',
+        'group_by' => 'string[]',
         'filter' => 'string'
     ];
 
@@ -76,6 +77,7 @@ class FlowSeriesRequestDTOResourceObjectAttributes implements ModelInterface, Ar
         'timeframe' => null,
         'interval' => null,
         'conversion_metric_id' => null,
+        'group_by' => null,
         'filter' => null
     ];
 
@@ -89,6 +91,7 @@ class FlowSeriesRequestDTOResourceObjectAttributes implements ModelInterface, Ar
         'timeframe' => false,
         'interval' => false,
         'conversion_metric_id' => false,
+        'group_by' => true,
         'filter' => true
     ];
 
@@ -182,6 +185,7 @@ class FlowSeriesRequestDTOResourceObjectAttributes implements ModelInterface, Ar
         'timeframe' => 'timeframe',
         'interval' => 'interval',
         'conversion_metric_id' => 'conversion_metric_id',
+        'group_by' => 'group_by',
         'filter' => 'filter'
     ];
 
@@ -195,6 +199,7 @@ class FlowSeriesRequestDTOResourceObjectAttributes implements ModelInterface, Ar
         'timeframe' => 'setTimeframe',
         'interval' => 'setInterval',
         'conversion_metric_id' => 'setConversionMetricId',
+        'group_by' => 'setGroupBy',
         'filter' => 'setFilter'
     ];
 
@@ -208,6 +213,7 @@ class FlowSeriesRequestDTOResourceObjectAttributes implements ModelInterface, Ar
         'timeframe' => 'getTimeframe',
         'interval' => 'getInterval',
         'conversion_metric_id' => 'getConversionMetricId',
+        'group_by' => 'getGroupBy',
         'filter' => 'getFilter'
     ];
 
@@ -287,6 +293,9 @@ class FlowSeriesRequestDTOResourceObjectAttributes implements ModelInterface, Ar
     public const INTERVAL_HOURLY = 'hourly';
     public const INTERVAL_MONTHLY = 'monthly';
     public const INTERVAL_WEEKLY = 'weekly';
+    public const GROUP_BY_FLOW_ID = 'flow_id';
+    public const GROUP_BY_FLOW_MESSAGE_ID = 'flow_message_id';
+    public const GROUP_BY_SEND_CHANNEL = 'send_channel';
 
     /**
      * Gets allowable values of the enum
@@ -346,6 +355,20 @@ class FlowSeriesRequestDTOResourceObjectAttributes implements ModelInterface, Ar
     }
 
     /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getGroupByAllowableValues()
+    {
+        return [
+            self::GROUP_BY_FLOW_ID,
+            self::GROUP_BY_FLOW_MESSAGE_ID,
+            self::GROUP_BY_SEND_CHANNEL,
+        ];
+    }
+
+    /**
      * Associative array for storing property values
      *
      * @var mixed[]
@@ -364,6 +387,7 @@ class FlowSeriesRequestDTOResourceObjectAttributes implements ModelInterface, Ar
         $this->setIfExists('timeframe', $data ?? [], null);
         $this->setIfExists('interval', $data ?? [], null);
         $this->setIfExists('conversion_metric_id', $data ?? [], null);
+        $this->setIfExists('group_by', $data ?? [], null);
         $this->setIfExists('filter', $data ?? [], null);
     }
 
@@ -558,6 +582,49 @@ class FlowSeriesRequestDTOResourceObjectAttributes implements ModelInterface, Ar
     }
 
     /**
+     * Gets group_by
+     *
+     * @return string[]|null
+     */
+    public function getGroupBy()
+    {
+        return $this->container['group_by'];
+    }
+
+    /**
+     * Sets group_by
+     *
+     * @param string[]|null $group_by List of attributes to group the data by. Allowed group-bys are flow_id, flow_message_id, send_channel. If not passed in, the data will be grouped by flow_id, flow_message_id, send_channel. The following group by attributes are required: flow_message_id, flow_id.
+     *
+     * @return self
+     */
+    public function setGroupBy($group_by)
+    {
+        if (is_null($group_by)) {
+            array_push($this->openAPINullablesSetToNull, 'group_by');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('group_by', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $allowedValues = $this->getGroupByAllowableValues();
+        if (!is_null($group_by) && array_diff($group_by, $allowedValues)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'group_by', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['group_by'] = $group_by;
+
+        return $this;
+    }
+
+    /**
      * Gets filter
      *
      * @return string|null
@@ -570,7 +637,7 @@ class FlowSeriesRequestDTOResourceObjectAttributes implements ModelInterface, Ar
     /**
      * Sets filter
      *
-     * @param string|null $filter API filter string used to filter the query. Allowed filters are flow_id, send_channel, flow_message_id. Allowed operators are equals, contains-any. Only one filter can be used per attribute, only AND can be used as a combination operator. Max of 100 messages per ANY filter. When filtering on send_channel, allowed values are email, sms, push-notification.
+     * @param string|null $filter API filter string used to filter the query. Allowed filters are flow_id, send_channel, flow_message_id. Allowed operators are equals, contains-any. Only one filter can be used per attribute, only AND can be used as a combination operator. Max of 100 messages per ANY filter. When filtering on send_channel, allowed values are email, sms, push-notification, whatsapp.
      *
      * @return self
      */

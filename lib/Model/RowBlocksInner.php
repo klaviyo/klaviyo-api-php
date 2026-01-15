@@ -58,9 +58,9 @@ class RowBlocksInner implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static $openAPITypes = [
         'id' => 'string',
-        'type' => '\KlaviyoAPI\Model\BisPromotionalEmailCheckboxEnum',
-        'styles' => '\KlaviyoAPI\Model\BackInStockEmailConsentCheckboxStyles',
-        'properties' => '\KlaviyoAPI\Model\BackInStockEmailConsentCheckboxProperties',
+        'type' => '\KlaviyoAPI\Model\ReviewEnum',
+        'styles' => '\KlaviyoAPI\Model\ReviewStyles',
+        'properties' => '\KlaviyoAPI\Model\ReviewProperties',
         'action' => '\KlaviyoAPI\Model\ImageAction',
         'display_device' => 'string[]'
     ];
@@ -384,7 +384,7 @@ class RowBlocksInner implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets type
      *
-     * @return \KlaviyoAPI\Model\BisPromotionalEmailCheckboxEnum
+     * @return \KlaviyoAPI\Model\ReviewEnum
      */
     public function getType()
     {
@@ -394,7 +394,7 @@ class RowBlocksInner implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets type
      *
-     * @param \KlaviyoAPI\Model\BisPromotionalEmailCheckboxEnum $type type
+     * @param \KlaviyoAPI\Model\ReviewEnum $type type
      *
      * @return self
      */
@@ -411,7 +411,7 @@ class RowBlocksInner implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets styles
      *
-     * @return \KlaviyoAPI\Model\BackInStockEmailConsentCheckboxStyles|null
+     * @return \KlaviyoAPI\Model\ReviewStyles|null
      */
     public function getStyles()
     {
@@ -421,7 +421,7 @@ class RowBlocksInner implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets styles
      *
-     * @param \KlaviyoAPI\Model\BackInStockEmailConsentCheckboxStyles|null $styles styles
+     * @param \KlaviyoAPI\Model\ReviewStyles|null $styles styles
      *
      * @return self
      */
@@ -438,7 +438,7 @@ class RowBlocksInner implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets properties
      *
-     * @return \KlaviyoAPI\Model\BackInStockEmailConsentCheckboxProperties
+     * @return \KlaviyoAPI\Model\ReviewProperties
      */
     public function getProperties()
     {
@@ -448,7 +448,7 @@ class RowBlocksInner implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets properties
      *
-     * @param \KlaviyoAPI\Model\BackInStockEmailConsentCheckboxProperties $properties properties
+     * @param \KlaviyoAPI\Model\ReviewProperties $properties properties
      *
      * @return self
      */

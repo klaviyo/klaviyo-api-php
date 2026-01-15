@@ -376,7 +376,7 @@ class StringPhoneOperatorArrayFilter implements ModelInterface, ArrayAccess, \Js
     /**
      * Sets operator
      *
-     * @param string $operator Operators for phone string array filters.  Example condition using this filter:     {
+     * @param string $operator Operators for phone string array filters.  Example condition using this filter:         {
      *
      * @return self
      */

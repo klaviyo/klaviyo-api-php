@@ -80,6 +80,9 @@ class CustomObjectsApi
         'createDataSource' => [
             'application/vnd.api+json',
         ],
+        'createDataSourceRecord' => [
+            'application/vnd.api+json',
+        ],
         'deleteDataSource' => [
             'application/vnd.api+json',
         ],
@@ -399,7 +402,7 @@ class CustomObjectsApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2025-10-15'];
+        $defaultHeaders['revision'] = ['2026-01-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -718,7 +721,7 @@ class CustomObjectsApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2025-10-15'];
+        $defaultHeaders['revision'] = ['2026-01-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -733,6 +736,294 @@ class CustomObjectsApi
             $headers,
             $httpBody
         );
+    }
+
+    /**
+     * Operation createDataSourceRecord
+     *
+     * Create Data Source Record
+     *
+     * @param  \KlaviyoAPI\Model\DataSourceRecordCreateJobCreateQuery $data_source_record_create_job_create_query Create a data source record job (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createDataSourceRecord'] to see the possible values for this operation
+     *
+     * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return void
+     */
+    public function createDataSourceRecord($data_source_record_create_job_create_query, $apiKey = null, string $contentType = self::contentTypes['createDataSourceRecord'][0])
+    {
+        $this->createDataSourceRecordWithHttpInfo($data_source_record_create_job_create_query, $apiKey, $contentType);
+    }
+
+    /**
+     * Alias of `createDataSourceRecord`
+     *
+     * @deprecated use `createDataSourceRecord` instead
+     */
+    public function createDataSourceRecordCreateJob(...$args) {
+        return $this->createDataSourceRecord(...$args);
+    }
+
+    /**
+     * Operation createDataSourceRecordWithHttpInfo
+     *
+     * Create Data Source Record
+     *
+     * @param  \KlaviyoAPI\Model\DataSourceRecordCreateJobCreateQuery $data_source_record_create_job_create_query Create a data source record job (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createDataSourceRecord'] to see the possible values for this operation
+     *
+     * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function createDataSourceRecordWithHttpInfo($data_source_record_create_job_create_query, $apiKey = null, string $contentType = self::contentTypes['createDataSourceRecord'][0])
+    {
+        $request = $this->createDataSourceRecordRequest($data_source_record_create_job_create_query, $apiKey, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            return [null, $statusCode, $response->getHeaders()];
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\KlaviyoAPI\Model\GetAccounts400Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 500:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\KlaviyoAPI\Model\GetAccounts400Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+            }
+        
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Alias of `createDataSourceRecordWithHttpInfo`
+     *
+     * @deprecated use `createDataSourceRecordWithHttpInfo` instead
+     */
+    public function createDataSourceRecordCreateJobWithHttpInfo(...$args) {
+        return $this->createDataSourceRecordWithHttpInfo(...$args);
+    }
+
+    /**
+     * Operation createDataSourceRecordAsync
+     *
+     * Create Data Source Record
+     *
+     * @param  \KlaviyoAPI\Model\DataSourceRecordCreateJobCreateQuery $data_source_record_create_job_create_query Create a data source record job (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createDataSourceRecord'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function createDataSourceRecordAsync($data_source_record_create_job_create_query, $apiKey = null, string $contentType = self::contentTypes['createDataSourceRecord'][0])
+    {
+        return $this->createDataSourceRecordAsyncWithHttpInfo($data_source_record_create_job_create_query, $apiKey, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Alias of `createDataSourceRecordAsync`
+     *
+     * @deprecated use `createDataSourceRecordAsync` instead
+     */
+    public function createDataSourceRecordCreateJobAsync(...$args) {
+        return $this->createDataSourceRecordAsync(...$args);
+    }
+
+    /**
+     * Operation createDataSourceRecordAsyncWithHttpInfo
+     *
+     * Create Data Source Record
+     *
+     * @param  \KlaviyoAPI\Model\DataSourceRecordCreateJobCreateQuery $data_source_record_create_job_create_query Create a data source record job (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createDataSourceRecord'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function createDataSourceRecordAsyncWithHttpInfo($data_source_record_create_job_create_query, $apiKey = null, string $contentType = self::contentTypes['createDataSourceRecord'][0])
+    {
+        $returnType = '';
+        $request = $this->createDataSourceRecordRequest($data_source_record_create_job_create_query, $apiKey, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    return [null, $response->getStatusCode(), $response->getHeaders()];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Alias of `createDataSourceRecordAsyncWithHttpInfo`
+     *
+     * @deprecated use `createDataSourceRecordAsyncWithHttpInfo` instead
+     */
+    public function createDataSourceRecordCreateJobAsyncWithHttpInfo(...$args) {
+        return $this->createDataSourceRecordAsyncWithHttpInfo(...$args);
+    }
+
+    /**
+     * Create request for operation 'createDataSourceRecord'
+     *
+     * @param  \KlaviyoAPI\Model\DataSourceRecordCreateJobCreateQuery $data_source_record_create_job_create_query Create a data source record job (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createDataSourceRecord'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function createDataSourceRecordRequest($data_source_record_create_job_create_query, $apiKey = null, string $contentType = self::contentTypes['createDataSourceRecord'][0])
+    {
+
+        // verify the required parameter 'data_source_record_create_job_create_query' is set
+        if ($data_source_record_create_job_create_query === null || (is_array($data_source_record_create_job_create_query) && count($data_source_record_create_job_create_query) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $data_source_record_create_job_create_query when calling createDataSourceRecord'
+            );
+        }
+
+
+        $resourcePath = '/api/data-source-record-create-jobs';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/vnd.api+json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (isset($data_source_record_create_job_create_query)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false || stripos($headers['Content-Type'], 'application/vnd.api+json') !== false) {
+                # if Content-Type contains "application/json" or "application/vnd.api+json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($data_source_record_create_job_create_query));
+            } else {
+                $httpBody = $data_source_record_create_job_create_query;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false || stripos($headers['Content-Type'], 'application/vnd.api+json') !== false) {
+                # if Content-Type contains "application/json" or "application/vnd.api+json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        if ($apiKey == null) {
+            $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        } else {
+            $apiKey = 'Klaviyo-API-Key '.$apiKey;
+        }
+
+        $headers['Authorization'] = $apiKey;
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $defaultHeaders['revision'] = ['2026-01-15'];
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'POST',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Alias of `createDataSourceRecordRequest`
+     *
+     * @deprecated use `createDataSourceRecordRequest` instead
+     */
+    public function createDataSourceRecordCreateJobRequest(...$args) {
+        return $this->createDataSourceRecordRequest(...$args);
     }
 
     /**
@@ -962,7 +1253,7 @@ class CustomObjectsApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2025-10-15'];
+        $defaultHeaders['revision'] = ['2026-01-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -985,7 +1276,7 @@ class CustomObjectsApi
      * Get Data Source
      *
      * @param  string $id The ID of the data source (required)
-     * @param  string[]|null $fields_data_source For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_data_source For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDataSource'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -1004,7 +1295,7 @@ class CustomObjectsApi
      * Get Data Source
      *
      * @param  string $id The ID of the data source (required)
-     * @param  string[]|null $fields_data_source For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_data_source For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDataSource'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -1118,7 +1409,7 @@ class CustomObjectsApi
      * Get Data Source
      *
      * @param  string $id The ID of the data source (required)
-     * @param  string[]|null $fields_data_source For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_data_source For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDataSource'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1140,7 +1431,7 @@ class CustomObjectsApi
      * Get Data Source
      *
      * @param  string $id The ID of the data source (required)
-     * @param  string[]|null $fields_data_source For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_data_source For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDataSource'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1196,7 +1487,7 @@ class CustomObjectsApi
      * Create request for operation 'getDataSource'
      *
      * @param  string $id The ID of the data source (required)
-     * @param  string[]|null $fields_data_source For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_data_source For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDataSource'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1288,7 +1579,7 @@ class CustomObjectsApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2025-10-15'];
+        $defaultHeaders['revision'] = ['2026-01-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -1310,8 +1601,8 @@ class CustomObjectsApi
      *
      * Get Data Sources
      *
-     * @param  string[]|null $fields_data_source For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#pagination (optional)
+     * @param  string[]|null $fields_data_source For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#pagination (optional)
      * @param  int|null $page_size Default: 20. Min: 1. Max: 100. (optional, default to 20)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDataSources'] to see the possible values for this operation
      *
@@ -1330,8 +1621,8 @@ class CustomObjectsApi
      *
      * Get Data Sources
      *
-     * @param  string[]|null $fields_data_source For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#pagination (optional)
+     * @param  string[]|null $fields_data_source For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#pagination (optional)
      * @param  int|null $page_size Default: 20. Min: 1. Max: 100. (optional, default to 20)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDataSources'] to see the possible values for this operation
      *
@@ -1445,8 +1736,8 @@ class CustomObjectsApi
      *
      * Get Data Sources
      *
-     * @param  string[]|null $fields_data_source For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#pagination (optional)
+     * @param  string[]|null $fields_data_source For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#pagination (optional)
      * @param  int|null $page_size Default: 20. Min: 1. Max: 100. (optional, default to 20)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDataSources'] to see the possible values for this operation
      *
@@ -1468,8 +1759,8 @@ class CustomObjectsApi
      *
      * Get Data Sources
      *
-     * @param  string[]|null $fields_data_source For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#pagination (optional)
+     * @param  string[]|null $fields_data_source For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#pagination (optional)
      * @param  int|null $page_size Default: 20. Min: 1. Max: 100. (optional, default to 20)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDataSources'] to see the possible values for this operation
      *
@@ -1525,8 +1816,8 @@ class CustomObjectsApi
     /**
      * Create request for operation 'getDataSources'
      *
-     * @param  string[]|null $fields_data_source For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2025-10-15/reference/api-overview#pagination (optional)
+     * @param  string[]|null $fields_data_source For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#pagination (optional)
      * @param  int|null $page_size Default: 20. Min: 1. Max: 100. (optional, default to 20)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDataSources'] to see the possible values for this operation
      *
@@ -1630,7 +1921,7 @@ class CustomObjectsApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2025-10-15'];
+        $defaultHeaders['revision'] = ['2026-01-15'];
 
         $headers = array_merge(
             $defaultHeaders,

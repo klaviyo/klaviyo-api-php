@@ -245,6 +245,7 @@ class FixedTimerConfiguration implements ModelInterface, ArrayAccess, \JsonSeria
     public const TIMEZONE_AFRICA_ADDIS_ABABA = 'Africa/Addis_Ababa';
     public const TIMEZONE_AFRICA_ALGIERS = 'Africa/Algiers';
     public const TIMEZONE_AFRICA_ASMARA = 'Africa/Asmara';
+    public const TIMEZONE_AFRICA_ASMERA = 'Africa/Asmera';
     public const TIMEZONE_AFRICA_BAMAKO = 'Africa/Bamako';
     public const TIMEZONE_AFRICA_BANGUI = 'Africa/Bangui';
     public const TIMEZONE_AFRICA_BANJUL = 'Africa/Banjul';
@@ -289,6 +290,7 @@ class FixedTimerConfiguration implements ModelInterface, ArrayAccess, \JsonSeria
     public const TIMEZONE_AFRICA_OUAGADOUGOU = 'Africa/Ouagadougou';
     public const TIMEZONE_AFRICA_PORTO_NOVO = 'Africa/Porto-Novo';
     public const TIMEZONE_AFRICA_SAO_TOME = 'Africa/Sao_Tome';
+    public const TIMEZONE_AFRICA_TIMBUKTU = 'Africa/Timbuktu';
     public const TIMEZONE_AFRICA_TRIPOLI = 'Africa/Tripoli';
     public const TIMEZONE_AFRICA_TUNIS = 'Africa/Tunis';
     public const TIMEZONE_AFRICA_WINDHOEK = 'Africa/Windhoek';
@@ -299,6 +301,7 @@ class FixedTimerConfiguration implements ModelInterface, ArrayAccess, \JsonSeria
     public const TIMEZONE_AMERICA_ARAGUAINA = 'America/Araguaina';
     public const TIMEZONE_AMERICA_ARGENTINA_BUENOS_AIRES = 'America/Argentina/Buenos_Aires';
     public const TIMEZONE_AMERICA_ARGENTINA_CATAMARCA = 'America/Argentina/Catamarca';
+    public const TIMEZONE_AMERICA_ARGENTINA_COMOD_RIVADAVIA = 'America/Argentina/ComodRivadavia';
     public const TIMEZONE_AMERICA_ARGENTINA_CORDOBA = 'America/Argentina/Cordoba';
     public const TIMEZONE_AMERICA_ARGENTINA_JUJUY = 'America/Argentina/Jujuy';
     public const TIMEZONE_AMERICA_ARGENTINA_LA_RIOJA = 'America/Argentina/La_Rioja';
@@ -312,6 +315,7 @@ class FixedTimerConfiguration implements ModelInterface, ArrayAccess, \JsonSeria
     public const TIMEZONE_AMERICA_ARUBA = 'America/Aruba';
     public const TIMEZONE_AMERICA_ASUNCION = 'America/Asuncion';
     public const TIMEZONE_AMERICA_ATIKOKAN = 'America/Atikokan';
+    public const TIMEZONE_AMERICA_ATKA = 'America/Atka';
     public const TIMEZONE_AMERICA_BAHIA = 'America/Bahia';
     public const TIMEZONE_AMERICA_BAHIA_BANDERAS = 'America/Bahia_Banderas';
     public const TIMEZONE_AMERICA_BARBADOS = 'America/Barbados';
@@ -321,15 +325,19 @@ class FixedTimerConfiguration implements ModelInterface, ArrayAccess, \JsonSeria
     public const TIMEZONE_AMERICA_BOA_VISTA = 'America/Boa_Vista';
     public const TIMEZONE_AMERICA_BOGOTA = 'America/Bogota';
     public const TIMEZONE_AMERICA_BOISE = 'America/Boise';
+    public const TIMEZONE_AMERICA_BUENOS_AIRES = 'America/Buenos_Aires';
     public const TIMEZONE_AMERICA_CAMBRIDGE_BAY = 'America/Cambridge_Bay';
     public const TIMEZONE_AMERICA_CAMPO_GRANDE = 'America/Campo_Grande';
     public const TIMEZONE_AMERICA_CANCUN = 'America/Cancun';
     public const TIMEZONE_AMERICA_CARACAS = 'America/Caracas';
+    public const TIMEZONE_AMERICA_CATAMARCA = 'America/Catamarca';
     public const TIMEZONE_AMERICA_CAYENNE = 'America/Cayenne';
     public const TIMEZONE_AMERICA_CAYMAN = 'America/Cayman';
     public const TIMEZONE_AMERICA_CHICAGO = 'America/Chicago';
     public const TIMEZONE_AMERICA_CHIHUAHUA = 'America/Chihuahua';
     public const TIMEZONE_AMERICA_CIUDAD_JUAREZ = 'America/Ciudad_Juarez';
+    public const TIMEZONE_AMERICA_CORAL_HARBOUR = 'America/Coral_Harbour';
+    public const TIMEZONE_AMERICA_CORDOBA = 'America/Cordoba';
     public const TIMEZONE_AMERICA_COSTA_RICA = 'America/Costa_Rica';
     public const TIMEZONE_AMERICA_CRESTON = 'America/Creston';
     public const TIMEZONE_AMERICA_CUIABA = 'America/Cuiaba';
@@ -343,9 +351,12 @@ class FixedTimerConfiguration implements ModelInterface, ArrayAccess, \JsonSeria
     public const TIMEZONE_AMERICA_EDMONTON = 'America/Edmonton';
     public const TIMEZONE_AMERICA_EIRUNEPE = 'America/Eirunepe';
     public const TIMEZONE_AMERICA_EL_SALVADOR = 'America/El_Salvador';
+    public const TIMEZONE_AMERICA_ENSENADA = 'America/Ensenada';
     public const TIMEZONE_AMERICA_FORT_NELSON = 'America/Fort_Nelson';
+    public const TIMEZONE_AMERICA_FORT_WAYNE = 'America/Fort_Wayne';
     public const TIMEZONE_AMERICA_FORTALEZA = 'America/Fortaleza';
     public const TIMEZONE_AMERICA_GLACE_BAY = 'America/Glace_Bay';
+    public const TIMEZONE_AMERICA_GODTHAB = 'America/Godthab';
     public const TIMEZONE_AMERICA_GOOSE_BAY = 'America/Goose_Bay';
     public const TIMEZONE_AMERICA_GRAND_TURK = 'America/Grand_Turk';
     public const TIMEZONE_AMERICA_GRENADA = 'America/Grenada';
@@ -364,16 +375,20 @@ class FixedTimerConfiguration implements ModelInterface, ArrayAccess, \JsonSeria
     public const TIMEZONE_AMERICA_INDIANA_VEVAY = 'America/Indiana/Vevay';
     public const TIMEZONE_AMERICA_INDIANA_VINCENNES = 'America/Indiana/Vincennes';
     public const TIMEZONE_AMERICA_INDIANA_WINAMAC = 'America/Indiana/Winamac';
+    public const TIMEZONE_AMERICA_INDIANAPOLIS = 'America/Indianapolis';
     public const TIMEZONE_AMERICA_INUVIK = 'America/Inuvik';
     public const TIMEZONE_AMERICA_IQALUIT = 'America/Iqaluit';
     public const TIMEZONE_AMERICA_JAMAICA = 'America/Jamaica';
+    public const TIMEZONE_AMERICA_JUJUY = 'America/Jujuy';
     public const TIMEZONE_AMERICA_JUNEAU = 'America/Juneau';
     public const TIMEZONE_AMERICA_KENTUCKY_LOUISVILLE = 'America/Kentucky/Louisville';
     public const TIMEZONE_AMERICA_KENTUCKY_MONTICELLO = 'America/Kentucky/Monticello';
+    public const TIMEZONE_AMERICA_KNOX_IN = 'America/Knox_IN';
     public const TIMEZONE_AMERICA_KRALENDIJK = 'America/Kralendijk';
     public const TIMEZONE_AMERICA_LA_PAZ = 'America/La_Paz';
     public const TIMEZONE_AMERICA_LIMA = 'America/Lima';
     public const TIMEZONE_AMERICA_LOS_ANGELES = 'America/Los_Angeles';
+    public const TIMEZONE_AMERICA_LOUISVILLE = 'America/Louisville';
     public const TIMEZONE_AMERICA_LOWER_PRINCES = 'America/Lower_Princes';
     public const TIMEZONE_AMERICA_MACEIO = 'America/Maceio';
     public const TIMEZONE_AMERICA_MANAGUA = 'America/Managua';
@@ -382,6 +397,7 @@ class FixedTimerConfiguration implements ModelInterface, ArrayAccess, \JsonSeria
     public const TIMEZONE_AMERICA_MARTINIQUE = 'America/Martinique';
     public const TIMEZONE_AMERICA_MATAMOROS = 'America/Matamoros';
     public const TIMEZONE_AMERICA_MAZATLAN = 'America/Mazatlan';
+    public const TIMEZONE_AMERICA_MENDOZA = 'America/Mendoza';
     public const TIMEZONE_AMERICA_MENOMINEE = 'America/Menominee';
     public const TIMEZONE_AMERICA_MERIDA = 'America/Merida';
     public const TIMEZONE_AMERICA_METLAKATLA = 'America/Metlakatla';
@@ -390,9 +406,11 @@ class FixedTimerConfiguration implements ModelInterface, ArrayAccess, \JsonSeria
     public const TIMEZONE_AMERICA_MONCTON = 'America/Moncton';
     public const TIMEZONE_AMERICA_MONTERREY = 'America/Monterrey';
     public const TIMEZONE_AMERICA_MONTEVIDEO = 'America/Montevideo';
+    public const TIMEZONE_AMERICA_MONTREAL = 'America/Montreal';
     public const TIMEZONE_AMERICA_MONTSERRAT = 'America/Montserrat';
     public const TIMEZONE_AMERICA_NASSAU = 'America/Nassau';
     public const TIMEZONE_AMERICA_NEW_YORK = 'America/New_York';
+    public const TIMEZONE_AMERICA_NIPIGON = 'America/Nipigon';
     public const TIMEZONE_AMERICA_NOME = 'America/Nome';
     public const TIMEZONE_AMERICA_NORONHA = 'America/Noronha';
     public const TIMEZONE_AMERICA_NORTH_DAKOTA_BEULAH = 'America/North_Dakota/Beulah';
@@ -401,23 +419,29 @@ class FixedTimerConfiguration implements ModelInterface, ArrayAccess, \JsonSeria
     public const TIMEZONE_AMERICA_NUUK = 'America/Nuuk';
     public const TIMEZONE_AMERICA_OJINAGA = 'America/Ojinaga';
     public const TIMEZONE_AMERICA_PANAMA = 'America/Panama';
+    public const TIMEZONE_AMERICA_PANGNIRTUNG = 'America/Pangnirtung';
     public const TIMEZONE_AMERICA_PARAMARIBO = 'America/Paramaribo';
     public const TIMEZONE_AMERICA_PHOENIX = 'America/Phoenix';
     public const TIMEZONE_AMERICA_PORT_AU_PRINCE = 'America/Port-au-Prince';
     public const TIMEZONE_AMERICA_PORT_OF_SPAIN = 'America/Port_of_Spain';
+    public const TIMEZONE_AMERICA_PORTO_ACRE = 'America/Porto_Acre';
     public const TIMEZONE_AMERICA_PORTO_VELHO = 'America/Porto_Velho';
     public const TIMEZONE_AMERICA_PUERTO_RICO = 'America/Puerto_Rico';
     public const TIMEZONE_AMERICA_PUNTA_ARENAS = 'America/Punta_Arenas';
+    public const TIMEZONE_AMERICA_RAINY_RIVER = 'America/Rainy_River';
     public const TIMEZONE_AMERICA_RANKIN_INLET = 'America/Rankin_Inlet';
     public const TIMEZONE_AMERICA_RECIFE = 'America/Recife';
     public const TIMEZONE_AMERICA_REGINA = 'America/Regina';
     public const TIMEZONE_AMERICA_RESOLUTE = 'America/Resolute';
     public const TIMEZONE_AMERICA_RIO_BRANCO = 'America/Rio_Branco';
+    public const TIMEZONE_AMERICA_ROSARIO = 'America/Rosario';
+    public const TIMEZONE_AMERICA_SANTA_ISABEL = 'America/Santa_Isabel';
     public const TIMEZONE_AMERICA_SANTAREM = 'America/Santarem';
     public const TIMEZONE_AMERICA_SANTIAGO = 'America/Santiago';
     public const TIMEZONE_AMERICA_SANTO_DOMINGO = 'America/Santo_Domingo';
     public const TIMEZONE_AMERICA_SAO_PAULO = 'America/Sao_Paulo';
     public const TIMEZONE_AMERICA_SCORESBYSUND = 'America/Scoresbysund';
+    public const TIMEZONE_AMERICA_SHIPROCK = 'America/Shiprock';
     public const TIMEZONE_AMERICA_SITKA = 'America/Sitka';
     public const TIMEZONE_AMERICA_ST_BARTHELEMY = 'America/St_Barthelemy';
     public const TIMEZONE_AMERICA_ST_JOHNS = 'America/St_Johns';
@@ -428,13 +452,16 @@ class FixedTimerConfiguration implements ModelInterface, ArrayAccess, \JsonSeria
     public const TIMEZONE_AMERICA_SWIFT_CURRENT = 'America/Swift_Current';
     public const TIMEZONE_AMERICA_TEGUCIGALPA = 'America/Tegucigalpa';
     public const TIMEZONE_AMERICA_THULE = 'America/Thule';
+    public const TIMEZONE_AMERICA_THUNDER_BAY = 'America/Thunder_Bay';
     public const TIMEZONE_AMERICA_TIJUANA = 'America/Tijuana';
     public const TIMEZONE_AMERICA_TORONTO = 'America/Toronto';
     public const TIMEZONE_AMERICA_TORTOLA = 'America/Tortola';
     public const TIMEZONE_AMERICA_VANCOUVER = 'America/Vancouver';
+    public const TIMEZONE_AMERICA_VIRGIN = 'America/Virgin';
     public const TIMEZONE_AMERICA_WHITEHORSE = 'America/Whitehorse';
     public const TIMEZONE_AMERICA_WINNIPEG = 'America/Winnipeg';
     public const TIMEZONE_AMERICA_YAKUTAT = 'America/Yakutat';
+    public const TIMEZONE_AMERICA_YELLOWKNIFE = 'America/Yellowknife';
     public const TIMEZONE_ANTARCTICA_CASEY = 'Antarctica/Casey';
     public const TIMEZONE_ANTARCTICA_DAVIS = 'Antarctica/Davis';
     public const TIMEZONE_ANTARCTICA_DUMONT_D_URVILLE = 'Antarctica/DumontDUrville';
@@ -443,6 +470,7 @@ class FixedTimerConfiguration implements ModelInterface, ArrayAccess, \JsonSeria
     public const TIMEZONE_ANTARCTICA_MC_MURDO = 'Antarctica/McMurdo';
     public const TIMEZONE_ANTARCTICA_PALMER = 'Antarctica/Palmer';
     public const TIMEZONE_ANTARCTICA_ROTHERA = 'Antarctica/Rothera';
+    public const TIMEZONE_ANTARCTICA_SOUTH_POLE = 'Antarctica/South_Pole';
     public const TIMEZONE_ANTARCTICA_SYOWA = 'Antarctica/Syowa';
     public const TIMEZONE_ANTARCTICA_TROLL = 'Antarctica/Troll';
     public const TIMEZONE_ANTARCTICA_VOSTOK = 'Antarctica/Vostok';
@@ -454,6 +482,7 @@ class FixedTimerConfiguration implements ModelInterface, ArrayAccess, \JsonSeria
     public const TIMEZONE_ASIA_AQTAU = 'Asia/Aqtau';
     public const TIMEZONE_ASIA_AQTOBE = 'Asia/Aqtobe';
     public const TIMEZONE_ASIA_ASHGABAT = 'Asia/Ashgabat';
+    public const TIMEZONE_ASIA_ASHKHABAD = 'Asia/Ashkhabad';
     public const TIMEZONE_ASIA_ATYRAU = 'Asia/Atyrau';
     public const TIMEZONE_ASIA_BAGHDAD = 'Asia/Baghdad';
     public const TIMEZONE_ASIA_BAHRAIN = 'Asia/Bahrain';
@@ -463,9 +492,13 @@ class FixedTimerConfiguration implements ModelInterface, ArrayAccess, \JsonSeria
     public const TIMEZONE_ASIA_BEIRUT = 'Asia/Beirut';
     public const TIMEZONE_ASIA_BISHKEK = 'Asia/Bishkek';
     public const TIMEZONE_ASIA_BRUNEI = 'Asia/Brunei';
+    public const TIMEZONE_ASIA_CALCUTTA = 'Asia/Calcutta';
     public const TIMEZONE_ASIA_CHITA = 'Asia/Chita';
     public const TIMEZONE_ASIA_CHOIBALSAN = 'Asia/Choibalsan';
+    public const TIMEZONE_ASIA_CHONGQING = 'Asia/Chongqing';
+    public const TIMEZONE_ASIA_CHUNGKING = 'Asia/Chungking';
     public const TIMEZONE_ASIA_COLOMBO = 'Asia/Colombo';
+    public const TIMEZONE_ASIA_DACCA = 'Asia/Dacca';
     public const TIMEZONE_ASIA_DAMASCUS = 'Asia/Damascus';
     public const TIMEZONE_ASIA_DHAKA = 'Asia/Dhaka';
     public const TIMEZONE_ASIA_DILI = 'Asia/Dili';
@@ -473,24 +506,29 @@ class FixedTimerConfiguration implements ModelInterface, ArrayAccess, \JsonSeria
     public const TIMEZONE_ASIA_DUSHANBE = 'Asia/Dushanbe';
     public const TIMEZONE_ASIA_FAMAGUSTA = 'Asia/Famagusta';
     public const TIMEZONE_ASIA_GAZA = 'Asia/Gaza';
+    public const TIMEZONE_ASIA_HARBIN = 'Asia/Harbin';
     public const TIMEZONE_ASIA_HEBRON = 'Asia/Hebron';
     public const TIMEZONE_ASIA_HO_CHI_MINH = 'Asia/Ho_Chi_Minh';
     public const TIMEZONE_ASIA_HONG_KONG = 'Asia/Hong_Kong';
     public const TIMEZONE_ASIA_HOVD = 'Asia/Hovd';
     public const TIMEZONE_ASIA_IRKUTSK = 'Asia/Irkutsk';
+    public const TIMEZONE_ASIA_ISTANBUL = 'Asia/Istanbul';
     public const TIMEZONE_ASIA_JAKARTA = 'Asia/Jakarta';
     public const TIMEZONE_ASIA_JAYAPURA = 'Asia/Jayapura';
     public const TIMEZONE_ASIA_JERUSALEM = 'Asia/Jerusalem';
     public const TIMEZONE_ASIA_KABUL = 'Asia/Kabul';
     public const TIMEZONE_ASIA_KAMCHATKA = 'Asia/Kamchatka';
     public const TIMEZONE_ASIA_KARACHI = 'Asia/Karachi';
+    public const TIMEZONE_ASIA_KASHGAR = 'Asia/Kashgar';
     public const TIMEZONE_ASIA_KATHMANDU = 'Asia/Kathmandu';
+    public const TIMEZONE_ASIA_KATMANDU = 'Asia/Katmandu';
     public const TIMEZONE_ASIA_KHANDYGA = 'Asia/Khandyga';
     public const TIMEZONE_ASIA_KOLKATA = 'Asia/Kolkata';
     public const TIMEZONE_ASIA_KRASNOYARSK = 'Asia/Krasnoyarsk';
     public const TIMEZONE_ASIA_KUALA_LUMPUR = 'Asia/Kuala_Lumpur';
     public const TIMEZONE_ASIA_KUCHING = 'Asia/Kuching';
     public const TIMEZONE_ASIA_KUWAIT = 'Asia/Kuwait';
+    public const TIMEZONE_ASIA_MACAO = 'Asia/Macao';
     public const TIMEZONE_ASIA_MACAU = 'Asia/Macau';
     public const TIMEZONE_ASIA_MAGADAN = 'Asia/Magadan';
     public const TIMEZONE_ASIA_MAKASSAR = 'Asia/Makassar';
@@ -507,7 +545,9 @@ class FixedTimerConfiguration implements ModelInterface, ArrayAccess, \JsonSeria
     public const TIMEZONE_ASIA_QATAR = 'Asia/Qatar';
     public const TIMEZONE_ASIA_QOSTANAY = 'Asia/Qostanay';
     public const TIMEZONE_ASIA_QYZYLORDA = 'Asia/Qyzylorda';
+    public const TIMEZONE_ASIA_RANGOON = 'Asia/Rangoon';
     public const TIMEZONE_ASIA_RIYADH = 'Asia/Riyadh';
+    public const TIMEZONE_ASIA_SAIGON = 'Asia/Saigon';
     public const TIMEZONE_ASIA_SAKHALIN = 'Asia/Sakhalin';
     public const TIMEZONE_ASIA_SAMARKAND = 'Asia/Samarkand';
     public const TIMEZONE_ASIA_SEOUL = 'Asia/Seoul';
@@ -518,10 +558,14 @@ class FixedTimerConfiguration implements ModelInterface, ArrayAccess, \JsonSeria
     public const TIMEZONE_ASIA_TASHKENT = 'Asia/Tashkent';
     public const TIMEZONE_ASIA_TBILISI = 'Asia/Tbilisi';
     public const TIMEZONE_ASIA_TEHRAN = 'Asia/Tehran';
+    public const TIMEZONE_ASIA_TEL_AVIV = 'Asia/Tel_Aviv';
+    public const TIMEZONE_ASIA_THIMBU = 'Asia/Thimbu';
     public const TIMEZONE_ASIA_THIMPHU = 'Asia/Thimphu';
     public const TIMEZONE_ASIA_TOKYO = 'Asia/Tokyo';
     public const TIMEZONE_ASIA_TOMSK = 'Asia/Tomsk';
+    public const TIMEZONE_ASIA_UJUNG_PANDANG = 'Asia/Ujung_Pandang';
     public const TIMEZONE_ASIA_ULAANBAATAR = 'Asia/Ulaanbaatar';
+    public const TIMEZONE_ASIA_ULAN_BATOR = 'Asia/Ulan_Bator';
     public const TIMEZONE_ASIA_URUMQI = 'Asia/Urumqi';
     public const TIMEZONE_ASIA_UST_NERA = 'Asia/Ust-Nera';
     public const TIMEZONE_ASIA_VIENTIANE = 'Asia/Vientiane';
@@ -534,33 +578,99 @@ class FixedTimerConfiguration implements ModelInterface, ArrayAccess, \JsonSeria
     public const TIMEZONE_ATLANTIC_BERMUDA = 'Atlantic/Bermuda';
     public const TIMEZONE_ATLANTIC_CANARY = 'Atlantic/Canary';
     public const TIMEZONE_ATLANTIC_CAPE_VERDE = 'Atlantic/Cape_Verde';
+    public const TIMEZONE_ATLANTIC_FAEROE = 'Atlantic/Faeroe';
     public const TIMEZONE_ATLANTIC_FAROE = 'Atlantic/Faroe';
+    public const TIMEZONE_ATLANTIC_JAN_MAYEN = 'Atlantic/Jan_Mayen';
     public const TIMEZONE_ATLANTIC_MADEIRA = 'Atlantic/Madeira';
     public const TIMEZONE_ATLANTIC_REYKJAVIK = 'Atlantic/Reykjavik';
     public const TIMEZONE_ATLANTIC_SOUTH_GEORGIA = 'Atlantic/South_Georgia';
     public const TIMEZONE_ATLANTIC_ST_HELENA = 'Atlantic/St_Helena';
     public const TIMEZONE_ATLANTIC_STANLEY = 'Atlantic/Stanley';
+    public const TIMEZONE_AUSTRALIA_ACT = 'Australia/ACT';
     public const TIMEZONE_AUSTRALIA_ADELAIDE = 'Australia/Adelaide';
     public const TIMEZONE_AUSTRALIA_BRISBANE = 'Australia/Brisbane';
     public const TIMEZONE_AUSTRALIA_BROKEN_HILL = 'Australia/Broken_Hill';
+    public const TIMEZONE_AUSTRALIA_CANBERRA = 'Australia/Canberra';
+    public const TIMEZONE_AUSTRALIA_CURRIE = 'Australia/Currie';
     public const TIMEZONE_AUSTRALIA_DARWIN = 'Australia/Darwin';
     public const TIMEZONE_AUSTRALIA_EUCLA = 'Australia/Eucla';
     public const TIMEZONE_AUSTRALIA_HOBART = 'Australia/Hobart';
+    public const TIMEZONE_AUSTRALIA_LHI = 'Australia/LHI';
     public const TIMEZONE_AUSTRALIA_LINDEMAN = 'Australia/Lindeman';
     public const TIMEZONE_AUSTRALIA_LORD_HOWE = 'Australia/Lord_Howe';
     public const TIMEZONE_AUSTRALIA_MELBOURNE = 'Australia/Melbourne';
+    public const TIMEZONE_AUSTRALIA_NSW = 'Australia/NSW';
+    public const TIMEZONE_AUSTRALIA_NORTH = 'Australia/North';
     public const TIMEZONE_AUSTRALIA_PERTH = 'Australia/Perth';
+    public const TIMEZONE_AUSTRALIA_QUEENSLAND = 'Australia/Queensland';
+    public const TIMEZONE_AUSTRALIA_SOUTH = 'Australia/South';
     public const TIMEZONE_AUSTRALIA_SYDNEY = 'Australia/Sydney';
+    public const TIMEZONE_AUSTRALIA_TASMANIA = 'Australia/Tasmania';
+    public const TIMEZONE_AUSTRALIA_VICTORIA = 'Australia/Victoria';
+    public const TIMEZONE_AUSTRALIA_WEST = 'Australia/West';
+    public const TIMEZONE_AUSTRALIA_YANCOWINNA = 'Australia/Yancowinna';
+    public const TIMEZONE_BRAZIL_ACRE = 'Brazil/Acre';
+    public const TIMEZONE_BRAZIL_DE_NORONHA = 'Brazil/DeNoronha';
+    public const TIMEZONE_BRAZIL_EAST = 'Brazil/East';
+    public const TIMEZONE_BRAZIL_WEST = 'Brazil/West';
+    public const TIMEZONE_CET = 'CET';
+    public const TIMEZONE_CST6_CDT = 'CST6CDT';
     public const TIMEZONE_CANADA_ATLANTIC = 'Canada/Atlantic';
     public const TIMEZONE_CANADA_CENTRAL = 'Canada/Central';
     public const TIMEZONE_CANADA_EASTERN = 'Canada/Eastern';
     public const TIMEZONE_CANADA_MOUNTAIN = 'Canada/Mountain';
     public const TIMEZONE_CANADA_NEWFOUNDLAND = 'Canada/Newfoundland';
     public const TIMEZONE_CANADA_PACIFIC = 'Canada/Pacific';
+    public const TIMEZONE_CANADA_SASKATCHEWAN = 'Canada/Saskatchewan';
+    public const TIMEZONE_CANADA_YUKON = 'Canada/Yukon';
+    public const TIMEZONE_CHILE_CONTINENTAL = 'Chile/Continental';
+    public const TIMEZONE_CHILE_EASTER_ISLAND = 'Chile/EasterIsland';
+    public const TIMEZONE_CUBA = 'Cuba';
+    public const TIMEZONE_EET = 'EET';
+    public const TIMEZONE_EST = 'EST';
+    public const TIMEZONE_EST5_EDT = 'EST5EDT';
+    public const TIMEZONE_EGYPT = 'Egypt';
+    public const TIMEZONE_EIRE = 'Eire';
+    public const TIMEZONE_ETC_GMT = 'Etc/GMT';
+    public const TIMEZONE_ETC_GMT0 = 'Etc/GMT+0';
+    public const TIMEZONE_ETC_GMT1 = 'Etc/GMT+1';
+    public const TIMEZONE_ETC_GMT10 = 'Etc/GMT+10';
+    public const TIMEZONE_ETC_GMT11 = 'Etc/GMT+11';
+    public const TIMEZONE_ETC_GMT12 = 'Etc/GMT+12';
+    public const TIMEZONE_ETC_GMT2 = 'Etc/GMT+2';
+    public const TIMEZONE_ETC_GMT3 = 'Etc/GMT+3';
+    public const TIMEZONE_ETC_GMT4 = 'Etc/GMT+4';
+    public const TIMEZONE_ETC_GMT5 = 'Etc/GMT+5';
+    public const TIMEZONE_ETC_GMT6 = 'Etc/GMT+6';
+    public const TIMEZONE_ETC_GMT7 = 'Etc/GMT+7';
+    public const TIMEZONE_ETC_GMT8 = 'Etc/GMT+8';
+    public const TIMEZONE_ETC_GMT9 = 'Etc/GMT+9';
+    public const TIMEZONE_ETC_GMT_0 = 'Etc/GMT-0';
+    public const TIMEZONE_ETC_GMT_1 = 'Etc/GMT-1';
+    public const TIMEZONE_ETC_GMT_10 = 'Etc/GMT-10';
+    public const TIMEZONE_ETC_GMT_11 = 'Etc/GMT-11';
+    public const TIMEZONE_ETC_GMT_12 = 'Etc/GMT-12';
+    public const TIMEZONE_ETC_GMT_13 = 'Etc/GMT-13';
+    public const TIMEZONE_ETC_GMT_14 = 'Etc/GMT-14';
+    public const TIMEZONE_ETC_GMT_2 = 'Etc/GMT-2';
+    public const TIMEZONE_ETC_GMT_3 = 'Etc/GMT-3';
+    public const TIMEZONE_ETC_GMT_4 = 'Etc/GMT-4';
+    public const TIMEZONE_ETC_GMT_5 = 'Etc/GMT-5';
+    public const TIMEZONE_ETC_GMT_6 = 'Etc/GMT-6';
+    public const TIMEZONE_ETC_GMT_7 = 'Etc/GMT-7';
+    public const TIMEZONE_ETC_GMT_8 = 'Etc/GMT-8';
+    public const TIMEZONE_ETC_GMT_9 = 'Etc/GMT-9';
+    public const TIMEZONE_ETC_GMT02 = 'Etc/GMT0';
+    public const TIMEZONE_ETC_GREENWICH = 'Etc/Greenwich';
+    public const TIMEZONE_ETC_UCT = 'Etc/UCT';
+    public const TIMEZONE_ETC_UTC = 'Etc/UTC';
+    public const TIMEZONE_ETC_UNIVERSAL = 'Etc/Universal';
+    public const TIMEZONE_ETC_ZULU = 'Etc/Zulu';
     public const TIMEZONE_EUROPE_AMSTERDAM = 'Europe/Amsterdam';
     public const TIMEZONE_EUROPE_ANDORRA = 'Europe/Andorra';
     public const TIMEZONE_EUROPE_ASTRAKHAN = 'Europe/Astrakhan';
     public const TIMEZONE_EUROPE_ATHENS = 'Europe/Athens';
+    public const TIMEZONE_EUROPE_BELFAST = 'Europe/Belfast';
     public const TIMEZONE_EUROPE_BELGRADE = 'Europe/Belgrade';
     public const TIMEZONE_EUROPE_BERLIN = 'Europe/Berlin';
     public const TIMEZONE_EUROPE_BRATISLAVA = 'Europe/Bratislava';
@@ -578,6 +688,7 @@ class FixedTimerConfiguration implements ModelInterface, ArrayAccess, \JsonSeria
     public const TIMEZONE_EUROPE_ISTANBUL = 'Europe/Istanbul';
     public const TIMEZONE_EUROPE_JERSEY = 'Europe/Jersey';
     public const TIMEZONE_EUROPE_KALININGRAD = 'Europe/Kaliningrad';
+    public const TIMEZONE_EUROPE_KIEV = 'Europe/Kiev';
     public const TIMEZONE_EUROPE_KIROV = 'Europe/Kirov';
     public const TIMEZONE_EUROPE_KYIV = 'Europe/Kyiv';
     public const TIMEZONE_EUROPE_LISBON = 'Europe/Lisbon';
@@ -590,6 +701,7 @@ class FixedTimerConfiguration implements ModelInterface, ArrayAccess, \JsonSeria
     public const TIMEZONE_EUROPE_MINSK = 'Europe/Minsk';
     public const TIMEZONE_EUROPE_MONACO = 'Europe/Monaco';
     public const TIMEZONE_EUROPE_MOSCOW = 'Europe/Moscow';
+    public const TIMEZONE_EUROPE_NICOSIA = 'Europe/Nicosia';
     public const TIMEZONE_EUROPE_OSLO = 'Europe/Oslo';
     public const TIMEZONE_EUROPE_PARIS = 'Europe/Paris';
     public const TIMEZONE_EUROPE_PODGORICA = 'Europe/Podgorica';
@@ -606,7 +718,9 @@ class FixedTimerConfiguration implements ModelInterface, ArrayAccess, \JsonSeria
     public const TIMEZONE_EUROPE_STOCKHOLM = 'Europe/Stockholm';
     public const TIMEZONE_EUROPE_TALLINN = 'Europe/Tallinn';
     public const TIMEZONE_EUROPE_TIRANE = 'Europe/Tirane';
+    public const TIMEZONE_EUROPE_TIRASPOL = 'Europe/Tiraspol';
     public const TIMEZONE_EUROPE_ULYANOVSK = 'Europe/Ulyanovsk';
+    public const TIMEZONE_EUROPE_UZHGOROD = 'Europe/Uzhgorod';
     public const TIMEZONE_EUROPE_VADUZ = 'Europe/Vaduz';
     public const TIMEZONE_EUROPE_VATICAN = 'Europe/Vatican';
     public const TIMEZONE_EUROPE_VIENNA = 'Europe/Vienna';
@@ -614,8 +728,18 @@ class FixedTimerConfiguration implements ModelInterface, ArrayAccess, \JsonSeria
     public const TIMEZONE_EUROPE_VOLGOGRAD = 'Europe/Volgograd';
     public const TIMEZONE_EUROPE_WARSAW = 'Europe/Warsaw';
     public const TIMEZONE_EUROPE_ZAGREB = 'Europe/Zagreb';
+    public const TIMEZONE_EUROPE_ZAPOROZHYE = 'Europe/Zaporozhye';
     public const TIMEZONE_EUROPE_ZURICH = 'Europe/Zurich';
+    public const TIMEZONE_GB = 'GB';
+    public const TIMEZONE_GB_EIRE = 'GB-Eire';
     public const TIMEZONE_GMT = 'GMT';
+    public const TIMEZONE_GMT0 = 'GMT+0';
+    public const TIMEZONE_GMT_0 = 'GMT-0';
+    public const TIMEZONE_GMT02 = 'GMT0';
+    public const TIMEZONE_GREENWICH = 'Greenwich';
+    public const TIMEZONE_HST = 'HST';
+    public const TIMEZONE_HONGKONG = 'Hongkong';
+    public const TIMEZONE_ICELAND = 'Iceland';
     public const TIMEZONE_INDIAN_ANTANANARIVO = 'Indian/Antananarivo';
     public const TIMEZONE_INDIAN_CHAGOS = 'Indian/Chagos';
     public const TIMEZONE_INDIAN_CHRISTMAS = 'Indian/Christmas';
@@ -627,6 +751,23 @@ class FixedTimerConfiguration implements ModelInterface, ArrayAccess, \JsonSeria
     public const TIMEZONE_INDIAN_MAURITIUS = 'Indian/Mauritius';
     public const TIMEZONE_INDIAN_MAYOTTE = 'Indian/Mayotte';
     public const TIMEZONE_INDIAN_REUNION = 'Indian/Reunion';
+    public const TIMEZONE_IRAN = 'Iran';
+    public const TIMEZONE_ISRAEL = 'Israel';
+    public const TIMEZONE_JAMAICA = 'Jamaica';
+    public const TIMEZONE_JAPAN = 'Japan';
+    public const TIMEZONE_KWAJALEIN = 'Kwajalein';
+    public const TIMEZONE_LIBYA = 'Libya';
+    public const TIMEZONE_MET = 'MET';
+    public const TIMEZONE_MST = 'MST';
+    public const TIMEZONE_MST7_MDT = 'MST7MDT';
+    public const TIMEZONE_MEXICO_BAJA_NORTE = 'Mexico/BajaNorte';
+    public const TIMEZONE_MEXICO_BAJA_SUR = 'Mexico/BajaSur';
+    public const TIMEZONE_MEXICO_GENERAL = 'Mexico/General';
+    public const TIMEZONE_NZ = 'NZ';
+    public const TIMEZONE_NZ_CHAT = 'NZ-CHAT';
+    public const TIMEZONE_NAVAJO = 'Navajo';
+    public const TIMEZONE_PRC = 'PRC';
+    public const TIMEZONE_PST8_PDT = 'PST8PDT';
     public const TIMEZONE_PACIFIC_APIA = 'Pacific/Apia';
     public const TIMEZONE_PACIFIC_AUCKLAND = 'Pacific/Auckland';
     public const TIMEZONE_PACIFIC_BOUGAINVILLE = 'Pacific/Bougainville';
@@ -634,6 +775,7 @@ class FixedTimerConfiguration implements ModelInterface, ArrayAccess, \JsonSeria
     public const TIMEZONE_PACIFIC_CHUUK = 'Pacific/Chuuk';
     public const TIMEZONE_PACIFIC_EASTER = 'Pacific/Easter';
     public const TIMEZONE_PACIFIC_EFATE = 'Pacific/Efate';
+    public const TIMEZONE_PACIFIC_ENDERBURY = 'Pacific/Enderbury';
     public const TIMEZONE_PACIFIC_FAKAOFO = 'Pacific/Fakaofo';
     public const TIMEZONE_PACIFIC_FIJI = 'Pacific/Fiji';
     public const TIMEZONE_PACIFIC_FUNAFUTI = 'Pacific/Funafuti';
@@ -642,6 +784,7 @@ class FixedTimerConfiguration implements ModelInterface, ArrayAccess, \JsonSeria
     public const TIMEZONE_PACIFIC_GUADALCANAL = 'Pacific/Guadalcanal';
     public const TIMEZONE_PACIFIC_GUAM = 'Pacific/Guam';
     public const TIMEZONE_PACIFIC_HONOLULU = 'Pacific/Honolulu';
+    public const TIMEZONE_PACIFIC_JOHNSTON = 'Pacific/Johnston';
     public const TIMEZONE_PACIFIC_KANTON = 'Pacific/Kanton';
     public const TIMEZONE_PACIFIC_KIRITIMATI = 'Pacific/Kiritimati';
     public const TIMEZONE_PACIFIC_KOSRAE = 'Pacific/Kosrae';
@@ -657,22 +800,42 @@ class FixedTimerConfiguration implements ModelInterface, ArrayAccess, \JsonSeria
     public const TIMEZONE_PACIFIC_PALAU = 'Pacific/Palau';
     public const TIMEZONE_PACIFIC_PITCAIRN = 'Pacific/Pitcairn';
     public const TIMEZONE_PACIFIC_POHNPEI = 'Pacific/Pohnpei';
+    public const TIMEZONE_PACIFIC_PONAPE = 'Pacific/Ponape';
     public const TIMEZONE_PACIFIC_PORT_MORESBY = 'Pacific/Port_Moresby';
     public const TIMEZONE_PACIFIC_RAROTONGA = 'Pacific/Rarotonga';
     public const TIMEZONE_PACIFIC_SAIPAN = 'Pacific/Saipan';
+    public const TIMEZONE_PACIFIC_SAMOA = 'Pacific/Samoa';
     public const TIMEZONE_PACIFIC_TAHITI = 'Pacific/Tahiti';
     public const TIMEZONE_PACIFIC_TARAWA = 'Pacific/Tarawa';
     public const TIMEZONE_PACIFIC_TONGATAPU = 'Pacific/Tongatapu';
+    public const TIMEZONE_PACIFIC_TRUK = 'Pacific/Truk';
     public const TIMEZONE_PACIFIC_WAKE = 'Pacific/Wake';
     public const TIMEZONE_PACIFIC_WALLIS = 'Pacific/Wallis';
+    public const TIMEZONE_PACIFIC_YAP = 'Pacific/Yap';
+    public const TIMEZONE_POLAND = 'Poland';
+    public const TIMEZONE_PORTUGAL = 'Portugal';
+    public const TIMEZONE_ROC = 'ROC';
+    public const TIMEZONE_ROK = 'ROK';
+    public const TIMEZONE_SINGAPORE = 'Singapore';
+    public const TIMEZONE_TURKEY = 'Turkey';
+    public const TIMEZONE_UCT = 'UCT';
     public const TIMEZONE_US_ALASKA = 'US/Alaska';
+    public const TIMEZONE_US_ALEUTIAN = 'US/Aleutian';
     public const TIMEZONE_US_ARIZONA = 'US/Arizona';
     public const TIMEZONE_US_CENTRAL = 'US/Central';
+    public const TIMEZONE_US_EAST_INDIANA = 'US/East-Indiana';
     public const TIMEZONE_US_EASTERN = 'US/Eastern';
     public const TIMEZONE_US_HAWAII = 'US/Hawaii';
+    public const TIMEZONE_US_INDIANA_STARKE = 'US/Indiana-Starke';
+    public const TIMEZONE_US_MICHIGAN = 'US/Michigan';
     public const TIMEZONE_US_MOUNTAIN = 'US/Mountain';
     public const TIMEZONE_US_PACIFIC = 'US/Pacific';
+    public const TIMEZONE_US_SAMOA = 'US/Samoa';
     public const TIMEZONE_UTC = 'UTC';
+    public const TIMEZONE_UNIVERSAL = 'Universal';
+    public const TIMEZONE_W_SU = 'W-SU';
+    public const TIMEZONE_WET = 'WET';
+    public const TIMEZONE_ZULU = 'Zulu';
 
     /**
      * Gets allowable values of the enum
@@ -687,6 +850,7 @@ class FixedTimerConfiguration implements ModelInterface, ArrayAccess, \JsonSeria
             self::TIMEZONE_AFRICA_ADDIS_ABABA,
             self::TIMEZONE_AFRICA_ALGIERS,
             self::TIMEZONE_AFRICA_ASMARA,
+            self::TIMEZONE_AFRICA_ASMERA,
             self::TIMEZONE_AFRICA_BAMAKO,
             self::TIMEZONE_AFRICA_BANGUI,
             self::TIMEZONE_AFRICA_BANJUL,
@@ -731,6 +895,7 @@ class FixedTimerConfiguration implements ModelInterface, ArrayAccess, \JsonSeria
             self::TIMEZONE_AFRICA_OUAGADOUGOU,
             self::TIMEZONE_AFRICA_PORTO_NOVO,
             self::TIMEZONE_AFRICA_SAO_TOME,
+            self::TIMEZONE_AFRICA_TIMBUKTU,
             self::TIMEZONE_AFRICA_TRIPOLI,
             self::TIMEZONE_AFRICA_TUNIS,
             self::TIMEZONE_AFRICA_WINDHOEK,
@@ -741,6 +906,7 @@ class FixedTimerConfiguration implements ModelInterface, ArrayAccess, \JsonSeria
             self::TIMEZONE_AMERICA_ARAGUAINA,
             self::TIMEZONE_AMERICA_ARGENTINA_BUENOS_AIRES,
             self::TIMEZONE_AMERICA_ARGENTINA_CATAMARCA,
+            self::TIMEZONE_AMERICA_ARGENTINA_COMOD_RIVADAVIA,
             self::TIMEZONE_AMERICA_ARGENTINA_CORDOBA,
             self::TIMEZONE_AMERICA_ARGENTINA_JUJUY,
             self::TIMEZONE_AMERICA_ARGENTINA_LA_RIOJA,
@@ -754,6 +920,7 @@ class FixedTimerConfiguration implements ModelInterface, ArrayAccess, \JsonSeria
             self::TIMEZONE_AMERICA_ARUBA,
             self::TIMEZONE_AMERICA_ASUNCION,
             self::TIMEZONE_AMERICA_ATIKOKAN,
+            self::TIMEZONE_AMERICA_ATKA,
             self::TIMEZONE_AMERICA_BAHIA,
             self::TIMEZONE_AMERICA_BAHIA_BANDERAS,
             self::TIMEZONE_AMERICA_BARBADOS,
@@ -763,15 +930,19 @@ class FixedTimerConfiguration implements ModelInterface, ArrayAccess, \JsonSeria
             self::TIMEZONE_AMERICA_BOA_VISTA,
             self::TIMEZONE_AMERICA_BOGOTA,
             self::TIMEZONE_AMERICA_BOISE,
+            self::TIMEZONE_AMERICA_BUENOS_AIRES,
             self::TIMEZONE_AMERICA_CAMBRIDGE_BAY,
             self::TIMEZONE_AMERICA_CAMPO_GRANDE,
             self::TIMEZONE_AMERICA_CANCUN,
             self::TIMEZONE_AMERICA_CARACAS,
+            self::TIMEZONE_AMERICA_CATAMARCA,
             self::TIMEZONE_AMERICA_CAYENNE,
             self::TIMEZONE_AMERICA_CAYMAN,
             self::TIMEZONE_AMERICA_CHICAGO,
             self::TIMEZONE_AMERICA_CHIHUAHUA,
             self::TIMEZONE_AMERICA_CIUDAD_JUAREZ,
+            self::TIMEZONE_AMERICA_CORAL_HARBOUR,
+            self::TIMEZONE_AMERICA_CORDOBA,
             self::TIMEZONE_AMERICA_COSTA_RICA,
             self::TIMEZONE_AMERICA_CRESTON,
             self::TIMEZONE_AMERICA_CUIABA,
@@ -785,9 +956,12 @@ class FixedTimerConfiguration implements ModelInterface, ArrayAccess, \JsonSeria
             self::TIMEZONE_AMERICA_EDMONTON,
             self::TIMEZONE_AMERICA_EIRUNEPE,
             self::TIMEZONE_AMERICA_EL_SALVADOR,
+            self::TIMEZONE_AMERICA_ENSENADA,
             self::TIMEZONE_AMERICA_FORT_NELSON,
+            self::TIMEZONE_AMERICA_FORT_WAYNE,
             self::TIMEZONE_AMERICA_FORTALEZA,
             self::TIMEZONE_AMERICA_GLACE_BAY,
+            self::TIMEZONE_AMERICA_GODTHAB,
             self::TIMEZONE_AMERICA_GOOSE_BAY,
             self::TIMEZONE_AMERICA_GRAND_TURK,
             self::TIMEZONE_AMERICA_GRENADA,
@@ -806,16 +980,20 @@ class FixedTimerConfiguration implements ModelInterface, ArrayAccess, \JsonSeria
             self::TIMEZONE_AMERICA_INDIANA_VEVAY,
             self::TIMEZONE_AMERICA_INDIANA_VINCENNES,
             self::TIMEZONE_AMERICA_INDIANA_WINAMAC,
+            self::TIMEZONE_AMERICA_INDIANAPOLIS,
             self::TIMEZONE_AMERICA_INUVIK,
             self::TIMEZONE_AMERICA_IQALUIT,
             self::TIMEZONE_AMERICA_JAMAICA,
+            self::TIMEZONE_AMERICA_JUJUY,
             self::TIMEZONE_AMERICA_JUNEAU,
             self::TIMEZONE_AMERICA_KENTUCKY_LOUISVILLE,
             self::TIMEZONE_AMERICA_KENTUCKY_MONTICELLO,
+            self::TIMEZONE_AMERICA_KNOX_IN,
             self::TIMEZONE_AMERICA_KRALENDIJK,
             self::TIMEZONE_AMERICA_LA_PAZ,
             self::TIMEZONE_AMERICA_LIMA,
             self::TIMEZONE_AMERICA_LOS_ANGELES,
+            self::TIMEZONE_AMERICA_LOUISVILLE,
             self::TIMEZONE_AMERICA_LOWER_PRINCES,
             self::TIMEZONE_AMERICA_MACEIO,
             self::TIMEZONE_AMERICA_MANAGUA,
@@ -824,6 +1002,7 @@ class FixedTimerConfiguration implements ModelInterface, ArrayAccess, \JsonSeria
             self::TIMEZONE_AMERICA_MARTINIQUE,
             self::TIMEZONE_AMERICA_MATAMOROS,
             self::TIMEZONE_AMERICA_MAZATLAN,
+            self::TIMEZONE_AMERICA_MENDOZA,
             self::TIMEZONE_AMERICA_MENOMINEE,
             self::TIMEZONE_AMERICA_MERIDA,
             self::TIMEZONE_AMERICA_METLAKATLA,
@@ -832,9 +1011,11 @@ class FixedTimerConfiguration implements ModelInterface, ArrayAccess, \JsonSeria
             self::TIMEZONE_AMERICA_MONCTON,
             self::TIMEZONE_AMERICA_MONTERREY,
             self::TIMEZONE_AMERICA_MONTEVIDEO,
+            self::TIMEZONE_AMERICA_MONTREAL,
             self::TIMEZONE_AMERICA_MONTSERRAT,
             self::TIMEZONE_AMERICA_NASSAU,
             self::TIMEZONE_AMERICA_NEW_YORK,
+            self::TIMEZONE_AMERICA_NIPIGON,
             self::TIMEZONE_AMERICA_NOME,
             self::TIMEZONE_AMERICA_NORONHA,
             self::TIMEZONE_AMERICA_NORTH_DAKOTA_BEULAH,
@@ -843,23 +1024,29 @@ class FixedTimerConfiguration implements ModelInterface, ArrayAccess, \JsonSeria
             self::TIMEZONE_AMERICA_NUUK,
             self::TIMEZONE_AMERICA_OJINAGA,
             self::TIMEZONE_AMERICA_PANAMA,
+            self::TIMEZONE_AMERICA_PANGNIRTUNG,
             self::TIMEZONE_AMERICA_PARAMARIBO,
             self::TIMEZONE_AMERICA_PHOENIX,
             self::TIMEZONE_AMERICA_PORT_AU_PRINCE,
             self::TIMEZONE_AMERICA_PORT_OF_SPAIN,
+            self::TIMEZONE_AMERICA_PORTO_ACRE,
             self::TIMEZONE_AMERICA_PORTO_VELHO,
             self::TIMEZONE_AMERICA_PUERTO_RICO,
             self::TIMEZONE_AMERICA_PUNTA_ARENAS,
+            self::TIMEZONE_AMERICA_RAINY_RIVER,
             self::TIMEZONE_AMERICA_RANKIN_INLET,
             self::TIMEZONE_AMERICA_RECIFE,
             self::TIMEZONE_AMERICA_REGINA,
             self::TIMEZONE_AMERICA_RESOLUTE,
             self::TIMEZONE_AMERICA_RIO_BRANCO,
+            self::TIMEZONE_AMERICA_ROSARIO,
+            self::TIMEZONE_AMERICA_SANTA_ISABEL,
             self::TIMEZONE_AMERICA_SANTAREM,
             self::TIMEZONE_AMERICA_SANTIAGO,
             self::TIMEZONE_AMERICA_SANTO_DOMINGO,
             self::TIMEZONE_AMERICA_SAO_PAULO,
             self::TIMEZONE_AMERICA_SCORESBYSUND,
+            self::TIMEZONE_AMERICA_SHIPROCK,
             self::TIMEZONE_AMERICA_SITKA,
             self::TIMEZONE_AMERICA_ST_BARTHELEMY,
             self::TIMEZONE_AMERICA_ST_JOHNS,
@@ -870,13 +1057,16 @@ class FixedTimerConfiguration implements ModelInterface, ArrayAccess, \JsonSeria
             self::TIMEZONE_AMERICA_SWIFT_CURRENT,
             self::TIMEZONE_AMERICA_TEGUCIGALPA,
             self::TIMEZONE_AMERICA_THULE,
+            self::TIMEZONE_AMERICA_THUNDER_BAY,
             self::TIMEZONE_AMERICA_TIJUANA,
             self::TIMEZONE_AMERICA_TORONTO,
             self::TIMEZONE_AMERICA_TORTOLA,
             self::TIMEZONE_AMERICA_VANCOUVER,
+            self::TIMEZONE_AMERICA_VIRGIN,
             self::TIMEZONE_AMERICA_WHITEHORSE,
             self::TIMEZONE_AMERICA_WINNIPEG,
             self::TIMEZONE_AMERICA_YAKUTAT,
+            self::TIMEZONE_AMERICA_YELLOWKNIFE,
             self::TIMEZONE_ANTARCTICA_CASEY,
             self::TIMEZONE_ANTARCTICA_DAVIS,
             self::TIMEZONE_ANTARCTICA_DUMONT_D_URVILLE,
@@ -885,6 +1075,7 @@ class FixedTimerConfiguration implements ModelInterface, ArrayAccess, \JsonSeria
             self::TIMEZONE_ANTARCTICA_MC_MURDO,
             self::TIMEZONE_ANTARCTICA_PALMER,
             self::TIMEZONE_ANTARCTICA_ROTHERA,
+            self::TIMEZONE_ANTARCTICA_SOUTH_POLE,
             self::TIMEZONE_ANTARCTICA_SYOWA,
             self::TIMEZONE_ANTARCTICA_TROLL,
             self::TIMEZONE_ANTARCTICA_VOSTOK,
@@ -896,6 +1087,7 @@ class FixedTimerConfiguration implements ModelInterface, ArrayAccess, \JsonSeria
             self::TIMEZONE_ASIA_AQTAU,
             self::TIMEZONE_ASIA_AQTOBE,
             self::TIMEZONE_ASIA_ASHGABAT,
+            self::TIMEZONE_ASIA_ASHKHABAD,
             self::TIMEZONE_ASIA_ATYRAU,
             self::TIMEZONE_ASIA_BAGHDAD,
             self::TIMEZONE_ASIA_BAHRAIN,
@@ -905,9 +1097,13 @@ class FixedTimerConfiguration implements ModelInterface, ArrayAccess, \JsonSeria
             self::TIMEZONE_ASIA_BEIRUT,
             self::TIMEZONE_ASIA_BISHKEK,
             self::TIMEZONE_ASIA_BRUNEI,
+            self::TIMEZONE_ASIA_CALCUTTA,
             self::TIMEZONE_ASIA_CHITA,
             self::TIMEZONE_ASIA_CHOIBALSAN,
+            self::TIMEZONE_ASIA_CHONGQING,
+            self::TIMEZONE_ASIA_CHUNGKING,
             self::TIMEZONE_ASIA_COLOMBO,
+            self::TIMEZONE_ASIA_DACCA,
             self::TIMEZONE_ASIA_DAMASCUS,
             self::TIMEZONE_ASIA_DHAKA,
             self::TIMEZONE_ASIA_DILI,
@@ -915,24 +1111,29 @@ class FixedTimerConfiguration implements ModelInterface, ArrayAccess, \JsonSeria
             self::TIMEZONE_ASIA_DUSHANBE,
             self::TIMEZONE_ASIA_FAMAGUSTA,
             self::TIMEZONE_ASIA_GAZA,
+            self::TIMEZONE_ASIA_HARBIN,
             self::TIMEZONE_ASIA_HEBRON,
             self::TIMEZONE_ASIA_HO_CHI_MINH,
             self::TIMEZONE_ASIA_HONG_KONG,
             self::TIMEZONE_ASIA_HOVD,
             self::TIMEZONE_ASIA_IRKUTSK,
+            self::TIMEZONE_ASIA_ISTANBUL,
             self::TIMEZONE_ASIA_JAKARTA,
             self::TIMEZONE_ASIA_JAYAPURA,
             self::TIMEZONE_ASIA_JERUSALEM,
             self::TIMEZONE_ASIA_KABUL,
             self::TIMEZONE_ASIA_KAMCHATKA,
             self::TIMEZONE_ASIA_KARACHI,
+            self::TIMEZONE_ASIA_KASHGAR,
             self::TIMEZONE_ASIA_KATHMANDU,
+            self::TIMEZONE_ASIA_KATMANDU,
             self::TIMEZONE_ASIA_KHANDYGA,
             self::TIMEZONE_ASIA_KOLKATA,
             self::TIMEZONE_ASIA_KRASNOYARSK,
             self::TIMEZONE_ASIA_KUALA_LUMPUR,
             self::TIMEZONE_ASIA_KUCHING,
             self::TIMEZONE_ASIA_KUWAIT,
+            self::TIMEZONE_ASIA_MACAO,
             self::TIMEZONE_ASIA_MACAU,
             self::TIMEZONE_ASIA_MAGADAN,
             self::TIMEZONE_ASIA_MAKASSAR,
@@ -949,7 +1150,9 @@ class FixedTimerConfiguration implements ModelInterface, ArrayAccess, \JsonSeria
             self::TIMEZONE_ASIA_QATAR,
             self::TIMEZONE_ASIA_QOSTANAY,
             self::TIMEZONE_ASIA_QYZYLORDA,
+            self::TIMEZONE_ASIA_RANGOON,
             self::TIMEZONE_ASIA_RIYADH,
+            self::TIMEZONE_ASIA_SAIGON,
             self::TIMEZONE_ASIA_SAKHALIN,
             self::TIMEZONE_ASIA_SAMARKAND,
             self::TIMEZONE_ASIA_SEOUL,
@@ -960,10 +1163,14 @@ class FixedTimerConfiguration implements ModelInterface, ArrayAccess, \JsonSeria
             self::TIMEZONE_ASIA_TASHKENT,
             self::TIMEZONE_ASIA_TBILISI,
             self::TIMEZONE_ASIA_TEHRAN,
+            self::TIMEZONE_ASIA_TEL_AVIV,
+            self::TIMEZONE_ASIA_THIMBU,
             self::TIMEZONE_ASIA_THIMPHU,
             self::TIMEZONE_ASIA_TOKYO,
             self::TIMEZONE_ASIA_TOMSK,
+            self::TIMEZONE_ASIA_UJUNG_PANDANG,
             self::TIMEZONE_ASIA_ULAANBAATAR,
+            self::TIMEZONE_ASIA_ULAN_BATOR,
             self::TIMEZONE_ASIA_URUMQI,
             self::TIMEZONE_ASIA_UST_NERA,
             self::TIMEZONE_ASIA_VIENTIANE,
@@ -976,33 +1183,99 @@ class FixedTimerConfiguration implements ModelInterface, ArrayAccess, \JsonSeria
             self::TIMEZONE_ATLANTIC_BERMUDA,
             self::TIMEZONE_ATLANTIC_CANARY,
             self::TIMEZONE_ATLANTIC_CAPE_VERDE,
+            self::TIMEZONE_ATLANTIC_FAEROE,
             self::TIMEZONE_ATLANTIC_FAROE,
+            self::TIMEZONE_ATLANTIC_JAN_MAYEN,
             self::TIMEZONE_ATLANTIC_MADEIRA,
             self::TIMEZONE_ATLANTIC_REYKJAVIK,
             self::TIMEZONE_ATLANTIC_SOUTH_GEORGIA,
             self::TIMEZONE_ATLANTIC_ST_HELENA,
             self::TIMEZONE_ATLANTIC_STANLEY,
+            self::TIMEZONE_AUSTRALIA_ACT,
             self::TIMEZONE_AUSTRALIA_ADELAIDE,
             self::TIMEZONE_AUSTRALIA_BRISBANE,
             self::TIMEZONE_AUSTRALIA_BROKEN_HILL,
+            self::TIMEZONE_AUSTRALIA_CANBERRA,
+            self::TIMEZONE_AUSTRALIA_CURRIE,
             self::TIMEZONE_AUSTRALIA_DARWIN,
             self::TIMEZONE_AUSTRALIA_EUCLA,
             self::TIMEZONE_AUSTRALIA_HOBART,
+            self::TIMEZONE_AUSTRALIA_LHI,
             self::TIMEZONE_AUSTRALIA_LINDEMAN,
             self::TIMEZONE_AUSTRALIA_LORD_HOWE,
             self::TIMEZONE_AUSTRALIA_MELBOURNE,
+            self::TIMEZONE_AUSTRALIA_NSW,
+            self::TIMEZONE_AUSTRALIA_NORTH,
             self::TIMEZONE_AUSTRALIA_PERTH,
+            self::TIMEZONE_AUSTRALIA_QUEENSLAND,
+            self::TIMEZONE_AUSTRALIA_SOUTH,
             self::TIMEZONE_AUSTRALIA_SYDNEY,
+            self::TIMEZONE_AUSTRALIA_TASMANIA,
+            self::TIMEZONE_AUSTRALIA_VICTORIA,
+            self::TIMEZONE_AUSTRALIA_WEST,
+            self::TIMEZONE_AUSTRALIA_YANCOWINNA,
+            self::TIMEZONE_BRAZIL_ACRE,
+            self::TIMEZONE_BRAZIL_DE_NORONHA,
+            self::TIMEZONE_BRAZIL_EAST,
+            self::TIMEZONE_BRAZIL_WEST,
+            self::TIMEZONE_CET,
+            self::TIMEZONE_CST6_CDT,
             self::TIMEZONE_CANADA_ATLANTIC,
             self::TIMEZONE_CANADA_CENTRAL,
             self::TIMEZONE_CANADA_EASTERN,
             self::TIMEZONE_CANADA_MOUNTAIN,
             self::TIMEZONE_CANADA_NEWFOUNDLAND,
             self::TIMEZONE_CANADA_PACIFIC,
+            self::TIMEZONE_CANADA_SASKATCHEWAN,
+            self::TIMEZONE_CANADA_YUKON,
+            self::TIMEZONE_CHILE_CONTINENTAL,
+            self::TIMEZONE_CHILE_EASTER_ISLAND,
+            self::TIMEZONE_CUBA,
+            self::TIMEZONE_EET,
+            self::TIMEZONE_EST,
+            self::TIMEZONE_EST5_EDT,
+            self::TIMEZONE_EGYPT,
+            self::TIMEZONE_EIRE,
+            self::TIMEZONE_ETC_GMT,
+            self::TIMEZONE_ETC_GMT0,
+            self::TIMEZONE_ETC_GMT1,
+            self::TIMEZONE_ETC_GMT10,
+            self::TIMEZONE_ETC_GMT11,
+            self::TIMEZONE_ETC_GMT12,
+            self::TIMEZONE_ETC_GMT2,
+            self::TIMEZONE_ETC_GMT3,
+            self::TIMEZONE_ETC_GMT4,
+            self::TIMEZONE_ETC_GMT5,
+            self::TIMEZONE_ETC_GMT6,
+            self::TIMEZONE_ETC_GMT7,
+            self::TIMEZONE_ETC_GMT8,
+            self::TIMEZONE_ETC_GMT9,
+            self::TIMEZONE_ETC_GMT_0,
+            self::TIMEZONE_ETC_GMT_1,
+            self::TIMEZONE_ETC_GMT_10,
+            self::TIMEZONE_ETC_GMT_11,
+            self::TIMEZONE_ETC_GMT_12,
+            self::TIMEZONE_ETC_GMT_13,
+            self::TIMEZONE_ETC_GMT_14,
+            self::TIMEZONE_ETC_GMT_2,
+            self::TIMEZONE_ETC_GMT_3,
+            self::TIMEZONE_ETC_GMT_4,
+            self::TIMEZONE_ETC_GMT_5,
+            self::TIMEZONE_ETC_GMT_6,
+            self::TIMEZONE_ETC_GMT_7,
+            self::TIMEZONE_ETC_GMT_8,
+            self::TIMEZONE_ETC_GMT_9,
+            self::TIMEZONE_ETC_GMT02,
+            self::TIMEZONE_ETC_GREENWICH,
+            self::TIMEZONE_ETC_UCT,
+            self::TIMEZONE_ETC_UTC,
+            self::TIMEZONE_ETC_UNIVERSAL,
+            self::TIMEZONE_ETC_ZULU,
             self::TIMEZONE_EUROPE_AMSTERDAM,
             self::TIMEZONE_EUROPE_ANDORRA,
             self::TIMEZONE_EUROPE_ASTRAKHAN,
             self::TIMEZONE_EUROPE_ATHENS,
+            self::TIMEZONE_EUROPE_BELFAST,
             self::TIMEZONE_EUROPE_BELGRADE,
             self::TIMEZONE_EUROPE_BERLIN,
             self::TIMEZONE_EUROPE_BRATISLAVA,
@@ -1020,6 +1293,7 @@ class FixedTimerConfiguration implements ModelInterface, ArrayAccess, \JsonSeria
             self::TIMEZONE_EUROPE_ISTANBUL,
             self::TIMEZONE_EUROPE_JERSEY,
             self::TIMEZONE_EUROPE_KALININGRAD,
+            self::TIMEZONE_EUROPE_KIEV,
             self::TIMEZONE_EUROPE_KIROV,
             self::TIMEZONE_EUROPE_KYIV,
             self::TIMEZONE_EUROPE_LISBON,
@@ -1032,6 +1306,7 @@ class FixedTimerConfiguration implements ModelInterface, ArrayAccess, \JsonSeria
             self::TIMEZONE_EUROPE_MINSK,
             self::TIMEZONE_EUROPE_MONACO,
             self::TIMEZONE_EUROPE_MOSCOW,
+            self::TIMEZONE_EUROPE_NICOSIA,
             self::TIMEZONE_EUROPE_OSLO,
             self::TIMEZONE_EUROPE_PARIS,
             self::TIMEZONE_EUROPE_PODGORICA,
@@ -1048,7 +1323,9 @@ class FixedTimerConfiguration implements ModelInterface, ArrayAccess, \JsonSeria
             self::TIMEZONE_EUROPE_STOCKHOLM,
             self::TIMEZONE_EUROPE_TALLINN,
             self::TIMEZONE_EUROPE_TIRANE,
+            self::TIMEZONE_EUROPE_TIRASPOL,
             self::TIMEZONE_EUROPE_ULYANOVSK,
+            self::TIMEZONE_EUROPE_UZHGOROD,
             self::TIMEZONE_EUROPE_VADUZ,
             self::TIMEZONE_EUROPE_VATICAN,
             self::TIMEZONE_EUROPE_VIENNA,
@@ -1056,8 +1333,18 @@ class FixedTimerConfiguration implements ModelInterface, ArrayAccess, \JsonSeria
             self::TIMEZONE_EUROPE_VOLGOGRAD,
             self::TIMEZONE_EUROPE_WARSAW,
             self::TIMEZONE_EUROPE_ZAGREB,
+            self::TIMEZONE_EUROPE_ZAPOROZHYE,
             self::TIMEZONE_EUROPE_ZURICH,
+            self::TIMEZONE_GB,
+            self::TIMEZONE_GB_EIRE,
             self::TIMEZONE_GMT,
+            self::TIMEZONE_GMT0,
+            self::TIMEZONE_GMT_0,
+            self::TIMEZONE_GMT02,
+            self::TIMEZONE_GREENWICH,
+            self::TIMEZONE_HST,
+            self::TIMEZONE_HONGKONG,
+            self::TIMEZONE_ICELAND,
             self::TIMEZONE_INDIAN_ANTANANARIVO,
             self::TIMEZONE_INDIAN_CHAGOS,
             self::TIMEZONE_INDIAN_CHRISTMAS,
@@ -1069,6 +1356,23 @@ class FixedTimerConfiguration implements ModelInterface, ArrayAccess, \JsonSeria
             self::TIMEZONE_INDIAN_MAURITIUS,
             self::TIMEZONE_INDIAN_MAYOTTE,
             self::TIMEZONE_INDIAN_REUNION,
+            self::TIMEZONE_IRAN,
+            self::TIMEZONE_ISRAEL,
+            self::TIMEZONE_JAMAICA,
+            self::TIMEZONE_JAPAN,
+            self::TIMEZONE_KWAJALEIN,
+            self::TIMEZONE_LIBYA,
+            self::TIMEZONE_MET,
+            self::TIMEZONE_MST,
+            self::TIMEZONE_MST7_MDT,
+            self::TIMEZONE_MEXICO_BAJA_NORTE,
+            self::TIMEZONE_MEXICO_BAJA_SUR,
+            self::TIMEZONE_MEXICO_GENERAL,
+            self::TIMEZONE_NZ,
+            self::TIMEZONE_NZ_CHAT,
+            self::TIMEZONE_NAVAJO,
+            self::TIMEZONE_PRC,
+            self::TIMEZONE_PST8_PDT,
             self::TIMEZONE_PACIFIC_APIA,
             self::TIMEZONE_PACIFIC_AUCKLAND,
             self::TIMEZONE_PACIFIC_BOUGAINVILLE,
@@ -1076,6 +1380,7 @@ class FixedTimerConfiguration implements ModelInterface, ArrayAccess, \JsonSeria
             self::TIMEZONE_PACIFIC_CHUUK,
             self::TIMEZONE_PACIFIC_EASTER,
             self::TIMEZONE_PACIFIC_EFATE,
+            self::TIMEZONE_PACIFIC_ENDERBURY,
             self::TIMEZONE_PACIFIC_FAKAOFO,
             self::TIMEZONE_PACIFIC_FIJI,
             self::TIMEZONE_PACIFIC_FUNAFUTI,
@@ -1084,6 +1389,7 @@ class FixedTimerConfiguration implements ModelInterface, ArrayAccess, \JsonSeria
             self::TIMEZONE_PACIFIC_GUADALCANAL,
             self::TIMEZONE_PACIFIC_GUAM,
             self::TIMEZONE_PACIFIC_HONOLULU,
+            self::TIMEZONE_PACIFIC_JOHNSTON,
             self::TIMEZONE_PACIFIC_KANTON,
             self::TIMEZONE_PACIFIC_KIRITIMATI,
             self::TIMEZONE_PACIFIC_KOSRAE,
@@ -1099,22 +1405,42 @@ class FixedTimerConfiguration implements ModelInterface, ArrayAccess, \JsonSeria
             self::TIMEZONE_PACIFIC_PALAU,
             self::TIMEZONE_PACIFIC_PITCAIRN,
             self::TIMEZONE_PACIFIC_POHNPEI,
+            self::TIMEZONE_PACIFIC_PONAPE,
             self::TIMEZONE_PACIFIC_PORT_MORESBY,
             self::TIMEZONE_PACIFIC_RAROTONGA,
             self::TIMEZONE_PACIFIC_SAIPAN,
+            self::TIMEZONE_PACIFIC_SAMOA,
             self::TIMEZONE_PACIFIC_TAHITI,
             self::TIMEZONE_PACIFIC_TARAWA,
             self::TIMEZONE_PACIFIC_TONGATAPU,
+            self::TIMEZONE_PACIFIC_TRUK,
             self::TIMEZONE_PACIFIC_WAKE,
             self::TIMEZONE_PACIFIC_WALLIS,
+            self::TIMEZONE_PACIFIC_YAP,
+            self::TIMEZONE_POLAND,
+            self::TIMEZONE_PORTUGAL,
+            self::TIMEZONE_ROC,
+            self::TIMEZONE_ROK,
+            self::TIMEZONE_SINGAPORE,
+            self::TIMEZONE_TURKEY,
+            self::TIMEZONE_UCT,
             self::TIMEZONE_US_ALASKA,
+            self::TIMEZONE_US_ALEUTIAN,
             self::TIMEZONE_US_ARIZONA,
             self::TIMEZONE_US_CENTRAL,
+            self::TIMEZONE_US_EAST_INDIANA,
             self::TIMEZONE_US_EASTERN,
             self::TIMEZONE_US_HAWAII,
+            self::TIMEZONE_US_INDIANA_STARKE,
+            self::TIMEZONE_US_MICHIGAN,
             self::TIMEZONE_US_MOUNTAIN,
             self::TIMEZONE_US_PACIFIC,
+            self::TIMEZONE_US_SAMOA,
             self::TIMEZONE_UTC,
+            self::TIMEZONE_UNIVERSAL,
+            self::TIMEZONE_W_SU,
+            self::TIMEZONE_WET,
+            self::TIMEZONE_ZULU,
         ];
     }
 

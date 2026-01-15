@@ -91,7 +91,7 @@ class BackInStockDynamicButtonTextStyles implements ModelInterface, ArrayAccess,
     protected static array $openAPINullables = [
         'font_family' => false,
         'font_size' => false,
-        'font_weight' => false,
+        'font_weight' => true,
         'font_color' => false,
         'font_style' => true,
         'text_decoration' => true,
@@ -443,10 +443,17 @@ class BackInStockDynamicButtonTextStyles implements ModelInterface, ArrayAccess,
     public function setFontWeight($font_weight)
     {
         if (is_null($font_weight)) {
-            throw new \InvalidArgumentException('non-nullable font_weight cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'font_weight');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('font_weight', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $allowedValues = $this->getFontWeightAllowableValues();
-        if (!in_array($font_weight, $allowedValues, true)) {
+        if (!is_null($font_weight) && !in_array($font_weight, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
                     "Invalid value '%s' for 'font_weight', must be one of '%s'",

@@ -57,10 +57,10 @@ class ConditionGroupConditionsInner implements ModelInterface, ArrayAccess, \Jso
       * @var string[]
       */
     protected static $openAPITypes = [
-        'type' => '\KlaviyoAPI\Model\ProfilePermissionsEnum',
+        'type' => '\KlaviyoAPI\Model\ProfileMetricFunnelEnum',
         'is_member' => 'bool',
         'group_ids' => 'string[]',
-        'timeframe_filter' => '\KlaviyoAPI\Model\SegmentsProfileMetricConditionTimeframeFilter',
+        'timeframe_filter' => '\KlaviyoAPI\Model\SegmentsProfileMetricFunnelConditionTimeframeFilter',
         'metric_id' => 'string',
         'measurement' => '\KlaviyoAPI\Model\RankEnum',
         'measurement_filter' => '\KlaviyoAPI\Model\NumericOperatorFilter',
@@ -76,7 +76,9 @@ class ConditionGroupConditionsInner implements ModelInterface, ArrayAccess, \Jso
         'dimension' => 'string',
         'predicted_channel' => 'string',
         'permission' => '\KlaviyoAPI\Model\ProfilePermissionsConditionPermission',
-        'channel' => 'string'
+        'channel' => 'string',
+        'completion_window_seconds' => 'string',
+        'steps' => '\KlaviyoAPI\Model\ProfileMetricFunnelSteps[]'
     ];
 
     /**
@@ -106,7 +108,9 @@ class ConditionGroupConditionsInner implements ModelInterface, ArrayAccess, \Jso
         'dimension' => null,
         'predicted_channel' => null,
         'permission' => null,
-        'channel' => null
+        'channel' => null,
+        'completion_window_seconds' => null,
+        'steps' => null
     ];
 
     /**
@@ -134,7 +138,9 @@ class ConditionGroupConditionsInner implements ModelInterface, ArrayAccess, \Jso
         'dimension' => false,
         'predicted_channel' => false,
         'permission' => false,
-        'channel' => false
+        'channel' => false,
+        'completion_window_seconds' => true,
+        'steps' => false
     ];
 
     /**
@@ -242,7 +248,9 @@ class ConditionGroupConditionsInner implements ModelInterface, ArrayAccess, \Jso
         'dimension' => 'dimension',
         'predicted_channel' => 'predicted_channel',
         'permission' => 'permission',
-        'channel' => 'channel'
+        'channel' => 'channel',
+        'completion_window_seconds' => 'completion_window_seconds',
+        'steps' => 'steps'
     ];
 
     /**
@@ -270,7 +278,9 @@ class ConditionGroupConditionsInner implements ModelInterface, ArrayAccess, \Jso
         'dimension' => 'setDimension',
         'predicted_channel' => 'setPredictedChannel',
         'permission' => 'setPermission',
-        'channel' => 'setChannel'
+        'channel' => 'setChannel',
+        'completion_window_seconds' => 'setCompletionWindowSeconds',
+        'steps' => 'setSteps'
     ];
 
     /**
@@ -298,7 +308,9 @@ class ConditionGroupConditionsInner implements ModelInterface, ArrayAccess, \Jso
         'dimension' => 'getDimension',
         'predicted_channel' => 'getPredictedChannel',
         'permission' => 'getPermission',
-        'channel' => 'getChannel'
+        'channel' => 'getChannel',
+        'completion_window_seconds' => 'getCompletionWindowSeconds',
+        'steps' => 'getSteps'
     ];
 
     /**
@@ -352,6 +364,15 @@ class ConditionGroupConditionsInner implements ModelInterface, ArrayAccess, \Jso
     public const PREDICTED_CHANNEL_SMS = 'sms';
     public const CHANNEL_WHATSAPP_MARKETING = 'whatsapp_marketing';
     public const CHANNEL_WHATSAPP_TRANSACTIONAL = 'whatsapp_transactional';
+    public const COMPLETION_WINDOW_SECONDS_DAYS_1 = 'DAYS_1';
+    public const COMPLETION_WINDOW_SECONDS_DAYS_180 = 'DAYS_180';
+    public const COMPLETION_WINDOW_SECONDS_DAYS_3 = 'DAYS_3';
+    public const COMPLETION_WINDOW_SECONDS_DAYS_30 = 'DAYS_30';
+    public const COMPLETION_WINDOW_SECONDS_DAYS_5 = 'DAYS_5';
+    public const COMPLETION_WINDOW_SECONDS_DAYS_90 = 'DAYS_90';
+    public const COMPLETION_WINDOW_SECONDS_HOURS_1 = 'HOURS_1';
+    public const COMPLETION_WINDOW_SECONDS_WEEKS_1 = 'WEEKS_1';
+    public const COMPLETION_WINDOW_SECONDS_YEARS_1 = 'YEARS_1';
 
     /**
      * Gets allowable values of the enum
@@ -419,6 +440,26 @@ class ConditionGroupConditionsInner implements ModelInterface, ArrayAccess, \Jso
     }
 
     /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getCompletionWindowSecondsAllowableValues()
+    {
+        return [
+            self::COMPLETION_WINDOW_SECONDS_DAYS_1,
+            self::COMPLETION_WINDOW_SECONDS_DAYS_180,
+            self::COMPLETION_WINDOW_SECONDS_DAYS_3,
+            self::COMPLETION_WINDOW_SECONDS_DAYS_30,
+            self::COMPLETION_WINDOW_SECONDS_DAYS_5,
+            self::COMPLETION_WINDOW_SECONDS_DAYS_90,
+            self::COMPLETION_WINDOW_SECONDS_HOURS_1,
+            self::COMPLETION_WINDOW_SECONDS_WEEKS_1,
+            self::COMPLETION_WINDOW_SECONDS_YEARS_1,
+        ];
+    }
+
+    /**
      * Associative array for storing property values
      *
      * @var mixed[]
@@ -453,6 +494,8 @@ class ConditionGroupConditionsInner implements ModelInterface, ArrayAccess, \Jso
         $this->setIfExists('predicted_channel', $data ?? [], null);
         $this->setIfExists('permission', $data ?? [], null);
         $this->setIfExists('channel', $data ?? [], null);
+        $this->setIfExists('completion_window_seconds', $data ?? [], null);
+        $this->setIfExists('steps', $data ?? [], null);
     }
 
     /**
@@ -584,6 +627,18 @@ class ConditionGroupConditionsInner implements ModelInterface, ArrayAccess, \Jso
             );
         }
 
+        $allowedValues = $this->getCompletionWindowSecondsAllowableValues();
+        if (!is_null($this->container['completion_window_seconds']) && !in_array($this->container['completion_window_seconds'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'completion_window_seconds', must be one of '%s'",
+                $this->container['completion_window_seconds'],
+                implode("', '", $allowedValues)
+            );
+        }
+
+        if ($this->container['steps'] === null) {
+            $invalidProperties[] = "'steps' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -602,7 +657,7 @@ class ConditionGroupConditionsInner implements ModelInterface, ArrayAccess, \Jso
     /**
      * Gets type
      *
-     * @return \KlaviyoAPI\Model\ProfilePermissionsEnum
+     * @return \KlaviyoAPI\Model\ProfileMetricFunnelEnum
      */
     public function getType()
     {
@@ -612,7 +667,7 @@ class ConditionGroupConditionsInner implements ModelInterface, ArrayAccess, \Jso
     /**
      * Sets type
      *
-     * @param \KlaviyoAPI\Model\ProfilePermissionsEnum $type type
+     * @param \KlaviyoAPI\Model\ProfileMetricFunnelEnum $type type
      *
      * @return self
      */
@@ -683,7 +738,7 @@ class ConditionGroupConditionsInner implements ModelInterface, ArrayAccess, \Jso
     /**
      * Gets timeframe_filter
      *
-     * @return \KlaviyoAPI\Model\SegmentsProfileMetricConditionTimeframeFilter
+     * @return \KlaviyoAPI\Model\SegmentsProfileMetricFunnelConditionTimeframeFilter
      */
     public function getTimeframeFilter()
     {
@@ -693,7 +748,7 @@ class ConditionGroupConditionsInner implements ModelInterface, ArrayAccess, \Jso
     /**
      * Sets timeframe_filter
      *
-     * @param \KlaviyoAPI\Model\SegmentsProfileMetricConditionTimeframeFilter $timeframe_filter timeframe_filter
+     * @param \KlaviyoAPI\Model\SegmentsProfileMetricFunnelConditionTimeframeFilter $timeframe_filter timeframe_filter
      *
      * @return self
      */
@@ -1192,6 +1247,77 @@ class ConditionGroupConditionsInner implements ModelInterface, ArrayAccess, \Jso
             );
         }
         $this->container['channel'] = $channel;
+
+        return $this;
+    }
+
+    /**
+     * Gets completion_window_seconds
+     *
+     * @return string|null
+     */
+    public function getCompletionWindowSeconds()
+    {
+        return $this->container['completion_window_seconds'];
+    }
+
+    /**
+     * Sets completion_window_seconds
+     *
+     * @param string|null $completion_window_seconds Allowed completion window durations for funnel conditions (in     seconds).
+     *
+     * @return self
+     */
+    public function setCompletionWindowSeconds($completion_window_seconds)
+    {
+        if (is_null($completion_window_seconds)) {
+            array_push($this->openAPINullablesSetToNull, 'completion_window_seconds');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('completion_window_seconds', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $allowedValues = $this->getCompletionWindowSecondsAllowableValues();
+        if (!is_null($completion_window_seconds) && !in_array($completion_window_seconds, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'completion_window_seconds', must be one of '%s'",
+                    $completion_window_seconds,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['completion_window_seconds'] = $completion_window_seconds;
+
+        return $this;
+    }
+
+    /**
+     * Gets steps
+     *
+     * @return \KlaviyoAPI\Model\ProfileMetricFunnelSteps[]
+     */
+    public function getSteps()
+    {
+        return $this->container['steps'];
+    }
+
+    /**
+     * Sets steps
+     *
+     * @param \KlaviyoAPI\Model\ProfileMetricFunnelSteps[] $steps steps
+     *
+     * @return self
+     */
+    public function setSteps($steps)
+    {
+        if (is_null($steps)) {
+            throw new \InvalidArgumentException('non-nullable steps cannot be null');
+        }
+        $this->container['steps'] = $steps;
 
         return $this;
     }

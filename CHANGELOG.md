@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 NOTE: For more granular API-specific changes, please see our [API Changelog](https://developers.klaviyo.com/en/docs/changelog_)
 
+## [18.0.0] - revision 2026-01-15
+### Added
+- Added a new [single data source record create endpoint](https://github.com/klaviyo/klaviyo-api-php?tab=readme-ov-file#create-data-source-record) for one-at-a-time ingestion workloads
+### Changed
+- **Breaking:** removed `anonymous_id` from profile payloads
+
 ## [17.0.0] - revision 2025-10-15
 ### Added
 #### Flow Actions API

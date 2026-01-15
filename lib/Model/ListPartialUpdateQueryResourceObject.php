@@ -59,7 +59,7 @@ class ListPartialUpdateQueryResourceObject implements ModelInterface, ArrayAcces
     protected static $openAPITypes = [
         'type' => '\KlaviyoAPI\Model\ListEnum',
         'id' => 'string',
-        'attributes' => '\KlaviyoAPI\Model\ListCreateQueryResourceObjectAttributes'
+        'attributes' => '\KlaviyoAPI\Model\ListPartialUpdateQueryResourceObjectAttributes'
     ];
 
     /**
@@ -369,7 +369,7 @@ class ListPartialUpdateQueryResourceObject implements ModelInterface, ArrayAcces
     /**
      * Gets attributes
      *
-     * @return \KlaviyoAPI\Model\ListCreateQueryResourceObjectAttributes
+     * @return \KlaviyoAPI\Model\ListPartialUpdateQueryResourceObjectAttributes
      */
     public function getAttributes()
     {
@@ -379,7 +379,7 @@ class ListPartialUpdateQueryResourceObject implements ModelInterface, ArrayAcces
     /**
      * Sets attributes
      *
-     * @param \KlaviyoAPI\Model\ListCreateQueryResourceObjectAttributes $attributes attributes
+     * @param \KlaviyoAPI\Model\ListPartialUpdateQueryResourceObjectAttributes $attributes attributes
      *
      * @return self
      */
