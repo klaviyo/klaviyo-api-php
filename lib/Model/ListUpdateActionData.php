@@ -387,7 +387,7 @@ class ListUpdateActionData implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Sets on_execution
      *
-     * @param bool $on_execution The enum for whether the action will add/remove from the list in the List Update Action.
+     * @param bool $on_execution The enum for whether the action will add/remove from the list in the     List Update Action.
      *
      * @return self
      */

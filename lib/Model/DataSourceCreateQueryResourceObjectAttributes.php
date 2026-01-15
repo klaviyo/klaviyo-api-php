@@ -373,7 +373,7 @@ class DataSourceCreateQueryResourceObjectAttributes implements ModelInterface, A
     /**
      * Sets visibility
      *
-     * @param string $visibility Visibility of data source. Currently only PRIVATE is supported.
+     * @param string $visibility Visibility of data source.
      *
      * @return self
      */

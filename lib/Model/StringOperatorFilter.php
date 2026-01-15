@@ -247,6 +247,8 @@ class StringOperatorFilter implements ModelInterface, ArrayAccess, \JsonSerializ
     public const OPERATOR_NOT_ENDS_WITH = 'not-ends-with';
     public const OPERATOR_NOT_EQUALS = 'not-equals';
     public const OPERATOR_NOT_STARTS_WITH = 'not-starts-with';
+    public const OPERATOR_NREGEX = 'nregex';
+    public const OPERATOR_REGEX = 'regex';
     public const OPERATOR_STARTS_WITH = 'starts-with';
 
     /**
@@ -264,6 +266,8 @@ class StringOperatorFilter implements ModelInterface, ArrayAccess, \JsonSerializ
             self::OPERATOR_NOT_ENDS_WITH,
             self::OPERATOR_NOT_EQUALS,
             self::OPERATOR_NOT_STARTS_WITH,
+            self::OPERATOR_NREGEX,
+            self::OPERATOR_REGEX,
             self::OPERATOR_STARTS_WITH,
         ];
     }

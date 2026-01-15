@@ -85,7 +85,7 @@ class BackInStockDynamicButtonBorderStyles implements ModelInterface, ArrayAcces
     protected static array $openAPINullables = [
         'enabled' => false,
         'color' => false,
-        'style' => false,
+        'style' => true,
         'width' => false
     ];
 
@@ -410,10 +410,17 @@ class BackInStockDynamicButtonBorderStyles implements ModelInterface, ArrayAcces
     public function setStyle($style)
     {
         if (is_null($style)) {
-            throw new \InvalidArgumentException('non-nullable style cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'style');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('style', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $allowedValues = $this->getStyleAllowableValues();
-        if (!in_array($style, $allowedValues, true)) {
+        if (!is_null($style) && !in_array($style, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
                     "Invalid value '%s' for 'style', must be one of '%s'",

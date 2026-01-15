@@ -59,8 +59,7 @@ class ProfileIdentifierDTOResourceObjectAttributes implements ModelInterface, Ar
     protected static $openAPITypes = [
         'email' => 'string',
         'phone_number' => 'string',
-        'external_id' => 'string',
-        'anonymous_id' => 'string'
+        'external_id' => 'string'
     ];
 
     /**
@@ -73,8 +72,7 @@ class ProfileIdentifierDTOResourceObjectAttributes implements ModelInterface, Ar
     protected static $openAPIFormats = [
         'email' => null,
         'phone_number' => null,
-        'external_id' => null,
-        'anonymous_id' => null
+        'external_id' => null
     ];
 
     /**
@@ -85,8 +83,7 @@ class ProfileIdentifierDTOResourceObjectAttributes implements ModelInterface, Ar
     protected static array $openAPINullables = [
         'email' => true,
         'phone_number' => true,
-        'external_id' => true,
-        'anonymous_id' => true
+        'external_id' => true
     ];
 
     /**
@@ -177,8 +174,7 @@ class ProfileIdentifierDTOResourceObjectAttributes implements ModelInterface, Ar
     protected static $attributeMap = [
         'email' => 'email',
         'phone_number' => 'phone_number',
-        'external_id' => 'external_id',
-        'anonymous_id' => 'anonymous_id'
+        'external_id' => 'external_id'
     ];
 
     /**
@@ -189,8 +185,7 @@ class ProfileIdentifierDTOResourceObjectAttributes implements ModelInterface, Ar
     protected static $setters = [
         'email' => 'setEmail',
         'phone_number' => 'setPhoneNumber',
-        'external_id' => 'setExternalId',
-        'anonymous_id' => 'setAnonymousId'
+        'external_id' => 'setExternalId'
     ];
 
     /**
@@ -201,8 +196,7 @@ class ProfileIdentifierDTOResourceObjectAttributes implements ModelInterface, Ar
     protected static $getters = [
         'email' => 'getEmail',
         'phone_number' => 'getPhoneNumber',
-        'external_id' => 'getExternalId',
-        'anonymous_id' => 'getAnonymousId'
+        'external_id' => 'getExternalId'
     ];
 
     /**
@@ -265,7 +259,6 @@ class ProfileIdentifierDTOResourceObjectAttributes implements ModelInterface, Ar
         $this->setIfExists('email', $data ?? [], null);
         $this->setIfExists('phone_number', $data ?? [], null);
         $this->setIfExists('external_id', $data ?? [], null);
-        $this->setIfExists('anonymous_id', $data ?? [], null);
     }
 
     /**
@@ -408,40 +401,6 @@ class ProfileIdentifierDTOResourceObjectAttributes implements ModelInterface, Ar
             }
         }
         $this->container['external_id'] = $external_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets anonymous_id
-     *
-     * @return string|null
-     */
-    public function getAnonymousId()
-    {
-        return $this->container['anonymous_id'];
-    }
-
-    /**
-     * Sets anonymous_id
-     *
-     * @param string|null $anonymous_id anonymous_id
-     *
-     * @return self
-     */
-    public function setAnonymousId($anonymous_id)
-    {
-        if (is_null($anonymous_id)) {
-            array_push($this->openAPINullablesSetToNull, 'anonymous_id');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('anonymous_id', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['anonymous_id'] = $anonymous_id;
 
         return $this;
     }

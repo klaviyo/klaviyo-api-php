@@ -57,10 +57,10 @@ class ImageAssetProperties implements ModelInterface, ArrayAccess, \JsonSerializ
       * @var string[]
       */
     protected static $openAPITypes = [
-        'id' => 'int',
         'src' => 'string',
         'alt_text' => 'string',
         'original_image_url' => 'string',
+        'id' => 'int',
         'asset_id' => 'int'
     ];
 
@@ -72,10 +72,10 @@ class ImageAssetProperties implements ModelInterface, ArrayAccess, \JsonSerializ
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'id' => null,
         'src' => null,
         'alt_text' => null,
         'original_image_url' => null,
+        'id' => null,
         'asset_id' => null
     ];
 
@@ -85,10 +85,10 @@ class ImageAssetProperties implements ModelInterface, ArrayAccess, \JsonSerializ
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'id' => false,
-        'src' => false,
+        'src' => true,
         'alt_text' => true,
         'original_image_url' => true,
+        'id' => true,
         'asset_id' => true
     ];
 
@@ -178,10 +178,10 @@ class ImageAssetProperties implements ModelInterface, ArrayAccess, \JsonSerializ
      * @var string[]
      */
     protected static $attributeMap = [
-        'id' => 'id',
         'src' => 'src',
         'alt_text' => 'alt_text',
         'original_image_url' => 'original_image_url',
+        'id' => 'id',
         'asset_id' => 'asset_id'
     ];
 
@@ -191,10 +191,10 @@ class ImageAssetProperties implements ModelInterface, ArrayAccess, \JsonSerializ
      * @var string[]
      */
     protected static $setters = [
-        'id' => 'setId',
         'src' => 'setSrc',
         'alt_text' => 'setAltText',
         'original_image_url' => 'setOriginalImageUrl',
+        'id' => 'setId',
         'asset_id' => 'setAssetId'
     ];
 
@@ -204,10 +204,10 @@ class ImageAssetProperties implements ModelInterface, ArrayAccess, \JsonSerializ
      * @var string[]
      */
     protected static $getters = [
-        'id' => 'getId',
         'src' => 'getSrc',
         'alt_text' => 'getAltText',
         'original_image_url' => 'getOriginalImageUrl',
+        'id' => 'getId',
         'asset_id' => 'getAssetId'
     ];
 
@@ -268,10 +268,10 @@ class ImageAssetProperties implements ModelInterface, ArrayAccess, \JsonSerializ
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('id', $data ?? [], null);
         $this->setIfExists('src', $data ?? [], null);
         $this->setIfExists('alt_text', $data ?? [], null);
         $this->setIfExists('original_image_url', $data ?? [], null);
+        $this->setIfExists('id', $data ?? [], null);
         $this->setIfExists('asset_id', $data ?? [], null);
     }
 
@@ -302,9 +302,6 @@ class ImageAssetProperties implements ModelInterface, ArrayAccess, \JsonSerializ
     {
         $invalidProperties = [];
 
-        if ($this->container['id'] === null) {
-            $invalidProperties[] = "'id' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -319,33 +316,6 @@ class ImageAssetProperties implements ModelInterface, ArrayAccess, \JsonSerializ
         return count($this->listInvalidProperties()) === 0;
     }
 
-
-    /**
-     * Gets id
-     *
-     * @return int
-     */
-    public function getId()
-    {
-        return $this->container['id'];
-    }
-
-    /**
-     * Sets id
-     *
-     * @param int $id id
-     *
-     * @return self
-     */
-    public function setId($id)
-    {
-        if (is_null($id)) {
-            throw new \InvalidArgumentException('non-nullable id cannot be null');
-        }
-        $this->container['id'] = $id;
-
-        return $this;
-    }
 
     /**
      * Gets src
@@ -367,7 +337,14 @@ class ImageAssetProperties implements ModelInterface, ArrayAccess, \JsonSerializ
     public function setSrc($src)
     {
         if (is_null($src)) {
-            throw new \InvalidArgumentException('non-nullable src cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'src');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('src', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['src'] = $src;
 
@@ -438,6 +415,40 @@ class ImageAssetProperties implements ModelInterface, ArrayAccess, \JsonSerializ
             }
         }
         $this->container['original_image_url'] = $original_image_url;
+
+        return $this;
+    }
+
+    /**
+     * Gets id
+     *
+     * @return int|null
+     */
+    public function getId()
+    {
+        return $this->container['id'];
+    }
+
+    /**
+     * Sets id
+     *
+     * @param int|null $id id
+     *
+     * @return self
+     */
+    public function setId($id)
+    {
+        if (is_null($id)) {
+            array_push($this->openAPINullablesSetToNull, 'id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['id'] = $id;
 
         return $this;
     }

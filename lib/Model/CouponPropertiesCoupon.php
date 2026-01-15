@@ -258,8 +258,12 @@ class CouponPropertiesCoupon implements ModelInterface, ArrayAccess, \JsonSerial
         return self::$openAPIModelName;
     }
 
+    public const INTEGRATION_API = 'api';
+    public const INTEGRATION_MAGENTO_TWO = 'magento_two';
+    public const INTEGRATION_PRESTASHOP = 'prestashop';
     public const INTEGRATION_SHOPIFY = 'shopify';
     public const INTEGRATION_UPLOADED = 'uploaded';
+    public const INTEGRATION_WOOCOMMERCE = 'woocommerce';
 
     /**
      * Gets allowable values of the enum
@@ -269,8 +273,12 @@ class CouponPropertiesCoupon implements ModelInterface, ArrayAccess, \JsonSerial
     public function getIntegrationAllowableValues()
     {
         return [
+            self::INTEGRATION_API,
+            self::INTEGRATION_MAGENTO_TWO,
+            self::INTEGRATION_PRESTASHOP,
             self::INTEGRATION_SHOPIFY,
             self::INTEGRATION_UPLOADED,
+            self::INTEGRATION_WOOCOMMERCE,
         ];
     }
 
@@ -493,7 +501,7 @@ class CouponPropertiesCoupon implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets integration
      *
-     * @param string|null $integration Timeframes for the signup counter lookback.
+     * @param string|null $integration Coupon integration types for unique coupon blocks.
      *
      * @return self
      */

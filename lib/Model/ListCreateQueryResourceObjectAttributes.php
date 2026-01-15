@@ -57,7 +57,8 @@ class ListCreateQueryResourceObjectAttributes implements ModelInterface, ArrayAc
       * @var string[]
       */
     protected static $openAPITypes = [
-        'name' => 'string'
+        'name' => 'string',
+        'opt_in_process' => 'string'
     ];
 
     /**
@@ -68,7 +69,8 @@ class ListCreateQueryResourceObjectAttributes implements ModelInterface, ArrayAc
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'name' => null
+        'name' => null,
+        'opt_in_process' => null
     ];
 
     /**
@@ -77,7 +79,8 @@ class ListCreateQueryResourceObjectAttributes implements ModelInterface, ArrayAc
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'name' => false
+        'name' => false,
+        'opt_in_process' => true
     ];
 
     /**
@@ -166,7 +169,8 @@ class ListCreateQueryResourceObjectAttributes implements ModelInterface, ArrayAc
      * @var string[]
      */
     protected static $attributeMap = [
-        'name' => 'name'
+        'name' => 'name',
+        'opt_in_process' => 'opt_in_process'
     ];
 
     /**
@@ -175,7 +179,8 @@ class ListCreateQueryResourceObjectAttributes implements ModelInterface, ArrayAc
      * @var string[]
      */
     protected static $setters = [
-        'name' => 'setName'
+        'name' => 'setName',
+        'opt_in_process' => 'setOptInProcess'
     ];
 
     /**
@@ -184,7 +189,8 @@ class ListCreateQueryResourceObjectAttributes implements ModelInterface, ArrayAc
      * @var string[]
      */
     protected static $getters = [
-        'name' => 'getName'
+        'name' => 'getName',
+        'opt_in_process' => 'getOptInProcess'
     ];
 
     /**
@@ -228,6 +234,21 @@ class ListCreateQueryResourceObjectAttributes implements ModelInterface, ArrayAc
         return self::$openAPIModelName;
     }
 
+    public const OPT_IN_PROCESS_DOUBLE_OPT_IN = 'double_opt_in';
+    public const OPT_IN_PROCESS_SINGLE_OPT_IN = 'single_opt_in';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getOptInProcessAllowableValues()
+    {
+        return [
+            self::OPT_IN_PROCESS_DOUBLE_OPT_IN,
+            self::OPT_IN_PROCESS_SINGLE_OPT_IN,
+        ];
+    }
 
     /**
      * Associative array for storing property values
@@ -245,6 +266,7 @@ class ListCreateQueryResourceObjectAttributes implements ModelInterface, ArrayAc
     public function __construct(?array $data = null)
     {
         $this->setIfExists('name', $data ?? [], null);
+        $this->setIfExists('opt_in_process', $data ?? [], null);
     }
 
     /**
@@ -277,6 +299,15 @@ class ListCreateQueryResourceObjectAttributes implements ModelInterface, ArrayAc
         if ($this->container['name'] === null) {
             $invalidProperties[] = "'name' can't be null";
         }
+        $allowedValues = $this->getOptInProcessAllowableValues();
+        if (!is_null($this->container['opt_in_process']) && !in_array($this->container['opt_in_process'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'opt_in_process', must be one of '%s'",
+                $this->container['opt_in_process'],
+                implode("', '", $allowedValues)
+            );
+        }
+
         return $invalidProperties;
     }
 
@@ -315,6 +346,50 @@ class ListCreateQueryResourceObjectAttributes implements ModelInterface, ArrayAc
             throw new \InvalidArgumentException('non-nullable name cannot be null');
         }
         $this->container['name'] = $name;
+
+        return $this;
+    }
+
+    /**
+     * Gets opt_in_process
+     *
+     * @return string|null
+     */
+    public function getOptInProcess()
+    {
+        return $this->container['opt_in_process'];
+    }
+
+    /**
+     * Sets opt_in_process
+     *
+     * @param string|null $opt_in_process The opt-in process for this list. Valid values: 'double_opt_in', 'single_opt_in'. If not provided, uses account default.
+     *
+     * @return self
+     */
+    public function setOptInProcess($opt_in_process)
+    {
+        if (is_null($opt_in_process)) {
+            array_push($this->openAPINullablesSetToNull, 'opt_in_process');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('opt_in_process', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $allowedValues = $this->getOptInProcessAllowableValues();
+        if (!is_null($opt_in_process) && !in_array($opt_in_process, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'opt_in_process', must be one of '%s'",
+                    $opt_in_process,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['opt_in_process'] = $opt_in_process;
 
         return $this;
     }

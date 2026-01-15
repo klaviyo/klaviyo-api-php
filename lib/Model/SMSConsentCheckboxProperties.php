@@ -64,7 +64,8 @@ class SMSConsentCheckboxProperties implements ModelInterface, ArrayAccess, \Json
         'required' => 'bool',
         'property_name' => '\KlaviyoAPI\Model\OptInPromotionalSmsEnum',
         'checkbox_text' => 'string',
-        'placeholder' => 'string'
+        'placeholder' => 'string',
+        'channels' => 'string[]'
     ];
 
     /**
@@ -82,7 +83,8 @@ class SMSConsentCheckboxProperties implements ModelInterface, ArrayAccess, \Json
         'required' => null,
         'property_name' => null,
         'checkbox_text' => null,
-        'placeholder' => null
+        'placeholder' => null,
+        'channels' => null
     ];
 
     /**
@@ -98,7 +100,8 @@ class SMSConsentCheckboxProperties implements ModelInterface, ArrayAccess, \Json
         'required' => false,
         'property_name' => false,
         'checkbox_text' => false,
-        'placeholder' => true
+        'placeholder' => true,
+        'channels' => false
     ];
 
     /**
@@ -194,7 +197,8 @@ class SMSConsentCheckboxProperties implements ModelInterface, ArrayAccess, \Json
         'required' => 'required',
         'property_name' => 'property_name',
         'checkbox_text' => 'checkbox_text',
-        'placeholder' => 'placeholder'
+        'placeholder' => 'placeholder',
+        'channels' => 'channels'
     ];
 
     /**
@@ -210,7 +214,8 @@ class SMSConsentCheckboxProperties implements ModelInterface, ArrayAccess, \Json
         'required' => 'setRequired',
         'property_name' => 'setPropertyName',
         'checkbox_text' => 'setCheckboxText',
-        'placeholder' => 'setPlaceholder'
+        'placeholder' => 'setPlaceholder',
+        'channels' => 'setChannels'
     ];
 
     /**
@@ -226,7 +231,8 @@ class SMSConsentCheckboxProperties implements ModelInterface, ArrayAccess, \Json
         'required' => 'getRequired',
         'property_name' => 'getPropertyName',
         'checkbox_text' => 'getCheckboxText',
-        'placeholder' => 'getPlaceholder'
+        'placeholder' => 'getPlaceholder',
+        'channels' => 'getChannels'
     ];
 
     /**
@@ -273,6 +279,8 @@ class SMSConsentCheckboxProperties implements ModelInterface, ArrayAccess, \Json
     public const DISPLAY_DEVICE_BOTH = 'both';
     public const DISPLAY_DEVICE_DESKTOP = 'desktop';
     public const DISPLAY_DEVICE_MOBILE = 'mobile';
+    public const CHANNELS_SMS = 'sms';
+    public const CHANNELS_WHATSAPP = 'whatsapp';
 
     /**
      * Gets allowable values of the enum
@@ -301,6 +309,19 @@ class SMSConsentCheckboxProperties implements ModelInterface, ArrayAccess, \Json
     }
 
     /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getChannelsAllowableValues()
+    {
+        return [
+            self::CHANNELS_SMS,
+            self::CHANNELS_WHATSAPP,
+        ];
+    }
+
+    /**
      * Associative array for storing property values
      *
      * @var mixed[]
@@ -323,6 +344,7 @@ class SMSConsentCheckboxProperties implements ModelInterface, ArrayAccess, \Json
         $this->setIfExists('property_name', $data ?? [], null);
         $this->setIfExists('checkbox_text', $data ?? [], null);
         $this->setIfExists('placeholder', $data ?? [], null);
+        $this->setIfExists('channels', $data ?? [], null);
     }
 
     /**
@@ -624,6 +646,42 @@ class SMSConsentCheckboxProperties implements ModelInterface, ArrayAccess, \Json
             );
         }
         $this->container['placeholder'] = $placeholder;
+
+        return $this;
+    }
+
+    /**
+     * Gets channels
+     *
+     * @return string[]|null
+     */
+    public function getChannels()
+    {
+        return $this->container['channels'];
+    }
+
+    /**
+     * Sets channels
+     *
+     * @param string[]|null $channels channels
+     *
+     * @return self
+     */
+    public function setChannels($channels)
+    {
+        if (is_null($channels)) {
+            throw new \InvalidArgumentException('non-nullable channels cannot be null');
+        }
+        $allowedValues = $this->getChannelsAllowableValues();
+        if (array_diff($channels, $allowedValues)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'channels', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['channels'] = $channels;
 
         return $this;
     }

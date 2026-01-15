@@ -64,7 +64,8 @@ class PhoneNumberProperties implements ModelInterface, ArrayAccess, \JsonSeriali
         'required' => 'bool',
         'error_messages' => '\KlaviyoAPI\Model\ErrorMessages',
         'property_name' => 'string',
-        'sms_consent_type' => 'string[]'
+        'sms_consent_type' => 'string[]',
+        'channel_settings' => '\KlaviyoAPI\Model\ChannelSettings'
     ];
 
     /**
@@ -82,7 +83,8 @@ class PhoneNumberProperties implements ModelInterface, ArrayAccess, \JsonSeriali
         'required' => null,
         'error_messages' => null,
         'property_name' => null,
-        'sms_consent_type' => null
+        'sms_consent_type' => null,
+        'channel_settings' => null
     ];
 
     /**
@@ -98,7 +100,8 @@ class PhoneNumberProperties implements ModelInterface, ArrayAccess, \JsonSeriali
         'required' => true,
         'error_messages' => false,
         'property_name' => false,
-        'sms_consent_type' => false
+        'sms_consent_type' => true,
+        'channel_settings' => false
     ];
 
     /**
@@ -194,7 +197,8 @@ class PhoneNumberProperties implements ModelInterface, ArrayAccess, \JsonSeriali
         'required' => 'required',
         'error_messages' => 'error_messages',
         'property_name' => 'property_name',
-        'sms_consent_type' => 'sms_consent_type'
+        'sms_consent_type' => 'sms_consent_type',
+        'channel_settings' => 'channel_settings'
     ];
 
     /**
@@ -210,7 +214,8 @@ class PhoneNumberProperties implements ModelInterface, ArrayAccess, \JsonSeriali
         'required' => 'setRequired',
         'error_messages' => 'setErrorMessages',
         'property_name' => 'setPropertyName',
-        'sms_consent_type' => 'setSmsConsentType'
+        'sms_consent_type' => 'setSmsConsentType',
+        'channel_settings' => 'setChannelSettings'
     ];
 
     /**
@@ -226,7 +231,8 @@ class PhoneNumberProperties implements ModelInterface, ArrayAccess, \JsonSeriali
         'required' => 'getRequired',
         'error_messages' => 'getErrorMessages',
         'property_name' => 'getPropertyName',
-        'sms_consent_type' => 'getSmsConsentType'
+        'sms_consent_type' => 'getSmsConsentType',
+        'channel_settings' => 'getChannelSettings'
     ];
 
     /**
@@ -328,6 +334,7 @@ class PhoneNumberProperties implements ModelInterface, ArrayAccess, \JsonSeriali
         $this->setIfExists('error_messages', $data ?? [], null);
         $this->setIfExists('property_name', $data ?? [], '$phone_number');
         $this->setIfExists('sms_consent_type', $data ?? [], null);
+        $this->setIfExists('channel_settings', $data ?? [], null);
     }
 
     /**
@@ -611,10 +618,17 @@ class PhoneNumberProperties implements ModelInterface, ArrayAccess, \JsonSeriali
     public function setSmsConsentType($sms_consent_type)
     {
         if (is_null($sms_consent_type)) {
-            throw new \InvalidArgumentException('non-nullable sms_consent_type cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'sms_consent_type');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('sms_consent_type', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $allowedValues = $this->getSmsConsentTypeAllowableValues();
-        if (array_diff($sms_consent_type, $allowedValues)) {
+        if (!is_null($sms_consent_type) && array_diff($sms_consent_type, $allowedValues)) {
             throw new \InvalidArgumentException(
                 sprintf(
                     "Invalid value for 'sms_consent_type', must be one of '%s'",
@@ -623,6 +637,33 @@ class PhoneNumberProperties implements ModelInterface, ArrayAccess, \JsonSeriali
             );
         }
         $this->container['sms_consent_type'] = $sms_consent_type;
+
+        return $this;
+    }
+
+    /**
+     * Gets channel_settings
+     *
+     * @return \KlaviyoAPI\Model\ChannelSettings|null
+     */
+    public function getChannelSettings()
+    {
+        return $this->container['channel_settings'];
+    }
+
+    /**
+     * Sets channel_settings
+     *
+     * @param \KlaviyoAPI\Model\ChannelSettings|null $channel_settings channel_settings
+     *
+     * @return self
+     */
+    public function setChannelSettings($channel_settings)
+    {
+        if (is_null($channel_settings)) {
+            throw new \InvalidArgumentException('non-nullable channel_settings cannot be null');
+        }
+        $this->container['channel_settings'] = $channel_settings;
 
         return $this;
     }

@@ -59,7 +59,7 @@ class ProfilePartialUpdateQueryResourceObject implements ModelInterface, ArrayAc
     protected static $openAPITypes = [
         'type' => '\KlaviyoAPI\Model\ProfileEnum',
         'id' => 'string',
-        'attributes' => '\KlaviyoAPI\Model\ProfilePartialUpdateQueryResourceObjectAttributes',
+        'attributes' => '\KlaviyoAPI\Model\ProfileCreateQueryResourceObjectAttributes',
         'meta' => '\KlaviyoAPI\Model\ProfileMeta'
     ];
 
@@ -376,7 +376,7 @@ class ProfilePartialUpdateQueryResourceObject implements ModelInterface, ArrayAc
     /**
      * Gets attributes
      *
-     * @return \KlaviyoAPI\Model\ProfilePartialUpdateQueryResourceObjectAttributes
+     * @return \KlaviyoAPI\Model\ProfileCreateQueryResourceObjectAttributes
      */
     public function getAttributes()
     {
@@ -386,7 +386,7 @@ class ProfilePartialUpdateQueryResourceObject implements ModelInterface, ArrayAc
     /**
      * Sets attributes
      *
-     * @param \KlaviyoAPI\Model\ProfilePartialUpdateQueryResourceObjectAttributes $attributes attributes
+     * @param \KlaviyoAPI\Model\ProfileCreateQueryResourceObjectAttributes $attributes attributes
      *
      * @return self
      */

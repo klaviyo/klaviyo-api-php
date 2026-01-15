@@ -637,7 +637,7 @@ class FlowPushNotification implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Sets on_open
      *
-     * @param string|null $on_open See PushLinkAction in app.  This is not a flow action, but the literal action that should be taken when the push notification is tapped.
+     * @param string|null $on_open See PushLinkAction in app.  This is not a flow action, but the literal action that should be     taken when the push notification is tapped.
      *
      * @return self
      */

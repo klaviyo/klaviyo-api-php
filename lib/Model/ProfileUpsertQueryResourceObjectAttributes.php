@@ -60,7 +60,6 @@ class ProfileUpsertQueryResourceObjectAttributes implements ModelInterface, Arra
         'email' => 'string',
         'phone_number' => 'string',
         'external_id' => 'string',
-        'anonymous_id' => 'string',
         '_kx' => 'string',
         'first_name' => 'string',
         'last_name' => 'string',
@@ -83,7 +82,6 @@ class ProfileUpsertQueryResourceObjectAttributes implements ModelInterface, Arra
         'email' => null,
         'phone_number' => null,
         'external_id' => null,
-        'anonymous_id' => null,
         '_kx' => null,
         'first_name' => null,
         'last_name' => null,
@@ -104,7 +102,6 @@ class ProfileUpsertQueryResourceObjectAttributes implements ModelInterface, Arra
         'email' => true,
         'phone_number' => true,
         'external_id' => true,
-        'anonymous_id' => true,
         '_kx' => true,
         'first_name' => true,
         'last_name' => true,
@@ -205,7 +202,6 @@ class ProfileUpsertQueryResourceObjectAttributes implements ModelInterface, Arra
         'email' => 'email',
         'phone_number' => 'phone_number',
         'external_id' => 'external_id',
-        'anonymous_id' => 'anonymous_id',
         '_kx' => '_kx',
         'first_name' => 'first_name',
         'last_name' => 'last_name',
@@ -226,7 +222,6 @@ class ProfileUpsertQueryResourceObjectAttributes implements ModelInterface, Arra
         'email' => 'setEmail',
         'phone_number' => 'setPhoneNumber',
         'external_id' => 'setExternalId',
-        'anonymous_id' => 'setAnonymousId',
         '_kx' => 'setKx',
         'first_name' => 'setFirstName',
         'last_name' => 'setLastName',
@@ -247,7 +242,6 @@ class ProfileUpsertQueryResourceObjectAttributes implements ModelInterface, Arra
         'email' => 'getEmail',
         'phone_number' => 'getPhoneNumber',
         'external_id' => 'getExternalId',
-        'anonymous_id' => 'getAnonymousId',
         '_kx' => 'getKx',
         'first_name' => 'getFirstName',
         'last_name' => 'getLastName',
@@ -319,7 +313,6 @@ class ProfileUpsertQueryResourceObjectAttributes implements ModelInterface, Arra
         $this->setIfExists('email', $data ?? [], null);
         $this->setIfExists('phone_number', $data ?? [], null);
         $this->setIfExists('external_id', $data ?? [], null);
-        $this->setIfExists('anonymous_id', $data ?? [], null);
         $this->setIfExists('_kx', $data ?? [], null);
         $this->setIfExists('first_name', $data ?? [], null);
         $this->setIfExists('last_name', $data ?? [], null);
@@ -471,40 +464,6 @@ class ProfileUpsertQueryResourceObjectAttributes implements ModelInterface, Arra
             }
         }
         $this->container['external_id'] = $external_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets anonymous_id
-     *
-     * @return string|null
-     */
-    public function getAnonymousId()
-    {
-        return $this->container['anonymous_id'];
-    }
-
-    /**
-     * Sets anonymous_id
-     *
-     * @param string|null $anonymous_id Id that can be used to identify a profile when other identifiers are not available
-     *
-     * @return self
-     */
-    public function setAnonymousId($anonymous_id)
-    {
-        if (is_null($anonymous_id)) {
-            array_push($this->openAPINullablesSetToNull, 'anonymous_id');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('anonymous_id', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['anonymous_id'] = $anonymous_id;
 
         return $this;
     }

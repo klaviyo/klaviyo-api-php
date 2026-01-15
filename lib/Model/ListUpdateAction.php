@@ -59,9 +59,9 @@ class ListUpdateAction implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $openAPITypes = [
         'id' => 'string',
         'temporary_id' => 'string',
+        'data' => '\KlaviyoAPI\Model\ListUpdateActionData',
         'type' => '\KlaviyoAPI\Model\ListUpdateEnum',
-        'links' => '\KlaviyoAPI\Model\Link',
-        'data' => '\KlaviyoAPI\Model\ListUpdateActionData'
+        'links' => '\KlaviyoAPI\Model\Link'
     ];
 
     /**
@@ -74,9 +74,9 @@ class ListUpdateAction implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $openAPIFormats = [
         'id' => null,
         'temporary_id' => null,
+        'data' => null,
         'type' => null,
-        'links' => null,
-        'data' => null
+        'links' => null
     ];
 
     /**
@@ -87,9 +87,9 @@ class ListUpdateAction implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static array $openAPINullables = [
         'id' => true,
         'temporary_id' => true,
+        'data' => false,
         'type' => false,
-        'links' => false,
-        'data' => false
+        'links' => false
     ];
 
     /**
@@ -180,9 +180,9 @@ class ListUpdateAction implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $attributeMap = [
         'id' => 'id',
         'temporary_id' => 'temporary_id',
+        'data' => 'data',
         'type' => 'type',
-        'links' => 'links',
-        'data' => 'data'
+        'links' => 'links'
     ];
 
     /**
@@ -193,9 +193,9 @@ class ListUpdateAction implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $setters = [
         'id' => 'setId',
         'temporary_id' => 'setTemporaryId',
+        'data' => 'setData',
         'type' => 'setType',
-        'links' => 'setLinks',
-        'data' => 'setData'
+        'links' => 'setLinks'
     ];
 
     /**
@@ -206,9 +206,9 @@ class ListUpdateAction implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $getters = [
         'id' => 'getId',
         'temporary_id' => 'getTemporaryId',
+        'data' => 'getData',
         'type' => 'getType',
-        'links' => 'getLinks',
-        'data' => 'getData'
+        'links' => 'getLinks'
     ];
 
     /**
@@ -270,9 +270,9 @@ class ListUpdateAction implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $this->setIfExists('id', $data ?? [], null);
         $this->setIfExists('temporary_id', $data ?? [], null);
+        $this->setIfExists('data', $data ?? [], null);
         $this->setIfExists('type', $data ?? [], null);
         $this->setIfExists('links', $data ?? [], null);
-        $this->setIfExists('data', $data ?? [], null);
     }
 
     /**
@@ -302,11 +302,11 @@ class ListUpdateAction implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
-        if ($this->container['type'] === null) {
-            $invalidProperties[] = "'type' can't be null";
-        }
         if ($this->container['data'] === null) {
             $invalidProperties[] = "'data' can't be null";
+        }
+        if ($this->container['type'] === null) {
+            $invalidProperties[] = "'type' can't be null";
         }
         return $invalidProperties;
     }
@@ -392,6 +392,33 @@ class ListUpdateAction implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
+     * Gets data
+     *
+     * @return \KlaviyoAPI\Model\ListUpdateActionData
+     */
+    public function getData()
+    {
+        return $this->container['data'];
+    }
+
+    /**
+     * Sets data
+     *
+     * @param \KlaviyoAPI\Model\ListUpdateActionData $data data
+     *
+     * @return self
+     */
+    public function setData($data)
+    {
+        if (is_null($data)) {
+            throw new \InvalidArgumentException('non-nullable data cannot be null');
+        }
+        $this->container['data'] = $data;
+
+        return $this;
+    }
+
+    /**
      * Gets type
      *
      * @return \KlaviyoAPI\Model\ListUpdateEnum
@@ -441,33 +468,6 @@ class ListUpdateAction implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable links cannot be null');
         }
         $this->container['links'] = $links;
-
-        return $this;
-    }
-
-    /**
-     * Gets data
-     *
-     * @return \KlaviyoAPI\Model\ListUpdateActionData
-     */
-    public function getData()
-    {
-        return $this->container['data'];
-    }
-
-    /**
-     * Sets data
-     *
-     * @param \KlaviyoAPI\Model\ListUpdateActionData $data data
-     *
-     * @return self
-     */
-    public function setData($data)
-    {
-        if (is_null($data)) {
-            throw new \InvalidArgumentException('non-nullable data cannot be null');
-        }
-        $this->container['data'] = $data;
 
         return $this;
     }

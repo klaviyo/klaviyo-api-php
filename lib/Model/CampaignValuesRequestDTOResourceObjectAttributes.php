@@ -60,6 +60,7 @@ class CampaignValuesRequestDTOResourceObjectAttributes implements ModelInterface
         'statistics' => 'string[]',
         'timeframe' => '\KlaviyoAPI\Model\CampaignValuesRequestDTOResourceObjectAttributesTimeframe',
         'conversion_metric_id' => 'string',
+        'group_by' => 'string[]',
         'filter' => 'string'
     ];
 
@@ -74,6 +75,7 @@ class CampaignValuesRequestDTOResourceObjectAttributes implements ModelInterface
         'statistics' => null,
         'timeframe' => null,
         'conversion_metric_id' => null,
+        'group_by' => null,
         'filter' => null
     ];
 
@@ -86,6 +88,7 @@ class CampaignValuesRequestDTOResourceObjectAttributes implements ModelInterface
         'statistics' => false,
         'timeframe' => false,
         'conversion_metric_id' => false,
+        'group_by' => true,
         'filter' => true
     ];
 
@@ -178,6 +181,7 @@ class CampaignValuesRequestDTOResourceObjectAttributes implements ModelInterface
         'statistics' => 'statistics',
         'timeframe' => 'timeframe',
         'conversion_metric_id' => 'conversion_metric_id',
+        'group_by' => 'group_by',
         'filter' => 'filter'
     ];
 
@@ -190,6 +194,7 @@ class CampaignValuesRequestDTOResourceObjectAttributes implements ModelInterface
         'statistics' => 'setStatistics',
         'timeframe' => 'setTimeframe',
         'conversion_metric_id' => 'setConversionMetricId',
+        'group_by' => 'setGroupBy',
         'filter' => 'setFilter'
     ];
 
@@ -202,6 +207,7 @@ class CampaignValuesRequestDTOResourceObjectAttributes implements ModelInterface
         'statistics' => 'getStatistics',
         'timeframe' => 'getTimeframe',
         'conversion_metric_id' => 'getConversionMetricId',
+        'group_by' => 'getGroupBy',
         'filter' => 'getFilter'
     ];
 
@@ -277,6 +283,9 @@ class CampaignValuesRequestDTOResourceObjectAttributes implements ModelInterface
     public const STATISTICS_UNSUBSCRIBE_RATE = 'unsubscribe_rate';
     public const STATISTICS_UNSUBSCRIBE_UNIQUES = 'unsubscribe_uniques';
     public const STATISTICS_UNSUBSCRIBES = 'unsubscribes';
+    public const GROUP_BY_CAMPAIGN_ID = 'campaign_id';
+    public const GROUP_BY_CAMPAIGN_MESSAGE_ID = 'campaign_message_id';
+    public const GROUP_BY_SEND_CHANNEL = 'send_channel';
 
     /**
      * Gets allowable values of the enum
@@ -321,6 +330,20 @@ class CampaignValuesRequestDTOResourceObjectAttributes implements ModelInterface
     }
 
     /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getGroupByAllowableValues()
+    {
+        return [
+            self::GROUP_BY_CAMPAIGN_ID,
+            self::GROUP_BY_CAMPAIGN_MESSAGE_ID,
+            self::GROUP_BY_SEND_CHANNEL,
+        ];
+    }
+
+    /**
      * Associative array for storing property values
      *
      * @var mixed[]
@@ -338,6 +361,7 @@ class CampaignValuesRequestDTOResourceObjectAttributes implements ModelInterface
         $this->setIfExists('statistics', $data ?? [], null);
         $this->setIfExists('timeframe', $data ?? [], null);
         $this->setIfExists('conversion_metric_id', $data ?? [], null);
+        $this->setIfExists('group_by', $data ?? [], null);
         $this->setIfExists('filter', $data ?? [], null);
     }
 
@@ -483,6 +507,49 @@ class CampaignValuesRequestDTOResourceObjectAttributes implements ModelInterface
     }
 
     /**
+     * Gets group_by
+     *
+     * @return string[]|null
+     */
+    public function getGroupBy()
+    {
+        return $this->container['group_by'];
+    }
+
+    /**
+     * Sets group_by
+     *
+     * @param string[]|null $group_by List of attributes to group the data by. Allowed group-bys are campaign_id, campaign_message_id, send_channel. If not passed in, the data will be grouped by campaign_id, campaign_message_id, send_channel. The following group by attributes are required: campaign_id, campaign_message_id
+     *
+     * @return self
+     */
+    public function setGroupBy($group_by)
+    {
+        if (is_null($group_by)) {
+            array_push($this->openAPINullablesSetToNull, 'group_by');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('group_by', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $allowedValues = $this->getGroupByAllowableValues();
+        if (!is_null($group_by) && array_diff($group_by, $allowedValues)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'group_by', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['group_by'] = $group_by;
+
+        return $this;
+    }
+
+    /**
      * Gets filter
      *
      * @return string|null
@@ -495,7 +562,7 @@ class CampaignValuesRequestDTOResourceObjectAttributes implements ModelInterface
     /**
      * Sets filter
      *
-     * @param string|null $filter API filter string used to filter the query. Allowed filters are send_channel, campaign_id, campaign_message_id. Allowed operators are equals, contains-any. Only one filter can be used per attribute, only AND can be used as a combination operator. Max of 100 messages per ANY filter. When filtering on send_channel, allowed values are email, sms, push-notification.
+     * @param string|null $filter API filter string used to filter the query. Allowed filters are send_channel, campaign_id, campaign_message_id. Allowed operators are equals, contains-any. Only one filter can be used per attribute, only AND can be used as a combination operator. Max of 100 messages per ANY filter. When filtering on send_channel, allowed values are email, sms, push-notification, whatsapp.
      *
      * @return self
      */
