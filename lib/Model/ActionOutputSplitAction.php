@@ -59,7 +59,7 @@ class ActionOutputSplitAction implements ModelInterface, ArrayAccess, \JsonSeria
     protected static $openAPITypes = [
         'id' => 'string',
         'temporary_id' => 'string',
-        'type' => '\KlaviyoAPI\Model\ActionOutputSplitEnum',
+        'type' => 'string',
         'links' => '\KlaviyoAPI\Model\BooleanBranchLinks',
         'data' => '\KlaviyoAPI\Model\ActionOutputSplitActionData'
     ];
@@ -252,6 +252,19 @@ class ActionOutputSplitAction implements ModelInterface, ArrayAccess, \JsonSeria
         return self::$openAPIModelName;
     }
 
+    public const TYPE_ACTION_OUTPUT_SPLIT = 'action-output-split';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getTypeAllowableValues()
+    {
+        return [
+            self::TYPE_ACTION_OUTPUT_SPLIT,
+        ];
+    }
 
     /**
      * Associative array for storing property values
@@ -305,6 +318,15 @@ class ActionOutputSplitAction implements ModelInterface, ArrayAccess, \JsonSeria
         if ($this->container['type'] === null) {
             $invalidProperties[] = "'type' can't be null";
         }
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!is_null($this->container['type']) && !in_array($this->container['type'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'type', must be one of '%s'",
+                $this->container['type'],
+                implode("', '", $allowedValues)
+            );
+        }
+
         return $invalidProperties;
     }
 
@@ -333,7 +355,7 @@ class ActionOutputSplitAction implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Sets id
      *
-     * @param string|null $id The real ID of an action.
+     * @param string|null $id The real ID of an action. Not allowed on create.
      *
      * @return self
      */
@@ -391,7 +413,7 @@ class ActionOutputSplitAction implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Gets type
      *
-     * @return \KlaviyoAPI\Model\ActionOutputSplitEnum
+     * @return string
      */
     public function getType()
     {
@@ -401,7 +423,7 @@ class ActionOutputSplitAction implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Sets type
      *
-     * @param \KlaviyoAPI\Model\ActionOutputSplitEnum $type type
+     * @param string $type type
      *
      * @return self
      */
@@ -409,6 +431,16 @@ class ActionOutputSplitAction implements ModelInterface, ArrayAccess, \JsonSeria
     {
         if (is_null($type)) {
             throw new \InvalidArgumentException('non-nullable type cannot be null');
+        }
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!in_array($type, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'type', must be one of '%s'",
+                    $type,
+                    implode("', '", $allowedValues)
+                )
+            );
         }
         $this->container['type'] = $type;
 

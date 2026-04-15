@@ -57,7 +57,7 @@ class DoubleOptinFilter implements ModelInterface, ArrayAccess, \JsonSerializabl
       * @var string[]
       */
     protected static $openAPITypes = [
-        'field' => '\KlaviyoAPI\Model\IsDoubleOptInEnum',
+        'field' => 'string',
         'filter' => '\KlaviyoAPI\Model\BooleanFilter'
     ];
 
@@ -234,6 +234,19 @@ class DoubleOptinFilter implements ModelInterface, ArrayAccess, \JsonSerializabl
         return self::$openAPIModelName;
     }
 
+    public const FIELD_IS_DOUBLE_OPT_IN = 'is_double_opt_in';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getFieldAllowableValues()
+    {
+        return [
+            self::FIELD_IS_DOUBLE_OPT_IN,
+        ];
+    }
 
     /**
      * Associative array for storing property values
@@ -284,6 +297,15 @@ class DoubleOptinFilter implements ModelInterface, ArrayAccess, \JsonSerializabl
         if ($this->container['field'] === null) {
             $invalidProperties[] = "'field' can't be null";
         }
+        $allowedValues = $this->getFieldAllowableValues();
+        if (!is_null($this->container['field']) && !in_array($this->container['field'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'field', must be one of '%s'",
+                $this->container['field'],
+                implode("', '", $allowedValues)
+            );
+        }
+
         if ($this->container['filter'] === null) {
             $invalidProperties[] = "'filter' can't be null";
         }
@@ -305,7 +327,7 @@ class DoubleOptinFilter implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Gets field
      *
-     * @return \KlaviyoAPI\Model\IsDoubleOptInEnum
+     * @return string
      */
     public function getField()
     {
@@ -315,7 +337,7 @@ class DoubleOptinFilter implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Sets field
      *
-     * @param \KlaviyoAPI\Model\IsDoubleOptInEnum $field field
+     * @param string $field field
      *
      * @return self
      */
@@ -323,6 +345,16 @@ class DoubleOptinFilter implements ModelInterface, ArrayAccess, \JsonSerializabl
     {
         if (is_null($field)) {
             throw new \InvalidArgumentException('non-nullable field cannot be null');
+        }
+        $allowedValues = $this->getFieldAllowableValues();
+        if (!in_array($field, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'field', must be one of '%s'",
+                    $field,
+                    implode("', '", $allowedValues)
+                )
+            );
         }
         $this->container['field'] = $field;
 

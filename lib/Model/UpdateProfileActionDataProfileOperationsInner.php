@@ -58,7 +58,7 @@ class UpdateProfileActionDataProfileOperationsInner implements ModelInterface, A
       */
     protected static $openAPITypes = [
         'operator' => 'string',
-        'property_type' => '\KlaviyoAPI\Model\ListEnum',
+        'property_type' => 'string',
         'property_key' => 'string',
         'property_value' => 'string',
         'property_operation' => 'string'
@@ -253,6 +253,7 @@ class UpdateProfileActionDataProfileOperationsInner implements ModelInterface, A
     }
 
     public const OPERATOR_DELETE = 'delete';
+    public const PROPERTY_TYPE__LIST = 'list';
     public const PROPERTY_OPERATION_ADD = 'add';
     public const PROPERTY_OPERATION_REMOVE = 'remove';
 
@@ -265,6 +266,18 @@ class UpdateProfileActionDataProfileOperationsInner implements ModelInterface, A
     {
         return [
             self::OPERATOR_DELETE,
+        ];
+    }
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getPropertyTypeAllowableValues()
+    {
+        return [
+            self::PROPERTY_TYPE__LIST,
         ];
     }
 
@@ -345,6 +358,15 @@ class UpdateProfileActionDataProfileOperationsInner implements ModelInterface, A
         if ($this->container['property_type'] === null) {
             $invalidProperties[] = "'property_type' can't be null";
         }
+        $allowedValues = $this->getPropertyTypeAllowableValues();
+        if (!is_null($this->container['property_type']) && !in_array($this->container['property_type'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'property_type', must be one of '%s'",
+                $this->container['property_type'],
+                implode("', '", $allowedValues)
+            );
+        }
+
         if ($this->container['property_key'] === null) {
             $invalidProperties[] = "'property_key' can't be null";
         }
@@ -415,7 +437,7 @@ class UpdateProfileActionDataProfileOperationsInner implements ModelInterface, A
     /**
      * Gets property_type
      *
-     * @return \KlaviyoAPI\Model\ListEnum
+     * @return string
      */
     public function getPropertyType()
     {
@@ -425,7 +447,7 @@ class UpdateProfileActionDataProfileOperationsInner implements ModelInterface, A
     /**
      * Sets property_type
      *
-     * @param \KlaviyoAPI\Model\ListEnum $property_type property_type
+     * @param string $property_type property_type
      *
      * @return self
      */
@@ -433,6 +455,16 @@ class UpdateProfileActionDataProfileOperationsInner implements ModelInterface, A
     {
         if (is_null($property_type)) {
             throw new \InvalidArgumentException('non-nullable property_type cannot be null');
+        }
+        $allowedValues = $this->getPropertyTypeAllowableValues();
+        if (!in_array($property_type, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'property_type', must be one of '%s'",
+                    $property_type,
+                    implode("', '", $allowedValues)
+                )
+            );
         }
         $this->container['property_type'] = $property_type;
 

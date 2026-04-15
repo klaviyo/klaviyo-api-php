@@ -375,7 +375,7 @@ class AbTestActionDataCurrentExperiment implements ModelInterface, ArrayAccess, 
     /**
      * Sets id
      *
-     * @param string|null $id id
+     * @param string|null $id Not allowed on create.
      *
      * @return self
      */

@@ -58,7 +58,7 @@ class HTMLText implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static $openAPITypes = [
         'id' => 'string',
-        'type' => '\KlaviyoAPI\Model\HtmlTextEnum',
+        'type' => 'string',
         'styles' => '\KlaviyoAPI\Model\HTMLTextStyles',
         'properties' => '\KlaviyoAPI\Model\HTMLTextProperties'
     ];
@@ -246,6 +246,19 @@ class HTMLText implements ModelInterface, ArrayAccess, \JsonSerializable
         return self::$openAPIModelName;
     }
 
+    public const TYPE_HTML_TEXT = 'html_text';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getTypeAllowableValues()
+    {
+        return [
+            self::TYPE_HTML_TEXT,
+        ];
+    }
 
     /**
      * Associative array for storing property values
@@ -298,6 +311,15 @@ class HTMLText implements ModelInterface, ArrayAccess, \JsonSerializable
         if ($this->container['type'] === null) {
             $invalidProperties[] = "'type' can't be null";
         }
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!is_null($this->container['type']) && !in_array($this->container['type'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'type', must be one of '%s'",
+                $this->container['type'],
+                implode("', '", $allowedValues)
+            );
+        }
+
         return $invalidProperties;
     }
 
@@ -326,7 +348,7 @@ class HTMLText implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets id
      *
-     * @param string|null $id id
+     * @param string|null $id Not allowed on create.
      *
      * @return self
      */
@@ -350,7 +372,7 @@ class HTMLText implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets type
      *
-     * @return \KlaviyoAPI\Model\HtmlTextEnum
+     * @return string
      */
     public function getType()
     {
@@ -360,7 +382,7 @@ class HTMLText implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets type
      *
-     * @param \KlaviyoAPI\Model\HtmlTextEnum $type type
+     * @param string $type type
      *
      * @return self
      */
@@ -368,6 +390,16 @@ class HTMLText implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         if (is_null($type)) {
             throw new \InvalidArgumentException('non-nullable type cannot be null');
+        }
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!in_array($type, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'type', must be one of '%s'",
+                    $type,
+                    implode("', '", $allowedValues)
+                )
+            );
         }
         $this->container['type'] = $type;
 

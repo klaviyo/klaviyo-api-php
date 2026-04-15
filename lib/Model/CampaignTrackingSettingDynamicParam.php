@@ -57,7 +57,7 @@ class CampaignTrackingSettingDynamicParam implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'type' => '\KlaviyoAPI\Model\DynamicEnum',
+        'type' => 'string',
         'value' => 'string'
     ];
 
@@ -234,6 +234,7 @@ class CampaignTrackingSettingDynamicParam implements ModelInterface, ArrayAccess
         return self::$openAPIModelName;
     }
 
+    public const TYPE_DYNAMIC = 'dynamic';
     public const VALUE_CAMPAIGN_ID = 'campaign_id';
     public const VALUE_CAMPAIGN_NAME = 'campaign_name';
     public const VALUE_CAMPAIGN_NAME_ID = 'campaign_name_id';
@@ -246,6 +247,18 @@ class CampaignTrackingSettingDynamicParam implements ModelInterface, ArrayAccess
     public const VALUE_MESSAGE_TYPE = 'message_type';
     public const VALUE_PROFILE_EXTERNAL_ID = 'profile_external_id';
     public const VALUE_PROFILE_ID = 'profile_id';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getTypeAllowableValues()
+    {
+        return [
+            self::TYPE_DYNAMIC,
+        ];
+    }
 
     /**
      * Gets allowable values of the enum
@@ -319,6 +332,15 @@ class CampaignTrackingSettingDynamicParam implements ModelInterface, ArrayAccess
         if ($this->container['type'] === null) {
             $invalidProperties[] = "'type' can't be null";
         }
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!is_null($this->container['type']) && !in_array($this->container['type'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'type', must be one of '%s'",
+                $this->container['type'],
+                implode("', '", $allowedValues)
+            );
+        }
+
         if ($this->container['value'] === null) {
             $invalidProperties[] = "'value' can't be null";
         }
@@ -349,7 +371,7 @@ class CampaignTrackingSettingDynamicParam implements ModelInterface, ArrayAccess
     /**
      * Gets type
      *
-     * @return \KlaviyoAPI\Model\DynamicEnum
+     * @return string
      */
     public function getType()
     {
@@ -359,7 +381,7 @@ class CampaignTrackingSettingDynamicParam implements ModelInterface, ArrayAccess
     /**
      * Sets type
      *
-     * @param \KlaviyoAPI\Model\DynamicEnum $type type
+     * @param string $type The type of the tracking parameter
      *
      * @return self
      */
@@ -367,6 +389,16 @@ class CampaignTrackingSettingDynamicParam implements ModelInterface, ArrayAccess
     {
         if (is_null($type)) {
             throw new \InvalidArgumentException('non-nullable type cannot be null');
+        }
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!in_array($type, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'type', must be one of '%s'",
+                    $type,
+                    implode("', '", $allowedValues)
+                )
+            );
         }
         $this->container['type'] = $type;
 

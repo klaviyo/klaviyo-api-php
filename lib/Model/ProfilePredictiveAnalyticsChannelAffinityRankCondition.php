@@ -57,9 +57,9 @@ class ProfilePredictiveAnalyticsChannelAffinityRankCondition implements ModelInt
       * @var string[]
       */
     protected static $openAPITypes = [
-        'type' => '\KlaviyoAPI\Model\ProfilePredictiveAnalyticsEnum',
+        'type' => 'string',
         'dimension' => 'string',
-        'measurement' => '\KlaviyoAPI\Model\RankEnum',
+        'measurement' => 'string',
         'predicted_channel' => 'string',
         'filter' => '\KlaviyoAPI\Model\ProfilePredictiveAnalyticsChannelAffinityRankFilter'
     ];
@@ -252,10 +252,24 @@ class ProfilePredictiveAnalyticsChannelAffinityRankCondition implements ModelInt
         return self::$openAPIModelName;
     }
 
+    public const TYPE_PROFILE_PREDICTIVE_ANALYTICS = 'profile-predictive-analytics';
     public const DIMENSION_CHANNEL_AFFINITY = 'channel_affinity';
+    public const MEASUREMENT_RANK = 'rank';
     public const PREDICTED_CHANNEL_EMAIL = 'email';
     public const PREDICTED_CHANNEL_PUSH = 'push';
     public const PREDICTED_CHANNEL_SMS = 'sms';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getTypeAllowableValues()
+    {
+        return [
+            self::TYPE_PROFILE_PREDICTIVE_ANALYTICS,
+        ];
+    }
 
     /**
      * Gets allowable values of the enum
@@ -266,6 +280,18 @@ class ProfilePredictiveAnalyticsChannelAffinityRankCondition implements ModelInt
     {
         return [
             self::DIMENSION_CHANNEL_AFFINITY,
+        ];
+    }
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getMeasurementAllowableValues()
+    {
+        return [
+            self::MEASUREMENT_RANK,
         ];
     }
 
@@ -335,6 +361,15 @@ class ProfilePredictiveAnalyticsChannelAffinityRankCondition implements ModelInt
         if ($this->container['type'] === null) {
             $invalidProperties[] = "'type' can't be null";
         }
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!is_null($this->container['type']) && !in_array($this->container['type'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'type', must be one of '%s'",
+                $this->container['type'],
+                implode("', '", $allowedValues)
+            );
+        }
+
         if ($this->container['dimension'] === null) {
             $invalidProperties[] = "'dimension' can't be null";
         }
@@ -350,6 +385,15 @@ class ProfilePredictiveAnalyticsChannelAffinityRankCondition implements ModelInt
         if ($this->container['measurement'] === null) {
             $invalidProperties[] = "'measurement' can't be null";
         }
+        $allowedValues = $this->getMeasurementAllowableValues();
+        if (!is_null($this->container['measurement']) && !in_array($this->container['measurement'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'measurement', must be one of '%s'",
+                $this->container['measurement'],
+                implode("', '", $allowedValues)
+            );
+        }
+
         if ($this->container['predicted_channel'] === null) {
             $invalidProperties[] = "'predicted_channel' can't be null";
         }
@@ -383,7 +427,7 @@ class ProfilePredictiveAnalyticsChannelAffinityRankCondition implements ModelInt
     /**
      * Gets type
      *
-     * @return \KlaviyoAPI\Model\ProfilePredictiveAnalyticsEnum
+     * @return string
      */
     public function getType()
     {
@@ -393,7 +437,7 @@ class ProfilePredictiveAnalyticsChannelAffinityRankCondition implements ModelInt
     /**
      * Sets type
      *
-     * @param \KlaviyoAPI\Model\ProfilePredictiveAnalyticsEnum $type type
+     * @param string $type type
      *
      * @return self
      */
@@ -401,6 +445,16 @@ class ProfilePredictiveAnalyticsChannelAffinityRankCondition implements ModelInt
     {
         if (is_null($type)) {
             throw new \InvalidArgumentException('non-nullable type cannot be null');
+        }
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!in_array($type, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'type', must be one of '%s'",
+                    $type,
+                    implode("', '", $allowedValues)
+                )
+            );
         }
         $this->container['type'] = $type;
 
@@ -447,7 +501,7 @@ class ProfilePredictiveAnalyticsChannelAffinityRankCondition implements ModelInt
     /**
      * Gets measurement
      *
-     * @return \KlaviyoAPI\Model\RankEnum
+     * @return string
      */
     public function getMeasurement()
     {
@@ -457,7 +511,7 @@ class ProfilePredictiveAnalyticsChannelAffinityRankCondition implements ModelInt
     /**
      * Sets measurement
      *
-     * @param \KlaviyoAPI\Model\RankEnum $measurement measurement
+     * @param string $measurement measurement
      *
      * @return self
      */
@@ -465,6 +519,16 @@ class ProfilePredictiveAnalyticsChannelAffinityRankCondition implements ModelInt
     {
         if (is_null($measurement)) {
             throw new \InvalidArgumentException('non-nullable measurement cannot be null');
+        }
+        $allowedValues = $this->getMeasurementAllowableValues();
+        if (!in_array($measurement, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'measurement', must be one of '%s'",
+                    $measurement,
+                    implode("', '", $allowedValues)
+                )
+            );
         }
         $this->container['measurement'] = $measurement;
 

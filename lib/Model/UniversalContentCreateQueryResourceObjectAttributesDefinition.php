@@ -57,9 +57,9 @@ class UniversalContentCreateQueryResourceObjectAttributesDefinition implements M
       * @var string[]
       */
     protected static $openAPITypes = [
-        'content_type' => '\KlaviyoAPI\Model\BlockEnum',
-        'type' => '\KlaviyoAPI\Model\TextEnum',
-        'data' => '\KlaviyoAPI\Model\TextBlockData'
+        'content_type' => 'string',
+        'type' => 'string',
+        'data' => '\KlaviyoAPI\Model\TextBlockDataV0'
     ];
 
     /**
@@ -240,6 +240,44 @@ class UniversalContentCreateQueryResourceObjectAttributesDefinition implements M
         return self::$openAPIModelName;
     }
 
+    public const CONTENT_TYPE_BLOCK = 'block';
+    public const TYPE_BUTTON = 'button';
+    public const TYPE_DROP_SHADOW = 'drop_shadow';
+    public const TYPE_HORIZONTAL_RULE = 'horizontal_rule';
+    public const TYPE_HTML = 'html';
+    public const TYPE_IMAGE = 'image';
+    public const TYPE_SPACER = 'spacer';
+    public const TYPE_TEXT = 'text';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getContentTypeAllowableValues()
+    {
+        return [
+            self::CONTENT_TYPE_BLOCK,
+        ];
+    }
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getTypeAllowableValues()
+    {
+        return [
+            self::TYPE_BUTTON,
+            self::TYPE_DROP_SHADOW,
+            self::TYPE_HORIZONTAL_RULE,
+            self::TYPE_HTML,
+            self::TYPE_IMAGE,
+            self::TYPE_SPACER,
+            self::TYPE_TEXT,
+        ];
+    }
 
     /**
      * Associative array for storing property values
@@ -291,9 +329,27 @@ class UniversalContentCreateQueryResourceObjectAttributesDefinition implements M
         if ($this->container['content_type'] === null) {
             $invalidProperties[] = "'content_type' can't be null";
         }
+        $allowedValues = $this->getContentTypeAllowableValues();
+        if (!is_null($this->container['content_type']) && !in_array($this->container['content_type'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'content_type', must be one of '%s'",
+                $this->container['content_type'],
+                implode("', '", $allowedValues)
+            );
+        }
+
         if ($this->container['type'] === null) {
             $invalidProperties[] = "'type' can't be null";
         }
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!is_null($this->container['type']) && !in_array($this->container['type'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'type', must be one of '%s'",
+                $this->container['type'],
+                implode("', '", $allowedValues)
+            );
+        }
+
         if ($this->container['data'] === null) {
             $invalidProperties[] = "'data' can't be null";
         }
@@ -315,7 +371,7 @@ class UniversalContentCreateQueryResourceObjectAttributesDefinition implements M
     /**
      * Gets content_type
      *
-     * @return \KlaviyoAPI\Model\BlockEnum
+     * @return string
      */
     public function getContentType()
     {
@@ -325,7 +381,7 @@ class UniversalContentCreateQueryResourceObjectAttributesDefinition implements M
     /**
      * Sets content_type
      *
-     * @param \KlaviyoAPI\Model\BlockEnum $content_type content_type
+     * @param string $content_type content_type
      *
      * @return self
      */
@@ -333,6 +389,16 @@ class UniversalContentCreateQueryResourceObjectAttributesDefinition implements M
     {
         if (is_null($content_type)) {
             throw new \InvalidArgumentException('non-nullable content_type cannot be null');
+        }
+        $allowedValues = $this->getContentTypeAllowableValues();
+        if (!in_array($content_type, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'content_type', must be one of '%s'",
+                    $content_type,
+                    implode("', '", $allowedValues)
+                )
+            );
         }
         $this->container['content_type'] = $content_type;
 
@@ -342,7 +408,7 @@ class UniversalContentCreateQueryResourceObjectAttributesDefinition implements M
     /**
      * Gets type
      *
-     * @return \KlaviyoAPI\Model\TextEnum
+     * @return string
      */
     public function getType()
     {
@@ -352,7 +418,7 @@ class UniversalContentCreateQueryResourceObjectAttributesDefinition implements M
     /**
      * Sets type
      *
-     * @param \KlaviyoAPI\Model\TextEnum $type type
+     * @param string $type type
      *
      * @return self
      */
@@ -360,6 +426,16 @@ class UniversalContentCreateQueryResourceObjectAttributesDefinition implements M
     {
         if (is_null($type)) {
             throw new \InvalidArgumentException('non-nullable type cannot be null');
+        }
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!in_array($type, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'type', must be one of '%s'",
+                    $type,
+                    implode("', '", $allowedValues)
+                )
+            );
         }
         $this->container['type'] = $type;
 
@@ -369,7 +445,7 @@ class UniversalContentCreateQueryResourceObjectAttributesDefinition implements M
     /**
      * Gets data
      *
-     * @return \KlaviyoAPI\Model\TextBlockData
+     * @return \KlaviyoAPI\Model\TextBlockDataV0
      */
     public function getData()
     {
@@ -379,7 +455,7 @@ class UniversalContentCreateQueryResourceObjectAttributesDefinition implements M
     /**
      * Sets data
      *
-     * @param \KlaviyoAPI\Model\TextBlockData $data data
+     * @param \KlaviyoAPI\Model\TextBlockDataV0 $data data
      *
      * @return self
      */

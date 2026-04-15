@@ -57,7 +57,7 @@ class ProfileRegionCondition implements ModelInterface, ArrayAccess, \JsonSerial
       * @var string[]
       */
     protected static $openAPITypes = [
-        'type' => '\KlaviyoAPI\Model\ProfileRegionEnum',
+        'type' => 'string',
         'in_region' => 'bool',
         'region' => 'string'
     ];
@@ -240,8 +240,21 @@ class ProfileRegionCondition implements ModelInterface, ArrayAccess, \JsonSerial
         return self::$openAPIModelName;
     }
 
+    public const TYPE_PROFILE_REGION = 'profile-region';
     public const REGION_EUROPEAN_UNION = 'european_union';
     public const REGION_UNITED_STATES = 'united_states';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getTypeAllowableValues()
+    {
+        return [
+            self::TYPE_PROFILE_REGION,
+        ];
+    }
 
     /**
      * Gets allowable values of the enum
@@ -306,6 +319,15 @@ class ProfileRegionCondition implements ModelInterface, ArrayAccess, \JsonSerial
         if ($this->container['type'] === null) {
             $invalidProperties[] = "'type' can't be null";
         }
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!is_null($this->container['type']) && !in_array($this->container['type'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'type', must be one of '%s'",
+                $this->container['type'],
+                implode("', '", $allowedValues)
+            );
+        }
+
         if ($this->container['in_region'] === null) {
             $invalidProperties[] = "'in_region' can't be null";
         }
@@ -339,7 +361,7 @@ class ProfileRegionCondition implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Gets type
      *
-     * @return \KlaviyoAPI\Model\ProfileRegionEnum
+     * @return string
      */
     public function getType()
     {
@@ -349,7 +371,7 @@ class ProfileRegionCondition implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets type
      *
-     * @param \KlaviyoAPI\Model\ProfileRegionEnum $type type
+     * @param string $type type
      *
      * @return self
      */
@@ -357,6 +379,16 @@ class ProfileRegionCondition implements ModelInterface, ArrayAccess, \JsonSerial
     {
         if (is_null($type)) {
             throw new \InvalidArgumentException('non-nullable type cannot be null');
+        }
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!in_array($type, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'type', must be one of '%s'",
+                    $type,
+                    implode("', '", $allowedValues)
+                )
+            );
         }
         $this->container['type'] = $type;
 

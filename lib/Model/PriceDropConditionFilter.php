@@ -57,7 +57,7 @@ class PriceDropConditionFilter implements ModelInterface, ArrayAccess, \JsonSeri
       * @var string[]
       */
     protected static $openAPITypes = [
-        'condition_groups' => '\KlaviyoAPI\Model\PriceDropConditionGroup[]'
+        'condition_groups' => '\KlaviyoAPI\Model\PriceDropConditionConditionGroup[]'
     ];
 
     /**
@@ -295,7 +295,7 @@ class PriceDropConditionFilter implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Gets condition_groups
      *
-     * @return \KlaviyoAPI\Model\PriceDropConditionGroup[]
+     * @return \KlaviyoAPI\Model\PriceDropConditionConditionGroup[]
      */
     public function getConditionGroups()
     {
@@ -305,7 +305,7 @@ class PriceDropConditionFilter implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets condition_groups
      *
-     * @param \KlaviyoAPI\Model\PriceDropConditionGroup[] $condition_groups condition_groups
+     * @param \KlaviyoAPI\Model\PriceDropConditionConditionGroup[] $condition_groups condition_groups
      *
      * @return self
      */

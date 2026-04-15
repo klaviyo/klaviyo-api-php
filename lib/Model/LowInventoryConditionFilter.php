@@ -57,7 +57,7 @@ class LowInventoryConditionFilter implements ModelInterface, ArrayAccess, \JsonS
       * @var string[]
       */
     protected static $openAPITypes = [
-        'condition_groups' => '\KlaviyoAPI\Model\LowInventoryConditionGroup[]'
+        'condition_groups' => '\KlaviyoAPI\Model\LowInventoryConditionConditionGroup[]'
     ];
 
     /**
@@ -295,7 +295,7 @@ class LowInventoryConditionFilter implements ModelInterface, ArrayAccess, \JsonS
     /**
      * Gets condition_groups
      *
-     * @return \KlaviyoAPI\Model\LowInventoryConditionGroup[]
+     * @return \KlaviyoAPI\Model\LowInventoryConditionConditionGroup[]
      */
     public function getConditionGroups()
     {
@@ -305,7 +305,7 @@ class LowInventoryConditionFilter implements ModelInterface, ArrayAccess, \JsonS
     /**
      * Sets condition_groups
      *
-     * @param \KlaviyoAPI\Model\LowInventoryConditionGroup[] $condition_groups condition_groups
+     * @param \KlaviyoAPI\Model\LowInventoryConditionConditionGroup[] $condition_groups condition_groups
      *
      * @return self
      */

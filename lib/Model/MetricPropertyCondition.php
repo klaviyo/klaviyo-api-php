@@ -57,7 +57,7 @@ class MetricPropertyCondition implements ModelInterface, ArrayAccess, \JsonSeria
       * @var string[]
       */
     protected static $openAPITypes = [
-        'type' => '\KlaviyoAPI\Model\MetricPropertyEnum',
+        'type' => 'string',
         'metric_id' => 'string',
         'field' => 'string',
         'filter' => '\KlaviyoAPI\Model\MetricPropertyConditionFilter2'
@@ -246,6 +246,19 @@ class MetricPropertyCondition implements ModelInterface, ArrayAccess, \JsonSeria
         return self::$openAPIModelName;
     }
 
+    public const TYPE_METRIC_PROPERTY = 'metric-property';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getTypeAllowableValues()
+    {
+        return [
+            self::TYPE_METRIC_PROPERTY,
+        ];
+    }
 
     /**
      * Associative array for storing property values
@@ -298,6 +311,15 @@ class MetricPropertyCondition implements ModelInterface, ArrayAccess, \JsonSeria
         if ($this->container['type'] === null) {
             $invalidProperties[] = "'type' can't be null";
         }
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!is_null($this->container['type']) && !in_array($this->container['type'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'type', must be one of '%s'",
+                $this->container['type'],
+                implode("', '", $allowedValues)
+            );
+        }
+
         if ($this->container['metric_id'] === null) {
             $invalidProperties[] = "'metric_id' can't be null";
         }
@@ -325,7 +347,7 @@ class MetricPropertyCondition implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Gets type
      *
-     * @return \KlaviyoAPI\Model\MetricPropertyEnum
+     * @return string
      */
     public function getType()
     {
@@ -335,7 +357,7 @@ class MetricPropertyCondition implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Sets type
      *
-     * @param \KlaviyoAPI\Model\MetricPropertyEnum $type type
+     * @param string $type type
      *
      * @return self
      */
@@ -343,6 +365,16 @@ class MetricPropertyCondition implements ModelInterface, ArrayAccess, \JsonSeria
     {
         if (is_null($type)) {
             throw new \InvalidArgumentException('non-nullable type cannot be null');
+        }
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!in_array($type, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'type', must be one of '%s'",
+                    $type,
+                    implode("', '", $allowedValues)
+                )
+            );
         }
         $this->container['type'] = $type;
 

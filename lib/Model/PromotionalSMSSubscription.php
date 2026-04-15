@@ -59,7 +59,7 @@ class PromotionalSMSSubscription implements ModelInterface, ArrayAccess, \JsonSe
     protected static $openAPITypes = [
         'id' => 'string',
         'submit' => 'bool',
-        'type' => '\KlaviyoAPI\Model\PromotionalSmsSubscriptionEnum',
+        'type' => 'string',
         'properties' => 'string'
     ];
 
@@ -246,6 +246,19 @@ class PromotionalSMSSubscription implements ModelInterface, ArrayAccess, \JsonSe
         return self::$openAPIModelName;
     }
 
+    public const TYPE_PROMOTIONAL_SMS_SUBSCRIPTION = 'promotional_sms_subscription';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getTypeAllowableValues()
+    {
+        return [
+            self::TYPE_PROMOTIONAL_SMS_SUBSCRIPTION,
+        ];
+    }
 
     /**
      * Gets allowable values of the enum
@@ -310,6 +323,15 @@ class PromotionalSMSSubscription implements ModelInterface, ArrayAccess, \JsonSe
         if ($this->container['type'] === null) {
             $invalidProperties[] = "'type' can't be null";
         }
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!is_null($this->container['type']) && !in_array($this->container['type'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'type', must be one of '%s'",
+                $this->container['type'],
+                implode("', '", $allowedValues)
+            );
+        }
+
         $allowedValues = $this->getPropertiesAllowableValues();
         if (!is_null($this->container['properties']) && !in_array($this->container['properties'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
@@ -347,7 +369,7 @@ class PromotionalSMSSubscription implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Sets id
      *
-     * @param string|null $id id
+     * @param string|null $id Not allowed on create.
      *
      * @return self
      */
@@ -398,7 +420,7 @@ class PromotionalSMSSubscription implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Gets type
      *
-     * @return \KlaviyoAPI\Model\PromotionalSmsSubscriptionEnum
+     * @return string
      */
     public function getType()
     {
@@ -408,7 +430,7 @@ class PromotionalSMSSubscription implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Sets type
      *
-     * @param \KlaviyoAPI\Model\PromotionalSmsSubscriptionEnum $type type
+     * @param string $type type
      *
      * @return self
      */
@@ -416,6 +438,16 @@ class PromotionalSMSSubscription implements ModelInterface, ArrayAccess, \JsonSe
     {
         if (is_null($type)) {
             throw new \InvalidArgumentException('non-nullable type cannot be null');
+        }
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!in_array($type, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'type', must be one of '%s'",
+                    $type,
+                    implode("', '", $allowedValues)
+                )
+            );
         }
         $this->container['type'] = $type;
 

@@ -57,7 +57,7 @@ class RelativeDateRangeFilter implements ModelInterface, ArrayAccess, \JsonSeria
       * @var string[]
       */
     protected static $openAPITypes = [
-        'type' => '\KlaviyoAPI\Model\DateEnum',
+        'type' => 'string',
         'operator' => 'string',
         'start' => 'int',
         'end' => 'int',
@@ -252,10 +252,23 @@ class RelativeDateRangeFilter implements ModelInterface, ArrayAccess, \JsonSeria
         return self::$openAPIModelName;
     }
 
+    public const TYPE_DATE = 'date';
     public const OPERATOR_BETWEEN = 'between';
     public const UNIT_DAY = 'day';
     public const UNIT_HOUR = 'hour';
     public const UNIT_WEEK = 'week';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getTypeAllowableValues()
+    {
+        return [
+            self::TYPE_DATE,
+        ];
+    }
 
     /**
      * Gets allowable values of the enum
@@ -335,6 +348,15 @@ class RelativeDateRangeFilter implements ModelInterface, ArrayAccess, \JsonSeria
         if ($this->container['type'] === null) {
             $invalidProperties[] = "'type' can't be null";
         }
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!is_null($this->container['type']) && !in_array($this->container['type'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'type', must be one of '%s'",
+                $this->container['type'],
+                implode("', '", $allowedValues)
+            );
+        }
+
         if ($this->container['operator'] === null) {
             $invalidProperties[] = "'operator' can't be null";
         }
@@ -383,7 +405,7 @@ class RelativeDateRangeFilter implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Gets type
      *
-     * @return \KlaviyoAPI\Model\DateEnum
+     * @return string
      */
     public function getType()
     {
@@ -393,7 +415,7 @@ class RelativeDateRangeFilter implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Sets type
      *
-     * @param \KlaviyoAPI\Model\DateEnum $type type
+     * @param string $type type
      *
      * @return self
      */
@@ -401,6 +423,16 @@ class RelativeDateRangeFilter implements ModelInterface, ArrayAccess, \JsonSeria
     {
         if (is_null($type)) {
             throw new \InvalidArgumentException('non-nullable type cannot be null');
+        }
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!in_array($type, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'type', must be one of '%s'",
+                    $type,
+                    implode("', '", $allowedValues)
+                )
+            );
         }
         $this->container['type'] = $type;
 

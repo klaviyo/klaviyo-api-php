@@ -57,8 +57,8 @@ class ShopifyIntegrationMethodFilter implements ModelInterface, ArrayAccess, \Js
       * @var string[]
       */
     protected static $openAPITypes = [
-        'field' => '\KlaviyoAPI\Model\MethodEnum',
-        'method' => '\KlaviyoAPI\Model\IntegrationEnum',
+        'field' => 'string',
+        'method' => 'string',
         'filter' => '\KlaviyoAPI\Model\ShopifyIntegrationFilter'
     ];
 
@@ -240,6 +240,32 @@ class ShopifyIntegrationMethodFilter implements ModelInterface, ArrayAccess, \Js
         return self::$openAPIModelName;
     }
 
+    public const FIELD_METHOD = 'method';
+    public const METHOD_INTEGRATION = 'integration';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getFieldAllowableValues()
+    {
+        return [
+            self::FIELD_METHOD,
+        ];
+    }
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getMethodAllowableValues()
+    {
+        return [
+            self::METHOD_INTEGRATION,
+        ];
+    }
 
     /**
      * Associative array for storing property values
@@ -291,9 +317,27 @@ class ShopifyIntegrationMethodFilter implements ModelInterface, ArrayAccess, \Js
         if ($this->container['field'] === null) {
             $invalidProperties[] = "'field' can't be null";
         }
+        $allowedValues = $this->getFieldAllowableValues();
+        if (!is_null($this->container['field']) && !in_array($this->container['field'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'field', must be one of '%s'",
+                $this->container['field'],
+                implode("', '", $allowedValues)
+            );
+        }
+
         if ($this->container['method'] === null) {
             $invalidProperties[] = "'method' can't be null";
         }
+        $allowedValues = $this->getMethodAllowableValues();
+        if (!is_null($this->container['method']) && !in_array($this->container['method'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'method', must be one of '%s'",
+                $this->container['method'],
+                implode("', '", $allowedValues)
+            );
+        }
+
         if ($this->container['filter'] === null) {
             $invalidProperties[] = "'filter' can't be null";
         }
@@ -315,7 +359,7 @@ class ShopifyIntegrationMethodFilter implements ModelInterface, ArrayAccess, \Js
     /**
      * Gets field
      *
-     * @return \KlaviyoAPI\Model\MethodEnum
+     * @return string
      */
     public function getField()
     {
@@ -325,7 +369,7 @@ class ShopifyIntegrationMethodFilter implements ModelInterface, ArrayAccess, \Js
     /**
      * Sets field
      *
-     * @param \KlaviyoAPI\Model\MethodEnum $field field
+     * @param string $field field
      *
      * @return self
      */
@@ -333,6 +377,16 @@ class ShopifyIntegrationMethodFilter implements ModelInterface, ArrayAccess, \Js
     {
         if (is_null($field)) {
             throw new \InvalidArgumentException('non-nullable field cannot be null');
+        }
+        $allowedValues = $this->getFieldAllowableValues();
+        if (!in_array($field, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'field', must be one of '%s'",
+                    $field,
+                    implode("', '", $allowedValues)
+                )
+            );
         }
         $this->container['field'] = $field;
 
@@ -342,7 +396,7 @@ class ShopifyIntegrationMethodFilter implements ModelInterface, ArrayAccess, \Js
     /**
      * Gets method
      *
-     * @return \KlaviyoAPI\Model\IntegrationEnum
+     * @return string
      */
     public function getMethod()
     {
@@ -352,7 +406,7 @@ class ShopifyIntegrationMethodFilter implements ModelInterface, ArrayAccess, \Js
     /**
      * Sets method
      *
-     * @param \KlaviyoAPI\Model\IntegrationEnum $method method
+     * @param string $method method
      *
      * @return self
      */
@@ -360,6 +414,16 @@ class ShopifyIntegrationMethodFilter implements ModelInterface, ArrayAccess, \Js
     {
         if (is_null($method)) {
             throw new \InvalidArgumentException('non-nullable method cannot be null');
+        }
+        $allowedValues = $this->getMethodAllowableValues();
+        if (!in_array($method, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'method', must be one of '%s'",
+                    $method,
+                    implode("', '", $allowedValues)
+                )
+            );
         }
         $this->container['method'] = $method;
 

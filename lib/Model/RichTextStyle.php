@@ -57,10 +57,12 @@ class RichTextStyle implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'font_family' => '\KlaviyoAPI\Model\TextStyleFontFamily',
+        'font_family' => '\KlaviyoAPI\Model\TextStyleV0FontFamily',
         'font_size' => 'int',
         'font_weight' => 'int',
         'text_color' => 'string',
+        'font_style' => 'string',
+        'text_decoration' => 'string',
         'line_spacing' => 'float',
         'character_spacing' => 'int',
         'alignment' => 'string',
@@ -79,6 +81,8 @@ class RichTextStyle implements ModelInterface, ArrayAccess, \JsonSerializable
         'font_size' => null,
         'font_weight' => null,
         'text_color' => null,
+        'font_style' => null,
+        'text_decoration' => null,
         'line_spacing' => null,
         'character_spacing' => null,
         'alignment' => null,
@@ -95,6 +99,8 @@ class RichTextStyle implements ModelInterface, ArrayAccess, \JsonSerializable
         'font_size' => false,
         'font_weight' => true,
         'text_color' => false,
+        'font_style' => true,
+        'text_decoration' => true,
         'line_spacing' => false,
         'character_spacing' => true,
         'alignment' => false,
@@ -191,6 +197,8 @@ class RichTextStyle implements ModelInterface, ArrayAccess, \JsonSerializable
         'font_size' => 'font_size',
         'font_weight' => 'font_weight',
         'text_color' => 'text_color',
+        'font_style' => 'font_style',
+        'text_decoration' => 'text_decoration',
         'line_spacing' => 'line_spacing',
         'character_spacing' => 'character_spacing',
         'alignment' => 'alignment',
@@ -207,6 +215,8 @@ class RichTextStyle implements ModelInterface, ArrayAccess, \JsonSerializable
         'font_size' => 'setFontSize',
         'font_weight' => 'setFontWeight',
         'text_color' => 'setTextColor',
+        'font_style' => 'setFontStyle',
+        'text_decoration' => 'setTextDecoration',
         'line_spacing' => 'setLineSpacing',
         'character_spacing' => 'setCharacterSpacing',
         'alignment' => 'setAlignment',
@@ -223,6 +233,8 @@ class RichTextStyle implements ModelInterface, ArrayAccess, \JsonSerializable
         'font_size' => 'getFontSize',
         'font_weight' => 'getFontWeight',
         'text_color' => 'getTextColor',
+        'font_style' => 'getFontStyle',
+        'text_decoration' => 'getTextDecoration',
         'line_spacing' => 'getLineSpacing',
         'character_spacing' => 'getCharacterSpacing',
         'alignment' => 'getAlignment',
@@ -336,6 +348,8 @@ class RichTextStyle implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('font_size', $data ?? [], 16);
         $this->setIfExists('font_weight', $data ?? [], self::FONT_WEIGHT_NUMBER_400);
         $this->setIfExists('text_color', $data ?? [], '#000000');
+        $this->setIfExists('font_style', $data ?? [], null);
+        $this->setIfExists('text_decoration', $data ?? [], null);
         $this->setIfExists('line_spacing', $data ?? [], 1);
         $this->setIfExists('character_spacing', $data ?? [], 0);
         $this->setIfExists('alignment', $data ?? [], 'left');
@@ -405,7 +419,7 @@ class RichTextStyle implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets font_family
      *
-     * @return \KlaviyoAPI\Model\TextStyleFontFamily|null
+     * @return \KlaviyoAPI\Model\TextStyleV0FontFamily|null
      */
     public function getFontFamily()
     {
@@ -415,7 +429,7 @@ class RichTextStyle implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets font_family
      *
-     * @param \KlaviyoAPI\Model\TextStyleFontFamily|null $font_family font_family
+     * @param \KlaviyoAPI\Model\TextStyleV0FontFamily|null $font_family font_family
      *
      * @return self
      */
@@ -523,6 +537,74 @@ class RichTextStyle implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable text_color cannot be null');
         }
         $this->container['text_color'] = $text_color;
+
+        return $this;
+    }
+
+    /**
+     * Gets font_style
+     *
+     * @return string|null
+     */
+    public function getFontStyle()
+    {
+        return $this->container['font_style'];
+    }
+
+    /**
+     * Sets font_style
+     *
+     * @param string|null $font_style font_style
+     *
+     * @return self
+     */
+    public function setFontStyle($font_style)
+    {
+        if (is_null($font_style)) {
+            array_push($this->openAPINullablesSetToNull, 'font_style');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('font_style', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['font_style'] = $font_style;
+
+        return $this;
+    }
+
+    /**
+     * Gets text_decoration
+     *
+     * @return string|null
+     */
+    public function getTextDecoration()
+    {
+        return $this->container['text_decoration'];
+    }
+
+    /**
+     * Sets text_decoration
+     *
+     * @param string|null $text_decoration text_decoration
+     *
+     * @return self
+     */
+    public function setTextDecoration($text_decoration)
+    {
+        if (is_null($text_decoration)) {
+            array_push($this->openAPINullablesSetToNull, 'text_decoration');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('text_decoration', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['text_decoration'] = $text_decoration;
 
         return $this;
     }

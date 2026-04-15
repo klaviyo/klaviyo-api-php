@@ -57,9 +57,9 @@ class HasSMSMarketingSubscribedFiltersInner implements ModelInterface, ArrayAcce
       * @var string[]
       */
     protected static $openAPITypes = [
-        'field' => '\KlaviyoAPI\Model\IsRcsCapableEnum',
+        'field' => 'string',
         'filter' => '\KlaviyoAPI\Model\BooleanFilter',
-        'method' => '\KlaviyoAPI\Model\IntegrationEnum'
+        'method' => 'string'
     ];
 
     /**
@@ -240,6 +240,32 @@ class HasSMSMarketingSubscribedFiltersInner implements ModelInterface, ArrayAcce
         return self::$openAPIModelName;
     }
 
+    public const FIELD_IS_RCS_CAPABLE = 'is_rcs_capable';
+    public const METHOD_INTEGRATION = 'integration';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getFieldAllowableValues()
+    {
+        return [
+            self::FIELD_IS_RCS_CAPABLE,
+        ];
+    }
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getMethodAllowableValues()
+    {
+        return [
+            self::METHOD_INTEGRATION,
+        ];
+    }
 
     /**
      * Associative array for storing property values
@@ -291,12 +317,30 @@ class HasSMSMarketingSubscribedFiltersInner implements ModelInterface, ArrayAcce
         if ($this->container['field'] === null) {
             $invalidProperties[] = "'field' can't be null";
         }
+        $allowedValues = $this->getFieldAllowableValues();
+        if (!is_null($this->container['field']) && !in_array($this->container['field'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'field', must be one of '%s'",
+                $this->container['field'],
+                implode("', '", $allowedValues)
+            );
+        }
+
         if ($this->container['filter'] === null) {
             $invalidProperties[] = "'filter' can't be null";
         }
         if ($this->container['method'] === null) {
             $invalidProperties[] = "'method' can't be null";
         }
+        $allowedValues = $this->getMethodAllowableValues();
+        if (!is_null($this->container['method']) && !in_array($this->container['method'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'method', must be one of '%s'",
+                $this->container['method'],
+                implode("', '", $allowedValues)
+            );
+        }
+
         return $invalidProperties;
     }
 
@@ -315,7 +359,7 @@ class HasSMSMarketingSubscribedFiltersInner implements ModelInterface, ArrayAcce
     /**
      * Gets field
      *
-     * @return \KlaviyoAPI\Model\IsRcsCapableEnum
+     * @return string
      */
     public function getField()
     {
@@ -325,7 +369,7 @@ class HasSMSMarketingSubscribedFiltersInner implements ModelInterface, ArrayAcce
     /**
      * Sets field
      *
-     * @param \KlaviyoAPI\Model\IsRcsCapableEnum $field field
+     * @param string $field field
      *
      * @return self
      */
@@ -333,6 +377,16 @@ class HasSMSMarketingSubscribedFiltersInner implements ModelInterface, ArrayAcce
     {
         if (is_null($field)) {
             throw new \InvalidArgumentException('non-nullable field cannot be null');
+        }
+        $allowedValues = $this->getFieldAllowableValues();
+        if (!in_array($field, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'field', must be one of '%s'",
+                    $field,
+                    implode("', '", $allowedValues)
+                )
+            );
         }
         $this->container['field'] = $field;
 
@@ -369,7 +423,7 @@ class HasSMSMarketingSubscribedFiltersInner implements ModelInterface, ArrayAcce
     /**
      * Gets method
      *
-     * @return \KlaviyoAPI\Model\IntegrationEnum
+     * @return string
      */
     public function getMethod()
     {
@@ -379,7 +433,7 @@ class HasSMSMarketingSubscribedFiltersInner implements ModelInterface, ArrayAcce
     /**
      * Sets method
      *
-     * @param \KlaviyoAPI\Model\IntegrationEnum $method method
+     * @param string $method method
      *
      * @return self
      */
@@ -387,6 +441,16 @@ class HasSMSMarketingSubscribedFiltersInner implements ModelInterface, ArrayAcce
     {
         if (is_null($method)) {
             throw new \InvalidArgumentException('non-nullable method cannot be null');
+        }
+        $allowedValues = $this->getMethodAllowableValues();
+        if (!in_array($method, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'method', must be one of '%s'",
+                    $method,
+                    implode("', '", $allowedValues)
+                )
+            );
         }
         $this->container['method'] = $method;
 

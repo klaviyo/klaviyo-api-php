@@ -57,8 +57,8 @@ class PreferencePageFilter implements ModelInterface, ArrayAccess, \JsonSerializ
       * @var string[]
       */
     protected static $openAPITypes = [
-        'field' => '\KlaviyoAPI\Model\MethodEnum',
-        'method' => '\KlaviyoAPI\Model\PreferencePageEnum',
+        'field' => 'string',
+        'method' => 'string',
         'filter' => '\KlaviyoAPI\Model\EqualsStringFilter'
     ];
 
@@ -240,6 +240,32 @@ class PreferencePageFilter implements ModelInterface, ArrayAccess, \JsonSerializ
         return self::$openAPIModelName;
     }
 
+    public const FIELD_METHOD = 'method';
+    public const METHOD_PREFERENCE_PAGE = 'preference_page';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getFieldAllowableValues()
+    {
+        return [
+            self::FIELD_METHOD,
+        ];
+    }
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getMethodAllowableValues()
+    {
+        return [
+            self::METHOD_PREFERENCE_PAGE,
+        ];
+    }
 
     /**
      * Associative array for storing property values
@@ -291,9 +317,27 @@ class PreferencePageFilter implements ModelInterface, ArrayAccess, \JsonSerializ
         if ($this->container['field'] === null) {
             $invalidProperties[] = "'field' can't be null";
         }
+        $allowedValues = $this->getFieldAllowableValues();
+        if (!is_null($this->container['field']) && !in_array($this->container['field'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'field', must be one of '%s'",
+                $this->container['field'],
+                implode("', '", $allowedValues)
+            );
+        }
+
         if ($this->container['method'] === null) {
             $invalidProperties[] = "'method' can't be null";
         }
+        $allowedValues = $this->getMethodAllowableValues();
+        if (!is_null($this->container['method']) && !in_array($this->container['method'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'method', must be one of '%s'",
+                $this->container['method'],
+                implode("', '", $allowedValues)
+            );
+        }
+
         return $invalidProperties;
     }
 
@@ -312,7 +356,7 @@ class PreferencePageFilter implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Gets field
      *
-     * @return \KlaviyoAPI\Model\MethodEnum
+     * @return string
      */
     public function getField()
     {
@@ -322,7 +366,7 @@ class PreferencePageFilter implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Sets field
      *
-     * @param \KlaviyoAPI\Model\MethodEnum $field field
+     * @param string $field field
      *
      * @return self
      */
@@ -330,6 +374,16 @@ class PreferencePageFilter implements ModelInterface, ArrayAccess, \JsonSerializ
     {
         if (is_null($field)) {
             throw new \InvalidArgumentException('non-nullable field cannot be null');
+        }
+        $allowedValues = $this->getFieldAllowableValues();
+        if (!in_array($field, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'field', must be one of '%s'",
+                    $field,
+                    implode("', '", $allowedValues)
+                )
+            );
         }
         $this->container['field'] = $field;
 
@@ -339,7 +393,7 @@ class PreferencePageFilter implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Gets method
      *
-     * @return \KlaviyoAPI\Model\PreferencePageEnum
+     * @return string
      */
     public function getMethod()
     {
@@ -349,7 +403,7 @@ class PreferencePageFilter implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Sets method
      *
-     * @param \KlaviyoAPI\Model\PreferencePageEnum $method method
+     * @param string $method method
      *
      * @return self
      */
@@ -357,6 +411,16 @@ class PreferencePageFilter implements ModelInterface, ArrayAccess, \JsonSerializ
     {
         if (is_null($method)) {
             throw new \InvalidArgumentException('non-nullable method cannot be null');
+        }
+        $allowedValues = $this->getMethodAllowableValues();
+        if (!in_array($method, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'method', must be one of '%s'",
+                    $method,
+                    implode("', '", $allowedValues)
+                )
+            );
         }
         $this->container['method'] = $method;
 

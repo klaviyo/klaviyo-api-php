@@ -60,7 +60,8 @@ class ImageStyles implements ModelInterface, ArrayAccess, \JsonSerializable
         'horizontal_alignment' => 'string',
         'width' => 'int',
         'padding' => '\KlaviyoAPI\Model\Padding',
-        'background_color' => 'string'
+        'background_color' => 'string',
+        'drop_shadow' => '\KlaviyoAPI\Model\ImageDropShadowStyles'
     ];
 
     /**
@@ -74,7 +75,8 @@ class ImageStyles implements ModelInterface, ArrayAccess, \JsonSerializable
         'horizontal_alignment' => null,
         'width' => null,
         'padding' => null,
-        'background_color' => null
+        'background_color' => null,
+        'drop_shadow' => null
     ];
 
     /**
@@ -86,7 +88,8 @@ class ImageStyles implements ModelInterface, ArrayAccess, \JsonSerializable
         'horizontal_alignment' => false,
         'width' => true,
         'padding' => false,
-        'background_color' => true
+        'background_color' => true,
+        'drop_shadow' => false
     ];
 
     /**
@@ -178,7 +181,8 @@ class ImageStyles implements ModelInterface, ArrayAccess, \JsonSerializable
         'horizontal_alignment' => 'horizontal_alignment',
         'width' => 'width',
         'padding' => 'padding',
-        'background_color' => 'background_color'
+        'background_color' => 'background_color',
+        'drop_shadow' => 'drop_shadow'
     ];
 
     /**
@@ -190,7 +194,8 @@ class ImageStyles implements ModelInterface, ArrayAccess, \JsonSerializable
         'horizontal_alignment' => 'setHorizontalAlignment',
         'width' => 'setWidth',
         'padding' => 'setPadding',
-        'background_color' => 'setBackgroundColor'
+        'background_color' => 'setBackgroundColor',
+        'drop_shadow' => 'setDropShadow'
     ];
 
     /**
@@ -202,7 +207,8 @@ class ImageStyles implements ModelInterface, ArrayAccess, \JsonSerializable
         'horizontal_alignment' => 'getHorizontalAlignment',
         'width' => 'getWidth',
         'padding' => 'getPadding',
-        'background_color' => 'getBackgroundColor'
+        'background_color' => 'getBackgroundColor',
+        'drop_shadow' => 'getDropShadow'
     ];
 
     /**
@@ -283,6 +289,7 @@ class ImageStyles implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('width', $data ?? [], null);
         $this->setIfExists('padding', $data ?? [], null);
         $this->setIfExists('background_color', $data ?? [], null);
+        $this->setIfExists('drop_shadow', $data ?? [], null);
     }
 
     /**
@@ -464,6 +471,33 @@ class ImageStyles implements ModelInterface, ArrayAccess, \JsonSerializable
             }
         }
         $this->container['background_color'] = $background_color;
+
+        return $this;
+    }
+
+    /**
+     * Gets drop_shadow
+     *
+     * @return \KlaviyoAPI\Model\ImageDropShadowStyles|null
+     */
+    public function getDropShadow()
+    {
+        return $this->container['drop_shadow'];
+    }
+
+    /**
+     * Sets drop_shadow
+     *
+     * @param \KlaviyoAPI\Model\ImageDropShadowStyles|null $drop_shadow drop_shadow
+     *
+     * @return self
+     */
+    public function setDropShadow($drop_shadow)
+    {
+        if (is_null($drop_shadow)) {
+            throw new \InvalidArgumentException('non-nullable drop_shadow cannot be null');
+        }
+        $this->container['drop_shadow'] = $drop_shadow;
 
         return $this;
     }

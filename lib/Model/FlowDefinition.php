@@ -60,7 +60,8 @@ class FlowDefinition implements ModelInterface, ArrayAccess, \JsonSerializable
         'triggers' => '\KlaviyoAPI\Model\FlowDefinitionTriggersInner[]',
         'profile_filter' => '\KlaviyoAPI\Model\FlowDefinitionProfileFilter',
         'actions' => '\KlaviyoAPI\Model\FlowDefinitionActionsInner[]',
-        'entry_action_id' => 'string'
+        'entry_action_id' => 'string',
+        'reentry_criteria' => '\KlaviyoAPI\Model\ReentryCriteria'
     ];
 
     /**
@@ -74,7 +75,8 @@ class FlowDefinition implements ModelInterface, ArrayAccess, \JsonSerializable
         'triggers' => null,
         'profile_filter' => null,
         'actions' => null,
-        'entry_action_id' => null
+        'entry_action_id' => null,
+        'reentry_criteria' => null
     ];
 
     /**
@@ -86,7 +88,8 @@ class FlowDefinition implements ModelInterface, ArrayAccess, \JsonSerializable
         'triggers' => false,
         'profile_filter' => true,
         'actions' => false,
-        'entry_action_id' => true
+        'entry_action_id' => true,
+        'reentry_criteria' => false
     ];
 
     /**
@@ -178,7 +181,8 @@ class FlowDefinition implements ModelInterface, ArrayAccess, \JsonSerializable
         'triggers' => 'triggers',
         'profile_filter' => 'profile_filter',
         'actions' => 'actions',
-        'entry_action_id' => 'entry_action_id'
+        'entry_action_id' => 'entry_action_id',
+        'reentry_criteria' => 'reentry_criteria'
     ];
 
     /**
@@ -190,7 +194,8 @@ class FlowDefinition implements ModelInterface, ArrayAccess, \JsonSerializable
         'triggers' => 'setTriggers',
         'profile_filter' => 'setProfileFilter',
         'actions' => 'setActions',
-        'entry_action_id' => 'setEntryActionId'
+        'entry_action_id' => 'setEntryActionId',
+        'reentry_criteria' => 'setReentryCriteria'
     ];
 
     /**
@@ -202,7 +207,8 @@ class FlowDefinition implements ModelInterface, ArrayAccess, \JsonSerializable
         'triggers' => 'getTriggers',
         'profile_filter' => 'getProfileFilter',
         'actions' => 'getActions',
-        'entry_action_id' => 'getEntryActionId'
+        'entry_action_id' => 'getEntryActionId',
+        'reentry_criteria' => 'getReentryCriteria'
     ];
 
     /**
@@ -266,6 +272,7 @@ class FlowDefinition implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('profile_filter', $data ?? [], null);
         $this->setIfExists('actions', $data ?? [], null);
         $this->setIfExists('entry_action_id', $data ?? [], null);
+        $this->setIfExists('reentry_criteria', $data ?? [], null);
     }
 
     /**
@@ -437,6 +444,33 @@ class FlowDefinition implements ModelInterface, ArrayAccess, \JsonSerializable
             }
         }
         $this->container['entry_action_id'] = $entry_action_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets reentry_criteria
+     *
+     * @return \KlaviyoAPI\Model\ReentryCriteria|null
+     */
+    public function getReentryCriteria()
+    {
+        return $this->container['reentry_criteria'];
+    }
+
+    /**
+     * Sets reentry_criteria
+     *
+     * @param \KlaviyoAPI\Model\ReentryCriteria|null $reentry_criteria reentry_criteria
+     *
+     * @return self
+     */
+    public function setReentryCriteria($reentry_criteria)
+    {
+        if (is_null($reentry_criteria)) {
+            throw new \InvalidArgumentException('non-nullable reentry_criteria cannot be null');
+        }
+        $this->container['reentry_criteria'] = $reentry_criteria;
 
         return $this;
     }

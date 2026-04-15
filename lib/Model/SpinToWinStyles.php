@@ -60,7 +60,7 @@ class SpinToWinStyles implements ModelInterface, ArrayAccess, \JsonSerializable
         'padding' => '\KlaviyoAPI\Model\Padding',
         'background_color' => 'string',
         'slice_styles' => '\KlaviyoAPI\Model\SpinToWinSliceStyle[]',
-        'text_styles' => '\KlaviyoAPI\Model\TextStyle',
+        'text_styles' => '\KlaviyoAPI\Model\TextStyleV0',
         'center_color' => 'string',
         'outline_color' => 'string',
         'outline_thickness' => 'int',
@@ -436,7 +436,7 @@ class SpinToWinStyles implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets text_styles
      *
-     * @return \KlaviyoAPI\Model\TextStyle|null
+     * @return \KlaviyoAPI\Model\TextStyleV0|null
      */
     public function getTextStyles()
     {
@@ -446,7 +446,7 @@ class SpinToWinStyles implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets text_styles
      *
-     * @param \KlaviyoAPI\Model\TextStyle|null $text_styles text_styles
+     * @param \KlaviyoAPI\Model\TextStyleV0|null $text_styles text_styles
      *
      * @return self
      */

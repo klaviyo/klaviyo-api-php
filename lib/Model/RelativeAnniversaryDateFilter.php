@@ -57,7 +57,7 @@ class RelativeAnniversaryDateFilter implements ModelInterface, ArrayAccess, \Jso
       * @var string[]
       */
     protected static $openAPITypes = [
-        'type' => '\KlaviyoAPI\Model\DateEnum',
+        'type' => 'string',
         'operator' => 'string',
         'unit' => 'string',
         'quantity' => 'int'
@@ -246,11 +246,24 @@ class RelativeAnniversaryDateFilter implements ModelInterface, ArrayAccess, \Jso
         return self::$openAPIModelName;
     }
 
+    public const TYPE_DATE = 'date';
     public const OPERATOR_ANNIVERSARY_LAST = 'anniversary-last';
     public const OPERATOR_ANNIVERSARY_NEXT = 'anniversary-next';
     public const UNIT_DAY = 'day';
     public const UNIT_HOUR = 'hour';
     public const UNIT_WEEK = 'week';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getTypeAllowableValues()
+    {
+        return [
+            self::TYPE_DATE,
+        ];
+    }
 
     /**
      * Gets allowable values of the enum
@@ -330,6 +343,15 @@ class RelativeAnniversaryDateFilter implements ModelInterface, ArrayAccess, \Jso
         if ($this->container['type'] === null) {
             $invalidProperties[] = "'type' can't be null";
         }
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!is_null($this->container['type']) && !in_array($this->container['type'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'type', must be one of '%s'",
+                $this->container['type'],
+                implode("', '", $allowedValues)
+            );
+        }
+
         if ($this->container['operator'] === null) {
             $invalidProperties[] = "'operator' can't be null";
         }
@@ -375,7 +397,7 @@ class RelativeAnniversaryDateFilter implements ModelInterface, ArrayAccess, \Jso
     /**
      * Gets type
      *
-     * @return \KlaviyoAPI\Model\DateEnum
+     * @return string
      */
     public function getType()
     {
@@ -385,7 +407,7 @@ class RelativeAnniversaryDateFilter implements ModelInterface, ArrayAccess, \Jso
     /**
      * Sets type
      *
-     * @param \KlaviyoAPI\Model\DateEnum $type type
+     * @param string $type type
      *
      * @return self
      */
@@ -393,6 +415,16 @@ class RelativeAnniversaryDateFilter implements ModelInterface, ArrayAccess, \Jso
     {
         if (is_null($type)) {
             throw new \InvalidArgumentException('non-nullable type cannot be null');
+        }
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!in_array($type, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'type', must be one of '%s'",
+                    $type,
+                    implode("', '", $allowedValues)
+                )
+            );
         }
         $this->container['type'] = $type;
 

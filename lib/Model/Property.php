@@ -57,7 +57,7 @@ class Property implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'badge_config' => '\KlaviyoAPI\Model\SetPropertyEnum',
+        'badge_config' => 'string',
         'set_from_property' => 'string'
     ];
 
@@ -234,6 +234,19 @@ class Property implements ModelInterface, ArrayAccess, \JsonSerializable
         return self::$openAPIModelName;
     }
 
+    public const BADGE_CONFIG_SET_PROPERTY = 'set_property';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getBadgeConfigAllowableValues()
+    {
+        return [
+            self::BADGE_CONFIG_SET_PROPERTY,
+        ];
+    }
 
     /**
      * Associative array for storing property values
@@ -284,6 +297,15 @@ class Property implements ModelInterface, ArrayAccess, \JsonSerializable
         if ($this->container['badge_config'] === null) {
             $invalidProperties[] = "'badge_config' can't be null";
         }
+        $allowedValues = $this->getBadgeConfigAllowableValues();
+        if (!is_null($this->container['badge_config']) && !in_array($this->container['badge_config'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'badge_config', must be one of '%s'",
+                $this->container['badge_config'],
+                implode("', '", $allowedValues)
+            );
+        }
+
         if ($this->container['set_from_property'] === null) {
             $invalidProperties[] = "'set_from_property' can't be null";
         }
@@ -305,7 +327,7 @@ class Property implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets badge_config
      *
-     * @return \KlaviyoAPI\Model\SetPropertyEnum
+     * @return string
      */
     public function getBadgeConfig()
     {
@@ -315,7 +337,7 @@ class Property implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets badge_config
      *
-     * @param \KlaviyoAPI\Model\SetPropertyEnum $badge_config badge_config
+     * @param string $badge_config badge_config
      *
      * @return self
      */
@@ -323,6 +345,16 @@ class Property implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         if (is_null($badge_config)) {
             throw new \InvalidArgumentException('non-nullable badge_config cannot be null');
+        }
+        $allowedValues = $this->getBadgeConfigAllowableValues();
+        if (!in_array($badge_config, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'badge_config', must be one of '%s'",
+                    $badge_config,
+                    implode("', '", $allowedValues)
+                )
+            );
         }
         $this->container['badge_config'] = $badge_config;
 

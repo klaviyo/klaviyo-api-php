@@ -492,7 +492,7 @@ class Version implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets id
      *
-     * @param int|null $id id
+     * @param int|null $id Not allowed on create.
      *
      * @return self
      */

@@ -57,12 +57,12 @@ class FlowSmsAdditionalFiltersConditionGroupsInnerConditionsInner implements Mod
       * @var string[]
       */
     protected static $openAPITypes = [
-        'type' => '\KlaviyoAPI\Model\ProfileNotSentSmsEnum',
+        'type' => 'string',
         'property' => 'string',
-        'filter' => '\KlaviyoAPI\Model\NumericOperatorFilter',
+        'filter' => '\KlaviyoAPI\Model\IntegerFilter',
         'is_member' => 'bool',
         'group_ids' => 'string[]',
-        'timeframe_filter' => '\KlaviyoAPI\Model\ProfileHasNotReceivedEmailMessageConditionTimeframeFilter',
+        'timeframe_filter' => '\KlaviyoAPI\Model\ProfileHasNotReceivedPushMessageConditionTimeframeFilter',
         'in_region' => 'bool',
         'region' => 'string',
         'country_code' => 'string',
@@ -72,9 +72,12 @@ class FlowSmsAdditionalFiltersConditionGroupsInnerConditionsInner implements Mod
         'consent' => '\KlaviyoAPI\Model\ProfileMarketingConsentConditionConsent',
         'metric_id' => 'string',
         'measurement' => 'string',
-        'measurement_filter' => '\KlaviyoAPI\Model\NumericOperatorFilter',
+        'measurement_filter' => '\KlaviyoAPI\Model\NumericOperatorNumericFilter',
         'metric_filters' => '\KlaviyoAPI\Model\ProfileMetricPropertyFilter[]',
         'percentage' => 'int',
+        'object_type_id' => 'string',
+        'object_type_relationship_id' => 'string',
+        'filters' => '\KlaviyoAPI\Model\ProfileHasCustomObjectFilter[]',
         'permission' => '\KlaviyoAPI\Model\ProfilePermissionsConditionPermission',
         'channel' => 'string'
     ];
@@ -105,6 +108,9 @@ class FlowSmsAdditionalFiltersConditionGroupsInnerConditionsInner implements Mod
         'measurement_filter' => null,
         'metric_filters' => null,
         'percentage' => null,
+        'object_type_id' => null,
+        'object_type_relationship_id' => null,
+        'filters' => null,
         'permission' => null,
         'channel' => null
     ];
@@ -133,6 +139,9 @@ class FlowSmsAdditionalFiltersConditionGroupsInnerConditionsInner implements Mod
         'measurement_filter' => false,
         'metric_filters' => true,
         'percentage' => false,
+        'object_type_id' => false,
+        'object_type_relationship_id' => false,
+        'filters' => false,
         'permission' => false,
         'channel' => false
     ];
@@ -241,6 +250,9 @@ class FlowSmsAdditionalFiltersConditionGroupsInnerConditionsInner implements Mod
         'measurement_filter' => 'measurement_filter',
         'metric_filters' => 'metric_filters',
         'percentage' => 'percentage',
+        'object_type_id' => 'object_type_id',
+        'object_type_relationship_id' => 'object_type_relationship_id',
+        'filters' => 'filters',
         'permission' => 'permission',
         'channel' => 'channel'
     ];
@@ -269,6 +281,9 @@ class FlowSmsAdditionalFiltersConditionGroupsInnerConditionsInner implements Mod
         'measurement_filter' => 'setMeasurementFilter',
         'metric_filters' => 'setMetricFilters',
         'percentage' => 'setPercentage',
+        'object_type_id' => 'setObjectTypeId',
+        'object_type_relationship_id' => 'setObjectTypeRelationshipId',
+        'filters' => 'setFilters',
         'permission' => 'setPermission',
         'channel' => 'setChannel'
     ];
@@ -297,6 +312,9 @@ class FlowSmsAdditionalFiltersConditionGroupsInnerConditionsInner implements Mod
         'measurement_filter' => 'getMeasurementFilter',
         'metric_filters' => 'getMetricFilters',
         'percentage' => 'getPercentage',
+        'object_type_id' => 'getObjectTypeId',
+        'object_type_relationship_id' => 'getObjectTypeRelationshipId',
+        'filters' => 'getFilters',
         'permission' => 'getPermission',
         'channel' => 'getChannel'
     ];
@@ -342,6 +360,17 @@ class FlowSmsAdditionalFiltersConditionGroupsInnerConditionsInner implements Mod
         return self::$openAPIModelName;
     }
 
+    public const TYPE_PROFILE_PROPERTY = 'profile-property';
+    public const TYPE_PROFILE_GROUP_MEMBERSHIP = 'profile-group-membership';
+    public const TYPE_PROFILE_REGION = 'profile-region';
+    public const TYPE_PROFILE_POSTAL_CODE_DISTANCE = 'profile-postal-code-distance';
+    public const TYPE_PROFILE_PREDICTIVE_ANALYTICS = 'profile-predictive-analytics';
+    public const TYPE_PROFILE_MARKETING_CONSENT = 'profile-marketing-consent';
+    public const TYPE_PROFILE_METRIC = 'profile-metric';
+    public const TYPE_PROFILE_SAMPLE = 'profile-sample';
+    public const TYPE_PROFILE_HAS_CUSTOM_OBJECT = 'profile-has-custom-object';
+    public const TYPE_PROFILE_PERMISSIONS = 'profile-permissions';
+    public const TYPE_PROFILE_NOT_SENT_SMS = 'profile-not-sent-sms';
     public const REGION_EUROPEAN_UNION = 'european_union';
     public const REGION_UNITED_STATES = 'united_states';
     public const UNIT_KILOMETERS = 'kilometers';
@@ -358,6 +387,28 @@ class FlowSmsAdditionalFiltersConditionGroupsInnerConditionsInner implements Mod
     public const MEASUREMENT_SUM = 'sum';
     public const CHANNEL_WHATSAPP_MARKETING = 'whatsapp_marketing';
     public const CHANNEL_WHATSAPP_TRANSACTIONAL = 'whatsapp_transactional';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getTypeAllowableValues()
+    {
+        return [
+            self::TYPE_PROFILE_PROPERTY,
+            self::TYPE_PROFILE_GROUP_MEMBERSHIP,
+            self::TYPE_PROFILE_REGION,
+            self::TYPE_PROFILE_POSTAL_CODE_DISTANCE,
+            self::TYPE_PROFILE_PREDICTIVE_ANALYTICS,
+            self::TYPE_PROFILE_MARKETING_CONSENT,
+            self::TYPE_PROFILE_METRIC,
+            self::TYPE_PROFILE_SAMPLE,
+            self::TYPE_PROFILE_HAS_CUSTOM_OBJECT,
+            self::TYPE_PROFILE_PERMISSIONS,
+            self::TYPE_PROFILE_NOT_SENT_SMS,
+        ];
+    }
 
     /**
      * Gets allowable values of the enum
@@ -463,6 +514,9 @@ class FlowSmsAdditionalFiltersConditionGroupsInnerConditionsInner implements Mod
         $this->setIfExists('measurement_filter', $data ?? [], null);
         $this->setIfExists('metric_filters', $data ?? [], null);
         $this->setIfExists('percentage', $data ?? [], null);
+        $this->setIfExists('object_type_id', $data ?? [], null);
+        $this->setIfExists('object_type_relationship_id', $data ?? [], null);
+        $this->setIfExists('filters', $data ?? [], null);
         $this->setIfExists('permission', $data ?? [], null);
         $this->setIfExists('channel', $data ?? [], null);
     }
@@ -497,6 +551,15 @@ class FlowSmsAdditionalFiltersConditionGroupsInnerConditionsInner implements Mod
         if ($this->container['type'] === null) {
             $invalidProperties[] = "'type' can't be null";
         }
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!is_null($this->container['type']) && !in_array($this->container['type'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'type', must be one of '%s'",
+                $this->container['type'],
+                implode("', '", $allowedValues)
+            );
+        }
+
         if ($this->container['property'] === null) {
             $invalidProperties[] = "'property' can't be null";
         }
@@ -581,6 +644,15 @@ class FlowSmsAdditionalFiltersConditionGroupsInnerConditionsInner implements Mod
         if ($this->container['percentage'] === null) {
             $invalidProperties[] = "'percentage' can't be null";
         }
+        if ($this->container['object_type_id'] === null) {
+            $invalidProperties[] = "'object_type_id' can't be null";
+        }
+        if ($this->container['object_type_relationship_id'] === null) {
+            $invalidProperties[] = "'object_type_relationship_id' can't be null";
+        }
+        if ($this->container['filters'] === null) {
+            $invalidProperties[] = "'filters' can't be null";
+        }
         if ($this->container['permission'] === null) {
             $invalidProperties[] = "'permission' can't be null";
         }
@@ -614,7 +686,7 @@ class FlowSmsAdditionalFiltersConditionGroupsInnerConditionsInner implements Mod
     /**
      * Gets type
      *
-     * @return \KlaviyoAPI\Model\ProfileNotSentSmsEnum
+     * @return string
      */
     public function getType()
     {
@@ -624,7 +696,7 @@ class FlowSmsAdditionalFiltersConditionGroupsInnerConditionsInner implements Mod
     /**
      * Sets type
      *
-     * @param \KlaviyoAPI\Model\ProfileNotSentSmsEnum $type type
+     * @param string $type type
      *
      * @return self
      */
@@ -632,6 +704,16 @@ class FlowSmsAdditionalFiltersConditionGroupsInnerConditionsInner implements Mod
     {
         if (is_null($type)) {
             throw new \InvalidArgumentException('non-nullable type cannot be null');
+        }
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!in_array($type, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'type', must be one of '%s'",
+                    $type,
+                    implode("', '", $allowedValues)
+                )
+            );
         }
         $this->container['type'] = $type;
 
@@ -668,7 +750,7 @@ class FlowSmsAdditionalFiltersConditionGroupsInnerConditionsInner implements Mod
     /**
      * Gets filter
      *
-     * @return \KlaviyoAPI\Model\NumericOperatorFilter
+     * @return \KlaviyoAPI\Model\IntegerFilter
      */
     public function getFilter()
     {
@@ -678,7 +760,7 @@ class FlowSmsAdditionalFiltersConditionGroupsInnerConditionsInner implements Mod
     /**
      * Sets filter
      *
-     * @param \KlaviyoAPI\Model\NumericOperatorFilter $filter filter
+     * @param \KlaviyoAPI\Model\IntegerFilter $filter filter
      *
      * @return self
      */
@@ -749,7 +831,7 @@ class FlowSmsAdditionalFiltersConditionGroupsInnerConditionsInner implements Mod
     /**
      * Gets timeframe_filter
      *
-     * @return \KlaviyoAPI\Model\ProfileHasNotReceivedEmailMessageConditionTimeframeFilter
+     * @return \KlaviyoAPI\Model\ProfileHasNotReceivedPushMessageConditionTimeframeFilter
      */
     public function getTimeframeFilter()
     {
@@ -759,7 +841,7 @@ class FlowSmsAdditionalFiltersConditionGroupsInnerConditionsInner implements Mod
     /**
      * Sets timeframe_filter
      *
-     * @param \KlaviyoAPI\Model\ProfileHasNotReceivedEmailMessageConditionTimeframeFilter $timeframe_filter timeframe_filter
+     * @param \KlaviyoAPI\Model\ProfileHasNotReceivedPushMessageConditionTimeframeFilter $timeframe_filter timeframe_filter
      *
      * @return self
      */
@@ -1059,7 +1141,7 @@ class FlowSmsAdditionalFiltersConditionGroupsInnerConditionsInner implements Mod
     /**
      * Gets measurement_filter
      *
-     * @return \KlaviyoAPI\Model\NumericOperatorFilter
+     * @return \KlaviyoAPI\Model\NumericOperatorNumericFilter
      */
     public function getMeasurementFilter()
     {
@@ -1069,7 +1151,7 @@ class FlowSmsAdditionalFiltersConditionGroupsInnerConditionsInner implements Mod
     /**
      * Sets measurement_filter
      *
-     * @param \KlaviyoAPI\Model\NumericOperatorFilter $measurement_filter measurement_filter
+     * @param \KlaviyoAPI\Model\NumericOperatorNumericFilter $measurement_filter measurement_filter
      *
      * @return self
      */
@@ -1140,6 +1222,87 @@ class FlowSmsAdditionalFiltersConditionGroupsInnerConditionsInner implements Mod
             throw new \InvalidArgumentException('non-nullable percentage cannot be null');
         }
         $this->container['percentage'] = $percentage;
+
+        return $this;
+    }
+
+    /**
+     * Gets object_type_id
+     *
+     * @return string
+     */
+    public function getObjectTypeId()
+    {
+        return $this->container['object_type_id'];
+    }
+
+    /**
+     * Sets object_type_id
+     *
+     * @param string $object_type_id object_type_id
+     *
+     * @return self
+     */
+    public function setObjectTypeId($object_type_id)
+    {
+        if (is_null($object_type_id)) {
+            throw new \InvalidArgumentException('non-nullable object_type_id cannot be null');
+        }
+        $this->container['object_type_id'] = $object_type_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets object_type_relationship_id
+     *
+     * @return string
+     */
+    public function getObjectTypeRelationshipId()
+    {
+        return $this->container['object_type_relationship_id'];
+    }
+
+    /**
+     * Sets object_type_relationship_id
+     *
+     * @param string $object_type_relationship_id object_type_relationship_id
+     *
+     * @return self
+     */
+    public function setObjectTypeRelationshipId($object_type_relationship_id)
+    {
+        if (is_null($object_type_relationship_id)) {
+            throw new \InvalidArgumentException('non-nullable object_type_relationship_id cannot be null');
+        }
+        $this->container['object_type_relationship_id'] = $object_type_relationship_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets filters
+     *
+     * @return \KlaviyoAPI\Model\ProfileHasCustomObjectFilter[]
+     */
+    public function getFilters()
+    {
+        return $this->container['filters'];
+    }
+
+    /**
+     * Sets filters
+     *
+     * @param \KlaviyoAPI\Model\ProfileHasCustomObjectFilter[] $filters filters
+     *
+     * @return self
+     */
+    public function setFilters($filters)
+    {
+        if (is_null($filters)) {
+            throw new \InvalidArgumentException('non-nullable filters cannot be null');
+        }
+        $this->container['filters'] = $filters;
 
         return $this;
     }

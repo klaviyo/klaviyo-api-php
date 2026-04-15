@@ -62,6 +62,7 @@ class FlowWhatsApp implements ModelInterface, ArrayAccess, \JsonSerializable
         'vendor_id' => 'string',
         'smart_sending_enabled' => 'bool',
         'transactional' => 'bool',
+        'add_tracking_params' => 'bool',
         'additional_filters' => '\KlaviyoAPI\Model\ConditionalBranchActionDataProfileFilter'
     ];
 
@@ -78,6 +79,7 @@ class FlowWhatsApp implements ModelInterface, ArrayAccess, \JsonSerializable
         'vendor_id' => null,
         'smart_sending_enabled' => null,
         'transactional' => null,
+        'add_tracking_params' => null,
         'additional_filters' => null
     ];
 
@@ -92,6 +94,7 @@ class FlowWhatsApp implements ModelInterface, ArrayAccess, \JsonSerializable
         'vendor_id' => true,
         'smart_sending_enabled' => false,
         'transactional' => false,
+        'add_tracking_params' => false,
         'additional_filters' => true
     ];
 
@@ -186,6 +189,7 @@ class FlowWhatsApp implements ModelInterface, ArrayAccess, \JsonSerializable
         'vendor_id' => 'vendor_id',
         'smart_sending_enabled' => 'smart_sending_enabled',
         'transactional' => 'transactional',
+        'add_tracking_params' => 'add_tracking_params',
         'additional_filters' => 'additional_filters'
     ];
 
@@ -200,6 +204,7 @@ class FlowWhatsApp implements ModelInterface, ArrayAccess, \JsonSerializable
         'vendor_id' => 'setVendorId',
         'smart_sending_enabled' => 'setSmartSendingEnabled',
         'transactional' => 'setTransactional',
+        'add_tracking_params' => 'setAddTrackingParams',
         'additional_filters' => 'setAdditionalFilters'
     ];
 
@@ -214,6 +219,7 @@ class FlowWhatsApp implements ModelInterface, ArrayAccess, \JsonSerializable
         'vendor_id' => 'getVendorId',
         'smart_sending_enabled' => 'getSmartSendingEnabled',
         'transactional' => 'getTransactional',
+        'add_tracking_params' => 'getAddTrackingParams',
         'additional_filters' => 'getAdditionalFilters'
     ];
 
@@ -279,6 +285,7 @@ class FlowWhatsApp implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('vendor_id', $data ?? [], null);
         $this->setIfExists('smart_sending_enabled', $data ?? [], true);
         $this->setIfExists('transactional', $data ?? [], false);
+        $this->setIfExists('add_tracking_params', $data ?? [], false);
         $this->setIfExists('additional_filters', $data ?? [], null);
     }
 
@@ -337,7 +344,7 @@ class FlowWhatsApp implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets id
      *
-     * @param string|null $id id
+     * @param string|null $id Not allowed on create.
      *
      * @return self
      */
@@ -476,6 +483,33 @@ class FlowWhatsApp implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable transactional cannot be null');
         }
         $this->container['transactional'] = $transactional;
+
+        return $this;
+    }
+
+    /**
+     * Gets add_tracking_params
+     *
+     * @return bool|null
+     */
+    public function getAddTrackingParams()
+    {
+        return $this->container['add_tracking_params'];
+    }
+
+    /**
+     * Sets add_tracking_params
+     *
+     * @param bool|null $add_tracking_params add_tracking_params
+     *
+     * @return self
+     */
+    public function setAddTrackingParams($add_tracking_params)
+    {
+        if (is_null($add_tracking_params)) {
+            throw new \InvalidArgumentException('non-nullable add_tracking_params cannot be null');
+        }
+        $this->container['add_tracking_params'] = $add_tracking_params;
 
         return $this;
     }

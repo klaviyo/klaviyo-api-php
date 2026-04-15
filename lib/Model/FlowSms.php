@@ -70,6 +70,7 @@ class FlowSms implements ModelInterface, ArrayAccess, \JsonSerializable
         'transactional' => 'bool',
         'add_tracking_params' => 'bool',
         'custom_tracking_params' => '\KlaviyoAPI\Model\UtmParam[]',
+        'template_id' => 'string',
         'additional_filters' => '\KlaviyoAPI\Model\FlowSmsAdditionalFilters',
         'name' => 'string',
         'id' => 'string'
@@ -96,6 +97,7 @@ class FlowSms implements ModelInterface, ArrayAccess, \JsonSerializable
         'transactional' => null,
         'add_tracking_params' => null,
         'custom_tracking_params' => null,
+        'template_id' => null,
         'additional_filters' => null,
         'name' => null,
         'id' => null
@@ -120,6 +122,7 @@ class FlowSms implements ModelInterface, ArrayAccess, \JsonSerializable
         'transactional' => false,
         'add_tracking_params' => false,
         'custom_tracking_params' => true,
+        'template_id' => true,
         'additional_filters' => true,
         'name' => true,
         'id' => true
@@ -224,6 +227,7 @@ class FlowSms implements ModelInterface, ArrayAccess, \JsonSerializable
         'transactional' => 'transactional',
         'add_tracking_params' => 'add_tracking_params',
         'custom_tracking_params' => 'custom_tracking_params',
+        'template_id' => 'template_id',
         'additional_filters' => 'additional_filters',
         'name' => 'name',
         'id' => 'id'
@@ -248,6 +252,7 @@ class FlowSms implements ModelInterface, ArrayAccess, \JsonSerializable
         'transactional' => 'setTransactional',
         'add_tracking_params' => 'setAddTrackingParams',
         'custom_tracking_params' => 'setCustomTrackingParams',
+        'template_id' => 'setTemplateId',
         'additional_filters' => 'setAdditionalFilters',
         'name' => 'setName',
         'id' => 'setId'
@@ -272,6 +277,7 @@ class FlowSms implements ModelInterface, ArrayAccess, \JsonSerializable
         'transactional' => 'getTransactional',
         'add_tracking_params' => 'getAddTrackingParams',
         'custom_tracking_params' => 'getCustomTrackingParams',
+        'template_id' => 'getTemplateId',
         'additional_filters' => 'getAdditionalFilters',
         'name' => 'getName',
         'id' => 'getId'
@@ -347,6 +353,7 @@ class FlowSms implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('transactional', $data ?? [], false);
         $this->setIfExists('add_tracking_params', $data ?? [], false);
         $this->setIfExists('custom_tracking_params', $data ?? [], null);
+        $this->setIfExists('template_id', $data ?? [], null);
         $this->setIfExists('additional_filters', $data ?? [], null);
         $this->setIfExists('name', $data ?? [], null);
         $this->setIfExists('id', $data ?? [], null);
@@ -770,6 +777,40 @@ class FlowSms implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
+     * Gets template_id
+     *
+     * @return string|null
+     */
+    public function getTemplateId()
+    {
+        return $this->container['template_id'];
+    }
+
+    /**
+     * Sets template_id
+     *
+     * @param string|null $template_id template_id
+     *
+     * @return self
+     */
+    public function setTemplateId($template_id)
+    {
+        if (is_null($template_id)) {
+            array_push($this->openAPINullablesSetToNull, 'template_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('template_id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['template_id'] = $template_id;
+
+        return $this;
+    }
+
+    /**
      * Gets additional_filters
      *
      * @return \KlaviyoAPI\Model\FlowSmsAdditionalFilters|null
@@ -850,7 +891,7 @@ class FlowSms implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets id
      *
-     * @param string|null $id id
+     * @param string|null $id Not allowed on create.
      *
      * @return self
      */

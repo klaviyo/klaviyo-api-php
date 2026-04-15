@@ -58,7 +58,7 @@ class SMSConsentCheckbox implements ModelInterface, ArrayAccess, \JsonSerializab
       */
     protected static $openAPITypes = [
         'id' => 'string',
-        'type' => '\KlaviyoAPI\Model\PromotionalSmsCheckboxEnum',
+        'type' => 'string',
         'styles' => '\KlaviyoAPI\Model\SMSConsentCheckboxStyles',
         'properties' => '\KlaviyoAPI\Model\SMSConsentCheckboxProperties'
     ];
@@ -246,6 +246,19 @@ class SMSConsentCheckbox implements ModelInterface, ArrayAccess, \JsonSerializab
         return self::$openAPIModelName;
     }
 
+    public const TYPE_PROMOTIONAL_SMS_CHECKBOX = 'promotional_sms_checkbox';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getTypeAllowableValues()
+    {
+        return [
+            self::TYPE_PROMOTIONAL_SMS_CHECKBOX,
+        ];
+    }
 
     /**
      * Associative array for storing property values
@@ -298,6 +311,15 @@ class SMSConsentCheckbox implements ModelInterface, ArrayAccess, \JsonSerializab
         if ($this->container['type'] === null) {
             $invalidProperties[] = "'type' can't be null";
         }
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!is_null($this->container['type']) && !in_array($this->container['type'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'type', must be one of '%s'",
+                $this->container['type'],
+                implode("', '", $allowedValues)
+            );
+        }
+
         if ($this->container['properties'] === null) {
             $invalidProperties[] = "'properties' can't be null";
         }
@@ -329,7 +351,7 @@ class SMSConsentCheckbox implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets id
      *
-     * @param string|null $id id
+     * @param string|null $id Not allowed on create.
      *
      * @return self
      */
@@ -353,7 +375,7 @@ class SMSConsentCheckbox implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Gets type
      *
-     * @return \KlaviyoAPI\Model\PromotionalSmsCheckboxEnum
+     * @return string
      */
     public function getType()
     {
@@ -363,7 +385,7 @@ class SMSConsentCheckbox implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets type
      *
-     * @param \KlaviyoAPI\Model\PromotionalSmsCheckboxEnum $type type
+     * @param string $type type
      *
      * @return self
      */
@@ -371,6 +393,16 @@ class SMSConsentCheckbox implements ModelInterface, ArrayAccess, \JsonSerializab
     {
         if (is_null($type)) {
             throw new \InvalidArgumentException('non-nullable type cannot be null');
+        }
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!in_array($type, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'type', must be one of '%s'",
+                    $type,
+                    implode("', '", $allowedValues)
+                )
+            );
         }
         $this->container['type'] = $type;
 

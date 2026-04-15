@@ -62,7 +62,7 @@ class BackInStockEmailConsentCheckboxProperties implements ModelInterface, Array
         'show_label' => 'bool',
         'error_messages' => '\KlaviyoAPI\Model\ErrorMessages',
         'required' => 'bool',
-        'property_name' => '\KlaviyoAPI\Model\OptInPromotionalEmailEnum',
+        'property_name' => 'string',
         'checkbox_text' => 'string',
         'placeholder' => 'string'
     ];
@@ -273,6 +273,7 @@ class BackInStockEmailConsentCheckboxProperties implements ModelInterface, Array
     public const DISPLAY_DEVICE_BOTH = 'both';
     public const DISPLAY_DEVICE_DESKTOP = 'desktop';
     public const DISPLAY_DEVICE_MOBILE = 'mobile';
+    public const PROPERTY_NAME_OPT_IN_PROMOTIONAL_EMAIL = 'opt_in_promotional_email';
 
     /**
      * Gets allowable values of the enum
@@ -285,6 +286,18 @@ class BackInStockEmailConsentCheckboxProperties implements ModelInterface, Array
             self::DISPLAY_DEVICE_BOTH,
             self::DISPLAY_DEVICE_DESKTOP,
             self::DISPLAY_DEVICE_MOBILE,
+        ];
+    }
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getPropertyNameAllowableValues()
+    {
+        return [
+            self::PROPERTY_NAME_OPT_IN_PROMOTIONAL_EMAIL,
         ];
     }
 
@@ -320,7 +333,7 @@ class BackInStockEmailConsentCheckboxProperties implements ModelInterface, Array
         $this->setIfExists('show_label', $data ?? [], false);
         $this->setIfExists('error_messages', $data ?? [], null);
         $this->setIfExists('required', $data ?? [], false);
-        $this->setIfExists('property_name', $data ?? [], null);
+        $this->setIfExists('property_name', $data ?? [], 'opt_in_promotional_email');
         $this->setIfExists('checkbox_text', $data ?? [], null);
         $this->setIfExists('placeholder', $data ?? [], null);
     }
@@ -351,6 +364,15 @@ class BackInStockEmailConsentCheckboxProperties implements ModelInterface, Array
     public function listInvalidProperties()
     {
         $invalidProperties = [];
+
+        $allowedValues = $this->getPropertyNameAllowableValues();
+        if (!is_null($this->container['property_name']) && !in_array($this->container['property_name'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'property_name', must be one of '%s'",
+                $this->container['property_name'],
+                implode("', '", $allowedValues)
+            );
+        }
 
         if ($this->container['checkbox_text'] === null) {
             $invalidProperties[] = "'checkbox_text' can't be null";
@@ -533,7 +555,7 @@ class BackInStockEmailConsentCheckboxProperties implements ModelInterface, Array
     /**
      * Gets property_name
      *
-     * @return \KlaviyoAPI\Model\OptInPromotionalEmailEnum|null
+     * @return string|null
      */
     public function getPropertyName()
     {
@@ -543,7 +565,7 @@ class BackInStockEmailConsentCheckboxProperties implements ModelInterface, Array
     /**
      * Sets property_name
      *
-     * @param \KlaviyoAPI\Model\OptInPromotionalEmailEnum|null $property_name property_name
+     * @param string|null $property_name property_name
      *
      * @return self
      */
@@ -551,6 +573,16 @@ class BackInStockEmailConsentCheckboxProperties implements ModelInterface, Array
     {
         if (is_null($property_name)) {
             throw new \InvalidArgumentException('non-nullable property_name cannot be null');
+        }
+        $allowedValues = $this->getPropertyNameAllowableValues();
+        if (!in_array($property_name, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'property_name', must be one of '%s'",
+                    $property_name,
+                    implode("', '", $allowedValues)
+                )
+            );
         }
         $this->container['property_name'] = $property_name;
 

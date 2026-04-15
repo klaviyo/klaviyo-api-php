@@ -57,9 +57,8 @@ class ManualImportMethodFilter implements ModelInterface, ArrayAccess, \JsonSeri
       * @var string[]
       */
     protected static $openAPITypes = [
-        'field' => '\KlaviyoAPI\Model\MethodEnum',
-        'method' => '\KlaviyoAPI\Model\ManualImportEnum',
-        'filter' => '\KlaviyoAPI\Model\InStringArrayFilter'
+        'field' => 'string',
+        'method' => 'string'
     ];
 
     /**
@@ -71,8 +70,7 @@ class ManualImportMethodFilter implements ModelInterface, ArrayAccess, \JsonSeri
       */
     protected static $openAPIFormats = [
         'field' => null,
-        'method' => null,
-        'filter' => null
+        'method' => null
     ];
 
     /**
@@ -82,8 +80,7 @@ class ManualImportMethodFilter implements ModelInterface, ArrayAccess, \JsonSeri
       */
     protected static array $openAPINullables = [
         'field' => false,
-        'method' => false,
-        'filter' => false
+        'method' => false
     ];
 
     /**
@@ -173,8 +170,7 @@ class ManualImportMethodFilter implements ModelInterface, ArrayAccess, \JsonSeri
      */
     protected static $attributeMap = [
         'field' => 'field',
-        'method' => 'method',
-        'filter' => 'filter'
+        'method' => 'method'
     ];
 
     /**
@@ -184,8 +180,7 @@ class ManualImportMethodFilter implements ModelInterface, ArrayAccess, \JsonSeri
      */
     protected static $setters = [
         'field' => 'setField',
-        'method' => 'setMethod',
-        'filter' => 'setFilter'
+        'method' => 'setMethod'
     ];
 
     /**
@@ -195,8 +190,7 @@ class ManualImportMethodFilter implements ModelInterface, ArrayAccess, \JsonSeri
      */
     protected static $getters = [
         'field' => 'getField',
-        'method' => 'getMethod',
-        'filter' => 'getFilter'
+        'method' => 'getMethod'
     ];
 
     /**
@@ -240,6 +234,32 @@ class ManualImportMethodFilter implements ModelInterface, ArrayAccess, \JsonSeri
         return self::$openAPIModelName;
     }
 
+    public const FIELD_METHOD = 'method';
+    public const METHOD_MANUAL_IMPORT = 'manual_import';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getFieldAllowableValues()
+    {
+        return [
+            self::FIELD_METHOD,
+        ];
+    }
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getMethodAllowableValues()
+    {
+        return [
+            self::METHOD_MANUAL_IMPORT,
+        ];
+    }
 
     /**
      * Associative array for storing property values
@@ -258,7 +278,6 @@ class ManualImportMethodFilter implements ModelInterface, ArrayAccess, \JsonSeri
     {
         $this->setIfExists('field', $data ?? [], null);
         $this->setIfExists('method', $data ?? [], null);
-        $this->setIfExists('filter', $data ?? [], null);
     }
 
     /**
@@ -291,9 +310,27 @@ class ManualImportMethodFilter implements ModelInterface, ArrayAccess, \JsonSeri
         if ($this->container['field'] === null) {
             $invalidProperties[] = "'field' can't be null";
         }
+        $allowedValues = $this->getFieldAllowableValues();
+        if (!is_null($this->container['field']) && !in_array($this->container['field'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'field', must be one of '%s'",
+                $this->container['field'],
+                implode("', '", $allowedValues)
+            );
+        }
+
         if ($this->container['method'] === null) {
             $invalidProperties[] = "'method' can't be null";
         }
+        $allowedValues = $this->getMethodAllowableValues();
+        if (!is_null($this->container['method']) && !in_array($this->container['method'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'method', must be one of '%s'",
+                $this->container['method'],
+                implode("', '", $allowedValues)
+            );
+        }
+
         return $invalidProperties;
     }
 
@@ -312,7 +349,7 @@ class ManualImportMethodFilter implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Gets field
      *
-     * @return \KlaviyoAPI\Model\MethodEnum
+     * @return string
      */
     public function getField()
     {
@@ -322,7 +359,7 @@ class ManualImportMethodFilter implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets field
      *
-     * @param \KlaviyoAPI\Model\MethodEnum $field field
+     * @param string $field field
      *
      * @return self
      */
@@ -330,6 +367,16 @@ class ManualImportMethodFilter implements ModelInterface, ArrayAccess, \JsonSeri
     {
         if (is_null($field)) {
             throw new \InvalidArgumentException('non-nullable field cannot be null');
+        }
+        $allowedValues = $this->getFieldAllowableValues();
+        if (!in_array($field, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'field', must be one of '%s'",
+                    $field,
+                    implode("', '", $allowedValues)
+                )
+            );
         }
         $this->container['field'] = $field;
 
@@ -339,7 +386,7 @@ class ManualImportMethodFilter implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Gets method
      *
-     * @return \KlaviyoAPI\Model\ManualImportEnum
+     * @return string
      */
     public function getMethod()
     {
@@ -349,7 +396,7 @@ class ManualImportMethodFilter implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets method
      *
-     * @param \KlaviyoAPI\Model\ManualImportEnum $method method
+     * @param string $method method
      *
      * @return self
      */
@@ -358,34 +405,17 @@ class ManualImportMethodFilter implements ModelInterface, ArrayAccess, \JsonSeri
         if (is_null($method)) {
             throw new \InvalidArgumentException('non-nullable method cannot be null');
         }
-        $this->container['method'] = $method;
-
-        return $this;
-    }
-
-    /**
-     * Gets filter
-     *
-     * @return \KlaviyoAPI\Model\InStringArrayFilter|null
-     */
-    public function getFilter()
-    {
-        return $this->container['filter'];
-    }
-
-    /**
-     * Sets filter
-     *
-     * @param \KlaviyoAPI\Model\InStringArrayFilter|null $filter filter
-     *
-     * @return self
-     */
-    public function setFilter($filter)
-    {
-        if (is_null($filter)) {
-            throw new \InvalidArgumentException('non-nullable filter cannot be null');
+        $allowedValues = $this->getMethodAllowableValues();
+        if (!in_array($method, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'method', must be one of '%s'",
+                    $method,
+                    implode("', '", $allowedValues)
+                )
+            );
         }
-        $this->container['filter'] = $filter;
+        $this->container['method'] = $method;
 
         return $this;
     }

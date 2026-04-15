@@ -57,7 +57,7 @@ class NoSMSMarketingConsent implements ModelInterface, ArrayAccess, \JsonSeriali
       * @var string[]
       */
     protected static $openAPITypes = [
-        'channel' => '\KlaviyoAPI\Model\SmsEnum',
+        'channel' => 'string',
         'can_receive_marketing' => 'bool',
         'consent_status' => '\KlaviyoAPI\Model\NoSMSMarketingConsentConsentStatus'
     ];
@@ -240,6 +240,19 @@ class NoSMSMarketingConsent implements ModelInterface, ArrayAccess, \JsonSeriali
         return self::$openAPIModelName;
     }
 
+    public const CHANNEL_SMS = 'sms';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getChannelAllowableValues()
+    {
+        return [
+            self::CHANNEL_SMS,
+        ];
+    }
 
     /**
      * Associative array for storing property values
@@ -291,6 +304,15 @@ class NoSMSMarketingConsent implements ModelInterface, ArrayAccess, \JsonSeriali
         if ($this->container['channel'] === null) {
             $invalidProperties[] = "'channel' can't be null";
         }
+        $allowedValues = $this->getChannelAllowableValues();
+        if (!is_null($this->container['channel']) && !in_array($this->container['channel'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'channel', must be one of '%s'",
+                $this->container['channel'],
+                implode("', '", $allowedValues)
+            );
+        }
+
         if ($this->container['can_receive_marketing'] === null) {
             $invalidProperties[] = "'can_receive_marketing' can't be null";
         }
@@ -315,7 +337,7 @@ class NoSMSMarketingConsent implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Gets channel
      *
-     * @return \KlaviyoAPI\Model\SmsEnum
+     * @return string
      */
     public function getChannel()
     {
@@ -325,7 +347,7 @@ class NoSMSMarketingConsent implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Sets channel
      *
-     * @param \KlaviyoAPI\Model\SmsEnum $channel channel
+     * @param string $channel channel
      *
      * @return self
      */
@@ -333,6 +355,16 @@ class NoSMSMarketingConsent implements ModelInterface, ArrayAccess, \JsonSeriali
     {
         if (is_null($channel)) {
             throw new \InvalidArgumentException('non-nullable channel cannot be null');
+        }
+        $allowedValues = $this->getChannelAllowableValues();
+        if (!in_array($channel, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'channel', must be one of '%s'",
+                    $channel,
+                    implode("', '", $allowedValues)
+                )
+            );
         }
         $this->container['channel'] = $channel;
 

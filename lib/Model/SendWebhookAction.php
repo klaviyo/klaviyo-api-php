@@ -59,7 +59,7 @@ class SendWebhookAction implements ModelInterface, ArrayAccess, \JsonSerializabl
     protected static $openAPITypes = [
         'id' => 'string',
         'temporary_id' => 'string',
-        'type' => '\KlaviyoAPI\Model\SendWebhookEnum',
+        'type' => 'string',
         'links' => '\KlaviyoAPI\Model\Link',
         'data' => '\KlaviyoAPI\Model\SendWebhookActionData'
     ];
@@ -252,6 +252,19 @@ class SendWebhookAction implements ModelInterface, ArrayAccess, \JsonSerializabl
         return self::$openAPIModelName;
     }
 
+    public const TYPE_SEND_WEBHOOK = 'send-webhook';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getTypeAllowableValues()
+    {
+        return [
+            self::TYPE_SEND_WEBHOOK,
+        ];
+    }
 
     /**
      * Associative array for storing property values
@@ -305,6 +318,15 @@ class SendWebhookAction implements ModelInterface, ArrayAccess, \JsonSerializabl
         if ($this->container['type'] === null) {
             $invalidProperties[] = "'type' can't be null";
         }
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!is_null($this->container['type']) && !in_array($this->container['type'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'type', must be one of '%s'",
+                $this->container['type'],
+                implode("', '", $allowedValues)
+            );
+        }
+
         return $invalidProperties;
     }
 
@@ -333,7 +355,7 @@ class SendWebhookAction implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Sets id
      *
-     * @param string|null $id The real ID of an action.
+     * @param string|null $id The real ID of an action. Not allowed on create.
      *
      * @return self
      */
@@ -391,7 +413,7 @@ class SendWebhookAction implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Gets type
      *
-     * @return \KlaviyoAPI\Model\SendWebhookEnum
+     * @return string
      */
     public function getType()
     {
@@ -401,7 +423,7 @@ class SendWebhookAction implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Sets type
      *
-     * @param \KlaviyoAPI\Model\SendWebhookEnum $type type
+     * @param string $type type
      *
      * @return self
      */
@@ -409,6 +431,16 @@ class SendWebhookAction implements ModelInterface, ArrayAccess, \JsonSerializabl
     {
         if (is_null($type)) {
             throw new \InvalidArgumentException('non-nullable type cannot be null');
+        }
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!in_array($type, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'type', must be one of '%s'",
+                    $type,
+                    implode("', '", $allowedValues)
+                )
+            );
         }
         $this->container['type'] = $type;
 

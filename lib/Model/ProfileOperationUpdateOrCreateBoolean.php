@@ -58,7 +58,7 @@ class ProfileOperationUpdateOrCreateBoolean implements ModelInterface, ArrayAcce
       */
     protected static $openAPITypes = [
         'operator' => 'string',
-        'property_type' => '\KlaviyoAPI\Model\BooleanEnum',
+        'property_type' => 'string',
         'property_key' => 'string',
         'property_value' => 'bool'
     ];
@@ -248,6 +248,7 @@ class ProfileOperationUpdateOrCreateBoolean implements ModelInterface, ArrayAcce
 
     public const OPERATOR_CREATE = 'create';
     public const OPERATOR_UPDATE = 'update';
+    public const PROPERTY_TYPE_BOOLEAN = 'boolean';
 
     /**
      * Gets allowable values of the enum
@@ -259,6 +260,18 @@ class ProfileOperationUpdateOrCreateBoolean implements ModelInterface, ArrayAcce
         return [
             self::OPERATOR_CREATE,
             self::OPERATOR_UPDATE,
+        ];
+    }
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getPropertyTypeAllowableValues()
+    {
+        return [
+            self::PROPERTY_TYPE_BOOLEAN,
         ];
     }
 
@@ -325,6 +338,15 @@ class ProfileOperationUpdateOrCreateBoolean implements ModelInterface, ArrayAcce
         if ($this->container['property_type'] === null) {
             $invalidProperties[] = "'property_type' can't be null";
         }
+        $allowedValues = $this->getPropertyTypeAllowableValues();
+        if (!is_null($this->container['property_type']) && !in_array($this->container['property_type'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'property_type', must be one of '%s'",
+                $this->container['property_type'],
+                implode("', '", $allowedValues)
+            );
+        }
+
         if ($this->container['property_key'] === null) {
             $invalidProperties[] = "'property_key' can't be null";
         }
@@ -386,7 +408,7 @@ class ProfileOperationUpdateOrCreateBoolean implements ModelInterface, ArrayAcce
     /**
      * Gets property_type
      *
-     * @return \KlaviyoAPI\Model\BooleanEnum
+     * @return string
      */
     public function getPropertyType()
     {
@@ -396,7 +418,7 @@ class ProfileOperationUpdateOrCreateBoolean implements ModelInterface, ArrayAcce
     /**
      * Sets property_type
      *
-     * @param \KlaviyoAPI\Model\BooleanEnum $property_type property_type
+     * @param string $property_type property_type
      *
      * @return self
      */
@@ -404,6 +426,16 @@ class ProfileOperationUpdateOrCreateBoolean implements ModelInterface, ArrayAcce
     {
         if (is_null($property_type)) {
             throw new \InvalidArgumentException('non-nullable property_type cannot be null');
+        }
+        $allowedValues = $this->getPropertyTypeAllowableValues();
+        if (!in_array($property_type, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'property_type', must be one of '%s'",
+                    $property_type,
+                    implode("', '", $allowedValues)
+                )
+            );
         }
         $this->container['property_type'] = $property_type;
 

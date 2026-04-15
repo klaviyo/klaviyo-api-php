@@ -57,7 +57,7 @@ class SmartSendTimeStrategy implements ModelInterface, ArrayAccess, \JsonSeriali
       * @var string[]
       */
     protected static $openAPITypes = [
-        'method' => '\KlaviyoAPI\Model\SmartSendTimeEnum',
+        'method' => 'string',
         'date' => '\DateTime'
     ];
 
@@ -234,6 +234,19 @@ class SmartSendTimeStrategy implements ModelInterface, ArrayAccess, \JsonSeriali
         return self::$openAPIModelName;
     }
 
+    public const METHOD_SMART_SEND_TIME = 'smart_send_time';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getMethodAllowableValues()
+    {
+        return [
+            self::METHOD_SMART_SEND_TIME,
+        ];
+    }
 
     /**
      * Associative array for storing property values
@@ -284,6 +297,15 @@ class SmartSendTimeStrategy implements ModelInterface, ArrayAccess, \JsonSeriali
         if ($this->container['method'] === null) {
             $invalidProperties[] = "'method' can't be null";
         }
+        $allowedValues = $this->getMethodAllowableValues();
+        if (!is_null($this->container['method']) && !in_array($this->container['method'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'method', must be one of '%s'",
+                $this->container['method'],
+                implode("', '", $allowedValues)
+            );
+        }
+
         if ($this->container['date'] === null) {
             $invalidProperties[] = "'date' can't be null";
         }
@@ -305,7 +327,7 @@ class SmartSendTimeStrategy implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Gets method
      *
-     * @return \KlaviyoAPI\Model\SmartSendTimeEnum
+     * @return string
      */
     public function getMethod()
     {
@@ -315,7 +337,7 @@ class SmartSendTimeStrategy implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Sets method
      *
-     * @param \KlaviyoAPI\Model\SmartSendTimeEnum $method method
+     * @param string $method method
      *
      * @return self
      */
@@ -323,6 +345,16 @@ class SmartSendTimeStrategy implements ModelInterface, ArrayAccess, \JsonSeriali
     {
         if (is_null($method)) {
             throw new \InvalidArgumentException('non-nullable method cannot be null');
+        }
+        $allowedValues = $this->getMethodAllowableValues();
+        if (!in_array($method, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'method', must be one of '%s'",
+                    $method,
+                    implode("', '", $allowedValues)
+                )
+            );
         }
         $this->container['method'] = $method;
 

@@ -57,7 +57,7 @@ class ExplicitlyUnreachable implements ModelInterface, ArrayAccess, \JsonSeriali
       * @var string[]
       */
     protected static $openAPITypes = [
-        'reachable_status' => '\KlaviyoAPI\Model\ExplicitlyUnreachableEnum',
+        'reachable_status' => 'string',
         'filters' => '\KlaviyoAPI\Model\ExplicitlyReachableFiltersInner[]'
     ];
 
@@ -234,6 +234,19 @@ class ExplicitlyUnreachable implements ModelInterface, ArrayAccess, \JsonSeriali
         return self::$openAPIModelName;
     }
 
+    public const REACHABLE_STATUS_EXPLICITLY_UNREACHABLE = 'explicitly_unreachable';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getReachableStatusAllowableValues()
+    {
+        return [
+            self::REACHABLE_STATUS_EXPLICITLY_UNREACHABLE,
+        ];
+    }
 
     /**
      * Associative array for storing property values
@@ -284,6 +297,15 @@ class ExplicitlyUnreachable implements ModelInterface, ArrayAccess, \JsonSeriali
         if ($this->container['reachable_status'] === null) {
             $invalidProperties[] = "'reachable_status' can't be null";
         }
+        $allowedValues = $this->getReachableStatusAllowableValues();
+        if (!is_null($this->container['reachable_status']) && !in_array($this->container['reachable_status'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'reachable_status', must be one of '%s'",
+                $this->container['reachable_status'],
+                implode("', '", $allowedValues)
+            );
+        }
+
         if ($this->container['filters'] === null) {
             $invalidProperties[] = "'filters' can't be null";
         }
@@ -305,7 +327,7 @@ class ExplicitlyUnreachable implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Gets reachable_status
      *
-     * @return \KlaviyoAPI\Model\ExplicitlyUnreachableEnum
+     * @return string
      */
     public function getReachableStatus()
     {
@@ -315,7 +337,7 @@ class ExplicitlyUnreachable implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Sets reachable_status
      *
-     * @param \KlaviyoAPI\Model\ExplicitlyUnreachableEnum $reachable_status reachable_status
+     * @param string $reachable_status reachable_status
      *
      * @return self
      */
@@ -323,6 +345,16 @@ class ExplicitlyUnreachable implements ModelInterface, ArrayAccess, \JsonSeriali
     {
         if (is_null($reachable_status)) {
             throw new \InvalidArgumentException('non-nullable reachable_status cannot be null');
+        }
+        $allowedValues = $this->getReachableStatusAllowableValues();
+        if (!in_array($reachable_status, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'reachable_status', must be one of '%s'",
+                    $reachable_status,
+                    implode("', '", $allowedValues)
+                )
+            );
         }
         $this->container['reachable_status'] = $reachable_status;
 

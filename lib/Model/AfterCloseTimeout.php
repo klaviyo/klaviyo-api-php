@@ -58,7 +58,7 @@ class AfterCloseTimeout implements ModelInterface, ArrayAccess, \JsonSerializabl
       */
     protected static $openAPITypes = [
         'id' => 'string',
-        'type' => '\KlaviyoAPI\Model\AfterCloseOrSubmitTimeoutEnum',
+        'type' => 'string',
         'properties' => '\KlaviyoAPI\Model\AfterCloseTimeoutProperties'
     ];
 
@@ -240,6 +240,19 @@ class AfterCloseTimeout implements ModelInterface, ArrayAccess, \JsonSerializabl
         return self::$openAPIModelName;
     }
 
+    public const TYPE_AFTER_CLOSE_OR_SUBMIT_TIMEOUT = 'after_close_or_submit_timeout';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getTypeAllowableValues()
+    {
+        return [
+            self::TYPE_AFTER_CLOSE_OR_SUBMIT_TIMEOUT,
+        ];
+    }
 
     /**
      * Associative array for storing property values
@@ -291,6 +304,15 @@ class AfterCloseTimeout implements ModelInterface, ArrayAccess, \JsonSerializabl
         if ($this->container['type'] === null) {
             $invalidProperties[] = "'type' can't be null";
         }
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!is_null($this->container['type']) && !in_array($this->container['type'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'type', must be one of '%s'",
+                $this->container['type'],
+                implode("', '", $allowedValues)
+            );
+        }
+
         return $invalidProperties;
     }
 
@@ -319,7 +341,7 @@ class AfterCloseTimeout implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Sets id
      *
-     * @param string|null $id id
+     * @param string|null $id Not allowed on create.
      *
      * @return self
      */
@@ -343,7 +365,7 @@ class AfterCloseTimeout implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Gets type
      *
-     * @return \KlaviyoAPI\Model\AfterCloseOrSubmitTimeoutEnum
+     * @return string
      */
     public function getType()
     {
@@ -353,7 +375,7 @@ class AfterCloseTimeout implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Sets type
      *
-     * @param \KlaviyoAPI\Model\AfterCloseOrSubmitTimeoutEnum $type type
+     * @param string $type type
      *
      * @return self
      */
@@ -361,6 +383,16 @@ class AfterCloseTimeout implements ModelInterface, ArrayAccess, \JsonSerializabl
     {
         if (is_null($type)) {
             throw new \InvalidArgumentException('non-nullable type cannot be null');
+        }
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!in_array($type, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'type', must be one of '%s'",
+                    $type,
+                    implode("', '", $allowedValues)
+                )
+            );
         }
         $this->container['type'] = $type;
 

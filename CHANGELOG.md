@@ -7,6 +7,21 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 NOTE: For more granular API-specific changes, please see our [API Changelog](https://developers.klaviyo.com/en/docs/changelog_)
 
+## [19.0.0] - revision 2026-04-15
+### Added
+- Conversations API
+  - Send an outbound message to a profile with `$klaviyo->Conversations->createConversationMessage()`. Supports SMS and WhatsApp — the channel is determined automatically from the      
+  conversation. Conversation message endpoints use the SMALL rate limit tier (3 requests/second burst, 60 requests/minute steady).
+  - Retrieve the conversation thread for a given profile with `$klaviyo->Profiles->getConversationForProfile()`, or include it inline on profile retrievals using `include:
+  ['conversation']` on `getProfile` / `getProfiles`.
+### Changed
+- Drag-and-drop templates
+  - Create drag-and-drop email templates programmatically by setting `editor_type: SYSTEM_DRAGGABLE` and providing a `definition` body (mutually exclusive with `html`) via              
+  `$klaviyo->Templates->createTemplate()`. DnD template endpoints use the SMALL rate limit tier (3 requests/second burst, 60 requests/minute steady).
+  - List and retrieve drag-and-drop templates with `$klaviyo->Templates->getTemplates()` and `$klaviyo->Templates->getTemplate()`. Use `additional_fields_template: ['definition']` to   
+  include the full template definition in the response.                                                                                                                                    
+  - Update an existing drag-and-drop template's `definition`, `name`, or `text` independently via `$klaviyo->Templates->updateTemplate()`.
+
 ## [18.0.0] - revision 2026-01-15
 ### Added
 - Added a new [single data source record create endpoint](https://github.com/klaviyo/klaviyo-api-php?tab=readme-ov-file#create-data-source-record) for one-at-a-time ingestion workloads

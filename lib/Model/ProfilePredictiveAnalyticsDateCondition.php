@@ -59,7 +59,7 @@ class ProfilePredictiveAnalyticsDateCondition implements ModelInterface, ArrayAc
     protected static $openAPITypes = [
         'dimension' => 'string',
         'filter' => '\KlaviyoAPI\Model\StatusDateFilterFilter',
-        'type' => '\KlaviyoAPI\Model\ProfilePredictiveAnalyticsEnum'
+        'type' => 'string'
     ];
 
     /**
@@ -241,6 +241,7 @@ class ProfilePredictiveAnalyticsDateCondition implements ModelInterface, ArrayAc
     }
 
     public const DIMENSION_EXPECTED_DATE_OF_NEXT_PURCHASE = 'expected_date_of_next_purchase';
+    public const TYPE_PROFILE_PREDICTIVE_ANALYTICS = 'profile-predictive-analytics';
 
     /**
      * Gets allowable values of the enum
@@ -251,6 +252,18 @@ class ProfilePredictiveAnalyticsDateCondition implements ModelInterface, ArrayAc
     {
         return [
             self::DIMENSION_EXPECTED_DATE_OF_NEXT_PURCHASE,
+        ];
+    }
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getTypeAllowableValues()
+    {
+        return [
+            self::TYPE_PROFILE_PREDICTIVE_ANALYTICS,
         ];
     }
 
@@ -319,6 +332,15 @@ class ProfilePredictiveAnalyticsDateCondition implements ModelInterface, ArrayAc
         if ($this->container['type'] === null) {
             $invalidProperties[] = "'type' can't be null";
         }
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!is_null($this->container['type']) && !in_array($this->container['type'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'type', must be one of '%s'",
+                $this->container['type'],
+                implode("', '", $allowedValues)
+            );
+        }
+
         return $invalidProperties;
     }
 
@@ -401,7 +423,7 @@ class ProfilePredictiveAnalyticsDateCondition implements ModelInterface, ArrayAc
     /**
      * Gets type
      *
-     * @return \KlaviyoAPI\Model\ProfilePredictiveAnalyticsEnum
+     * @return string
      */
     public function getType()
     {
@@ -411,7 +433,7 @@ class ProfilePredictiveAnalyticsDateCondition implements ModelInterface, ArrayAc
     /**
      * Sets type
      *
-     * @param \KlaviyoAPI\Model\ProfilePredictiveAnalyticsEnum $type type
+     * @param string $type type
      *
      * @return self
      */
@@ -419,6 +441,16 @@ class ProfilePredictiveAnalyticsDateCondition implements ModelInterface, ArrayAc
     {
         if (is_null($type)) {
             throw new \InvalidArgumentException('non-nullable type cannot be null');
+        }
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!in_array($type, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'type', must be one of '%s'",
+                    $type,
+                    implode("', '", $allowedValues)
+                )
+            );
         }
         $this->container['type'] = $type;
 

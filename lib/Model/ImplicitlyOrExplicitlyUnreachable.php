@@ -57,7 +57,7 @@ class ImplicitlyOrExplicitlyUnreachable implements ModelInterface, ArrayAccess, 
       * @var string[]
       */
     protected static $openAPITypes = [
-        'reachable_status' => '\KlaviyoAPI\Model\ImplicitlyOrExplicitlyUnreachableEnum'
+        'reachable_status' => 'string'
     ];
 
     /**
@@ -228,6 +228,19 @@ class ImplicitlyOrExplicitlyUnreachable implements ModelInterface, ArrayAccess, 
         return self::$openAPIModelName;
     }
 
+    public const REACHABLE_STATUS_IMPLICITLY_OR_EXPLICITLY_UNREACHABLE = 'implicitly_or_explicitly_unreachable';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getReachableStatusAllowableValues()
+    {
+        return [
+            self::REACHABLE_STATUS_IMPLICITLY_OR_EXPLICITLY_UNREACHABLE,
+        ];
+    }
 
     /**
      * Associative array for storing property values
@@ -277,6 +290,15 @@ class ImplicitlyOrExplicitlyUnreachable implements ModelInterface, ArrayAccess, 
         if ($this->container['reachable_status'] === null) {
             $invalidProperties[] = "'reachable_status' can't be null";
         }
+        $allowedValues = $this->getReachableStatusAllowableValues();
+        if (!is_null($this->container['reachable_status']) && !in_array($this->container['reachable_status'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'reachable_status', must be one of '%s'",
+                $this->container['reachable_status'],
+                implode("', '", $allowedValues)
+            );
+        }
+
         return $invalidProperties;
     }
 
@@ -295,7 +317,7 @@ class ImplicitlyOrExplicitlyUnreachable implements ModelInterface, ArrayAccess, 
     /**
      * Gets reachable_status
      *
-     * @return \KlaviyoAPI\Model\ImplicitlyOrExplicitlyUnreachableEnum
+     * @return string
      */
     public function getReachableStatus()
     {
@@ -305,7 +327,7 @@ class ImplicitlyOrExplicitlyUnreachable implements ModelInterface, ArrayAccess, 
     /**
      * Sets reachable_status
      *
-     * @param \KlaviyoAPI\Model\ImplicitlyOrExplicitlyUnreachableEnum $reachable_status reachable_status
+     * @param string $reachable_status reachable_status
      *
      * @return self
      */
@@ -313,6 +335,16 @@ class ImplicitlyOrExplicitlyUnreachable implements ModelInterface, ArrayAccess, 
     {
         if (is_null($reachable_status)) {
             throw new \InvalidArgumentException('non-nullable reachable_status cannot be null');
+        }
+        $allowedValues = $this->getReachableStatusAllowableValues();
+        if (!in_array($reachable_status, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'reachable_status', must be one of '%s'",
+                    $reachable_status,
+                    implode("', '", $allowedValues)
+                )
+            );
         }
         $this->container['reachable_status'] = $reachable_status;
 

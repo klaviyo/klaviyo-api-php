@@ -58,7 +58,7 @@ class ReviewPatchQueryResourceObjectAttributesStatus implements ModelInterface, 
       * @var string[]
       */
     protected static $openAPITypes = [
-        'value' => '\KlaviyoAPI\Model\PendingEnum',
+        'value' => 'string',
         'rejection_reason' => '\KlaviyoAPI\Model\ReviewStatusRejectedRejectionReason'
     ];
 
@@ -235,6 +235,19 @@ class ReviewPatchQueryResourceObjectAttributesStatus implements ModelInterface, 
         return self::$openAPIModelName;
     }
 
+    public const VALUE_PENDING = 'pending';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getValueAllowableValues()
+    {
+        return [
+            self::VALUE_PENDING,
+        ];
+    }
 
     /**
      * Associative array for storing property values
@@ -285,6 +298,15 @@ class ReviewPatchQueryResourceObjectAttributesStatus implements ModelInterface, 
         if ($this->container['value'] === null) {
             $invalidProperties[] = "'value' can't be null";
         }
+        $allowedValues = $this->getValueAllowableValues();
+        if (!is_null($this->container['value']) && !in_array($this->container['value'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'value', must be one of '%s'",
+                $this->container['value'],
+                implode("', '", $allowedValues)
+            );
+        }
+
         if ($this->container['rejection_reason'] === null) {
             $invalidProperties[] = "'rejection_reason' can't be null";
         }
@@ -306,7 +328,7 @@ class ReviewPatchQueryResourceObjectAttributesStatus implements ModelInterface, 
     /**
      * Gets value
      *
-     * @return \KlaviyoAPI\Model\PendingEnum
+     * @return string
      */
     public function getValue()
     {
@@ -316,7 +338,7 @@ class ReviewPatchQueryResourceObjectAttributesStatus implements ModelInterface, 
     /**
      * Sets value
      *
-     * @param \KlaviyoAPI\Model\PendingEnum $value value
+     * @param string $value Pending review status
      *
      * @return self
      */
@@ -324,6 +346,16 @@ class ReviewPatchQueryResourceObjectAttributesStatus implements ModelInterface, 
     {
         if (is_null($value)) {
             throw new \InvalidArgumentException('non-nullable value cannot be null');
+        }
+        $allowedValues = $this->getValueAllowableValues();
+        if (!in_array($value, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'value', must be one of '%s'",
+                    $value,
+                    implode("', '", $allowedValues)
+                )
+            );
         }
         $this->container['value'] = $value;
 

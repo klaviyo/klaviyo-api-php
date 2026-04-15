@@ -57,8 +57,8 @@ class ManualRemoveMethodFilter implements ModelInterface, ArrayAccess, \JsonSeri
       * @var string[]
       */
     protected static $openAPITypes = [
-        'field' => '\KlaviyoAPI\Model\MethodEnum',
-        'method' => '\KlaviyoAPI\Model\ManualRemoveEnum'
+        'field' => 'string',
+        'method' => 'string'
     ];
 
     /**
@@ -234,6 +234,32 @@ class ManualRemoveMethodFilter implements ModelInterface, ArrayAccess, \JsonSeri
         return self::$openAPIModelName;
     }
 
+    public const FIELD_METHOD = 'method';
+    public const METHOD_MANUAL_REMOVE = 'manual_remove';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getFieldAllowableValues()
+    {
+        return [
+            self::FIELD_METHOD,
+        ];
+    }
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getMethodAllowableValues()
+    {
+        return [
+            self::METHOD_MANUAL_REMOVE,
+        ];
+    }
 
     /**
      * Associative array for storing property values
@@ -284,9 +310,27 @@ class ManualRemoveMethodFilter implements ModelInterface, ArrayAccess, \JsonSeri
         if ($this->container['field'] === null) {
             $invalidProperties[] = "'field' can't be null";
         }
+        $allowedValues = $this->getFieldAllowableValues();
+        if (!is_null($this->container['field']) && !in_array($this->container['field'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'field', must be one of '%s'",
+                $this->container['field'],
+                implode("', '", $allowedValues)
+            );
+        }
+
         if ($this->container['method'] === null) {
             $invalidProperties[] = "'method' can't be null";
         }
+        $allowedValues = $this->getMethodAllowableValues();
+        if (!is_null($this->container['method']) && !in_array($this->container['method'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'method', must be one of '%s'",
+                $this->container['method'],
+                implode("', '", $allowedValues)
+            );
+        }
+
         return $invalidProperties;
     }
 
@@ -305,7 +349,7 @@ class ManualRemoveMethodFilter implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Gets field
      *
-     * @return \KlaviyoAPI\Model\MethodEnum
+     * @return string
      */
     public function getField()
     {
@@ -315,7 +359,7 @@ class ManualRemoveMethodFilter implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets field
      *
-     * @param \KlaviyoAPI\Model\MethodEnum $field field
+     * @param string $field field
      *
      * @return self
      */
@@ -323,6 +367,16 @@ class ManualRemoveMethodFilter implements ModelInterface, ArrayAccess, \JsonSeri
     {
         if (is_null($field)) {
             throw new \InvalidArgumentException('non-nullable field cannot be null');
+        }
+        $allowedValues = $this->getFieldAllowableValues();
+        if (!in_array($field, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'field', must be one of '%s'",
+                    $field,
+                    implode("', '", $allowedValues)
+                )
+            );
         }
         $this->container['field'] = $field;
 
@@ -332,7 +386,7 @@ class ManualRemoveMethodFilter implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Gets method
      *
-     * @return \KlaviyoAPI\Model\ManualRemoveEnum
+     * @return string
      */
     public function getMethod()
     {
@@ -342,7 +396,7 @@ class ManualRemoveMethodFilter implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets method
      *
-     * @param \KlaviyoAPI\Model\ManualRemoveEnum $method method
+     * @param string $method method
      *
      * @return self
      */
@@ -350,6 +404,16 @@ class ManualRemoveMethodFilter implements ModelInterface, ArrayAccess, \JsonSeri
     {
         if (is_null($method)) {
             throw new \InvalidArgumentException('non-nullable method cannot be null');
+        }
+        $allowedValues = $this->getMethodAllowableValues();
+        if (!in_array($method, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'method', must be one of '%s'",
+                    $method,
+                    implode("', '", $allowedValues)
+                )
+            );
         }
         $this->container['method'] = $method;
 

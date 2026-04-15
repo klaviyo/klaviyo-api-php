@@ -57,7 +57,7 @@ class MetricPropertyConditionFilter implements ModelInterface, ArrayAccess, \Jso
       * @var string[]
       */
     protected static $openAPITypes = [
-        'condition_groups' => '\KlaviyoAPI\Model\MetricPropertyConditionGroup[]'
+        'condition_groups' => '\KlaviyoAPI\Model\MetricPropertyConditionConditionGroup[]'
     ];
 
     /**
@@ -295,7 +295,7 @@ class MetricPropertyConditionFilter implements ModelInterface, ArrayAccess, \Jso
     /**
      * Gets condition_groups
      *
-     * @return \KlaviyoAPI\Model\MetricPropertyConditionGroup[]
+     * @return \KlaviyoAPI\Model\MetricPropertyConditionConditionGroup[]
      */
     public function getConditionGroups()
     {
@@ -305,7 +305,7 @@ class MetricPropertyConditionFilter implements ModelInterface, ArrayAccess, \Jso
     /**
      * Sets condition_groups
      *
-     * @param \KlaviyoAPI\Model\MetricPropertyConditionGroup[] $condition_groups condition_groups
+     * @param \KlaviyoAPI\Model\MetricPropertyConditionConditionGroup[] $condition_groups condition_groups
      *
      * @return self
      */

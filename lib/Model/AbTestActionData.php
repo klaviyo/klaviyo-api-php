@@ -417,7 +417,7 @@ class AbTestActionData implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets experiment_status
      *
-     * @param string|null $experiment_status The status of the A/B test action experiment.
+     * @param string|null $experiment_status Not allowed on create.
      *
      * @return self
      */

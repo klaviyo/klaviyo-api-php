@@ -57,7 +57,7 @@ class NoPushMarketing implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'subscription' => '\KlaviyoAPI\Model\AnyEnum'
+        'subscription' => 'string'
     ];
 
     /**
@@ -228,6 +228,19 @@ class NoPushMarketing implements ModelInterface, ArrayAccess, \JsonSerializable
         return self::$openAPIModelName;
     }
 
+    public const SUBSCRIPTION_ANY = 'any';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getSubscriptionAllowableValues()
+    {
+        return [
+            self::SUBSCRIPTION_ANY,
+        ];
+    }
 
     /**
      * Associative array for storing property values
@@ -277,6 +290,15 @@ class NoPushMarketing implements ModelInterface, ArrayAccess, \JsonSerializable
         if ($this->container['subscription'] === null) {
             $invalidProperties[] = "'subscription' can't be null";
         }
+        $allowedValues = $this->getSubscriptionAllowableValues();
+        if (!is_null($this->container['subscription']) && !in_array($this->container['subscription'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'subscription', must be one of '%s'",
+                $this->container['subscription'],
+                implode("', '", $allowedValues)
+            );
+        }
+
         return $invalidProperties;
     }
 
@@ -295,7 +317,7 @@ class NoPushMarketing implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets subscription
      *
-     * @return \KlaviyoAPI\Model\AnyEnum
+     * @return string
      */
     public function getSubscription()
     {
@@ -305,7 +327,7 @@ class NoPushMarketing implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets subscription
      *
-     * @param \KlaviyoAPI\Model\AnyEnum $subscription subscription
+     * @param string $subscription subscription
      *
      * @return self
      */
@@ -313,6 +335,16 @@ class NoPushMarketing implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         if (is_null($subscription)) {
             throw new \InvalidArgumentException('non-nullable subscription cannot be null');
+        }
+        $allowedValues = $this->getSubscriptionAllowableValues();
+        if (!in_array($subscription, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'subscription', must be one of '%s'",
+                    $subscription,
+                    implode("', '", $allowedValues)
+                )
+            );
         }
         $this->container['subscription'] = $subscription;
 

@@ -61,7 +61,7 @@ class OptInCodeProperties implements ModelInterface, ArrayAccess, \JsonSerializa
         'show_label' => 'bool',
         'placeholder' => 'string',
         'error_messages' => '\KlaviyoAPI\Model\ErrorMessages',
-        'property_name' => '\KlaviyoAPI\Model\OptInCodeEnum',
+        'property_name' => 'string',
         'required' => 'bool',
         'display_device' => 'string[]'
     ];
@@ -264,9 +264,22 @@ class OptInCodeProperties implements ModelInterface, ArrayAccess, \JsonSerializa
         return self::$openAPIModelName;
     }
 
+    public const PROPERTY_NAME_OPT_IN_CODE = 'opt_in_code';
     public const DISPLAY_DEVICE_BOTH = 'both';
     public const DISPLAY_DEVICE_DESKTOP = 'desktop';
     public const DISPLAY_DEVICE_MOBILE = 'mobile';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getPropertyNameAllowableValues()
+    {
+        return [
+            self::PROPERTY_NAME_OPT_IN_CODE,
+        ];
+    }
 
     /**
      * Gets allowable values of the enum
@@ -301,7 +314,7 @@ class OptInCodeProperties implements ModelInterface, ArrayAccess, \JsonSerializa
         $this->setIfExists('show_label', $data ?? [], false);
         $this->setIfExists('placeholder', $data ?? [], null);
         $this->setIfExists('error_messages', $data ?? [], null);
-        $this->setIfExists('property_name', $data ?? [], null);
+        $this->setIfExists('property_name', $data ?? [], 'opt_in_code');
         $this->setIfExists('required', $data ?? [], true);
         $this->setIfExists('display_device', $data ?? [], null);
     }
@@ -332,6 +345,15 @@ class OptInCodeProperties implements ModelInterface, ArrayAccess, \JsonSerializa
     public function listInvalidProperties()
     {
         $invalidProperties = [];
+
+        $allowedValues = $this->getPropertyNameAllowableValues();
+        if (!is_null($this->container['property_name']) && !in_array($this->container['property_name'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'property_name', must be one of '%s'",
+                $this->container['property_name'],
+                implode("', '", $allowedValues)
+            );
+        }
 
         return $invalidProperties;
     }
@@ -473,7 +495,7 @@ class OptInCodeProperties implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Gets property_name
      *
-     * @return \KlaviyoAPI\Model\OptInCodeEnum|null
+     * @return string|null
      */
     public function getPropertyName()
     {
@@ -483,7 +505,7 @@ class OptInCodeProperties implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets property_name
      *
-     * @param \KlaviyoAPI\Model\OptInCodeEnum|null $property_name property_name
+     * @param string|null $property_name property_name
      *
      * @return self
      */
@@ -491,6 +513,16 @@ class OptInCodeProperties implements ModelInterface, ArrayAccess, \JsonSerializa
     {
         if (is_null($property_name)) {
             throw new \InvalidArgumentException('non-nullable property_name cannot be null');
+        }
+        $allowedValues = $this->getPropertyNameAllowableValues();
+        if (!in_array($property_name, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'property_name', must be one of '%s'",
+                    $property_name,
+                    implode("', '", $allowedValues)
+                )
+            );
         }
         $this->container['property_name'] = $property_name;
 
