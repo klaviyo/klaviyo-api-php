@@ -57,7 +57,7 @@ class ListLengthFilter implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'type' => '\KlaviyoAPI\Model\ListEnum',
+        'type' => 'string',
         'operator' => 'string',
         'value' => 'int'
     ];
@@ -240,11 +240,24 @@ class ListLengthFilter implements ModelInterface, ArrayAccess, \JsonSerializable
         return self::$openAPIModelName;
     }
 
+    public const TYPE__LIST = 'list';
     public const OPERATOR_LENGTH_EQUALS = 'length-equals';
     public const OPERATOR_LENGTH_GREATER_THAN = 'length-greater-than';
     public const OPERATOR_LENGTH_GREATER_THAN_OR_EQUAL = 'length-greater-than-or-equal';
     public const OPERATOR_LENGTH_LESS_THAN = 'length-less-than';
     public const OPERATOR_LENGTH_LESS_THAN_OR_EQUAL = 'length-less-than-or-equal';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getTypeAllowableValues()
+    {
+        return [
+            self::TYPE__LIST,
+        ];
+    }
 
     /**
      * Gets allowable values of the enum
@@ -312,6 +325,15 @@ class ListLengthFilter implements ModelInterface, ArrayAccess, \JsonSerializable
         if ($this->container['type'] === null) {
             $invalidProperties[] = "'type' can't be null";
         }
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!is_null($this->container['type']) && !in_array($this->container['type'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'type', must be one of '%s'",
+                $this->container['type'],
+                implode("', '", $allowedValues)
+            );
+        }
+
         if ($this->container['operator'] === null) {
             $invalidProperties[] = "'operator' can't be null";
         }
@@ -345,7 +367,7 @@ class ListLengthFilter implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets type
      *
-     * @return \KlaviyoAPI\Model\ListEnum
+     * @return string
      */
     public function getType()
     {
@@ -355,7 +377,7 @@ class ListLengthFilter implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets type
      *
-     * @param \KlaviyoAPI\Model\ListEnum $type type
+     * @param string $type type
      *
      * @return self
      */
@@ -363,6 +385,16 @@ class ListLengthFilter implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         if (is_null($type)) {
             throw new \InvalidArgumentException('non-nullable type cannot be null');
+        }
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!in_array($type, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'type', must be one of '%s'",
+                    $type,
+                    implode("', '", $allowedValues)
+                )
+            );
         }
         $this->container['type'] = $type;
 

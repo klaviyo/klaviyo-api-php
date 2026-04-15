@@ -57,7 +57,7 @@ class SegmentsProfileMetricFunnelCondition implements ModelInterface, ArrayAcces
       * @var string[]
       */
     protected static $openAPITypes = [
-        'type' => '\KlaviyoAPI\Model\ProfileMetricFunnelEnum',
+        'type' => 'string',
         'timeframe_filter' => '\KlaviyoAPI\Model\SegmentsProfileMetricFunnelConditionTimeframeFilter',
         'completion_window_seconds' => 'string',
         'steps' => '\KlaviyoAPI\Model\ProfileMetricFunnelSteps[]'
@@ -246,6 +246,7 @@ class SegmentsProfileMetricFunnelCondition implements ModelInterface, ArrayAcces
         return self::$openAPIModelName;
     }
 
+    public const TYPE_PROFILE_METRIC_FUNNEL = 'profile-metric-funnel';
     public const COMPLETION_WINDOW_SECONDS_DAYS_1 = 'DAYS_1';
     public const COMPLETION_WINDOW_SECONDS_DAYS_180 = 'DAYS_180';
     public const COMPLETION_WINDOW_SECONDS_DAYS_3 = 'DAYS_3';
@@ -255,6 +256,18 @@ class SegmentsProfileMetricFunnelCondition implements ModelInterface, ArrayAcces
     public const COMPLETION_WINDOW_SECONDS_HOURS_1 = 'HOURS_1';
     public const COMPLETION_WINDOW_SECONDS_WEEKS_1 = 'WEEKS_1';
     public const COMPLETION_WINDOW_SECONDS_YEARS_1 = 'YEARS_1';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getTypeAllowableValues()
+    {
+        return [
+            self::TYPE_PROFILE_METRIC_FUNNEL,
+        ];
+    }
 
     /**
      * Gets allowable values of the enum
@@ -327,6 +340,15 @@ class SegmentsProfileMetricFunnelCondition implements ModelInterface, ArrayAcces
         if ($this->container['type'] === null) {
             $invalidProperties[] = "'type' can't be null";
         }
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!is_null($this->container['type']) && !in_array($this->container['type'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'type', must be one of '%s'",
+                $this->container['type'],
+                implode("', '", $allowedValues)
+            );
+        }
+
         if ($this->container['timeframe_filter'] === null) {
             $invalidProperties[] = "'timeframe_filter' can't be null";
         }
@@ -360,7 +382,7 @@ class SegmentsProfileMetricFunnelCondition implements ModelInterface, ArrayAcces
     /**
      * Gets type
      *
-     * @return \KlaviyoAPI\Model\ProfileMetricFunnelEnum
+     * @return string
      */
     public function getType()
     {
@@ -370,7 +392,7 @@ class SegmentsProfileMetricFunnelCondition implements ModelInterface, ArrayAcces
     /**
      * Sets type
      *
-     * @param \KlaviyoAPI\Model\ProfileMetricFunnelEnum $type type
+     * @param string $type type
      *
      * @return self
      */
@@ -378,6 +400,16 @@ class SegmentsProfileMetricFunnelCondition implements ModelInterface, ArrayAcces
     {
         if (is_null($type)) {
             throw new \InvalidArgumentException('non-nullable type cannot be null');
+        }
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!in_array($type, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'type', must be one of '%s'",
+                    $type,
+                    implode("', '", $allowedValues)
+                )
+            );
         }
         $this->container['type'] = $type;
 

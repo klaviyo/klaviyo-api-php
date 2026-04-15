@@ -57,7 +57,7 @@ class InputStyles implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'text_styles' => '\KlaviyoAPI\Model\TextStyle',
+        'text_styles' => '\KlaviyoAPI\Model\TextStyleV0',
         'label_color' => 'string',
         'text_color' => 'string',
         'placeholder_color' => 'string',
@@ -355,7 +355,7 @@ class InputStyles implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets text_styles
      *
-     * @return \KlaviyoAPI\Model\TextStyle|null
+     * @return \KlaviyoAPI\Model\TextStyleV0|null
      */
     public function getTextStyles()
     {
@@ -365,7 +365,7 @@ class InputStyles implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets text_styles
      *
-     * @param \KlaviyoAPI\Model\TextStyle|null $text_styles text_styles
+     * @param \KlaviyoAPI\Model\TextStyleV0|null $text_styles text_styles
      *
      * @return self
      */

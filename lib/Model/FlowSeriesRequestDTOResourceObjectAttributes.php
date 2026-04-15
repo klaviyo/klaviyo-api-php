@@ -295,7 +295,14 @@ class FlowSeriesRequestDTOResourceObjectAttributes implements ModelInterface, Ar
     public const INTERVAL_WEEKLY = 'weekly';
     public const GROUP_BY_FLOW_ID = 'flow_id';
     public const GROUP_BY_FLOW_MESSAGE_ID = 'flow_message_id';
+    public const GROUP_BY_FLOW_MESSAGE_NAME = 'flow_message_name';
+    public const GROUP_BY_FLOW_NAME = 'flow_name';
     public const GROUP_BY_SEND_CHANNEL = 'send_channel';
+    public const GROUP_BY_TAG_ID = 'tag_id';
+    public const GROUP_BY_TAG_NAME = 'tag_name';
+    public const GROUP_BY_TEXT_MESSAGE_FORMAT = 'text_message_format';
+    public const GROUP_BY_VARIATION = 'variation';
+    public const GROUP_BY_VARIATION_NAME = 'variation_name';
 
     /**
      * Gets allowable values of the enum
@@ -364,7 +371,14 @@ class FlowSeriesRequestDTOResourceObjectAttributes implements ModelInterface, Ar
         return [
             self::GROUP_BY_FLOW_ID,
             self::GROUP_BY_FLOW_MESSAGE_ID,
+            self::GROUP_BY_FLOW_MESSAGE_NAME,
+            self::GROUP_BY_FLOW_NAME,
             self::GROUP_BY_SEND_CHANNEL,
+            self::GROUP_BY_TAG_ID,
+            self::GROUP_BY_TAG_NAME,
+            self::GROUP_BY_TEXT_MESSAGE_FORMAT,
+            self::GROUP_BY_VARIATION,
+            self::GROUP_BY_VARIATION_NAME,
         ];
     }
 
@@ -594,7 +608,7 @@ class FlowSeriesRequestDTOResourceObjectAttributes implements ModelInterface, Ar
     /**
      * Sets group_by
      *
-     * @param string[]|null $group_by List of attributes to group the data by. Allowed group-bys are flow_id, flow_message_id, send_channel. If not passed in, the data will be grouped by flow_id, flow_message_id, send_channel. The following group by attributes are required: flow_message_id, flow_id.
+     * @param string[]|null $group_by List of attributes to group the data by. Allowed group-bys are flow_id, flow_message_id, flow_message_name, flow_name, send_channel, tag_id, tag_name, text_message_format, variation, variation_name. If not passed in, the data will be grouped by flow_id, flow_message_id, send_channel. The following group by attributes are required: flow_message_id, flow_id.
      *
      * @return self
      */
@@ -637,7 +651,7 @@ class FlowSeriesRequestDTOResourceObjectAttributes implements ModelInterface, Ar
     /**
      * Sets filter
      *
-     * @param string|null $filter API filter string used to filter the query. Allowed filters are flow_id, send_channel, flow_message_id. Allowed operators are equals, contains-any. Only one filter can be used per attribute, only AND can be used as a combination operator. Max of 100 messages per ANY filter. When filtering on send_channel, allowed values are email, sms, push-notification, whatsapp.
+     * @param string|null $filter API filter string used to filter the query. Scalar attributes (flow_id, flow_name, send_channel, flow_message_id, flow_message_name, text_message_format, variation, variation_name): Supported operators: equals, contains-any. List attributes (tag_id, tag_name): Supported operators: contains-any, contains-all. Only one filter can be used per attribute. Only AND can be used as a combination operator. Max of 100 items per list filter. When filtering on send_channel, allowed values are email, sms, push-notification, whatsapp.
      *
      * @return self
      */

@@ -59,7 +59,7 @@ class CouponStyles implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $openAPITypes = [
         'padding' => '\KlaviyoAPI\Model\Padding',
         'background_color' => 'string',
-        'text_styles' => '\KlaviyoAPI\Model\TextStyle',
+        'text_styles' => '\KlaviyoAPI\Model\TextStyleV0',
         'border_styles' => '\KlaviyoAPI\Model\BorderStyle',
         'coupon_background_color' => 'string'
     ];
@@ -381,7 +381,7 @@ class CouponStyles implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets text_styles
      *
-     * @return \KlaviyoAPI\Model\TextStyle|null
+     * @return \KlaviyoAPI\Model\TextStyleV0|null
      */
     public function getTextStyles()
     {
@@ -391,7 +391,7 @@ class CouponStyles implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets text_styles
      *
-     * @param \KlaviyoAPI\Model\TextStyle|null $text_styles text_styles
+     * @param \KlaviyoAPI\Model\TextStyleV0|null $text_styles text_styles
      *
      * @return self
      */

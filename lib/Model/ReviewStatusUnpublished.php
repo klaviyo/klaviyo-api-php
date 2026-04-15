@@ -57,7 +57,7 @@ class ReviewStatusUnpublished implements ModelInterface, ArrayAccess, \JsonSeria
       * @var string[]
       */
     protected static $openAPITypes = [
-        'value' => '\KlaviyoAPI\Model\UnpublishedEnum'
+        'value' => 'string'
     ];
 
     /**
@@ -228,6 +228,19 @@ class ReviewStatusUnpublished implements ModelInterface, ArrayAccess, \JsonSeria
         return self::$openAPIModelName;
     }
 
+    public const VALUE_UNPUBLISHED = 'unpublished';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getValueAllowableValues()
+    {
+        return [
+            self::VALUE_UNPUBLISHED,
+        ];
+    }
 
     /**
      * Associative array for storing property values
@@ -277,6 +290,15 @@ class ReviewStatusUnpublished implements ModelInterface, ArrayAccess, \JsonSeria
         if ($this->container['value'] === null) {
             $invalidProperties[] = "'value' can't be null";
         }
+        $allowedValues = $this->getValueAllowableValues();
+        if (!is_null($this->container['value']) && !in_array($this->container['value'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'value', must be one of '%s'",
+                $this->container['value'],
+                implode("', '", $allowedValues)
+            );
+        }
+
         return $invalidProperties;
     }
 
@@ -295,7 +317,7 @@ class ReviewStatusUnpublished implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Gets value
      *
-     * @return \KlaviyoAPI\Model\UnpublishedEnum
+     * @return string
      */
     public function getValue()
     {
@@ -305,7 +327,7 @@ class ReviewStatusUnpublished implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Sets value
      *
-     * @param \KlaviyoAPI\Model\UnpublishedEnum $value value
+     * @param string $value Unpublished review status
      *
      * @return self
      */
@@ -313,6 +335,16 @@ class ReviewStatusUnpublished implements ModelInterface, ArrayAccess, \JsonSeria
     {
         if (is_null($value)) {
             throw new \InvalidArgumentException('non-nullable value cannot be null');
+        }
+        $allowedValues = $this->getValueAllowableValues();
+        if (!in_array($value, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'value', must be one of '%s'",
+                    $value,
+                    implode("', '", $allowedValues)
+                )
+            );
         }
         $this->container['value'] = $value;
 

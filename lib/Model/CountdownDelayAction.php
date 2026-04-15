@@ -59,7 +59,7 @@ class CountdownDelayAction implements ModelInterface, ArrayAccess, \JsonSerializ
     protected static $openAPITypes = [
         'id' => 'string',
         'temporary_id' => 'string',
-        'type' => '\KlaviyoAPI\Model\CountdownDelayEnum',
+        'type' => 'string',
         'links' => '\KlaviyoAPI\Model\Link',
         'data' => '\KlaviyoAPI\Model\CountdownDelayActionData'
     ];
@@ -252,6 +252,19 @@ class CountdownDelayAction implements ModelInterface, ArrayAccess, \JsonSerializ
         return self::$openAPIModelName;
     }
 
+    public const TYPE_COUNTDOWN_DELAY = 'countdown-delay';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getTypeAllowableValues()
+    {
+        return [
+            self::TYPE_COUNTDOWN_DELAY,
+        ];
+    }
 
     /**
      * Associative array for storing property values
@@ -305,6 +318,15 @@ class CountdownDelayAction implements ModelInterface, ArrayAccess, \JsonSerializ
         if ($this->container['type'] === null) {
             $invalidProperties[] = "'type' can't be null";
         }
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!is_null($this->container['type']) && !in_array($this->container['type'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'type', must be one of '%s'",
+                $this->container['type'],
+                implode("', '", $allowedValues)
+            );
+        }
+
         if ($this->container['data'] === null) {
             $invalidProperties[] = "'data' can't be null";
         }
@@ -336,7 +358,7 @@ class CountdownDelayAction implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Sets id
      *
-     * @param string|null $id The real ID of an action.
+     * @param string|null $id The real ID of an action. Not allowed on create.
      *
      * @return self
      */
@@ -394,7 +416,7 @@ class CountdownDelayAction implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Gets type
      *
-     * @return \KlaviyoAPI\Model\CountdownDelayEnum
+     * @return string
      */
     public function getType()
     {
@@ -404,7 +426,7 @@ class CountdownDelayAction implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Sets type
      *
-     * @param \KlaviyoAPI\Model\CountdownDelayEnum $type type
+     * @param string $type type
      *
      * @return self
      */
@@ -412,6 +434,16 @@ class CountdownDelayAction implements ModelInterface, ArrayAccess, \JsonSerializ
     {
         if (is_null($type)) {
             throw new \InvalidArgumentException('non-nullable type cannot be null');
+        }
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!in_array($type, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'type', must be one of '%s'",
+                    $type,
+                    implode("', '", $allowedValues)
+                )
+            );
         }
         $this->container['type'] = $type;
 

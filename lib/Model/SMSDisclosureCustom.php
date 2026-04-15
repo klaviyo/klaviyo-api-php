@@ -57,7 +57,7 @@ class SMSDisclosureCustom implements ModelInterface, ArrayAccess, \JsonSerializa
       * @var string[]
       */
     protected static $openAPITypes = [
-        'type' => '\KlaviyoAPI\Model\CustomEnum',
+        'type' => 'string',
         'compliance_company_name' => 'string',
         'privacy_policy_url' => 'string',
         'terms_of_service_url' => 'string',
@@ -252,6 +252,19 @@ class SMSDisclosureCustom implements ModelInterface, ArrayAccess, \JsonSerializa
         return self::$openAPIModelName;
     }
 
+    public const TYPE_CUSTOM = 'custom';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getTypeAllowableValues()
+    {
+        return [
+            self::TYPE_CUSTOM,
+        ];
+    }
 
     /**
      * Associative array for storing property values
@@ -305,6 +318,15 @@ class SMSDisclosureCustom implements ModelInterface, ArrayAccess, \JsonSerializa
         if ($this->container['type'] === null) {
             $invalidProperties[] = "'type' can't be null";
         }
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!is_null($this->container['type']) && !in_array($this->container['type'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'type', must be one of '%s'",
+                $this->container['type'],
+                implode("', '", $allowedValues)
+            );
+        }
+
         return $invalidProperties;
     }
 
@@ -323,7 +345,7 @@ class SMSDisclosureCustom implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Gets type
      *
-     * @return \KlaviyoAPI\Model\CustomEnum
+     * @return string
      */
     public function getType()
     {
@@ -333,7 +355,7 @@ class SMSDisclosureCustom implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets type
      *
-     * @param \KlaviyoAPI\Model\CustomEnum $type type
+     * @param string $type type
      *
      * @return self
      */
@@ -341,6 +363,16 @@ class SMSDisclosureCustom implements ModelInterface, ArrayAccess, \JsonSerializa
     {
         if (is_null($type)) {
             throw new \InvalidArgumentException('non-nullable type cannot be null');
+        }
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!in_array($type, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'type', must be one of '%s'",
+                    $type,
+                    implode("', '", $allowedValues)
+                )
+            );
         }
         $this->container['type'] = $type;
 

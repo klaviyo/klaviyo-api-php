@@ -57,9 +57,9 @@ class ProfileMetricPropertyFilterFilter implements ModelInterface, ArrayAccess, 
       * @var string[]
       */
     protected static $openAPITypes = [
-        'type' => '\KlaviyoAPI\Model\NumericEnum',
+        'type' => 'string',
         'operator' => 'string',
-        'value' => '\KlaviyoAPI\Model\NumericOperatorFilterValue'
+        'value' => '\KlaviyoAPI\Model\NumericOperatorNumericFilterValue'
     ];
 
     /**
@@ -240,12 +240,33 @@ class ProfileMetricPropertyFilterFilter implements ModelInterface, ArrayAccess, 
         return self::$openAPIModelName;
     }
 
+    public const TYPE_STRING = 'string';
+    public const TYPE_EXISTENCE = 'existence';
+    public const TYPE__LIST = 'list';
+    public const TYPE_BOOLEAN = 'boolean';
+    public const TYPE_NUMERIC = 'numeric';
     public const OPERATOR_EQUALS = 'equals';
     public const OPERATOR_GREATER_THAN = 'greater-than';
     public const OPERATOR_GREATER_THAN_OR_EQUAL = 'greater-than-or-equal';
     public const OPERATOR_LESS_THAN = 'less-than';
     public const OPERATOR_LESS_THAN_OR_EQUAL = 'less-than-or-equal';
     public const OPERATOR_NOT_EQUALS = 'not-equals';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getTypeAllowableValues()
+    {
+        return [
+            self::TYPE_STRING,
+            self::TYPE_EXISTENCE,
+            self::TYPE__LIST,
+            self::TYPE_BOOLEAN,
+            self::TYPE_NUMERIC,
+        ];
+    }
 
     /**
      * Gets allowable values of the enum
@@ -314,6 +335,15 @@ class ProfileMetricPropertyFilterFilter implements ModelInterface, ArrayAccess, 
         if ($this->container['type'] === null) {
             $invalidProperties[] = "'type' can't be null";
         }
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!is_null($this->container['type']) && !in_array($this->container['type'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'type', must be one of '%s'",
+                $this->container['type'],
+                implode("', '", $allowedValues)
+            );
+        }
+
         if ($this->container['operator'] === null) {
             $invalidProperties[] = "'operator' can't be null";
         }
@@ -347,7 +377,7 @@ class ProfileMetricPropertyFilterFilter implements ModelInterface, ArrayAccess, 
     /**
      * Gets type
      *
-     * @return \KlaviyoAPI\Model\NumericEnum
+     * @return string
      */
     public function getType()
     {
@@ -357,7 +387,7 @@ class ProfileMetricPropertyFilterFilter implements ModelInterface, ArrayAccess, 
     /**
      * Sets type
      *
-     * @param \KlaviyoAPI\Model\NumericEnum $type type
+     * @param string $type type
      *
      * @return self
      */
@@ -365,6 +395,16 @@ class ProfileMetricPropertyFilterFilter implements ModelInterface, ArrayAccess, 
     {
         if (is_null($type)) {
             throw new \InvalidArgumentException('non-nullable type cannot be null');
+        }
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!in_array($type, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'type', must be one of '%s'",
+                    $type,
+                    implode("', '", $allowedValues)
+                )
+            );
         }
         $this->container['type'] = $type;
 
@@ -411,7 +451,7 @@ class ProfileMetricPropertyFilterFilter implements ModelInterface, ArrayAccess, 
     /**
      * Gets value
      *
-     * @return \KlaviyoAPI\Model\NumericOperatorFilterValue
+     * @return \KlaviyoAPI\Model\NumericOperatorNumericFilterValue
      */
     public function getValue()
     {
@@ -421,7 +461,7 @@ class ProfileMetricPropertyFilterFilter implements ModelInterface, ArrayAccess, 
     /**
      * Sets value
      *
-     * @param \KlaviyoAPI\Model\NumericOperatorFilterValue $value value
+     * @param \KlaviyoAPI\Model\NumericOperatorNumericFilterValue $value value
      *
      * @return self
      */

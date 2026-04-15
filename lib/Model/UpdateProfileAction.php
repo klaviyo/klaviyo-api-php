@@ -59,7 +59,7 @@ class UpdateProfileAction implements ModelInterface, ArrayAccess, \JsonSerializa
     protected static $openAPITypes = [
         'id' => 'string',
         'temporary_id' => 'string',
-        'type' => '\KlaviyoAPI\Model\UpdateProfileEnum',
+        'type' => 'string',
         'links' => '\KlaviyoAPI\Model\Link',
         'data' => '\KlaviyoAPI\Model\UpdateProfileActionData'
     ];
@@ -252,6 +252,19 @@ class UpdateProfileAction implements ModelInterface, ArrayAccess, \JsonSerializa
         return self::$openAPIModelName;
     }
 
+    public const TYPE_UPDATE_PROFILE = 'update-profile';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getTypeAllowableValues()
+    {
+        return [
+            self::TYPE_UPDATE_PROFILE,
+        ];
+    }
 
     /**
      * Associative array for storing property values
@@ -305,6 +318,15 @@ class UpdateProfileAction implements ModelInterface, ArrayAccess, \JsonSerializa
         if ($this->container['type'] === null) {
             $invalidProperties[] = "'type' can't be null";
         }
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!is_null($this->container['type']) && !in_array($this->container['type'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'type', must be one of '%s'",
+                $this->container['type'],
+                implode("', '", $allowedValues)
+            );
+        }
+
         return $invalidProperties;
     }
 
@@ -333,7 +355,7 @@ class UpdateProfileAction implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets id
      *
-     * @param string|null $id The real ID of an action.
+     * @param string|null $id The real ID of an action. Not allowed on create.
      *
      * @return self
      */
@@ -391,7 +413,7 @@ class UpdateProfileAction implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Gets type
      *
-     * @return \KlaviyoAPI\Model\UpdateProfileEnum
+     * @return string
      */
     public function getType()
     {
@@ -401,7 +423,7 @@ class UpdateProfileAction implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets type
      *
-     * @param \KlaviyoAPI\Model\UpdateProfileEnum $type type
+     * @param string $type type
      *
      * @return self
      */
@@ -409,6 +431,16 @@ class UpdateProfileAction implements ModelInterface, ArrayAccess, \JsonSerializa
     {
         if (is_null($type)) {
             throw new \InvalidArgumentException('non-nullable type cannot be null');
+        }
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!in_array($type, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'type', must be one of '%s'",
+                    $type,
+                    implode("', '", $allowedValues)
+                )
+            );
         }
         $this->container['type'] = $type;
 

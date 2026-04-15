@@ -57,7 +57,7 @@ class StaticSendStrategy implements ModelInterface, ArrayAccess, \JsonSerializab
       * @var string[]
       */
     protected static $openAPITypes = [
-        'method' => '\KlaviyoAPI\Model\StaticEnum',
+        'method' => 'string',
         'datetime' => '\DateTime',
         'options' => '\KlaviyoAPI\Model\StaticSendStrategyOptions'
     ];
@@ -240,6 +240,19 @@ class StaticSendStrategy implements ModelInterface, ArrayAccess, \JsonSerializab
         return self::$openAPIModelName;
     }
 
+    public const METHOD__STATIC = 'static';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getMethodAllowableValues()
+    {
+        return [
+            self::METHOD__STATIC,
+        ];
+    }
 
     /**
      * Associative array for storing property values
@@ -291,6 +304,15 @@ class StaticSendStrategy implements ModelInterface, ArrayAccess, \JsonSerializab
         if ($this->container['method'] === null) {
             $invalidProperties[] = "'method' can't be null";
         }
+        $allowedValues = $this->getMethodAllowableValues();
+        if (!is_null($this->container['method']) && !in_array($this->container['method'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'method', must be one of '%s'",
+                $this->container['method'],
+                implode("', '", $allowedValues)
+            );
+        }
+
         if ($this->container['datetime'] === null) {
             $invalidProperties[] = "'datetime' can't be null";
         }
@@ -312,7 +334,7 @@ class StaticSendStrategy implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Gets method
      *
-     * @return \KlaviyoAPI\Model\StaticEnum
+     * @return string
      */
     public function getMethod()
     {
@@ -322,7 +344,7 @@ class StaticSendStrategy implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets method
      *
-     * @param \KlaviyoAPI\Model\StaticEnum $method method
+     * @param string $method method
      *
      * @return self
      */
@@ -330,6 +352,16 @@ class StaticSendStrategy implements ModelInterface, ArrayAccess, \JsonSerializab
     {
         if (is_null($method)) {
             throw new \InvalidArgumentException('non-nullable method cannot be null');
+        }
+        $allowedValues = $this->getMethodAllowableValues();
+        if (!in_array($method, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'method', must be one of '%s'",
+                    $method,
+                    implode("', '", $allowedValues)
+                )
+            );
         }
         $this->container['method'] = $method;
 

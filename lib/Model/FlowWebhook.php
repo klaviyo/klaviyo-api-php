@@ -86,7 +86,7 @@ class FlowWebhook implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static array $openAPINullables = [
         'url' => true,
-        'headers' => false,
+        'headers' => true,
         'body' => true,
         'name' => true,
         'id' => true
@@ -374,7 +374,14 @@ class FlowWebhook implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setHeaders($headers)
     {
         if (is_null($headers)) {
-            throw new \InvalidArgumentException('non-nullable headers cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'headers');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('headers', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['headers'] = $headers;
 
@@ -462,7 +469,7 @@ class FlowWebhook implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets id
      *
-     * @param string|null $id id
+     * @param string|null $id Not allowed on create.
      *
      * @return self
      */

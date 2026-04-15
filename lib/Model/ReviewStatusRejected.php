@@ -57,7 +57,7 @@ class ReviewStatusRejected implements ModelInterface, ArrayAccess, \JsonSerializ
       * @var string[]
       */
     protected static $openAPITypes = [
-        'value' => '\KlaviyoAPI\Model\RejectedEnum',
+        'value' => 'string',
         'rejection_reason' => '\KlaviyoAPI\Model\ReviewStatusRejectedRejectionReason'
     ];
 
@@ -234,6 +234,19 @@ class ReviewStatusRejected implements ModelInterface, ArrayAccess, \JsonSerializ
         return self::$openAPIModelName;
     }
 
+    public const VALUE_REJECTED = 'rejected';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getValueAllowableValues()
+    {
+        return [
+            self::VALUE_REJECTED,
+        ];
+    }
 
     /**
      * Associative array for storing property values
@@ -284,6 +297,15 @@ class ReviewStatusRejected implements ModelInterface, ArrayAccess, \JsonSerializ
         if ($this->container['value'] === null) {
             $invalidProperties[] = "'value' can't be null";
         }
+        $allowedValues = $this->getValueAllowableValues();
+        if (!is_null($this->container['value']) && !in_array($this->container['value'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'value', must be one of '%s'",
+                $this->container['value'],
+                implode("', '", $allowedValues)
+            );
+        }
+
         if ($this->container['rejection_reason'] === null) {
             $invalidProperties[] = "'rejection_reason' can't be null";
         }
@@ -305,7 +327,7 @@ class ReviewStatusRejected implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Gets value
      *
-     * @return \KlaviyoAPI\Model\RejectedEnum
+     * @return string
      */
     public function getValue()
     {
@@ -315,7 +337,7 @@ class ReviewStatusRejected implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Sets value
      *
-     * @param \KlaviyoAPI\Model\RejectedEnum $value value
+     * @param string $value Rejected review status
      *
      * @return self
      */
@@ -323,6 +345,16 @@ class ReviewStatusRejected implements ModelInterface, ArrayAccess, \JsonSerializ
     {
         if (is_null($value)) {
             throw new \InvalidArgumentException('non-nullable value cannot be null');
+        }
+        $allowedValues = $this->getValueAllowableValues();
+        if (!in_array($value, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'value', must be one of '%s'",
+                    $value,
+                    implode("', '", $allowedValues)
+                )
+            );
         }
         $this->container['value'] = $value;
 

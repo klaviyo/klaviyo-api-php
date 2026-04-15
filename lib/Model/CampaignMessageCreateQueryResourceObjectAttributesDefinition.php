@@ -57,13 +57,13 @@ class CampaignMessageCreateQueryResourceObjectAttributesDefinition implements Mo
       * @var string[]
       */
     protected static $openAPITypes = [
-        'channel' => '\KlaviyoAPI\Model\MobilePushEnum',
+        'channel' => 'string',
         'label' => 'string',
         'content' => '\KlaviyoAPI\Model\MobilePushContentCreate',
         'render_options' => '\KlaviyoAPI\Model\RenderOptions',
         'kv_pairs' => 'object',
         'options' => '\KlaviyoAPI\Model\MobilePushOptions',
-        'notification_type' => '\KlaviyoAPI\Model\SilentEnum'
+        'notification_type' => 'string'
     ];
 
     /**
@@ -264,6 +264,32 @@ class CampaignMessageCreateQueryResourceObjectAttributesDefinition implements Mo
         return self::$openAPIModelName;
     }
 
+    public const CHANNEL_MOBILE_PUSH = 'mobile_push';
+    public const NOTIFICATION_TYPE_SILENT = 'silent';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getChannelAllowableValues()
+    {
+        return [
+            self::CHANNEL_MOBILE_PUSH,
+        ];
+    }
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getNotificationTypeAllowableValues()
+    {
+        return [
+            self::NOTIFICATION_TYPE_SILENT,
+        ];
+    }
 
     /**
      * Associative array for storing property values
@@ -286,7 +312,7 @@ class CampaignMessageCreateQueryResourceObjectAttributesDefinition implements Mo
         $this->setIfExists('render_options', $data ?? [], null);
         $this->setIfExists('kv_pairs', $data ?? [], null);
         $this->setIfExists('options', $data ?? [], null);
-        $this->setIfExists('notification_type', $data ?? [], null);
+        $this->setIfExists('notification_type', $data ?? [], 'silent');
     }
 
     /**
@@ -319,9 +345,27 @@ class CampaignMessageCreateQueryResourceObjectAttributesDefinition implements Mo
         if ($this->container['channel'] === null) {
             $invalidProperties[] = "'channel' can't be null";
         }
+        $allowedValues = $this->getChannelAllowableValues();
+        if (!is_null($this->container['channel']) && !in_array($this->container['channel'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'channel', must be one of '%s'",
+                $this->container['channel'],
+                implode("', '", $allowedValues)
+            );
+        }
+
         if ($this->container['content'] === null) {
             $invalidProperties[] = "'content' can't be null";
         }
+        $allowedValues = $this->getNotificationTypeAllowableValues();
+        if (!is_null($this->container['notification_type']) && !in_array($this->container['notification_type'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'notification_type', must be one of '%s'",
+                $this->container['notification_type'],
+                implode("', '", $allowedValues)
+            );
+        }
+
         return $invalidProperties;
     }
 
@@ -340,7 +384,7 @@ class CampaignMessageCreateQueryResourceObjectAttributesDefinition implements Mo
     /**
      * Gets channel
      *
-     * @return \KlaviyoAPI\Model\MobilePushEnum
+     * @return string
      */
     public function getChannel()
     {
@@ -350,7 +394,7 @@ class CampaignMessageCreateQueryResourceObjectAttributesDefinition implements Mo
     /**
      * Sets channel
      *
-     * @param \KlaviyoAPI\Model\MobilePushEnum $channel channel
+     * @param string $channel channel
      *
      * @return self
      */
@@ -358,6 +402,16 @@ class CampaignMessageCreateQueryResourceObjectAttributesDefinition implements Mo
     {
         if (is_null($channel)) {
             throw new \InvalidArgumentException('non-nullable channel cannot be null');
+        }
+        $allowedValues = $this->getChannelAllowableValues();
+        if (!in_array($channel, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'channel', must be one of '%s'",
+                    $channel,
+                    implode("', '", $allowedValues)
+                )
+            );
         }
         $this->container['channel'] = $channel;
 
@@ -516,7 +570,7 @@ class CampaignMessageCreateQueryResourceObjectAttributesDefinition implements Mo
     /**
      * Gets notification_type
      *
-     * @return \KlaviyoAPI\Model\SilentEnum|null
+     * @return string|null
      */
     public function getNotificationType()
     {
@@ -526,7 +580,7 @@ class CampaignMessageCreateQueryResourceObjectAttributesDefinition implements Mo
     /**
      * Sets notification_type
      *
-     * @param \KlaviyoAPI\Model\SilentEnum|null $notification_type notification_type
+     * @param string|null $notification_type The type of notification to send
      *
      * @return self
      */
@@ -534,6 +588,16 @@ class CampaignMessageCreateQueryResourceObjectAttributesDefinition implements Mo
     {
         if (is_null($notification_type)) {
             throw new \InvalidArgumentException('non-nullable notification_type cannot be null');
+        }
+        $allowedValues = $this->getNotificationTypeAllowableValues();
+        if (!in_array($notification_type, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'notification_type', must be one of '%s'",
+                    $notification_type,
+                    implode("', '", $allowedValues)
+                )
+            );
         }
         $this->container['notification_type'] = $notification_type;
 

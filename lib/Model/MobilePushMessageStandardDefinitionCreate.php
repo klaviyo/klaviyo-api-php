@@ -57,11 +57,11 @@ class MobilePushMessageStandardDefinitionCreate implements ModelInterface, Array
       * @var string[]
       */
     protected static $openAPITypes = [
-        'channel' => '\KlaviyoAPI\Model\MobilePushEnum',
+        'channel' => 'string',
         'content' => '\KlaviyoAPI\Model\MobilePushContentCreate',
         'kv_pairs' => 'object',
         'options' => '\KlaviyoAPI\Model\MobilePushOptions',
-        'notification_type' => '\KlaviyoAPI\Model\StandardEnum'
+        'notification_type' => 'string'
     ];
 
     /**
@@ -252,6 +252,32 @@ class MobilePushMessageStandardDefinitionCreate implements ModelInterface, Array
         return self::$openAPIModelName;
     }
 
+    public const CHANNEL_MOBILE_PUSH = 'mobile_push';
+    public const NOTIFICATION_TYPE_STANDARD = 'standard';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getChannelAllowableValues()
+    {
+        return [
+            self::CHANNEL_MOBILE_PUSH,
+        ];
+    }
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getNotificationTypeAllowableValues()
+    {
+        return [
+            self::NOTIFICATION_TYPE_STANDARD,
+        ];
+    }
 
     /**
      * Associative array for storing property values
@@ -272,7 +298,7 @@ class MobilePushMessageStandardDefinitionCreate implements ModelInterface, Array
         $this->setIfExists('content', $data ?? [], null);
         $this->setIfExists('kv_pairs', $data ?? [], null);
         $this->setIfExists('options', $data ?? [], null);
-        $this->setIfExists('notification_type', $data ?? [], null);
+        $this->setIfExists('notification_type', $data ?? [], 'standard');
     }
 
     /**
@@ -305,9 +331,27 @@ class MobilePushMessageStandardDefinitionCreate implements ModelInterface, Array
         if ($this->container['channel'] === null) {
             $invalidProperties[] = "'channel' can't be null";
         }
+        $allowedValues = $this->getChannelAllowableValues();
+        if (!is_null($this->container['channel']) && !in_array($this->container['channel'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'channel', must be one of '%s'",
+                $this->container['channel'],
+                implode("', '", $allowedValues)
+            );
+        }
+
         if ($this->container['content'] === null) {
             $invalidProperties[] = "'content' can't be null";
         }
+        $allowedValues = $this->getNotificationTypeAllowableValues();
+        if (!is_null($this->container['notification_type']) && !in_array($this->container['notification_type'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'notification_type', must be one of '%s'",
+                $this->container['notification_type'],
+                implode("', '", $allowedValues)
+            );
+        }
+
         return $invalidProperties;
     }
 
@@ -326,7 +370,7 @@ class MobilePushMessageStandardDefinitionCreate implements ModelInterface, Array
     /**
      * Gets channel
      *
-     * @return \KlaviyoAPI\Model\MobilePushEnum
+     * @return string
      */
     public function getChannel()
     {
@@ -336,7 +380,7 @@ class MobilePushMessageStandardDefinitionCreate implements ModelInterface, Array
     /**
      * Sets channel
      *
-     * @param \KlaviyoAPI\Model\MobilePushEnum $channel channel
+     * @param string $channel channel
      *
      * @return self
      */
@@ -344,6 +388,16 @@ class MobilePushMessageStandardDefinitionCreate implements ModelInterface, Array
     {
         if (is_null($channel)) {
             throw new \InvalidArgumentException('non-nullable channel cannot be null');
+        }
+        $allowedValues = $this->getChannelAllowableValues();
+        if (!in_array($channel, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'channel', must be one of '%s'",
+                    $channel,
+                    implode("', '", $allowedValues)
+                )
+            );
         }
         $this->container['channel'] = $channel;
 
@@ -441,7 +495,7 @@ class MobilePushMessageStandardDefinitionCreate implements ModelInterface, Array
     /**
      * Gets notification_type
      *
-     * @return \KlaviyoAPI\Model\StandardEnum|null
+     * @return string|null
      */
     public function getNotificationType()
     {
@@ -451,7 +505,7 @@ class MobilePushMessageStandardDefinitionCreate implements ModelInterface, Array
     /**
      * Sets notification_type
      *
-     * @param \KlaviyoAPI\Model\StandardEnum|null $notification_type notification_type
+     * @param string|null $notification_type The type of notification to send
      *
      * @return self
      */
@@ -459,6 +513,16 @@ class MobilePushMessageStandardDefinitionCreate implements ModelInterface, Array
     {
         if (is_null($notification_type)) {
             throw new \InvalidArgumentException('non-nullable notification_type cannot be null');
+        }
+        $allowedValues = $this->getNotificationTypeAllowableValues();
+        if (!in_array($notification_type, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'notification_type', must be one of '%s'",
+                    $notification_type,
+                    implode("', '", $allowedValues)
+                )
+            );
         }
         $this->container['notification_type'] = $notification_type;
 

@@ -60,7 +60,7 @@ class FlowActionUpdateQueryResourceObjectAttributesDefinition implements ModelIn
     protected static $openAPITypes = [
         'id' => 'string',
         'temporary_id' => 'string',
-        'type' => '\KlaviyoAPI\Model\ListUpdateEnum',
+        'type' => 'string',
         'links' => '\KlaviyoAPI\Model\Link',
         'data' => '\KlaviyoAPI\Model\ListUpdateActionData'
     ];
@@ -253,6 +253,57 @@ class FlowActionUpdateQueryResourceObjectAttributesDefinition implements ModelIn
         return self::$openAPIModelName;
     }
 
+    public const TYPE_ACTION_OUTPUT_SPLIT = 'action-output-split';
+    public const TYPE_BACK_IN_STOCK_DELAY = 'back-in-stock-delay';
+    public const TYPE_CONDITIONAL_SPLIT = 'conditional-split';
+    public const TYPE_CONTENT_EXPERIMENT = 'content-experiment';
+    public const TYPE_SEND_EMAIL = 'send-email';
+    public const TYPE_SEND_MOBILE_PUSH = 'send-mobile-push';
+    public const TYPE_SEND_SMS = 'send-sms';
+    public const TYPE_SEND_WEBHOOK = 'send-webhook';
+    public const TYPE_SEND_INTERNAL_ALERT = 'send-internal-alert';
+    public const TYPE_SEND_WHATSAPP = 'send-whatsapp';
+    public const TYPE_TIME_DELAY = 'time-delay';
+    public const TYPE_TRIGGER_SPLIT = 'trigger-split';
+    public const TYPE_UPDATE_PROFILE = 'update-profile';
+    public const TYPE_TARGET_DATE = 'target-date';
+    public const TYPE_COUNTDOWN_DELAY = 'countdown-delay';
+    public const TYPE_AB_TEST = 'ab-test';
+    public const TYPE_INTERNAL_SERVICE = 'internal-service';
+    public const TYPE_CODE = 'code';
+    public const TYPE_MULTI_BRANCH_SPLIT = 'multi-branch-split';
+    public const TYPE_LIST_UPDATE = 'list-update';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getTypeAllowableValues()
+    {
+        return [
+            self::TYPE_ACTION_OUTPUT_SPLIT,
+            self::TYPE_BACK_IN_STOCK_DELAY,
+            self::TYPE_CONDITIONAL_SPLIT,
+            self::TYPE_CONTENT_EXPERIMENT,
+            self::TYPE_SEND_EMAIL,
+            self::TYPE_SEND_MOBILE_PUSH,
+            self::TYPE_SEND_SMS,
+            self::TYPE_SEND_WEBHOOK,
+            self::TYPE_SEND_INTERNAL_ALERT,
+            self::TYPE_SEND_WHATSAPP,
+            self::TYPE_TIME_DELAY,
+            self::TYPE_TRIGGER_SPLIT,
+            self::TYPE_UPDATE_PROFILE,
+            self::TYPE_TARGET_DATE,
+            self::TYPE_COUNTDOWN_DELAY,
+            self::TYPE_AB_TEST,
+            self::TYPE_INTERNAL_SERVICE,
+            self::TYPE_CODE,
+            self::TYPE_MULTI_BRANCH_SPLIT,
+            self::TYPE_LIST_UPDATE,
+        ];
+    }
 
     /**
      * Associative array for storing property values
@@ -306,6 +357,15 @@ class FlowActionUpdateQueryResourceObjectAttributesDefinition implements ModelIn
         if ($this->container['type'] === null) {
             $invalidProperties[] = "'type' can't be null";
         }
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!is_null($this->container['type']) && !in_array($this->container['type'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'type', must be one of '%s'",
+                $this->container['type'],
+                implode("', '", $allowedValues)
+            );
+        }
+
         if ($this->container['data'] === null) {
             $invalidProperties[] = "'data' can't be null";
         }
@@ -337,7 +397,7 @@ class FlowActionUpdateQueryResourceObjectAttributesDefinition implements ModelIn
     /**
      * Sets id
      *
-     * @param string|null $id The real ID of an action.
+     * @param string|null $id The real ID of an action. Not allowed on create.
      *
      * @return self
      */
@@ -395,7 +455,7 @@ class FlowActionUpdateQueryResourceObjectAttributesDefinition implements ModelIn
     /**
      * Gets type
      *
-     * @return \KlaviyoAPI\Model\ListUpdateEnum
+     * @return string
      */
     public function getType()
     {
@@ -405,7 +465,7 @@ class FlowActionUpdateQueryResourceObjectAttributesDefinition implements ModelIn
     /**
      * Sets type
      *
-     * @param \KlaviyoAPI\Model\ListUpdateEnum $type type
+     * @param string $type type
      *
      * @return self
      */
@@ -413,6 +473,16 @@ class FlowActionUpdateQueryResourceObjectAttributesDefinition implements ModelIn
     {
         if (is_null($type)) {
             throw new \InvalidArgumentException('non-nullable type cannot be null');
+        }
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!in_array($type, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'type', must be one of '%s'",
+                    $type,
+                    implode("', '", $allowedValues)
+                )
+            );
         }
         $this->container['type'] = $type;
 

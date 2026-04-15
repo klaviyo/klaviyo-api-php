@@ -57,8 +57,8 @@ class BounceDateFilterFilter implements ModelInterface, ArrayAccess, \JsonSerial
       * @var string[]
       */
     protected static $openAPITypes = [
-        'type' => '\KlaviyoAPI\Model\ExistenceEnum',
-        'operator' => '\KlaviyoAPI\Model\IsSetEnum',
+        'type' => 'string',
+        'operator' => 'string',
         'date' => '\DateTime',
         'start' => 'int',
         'end' => 'int',
@@ -270,9 +270,37 @@ class BounceDateFilterFilter implements ModelInterface, ArrayAccess, \JsonSerial
         return self::$openAPIModelName;
     }
 
+    public const TYPE_DATE = 'date';
+    public const TYPE_EXISTENCE = 'existence';
+    public const OPERATOR_IS_SET = 'is-set';
     public const UNIT_DAY = 'day';
     public const UNIT_HOUR = 'hour';
     public const UNIT_WEEK = 'week';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getTypeAllowableValues()
+    {
+        return [
+            self::TYPE_DATE,
+            self::TYPE_EXISTENCE,
+        ];
+    }
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getOperatorAllowableValues()
+    {
+        return [
+            self::OPERATOR_IS_SET,
+        ];
+    }
 
     /**
      * Gets allowable values of the enum
@@ -343,9 +371,27 @@ class BounceDateFilterFilter implements ModelInterface, ArrayAccess, \JsonSerial
         if ($this->container['type'] === null) {
             $invalidProperties[] = "'type' can't be null";
         }
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!is_null($this->container['type']) && !in_array($this->container['type'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'type', must be one of '%s'",
+                $this->container['type'],
+                implode("', '", $allowedValues)
+            );
+        }
+
         if ($this->container['operator'] === null) {
             $invalidProperties[] = "'operator' can't be null";
         }
+        $allowedValues = $this->getOperatorAllowableValues();
+        if (!is_null($this->container['operator']) && !in_array($this->container['operator'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'operator', must be one of '%s'",
+                $this->container['operator'],
+                implode("', '", $allowedValues)
+            );
+        }
+
         if ($this->container['date'] === null) {
             $invalidProperties[] = "'date' can't be null";
         }
@@ -391,7 +437,7 @@ class BounceDateFilterFilter implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Gets type
      *
-     * @return \KlaviyoAPI\Model\ExistenceEnum
+     * @return string
      */
     public function getType()
     {
@@ -401,7 +447,7 @@ class BounceDateFilterFilter implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets type
      *
-     * @param \KlaviyoAPI\Model\ExistenceEnum $type type
+     * @param string $type type
      *
      * @return self
      */
@@ -409,6 +455,16 @@ class BounceDateFilterFilter implements ModelInterface, ArrayAccess, \JsonSerial
     {
         if (is_null($type)) {
             throw new \InvalidArgumentException('non-nullable type cannot be null');
+        }
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!in_array($type, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'type', must be one of '%s'",
+                    $type,
+                    implode("', '", $allowedValues)
+                )
+            );
         }
         $this->container['type'] = $type;
 
@@ -418,7 +474,7 @@ class BounceDateFilterFilter implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Gets operator
      *
-     * @return \KlaviyoAPI\Model\IsSetEnum
+     * @return string
      */
     public function getOperator()
     {
@@ -428,7 +484,7 @@ class BounceDateFilterFilter implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets operator
      *
-     * @param \KlaviyoAPI\Model\IsSetEnum $operator operator
+     * @param string $operator operator
      *
      * @return self
      */
@@ -436,6 +492,16 @@ class BounceDateFilterFilter implements ModelInterface, ArrayAccess, \JsonSerial
     {
         if (is_null($operator)) {
             throw new \InvalidArgumentException('non-nullable operator cannot be null');
+        }
+        $allowedValues = $this->getOperatorAllowableValues();
+        if (!in_array($operator, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'operator', must be one of '%s'",
+                    $operator,
+                    implode("', '", $allowedValues)
+                )
+            );
         }
         $this->container['operator'] = $operator;
 

@@ -58,7 +58,7 @@ class VersionTriggersInner implements ModelInterface, ArrayAccess, \JsonSerializ
       */
     protected static $openAPITypes = [
         'id' => 'string',
-        'type' => '\KlaviyoAPI\Model\BackInStockEnum',
+        'type' => 'string',
         'properties' => '\KlaviyoAPI\Model\BackInStockProperties'
     ];
 
@@ -240,6 +240,55 @@ class VersionTriggersInner implements ModelInterface, ArrayAccess, \JsonSerializ
         return self::$openAPIModelName;
     }
 
+    public const TYPE_AFTER_CLOSE_OR_SUBMIT_TIMEOUT = 'after_close_or_submit_timeout';
+    public const TYPE_CART_ITEM_COUNT = 'cart_item_count';
+    public const TYPE_CART_PRODUCT = 'cart_product';
+    public const TYPE_CART_VALUE = 'cart_value';
+    public const TYPE_CHANNEL = 'channel';
+    public const TYPE_CUSTOM_JAVASCRIPT = 'custom_javascript';
+    public const TYPE_DELAY = 'delay';
+    public const TYPE_DEVICE = 'device';
+    public const TYPE_EXIT_INTENT = 'exit_intent';
+    public const TYPE_IDENTIFIED_PROFILES = 'identified_profiles';
+    public const TYPE_LISTS_AND_SEGMENTS = 'lists_and_segments';
+    public const TYPE_LOCATION = 'location';
+    public const TYPE_PAGE_VISITS = 'page_visits';
+    public const TYPE_PREVIOUSLY_SUBMITTED = 'previously_submitted';
+    public const TYPE_PROFILE_EVENT_TRACKED = 'profile_event_tracked';
+    public const TYPE_SCROLL_PERCENTAGE = 'scroll_percentage';
+    public const TYPE_UNIDENTIFIED_PROFILES = 'unidentified_profiles';
+    public const TYPE_URL_PATTERNS = 'url_patterns';
+    public const TYPE_BACK_IN_STOCK = 'back_in_stock';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getTypeAllowableValues()
+    {
+        return [
+            self::TYPE_AFTER_CLOSE_OR_SUBMIT_TIMEOUT,
+            self::TYPE_CART_ITEM_COUNT,
+            self::TYPE_CART_PRODUCT,
+            self::TYPE_CART_VALUE,
+            self::TYPE_CHANNEL,
+            self::TYPE_CUSTOM_JAVASCRIPT,
+            self::TYPE_DELAY,
+            self::TYPE_DEVICE,
+            self::TYPE_EXIT_INTENT,
+            self::TYPE_IDENTIFIED_PROFILES,
+            self::TYPE_LISTS_AND_SEGMENTS,
+            self::TYPE_LOCATION,
+            self::TYPE_PAGE_VISITS,
+            self::TYPE_PREVIOUSLY_SUBMITTED,
+            self::TYPE_PROFILE_EVENT_TRACKED,
+            self::TYPE_SCROLL_PERCENTAGE,
+            self::TYPE_UNIDENTIFIED_PROFILES,
+            self::TYPE_URL_PATTERNS,
+            self::TYPE_BACK_IN_STOCK,
+        ];
+    }
 
     /**
      * Associative array for storing property values
@@ -291,6 +340,15 @@ class VersionTriggersInner implements ModelInterface, ArrayAccess, \JsonSerializ
         if ($this->container['type'] === null) {
             $invalidProperties[] = "'type' can't be null";
         }
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!is_null($this->container['type']) && !in_array($this->container['type'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'type', must be one of '%s'",
+                $this->container['type'],
+                implode("', '", $allowedValues)
+            );
+        }
+
         if ($this->container['properties'] === null) {
             $invalidProperties[] = "'properties' can't be null";
         }
@@ -322,7 +380,7 @@ class VersionTriggersInner implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Sets id
      *
-     * @param string|null $id id
+     * @param string|null $id Not allowed on create.
      *
      * @return self
      */
@@ -346,7 +404,7 @@ class VersionTriggersInner implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Gets type
      *
-     * @return \KlaviyoAPI\Model\BackInStockEnum
+     * @return string
      */
     public function getType()
     {
@@ -356,7 +414,7 @@ class VersionTriggersInner implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Sets type
      *
-     * @param \KlaviyoAPI\Model\BackInStockEnum $type type
+     * @param string $type type
      *
      * @return self
      */
@@ -364,6 +422,16 @@ class VersionTriggersInner implements ModelInterface, ArrayAccess, \JsonSerializ
     {
         if (is_null($type)) {
             throw new \InvalidArgumentException('non-nullable type cannot be null');
+        }
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!in_array($type, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'type', must be one of '%s'",
+                    $type,
+                    implode("', '", $allowedValues)
+                )
+            );
         }
         $this->container['type'] = $type;
 

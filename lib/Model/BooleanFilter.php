@@ -57,7 +57,7 @@ class BooleanFilter implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'type' => '\KlaviyoAPI\Model\BooleanEnum',
+        'type' => 'string',
         'operator' => 'string',
         'value' => 'bool'
     ];
@@ -240,7 +240,20 @@ class BooleanFilter implements ModelInterface, ArrayAccess, \JsonSerializable
         return self::$openAPIModelName;
     }
 
+    public const TYPE_BOOLEAN = 'boolean';
     public const OPERATOR_EQUALS = 'equals';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getTypeAllowableValues()
+    {
+        return [
+            self::TYPE_BOOLEAN,
+        ];
+    }
 
     /**
      * Gets allowable values of the enum
@@ -304,6 +317,15 @@ class BooleanFilter implements ModelInterface, ArrayAccess, \JsonSerializable
         if ($this->container['type'] === null) {
             $invalidProperties[] = "'type' can't be null";
         }
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!is_null($this->container['type']) && !in_array($this->container['type'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'type', must be one of '%s'",
+                $this->container['type'],
+                implode("', '", $allowedValues)
+            );
+        }
+
         if ($this->container['operator'] === null) {
             $invalidProperties[] = "'operator' can't be null";
         }
@@ -337,7 +359,7 @@ class BooleanFilter implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets type
      *
-     * @return \KlaviyoAPI\Model\BooleanEnum
+     * @return string
      */
     public function getType()
     {
@@ -347,7 +369,7 @@ class BooleanFilter implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets type
      *
-     * @param \KlaviyoAPI\Model\BooleanEnum $type type
+     * @param string $type type
      *
      * @return self
      */
@@ -355,6 +377,16 @@ class BooleanFilter implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         if (is_null($type)) {
             throw new \InvalidArgumentException('non-nullable type cannot be null');
+        }
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!in_array($type, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'type', must be one of '%s'",
+                    $type,
+                    implode("', '", $allowedValues)
+                )
+            );
         }
         $this->container['type'] = $type;
 

@@ -59,7 +59,7 @@ class BlockDisplayOptions implements ModelInterface, ArrayAccess, \JsonSerializa
     protected static $openAPITypes = [
         'show_on' => 'string',
         'visible_check' => 'string',
-        'content_repeat' => '\KlaviyoAPI\Model\ContentRepeat'
+        'content_repeat' => '\KlaviyoAPI\Model\ContentRepeatV0'
     ];
 
     /**
@@ -410,7 +410,7 @@ class BlockDisplayOptions implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Gets content_repeat
      *
-     * @return \KlaviyoAPI\Model\ContentRepeat|null
+     * @return \KlaviyoAPI\Model\ContentRepeatV0|null
      */
     public function getContentRepeat()
     {
@@ -420,7 +420,7 @@ class BlockDisplayOptions implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets content_repeat
      *
-     * @param \KlaviyoAPI\Model\ContentRepeat|null $content_repeat content_repeat
+     * @param \KlaviyoAPI\Model\ContentRepeatV0|null $content_repeat content_repeat
      *
      * @return self
      */

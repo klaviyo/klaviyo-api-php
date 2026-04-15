@@ -57,7 +57,7 @@ class ProfilePredictiveAnalyticsChannelAffinityRankFilter implements ModelInterf
       * @var string[]
       */
     protected static $openAPITypes = [
-        'type' => '\KlaviyoAPI\Model\StringEnum',
+        'type' => 'string',
         'operator' => '\KlaviyoAPI\Model\ProfilePredictiveAnalyticsStringFilterOperator',
         'value' => 'string'
     ];
@@ -240,9 +240,22 @@ class ProfilePredictiveAnalyticsChannelAffinityRankFilter implements ModelInterf
         return self::$openAPIModelName;
     }
 
+    public const TYPE_STRING = 'string';
     public const VALUE_HIGH = 'high';
     public const VALUE_LOW = 'low';
     public const VALUE_MEDIUM = 'medium';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getTypeAllowableValues()
+    {
+        return [
+            self::TYPE_STRING,
+        ];
+    }
 
     /**
      * Gets allowable values of the enum
@@ -308,6 +321,15 @@ class ProfilePredictiveAnalyticsChannelAffinityRankFilter implements ModelInterf
         if ($this->container['type'] === null) {
             $invalidProperties[] = "'type' can't be null";
         }
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!is_null($this->container['type']) && !in_array($this->container['type'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'type', must be one of '%s'",
+                $this->container['type'],
+                implode("', '", $allowedValues)
+            );
+        }
+
         if ($this->container['operator'] === null) {
             $invalidProperties[] = "'operator' can't be null";
         }
@@ -341,7 +363,7 @@ class ProfilePredictiveAnalyticsChannelAffinityRankFilter implements ModelInterf
     /**
      * Gets type
      *
-     * @return \KlaviyoAPI\Model\StringEnum
+     * @return string
      */
     public function getType()
     {
@@ -351,7 +373,7 @@ class ProfilePredictiveAnalyticsChannelAffinityRankFilter implements ModelInterf
     /**
      * Sets type
      *
-     * @param \KlaviyoAPI\Model\StringEnum $type type
+     * @param string $type type
      *
      * @return self
      */
@@ -359,6 +381,16 @@ class ProfilePredictiveAnalyticsChannelAffinityRankFilter implements ModelInterf
     {
         if (is_null($type)) {
             throw new \InvalidArgumentException('non-nullable type cannot be null');
+        }
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!in_array($type, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'type', must be one of '%s'",
+                    $type,
+                    implode("', '", $allowedValues)
+                )
+            );
         }
         $this->container['type'] = $type;
 

@@ -57,7 +57,7 @@ class ProfilePropertyCondition implements ModelInterface, ArrayAccess, \JsonSeri
       * @var string[]
       */
     protected static $openAPITypes = [
-        'type' => '\KlaviyoAPI\Model\ProfilePropertyEnum',
+        'type' => 'string',
         'property' => 'string',
         'filter' => '\KlaviyoAPI\Model\ProfilePropertyConditionFilter'
     ];
@@ -240,6 +240,19 @@ class ProfilePropertyCondition implements ModelInterface, ArrayAccess, \JsonSeri
         return self::$openAPIModelName;
     }
 
+    public const TYPE_PROFILE_PROPERTY = 'profile-property';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getTypeAllowableValues()
+    {
+        return [
+            self::TYPE_PROFILE_PROPERTY,
+        ];
+    }
 
     /**
      * Associative array for storing property values
@@ -291,6 +304,15 @@ class ProfilePropertyCondition implements ModelInterface, ArrayAccess, \JsonSeri
         if ($this->container['type'] === null) {
             $invalidProperties[] = "'type' can't be null";
         }
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!is_null($this->container['type']) && !in_array($this->container['type'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'type', must be one of '%s'",
+                $this->container['type'],
+                implode("', '", $allowedValues)
+            );
+        }
+
         if ($this->container['property'] === null) {
             $invalidProperties[] = "'property' can't be null";
         }
@@ -315,7 +337,7 @@ class ProfilePropertyCondition implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Gets type
      *
-     * @return \KlaviyoAPI\Model\ProfilePropertyEnum
+     * @return string
      */
     public function getType()
     {
@@ -325,7 +347,7 @@ class ProfilePropertyCondition implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets type
      *
-     * @param \KlaviyoAPI\Model\ProfilePropertyEnum $type type
+     * @param string $type type
      *
      * @return self
      */
@@ -333,6 +355,16 @@ class ProfilePropertyCondition implements ModelInterface, ArrayAccess, \JsonSeri
     {
         if (is_null($type)) {
             throw new \InvalidArgumentException('non-nullable type cannot be null');
+        }
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!in_array($type, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'type', must be one of '%s'",
+                    $type,
+                    implode("', '", $allowedValues)
+                )
+            );
         }
         $this->container['type'] = $type;
 

@@ -57,7 +57,7 @@ class ActionOutputCondition implements ModelInterface, ArrayAccess, \JsonSeriali
       * @var string[]
       */
     protected static $openAPITypes = [
-        'type' => '\KlaviyoAPI\Model\ActionOutputEnum',
+        'type' => 'string',
         'output_config_id' => 'int',
         'field' => 'string',
         'filter' => '\KlaviyoAPI\Model\ActionOutputConditionFilter2'
@@ -246,6 +246,19 @@ class ActionOutputCondition implements ModelInterface, ArrayAccess, \JsonSeriali
         return self::$openAPIModelName;
     }
 
+    public const TYPE_ACTION_OUTPUT = 'action-output';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getTypeAllowableValues()
+    {
+        return [
+            self::TYPE_ACTION_OUTPUT,
+        ];
+    }
 
     /**
      * Associative array for storing property values
@@ -298,6 +311,15 @@ class ActionOutputCondition implements ModelInterface, ArrayAccess, \JsonSeriali
         if ($this->container['type'] === null) {
             $invalidProperties[] = "'type' can't be null";
         }
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!is_null($this->container['type']) && !in_array($this->container['type'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'type', must be one of '%s'",
+                $this->container['type'],
+                implode("', '", $allowedValues)
+            );
+        }
+
         if ($this->container['output_config_id'] === null) {
             $invalidProperties[] = "'output_config_id' can't be null";
         }
@@ -325,7 +347,7 @@ class ActionOutputCondition implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Gets type
      *
-     * @return \KlaviyoAPI\Model\ActionOutputEnum
+     * @return string
      */
     public function getType()
     {
@@ -335,7 +357,7 @@ class ActionOutputCondition implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Sets type
      *
-     * @param \KlaviyoAPI\Model\ActionOutputEnum $type type
+     * @param string $type type
      *
      * @return self
      */
@@ -343,6 +365,16 @@ class ActionOutputCondition implements ModelInterface, ArrayAccess, \JsonSeriali
     {
         if (is_null($type)) {
             throw new \InvalidArgumentException('non-nullable type cannot be null');
+        }
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!in_array($type, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'type', must be one of '%s'",
+                    $type,
+                    implode("', '", $allowedValues)
+                )
+            );
         }
         $this->container['type'] = $type;
 

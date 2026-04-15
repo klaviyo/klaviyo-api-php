@@ -57,7 +57,7 @@ class ProfilePredictiveAnalyticsStringCondition implements ModelInterface, Array
       * @var string[]
       */
     protected static $openAPITypes = [
-        'type' => '\KlaviyoAPI\Model\ProfilePredictiveAnalyticsEnum',
+        'type' => 'string',
         'dimension' => 'string',
         'filter' => '\KlaviyoAPI\Model\ProfilePredictiveAnalyticsStringFilter'
     ];
@@ -240,7 +240,20 @@ class ProfilePredictiveAnalyticsStringCondition implements ModelInterface, Array
         return self::$openAPIModelName;
     }
 
+    public const TYPE_PROFILE_PREDICTIVE_ANALYTICS = 'profile-predictive-analytics';
     public const DIMENSION_PREDICTED_GENDER = 'predicted_gender';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getTypeAllowableValues()
+    {
+        return [
+            self::TYPE_PROFILE_PREDICTIVE_ANALYTICS,
+        ];
+    }
 
     /**
      * Gets allowable values of the enum
@@ -304,6 +317,15 @@ class ProfilePredictiveAnalyticsStringCondition implements ModelInterface, Array
         if ($this->container['type'] === null) {
             $invalidProperties[] = "'type' can't be null";
         }
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!is_null($this->container['type']) && !in_array($this->container['type'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'type', must be one of '%s'",
+                $this->container['type'],
+                implode("', '", $allowedValues)
+            );
+        }
+
         if ($this->container['dimension'] === null) {
             $invalidProperties[] = "'dimension' can't be null";
         }
@@ -337,7 +359,7 @@ class ProfilePredictiveAnalyticsStringCondition implements ModelInterface, Array
     /**
      * Gets type
      *
-     * @return \KlaviyoAPI\Model\ProfilePredictiveAnalyticsEnum
+     * @return string
      */
     public function getType()
     {
@@ -347,7 +369,7 @@ class ProfilePredictiveAnalyticsStringCondition implements ModelInterface, Array
     /**
      * Sets type
      *
-     * @param \KlaviyoAPI\Model\ProfilePredictiveAnalyticsEnum $type type
+     * @param string $type type
      *
      * @return self
      */
@@ -355,6 +377,16 @@ class ProfilePredictiveAnalyticsStringCondition implements ModelInterface, Array
     {
         if (is_null($type)) {
             throw new \InvalidArgumentException('non-nullable type cannot be null');
+        }
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!in_array($type, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'type', must be one of '%s'",
+                    $type,
+                    implode("', '", $allowedValues)
+                )
+            );
         }
         $this->container['type'] = $type;
 

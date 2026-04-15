@@ -57,7 +57,7 @@ class FixedTimerConfiguration implements ModelInterface, ArrayAccess, \JsonSeria
       * @var string[]
       */
     protected static $openAPITypes = [
-        'type' => '\KlaviyoAPI\Model\FixedEnum',
+        'type' => 'string',
         'timezone' => 'string',
         'end_time' => '\DateTime'
     ];
@@ -240,6 +240,7 @@ class FixedTimerConfiguration implements ModelInterface, ArrayAccess, \JsonSeria
         return self::$openAPIModelName;
     }
 
+    public const TYPE_FIXED = 'fixed';
     public const TIMEZONE_AFRICA_ABIDJAN = 'Africa/Abidjan';
     public const TIMEZONE_AFRICA_ACCRA = 'Africa/Accra';
     public const TIMEZONE_AFRICA_ADDIS_ABABA = 'Africa/Addis_Ababa';
@@ -836,6 +837,18 @@ class FixedTimerConfiguration implements ModelInterface, ArrayAccess, \JsonSeria
     public const TIMEZONE_W_SU = 'W-SU';
     public const TIMEZONE_WET = 'WET';
     public const TIMEZONE_ZULU = 'Zulu';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getTypeAllowableValues()
+    {
+        return [
+            self::TYPE_FIXED,
+        ];
+    }
 
     /**
      * Gets allowable values of the enum
@@ -1494,6 +1507,15 @@ class FixedTimerConfiguration implements ModelInterface, ArrayAccess, \JsonSeria
         if ($this->container['type'] === null) {
             $invalidProperties[] = "'type' can't be null";
         }
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!is_null($this->container['type']) && !in_array($this->container['type'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'type', must be one of '%s'",
+                $this->container['type'],
+                implode("', '", $allowedValues)
+            );
+        }
+
         if ($this->container['timezone'] === null) {
             $invalidProperties[] = "'timezone' can't be null";
         }
@@ -1524,7 +1546,7 @@ class FixedTimerConfiguration implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Gets type
      *
-     * @return \KlaviyoAPI\Model\FixedEnum
+     * @return string
      */
     public function getType()
     {
@@ -1534,7 +1556,7 @@ class FixedTimerConfiguration implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Sets type
      *
-     * @param \KlaviyoAPI\Model\FixedEnum $type type
+     * @param string $type type
      *
      * @return self
      */
@@ -1542,6 +1564,16 @@ class FixedTimerConfiguration implements ModelInterface, ArrayAccess, \JsonSeria
     {
         if (is_null($type)) {
             throw new \InvalidArgumentException('non-nullable type cannot be null');
+        }
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!in_array($type, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'type', must be one of '%s'",
+                    $type,
+                    implode("', '", $allowedValues)
+                )
+            );
         }
         $this->container['type'] = $type;
 

@@ -57,7 +57,7 @@ class SubscribedSMSIsRcsCapableFilter implements ModelInterface, ArrayAccess, \J
       * @var string[]
       */
     protected static $openAPITypes = [
-        'field' => '\KlaviyoAPI\Model\IsRcsCapableEnum',
+        'field' => 'string',
         'filter' => '\KlaviyoAPI\Model\BooleanFilter'
     ];
 
@@ -234,6 +234,19 @@ class SubscribedSMSIsRcsCapableFilter implements ModelInterface, ArrayAccess, \J
         return self::$openAPIModelName;
     }
 
+    public const FIELD_IS_RCS_CAPABLE = 'is_rcs_capable';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getFieldAllowableValues()
+    {
+        return [
+            self::FIELD_IS_RCS_CAPABLE,
+        ];
+    }
 
     /**
      * Associative array for storing property values
@@ -284,6 +297,15 @@ class SubscribedSMSIsRcsCapableFilter implements ModelInterface, ArrayAccess, \J
         if ($this->container['field'] === null) {
             $invalidProperties[] = "'field' can't be null";
         }
+        $allowedValues = $this->getFieldAllowableValues();
+        if (!is_null($this->container['field']) && !in_array($this->container['field'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'field', must be one of '%s'",
+                $this->container['field'],
+                implode("', '", $allowedValues)
+            );
+        }
+
         if ($this->container['filter'] === null) {
             $invalidProperties[] = "'filter' can't be null";
         }
@@ -305,7 +327,7 @@ class SubscribedSMSIsRcsCapableFilter implements ModelInterface, ArrayAccess, \J
     /**
      * Gets field
      *
-     * @return \KlaviyoAPI\Model\IsRcsCapableEnum
+     * @return string
      */
     public function getField()
     {
@@ -315,7 +337,7 @@ class SubscribedSMSIsRcsCapableFilter implements ModelInterface, ArrayAccess, \J
     /**
      * Sets field
      *
-     * @param \KlaviyoAPI\Model\IsRcsCapableEnum $field field
+     * @param string $field field
      *
      * @return self
      */
@@ -323,6 +345,16 @@ class SubscribedSMSIsRcsCapableFilter implements ModelInterface, ArrayAccess, \J
     {
         if (is_null($field)) {
             throw new \InvalidArgumentException('non-nullable field cannot be null');
+        }
+        $allowedValues = $this->getFieldAllowableValues();
+        if (!in_array($field, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'field', must be one of '%s'",
+                    $field,
+                    implode("', '", $allowedValues)
+                )
+            );
         }
         $this->container['field'] = $field;
 

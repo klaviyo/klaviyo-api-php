@@ -59,7 +59,8 @@ class SegmentPartialUpdateQueryResourceObjectAttributes implements ModelInterfac
     protected static $openAPITypes = [
         'definition' => '\KlaviyoAPI\Model\SegmentDefinition',
         'name' => 'string',
-        'is_starred' => 'bool'
+        'is_starred' => 'bool',
+        'is_active' => 'bool'
     ];
 
     /**
@@ -72,7 +73,8 @@ class SegmentPartialUpdateQueryResourceObjectAttributes implements ModelInterfac
     protected static $openAPIFormats = [
         'definition' => null,
         'name' => null,
-        'is_starred' => null
+        'is_starred' => null,
+        'is_active' => null
     ];
 
     /**
@@ -83,7 +85,8 @@ class SegmentPartialUpdateQueryResourceObjectAttributes implements ModelInterfac
     protected static array $openAPINullables = [
         'definition' => false,
         'name' => true,
-        'is_starred' => true
+        'is_starred' => true,
+        'is_active' => true
     ];
 
     /**
@@ -174,7 +177,8 @@ class SegmentPartialUpdateQueryResourceObjectAttributes implements ModelInterfac
     protected static $attributeMap = [
         'definition' => 'definition',
         'name' => 'name',
-        'is_starred' => 'is_starred'
+        'is_starred' => 'is_starred',
+        'is_active' => 'is_active'
     ];
 
     /**
@@ -185,7 +189,8 @@ class SegmentPartialUpdateQueryResourceObjectAttributes implements ModelInterfac
     protected static $setters = [
         'definition' => 'setDefinition',
         'name' => 'setName',
-        'is_starred' => 'setIsStarred'
+        'is_starred' => 'setIsStarred',
+        'is_active' => 'setIsActive'
     ];
 
     /**
@@ -196,7 +201,8 @@ class SegmentPartialUpdateQueryResourceObjectAttributes implements ModelInterfac
     protected static $getters = [
         'definition' => 'getDefinition',
         'name' => 'getName',
-        'is_starred' => 'getIsStarred'
+        'is_starred' => 'getIsStarred',
+        'is_active' => 'getIsActive'
     ];
 
     /**
@@ -259,6 +265,7 @@ class SegmentPartialUpdateQueryResourceObjectAttributes implements ModelInterfac
         $this->setIfExists('definition', $data ?? [], null);
         $this->setIfExists('name', $data ?? [], null);
         $this->setIfExists('is_starred', $data ?? [], null);
+        $this->setIfExists('is_active', $data ?? [], null);
     }
 
     /**
@@ -394,6 +401,40 @@ class SegmentPartialUpdateQueryResourceObjectAttributes implements ModelInterfac
             }
         }
         $this->container['is_starred'] = $is_starred;
+
+        return $this;
+    }
+
+    /**
+     * Gets is_active
+     *
+     * @return bool|null
+     */
+    public function getIsActive()
+    {
+        return $this->container['is_active'];
+    }
+
+    /**
+     * Sets is_active
+     *
+     * @param bool|null $is_active Set to false to deactivate the segment. When deactivating, this must be the only attribute in the request body. Deactivation cannot be combined with other updates. Marking a segment inactive will impact campaigns, flows, ad syncs, forms, helpdesk routing, and other features that reference this segment. Set to true to reactivate a deactivated segment.
+     *
+     * @return self
+     */
+    public function setIsActive($is_active)
+    {
+        if (is_null($is_active)) {
+            array_push($this->openAPINullablesSetToNull, 'is_active');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('is_active', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['is_active'] = $is_active;
 
         return $this;
     }

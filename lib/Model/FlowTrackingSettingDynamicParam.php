@@ -57,7 +57,7 @@ class FlowTrackingSettingDynamicParam implements ModelInterface, ArrayAccess, \J
       * @var string[]
       */
     protected static $openAPITypes = [
-        'type' => '\KlaviyoAPI\Model\DynamicEnum',
+        'type' => 'string',
         'value' => 'string'
     ];
 
@@ -234,6 +234,7 @@ class FlowTrackingSettingDynamicParam implements ModelInterface, ArrayAccess, \J
         return self::$openAPIModelName;
     }
 
+    public const TYPE_DYNAMIC = 'dynamic';
     public const VALUE_EMAIL_SUBJECT = 'email_subject';
     public const VALUE_FLOW_ID = 'flow_id';
     public const VALUE_FLOW_NAME = 'flow_name';
@@ -243,6 +244,18 @@ class FlowTrackingSettingDynamicParam implements ModelInterface, ArrayAccess, \J
     public const VALUE_MESSAGE_TYPE = 'message_type';
     public const VALUE_PROFILE_EXTERNAL_ID = 'profile_external_id';
     public const VALUE_PROFILE_ID = 'profile_id';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getTypeAllowableValues()
+    {
+        return [
+            self::TYPE_DYNAMIC,
+        ];
+    }
 
     /**
      * Gets allowable values of the enum
@@ -313,6 +326,15 @@ class FlowTrackingSettingDynamicParam implements ModelInterface, ArrayAccess, \J
         if ($this->container['type'] === null) {
             $invalidProperties[] = "'type' can't be null";
         }
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!is_null($this->container['type']) && !in_array($this->container['type'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'type', must be one of '%s'",
+                $this->container['type'],
+                implode("', '", $allowedValues)
+            );
+        }
+
         if ($this->container['value'] === null) {
             $invalidProperties[] = "'value' can't be null";
         }
@@ -343,7 +365,7 @@ class FlowTrackingSettingDynamicParam implements ModelInterface, ArrayAccess, \J
     /**
      * Gets type
      *
-     * @return \KlaviyoAPI\Model\DynamicEnum
+     * @return string
      */
     public function getType()
     {
@@ -353,7 +375,7 @@ class FlowTrackingSettingDynamicParam implements ModelInterface, ArrayAccess, \J
     /**
      * Sets type
      *
-     * @param \KlaviyoAPI\Model\DynamicEnum $type type
+     * @param string $type The type of the tracking parameter
      *
      * @return self
      */
@@ -361,6 +383,16 @@ class FlowTrackingSettingDynamicParam implements ModelInterface, ArrayAccess, \J
     {
         if (is_null($type)) {
             throw new \InvalidArgumentException('non-nullable type cannot be null');
+        }
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!in_array($type, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'type', must be one of '%s'",
+                    $type,
+                    implode("', '", $allowedValues)
+                )
+            );
         }
         $this->container['type'] = $type;
 

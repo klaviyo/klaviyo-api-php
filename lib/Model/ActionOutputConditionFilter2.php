@@ -57,11 +57,11 @@ class ActionOutputConditionFilter2 implements ModelInterface, ArrayAccess, \Json
       * @var string[]
       */
     protected static $openAPITypes = [
-        'type' => '\KlaviyoAPI\Model\ExistenceEnum',
+        'type' => 'string',
         'operator' => 'string',
         'value' => 'bool',
-        'start' => '\KlaviyoAPI\Model\NumericOperatorFilterValue',
-        'end' => '\KlaviyoAPI\Model\NumericOperatorFilterValue'
+        'start' => '\KlaviyoAPI\Model\NumericOperatorNumericFilterValue',
+        'end' => '\KlaviyoAPI\Model\NumericOperatorNumericFilterValue'
     ];
 
     /**
@@ -252,8 +252,27 @@ class ActionOutputConditionFilter2 implements ModelInterface, ArrayAccess, \Json
         return self::$openAPIModelName;
     }
 
+    public const TYPE_STRING = 'string';
+    public const TYPE_NUMERIC = 'numeric';
+    public const TYPE_BOOLEAN = 'boolean';
+    public const TYPE_EXISTENCE = 'existence';
     public const OPERATOR_IS_SET = 'is-set';
     public const OPERATOR_NOT_SET = 'not-set';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getTypeAllowableValues()
+    {
+        return [
+            self::TYPE_STRING,
+            self::TYPE_NUMERIC,
+            self::TYPE_BOOLEAN,
+            self::TYPE_EXISTENCE,
+        ];
+    }
 
     /**
      * Gets allowable values of the enum
@@ -320,6 +339,15 @@ class ActionOutputConditionFilter2 implements ModelInterface, ArrayAccess, \Json
         if ($this->container['type'] === null) {
             $invalidProperties[] = "'type' can't be null";
         }
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!is_null($this->container['type']) && !in_array($this->container['type'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'type', must be one of '%s'",
+                $this->container['type'],
+                implode("', '", $allowedValues)
+            );
+        }
+
         if ($this->container['operator'] === null) {
             $invalidProperties[] = "'operator' can't be null";
         }
@@ -359,7 +387,7 @@ class ActionOutputConditionFilter2 implements ModelInterface, ArrayAccess, \Json
     /**
      * Gets type
      *
-     * @return \KlaviyoAPI\Model\ExistenceEnum
+     * @return string
      */
     public function getType()
     {
@@ -369,7 +397,7 @@ class ActionOutputConditionFilter2 implements ModelInterface, ArrayAccess, \Json
     /**
      * Sets type
      *
-     * @param \KlaviyoAPI\Model\ExistenceEnum $type type
+     * @param string $type type
      *
      * @return self
      */
@@ -377,6 +405,16 @@ class ActionOutputConditionFilter2 implements ModelInterface, ArrayAccess, \Json
     {
         if (is_null($type)) {
             throw new \InvalidArgumentException('non-nullable type cannot be null');
+        }
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!in_array($type, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'type', must be one of '%s'",
+                    $type,
+                    implode("', '", $allowedValues)
+                )
+            );
         }
         $this->container['type'] = $type;
 
@@ -450,7 +488,7 @@ class ActionOutputConditionFilter2 implements ModelInterface, ArrayAccess, \Json
     /**
      * Gets start
      *
-     * @return \KlaviyoAPI\Model\NumericOperatorFilterValue
+     * @return \KlaviyoAPI\Model\NumericOperatorNumericFilterValue
      */
     public function getStart()
     {
@@ -460,7 +498,7 @@ class ActionOutputConditionFilter2 implements ModelInterface, ArrayAccess, \Json
     /**
      * Sets start
      *
-     * @param \KlaviyoAPI\Model\NumericOperatorFilterValue $start start
+     * @param \KlaviyoAPI\Model\NumericOperatorNumericFilterValue $start start
      *
      * @return self
      */
@@ -477,7 +515,7 @@ class ActionOutputConditionFilter2 implements ModelInterface, ArrayAccess, \Json
     /**
      * Gets end
      *
-     * @return \KlaviyoAPI\Model\NumericOperatorFilterValue
+     * @return \KlaviyoAPI\Model\NumericOperatorNumericFilterValue
      */
     public function getEnd()
     {
@@ -487,7 +525,7 @@ class ActionOutputConditionFilter2 implements ModelInterface, ArrayAccess, \Json
     /**
      * Sets end
      *
-     * @param \KlaviyoAPI\Model\NumericOperatorFilterValue $end end
+     * @param \KlaviyoAPI\Model\NumericOperatorNumericFilterValue $end end
      *
      * @return self
      */

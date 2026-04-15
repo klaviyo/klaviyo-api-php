@@ -58,7 +58,7 @@ class LinkStyles implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static $openAPITypes = [
         'color' => 'string',
-        'decoration' => '\KlaviyoAPI\Model\UnderlineEnum'
+        'decoration' => 'string'
     ];
 
     /**
@@ -234,6 +234,19 @@ class LinkStyles implements ModelInterface, ArrayAccess, \JsonSerializable
         return self::$openAPIModelName;
     }
 
+    public const DECORATION_UNDERLINE = 'underline';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getDecorationAllowableValues()
+    {
+        return [
+            self::DECORATION_UNDERLINE,
+        ];
+    }
 
     /**
      * Associative array for storing property values
@@ -251,7 +264,7 @@ class LinkStyles implements ModelInterface, ArrayAccess, \JsonSerializable
     public function __construct(?array $data = null)
     {
         $this->setIfExists('color', $data ?? [], '#0066cc');
-        $this->setIfExists('decoration', $data ?? [], null);
+        $this->setIfExists('decoration', $data ?? [], 'underline');
     }
 
     /**
@@ -280,6 +293,15 @@ class LinkStyles implements ModelInterface, ArrayAccess, \JsonSerializable
     public function listInvalidProperties()
     {
         $invalidProperties = [];
+
+        $allowedValues = $this->getDecorationAllowableValues();
+        if (!is_null($this->container['decoration']) && !in_array($this->container['decoration'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'decoration', must be one of '%s'",
+                $this->container['decoration'],
+                implode("', '", $allowedValues)
+            );
+        }
 
         return $invalidProperties;
     }
@@ -326,7 +348,7 @@ class LinkStyles implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets decoration
      *
-     * @return \KlaviyoAPI\Model\UnderlineEnum|null
+     * @return string|null
      */
     public function getDecoration()
     {
@@ -336,7 +358,7 @@ class LinkStyles implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets decoration
      *
-     * @param \KlaviyoAPI\Model\UnderlineEnum|null $decoration decoration
+     * @param string|null $decoration decoration
      *
      * @return self
      */
@@ -344,6 +366,16 @@ class LinkStyles implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         if (is_null($decoration)) {
             throw new \InvalidArgumentException('non-nullable decoration cannot be null');
+        }
+        $allowedValues = $this->getDecorationAllowableValues();
+        if (!in_array($decoration, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'decoration', must be one of '%s'",
+                    $decoration,
+                    implode("', '", $allowedValues)
+                )
+            );
         }
         $this->container['decoration'] = $decoration;
 

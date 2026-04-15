@@ -57,7 +57,7 @@ class InvalidEmailDateFilter implements ModelInterface, ArrayAccess, \JsonSerial
       * @var string[]
       */
     protected static $openAPITypes = [
-        'field' => '\KlaviyoAPI\Model\InvalidEmailDateEnum',
+        'field' => 'string',
         'filter' => '\KlaviyoAPI\Model\BounceDateFilterFilter'
     ];
 
@@ -234,6 +234,19 @@ class InvalidEmailDateFilter implements ModelInterface, ArrayAccess, \JsonSerial
         return self::$openAPIModelName;
     }
 
+    public const FIELD_INVALID_EMAIL_DATE = 'invalid_email_date';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getFieldAllowableValues()
+    {
+        return [
+            self::FIELD_INVALID_EMAIL_DATE,
+        ];
+    }
 
     /**
      * Associative array for storing property values
@@ -284,6 +297,15 @@ class InvalidEmailDateFilter implements ModelInterface, ArrayAccess, \JsonSerial
         if ($this->container['field'] === null) {
             $invalidProperties[] = "'field' can't be null";
         }
+        $allowedValues = $this->getFieldAllowableValues();
+        if (!is_null($this->container['field']) && !in_array($this->container['field'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'field', must be one of '%s'",
+                $this->container['field'],
+                implode("', '", $allowedValues)
+            );
+        }
+
         if ($this->container['filter'] === null) {
             $invalidProperties[] = "'filter' can't be null";
         }
@@ -305,7 +327,7 @@ class InvalidEmailDateFilter implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Gets field
      *
-     * @return \KlaviyoAPI\Model\InvalidEmailDateEnum
+     * @return string
      */
     public function getField()
     {
@@ -315,7 +337,7 @@ class InvalidEmailDateFilter implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets field
      *
-     * @param \KlaviyoAPI\Model\InvalidEmailDateEnum $field field
+     * @param string $field field
      *
      * @return self
      */
@@ -323,6 +345,16 @@ class InvalidEmailDateFilter implements ModelInterface, ArrayAccess, \JsonSerial
     {
         if (is_null($field)) {
             throw new \InvalidArgumentException('non-nullable field cannot be null');
+        }
+        $allowedValues = $this->getFieldAllowableValues();
+        if (!in_array($field, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'field', must be one of '%s'",
+                    $field,
+                    implode("', '", $allowedValues)
+                )
+            );
         }
         $this->container['field'] = $field;
 

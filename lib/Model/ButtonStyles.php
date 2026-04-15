@@ -64,8 +64,9 @@ class ButtonStyles implements ModelInterface, ArrayAccess, \JsonSerializable
         'hover_background_color' => 'string',
         'hover_text_color' => 'string',
         'border_styles' => '\KlaviyoAPI\Model\BorderStyle',
-        'text_styles' => '\KlaviyoAPI\Model\TextStyle',
-        'color' => 'string'
+        'text_styles' => '\KlaviyoAPI\Model\TextStyleV0',
+        'color' => 'string',
+        'drop_shadow' => '\KlaviyoAPI\Model\ButtonDropShadowStyles'
     ];
 
     /**
@@ -84,7 +85,8 @@ class ButtonStyles implements ModelInterface, ArrayAccess, \JsonSerializable
         'hover_text_color' => null,
         'border_styles' => null,
         'text_styles' => null,
-        'color' => null
+        'color' => null,
+        'drop_shadow' => null
     ];
 
     /**
@@ -101,7 +103,8 @@ class ButtonStyles implements ModelInterface, ArrayAccess, \JsonSerializable
         'hover_text_color' => true,
         'border_styles' => false,
         'text_styles' => false,
-        'color' => true
+        'color' => true,
+        'drop_shadow' => false
     ];
 
     /**
@@ -198,7 +201,8 @@ class ButtonStyles implements ModelInterface, ArrayAccess, \JsonSerializable
         'hover_text_color' => 'hover_text_color',
         'border_styles' => 'border_styles',
         'text_styles' => 'text_styles',
-        'color' => 'color'
+        'color' => 'color',
+        'drop_shadow' => 'drop_shadow'
     ];
 
     /**
@@ -215,7 +219,8 @@ class ButtonStyles implements ModelInterface, ArrayAccess, \JsonSerializable
         'hover_text_color' => 'setHoverTextColor',
         'border_styles' => 'setBorderStyles',
         'text_styles' => 'setTextStyles',
-        'color' => 'setColor'
+        'color' => 'setColor',
+        'drop_shadow' => 'setDropShadow'
     ];
 
     /**
@@ -232,7 +237,8 @@ class ButtonStyles implements ModelInterface, ArrayAccess, \JsonSerializable
         'hover_text_color' => 'getHoverTextColor',
         'border_styles' => 'getBorderStyles',
         'text_styles' => 'getTextStyles',
-        'color' => 'getColor'
+        'color' => 'getColor',
+        'drop_shadow' => 'getDropShadow'
     ];
 
     /**
@@ -316,6 +322,7 @@ class ButtonStyles implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('border_styles', $data ?? [], null);
         $this->setIfExists('text_styles', $data ?? [], null);
         $this->setIfExists('color', $data ?? [], null);
+        $this->setIfExists('drop_shadow', $data ?? [], null);
     }
 
     /**
@@ -592,7 +599,7 @@ class ButtonStyles implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets text_styles
      *
-     * @return \KlaviyoAPI\Model\TextStyle|null
+     * @return \KlaviyoAPI\Model\TextStyleV0|null
      */
     public function getTextStyles()
     {
@@ -602,7 +609,7 @@ class ButtonStyles implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets text_styles
      *
-     * @param \KlaviyoAPI\Model\TextStyle|null $text_styles text_styles
+     * @param \KlaviyoAPI\Model\TextStyleV0|null $text_styles text_styles
      *
      * @return self
      */
@@ -646,6 +653,33 @@ class ButtonStyles implements ModelInterface, ArrayAccess, \JsonSerializable
             }
         }
         $this->container['color'] = $color;
+
+        return $this;
+    }
+
+    /**
+     * Gets drop_shadow
+     *
+     * @return \KlaviyoAPI\Model\ButtonDropShadowStyles|null
+     */
+    public function getDropShadow()
+    {
+        return $this->container['drop_shadow'];
+    }
+
+    /**
+     * Sets drop_shadow
+     *
+     * @param \KlaviyoAPI\Model\ButtonDropShadowStyles|null $drop_shadow drop_shadow
+     *
+     * @return self
+     */
+    public function setDropShadow($drop_shadow)
+    {
+        if (is_null($drop_shadow)) {
+            throw new \InvalidArgumentException('non-nullable drop_shadow cannot be null');
+        }
+        $this->container['drop_shadow'] = $drop_shadow;
 
         return $this;
     }

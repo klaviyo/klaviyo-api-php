@@ -57,7 +57,7 @@ class ReviewStatusFeatured implements ModelInterface, ArrayAccess, \JsonSerializ
       * @var string[]
       */
     protected static $openAPITypes = [
-        'value' => '\KlaviyoAPI\Model\FeaturedEnum'
+        'value' => 'string'
     ];
 
     /**
@@ -228,6 +228,19 @@ class ReviewStatusFeatured implements ModelInterface, ArrayAccess, \JsonSerializ
         return self::$openAPIModelName;
     }
 
+    public const VALUE_FEATURED = 'featured';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getValueAllowableValues()
+    {
+        return [
+            self::VALUE_FEATURED,
+        ];
+    }
 
     /**
      * Associative array for storing property values
@@ -277,6 +290,15 @@ class ReviewStatusFeatured implements ModelInterface, ArrayAccess, \JsonSerializ
         if ($this->container['value'] === null) {
             $invalidProperties[] = "'value' can't be null";
         }
+        $allowedValues = $this->getValueAllowableValues();
+        if (!is_null($this->container['value']) && !in_array($this->container['value'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'value', must be one of '%s'",
+                $this->container['value'],
+                implode("', '", $allowedValues)
+            );
+        }
+
         return $invalidProperties;
     }
 
@@ -295,7 +317,7 @@ class ReviewStatusFeatured implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Gets value
      *
-     * @return \KlaviyoAPI\Model\FeaturedEnum
+     * @return string
      */
     public function getValue()
     {
@@ -305,7 +327,7 @@ class ReviewStatusFeatured implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Sets value
      *
-     * @param \KlaviyoAPI\Model\FeaturedEnum $value value
+     * @param string $value Featured review status
      *
      * @return self
      */
@@ -313,6 +335,16 @@ class ReviewStatusFeatured implements ModelInterface, ArrayAccess, \JsonSerializ
     {
         if (is_null($value)) {
             throw new \InvalidArgumentException('non-nullable value cannot be null');
+        }
+        $allowedValues = $this->getValueAllowableValues();
+        if (!in_array($value, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'value', must be one of '%s'",
+                    $value,
+                    implode("', '", $allowedValues)
+                )
+            );
         }
         $this->container['value'] = $value;
 

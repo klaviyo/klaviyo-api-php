@@ -57,10 +57,10 @@ class SegmentsProfileMetricCondition implements ModelInterface, ArrayAccess, \Js
       * @var string[]
       */
     protected static $openAPITypes = [
-        'type' => '\KlaviyoAPI\Model\ProfileMetricEnum',
+        'type' => 'string',
         'metric_id' => 'string',
         'measurement' => 'string',
-        'measurement_filter' => '\KlaviyoAPI\Model\NumericOperatorFilter',
+        'measurement_filter' => '\KlaviyoAPI\Model\NumericOperatorNumericFilter',
         'timeframe_filter' => '\KlaviyoAPI\Model\SegmentsProfileMetricConditionTimeframeFilter',
         'metric_filters' => '\KlaviyoAPI\Model\ProfileMetricPropertyFilter[]'
     ];
@@ -258,8 +258,21 @@ class SegmentsProfileMetricCondition implements ModelInterface, ArrayAccess, \Js
         return self::$openAPIModelName;
     }
 
+    public const TYPE_PROFILE_METRIC = 'profile-metric';
     public const MEASUREMENT_COUNT = 'count';
     public const MEASUREMENT_SUM = 'sum';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getTypeAllowableValues()
+    {
+        return [
+            self::TYPE_PROFILE_METRIC,
+        ];
+    }
 
     /**
      * Gets allowable values of the enum
@@ -327,6 +340,15 @@ class SegmentsProfileMetricCondition implements ModelInterface, ArrayAccess, \Js
         if ($this->container['type'] === null) {
             $invalidProperties[] = "'type' can't be null";
         }
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!is_null($this->container['type']) && !in_array($this->container['type'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'type', must be one of '%s'",
+                $this->container['type'],
+                implode("', '", $allowedValues)
+            );
+        }
+
         if ($this->container['metric_id'] === null) {
             $invalidProperties[] = "'metric_id' can't be null";
         }
@@ -366,7 +388,7 @@ class SegmentsProfileMetricCondition implements ModelInterface, ArrayAccess, \Js
     /**
      * Gets type
      *
-     * @return \KlaviyoAPI\Model\ProfileMetricEnum
+     * @return string
      */
     public function getType()
     {
@@ -376,7 +398,7 @@ class SegmentsProfileMetricCondition implements ModelInterface, ArrayAccess, \Js
     /**
      * Sets type
      *
-     * @param \KlaviyoAPI\Model\ProfileMetricEnum $type type
+     * @param string $type type
      *
      * @return self
      */
@@ -384,6 +406,16 @@ class SegmentsProfileMetricCondition implements ModelInterface, ArrayAccess, \Js
     {
         if (is_null($type)) {
             throw new \InvalidArgumentException('non-nullable type cannot be null');
+        }
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!in_array($type, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'type', must be one of '%s'",
+                    $type,
+                    implode("', '", $allowedValues)
+                )
+            );
         }
         $this->container['type'] = $type;
 
@@ -457,7 +489,7 @@ class SegmentsProfileMetricCondition implements ModelInterface, ArrayAccess, \Js
     /**
      * Gets measurement_filter
      *
-     * @return \KlaviyoAPI\Model\NumericOperatorFilter
+     * @return \KlaviyoAPI\Model\NumericOperatorNumericFilter
      */
     public function getMeasurementFilter()
     {
@@ -467,7 +499,7 @@ class SegmentsProfileMetricCondition implements ModelInterface, ArrayAccess, \Js
     /**
      * Sets measurement_filter
      *
-     * @param \KlaviyoAPI\Model\NumericOperatorFilter $measurement_filter measurement_filter
+     * @param \KlaviyoAPI\Model\NumericOperatorNumericFilter $measurement_filter measurement_filter
      *
      * @return self
      */

@@ -402,7 +402,7 @@ class CustomObjectsApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2026-01-15'];
+        $defaultHeaders['revision'] = ['2026-04-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -721,7 +721,7 @@ class CustomObjectsApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2026-01-15'];
+        $defaultHeaders['revision'] = ['2026-04-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -1000,7 +1000,7 @@ class CustomObjectsApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2026-01-15'];
+        $defaultHeaders['revision'] = ['2026-04-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -1253,7 +1253,7 @@ class CustomObjectsApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2026-01-15'];
+        $defaultHeaders['revision'] = ['2026-04-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -1276,7 +1276,7 @@ class CustomObjectsApi
      * Get Data Source
      *
      * @param  string $id The ID of the data source (required)
-     * @param  string[]|null $fields_data_source For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_data_source For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDataSource'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -1295,7 +1295,7 @@ class CustomObjectsApi
      * Get Data Source
      *
      * @param  string $id The ID of the data source (required)
-     * @param  string[]|null $fields_data_source For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_data_source For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDataSource'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -1409,7 +1409,7 @@ class CustomObjectsApi
      * Get Data Source
      *
      * @param  string $id The ID of the data source (required)
-     * @param  string[]|null $fields_data_source For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_data_source For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDataSource'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1431,7 +1431,7 @@ class CustomObjectsApi
      * Get Data Source
      *
      * @param  string $id The ID of the data source (required)
-     * @param  string[]|null $fields_data_source For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_data_source For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDataSource'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1487,7 +1487,7 @@ class CustomObjectsApi
      * Create request for operation 'getDataSource'
      *
      * @param  string $id The ID of the data source (required)
-     * @param  string[]|null $fields_data_source For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_data_source For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDataSource'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1579,7 +1579,7 @@ class CustomObjectsApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2026-01-15'];
+        $defaultHeaders['revision'] = ['2026-04-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -1601,8 +1601,8 @@ class CustomObjectsApi
      *
      * Get Data Sources
      *
-     * @param  string[]|null $fields_data_source For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#pagination (optional)
+     * @param  string[]|null $fields_data_source For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination (optional)
      * @param  int|null $page_size Default: 20. Min: 1. Max: 100. (optional, default to 20)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDataSources'] to see the possible values for this operation
      *
@@ -1621,8 +1621,8 @@ class CustomObjectsApi
      *
      * Get Data Sources
      *
-     * @param  string[]|null $fields_data_source For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#pagination (optional)
+     * @param  string[]|null $fields_data_source For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination (optional)
      * @param  int|null $page_size Default: 20. Min: 1. Max: 100. (optional, default to 20)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDataSources'] to see the possible values for this operation
      *
@@ -1736,8 +1736,8 @@ class CustomObjectsApi
      *
      * Get Data Sources
      *
-     * @param  string[]|null $fields_data_source For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#pagination (optional)
+     * @param  string[]|null $fields_data_source For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination (optional)
      * @param  int|null $page_size Default: 20. Min: 1. Max: 100. (optional, default to 20)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDataSources'] to see the possible values for this operation
      *
@@ -1759,8 +1759,8 @@ class CustomObjectsApi
      *
      * Get Data Sources
      *
-     * @param  string[]|null $fields_data_source For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#pagination (optional)
+     * @param  string[]|null $fields_data_source For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination (optional)
      * @param  int|null $page_size Default: 20. Min: 1. Max: 100. (optional, default to 20)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDataSources'] to see the possible values for this operation
      *
@@ -1816,8 +1816,8 @@ class CustomObjectsApi
     /**
      * Create request for operation 'getDataSources'
      *
-     * @param  string[]|null $fields_data_source For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#pagination (optional)
+     * @param  string[]|null $fields_data_source For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination (optional)
      * @param  int|null $page_size Default: 20. Min: 1. Max: 100. (optional, default to 20)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDataSources'] to see the possible values for this operation
      *
@@ -1921,7 +1921,7 @@ class CustomObjectsApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2026-01-15'];
+        $defaultHeaders['revision'] = ['2026-04-15'];
 
         $headers = array_merge(
             $defaultHeaders,

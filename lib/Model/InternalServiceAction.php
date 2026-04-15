@@ -59,9 +59,9 @@ class InternalServiceAction implements ModelInterface, ArrayAccess, \JsonSeriali
     protected static $openAPITypes = [
         'id' => 'string',
         'temporary_id' => 'string',
-        'type' => '\KlaviyoAPI\Model\InternalServiceEnum',
+        'type' => 'string',
         'links' => '\KlaviyoAPI\Model\Link',
-        'data' => 'mixed'
+        'data' => '\KlaviyoAPI\Model\InternalServiceActionData'
     ];
 
     /**
@@ -89,7 +89,7 @@ class InternalServiceAction implements ModelInterface, ArrayAccess, \JsonSeriali
         'temporary_id' => true,
         'type' => false,
         'links' => false,
-        'data' => true
+        'data' => false
     ];
 
     /**
@@ -252,6 +252,19 @@ class InternalServiceAction implements ModelInterface, ArrayAccess, \JsonSeriali
         return self::$openAPIModelName;
     }
 
+    public const TYPE_INTERNAL_SERVICE = 'internal-service';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getTypeAllowableValues()
+    {
+        return [
+            self::TYPE_INTERNAL_SERVICE,
+        ];
+    }
 
     /**
      * Associative array for storing property values
@@ -305,6 +318,15 @@ class InternalServiceAction implements ModelInterface, ArrayAccess, \JsonSeriali
         if ($this->container['type'] === null) {
             $invalidProperties[] = "'type' can't be null";
         }
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!is_null($this->container['type']) && !in_array($this->container['type'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'type', must be one of '%s'",
+                $this->container['type'],
+                implode("', '", $allowedValues)
+            );
+        }
+
         return $invalidProperties;
     }
 
@@ -333,7 +355,7 @@ class InternalServiceAction implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Sets id
      *
-     * @param string|null $id The real ID of an action.
+     * @param string|null $id The real ID of an action. Not allowed on create.
      *
      * @return self
      */
@@ -391,7 +413,7 @@ class InternalServiceAction implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Gets type
      *
-     * @return \KlaviyoAPI\Model\InternalServiceEnum
+     * @return string
      */
     public function getType()
     {
@@ -401,7 +423,7 @@ class InternalServiceAction implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Sets type
      *
-     * @param \KlaviyoAPI\Model\InternalServiceEnum $type type
+     * @param string $type type
      *
      * @return self
      */
@@ -409,6 +431,16 @@ class InternalServiceAction implements ModelInterface, ArrayAccess, \JsonSeriali
     {
         if (is_null($type)) {
             throw new \InvalidArgumentException('non-nullable type cannot be null');
+        }
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!in_array($type, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'type', must be one of '%s'",
+                    $type,
+                    implode("', '", $allowedValues)
+                )
+            );
         }
         $this->container['type'] = $type;
 
@@ -445,7 +477,7 @@ class InternalServiceAction implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Gets data
      *
-     * @return mixed|null
+     * @return \KlaviyoAPI\Model\InternalServiceActionData|null
      */
     public function getData()
     {
@@ -455,21 +487,14 @@ class InternalServiceAction implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Sets data
      *
-     * @param mixed|null $data data
+     * @param \KlaviyoAPI\Model\InternalServiceActionData|null $data data
      *
      * @return self
      */
     public function setData($data)
     {
         if (is_null($data)) {
-            array_push($this->openAPINullablesSetToNull, 'data');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('data', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable data cannot be null');
         }
         $this->container['data'] = $data;
 

@@ -57,7 +57,7 @@ class CouponPropertiesCoupon implements ModelInterface, ArrayAccess, \JsonSerial
       * @var string[]
       */
     protected static $openAPITypes = [
-        'type' => '\KlaviyoAPI\Model\StaticEnum',
+        'type' => 'string',
         'id' => 'int',
         'code' => 'string',
         'fallback_coupon_code' => 'string',
@@ -258,12 +258,27 @@ class CouponPropertiesCoupon implements ModelInterface, ArrayAccess, \JsonSerial
         return self::$openAPIModelName;
     }
 
+    public const TYPE_UNIQUE = 'unique';
+    public const TYPE__STATIC = 'static';
     public const INTEGRATION_API = 'api';
     public const INTEGRATION_MAGENTO_TWO = 'magento_two';
     public const INTEGRATION_PRESTASHOP = 'prestashop';
     public const INTEGRATION_SHOPIFY = 'shopify';
     public const INTEGRATION_UPLOADED = 'uploaded';
     public const INTEGRATION_WOOCOMMERCE = 'woocommerce';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getTypeAllowableValues()
+    {
+        return [
+            self::TYPE_UNIQUE,
+            self::TYPE__STATIC,
+        ];
+    }
 
     /**
      * Gets allowable values of the enum
@@ -335,6 +350,15 @@ class CouponPropertiesCoupon implements ModelInterface, ArrayAccess, \JsonSerial
         if ($this->container['type'] === null) {
             $invalidProperties[] = "'type' can't be null";
         }
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!is_null($this->container['type']) && !in_array($this->container['type'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'type', must be one of '%s'",
+                $this->container['type'],
+                implode("', '", $allowedValues)
+            );
+        }
+
         $allowedValues = $this->getIntegrationAllowableValues();
         if (!is_null($this->container['integration']) && !in_array($this->container['integration'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
@@ -362,7 +386,7 @@ class CouponPropertiesCoupon implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Gets type
      *
-     * @return \KlaviyoAPI\Model\StaticEnum
+     * @return string
      */
     public function getType()
     {
@@ -372,7 +396,7 @@ class CouponPropertiesCoupon implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets type
      *
-     * @param \KlaviyoAPI\Model\StaticEnum $type type
+     * @param string $type type
      *
      * @return self
      */
@@ -380,6 +404,16 @@ class CouponPropertiesCoupon implements ModelInterface, ArrayAccess, \JsonSerial
     {
         if (is_null($type)) {
             throw new \InvalidArgumentException('non-nullable type cannot be null');
+        }
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!in_array($type, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'type', must be one of '%s'",
+                    $type,
+                    implode("', '", $allowedValues)
+                )
+            );
         }
         $this->container['type'] = $type;
 

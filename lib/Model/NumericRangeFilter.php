@@ -57,10 +57,10 @@ class NumericRangeFilter implements ModelInterface, ArrayAccess, \JsonSerializab
       * @var string[]
       */
     protected static $openAPITypes = [
-        'type' => '\KlaviyoAPI\Model\NumericEnum',
+        'type' => 'string',
         'operator' => 'string',
-        'start' => '\KlaviyoAPI\Model\NumericOperatorFilterValue',
-        'end' => '\KlaviyoAPI\Model\NumericOperatorFilterValue'
+        'start' => '\KlaviyoAPI\Model\NumericOperatorNumericFilterValue',
+        'end' => '\KlaviyoAPI\Model\NumericOperatorNumericFilterValue'
     ];
 
     /**
@@ -246,7 +246,20 @@ class NumericRangeFilter implements ModelInterface, ArrayAccess, \JsonSerializab
         return self::$openAPIModelName;
     }
 
+    public const TYPE_NUMERIC = 'numeric';
     public const OPERATOR_BETWEEN = 'between';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getTypeAllowableValues()
+    {
+        return [
+            self::TYPE_NUMERIC,
+        ];
+    }
 
     /**
      * Gets allowable values of the enum
@@ -311,6 +324,15 @@ class NumericRangeFilter implements ModelInterface, ArrayAccess, \JsonSerializab
         if ($this->container['type'] === null) {
             $invalidProperties[] = "'type' can't be null";
         }
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!is_null($this->container['type']) && !in_array($this->container['type'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'type', must be one of '%s'",
+                $this->container['type'],
+                implode("', '", $allowedValues)
+            );
+        }
+
         if ($this->container['operator'] === null) {
             $invalidProperties[] = "'operator' can't be null";
         }
@@ -347,7 +369,7 @@ class NumericRangeFilter implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Gets type
      *
-     * @return \KlaviyoAPI\Model\NumericEnum
+     * @return string
      */
     public function getType()
     {
@@ -357,7 +379,7 @@ class NumericRangeFilter implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets type
      *
-     * @param \KlaviyoAPI\Model\NumericEnum $type type
+     * @param string $type type
      *
      * @return self
      */
@@ -365,6 +387,16 @@ class NumericRangeFilter implements ModelInterface, ArrayAccess, \JsonSerializab
     {
         if (is_null($type)) {
             throw new \InvalidArgumentException('non-nullable type cannot be null');
+        }
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!in_array($type, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'type', must be one of '%s'",
+                    $type,
+                    implode("', '", $allowedValues)
+                )
+            );
         }
         $this->container['type'] = $type;
 
@@ -411,7 +443,7 @@ class NumericRangeFilter implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Gets start
      *
-     * @return \KlaviyoAPI\Model\NumericOperatorFilterValue
+     * @return \KlaviyoAPI\Model\NumericOperatorNumericFilterValue
      */
     public function getStart()
     {
@@ -421,7 +453,7 @@ class NumericRangeFilter implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets start
      *
-     * @param \KlaviyoAPI\Model\NumericOperatorFilterValue $start start
+     * @param \KlaviyoAPI\Model\NumericOperatorNumericFilterValue $start start
      *
      * @return self
      */
@@ -438,7 +470,7 @@ class NumericRangeFilter implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Gets end
      *
-     * @return \KlaviyoAPI\Model\NumericOperatorFilterValue
+     * @return \KlaviyoAPI\Model\NumericOperatorNumericFilterValue
      */
     public function getEnd()
     {
@@ -448,7 +480,7 @@ class NumericRangeFilter implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets end
      *
-     * @param \KlaviyoAPI\Model\NumericOperatorFilterValue $end end
+     * @param \KlaviyoAPI\Model\NumericOperatorNumericFilterValue $end end
      *
      * @return self
      */

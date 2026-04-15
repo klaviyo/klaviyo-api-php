@@ -57,9 +57,9 @@ class LessThanPositiveNumericFilter implements ModelInterface, ArrayAccess, \Jso
       * @var string[]
       */
     protected static $openAPITypes = [
-        'type' => '\KlaviyoAPI\Model\NumericEnum',
-        'operator' => '\KlaviyoAPI\Model\LessThanEnum',
-        'value' => '\KlaviyoAPI\Model\NumericOperatorFilterValue'
+        'type' => 'string',
+        'operator' => 'string',
+        'value' => '\KlaviyoAPI\Model\NumericOperatorNumericFilterValue'
     ];
 
     /**
@@ -240,6 +240,32 @@ class LessThanPositiveNumericFilter implements ModelInterface, ArrayAccess, \Jso
         return self::$openAPIModelName;
     }
 
+    public const TYPE_NUMERIC = 'numeric';
+    public const OPERATOR_LESS_THAN = 'less-than';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getTypeAllowableValues()
+    {
+        return [
+            self::TYPE_NUMERIC,
+        ];
+    }
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getOperatorAllowableValues()
+    {
+        return [
+            self::OPERATOR_LESS_THAN,
+        ];
+    }
 
     /**
      * Associative array for storing property values
@@ -291,9 +317,27 @@ class LessThanPositiveNumericFilter implements ModelInterface, ArrayAccess, \Jso
         if ($this->container['type'] === null) {
             $invalidProperties[] = "'type' can't be null";
         }
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!is_null($this->container['type']) && !in_array($this->container['type'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'type', must be one of '%s'",
+                $this->container['type'],
+                implode("', '", $allowedValues)
+            );
+        }
+
         if ($this->container['operator'] === null) {
             $invalidProperties[] = "'operator' can't be null";
         }
+        $allowedValues = $this->getOperatorAllowableValues();
+        if (!is_null($this->container['operator']) && !in_array($this->container['operator'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'operator', must be one of '%s'",
+                $this->container['operator'],
+                implode("', '", $allowedValues)
+            );
+        }
+
         if ($this->container['value'] === null) {
             $invalidProperties[] = "'value' can't be null";
         }
@@ -315,7 +359,7 @@ class LessThanPositiveNumericFilter implements ModelInterface, ArrayAccess, \Jso
     /**
      * Gets type
      *
-     * @return \KlaviyoAPI\Model\NumericEnum
+     * @return string
      */
     public function getType()
     {
@@ -325,7 +369,7 @@ class LessThanPositiveNumericFilter implements ModelInterface, ArrayAccess, \Jso
     /**
      * Sets type
      *
-     * @param \KlaviyoAPI\Model\NumericEnum $type type
+     * @param string $type type
      *
      * @return self
      */
@@ -333,6 +377,16 @@ class LessThanPositiveNumericFilter implements ModelInterface, ArrayAccess, \Jso
     {
         if (is_null($type)) {
             throw new \InvalidArgumentException('non-nullable type cannot be null');
+        }
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!in_array($type, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'type', must be one of '%s'",
+                    $type,
+                    implode("', '", $allowedValues)
+                )
+            );
         }
         $this->container['type'] = $type;
 
@@ -342,7 +396,7 @@ class LessThanPositiveNumericFilter implements ModelInterface, ArrayAccess, \Jso
     /**
      * Gets operator
      *
-     * @return \KlaviyoAPI\Model\LessThanEnum
+     * @return string
      */
     public function getOperator()
     {
@@ -352,7 +406,7 @@ class LessThanPositiveNumericFilter implements ModelInterface, ArrayAccess, \Jso
     /**
      * Sets operator
      *
-     * @param \KlaviyoAPI\Model\LessThanEnum $operator operator
+     * @param string $operator operator
      *
      * @return self
      */
@@ -360,6 +414,16 @@ class LessThanPositiveNumericFilter implements ModelInterface, ArrayAccess, \Jso
     {
         if (is_null($operator)) {
             throw new \InvalidArgumentException('non-nullable operator cannot be null');
+        }
+        $allowedValues = $this->getOperatorAllowableValues();
+        if (!in_array($operator, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'operator', must be one of '%s'",
+                    $operator,
+                    implode("', '", $allowedValues)
+                )
+            );
         }
         $this->container['operator'] = $operator;
 
@@ -369,7 +433,7 @@ class LessThanPositiveNumericFilter implements ModelInterface, ArrayAccess, \Jso
     /**
      * Gets value
      *
-     * @return \KlaviyoAPI\Model\NumericOperatorFilterValue
+     * @return \KlaviyoAPI\Model\NumericOperatorNumericFilterValue
      */
     public function getValue()
     {
@@ -379,7 +443,7 @@ class LessThanPositiveNumericFilter implements ModelInterface, ArrayAccess, \Jso
     /**
      * Sets value
      *
-     * @param \KlaviyoAPI\Model\NumericOperatorFilterValue $value value
+     * @param \KlaviyoAPI\Model\NumericOperatorNumericFilterValue $value value
      *
      * @return self
      */

@@ -57,9 +57,9 @@ class ShopifyIntegrationFilter implements ModelInterface, ArrayAccess, \JsonSeri
       * @var string[]
       */
     protected static $openAPITypes = [
-        'type' => '\KlaviyoAPI\Model\StringEnum',
-        'operator' => '\KlaviyoAPI\Model\InEnum',
-        'value' => '\KlaviyoAPI\Model\ShopifyEnum[]'
+        'type' => 'string',
+        'operator' => 'string',
+        'value' => 'string[]'
     ];
 
     /**
@@ -240,6 +240,45 @@ class ShopifyIntegrationFilter implements ModelInterface, ArrayAccess, \JsonSeri
         return self::$openAPIModelName;
     }
 
+    public const TYPE_STRING = 'string';
+    public const OPERATOR_IN = 'in';
+    public const VALUE_SHOPIFY = 'shopify';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getTypeAllowableValues()
+    {
+        return [
+            self::TYPE_STRING,
+        ];
+    }
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getOperatorAllowableValues()
+    {
+        return [
+            self::OPERATOR_IN,
+        ];
+    }
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getValueAllowableValues()
+    {
+        return [
+            self::VALUE_SHOPIFY,
+        ];
+    }
 
     /**
      * Associative array for storing property values
@@ -291,9 +330,27 @@ class ShopifyIntegrationFilter implements ModelInterface, ArrayAccess, \JsonSeri
         if ($this->container['type'] === null) {
             $invalidProperties[] = "'type' can't be null";
         }
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!is_null($this->container['type']) && !in_array($this->container['type'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'type', must be one of '%s'",
+                $this->container['type'],
+                implode("', '", $allowedValues)
+            );
+        }
+
         if ($this->container['operator'] === null) {
             $invalidProperties[] = "'operator' can't be null";
         }
+        $allowedValues = $this->getOperatorAllowableValues();
+        if (!is_null($this->container['operator']) && !in_array($this->container['operator'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'operator', must be one of '%s'",
+                $this->container['operator'],
+                implode("', '", $allowedValues)
+            );
+        }
+
         if ($this->container['value'] === null) {
             $invalidProperties[] = "'value' can't be null";
         }
@@ -315,7 +372,7 @@ class ShopifyIntegrationFilter implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Gets type
      *
-     * @return \KlaviyoAPI\Model\StringEnum
+     * @return string
      */
     public function getType()
     {
@@ -325,7 +382,7 @@ class ShopifyIntegrationFilter implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets type
      *
-     * @param \KlaviyoAPI\Model\StringEnum $type type
+     * @param string $type type
      *
      * @return self
      */
@@ -333,6 +390,16 @@ class ShopifyIntegrationFilter implements ModelInterface, ArrayAccess, \JsonSeri
     {
         if (is_null($type)) {
             throw new \InvalidArgumentException('non-nullable type cannot be null');
+        }
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!in_array($type, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'type', must be one of '%s'",
+                    $type,
+                    implode("', '", $allowedValues)
+                )
+            );
         }
         $this->container['type'] = $type;
 
@@ -342,7 +409,7 @@ class ShopifyIntegrationFilter implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Gets operator
      *
-     * @return \KlaviyoAPI\Model\InEnum
+     * @return string
      */
     public function getOperator()
     {
@@ -352,7 +419,7 @@ class ShopifyIntegrationFilter implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets operator
      *
-     * @param \KlaviyoAPI\Model\InEnum $operator operator
+     * @param string $operator operator
      *
      * @return self
      */
@@ -360,6 +427,16 @@ class ShopifyIntegrationFilter implements ModelInterface, ArrayAccess, \JsonSeri
     {
         if (is_null($operator)) {
             throw new \InvalidArgumentException('non-nullable operator cannot be null');
+        }
+        $allowedValues = $this->getOperatorAllowableValues();
+        if (!in_array($operator, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'operator', must be one of '%s'",
+                    $operator,
+                    implode("', '", $allowedValues)
+                )
+            );
         }
         $this->container['operator'] = $operator;
 
@@ -369,7 +446,7 @@ class ShopifyIntegrationFilter implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Gets value
      *
-     * @return \KlaviyoAPI\Model\ShopifyEnum[]
+     * @return string[]
      */
     public function getValue()
     {
@@ -379,7 +456,7 @@ class ShopifyIntegrationFilter implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets value
      *
-     * @param \KlaviyoAPI\Model\ShopifyEnum[] $value value
+     * @param string[] $value value
      *
      * @return self
      */
@@ -387,6 +464,15 @@ class ShopifyIntegrationFilter implements ModelInterface, ArrayAccess, \JsonSeri
     {
         if (is_null($value)) {
             throw new \InvalidArgumentException('non-nullable value cannot be null');
+        }
+        $allowedValues = $this->getValueAllowableValues();
+        if (array_diff($value, $allowedValues)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'value', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
         }
         $this->container['value'] = $value;
 

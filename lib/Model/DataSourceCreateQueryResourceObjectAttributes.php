@@ -59,7 +59,8 @@ class DataSourceCreateQueryResourceObjectAttributes implements ModelInterface, A
     protected static $openAPITypes = [
         'title' => 'string',
         'visibility' => 'string',
-        'description' => 'string'
+        'description' => 'string',
+        'namespace' => 'string'
     ];
 
     /**
@@ -72,7 +73,8 @@ class DataSourceCreateQueryResourceObjectAttributes implements ModelInterface, A
     protected static $openAPIFormats = [
         'title' => null,
         'visibility' => null,
-        'description' => null
+        'description' => null,
+        'namespace' => null
     ];
 
     /**
@@ -82,8 +84,9 @@ class DataSourceCreateQueryResourceObjectAttributes implements ModelInterface, A
       */
     protected static array $openAPINullables = [
         'title' => false,
-        'visibility' => false,
-        'description' => true
+        'visibility' => true,
+        'description' => true,
+        'namespace' => true
     ];
 
     /**
@@ -174,7 +177,8 @@ class DataSourceCreateQueryResourceObjectAttributes implements ModelInterface, A
     protected static $attributeMap = [
         'title' => 'title',
         'visibility' => 'visibility',
-        'description' => 'description'
+        'description' => 'description',
+        'namespace' => 'namespace'
     ];
 
     /**
@@ -185,7 +189,8 @@ class DataSourceCreateQueryResourceObjectAttributes implements ModelInterface, A
     protected static $setters = [
         'title' => 'setTitle',
         'visibility' => 'setVisibility',
-        'description' => 'setDescription'
+        'description' => 'setDescription',
+        'namespace' => 'setNamespace'
     ];
 
     /**
@@ -196,7 +201,8 @@ class DataSourceCreateQueryResourceObjectAttributes implements ModelInterface, A
     protected static $getters = [
         'title' => 'getTitle',
         'visibility' => 'getVisibility',
-        'description' => 'getDescription'
+        'description' => 'getDescription',
+        'namespace' => 'getNamespace'
     ];
 
     /**
@@ -272,8 +278,9 @@ class DataSourceCreateQueryResourceObjectAttributes implements ModelInterface, A
     public function __construct(?array $data = null)
     {
         $this->setIfExists('title', $data ?? [], null);
-        $this->setIfExists('visibility', $data ?? [], null);
+        $this->setIfExists('visibility', $data ?? [], 'private');
         $this->setIfExists('description', $data ?? [], '');
+        $this->setIfExists('namespace', $data ?? [], 'custom-objects');
     }
 
     /**
@@ -305,9 +312,6 @@ class DataSourceCreateQueryResourceObjectAttributes implements ModelInterface, A
 
         if ($this->container['title'] === null) {
             $invalidProperties[] = "'title' can't be null";
-        }
-        if ($this->container['visibility'] === null) {
-            $invalidProperties[] = "'visibility' can't be null";
         }
         $allowedValues = $this->getVisibilityAllowableValues();
         if (!is_null($this->container['visibility']) && !in_array($this->container['visibility'], $allowedValues, true)) {
@@ -346,7 +350,7 @@ class DataSourceCreateQueryResourceObjectAttributes implements ModelInterface, A
     /**
      * Sets title
      *
-     * @param string $title title
+     * @param string $title The title of the data source. Must be between 1 and 255 characters and unique within the namespace.
      *
      * @return self
      */
@@ -363,7 +367,7 @@ class DataSourceCreateQueryResourceObjectAttributes implements ModelInterface, A
     /**
      * Gets visibility
      *
-     * @return string
+     * @return string|null
      */
     public function getVisibility()
     {
@@ -373,17 +377,24 @@ class DataSourceCreateQueryResourceObjectAttributes implements ModelInterface, A
     /**
      * Sets visibility
      *
-     * @param string $visibility Visibility of data source.
+     * @param string|null $visibility Visibility of data source.
      *
      * @return self
      */
     public function setVisibility($visibility)
     {
         if (is_null($visibility)) {
-            throw new \InvalidArgumentException('non-nullable visibility cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'visibility');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('visibility', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $allowedValues = $this->getVisibilityAllowableValues();
-        if (!in_array($visibility, $allowedValues, true)) {
+        if (!is_null($visibility) && !in_array($visibility, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
                     "Invalid value '%s' for 'visibility', must be one of '%s'",
@@ -427,6 +438,40 @@ class DataSourceCreateQueryResourceObjectAttributes implements ModelInterface, A
             }
         }
         $this->container['description'] = $description;
+
+        return $this;
+    }
+
+    /**
+     * Gets namespace
+     *
+     * @return string|null
+     */
+    public function getNamespace()
+    {
+        return $this->container['namespace'];
+    }
+
+    /**
+     * Sets namespace
+     *
+     * @param string|null $namespace The namespace of the data source.
+     *
+     * @return self
+     */
+    public function setNamespace($namespace)
+    {
+        if (is_null($namespace)) {
+            array_push($this->openAPINullablesSetToNull, 'namespace');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('namespace', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['namespace'] = $namespace;
 
         return $this;
     }

@@ -57,7 +57,7 @@ class RejectReasonFake implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'reason' => '\KlaviyoAPI\Model\FakeEnum'
+        'reason' => 'string'
     ];
 
     /**
@@ -228,6 +228,19 @@ class RejectReasonFake implements ModelInterface, ArrayAccess, \JsonSerializable
         return self::$openAPIModelName;
     }
 
+    public const REASON_FAKE = 'fake';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getReasonAllowableValues()
+    {
+        return [
+            self::REASON_FAKE,
+        ];
+    }
 
     /**
      * Associative array for storing property values
@@ -277,6 +290,15 @@ class RejectReasonFake implements ModelInterface, ArrayAccess, \JsonSerializable
         if ($this->container['reason'] === null) {
             $invalidProperties[] = "'reason' can't be null";
         }
+        $allowedValues = $this->getReasonAllowableValues();
+        if (!is_null($this->container['reason']) && !in_array($this->container['reason'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'reason', must be one of '%s'",
+                $this->container['reason'],
+                implode("', '", $allowedValues)
+            );
+        }
+
         return $invalidProperties;
     }
 
@@ -295,7 +317,7 @@ class RejectReasonFake implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets reason
      *
-     * @return \KlaviyoAPI\Model\FakeEnum
+     * @return string
      */
     public function getReason()
     {
@@ -305,7 +327,7 @@ class RejectReasonFake implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets reason
      *
-     * @param \KlaviyoAPI\Model\FakeEnum $reason reason
+     * @param string $reason rejected due to fake content
      *
      * @return self
      */
@@ -313,6 +335,16 @@ class RejectReasonFake implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         if (is_null($reason)) {
             throw new \InvalidArgumentException('non-nullable reason cannot be null');
+        }
+        $allowedValues = $this->getReasonAllowableValues();
+        if (!in_array($reason, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'reason', must be one of '%s'",
+                    $reason,
+                    implode("', '", $allowedValues)
+                )
+            );
         }
         $this->container['reason'] = $reason;
 

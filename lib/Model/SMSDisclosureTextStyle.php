@@ -57,11 +57,13 @@ class SMSDisclosureTextStyle implements ModelInterface, ArrayAccess, \JsonSerial
       * @var string[]
       */
     protected static $openAPITypes = [
-        'font_family' => '\KlaviyoAPI\Model\TextStyleFontFamily',
+        'font_family' => '\KlaviyoAPI\Model\TextStyleV0FontFamily',
         'font_size' => 'int',
         'font_weight' => 'int',
         'text_color' => 'string',
-        'character_spacing' => 'int'
+        'character_spacing' => 'int',
+        'font_style' => 'string',
+        'text_decoration' => 'string'
     ];
 
     /**
@@ -76,7 +78,9 @@ class SMSDisclosureTextStyle implements ModelInterface, ArrayAccess, \JsonSerial
         'font_size' => null,
         'font_weight' => null,
         'text_color' => null,
-        'character_spacing' => null
+        'character_spacing' => null,
+        'font_style' => null,
+        'text_decoration' => null
     ];
 
     /**
@@ -89,7 +93,9 @@ class SMSDisclosureTextStyle implements ModelInterface, ArrayAccess, \JsonSerial
         'font_size' => false,
         'font_weight' => true,
         'text_color' => false,
-        'character_spacing' => true
+        'character_spacing' => true,
+        'font_style' => true,
+        'text_decoration' => true
     ];
 
     /**
@@ -182,7 +188,9 @@ class SMSDisclosureTextStyle implements ModelInterface, ArrayAccess, \JsonSerial
         'font_size' => 'font_size',
         'font_weight' => 'font_weight',
         'text_color' => 'text_color',
-        'character_spacing' => 'character_spacing'
+        'character_spacing' => 'character_spacing',
+        'font_style' => 'font_style',
+        'text_decoration' => 'text_decoration'
     ];
 
     /**
@@ -195,7 +203,9 @@ class SMSDisclosureTextStyle implements ModelInterface, ArrayAccess, \JsonSerial
         'font_size' => 'setFontSize',
         'font_weight' => 'setFontWeight',
         'text_color' => 'setTextColor',
-        'character_spacing' => 'setCharacterSpacing'
+        'character_spacing' => 'setCharacterSpacing',
+        'font_style' => 'setFontStyle',
+        'text_decoration' => 'setTextDecoration'
     ];
 
     /**
@@ -208,7 +218,9 @@ class SMSDisclosureTextStyle implements ModelInterface, ArrayAccess, \JsonSerial
         'font_size' => 'getFontSize',
         'font_weight' => 'getFontWeight',
         'text_color' => 'getTextColor',
-        'character_spacing' => 'getCharacterSpacing'
+        'character_spacing' => 'getCharacterSpacing',
+        'font_style' => 'getFontStyle',
+        'text_decoration' => 'getTextDecoration'
     ];
 
     /**
@@ -302,6 +314,8 @@ class SMSDisclosureTextStyle implements ModelInterface, ArrayAccess, \JsonSerial
         $this->setIfExists('font_weight', $data ?? [], self::FONT_WEIGHT_NUMBER_400);
         $this->setIfExists('text_color', $data ?? [], '#000000');
         $this->setIfExists('character_spacing', $data ?? [], 0);
+        $this->setIfExists('font_style', $data ?? [], null);
+        $this->setIfExists('text_decoration', $data ?? [], null);
     }
 
     /**
@@ -358,7 +372,7 @@ class SMSDisclosureTextStyle implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Gets font_family
      *
-     * @return \KlaviyoAPI\Model\TextStyleFontFamily|null
+     * @return \KlaviyoAPI\Model\TextStyleV0FontFamily|null
      */
     public function getFontFamily()
     {
@@ -368,7 +382,7 @@ class SMSDisclosureTextStyle implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets font_family
      *
-     * @param \KlaviyoAPI\Model\TextStyleFontFamily|null $font_family font_family
+     * @param \KlaviyoAPI\Model\TextStyleV0FontFamily|null $font_family font_family
      *
      * @return self
      */
@@ -510,6 +524,74 @@ class SMSDisclosureTextStyle implements ModelInterface, ArrayAccess, \JsonSerial
             }
         }
         $this->container['character_spacing'] = $character_spacing;
+
+        return $this;
+    }
+
+    /**
+     * Gets font_style
+     *
+     * @return string|null
+     */
+    public function getFontStyle()
+    {
+        return $this->container['font_style'];
+    }
+
+    /**
+     * Sets font_style
+     *
+     * @param string|null $font_style font_style
+     *
+     * @return self
+     */
+    public function setFontStyle($font_style)
+    {
+        if (is_null($font_style)) {
+            array_push($this->openAPINullablesSetToNull, 'font_style');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('font_style', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['font_style'] = $font_style;
+
+        return $this;
+    }
+
+    /**
+     * Gets text_decoration
+     *
+     * @return string|null
+     */
+    public function getTextDecoration()
+    {
+        return $this->container['text_decoration'];
+    }
+
+    /**
+     * Sets text_decoration
+     *
+     * @param string|null $text_decoration text_decoration
+     *
+     * @return self
+     */
+    public function setTextDecoration($text_decoration)
+    {
+        if (is_null($text_decoration)) {
+            array_push($this->openAPINullablesSetToNull, 'text_decoration');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('text_decoration', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['text_decoration'] = $text_decoration;
 
         return $this;
     }

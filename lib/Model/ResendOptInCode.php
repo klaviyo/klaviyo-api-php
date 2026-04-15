@@ -59,7 +59,7 @@ class ResendOptInCode implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $openAPITypes = [
         'id' => 'string',
         'submit' => 'bool',
-        'type' => '\KlaviyoAPI\Model\ResendOptInCodeEnum',
+        'type' => 'string',
         'properties' => 'string'
     ];
 
@@ -246,6 +246,19 @@ class ResendOptInCode implements ModelInterface, ArrayAccess, \JsonSerializable
         return self::$openAPIModelName;
     }
 
+    public const TYPE_RESEND_OPT_IN_CODE = 'resend_opt_in_code';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getTypeAllowableValues()
+    {
+        return [
+            self::TYPE_RESEND_OPT_IN_CODE,
+        ];
+    }
 
     /**
      * Gets allowable values of the enum
@@ -310,6 +323,15 @@ class ResendOptInCode implements ModelInterface, ArrayAccess, \JsonSerializable
         if ($this->container['type'] === null) {
             $invalidProperties[] = "'type' can't be null";
         }
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!is_null($this->container['type']) && !in_array($this->container['type'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'type', must be one of '%s'",
+                $this->container['type'],
+                implode("', '", $allowedValues)
+            );
+        }
+
         $allowedValues = $this->getPropertiesAllowableValues();
         if (!is_null($this->container['properties']) && !in_array($this->container['properties'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
@@ -347,7 +369,7 @@ class ResendOptInCode implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets id
      *
-     * @param string|null $id id
+     * @param string|null $id Not allowed on create.
      *
      * @return self
      */
@@ -398,7 +420,7 @@ class ResendOptInCode implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets type
      *
-     * @return \KlaviyoAPI\Model\ResendOptInCodeEnum
+     * @return string
      */
     public function getType()
     {
@@ -408,7 +430,7 @@ class ResendOptInCode implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets type
      *
-     * @param \KlaviyoAPI\Model\ResendOptInCodeEnum $type type
+     * @param string $type type
      *
      * @return self
      */
@@ -416,6 +438,16 @@ class ResendOptInCode implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         if (is_null($type)) {
             throw new \InvalidArgumentException('non-nullable type cannot be null');
+        }
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!in_array($type, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'type', must be one of '%s'",
+                    $type,
+                    implode("', '", $allowedValues)
+                )
+            );
         }
         $this->container['type'] = $type;
 

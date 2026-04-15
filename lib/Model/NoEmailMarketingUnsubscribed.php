@@ -57,7 +57,7 @@ class NoEmailMarketingUnsubscribed implements ModelInterface, ArrayAccess, \Json
       * @var string[]
       */
     protected static $openAPITypes = [
-        'subscription' => '\KlaviyoAPI\Model\UnsubscribedEnum',
+        'subscription' => 'string',
         'filters' => '\KlaviyoAPI\Model\NoEmailMarketingUnsubscribedFilters'
     ];
 
@@ -234,6 +234,19 @@ class NoEmailMarketingUnsubscribed implements ModelInterface, ArrayAccess, \Json
         return self::$openAPIModelName;
     }
 
+    public const SUBSCRIPTION_UNSUBSCRIBED = 'unsubscribed';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getSubscriptionAllowableValues()
+    {
+        return [
+            self::SUBSCRIPTION_UNSUBSCRIBED,
+        ];
+    }
 
     /**
      * Associative array for storing property values
@@ -284,6 +297,15 @@ class NoEmailMarketingUnsubscribed implements ModelInterface, ArrayAccess, \Json
         if ($this->container['subscription'] === null) {
             $invalidProperties[] = "'subscription' can't be null";
         }
+        $allowedValues = $this->getSubscriptionAllowableValues();
+        if (!is_null($this->container['subscription']) && !in_array($this->container['subscription'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'subscription', must be one of '%s'",
+                $this->container['subscription'],
+                implode("', '", $allowedValues)
+            );
+        }
+
         return $invalidProperties;
     }
 
@@ -302,7 +324,7 @@ class NoEmailMarketingUnsubscribed implements ModelInterface, ArrayAccess, \Json
     /**
      * Gets subscription
      *
-     * @return \KlaviyoAPI\Model\UnsubscribedEnum
+     * @return string
      */
     public function getSubscription()
     {
@@ -312,7 +334,7 @@ class NoEmailMarketingUnsubscribed implements ModelInterface, ArrayAccess, \Json
     /**
      * Sets subscription
      *
-     * @param \KlaviyoAPI\Model\UnsubscribedEnum $subscription subscription
+     * @param string $subscription subscription
      *
      * @return self
      */
@@ -320,6 +342,16 @@ class NoEmailMarketingUnsubscribed implements ModelInterface, ArrayAccess, \Json
     {
         if (is_null($subscription)) {
             throw new \InvalidArgumentException('non-nullable subscription cannot be null');
+        }
+        $allowedValues = $this->getSubscriptionAllowableValues();
+        if (!in_array($subscription, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'subscription', must be one of '%s'",
+                    $subscription,
+                    implode("', '", $allowedValues)
+                )
+            );
         }
         $this->container['subscription'] = $subscription;
 

@@ -57,9 +57,9 @@ class RichTextMargin implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'left' => 'float',
-        'right' => 'float',
-        'top' => 'float',
+        'left' => 'int',
+        'right' => 'int',
+        'top' => 'int',
         'bottom' => 'int'
     ];
 
@@ -379,7 +379,7 @@ class RichTextMargin implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets left
      *
-     * @return float|null
+     * @return int|null
      */
     public function getLeft()
     {
@@ -389,7 +389,7 @@ class RichTextMargin implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets left
      *
-     * @param float|null $left left
+     * @param int|null $left left
      *
      * @return self
      */
@@ -416,7 +416,7 @@ class RichTextMargin implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets right
      *
-     * @return float|null
+     * @return int|null
      */
     public function getRight()
     {
@@ -426,7 +426,7 @@ class RichTextMargin implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets right
      *
-     * @param float|null $right right
+     * @param int|null $right right
      *
      * @return self
      */
@@ -453,7 +453,7 @@ class RichTextMargin implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets top
      *
-     * @return float|null
+     * @return int|null
      */
     public function getTop()
     {
@@ -463,7 +463,7 @@ class RichTextMargin implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets top
      *
-     * @param float|null $top top
+     * @param int|null $top top
      *
      * @return self
      */

@@ -57,7 +57,7 @@ class LowInventoryTrigger implements ModelInterface, ArrayAccess, \JsonSerializa
       * @var string[]
       */
     protected static $openAPITypes = [
-        'type' => '\KlaviyoAPI\Model\LowInventoryEnum',
+        'type' => 'string',
         'product_level' => 'string',
         'trigger_filter' => '\KlaviyoAPI\Model\LowInventoryConditionFilter',
         'inventory_count' => 'int',
@@ -258,11 +258,24 @@ class LowInventoryTrigger implements ModelInterface, ArrayAccess, \JsonSerializa
         return self::$openAPIModelName;
     }
 
+    public const TYPE_LOW_INVENTORY = 'low-inventory';
     public const PRODUCT_LEVEL_PRODUCT = 'product';
     public const PRODUCT_LEVEL_VARIANT = 'variant';
     public const AUDIENCE_ADDED_TO_CART = 'added-to-cart';
     public const AUDIENCE_CHECKOUT_STARTED = 'checkout-started';
     public const AUDIENCE_VIEWED = 'viewed';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getTypeAllowableValues()
+    {
+        return [
+            self::TYPE_LOW_INVENTORY,
+        ];
+    }
 
     /**
      * Gets allowable values of the enum
@@ -344,6 +357,15 @@ class LowInventoryTrigger implements ModelInterface, ArrayAccess, \JsonSerializa
         if ($this->container['type'] === null) {
             $invalidProperties[] = "'type' can't be null";
         }
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!is_null($this->container['type']) && !in_array($this->container['type'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'type', must be one of '%s'",
+                $this->container['type'],
+                implode("', '", $allowedValues)
+            );
+        }
+
         if ($this->container['product_level'] === null) {
             $invalidProperties[] = "'product_level' can't be null";
         }
@@ -383,7 +405,7 @@ class LowInventoryTrigger implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Gets type
      *
-     * @return \KlaviyoAPI\Model\LowInventoryEnum
+     * @return string
      */
     public function getType()
     {
@@ -393,7 +415,7 @@ class LowInventoryTrigger implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets type
      *
-     * @param \KlaviyoAPI\Model\LowInventoryEnum $type type
+     * @param string $type type
      *
      * @return self
      */
@@ -401,6 +423,16 @@ class LowInventoryTrigger implements ModelInterface, ArrayAccess, \JsonSerializa
     {
         if (is_null($type)) {
             throw new \InvalidArgumentException('non-nullable type cannot be null');
+        }
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!in_array($type, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'type', must be one of '%s'",
+                    $type,
+                    implode("', '", $allowedValues)
+                )
+            );
         }
         $this->container['type'] = $type;
 

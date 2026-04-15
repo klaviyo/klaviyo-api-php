@@ -59,8 +59,8 @@ class ButtonAction implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $openAPITypes = [
         'id' => 'string',
         'submit' => 'bool',
-        'type' => '\KlaviyoAPI\Model\SubmitBackInStockEnum',
-        'properties' => '\KlaviyoAPI\Model\SubmitBackInStockProperties'
+        'type' => 'string',
+        'properties' => 'object'
     ];
 
     /**
@@ -246,6 +246,41 @@ class ButtonAction implements ModelInterface, ArrayAccess, \JsonSerializable
         return self::$openAPIModelName;
     }
 
+    public const TYPE_CLOSE = 'close';
+    public const TYPE_NEXT_STEP = 'next_step';
+    public const TYPE_OPEN_FORM = 'open_form';
+    public const TYPE_PROMOTIONAL_SMS_SUBSCRIPTION = 'promotional_sms_subscription';
+    public const TYPE_REDIRECT = 'redirect';
+    public const TYPE_RESEND_OPT_IN_CODE = 'resend_opt_in_code';
+    public const TYPE_SUBMIT_OPT_IN_CODE = 'submit_opt_in_code';
+    public const TYPE_SUBSCRIBE_VIA_SMS = 'subscribe_via_sms';
+    public const TYPE_SUBSCRIBE_VIA_WHATSAPP = 'subscribe_via_whatsapp';
+    public const TYPE_GO_TO_INBOX = 'go_to_inbox';
+    public const TYPE_SUBMIT_BACK_IN_STOCK = 'submit_back_in_stock';
+    public const TYPE_SKIP_TO_SUCCESS = 'skip_to_success';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getTypeAllowableValues()
+    {
+        return [
+            self::TYPE_CLOSE,
+            self::TYPE_NEXT_STEP,
+            self::TYPE_OPEN_FORM,
+            self::TYPE_PROMOTIONAL_SMS_SUBSCRIPTION,
+            self::TYPE_REDIRECT,
+            self::TYPE_RESEND_OPT_IN_CODE,
+            self::TYPE_SUBMIT_OPT_IN_CODE,
+            self::TYPE_SUBSCRIBE_VIA_SMS,
+            self::TYPE_SUBSCRIBE_VIA_WHATSAPP,
+            self::TYPE_GO_TO_INBOX,
+            self::TYPE_SUBMIT_BACK_IN_STOCK,
+            self::TYPE_SKIP_TO_SUCCESS,
+        ];
+    }
 
     /**
      * Associative array for storing property values
@@ -263,7 +298,7 @@ class ButtonAction implements ModelInterface, ArrayAccess, \JsonSerializable
     public function __construct(?array $data = null)
     {
         $this->setIfExists('id', $data ?? [], null);
-        $this->setIfExists('submit', $data ?? [], true);
+        $this->setIfExists('submit', $data ?? [], false);
         $this->setIfExists('type', $data ?? [], null);
         $this->setIfExists('properties', $data ?? [], null);
     }
@@ -301,6 +336,15 @@ class ButtonAction implements ModelInterface, ArrayAccess, \JsonSerializable
         if ($this->container['type'] === null) {
             $invalidProperties[] = "'type' can't be null";
         }
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!is_null($this->container['type']) && !in_array($this->container['type'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'type', must be one of '%s'",
+                $this->container['type'],
+                implode("', '", $allowedValues)
+            );
+        }
+
         if ($this->container['properties'] === null) {
             $invalidProperties[] = "'properties' can't be null";
         }
@@ -332,7 +376,7 @@ class ButtonAction implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets id
      *
-     * @param string|null $id id
+     * @param string|null $id Not allowed on create.
      *
      * @return self
      */
@@ -383,7 +427,7 @@ class ButtonAction implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets type
      *
-     * @return \KlaviyoAPI\Model\SubmitBackInStockEnum
+     * @return string
      */
     public function getType()
     {
@@ -393,7 +437,7 @@ class ButtonAction implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets type
      *
-     * @param \KlaviyoAPI\Model\SubmitBackInStockEnum $type type
+     * @param string $type type
      *
      * @return self
      */
@@ -401,6 +445,16 @@ class ButtonAction implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         if (is_null($type)) {
             throw new \InvalidArgumentException('non-nullable type cannot be null');
+        }
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!in_array($type, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'type', must be one of '%s'",
+                    $type,
+                    implode("', '", $allowedValues)
+                )
+            );
         }
         $this->container['type'] = $type;
 
@@ -410,7 +464,7 @@ class ButtonAction implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets properties
      *
-     * @return \KlaviyoAPI\Model\SubmitBackInStockProperties
+     * @return object
      */
     public function getProperties()
     {
@@ -420,7 +474,7 @@ class ButtonAction implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets properties
      *
-     * @param \KlaviyoAPI\Model\SubmitBackInStockProperties $properties properties
+     * @param object $properties properties
      *
      * @return self
      */
@@ -429,6 +483,8 @@ class ButtonAction implements ModelInterface, ArrayAccess, \JsonSerializable
         if (is_null($properties)) {
             throw new \InvalidArgumentException('non-nullable properties cannot be null');
         }
+
+
         $this->container['properties'] = $properties;
 
         return $this;

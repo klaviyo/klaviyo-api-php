@@ -57,7 +57,7 @@ class RecordedDateFilter implements ModelInterface, ArrayAccess, \JsonSerializab
       * @var string[]
       */
     protected static $openAPITypes = [
-        'field' => '\KlaviyoAPI\Model\RecordedDateEnum',
+        'field' => 'string',
         'filter' => '\KlaviyoAPI\Model\StatusDateFilterFilter'
     ];
 
@@ -234,6 +234,19 @@ class RecordedDateFilter implements ModelInterface, ArrayAccess, \JsonSerializab
         return self::$openAPIModelName;
     }
 
+    public const FIELD_RECORDED_DATE = 'recorded_date';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getFieldAllowableValues()
+    {
+        return [
+            self::FIELD_RECORDED_DATE,
+        ];
+    }
 
     /**
      * Associative array for storing property values
@@ -284,6 +297,15 @@ class RecordedDateFilter implements ModelInterface, ArrayAccess, \JsonSerializab
         if ($this->container['field'] === null) {
             $invalidProperties[] = "'field' can't be null";
         }
+        $allowedValues = $this->getFieldAllowableValues();
+        if (!is_null($this->container['field']) && !in_array($this->container['field'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'field', must be one of '%s'",
+                $this->container['field'],
+                implode("', '", $allowedValues)
+            );
+        }
+
         if ($this->container['filter'] === null) {
             $invalidProperties[] = "'filter' can't be null";
         }
@@ -305,7 +327,7 @@ class RecordedDateFilter implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Gets field
      *
-     * @return \KlaviyoAPI\Model\RecordedDateEnum
+     * @return string
      */
     public function getField()
     {
@@ -315,7 +337,7 @@ class RecordedDateFilter implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets field
      *
-     * @param \KlaviyoAPI\Model\RecordedDateEnum $field field
+     * @param string $field field
      *
      * @return self
      */
@@ -323,6 +345,16 @@ class RecordedDateFilter implements ModelInterface, ArrayAccess, \JsonSerializab
     {
         if (is_null($field)) {
             throw new \InvalidArgumentException('non-nullable field cannot be null');
+        }
+        $allowedValues = $this->getFieldAllowableValues();
+        if (!in_array($field, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'field', must be one of '%s'",
+                    $field,
+                    implode("', '", $allowedValues)
+                )
+            );
         }
         $this->container['field'] = $field;
 

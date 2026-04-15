@@ -59,7 +59,7 @@ class CountdownTimerStyles implements ModelInterface, ArrayAccess, \JsonSerializ
     protected static $openAPITypes = [
         'padding' => '\KlaviyoAPI\Model\Padding',
         'background_color' => 'string',
-        'text_styles' => '\KlaviyoAPI\Model\TextStyle',
+        'text_styles' => '\KlaviyoAPI\Model\TextStyleV0',
         'card_color' => 'string',
         'label_font_size' => 'int',
         'label_font_weight' => 'int'
@@ -426,7 +426,7 @@ class CountdownTimerStyles implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Gets text_styles
      *
-     * @return \KlaviyoAPI\Model\TextStyle|null
+     * @return \KlaviyoAPI\Model\TextStyleV0|null
      */
     public function getTextStyles()
     {
@@ -436,7 +436,7 @@ class CountdownTimerStyles implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Sets text_styles
      *
-     * @param \KlaviyoAPI\Model\TextStyle|null $text_styles text_styles
+     * @param \KlaviyoAPI\Model\TextStyleV0|null $text_styles text_styles
      *
      * @return self
      */

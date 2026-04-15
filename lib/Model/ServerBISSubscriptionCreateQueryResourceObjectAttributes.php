@@ -237,6 +237,7 @@ class ServerBISSubscriptionCreateQueryResourceObjectAttributes implements ModelI
     public const CHANNELS_EMAIL = 'EMAIL';
     public const CHANNELS_PUSH = 'PUSH';
     public const CHANNELS_SMS = 'SMS';
+    public const CHANNELS_WHATSAPP = 'WHATSAPP';
 
     /**
      * Gets allowable values of the enum
@@ -249,6 +250,7 @@ class ServerBISSubscriptionCreateQueryResourceObjectAttributes implements ModelI
             self::CHANNELS_EMAIL,
             self::CHANNELS_PUSH,
             self::CHANNELS_SMS,
+            self::CHANNELS_WHATSAPP,
         ];
     }
 

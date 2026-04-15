@@ -57,7 +57,7 @@ class BackInStockDynamicButtonTextStyles implements ModelInterface, ArrayAccess,
       * @var string[]
       */
     protected static $openAPITypes = [
-        'font_family' => '\KlaviyoAPI\Model\TextStyleFontFamily',
+        'font_family' => '\KlaviyoAPI\Model\TextStyleV0FontFamily',
         'font_size' => 'int',
         'font_weight' => 'int',
         'font_color' => 'string',
@@ -372,7 +372,7 @@ class BackInStockDynamicButtonTextStyles implements ModelInterface, ArrayAccess,
     /**
      * Gets font_family
      *
-     * @return \KlaviyoAPI\Model\TextStyleFontFamily|null
+     * @return \KlaviyoAPI\Model\TextStyleV0FontFamily|null
      */
     public function getFontFamily()
     {
@@ -382,7 +382,7 @@ class BackInStockDynamicButtonTextStyles implements ModelInterface, ArrayAccess,
     /**
      * Sets font_family
      *
-     * @param \KlaviyoAPI\Model\TextStyleFontFamily|null $font_family font_family
+     * @param \KlaviyoAPI\Model\TextStyleV0FontFamily|null $font_family font_family
      *
      * @return self
      */

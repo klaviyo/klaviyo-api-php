@@ -57,7 +57,7 @@ class RejectReasonOther implements ModelInterface, ArrayAccess, \JsonSerializabl
       * @var string[]
       */
     protected static $openAPITypes = [
-        'reason' => '\KlaviyoAPI\Model\OtherEnum',
+        'reason' => 'string',
         'status_explanation' => 'string'
     ];
 
@@ -234,6 +234,19 @@ class RejectReasonOther implements ModelInterface, ArrayAccess, \JsonSerializabl
         return self::$openAPIModelName;
     }
 
+    public const REASON_OTHER = 'other';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getReasonAllowableValues()
+    {
+        return [
+            self::REASON_OTHER,
+        ];
+    }
 
     /**
      * Associative array for storing property values
@@ -284,6 +297,15 @@ class RejectReasonOther implements ModelInterface, ArrayAccess, \JsonSerializabl
         if ($this->container['reason'] === null) {
             $invalidProperties[] = "'reason' can't be null";
         }
+        $allowedValues = $this->getReasonAllowableValues();
+        if (!is_null($this->container['reason']) && !in_array($this->container['reason'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'reason', must be one of '%s'",
+                $this->container['reason'],
+                implode("', '", $allowedValues)
+            );
+        }
+
         return $invalidProperties;
     }
 
@@ -302,7 +324,7 @@ class RejectReasonOther implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Gets reason
      *
-     * @return \KlaviyoAPI\Model\OtherEnum
+     * @return string
      */
     public function getReason()
     {
@@ -312,7 +334,7 @@ class RejectReasonOther implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Sets reason
      *
-     * @param \KlaviyoAPI\Model\OtherEnum $reason reason
+     * @param string $reason reject reason is other
      *
      * @return self
      */
@@ -320,6 +342,16 @@ class RejectReasonOther implements ModelInterface, ArrayAccess, \JsonSerializabl
     {
         if (is_null($reason)) {
             throw new \InvalidArgumentException('non-nullable reason cannot be null');
+        }
+        $allowedValues = $this->getReasonAllowableValues();
+        if (!in_array($reason, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'reason', must be one of '%s'",
+                    $reason,
+                    implode("', '", $allowedValues)
+                )
+            );
         }
         $this->container['reason'] = $reason;
 

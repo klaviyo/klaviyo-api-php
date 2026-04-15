@@ -59,7 +59,8 @@ class SubscriptionChannels implements ModelInterface, ArrayAccess, \JsonSerializ
     protected static $openAPITypes = [
         'email' => '\KlaviyoAPI\Model\EmailSubscriptionParameters',
         'sms' => '\KlaviyoAPI\Model\SMSSubscriptionParameters',
-        'whatsapp' => '\KlaviyoAPI\Model\WhatsAppSubscriptionParameters'
+        'whatsapp' => '\KlaviyoAPI\Model\WhatsAppSubscriptionParameters',
+        'push' => '\KlaviyoAPI\Model\PushSubscriptionParameters'
     ];
 
     /**
@@ -72,7 +73,8 @@ class SubscriptionChannels implements ModelInterface, ArrayAccess, \JsonSerializ
     protected static $openAPIFormats = [
         'email' => null,
         'sms' => null,
-        'whatsapp' => null
+        'whatsapp' => null,
+        'push' => null
     ];
 
     /**
@@ -83,7 +85,8 @@ class SubscriptionChannels implements ModelInterface, ArrayAccess, \JsonSerializ
     protected static array $openAPINullables = [
         'email' => false,
         'sms' => false,
-        'whatsapp' => false
+        'whatsapp' => false,
+        'push' => false
     ];
 
     /**
@@ -174,7 +177,8 @@ class SubscriptionChannels implements ModelInterface, ArrayAccess, \JsonSerializ
     protected static $attributeMap = [
         'email' => 'email',
         'sms' => 'sms',
-        'whatsapp' => 'whatsapp'
+        'whatsapp' => 'whatsapp',
+        'push' => 'push'
     ];
 
     /**
@@ -185,7 +189,8 @@ class SubscriptionChannels implements ModelInterface, ArrayAccess, \JsonSerializ
     protected static $setters = [
         'email' => 'setEmail',
         'sms' => 'setSms',
-        'whatsapp' => 'setWhatsapp'
+        'whatsapp' => 'setWhatsapp',
+        'push' => 'setPush'
     ];
 
     /**
@@ -196,7 +201,8 @@ class SubscriptionChannels implements ModelInterface, ArrayAccess, \JsonSerializ
     protected static $getters = [
         'email' => 'getEmail',
         'sms' => 'getSms',
-        'whatsapp' => 'getWhatsapp'
+        'whatsapp' => 'getWhatsapp',
+        'push' => 'getPush'
     ];
 
     /**
@@ -259,6 +265,7 @@ class SubscriptionChannels implements ModelInterface, ArrayAccess, \JsonSerializ
         $this->setIfExists('email', $data ?? [], null);
         $this->setIfExists('sms', $data ?? [], null);
         $this->setIfExists('whatsapp', $data ?? [], null);
+        $this->setIfExists('push', $data ?? [], null);
     }
 
     /**
@@ -380,6 +387,33 @@ class SubscriptionChannels implements ModelInterface, ArrayAccess, \JsonSerializ
             throw new \InvalidArgumentException('non-nullable whatsapp cannot be null');
         }
         $this->container['whatsapp'] = $whatsapp;
+
+        return $this;
+    }
+
+    /**
+     * Gets push
+     *
+     * @return \KlaviyoAPI\Model\PushSubscriptionParameters|null
+     */
+    public function getPush()
+    {
+        return $this->container['push'];
+    }
+
+    /**
+     * Sets push
+     *
+     * @param \KlaviyoAPI\Model\PushSubscriptionParameters|null $push push
+     *
+     * @return self
+     */
+    public function setPush($push)
+    {
+        if (is_null($push)) {
+            throw new \InvalidArgumentException('non-nullable push cannot be null');
+        }
+        $this->container['push'] = $push;
 
         return $this;
     }

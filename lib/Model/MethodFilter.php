@@ -57,7 +57,7 @@ class MethodFilter implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'field' => '\KlaviyoAPI\Model\SubscribeMethodEnum',
+        'field' => 'string',
         'method' => 'string'
     ];
 
@@ -234,6 +234,7 @@ class MethodFilter implements ModelInterface, ArrayAccess, \JsonSerializable
         return self::$openAPIModelName;
     }
 
+    public const FIELD_SUBSCRIBE_METHOD = 'subscribe_method';
     public const METHOD_API = 'api';
     public const METHOD_BACK_IN_STOCK = 'back_in_stock';
     public const METHOD_BIGCOMMERCE = 'bigcommerce';
@@ -265,6 +266,18 @@ class MethodFilter implements ModelInterface, ArrayAccess, \JsonSerializable
     public const METHOD_SQUARE = 'square';
     public const METHOD_WIX = 'wix';
     public const METHOD_WOOCOMMERCE = 'woocommerce';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getFieldAllowableValues()
+    {
+        return [
+            self::FIELD_SUBSCRIBE_METHOD,
+        ];
+    }
 
     /**
      * Gets allowable values of the enum
@@ -357,6 +370,15 @@ class MethodFilter implements ModelInterface, ArrayAccess, \JsonSerializable
         if ($this->container['field'] === null) {
             $invalidProperties[] = "'field' can't be null";
         }
+        $allowedValues = $this->getFieldAllowableValues();
+        if (!is_null($this->container['field']) && !in_array($this->container['field'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'field', must be one of '%s'",
+                $this->container['field'],
+                implode("', '", $allowedValues)
+            );
+        }
+
         if ($this->container['method'] === null) {
             $invalidProperties[] = "'method' can't be null";
         }
@@ -387,7 +409,7 @@ class MethodFilter implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets field
      *
-     * @return \KlaviyoAPI\Model\SubscribeMethodEnum
+     * @return string
      */
     public function getField()
     {
@@ -397,7 +419,7 @@ class MethodFilter implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets field
      *
-     * @param \KlaviyoAPI\Model\SubscribeMethodEnum $field field
+     * @param string $field field
      *
      * @return self
      */
@@ -405,6 +427,16 @@ class MethodFilter implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         if (is_null($field)) {
             throw new \InvalidArgumentException('non-nullable field cannot be null');
+        }
+        $allowedValues = $this->getFieldAllowableValues();
+        if (!in_array($field, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'field', must be one of '%s'",
+                    $field,
+                    implode("', '", $allowedValues)
+                )
+            );
         }
         $this->container['field'] = $field;
 

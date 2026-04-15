@@ -64,12 +64,16 @@ class FlowPushNotification implements ModelInterface, ArrayAccess, \JsonSerializ
         'badge_options' => '\KlaviyoAPI\Model\FlowPushNotificationBadgeOptions',
         'image_id' => 'string',
         'dynamic_image' => 'string',
+        'video_asset_id' => 'string',
         'on_open' => 'string',
         'ios_link' => 'string',
         'android_link' => 'string',
+        'push_type' => 'string',
+        'kv_pairs' => 'object',
         'conversion_metric_id' => 'string',
         'smart_sending_enabled' => 'bool',
         'additional_filters' => '\KlaviyoAPI\Model\FlowPushNotificationAdditionalFilters',
+        'action_buttons' => '\KlaviyoAPI\Model\PushActionButton[]',
         'name' => 'string',
         'id' => 'string'
     ];
@@ -89,12 +93,16 @@ class FlowPushNotification implements ModelInterface, ArrayAccess, \JsonSerializ
         'badge_options' => null,
         'image_id' => null,
         'dynamic_image' => null,
+        'video_asset_id' => null,
         'on_open' => null,
         'ios_link' => null,
         'android_link' => null,
+        'push_type' => null,
+        'kv_pairs' => null,
         'conversion_metric_id' => null,
         'smart_sending_enabled' => null,
         'additional_filters' => null,
+        'action_buttons' => null,
         'name' => null,
         'id' => null
     ];
@@ -112,12 +120,16 @@ class FlowPushNotification implements ModelInterface, ArrayAccess, \JsonSerializ
         'badge_options' => false,
         'image_id' => true,
         'dynamic_image' => true,
+        'video_asset_id' => true,
         'on_open' => false,
         'ios_link' => true,
         'android_link' => true,
+        'push_type' => true,
+        'kv_pairs' => true,
         'conversion_metric_id' => true,
         'smart_sending_enabled' => false,
         'additional_filters' => true,
+        'action_buttons' => true,
         'name' => true,
         'id' => true
     ];
@@ -215,12 +227,16 @@ class FlowPushNotification implements ModelInterface, ArrayAccess, \JsonSerializ
         'badge_options' => 'badge_options',
         'image_id' => 'image_id',
         'dynamic_image' => 'dynamic_image',
+        'video_asset_id' => 'video_asset_id',
         'on_open' => 'on_open',
         'ios_link' => 'ios_link',
         'android_link' => 'android_link',
+        'push_type' => 'push_type',
+        'kv_pairs' => 'kv_pairs',
         'conversion_metric_id' => 'conversion_metric_id',
         'smart_sending_enabled' => 'smart_sending_enabled',
         'additional_filters' => 'additional_filters',
+        'action_buttons' => 'action_buttons',
         'name' => 'name',
         'id' => 'id'
     ];
@@ -238,12 +254,16 @@ class FlowPushNotification implements ModelInterface, ArrayAccess, \JsonSerializ
         'badge_options' => 'setBadgeOptions',
         'image_id' => 'setImageId',
         'dynamic_image' => 'setDynamicImage',
+        'video_asset_id' => 'setVideoAssetId',
         'on_open' => 'setOnOpen',
         'ios_link' => 'setIosLink',
         'android_link' => 'setAndroidLink',
+        'push_type' => 'setPushType',
+        'kv_pairs' => 'setKvPairs',
         'conversion_metric_id' => 'setConversionMetricId',
         'smart_sending_enabled' => 'setSmartSendingEnabled',
         'additional_filters' => 'setAdditionalFilters',
+        'action_buttons' => 'setActionButtons',
         'name' => 'setName',
         'id' => 'setId'
     ];
@@ -261,12 +281,16 @@ class FlowPushNotification implements ModelInterface, ArrayAccess, \JsonSerializ
         'badge_options' => 'getBadgeOptions',
         'image_id' => 'getImageId',
         'dynamic_image' => 'getDynamicImage',
+        'video_asset_id' => 'getVideoAssetId',
         'on_open' => 'getOnOpen',
         'ios_link' => 'getIosLink',
         'android_link' => 'getAndroidLink',
+        'push_type' => 'getPushType',
+        'kv_pairs' => 'getKvPairs',
         'conversion_metric_id' => 'getConversionMetricId',
         'smart_sending_enabled' => 'getSmartSendingEnabled',
         'additional_filters' => 'getAdditionalFilters',
+        'action_buttons' => 'getActionButtons',
         'name' => 'getName',
         'id' => 'getId'
     ];
@@ -314,6 +338,8 @@ class FlowPushNotification implements ModelInterface, ArrayAccess, \JsonSerializ
 
     public const ON_OPEN_HOME = 'home';
     public const ON_OPEN_LINK = 'link';
+    public const PUSH_TYPE_SILENT = 'silent';
+    public const PUSH_TYPE_STANDARD = 'standard';
 
     /**
      * Gets allowable values of the enum
@@ -325,6 +351,19 @@ class FlowPushNotification implements ModelInterface, ArrayAccess, \JsonSerializ
         return [
             self::ON_OPEN_HOME,
             self::ON_OPEN_LINK,
+        ];
+    }
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getPushTypeAllowableValues()
+    {
+        return [
+            self::PUSH_TYPE_SILENT,
+            self::PUSH_TYPE_STANDARD,
         ];
     }
 
@@ -350,12 +389,16 @@ class FlowPushNotification implements ModelInterface, ArrayAccess, \JsonSerializ
         $this->setIfExists('badge_options', $data ?? [], null);
         $this->setIfExists('image_id', $data ?? [], null);
         $this->setIfExists('dynamic_image', $data ?? [], null);
+        $this->setIfExists('video_asset_id', $data ?? [], null);
         $this->setIfExists('on_open', $data ?? [], 'home');
         $this->setIfExists('ios_link', $data ?? [], null);
         $this->setIfExists('android_link', $data ?? [], null);
+        $this->setIfExists('push_type', $data ?? [], null);
+        $this->setIfExists('kv_pairs', $data ?? [], null);
         $this->setIfExists('conversion_metric_id', $data ?? [], null);
         $this->setIfExists('smart_sending_enabled', $data ?? [], true);
         $this->setIfExists('additional_filters', $data ?? [], null);
+        $this->setIfExists('action_buttons', $data ?? [], null);
         $this->setIfExists('name', $data ?? [], null);
         $this->setIfExists('id', $data ?? [], null);
     }
@@ -395,6 +438,15 @@ class FlowPushNotification implements ModelInterface, ArrayAccess, \JsonSerializ
             $invalidProperties[] = sprintf(
                 "invalid value '%s' for 'on_open', must be one of '%s'",
                 $this->container['on_open'],
+                implode("', '", $allowedValues)
+            );
+        }
+
+        $allowedValues = $this->getPushTypeAllowableValues();
+        if (!is_null($this->container['push_type']) && !in_array($this->container['push_type'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'push_type', must be one of '%s'",
+                $this->container['push_type'],
                 implode("', '", $allowedValues)
             );
         }
@@ -625,6 +677,40 @@ class FlowPushNotification implements ModelInterface, ArrayAccess, \JsonSerializ
     }
 
     /**
+     * Gets video_asset_id
+     *
+     * @return string|null
+     */
+    public function getVideoAssetId()
+    {
+        return $this->container['video_asset_id'];
+    }
+
+    /**
+     * Sets video_asset_id
+     *
+     * @param string|null $video_asset_id The ULID of a video asset. If provided, videos and images are mutually exclusive.
+     *
+     * @return self
+     */
+    public function setVideoAssetId($video_asset_id)
+    {
+        if (is_null($video_asset_id)) {
+            array_push($this->openAPINullablesSetToNull, 'video_asset_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('video_asset_id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['video_asset_id'] = $video_asset_id;
+
+        return $this;
+    }
+
+    /**
      * Gets on_open
      *
      * @return string|null
@@ -730,6 +816,84 @@ class FlowPushNotification implements ModelInterface, ArrayAccess, \JsonSerializ
     }
 
     /**
+     * Gets push_type
+     *
+     * @return string|null
+     */
+    public function getPushType()
+    {
+        return $this->container['push_type'];
+    }
+
+    /**
+     * Sets push_type
+     *
+     * @param string|null $push_type The type of push notification to send.
+     *
+     * @return self
+     */
+    public function setPushType($push_type)
+    {
+        if (is_null($push_type)) {
+            array_push($this->openAPINullablesSetToNull, 'push_type');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('push_type', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $allowedValues = $this->getPushTypeAllowableValues();
+        if (!is_null($push_type) && !in_array($push_type, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'push_type', must be one of '%s'",
+                    $push_type,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['push_type'] = $push_type;
+
+        return $this;
+    }
+
+    /**
+     * Gets kv_pairs
+     *
+     * @return object|null
+     */
+    public function getKvPairs()
+    {
+        return $this->container['kv_pairs'];
+    }
+
+    /**
+     * Sets kv_pairs
+     *
+     * @param object|null $kv_pairs kv_pairs
+     *
+     * @return self
+     */
+    public function setKvPairs($kv_pairs)
+    {
+        if (is_null($kv_pairs)) {
+            array_push($this->openAPINullablesSetToNull, 'kv_pairs');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('kv_pairs', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['kv_pairs'] = $kv_pairs;
+
+        return $this;
+    }
+
+    /**
      * Gets conversion_metric_id
      *
      * @return string|null
@@ -825,6 +989,40 @@ class FlowPushNotification implements ModelInterface, ArrayAccess, \JsonSerializ
     }
 
     /**
+     * Gets action_buttons
+     *
+     * @return \KlaviyoAPI\Model\PushActionButton[]|null
+     */
+    public function getActionButtons()
+    {
+        return $this->container['action_buttons'];
+    }
+
+    /**
+     * Sets action_buttons
+     *
+     * @param \KlaviyoAPI\Model\PushActionButton[]|null $action_buttons action_buttons
+     *
+     * @return self
+     */
+    public function setActionButtons($action_buttons)
+    {
+        if (is_null($action_buttons)) {
+            array_push($this->openAPINullablesSetToNull, 'action_buttons');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('action_buttons', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['action_buttons'] = $action_buttons;
+
+        return $this;
+    }
+
+    /**
      * Gets name
      *
      * @return string|null
@@ -871,7 +1069,7 @@ class FlowPushNotification implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Sets id
      *
-     * @param string|null $id id
+     * @param string|null $id Not allowed on create.
      *
      * @return self
      */

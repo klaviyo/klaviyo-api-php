@@ -57,9 +57,9 @@ class ExplicitlyReachableFiltersInner implements ModelInterface, ArrayAccess, \J
       * @var string[]
       */
     protected static $openAPITypes = [
-        'field' => '\KlaviyoAPI\Model\SubscribeMethodEnum',
+        'field' => 'string',
         'filter' => '\KlaviyoAPI\Model\InStringArrayFilter',
-        'method' => '\KlaviyoAPI\Model\FormEnum'
+        'method' => 'string'
     ];
 
     /**
@@ -240,6 +240,32 @@ class ExplicitlyReachableFiltersInner implements ModelInterface, ArrayAccess, \J
         return self::$openAPIModelName;
     }
 
+    public const FIELD_SUBSCRIBE_METHOD = 'subscribe_method';
+    public const METHOD_FORM = 'form';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getFieldAllowableValues()
+    {
+        return [
+            self::FIELD_SUBSCRIBE_METHOD,
+        ];
+    }
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getMethodAllowableValues()
+    {
+        return [
+            self::METHOD_FORM,
+        ];
+    }
 
     /**
      * Associative array for storing property values
@@ -291,12 +317,30 @@ class ExplicitlyReachableFiltersInner implements ModelInterface, ArrayAccess, \J
         if ($this->container['field'] === null) {
             $invalidProperties[] = "'field' can't be null";
         }
+        $allowedValues = $this->getFieldAllowableValues();
+        if (!is_null($this->container['field']) && !in_array($this->container['field'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'field', must be one of '%s'",
+                $this->container['field'],
+                implode("', '", $allowedValues)
+            );
+        }
+
         if ($this->container['filter'] === null) {
             $invalidProperties[] = "'filter' can't be null";
         }
         if ($this->container['method'] === null) {
             $invalidProperties[] = "'method' can't be null";
         }
+        $allowedValues = $this->getMethodAllowableValues();
+        if (!is_null($this->container['method']) && !in_array($this->container['method'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'method', must be one of '%s'",
+                $this->container['method'],
+                implode("', '", $allowedValues)
+            );
+        }
+
         return $invalidProperties;
     }
 
@@ -315,7 +359,7 @@ class ExplicitlyReachableFiltersInner implements ModelInterface, ArrayAccess, \J
     /**
      * Gets field
      *
-     * @return \KlaviyoAPI\Model\SubscribeMethodEnum
+     * @return string
      */
     public function getField()
     {
@@ -325,7 +369,7 @@ class ExplicitlyReachableFiltersInner implements ModelInterface, ArrayAccess, \J
     /**
      * Sets field
      *
-     * @param \KlaviyoAPI\Model\SubscribeMethodEnum $field field
+     * @param string $field field
      *
      * @return self
      */
@@ -333,6 +377,16 @@ class ExplicitlyReachableFiltersInner implements ModelInterface, ArrayAccess, \J
     {
         if (is_null($field)) {
             throw new \InvalidArgumentException('non-nullable field cannot be null');
+        }
+        $allowedValues = $this->getFieldAllowableValues();
+        if (!in_array($field, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'field', must be one of '%s'",
+                    $field,
+                    implode("', '", $allowedValues)
+                )
+            );
         }
         $this->container['field'] = $field;
 
@@ -369,7 +423,7 @@ class ExplicitlyReachableFiltersInner implements ModelInterface, ArrayAccess, \J
     /**
      * Gets method
      *
-     * @return \KlaviyoAPI\Model\FormEnum
+     * @return string
      */
     public function getMethod()
     {
@@ -379,7 +433,7 @@ class ExplicitlyReachableFiltersInner implements ModelInterface, ArrayAccess, \J
     /**
      * Sets method
      *
-     * @param \KlaviyoAPI\Model\FormEnum $method method
+     * @param string $method method
      *
      * @return self
      */
@@ -387,6 +441,16 @@ class ExplicitlyReachableFiltersInner implements ModelInterface, ArrayAccess, \J
     {
         if (is_null($method)) {
             throw new \InvalidArgumentException('non-nullable method cannot be null');
+        }
+        $allowedValues = $this->getMethodAllowableValues();
+        if (!in_array($method, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'method', must be one of '%s'",
+                    $method,
+                    implode("', '", $allowedValues)
+                )
+            );
         }
         $this->container['method'] = $method;
 

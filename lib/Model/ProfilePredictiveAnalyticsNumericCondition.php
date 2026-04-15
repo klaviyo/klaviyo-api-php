@@ -57,9 +57,9 @@ class ProfilePredictiveAnalyticsNumericCondition implements ModelInterface, Arra
       * @var string[]
       */
     protected static $openAPITypes = [
-        'type' => '\KlaviyoAPI\Model\ProfilePredictiveAnalyticsEnum',
+        'type' => 'string',
         'dimension' => 'string',
-        'filter' => '\KlaviyoAPI\Model\NumericOperatorFilter'
+        'filter' => '\KlaviyoAPI\Model\NumericOperatorNumericFilter'
     ];
 
     /**
@@ -240,6 +240,7 @@ class ProfilePredictiveAnalyticsNumericCondition implements ModelInterface, Arra
         return self::$openAPIModelName;
     }
 
+    public const TYPE_PROFILE_PREDICTIVE_ANALYTICS = 'profile-predictive-analytics';
     public const DIMENSION_AVERAGE_DAYS_BETWEEN_ORDERS = 'average_days_between_orders';
     public const DIMENSION_AVERAGE_ORDER_VALUE = 'average_order_value';
     public const DIMENSION_CHURN_PROBABILITY = 'churn_probability';
@@ -248,6 +249,18 @@ class ProfilePredictiveAnalyticsNumericCondition implements ModelInterface, Arra
     public const DIMENSION_PREDICTED_CLV = 'predicted_clv';
     public const DIMENSION_PREDICTED_NUMBER_OF_ORDERS = 'predicted_number_of_orders';
     public const DIMENSION_TOTAL_CLV = 'total_clv';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getTypeAllowableValues()
+    {
+        return [
+            self::TYPE_PROFILE_PREDICTIVE_ANALYTICS,
+        ];
+    }
 
     /**
      * Gets allowable values of the enum
@@ -318,6 +331,15 @@ class ProfilePredictiveAnalyticsNumericCondition implements ModelInterface, Arra
         if ($this->container['type'] === null) {
             $invalidProperties[] = "'type' can't be null";
         }
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!is_null($this->container['type']) && !in_array($this->container['type'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'type', must be one of '%s'",
+                $this->container['type'],
+                implode("', '", $allowedValues)
+            );
+        }
+
         if ($this->container['dimension'] === null) {
             $invalidProperties[] = "'dimension' can't be null";
         }
@@ -351,7 +373,7 @@ class ProfilePredictiveAnalyticsNumericCondition implements ModelInterface, Arra
     /**
      * Gets type
      *
-     * @return \KlaviyoAPI\Model\ProfilePredictiveAnalyticsEnum
+     * @return string
      */
     public function getType()
     {
@@ -361,7 +383,7 @@ class ProfilePredictiveAnalyticsNumericCondition implements ModelInterface, Arra
     /**
      * Sets type
      *
-     * @param \KlaviyoAPI\Model\ProfilePredictiveAnalyticsEnum $type type
+     * @param string $type type
      *
      * @return self
      */
@@ -369,6 +391,16 @@ class ProfilePredictiveAnalyticsNumericCondition implements ModelInterface, Arra
     {
         if (is_null($type)) {
             throw new \InvalidArgumentException('non-nullable type cannot be null');
+        }
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!in_array($type, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'type', must be one of '%s'",
+                    $type,
+                    implode("', '", $allowedValues)
+                )
+            );
         }
         $this->container['type'] = $type;
 
@@ -415,7 +447,7 @@ class ProfilePredictiveAnalyticsNumericCondition implements ModelInterface, Arra
     /**
      * Gets filter
      *
-     * @return \KlaviyoAPI\Model\NumericOperatorFilter
+     * @return \KlaviyoAPI\Model\NumericOperatorNumericFilter
      */
     public function getFilter()
     {
@@ -425,7 +457,7 @@ class ProfilePredictiveAnalyticsNumericCondition implements ModelInterface, Arra
     /**
      * Sets filter
      *
-     * @param \KlaviyoAPI\Model\NumericOperatorFilter $filter filter
+     * @param \KlaviyoAPI\Model\NumericOperatorNumericFilter $filter filter
      *
      * @return self
      */

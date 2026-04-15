@@ -57,8 +57,8 @@ class InTheLastBaseRelativeDateFilter implements ModelInterface, ArrayAccess, \J
       * @var string[]
       */
     protected static $openAPITypes = [
-        'type' => '\KlaviyoAPI\Model\DateEnum',
-        'operator' => '\KlaviyoAPI\Model\InTheLastEnum',
+        'type' => 'string',
+        'operator' => 'string',
         'unit' => 'string',
         'quantity' => 'int'
     ];
@@ -246,9 +246,35 @@ class InTheLastBaseRelativeDateFilter implements ModelInterface, ArrayAccess, \J
         return self::$openAPIModelName;
     }
 
+    public const TYPE_DATE = 'date';
+    public const OPERATOR_IN_THE_LAST = 'in-the-last';
     public const UNIT_DAY = 'day';
     public const UNIT_HOUR = 'hour';
     public const UNIT_WEEK = 'week';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getTypeAllowableValues()
+    {
+        return [
+            self::TYPE_DATE,
+        ];
+    }
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getOperatorAllowableValues()
+    {
+        return [
+            self::OPERATOR_IN_THE_LAST,
+        ];
+    }
 
     /**
      * Gets allowable values of the enum
@@ -315,9 +341,27 @@ class InTheLastBaseRelativeDateFilter implements ModelInterface, ArrayAccess, \J
         if ($this->container['type'] === null) {
             $invalidProperties[] = "'type' can't be null";
         }
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!is_null($this->container['type']) && !in_array($this->container['type'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'type', must be one of '%s'",
+                $this->container['type'],
+                implode("', '", $allowedValues)
+            );
+        }
+
         if ($this->container['operator'] === null) {
             $invalidProperties[] = "'operator' can't be null";
         }
+        $allowedValues = $this->getOperatorAllowableValues();
+        if (!is_null($this->container['operator']) && !in_array($this->container['operator'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'operator', must be one of '%s'",
+                $this->container['operator'],
+                implode("', '", $allowedValues)
+            );
+        }
+
         if ($this->container['unit'] === null) {
             $invalidProperties[] = "'unit' can't be null";
         }
@@ -351,7 +395,7 @@ class InTheLastBaseRelativeDateFilter implements ModelInterface, ArrayAccess, \J
     /**
      * Gets type
      *
-     * @return \KlaviyoAPI\Model\DateEnum
+     * @return string
      */
     public function getType()
     {
@@ -361,7 +405,7 @@ class InTheLastBaseRelativeDateFilter implements ModelInterface, ArrayAccess, \J
     /**
      * Sets type
      *
-     * @param \KlaviyoAPI\Model\DateEnum $type type
+     * @param string $type type
      *
      * @return self
      */
@@ -369,6 +413,16 @@ class InTheLastBaseRelativeDateFilter implements ModelInterface, ArrayAccess, \J
     {
         if (is_null($type)) {
             throw new \InvalidArgumentException('non-nullable type cannot be null');
+        }
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!in_array($type, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'type', must be one of '%s'",
+                    $type,
+                    implode("', '", $allowedValues)
+                )
+            );
         }
         $this->container['type'] = $type;
 
@@ -378,7 +432,7 @@ class InTheLastBaseRelativeDateFilter implements ModelInterface, ArrayAccess, \J
     /**
      * Gets operator
      *
-     * @return \KlaviyoAPI\Model\InTheLastEnum
+     * @return string
      */
     public function getOperator()
     {
@@ -388,7 +442,7 @@ class InTheLastBaseRelativeDateFilter implements ModelInterface, ArrayAccess, \J
     /**
      * Sets operator
      *
-     * @param \KlaviyoAPI\Model\InTheLastEnum $operator operator
+     * @param string $operator operator
      *
      * @return self
      */
@@ -396,6 +450,16 @@ class InTheLastBaseRelativeDateFilter implements ModelInterface, ArrayAccess, \J
     {
         if (is_null($operator)) {
             throw new \InvalidArgumentException('non-nullable operator cannot be null');
+        }
+        $allowedValues = $this->getOperatorAllowableValues();
+        if (!in_array($operator, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'operator', must be one of '%s'",
+                    $operator,
+                    implode("', '", $allowedValues)
+                )
+            );
         }
         $this->container['operator'] = $operator;
 

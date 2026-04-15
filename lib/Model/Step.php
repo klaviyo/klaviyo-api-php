@@ -58,7 +58,7 @@ class Step implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static $openAPITypes = [
         'id' => 'string',
-        'columns' => '\KlaviyoAPI\Model\Column[]',
+        'columns' => '\KlaviyoAPI\Model\ColumnV0[]',
         'name' => 'string',
         'steps' => '\KlaviyoAPI\Model\Step[]'
     ];
@@ -326,7 +326,7 @@ class Step implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets id
      *
-     * @param string|null $id id
+     * @param string|null $id Not allowed on create.
      *
      * @return self
      */
@@ -350,7 +350,7 @@ class Step implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets columns
      *
-     * @return \KlaviyoAPI\Model\Column[]
+     * @return \KlaviyoAPI\Model\ColumnV0[]
      */
     public function getColumns()
     {
@@ -360,7 +360,7 @@ class Step implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets columns
      *
-     * @param \KlaviyoAPI\Model\Column[] $columns columns
+     * @param \KlaviyoAPI\Model\ColumnV0[] $columns columns
      *
      * @return self
      */

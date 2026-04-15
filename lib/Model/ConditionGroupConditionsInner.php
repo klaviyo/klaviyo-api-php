@@ -57,24 +57,27 @@ class ConditionGroupConditionsInner implements ModelInterface, ArrayAccess, \Jso
       * @var string[]
       */
     protected static $openAPITypes = [
-        'type' => '\KlaviyoAPI\Model\ProfileMetricFunnelEnum',
+        'type' => 'string',
         'is_member' => 'bool',
         'group_ids' => 'string[]',
         'timeframe_filter' => '\KlaviyoAPI\Model\SegmentsProfileMetricFunnelConditionTimeframeFilter',
         'metric_id' => 'string',
-        'measurement' => '\KlaviyoAPI\Model\RankEnum',
-        'measurement_filter' => '\KlaviyoAPI\Model\NumericOperatorFilter',
+        'measurement' => 'string',
+        'measurement_filter' => '\KlaviyoAPI\Model\NumericOperatorNumericFilter',
         'metric_filters' => '\KlaviyoAPI\Model\ProfileMetricPropertyFilter[]',
         'consent' => '\KlaviyoAPI\Model\ProfileMarketingConsentConditionConsent',
         'country_code' => 'string',
         'postal_code' => 'string',
         'unit' => 'string',
-        'filter' => '\KlaviyoAPI\Model\ProfilePredictiveAnalyticsChannelAffinityRankFilter',
+        'filter' => '\KlaviyoAPI\Model\IntegerFilter',
         'property' => 'string',
         'in_region' => 'bool',
         'region' => 'string',
         'dimension' => 'string',
         'predicted_channel' => 'string',
+        'object_type_id' => 'string',
+        'object_type_relationship_id' => 'string',
+        'filters' => '\KlaviyoAPI\Model\ProfileHasCustomObjectFilter[]',
         'permission' => '\KlaviyoAPI\Model\ProfilePermissionsConditionPermission',
         'channel' => 'string',
         'completion_window_seconds' => 'string',
@@ -107,6 +110,9 @@ class ConditionGroupConditionsInner implements ModelInterface, ArrayAccess, \Jso
         'region' => null,
         'dimension' => null,
         'predicted_channel' => null,
+        'object_type_id' => null,
+        'object_type_relationship_id' => null,
+        'filters' => null,
         'permission' => null,
         'channel' => null,
         'completion_window_seconds' => null,
@@ -137,6 +143,9 @@ class ConditionGroupConditionsInner implements ModelInterface, ArrayAccess, \Jso
         'region' => false,
         'dimension' => false,
         'predicted_channel' => false,
+        'object_type_id' => false,
+        'object_type_relationship_id' => false,
+        'filters' => false,
         'permission' => false,
         'channel' => false,
         'completion_window_seconds' => true,
@@ -247,6 +256,9 @@ class ConditionGroupConditionsInner implements ModelInterface, ArrayAccess, \Jso
         'region' => 'region',
         'dimension' => 'dimension',
         'predicted_channel' => 'predicted_channel',
+        'object_type_id' => 'object_type_id',
+        'object_type_relationship_id' => 'object_type_relationship_id',
+        'filters' => 'filters',
         'permission' => 'permission',
         'channel' => 'channel',
         'completion_window_seconds' => 'completion_window_seconds',
@@ -277,6 +289,9 @@ class ConditionGroupConditionsInner implements ModelInterface, ArrayAccess, \Jso
         'region' => 'setRegion',
         'dimension' => 'setDimension',
         'predicted_channel' => 'setPredictedChannel',
+        'object_type_id' => 'setObjectTypeId',
+        'object_type_relationship_id' => 'setObjectTypeRelationshipId',
+        'filters' => 'setFilters',
         'permission' => 'setPermission',
         'channel' => 'setChannel',
         'completion_window_seconds' => 'setCompletionWindowSeconds',
@@ -307,6 +322,9 @@ class ConditionGroupConditionsInner implements ModelInterface, ArrayAccess, \Jso
         'region' => 'getRegion',
         'dimension' => 'getDimension',
         'predicted_channel' => 'getPredictedChannel',
+        'object_type_id' => 'getObjectTypeId',
+        'object_type_relationship_id' => 'getObjectTypeRelationshipId',
+        'filters' => 'getFilters',
         'permission' => 'getPermission',
         'channel' => 'getChannel',
         'completion_window_seconds' => 'getCompletionWindowSeconds',
@@ -354,6 +372,17 @@ class ConditionGroupConditionsInner implements ModelInterface, ArrayAccess, \Jso
         return self::$openAPIModelName;
     }
 
+    public const TYPE_PROFILE_GROUP_MEMBERSHIP = 'profile-group-membership';
+    public const TYPE_PROFILE_METRIC = 'profile-metric';
+    public const TYPE_PROFILE_MARKETING_CONSENT = 'profile-marketing-consent';
+    public const TYPE_PROFILE_POSTAL_CODE_DISTANCE = 'profile-postal-code-distance';
+    public const TYPE_PROFILE_PROPERTY = 'profile-property';
+    public const TYPE_PROFILE_REGION = 'profile-region';
+    public const TYPE_PROFILE_PREDICTIVE_ANALYTICS = 'profile-predictive-analytics';
+    public const TYPE_PROFILE_HAS_CUSTOM_OBJECT = 'profile-has-custom-object';
+    public const TYPE_PROFILE_PERMISSIONS = 'profile-permissions';
+    public const TYPE_PROFILE_METRIC_FUNNEL = 'profile-metric-funnel';
+    public const MEASUREMENT_RANK = 'rank';
     public const UNIT_KILOMETERS = 'kilometers';
     public const UNIT_MILES = 'miles';
     public const REGION_EUROPEAN_UNION = 'european_union';
@@ -373,6 +402,39 @@ class ConditionGroupConditionsInner implements ModelInterface, ArrayAccess, \Jso
     public const COMPLETION_WINDOW_SECONDS_HOURS_1 = 'HOURS_1';
     public const COMPLETION_WINDOW_SECONDS_WEEKS_1 = 'WEEKS_1';
     public const COMPLETION_WINDOW_SECONDS_YEARS_1 = 'YEARS_1';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getTypeAllowableValues()
+    {
+        return [
+            self::TYPE_PROFILE_GROUP_MEMBERSHIP,
+            self::TYPE_PROFILE_METRIC,
+            self::TYPE_PROFILE_MARKETING_CONSENT,
+            self::TYPE_PROFILE_POSTAL_CODE_DISTANCE,
+            self::TYPE_PROFILE_PROPERTY,
+            self::TYPE_PROFILE_REGION,
+            self::TYPE_PROFILE_PREDICTIVE_ANALYTICS,
+            self::TYPE_PROFILE_HAS_CUSTOM_OBJECT,
+            self::TYPE_PROFILE_PERMISSIONS,
+            self::TYPE_PROFILE_METRIC_FUNNEL,
+        ];
+    }
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getMeasurementAllowableValues()
+    {
+        return [
+            self::MEASUREMENT_RANK,
+        ];
+    }
 
     /**
      * Gets allowable values of the enum
@@ -492,6 +554,9 @@ class ConditionGroupConditionsInner implements ModelInterface, ArrayAccess, \Jso
         $this->setIfExists('region', $data ?? [], null);
         $this->setIfExists('dimension', $data ?? [], null);
         $this->setIfExists('predicted_channel', $data ?? [], null);
+        $this->setIfExists('object_type_id', $data ?? [], null);
+        $this->setIfExists('object_type_relationship_id', $data ?? [], null);
+        $this->setIfExists('filters', $data ?? [], null);
         $this->setIfExists('permission', $data ?? [], null);
         $this->setIfExists('channel', $data ?? [], null);
         $this->setIfExists('completion_window_seconds', $data ?? [], null);
@@ -528,6 +593,15 @@ class ConditionGroupConditionsInner implements ModelInterface, ArrayAccess, \Jso
         if ($this->container['type'] === null) {
             $invalidProperties[] = "'type' can't be null";
         }
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!is_null($this->container['type']) && !in_array($this->container['type'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'type', must be one of '%s'",
+                $this->container['type'],
+                implode("', '", $allowedValues)
+            );
+        }
+
         if ($this->container['is_member'] === null) {
             $invalidProperties[] = "'is_member' can't be null";
         }
@@ -543,6 +617,15 @@ class ConditionGroupConditionsInner implements ModelInterface, ArrayAccess, \Jso
         if ($this->container['measurement'] === null) {
             $invalidProperties[] = "'measurement' can't be null";
         }
+        $allowedValues = $this->getMeasurementAllowableValues();
+        if (!is_null($this->container['measurement']) && !in_array($this->container['measurement'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'measurement', must be one of '%s'",
+                $this->container['measurement'],
+                implode("', '", $allowedValues)
+            );
+        }
+
         if ($this->container['measurement_filter'] === null) {
             $invalidProperties[] = "'measurement_filter' can't be null";
         }
@@ -612,6 +695,15 @@ class ConditionGroupConditionsInner implements ModelInterface, ArrayAccess, \Jso
             );
         }
 
+        if ($this->container['object_type_id'] === null) {
+            $invalidProperties[] = "'object_type_id' can't be null";
+        }
+        if ($this->container['object_type_relationship_id'] === null) {
+            $invalidProperties[] = "'object_type_relationship_id' can't be null";
+        }
+        if ($this->container['filters'] === null) {
+            $invalidProperties[] = "'filters' can't be null";
+        }
         if ($this->container['permission'] === null) {
             $invalidProperties[] = "'permission' can't be null";
         }
@@ -657,7 +749,7 @@ class ConditionGroupConditionsInner implements ModelInterface, ArrayAccess, \Jso
     /**
      * Gets type
      *
-     * @return \KlaviyoAPI\Model\ProfileMetricFunnelEnum
+     * @return string
      */
     public function getType()
     {
@@ -667,7 +759,7 @@ class ConditionGroupConditionsInner implements ModelInterface, ArrayAccess, \Jso
     /**
      * Sets type
      *
-     * @param \KlaviyoAPI\Model\ProfileMetricFunnelEnum $type type
+     * @param string $type type
      *
      * @return self
      */
@@ -675,6 +767,16 @@ class ConditionGroupConditionsInner implements ModelInterface, ArrayAccess, \Jso
     {
         if (is_null($type)) {
             throw new \InvalidArgumentException('non-nullable type cannot be null');
+        }
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!in_array($type, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'type', must be one of '%s'",
+                    $type,
+                    implode("', '", $allowedValues)
+                )
+            );
         }
         $this->container['type'] = $type;
 
@@ -792,7 +894,7 @@ class ConditionGroupConditionsInner implements ModelInterface, ArrayAccess, \Jso
     /**
      * Gets measurement
      *
-     * @return \KlaviyoAPI\Model\RankEnum
+     * @return string
      */
     public function getMeasurement()
     {
@@ -802,7 +904,7 @@ class ConditionGroupConditionsInner implements ModelInterface, ArrayAccess, \Jso
     /**
      * Sets measurement
      *
-     * @param \KlaviyoAPI\Model\RankEnum $measurement measurement
+     * @param string $measurement measurement
      *
      * @return self
      */
@@ -810,6 +912,16 @@ class ConditionGroupConditionsInner implements ModelInterface, ArrayAccess, \Jso
     {
         if (is_null($measurement)) {
             throw new \InvalidArgumentException('non-nullable measurement cannot be null');
+        }
+        $allowedValues = $this->getMeasurementAllowableValues();
+        if (!in_array($measurement, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'measurement', must be one of '%s'",
+                    $measurement,
+                    implode("', '", $allowedValues)
+                )
+            );
         }
         $this->container['measurement'] = $measurement;
 
@@ -819,7 +931,7 @@ class ConditionGroupConditionsInner implements ModelInterface, ArrayAccess, \Jso
     /**
      * Gets measurement_filter
      *
-     * @return \KlaviyoAPI\Model\NumericOperatorFilter
+     * @return \KlaviyoAPI\Model\NumericOperatorNumericFilter
      */
     public function getMeasurementFilter()
     {
@@ -829,7 +941,7 @@ class ConditionGroupConditionsInner implements ModelInterface, ArrayAccess, \Jso
     /**
      * Sets measurement_filter
      *
-     * @param \KlaviyoAPI\Model\NumericOperatorFilter $measurement_filter measurement_filter
+     * @param \KlaviyoAPI\Model\NumericOperatorNumericFilter $measurement_filter measurement_filter
      *
      * @return self
      */
@@ -998,7 +1110,7 @@ class ConditionGroupConditionsInner implements ModelInterface, ArrayAccess, \Jso
     /**
      * Gets filter
      *
-     * @return \KlaviyoAPI\Model\ProfilePredictiveAnalyticsChannelAffinityRankFilter
+     * @return \KlaviyoAPI\Model\IntegerFilter
      */
     public function getFilter()
     {
@@ -1008,7 +1120,7 @@ class ConditionGroupConditionsInner implements ModelInterface, ArrayAccess, \Jso
     /**
      * Sets filter
      *
-     * @param \KlaviyoAPI\Model\ProfilePredictiveAnalyticsChannelAffinityRankFilter $filter filter
+     * @param \KlaviyoAPI\Model\IntegerFilter $filter filter
      *
      * @return self
      */
@@ -1183,6 +1295,87 @@ class ConditionGroupConditionsInner implements ModelInterface, ArrayAccess, \Jso
             );
         }
         $this->container['predicted_channel'] = $predicted_channel;
+
+        return $this;
+    }
+
+    /**
+     * Gets object_type_id
+     *
+     * @return string
+     */
+    public function getObjectTypeId()
+    {
+        return $this->container['object_type_id'];
+    }
+
+    /**
+     * Sets object_type_id
+     *
+     * @param string $object_type_id object_type_id
+     *
+     * @return self
+     */
+    public function setObjectTypeId($object_type_id)
+    {
+        if (is_null($object_type_id)) {
+            throw new \InvalidArgumentException('non-nullable object_type_id cannot be null');
+        }
+        $this->container['object_type_id'] = $object_type_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets object_type_relationship_id
+     *
+     * @return string
+     */
+    public function getObjectTypeRelationshipId()
+    {
+        return $this->container['object_type_relationship_id'];
+    }
+
+    /**
+     * Sets object_type_relationship_id
+     *
+     * @param string $object_type_relationship_id object_type_relationship_id
+     *
+     * @return self
+     */
+    public function setObjectTypeRelationshipId($object_type_relationship_id)
+    {
+        if (is_null($object_type_relationship_id)) {
+            throw new \InvalidArgumentException('non-nullable object_type_relationship_id cannot be null');
+        }
+        $this->container['object_type_relationship_id'] = $object_type_relationship_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets filters
+     *
+     * @return \KlaviyoAPI\Model\ProfileHasCustomObjectFilter[]
+     */
+    public function getFilters()
+    {
+        return $this->container['filters'];
+    }
+
+    /**
+     * Sets filters
+     *
+     * @param \KlaviyoAPI\Model\ProfileHasCustomObjectFilter[] $filters filters
+     *
+     * @return self
+     */
+    public function setFilters($filters)
+    {
+        if (is_null($filters)) {
+            throw new \InvalidArgumentException('non-nullable filters cannot be null');
+        }
+        $this->container['filters'] = $filters;
 
         return $this;
     }

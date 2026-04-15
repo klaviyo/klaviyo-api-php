@@ -57,8 +57,8 @@ class ProfileNotInFlowCondition implements ModelInterface, ArrayAccess, \JsonSer
       * @var string[]
       */
     protected static $openAPITypes = [
-        'type' => '\KlaviyoAPI\Model\ProfileNotInFlowEnum',
-        'timeframe_filter' => '\KlaviyoAPI\Model\ProfileHasNotReceivedEmailMessageConditionTimeframeFilter'
+        'type' => 'string',
+        'timeframe_filter' => '\KlaviyoAPI\Model\ProfileHasNotReceivedPushMessageConditionTimeframeFilter'
     ];
 
     /**
@@ -234,6 +234,19 @@ class ProfileNotInFlowCondition implements ModelInterface, ArrayAccess, \JsonSer
         return self::$openAPIModelName;
     }
 
+    public const TYPE_PROFILE_NOT_IN_FLOW = 'profile-not-in-flow';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getTypeAllowableValues()
+    {
+        return [
+            self::TYPE_PROFILE_NOT_IN_FLOW,
+        ];
+    }
 
     /**
      * Associative array for storing property values
@@ -284,6 +297,15 @@ class ProfileNotInFlowCondition implements ModelInterface, ArrayAccess, \JsonSer
         if ($this->container['type'] === null) {
             $invalidProperties[] = "'type' can't be null";
         }
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!is_null($this->container['type']) && !in_array($this->container['type'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'type', must be one of '%s'",
+                $this->container['type'],
+                implode("', '", $allowedValues)
+            );
+        }
+
         if ($this->container['timeframe_filter'] === null) {
             $invalidProperties[] = "'timeframe_filter' can't be null";
         }
@@ -305,7 +327,7 @@ class ProfileNotInFlowCondition implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Gets type
      *
-     * @return \KlaviyoAPI\Model\ProfileNotInFlowEnum
+     * @return string
      */
     public function getType()
     {
@@ -315,7 +337,7 @@ class ProfileNotInFlowCondition implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Sets type
      *
-     * @param \KlaviyoAPI\Model\ProfileNotInFlowEnum $type type
+     * @param string $type type
      *
      * @return self
      */
@@ -323,6 +345,16 @@ class ProfileNotInFlowCondition implements ModelInterface, ArrayAccess, \JsonSer
     {
         if (is_null($type)) {
             throw new \InvalidArgumentException('non-nullable type cannot be null');
+        }
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!in_array($type, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'type', must be one of '%s'",
+                    $type,
+                    implode("', '", $allowedValues)
+                )
+            );
         }
         $this->container['type'] = $type;
 
@@ -332,7 +364,7 @@ class ProfileNotInFlowCondition implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Gets timeframe_filter
      *
-     * @return \KlaviyoAPI\Model\ProfileHasNotReceivedEmailMessageConditionTimeframeFilter
+     * @return \KlaviyoAPI\Model\ProfileHasNotReceivedPushMessageConditionTimeframeFilter
      */
     public function getTimeframeFilter()
     {
@@ -342,7 +374,7 @@ class ProfileNotInFlowCondition implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Sets timeframe_filter
      *
-     * @param \KlaviyoAPI\Model\ProfileHasNotReceivedEmailMessageConditionTimeframeFilter $timeframe_filter timeframe_filter
+     * @param \KlaviyoAPI\Model\ProfileHasNotReceivedPushMessageConditionTimeframeFilter $timeframe_filter timeframe_filter
      *
      * @return self
      */

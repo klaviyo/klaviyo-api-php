@@ -285,7 +285,15 @@ class CampaignValuesRequestDTOResourceObjectAttributes implements ModelInterface
     public const STATISTICS_UNSUBSCRIBES = 'unsubscribes';
     public const GROUP_BY_CAMPAIGN_ID = 'campaign_id';
     public const GROUP_BY_CAMPAIGN_MESSAGE_ID = 'campaign_message_id';
+    public const GROUP_BY_CAMPAIGN_MESSAGE_NAME = 'campaign_message_name';
+    public const GROUP_BY_GROUP = 'group';
+    public const GROUP_BY_GROUP_NAME = 'group_name';
     public const GROUP_BY_SEND_CHANNEL = 'send_channel';
+    public const GROUP_BY_TAG_ID = 'tag_id';
+    public const GROUP_BY_TAG_NAME = 'tag_name';
+    public const GROUP_BY_TEXT_MESSAGE_FORMAT = 'text_message_format';
+    public const GROUP_BY_VARIATION = 'variation';
+    public const GROUP_BY_VARIATION_NAME = 'variation_name';
 
     /**
      * Gets allowable values of the enum
@@ -339,7 +347,15 @@ class CampaignValuesRequestDTOResourceObjectAttributes implements ModelInterface
         return [
             self::GROUP_BY_CAMPAIGN_ID,
             self::GROUP_BY_CAMPAIGN_MESSAGE_ID,
+            self::GROUP_BY_CAMPAIGN_MESSAGE_NAME,
+            self::GROUP_BY_GROUP,
+            self::GROUP_BY_GROUP_NAME,
             self::GROUP_BY_SEND_CHANNEL,
+            self::GROUP_BY_TAG_ID,
+            self::GROUP_BY_TAG_NAME,
+            self::GROUP_BY_TEXT_MESSAGE_FORMAT,
+            self::GROUP_BY_VARIATION,
+            self::GROUP_BY_VARIATION_NAME,
         ];
     }
 
@@ -519,7 +535,7 @@ class CampaignValuesRequestDTOResourceObjectAttributes implements ModelInterface
     /**
      * Sets group_by
      *
-     * @param string[]|null $group_by List of attributes to group the data by. Allowed group-bys are campaign_id, campaign_message_id, send_channel. If not passed in, the data will be grouped by campaign_id, campaign_message_id, send_channel. The following group by attributes are required: campaign_id, campaign_message_id
+     * @param string[]|null $group_by List of attributes to group the data by. Allowed group-bys are campaign_id, campaign_message_id, campaign_message_name, group, group_name, send_channel, tag_id, tag_name, text_message_format, variation, variation_name. If not passed in, the data will be grouped by campaign_id, campaign_message_id, send_channel. The following group by attributes are required: campaign_id, campaign_message_id
      *
      * @return self
      */
@@ -562,7 +578,7 @@ class CampaignValuesRequestDTOResourceObjectAttributes implements ModelInterface
     /**
      * Sets filter
      *
-     * @param string|null $filter API filter string used to filter the query. Allowed filters are send_channel, campaign_id, campaign_message_id. Allowed operators are equals, contains-any. Only one filter can be used per attribute, only AND can be used as a combination operator. Max of 100 messages per ANY filter. When filtering on send_channel, allowed values are email, sms, push-notification, whatsapp.
+     * @param string|null $filter API filter string used to filter the query. Scalar attributes (send_channel, campaign_id, campaign_message_id, campaign_message_name, variation, variation_name, text_message_format): Supported operators: equals, contains-any. List attributes (tag_id, tag_name): Supported operators: contains-any, contains-all. Only one filter can be used per attribute. Only AND can be used as a combination operator. Max of 100 items per list filter. When filtering on send_channel, allowed values are email, sms, push-notification, whatsapp.
      *
      * @return self
      */

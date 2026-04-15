@@ -119,6 +119,12 @@ class ProfilesApi
         'getBulkUnsuppressProfilesJobs' => [
             'application/vnd.api+json',
         ],
+        'getConversationForProfile' => [
+            'application/vnd.api+json',
+        ],
+        'getConversationIdForProfile' => [
+            'application/vnd.api+json',
+        ],
         'getErrorsForBulkImportProfilesJob' => [
             'application/vnd.api+json',
         ],
@@ -589,7 +595,7 @@ class ProfilesApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2026-01-15'];
+        $defaultHeaders['revision'] = ['2026-04-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -629,7 +635,7 @@ class ProfilesApi
      *
      * Bulk Subscribe Profiles
      *
-     * @param  \KlaviyoAPI\Model\SubscriptionCreateJobCreateQuery $subscription_create_job_create_query Subscribes one or more profiles to marketing. Currently, supports email and SMS only. All profiles will be added to the provided list. Either email or phone number is required. Both may be specified to subscribe to both channels. If a profile cannot be found matching the given identifier(s), a new profile will be created and then subscribed. (required)
+     * @param  \KlaviyoAPI\Model\SubscriptionCreateJobCreateQuery $subscription_create_job_create_query Subscribes one or more profiles to marketing, with support for push channel and push tokens. All profiles will be added to the provided list. Either email or phone number is required. Both may be specified to subscribe to both channels. If a profile cannot be found matching the given identifier(s), a new profile will be created and then subscribed. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['bulkSubscribeProfiles'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -664,7 +670,7 @@ class ProfilesApi
      *
      * Bulk Subscribe Profiles
      *
-     * @param  \KlaviyoAPI\Model\SubscriptionCreateJobCreateQuery $subscription_create_job_create_query Subscribes one or more profiles to marketing. Currently, supports email and SMS only. All profiles will be added to the provided list. Either email or phone number is required. Both may be specified to subscribe to both channels. If a profile cannot be found matching the given identifier(s), a new profile will be created and then subscribed. (required)
+     * @param  \KlaviyoAPI\Model\SubscriptionCreateJobCreateQuery $subscription_create_job_create_query Subscribes one or more profiles to marketing, with support for push channel and push tokens. All profiles will be added to the provided list. Either email or phone number is required. Both may be specified to subscribe to both channels. If a profile cannot be found matching the given identifier(s), a new profile will be created and then subscribed. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['bulkSubscribeProfiles'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -747,7 +753,7 @@ class ProfilesApi
      *
      * Bulk Subscribe Profiles
      *
-     * @param  \KlaviyoAPI\Model\SubscriptionCreateJobCreateQuery $subscription_create_job_create_query Subscribes one or more profiles to marketing. Currently, supports email and SMS only. All profiles will be added to the provided list. Either email or phone number is required. Both may be specified to subscribe to both channels. If a profile cannot be found matching the given identifier(s), a new profile will be created and then subscribed. (required)
+     * @param  \KlaviyoAPI\Model\SubscriptionCreateJobCreateQuery $subscription_create_job_create_query Subscribes one or more profiles to marketing, with support for push channel and push tokens. All profiles will be added to the provided list. Either email or phone number is required. Both may be specified to subscribe to both channels. If a profile cannot be found matching the given identifier(s), a new profile will be created and then subscribed. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['bulkSubscribeProfiles'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -786,7 +792,7 @@ class ProfilesApi
      *
      * Bulk Subscribe Profiles
      *
-     * @param  \KlaviyoAPI\Model\SubscriptionCreateJobCreateQuery $subscription_create_job_create_query Subscribes one or more profiles to marketing. Currently, supports email and SMS only. All profiles will be added to the provided list. Either email or phone number is required. Both may be specified to subscribe to both channels. If a profile cannot be found matching the given identifier(s), a new profile will be created and then subscribed. (required)
+     * @param  \KlaviyoAPI\Model\SubscriptionCreateJobCreateQuery $subscription_create_job_create_query Subscribes one or more profiles to marketing, with support for push channel and push tokens. All profiles will be added to the provided list. Either email or phone number is required. Both may be specified to subscribe to both channels. If a profile cannot be found matching the given identifier(s), a new profile will be created and then subscribed. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['bulkSubscribeProfiles'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -841,7 +847,7 @@ class ProfilesApi
     /**
      * Create request for operation 'bulkSubscribeProfiles'
      *
-     * @param  \KlaviyoAPI\Model\SubscriptionCreateJobCreateQuery $subscription_create_job_create_query Subscribes one or more profiles to marketing. Currently, supports email and SMS only. All profiles will be added to the provided list. Either email or phone number is required. Both may be specified to subscribe to both channels. If a profile cannot be found matching the given identifier(s), a new profile will be created and then subscribed. (required)
+     * @param  \KlaviyoAPI\Model\SubscriptionCreateJobCreateQuery $subscription_create_job_create_query Subscribes one or more profiles to marketing, with support for push channel and push tokens. All profiles will be added to the provided list. Either email or phone number is required. Both may be specified to subscribe to both channels. If a profile cannot be found matching the given identifier(s), a new profile will be created and then subscribed. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['bulkSubscribeProfiles'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -922,7 +928,7 @@ class ProfilesApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2026-01-15'];
+        $defaultHeaders['revision'] = ['2026-04-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -1322,7 +1328,7 @@ class ProfilesApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2026-01-15'];
+        $defaultHeaders['revision'] = ['2026-04-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -1362,7 +1368,7 @@ class ProfilesApi
      *
      * Bulk Unsubscribe Profiles
      *
-     * @param  \KlaviyoAPI\Model\SubscriptionDeleteJobCreateQuery $subscription_delete_job_create_query Unsubscribes one or more profiles from marketing. Currently, supports email and SMS only. All profiles will be removed from the provided list. Either email or phone number is required. If a profile cannot be found matching the given identifier(s), a new profile will be created and then unsubscribed. (required)
+     * @param  \KlaviyoAPI\Model\SubscriptionDeleteJobCreateQuery $subscription_delete_job_create_query Unsubscribes one or more profiles from marketing. Supports email, SMS, WhatsApp, and push channels. All profiles will be removed from the provided list. Either email or phone number is required for email/SMS/WhatsApp channels. Push tokens can be removed by providing token strings directly. If a profile cannot be found matching the given identifier(s), a new profile will be created and then unsubscribed. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['bulkUnsubscribeProfiles'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -1397,7 +1403,7 @@ class ProfilesApi
      *
      * Bulk Unsubscribe Profiles
      *
-     * @param  \KlaviyoAPI\Model\SubscriptionDeleteJobCreateQuery $subscription_delete_job_create_query Unsubscribes one or more profiles from marketing. Currently, supports email and SMS only. All profiles will be removed from the provided list. Either email or phone number is required. If a profile cannot be found matching the given identifier(s), a new profile will be created and then unsubscribed. (required)
+     * @param  \KlaviyoAPI\Model\SubscriptionDeleteJobCreateQuery $subscription_delete_job_create_query Unsubscribes one or more profiles from marketing. Supports email, SMS, WhatsApp, and push channels. All profiles will be removed from the provided list. Either email or phone number is required for email/SMS/WhatsApp channels. Push tokens can be removed by providing token strings directly. If a profile cannot be found matching the given identifier(s), a new profile will be created and then unsubscribed. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['bulkUnsubscribeProfiles'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -1480,7 +1486,7 @@ class ProfilesApi
      *
      * Bulk Unsubscribe Profiles
      *
-     * @param  \KlaviyoAPI\Model\SubscriptionDeleteJobCreateQuery $subscription_delete_job_create_query Unsubscribes one or more profiles from marketing. Currently, supports email and SMS only. All profiles will be removed from the provided list. Either email or phone number is required. If a profile cannot be found matching the given identifier(s), a new profile will be created and then unsubscribed. (required)
+     * @param  \KlaviyoAPI\Model\SubscriptionDeleteJobCreateQuery $subscription_delete_job_create_query Unsubscribes one or more profiles from marketing. Supports email, SMS, WhatsApp, and push channels. All profiles will be removed from the provided list. Either email or phone number is required for email/SMS/WhatsApp channels. Push tokens can be removed by providing token strings directly. If a profile cannot be found matching the given identifier(s), a new profile will be created and then unsubscribed. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['bulkUnsubscribeProfiles'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1519,7 +1525,7 @@ class ProfilesApi
      *
      * Bulk Unsubscribe Profiles
      *
-     * @param  \KlaviyoAPI\Model\SubscriptionDeleteJobCreateQuery $subscription_delete_job_create_query Unsubscribes one or more profiles from marketing. Currently, supports email and SMS only. All profiles will be removed from the provided list. Either email or phone number is required. If a profile cannot be found matching the given identifier(s), a new profile will be created and then unsubscribed. (required)
+     * @param  \KlaviyoAPI\Model\SubscriptionDeleteJobCreateQuery $subscription_delete_job_create_query Unsubscribes one or more profiles from marketing. Supports email, SMS, WhatsApp, and push channels. All profiles will be removed from the provided list. Either email or phone number is required for email/SMS/WhatsApp channels. Push tokens can be removed by providing token strings directly. If a profile cannot be found matching the given identifier(s), a new profile will be created and then unsubscribed. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['bulkUnsubscribeProfiles'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1574,7 +1580,7 @@ class ProfilesApi
     /**
      * Create request for operation 'bulkUnsubscribeProfiles'
      *
-     * @param  \KlaviyoAPI\Model\SubscriptionDeleteJobCreateQuery $subscription_delete_job_create_query Unsubscribes one or more profiles from marketing. Currently, supports email and SMS only. All profiles will be removed from the provided list. Either email or phone number is required. If a profile cannot be found matching the given identifier(s), a new profile will be created and then unsubscribed. (required)
+     * @param  \KlaviyoAPI\Model\SubscriptionDeleteJobCreateQuery $subscription_delete_job_create_query Unsubscribes one or more profiles from marketing. Supports email, SMS, WhatsApp, and push channels. All profiles will be removed from the provided list. Either email or phone number is required for email/SMS/WhatsApp channels. Push tokens can be removed by providing token strings directly. If a profile cannot be found matching the given identifier(s), a new profile will be created and then unsubscribed. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['bulkUnsubscribeProfiles'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1655,7 +1661,7 @@ class ProfilesApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2026-01-15'];
+        $defaultHeaders['revision'] = ['2026-04-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -2055,7 +2061,7 @@ class ProfilesApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2026-01-15'];
+        $defaultHeaders['revision'] = ['2026-04-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -2448,7 +2454,7 @@ class ProfilesApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2026-01-15'];
+        $defaultHeaders['revision'] = ['2026-04-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -2782,7 +2788,7 @@ class ProfilesApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2026-01-15'];
+        $defaultHeaders['revision'] = ['2026-04-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -3025,7 +3031,7 @@ class ProfilesApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2026-01-15'];
+        $defaultHeaders['revision'] = ['2026-04-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -3269,7 +3275,7 @@ class ProfilesApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2026-01-15'];
+        $defaultHeaders['revision'] = ['2026-04-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -3292,9 +3298,9 @@ class ProfilesApi
      * Get Bulk Import Profiles Job
      *
      * @param  string $job_id ID of the job to retrieve. (required)
-     * @param  string[]|null $fields_list For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_profile_bulk_import_job For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#relationships (optional)
+     * @param  string[]|null $fields_list For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_profile_bulk_import_job For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#relationships (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBulkImportProfilesJob'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -3331,9 +3337,9 @@ class ProfilesApi
      * Get Bulk Import Profiles Job
      *
      * @param  string $job_id ID of the job to retrieve. (required)
-     * @param  string[]|null $fields_list For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_profile_bulk_import_job For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#relationships (optional)
+     * @param  string[]|null $fields_list For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_profile_bulk_import_job For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#relationships (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBulkImportProfilesJob'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -3465,9 +3471,9 @@ class ProfilesApi
      * Get Bulk Import Profiles Job
      *
      * @param  string $job_id ID of the job to retrieve. (required)
-     * @param  string[]|null $fields_list For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_profile_bulk_import_job For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#relationships (optional)
+     * @param  string[]|null $fields_list For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_profile_bulk_import_job For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#relationships (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBulkImportProfilesJob'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -3507,9 +3513,9 @@ class ProfilesApi
      * Get Bulk Import Profiles Job
      *
      * @param  string $job_id ID of the job to retrieve. (required)
-     * @param  string[]|null $fields_list For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_profile_bulk_import_job For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#relationships (optional)
+     * @param  string[]|null $fields_list For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_profile_bulk_import_job For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#relationships (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBulkImportProfilesJob'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -3583,9 +3589,9 @@ class ProfilesApi
      * Create request for operation 'getBulkImportProfilesJob'
      *
      * @param  string $job_id ID of the job to retrieve. (required)
-     * @param  string[]|null $fields_list For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_profile_bulk_import_job For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#relationships (optional)
+     * @param  string[]|null $fields_list For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_profile_bulk_import_job For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#relationships (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBulkImportProfilesJob'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -3697,7 +3703,7 @@ class ProfilesApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2026-01-15'];
+        $defaultHeaders['revision'] = ['2026-04-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -3737,11 +3743,11 @@ class ProfilesApi
      *
      * Get Bulk Import Profiles Jobs
      *
-     * @param  string[]|null $fields_profile_bulk_import_job For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;status&#x60;: &#x60;any&#x60;, &#x60;equals&#x60; (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#pagination (optional)
+     * @param  string[]|null $fields_profile_bulk_import_job For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;status&#x60;: &#x60;any&#x60;, &#x60;equals&#x60; (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination (optional)
      * @param  int|null $page_size Default: 20. Min: 1. Max: 100. (optional, default to 20)
-     * @param  string|null $sort For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sorting (optional)
+     * @param  string|null $sort For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sorting (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBulkImportProfilesJobs'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -3777,11 +3783,11 @@ class ProfilesApi
      *
      * Get Bulk Import Profiles Jobs
      *
-     * @param  string[]|null $fields_profile_bulk_import_job For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;status&#x60;: &#x60;any&#x60;, &#x60;equals&#x60; (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#pagination (optional)
+     * @param  string[]|null $fields_profile_bulk_import_job For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;status&#x60;: &#x60;any&#x60;, &#x60;equals&#x60; (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination (optional)
      * @param  int|null $page_size Default: 20. Min: 1. Max: 100. (optional, default to 20)
-     * @param  string|null $sort For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sorting (optional)
+     * @param  string|null $sort For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sorting (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBulkImportProfilesJobs'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -3912,11 +3918,11 @@ class ProfilesApi
      *
      * Get Bulk Import Profiles Jobs
      *
-     * @param  string[]|null $fields_profile_bulk_import_job For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;status&#x60;: &#x60;any&#x60;, &#x60;equals&#x60; (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#pagination (optional)
+     * @param  string[]|null $fields_profile_bulk_import_job For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;status&#x60;: &#x60;any&#x60;, &#x60;equals&#x60; (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination (optional)
      * @param  int|null $page_size Default: 20. Min: 1. Max: 100. (optional, default to 20)
-     * @param  string|null $sort For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sorting (optional)
+     * @param  string|null $sort For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sorting (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBulkImportProfilesJobs'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -3955,11 +3961,11 @@ class ProfilesApi
      *
      * Get Bulk Import Profiles Jobs
      *
-     * @param  string[]|null $fields_profile_bulk_import_job For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;status&#x60;: &#x60;any&#x60;, &#x60;equals&#x60; (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#pagination (optional)
+     * @param  string[]|null $fields_profile_bulk_import_job For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;status&#x60;: &#x60;any&#x60;, &#x60;equals&#x60; (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination (optional)
      * @param  int|null $page_size Default: 20. Min: 1. Max: 100. (optional, default to 20)
-     * @param  string|null $sort For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sorting (optional)
+     * @param  string|null $sort For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sorting (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBulkImportProfilesJobs'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -4032,11 +4038,11 @@ class ProfilesApi
     /**
      * Create request for operation 'getBulkImportProfilesJobs'
      *
-     * @param  string[]|null $fields_profile_bulk_import_job For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;status&#x60;: &#x60;any&#x60;, &#x60;equals&#x60; (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#pagination (optional)
+     * @param  string[]|null $fields_profile_bulk_import_job For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;status&#x60;: &#x60;any&#x60;, &#x60;equals&#x60; (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination (optional)
      * @param  int|null $page_size Default: 20. Min: 1. Max: 100. (optional, default to 20)
-     * @param  string|null $sort For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sorting (optional)
+     * @param  string|null $sort For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sorting (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBulkImportProfilesJobs'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -4159,7 +4165,7 @@ class ProfilesApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2026-01-15'];
+        $defaultHeaders['revision'] = ['2026-04-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -4200,7 +4206,7 @@ class ProfilesApi
      * Get Bulk Suppress Profiles Job
      *
      * @param  string $job_id ID of the job to retrieve. (required)
-     * @param  string[]|null $fields_profile_suppression_bulk_create_job For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_profile_suppression_bulk_create_job For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBulkSuppressProfilesJob'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -4228,7 +4234,7 @@ class ProfilesApi
      * Get Bulk Suppress Profiles Job
      *
      * @param  string $job_id ID of the job to retrieve. (required)
-     * @param  string[]|null $fields_profile_suppression_bulk_create_job For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_profile_suppression_bulk_create_job For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBulkSuppressProfilesJob'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -4351,7 +4357,7 @@ class ProfilesApi
      * Get Bulk Suppress Profiles Job
      *
      * @param  string $job_id ID of the job to retrieve. (required)
-     * @param  string[]|null $fields_profile_suppression_bulk_create_job For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_profile_suppression_bulk_create_job For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBulkSuppressProfilesJob'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -4382,7 +4388,7 @@ class ProfilesApi
      * Get Bulk Suppress Profiles Job
      *
      * @param  string $job_id ID of the job to retrieve. (required)
-     * @param  string[]|null $fields_profile_suppression_bulk_create_job For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_profile_suppression_bulk_create_job For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBulkSuppressProfilesJob'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -4447,7 +4453,7 @@ class ProfilesApi
      * Create request for operation 'getBulkSuppressProfilesJob'
      *
      * @param  string $job_id ID of the job to retrieve. (required)
-     * @param  string[]|null $fields_profile_suppression_bulk_create_job For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_profile_suppression_bulk_create_job For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBulkSuppressProfilesJob'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -4539,7 +4545,7 @@ class ProfilesApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2026-01-15'];
+        $defaultHeaders['revision'] = ['2026-04-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -4570,10 +4576,10 @@ class ProfilesApi
      *
      * Get Bulk Suppress Profiles Jobs
      *
-     * @param  string[]|null $fields_profile_suppression_bulk_create_job For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;status&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;list_id&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;segment_id&#x60;: &#x60;equals&#x60; (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#pagination (optional)
-     * @param  string|null $sort For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sorting (optional)
+     * @param  string[]|null $fields_profile_suppression_bulk_create_job For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;status&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;list_id&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;segment_id&#x60;: &#x60;equals&#x60; (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination (optional)
+     * @param  string|null $sort For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sorting (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBulkSuppressProfilesJobs'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -4600,10 +4606,10 @@ class ProfilesApi
      *
      * Get Bulk Suppress Profiles Jobs
      *
-     * @param  string[]|null $fields_profile_suppression_bulk_create_job For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;status&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;list_id&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;segment_id&#x60;: &#x60;equals&#x60; (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#pagination (optional)
-     * @param  string|null $sort For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sorting (optional)
+     * @param  string[]|null $fields_profile_suppression_bulk_create_job For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;status&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;list_id&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;segment_id&#x60;: &#x60;equals&#x60; (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination (optional)
+     * @param  string|null $sort For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sorting (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBulkSuppressProfilesJobs'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -4725,10 +4731,10 @@ class ProfilesApi
      *
      * Get Bulk Suppress Profiles Jobs
      *
-     * @param  string[]|null $fields_profile_suppression_bulk_create_job For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;status&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;list_id&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;segment_id&#x60;: &#x60;equals&#x60; (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#pagination (optional)
-     * @param  string|null $sort For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sorting (optional)
+     * @param  string[]|null $fields_profile_suppression_bulk_create_job For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;status&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;list_id&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;segment_id&#x60;: &#x60;equals&#x60; (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination (optional)
+     * @param  string|null $sort For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sorting (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBulkSuppressProfilesJobs'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -4758,10 +4764,10 @@ class ProfilesApi
      *
      * Get Bulk Suppress Profiles Jobs
      *
-     * @param  string[]|null $fields_profile_suppression_bulk_create_job For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;status&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;list_id&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;segment_id&#x60;: &#x60;equals&#x60; (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#pagination (optional)
-     * @param  string|null $sort For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sorting (optional)
+     * @param  string[]|null $fields_profile_suppression_bulk_create_job For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;status&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;list_id&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;segment_id&#x60;: &#x60;equals&#x60; (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination (optional)
+     * @param  string|null $sort For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sorting (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBulkSuppressProfilesJobs'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -4825,10 +4831,10 @@ class ProfilesApi
     /**
      * Create request for operation 'getBulkSuppressProfilesJobs'
      *
-     * @param  string[]|null $fields_profile_suppression_bulk_create_job For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;status&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;list_id&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;segment_id&#x60;: &#x60;equals&#x60; (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#pagination (optional)
-     * @param  string|null $sort For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sorting (optional)
+     * @param  string[]|null $fields_profile_suppression_bulk_create_job For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;status&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;list_id&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;segment_id&#x60;: &#x60;equals&#x60; (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination (optional)
+     * @param  string|null $sort For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sorting (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBulkSuppressProfilesJobs'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -4935,7 +4941,7 @@ class ProfilesApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2026-01-15'];
+        $defaultHeaders['revision'] = ['2026-04-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -4967,7 +4973,7 @@ class ProfilesApi
      * Get Bulk Unsuppress Profiles Job
      *
      * @param  string $job_id ID of the job to retrieve. (required)
-     * @param  string[]|null $fields_profile_suppression_bulk_delete_job For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_profile_suppression_bulk_delete_job For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBulkUnsuppressProfilesJob'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -4995,7 +5001,7 @@ class ProfilesApi
      * Get Bulk Unsuppress Profiles Job
      *
      * @param  string $job_id ID of the job to retrieve. (required)
-     * @param  string[]|null $fields_profile_suppression_bulk_delete_job For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_profile_suppression_bulk_delete_job For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBulkUnsuppressProfilesJob'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -5118,7 +5124,7 @@ class ProfilesApi
      * Get Bulk Unsuppress Profiles Job
      *
      * @param  string $job_id ID of the job to retrieve. (required)
-     * @param  string[]|null $fields_profile_suppression_bulk_delete_job For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_profile_suppression_bulk_delete_job For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBulkUnsuppressProfilesJob'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -5149,7 +5155,7 @@ class ProfilesApi
      * Get Bulk Unsuppress Profiles Job
      *
      * @param  string $job_id ID of the job to retrieve. (required)
-     * @param  string[]|null $fields_profile_suppression_bulk_delete_job For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_profile_suppression_bulk_delete_job For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBulkUnsuppressProfilesJob'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -5214,7 +5220,7 @@ class ProfilesApi
      * Create request for operation 'getBulkUnsuppressProfilesJob'
      *
      * @param  string $job_id ID of the job to retrieve. (required)
-     * @param  string[]|null $fields_profile_suppression_bulk_delete_job For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_profile_suppression_bulk_delete_job For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBulkUnsuppressProfilesJob'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -5306,7 +5312,7 @@ class ProfilesApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2026-01-15'];
+        $defaultHeaders['revision'] = ['2026-04-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -5337,10 +5343,10 @@ class ProfilesApi
      *
      * Get Bulk Unsuppress Profiles Jobs
      *
-     * @param  string[]|null $fields_profile_suppression_bulk_delete_job For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;status&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;list_id&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;segment_id&#x60;: &#x60;equals&#x60; (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#pagination (optional)
-     * @param  string|null $sort For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sorting (optional)
+     * @param  string[]|null $fields_profile_suppression_bulk_delete_job For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;status&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;list_id&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;segment_id&#x60;: &#x60;equals&#x60; (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination (optional)
+     * @param  string|null $sort For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sorting (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBulkUnsuppressProfilesJobs'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -5367,10 +5373,10 @@ class ProfilesApi
      *
      * Get Bulk Unsuppress Profiles Jobs
      *
-     * @param  string[]|null $fields_profile_suppression_bulk_delete_job For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;status&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;list_id&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;segment_id&#x60;: &#x60;equals&#x60; (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#pagination (optional)
-     * @param  string|null $sort For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sorting (optional)
+     * @param  string[]|null $fields_profile_suppression_bulk_delete_job For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;status&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;list_id&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;segment_id&#x60;: &#x60;equals&#x60; (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination (optional)
+     * @param  string|null $sort For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sorting (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBulkUnsuppressProfilesJobs'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -5492,10 +5498,10 @@ class ProfilesApi
      *
      * Get Bulk Unsuppress Profiles Jobs
      *
-     * @param  string[]|null $fields_profile_suppression_bulk_delete_job For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;status&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;list_id&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;segment_id&#x60;: &#x60;equals&#x60; (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#pagination (optional)
-     * @param  string|null $sort For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sorting (optional)
+     * @param  string[]|null $fields_profile_suppression_bulk_delete_job For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;status&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;list_id&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;segment_id&#x60;: &#x60;equals&#x60; (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination (optional)
+     * @param  string|null $sort For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sorting (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBulkUnsuppressProfilesJobs'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -5525,10 +5531,10 @@ class ProfilesApi
      *
      * Get Bulk Unsuppress Profiles Jobs
      *
-     * @param  string[]|null $fields_profile_suppression_bulk_delete_job For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;status&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;list_id&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;segment_id&#x60;: &#x60;equals&#x60; (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#pagination (optional)
-     * @param  string|null $sort For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sorting (optional)
+     * @param  string[]|null $fields_profile_suppression_bulk_delete_job For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;status&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;list_id&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;segment_id&#x60;: &#x60;equals&#x60; (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination (optional)
+     * @param  string|null $sort For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sorting (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBulkUnsuppressProfilesJobs'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -5592,10 +5598,10 @@ class ProfilesApi
     /**
      * Create request for operation 'getBulkUnsuppressProfilesJobs'
      *
-     * @param  string[]|null $fields_profile_suppression_bulk_delete_job For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;status&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;list_id&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;segment_id&#x60;: &#x60;equals&#x60; (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#pagination (optional)
-     * @param  string|null $sort For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sorting (optional)
+     * @param  string[]|null $fields_profile_suppression_bulk_delete_job For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;status&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;list_id&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;segment_id&#x60;: &#x60;equals&#x60; (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination (optional)
+     * @param  string|null $sort For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sorting (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBulkUnsuppressProfilesJobs'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -5702,7 +5708,7 @@ class ProfilesApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2026-01-15'];
+        $defaultHeaders['revision'] = ['2026-04-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -5729,13 +5735,725 @@ class ProfilesApi
     }
 
     /**
+     * Operation getConversationForProfile
+     *
+     * Get Conversation for Profile
+     *
+     * @param  string $id  (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getConversationForProfile'] to see the possible values for this operation
+     *
+     * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array<string,mixed>|\KlaviyoAPI\Model\GetAccounts400Response|\KlaviyoAPI\Model\GetAccounts400Response
+     */
+    public function getConversationForProfile($id, $apiKey = null, string $contentType = self::contentTypes['getConversationForProfile'][0])
+    {
+        list($response) = $this->getConversationForProfileWithHttpInfo($id, $apiKey, $contentType);
+        return $response;
+    }
+
+    /**
+     * Alias of `getConversationForProfile`
+     *
+     * @deprecated use `getConversationForProfile` instead
+     */
+    public function getProfileConversation(...$args) {
+        return $this->getConversationForProfile(...$args);
+    }
+
+    /**
+     * Operation getConversationForProfileWithHttpInfo
+     *
+     * Get Conversation for Profile
+     *
+     * @param  string $id  (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getConversationForProfile'] to see the possible values for this operation
+     *
+     * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of array<string,mixed>|\KlaviyoAPI\Model\GetAccounts400Response|\KlaviyoAPI\Model\GetAccounts400Response, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getConversationForProfileWithHttpInfo($id, $apiKey = null, string $contentType = self::contentTypes['getConversationForProfile'][0])
+    {
+        $request = $this->getConversationForProfileRequest($id, $apiKey, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            switch($statusCode) {
+                case 200:
+                    return $this->handleResponseWithDataType(
+                        'array<string,mixed>',
+                        $request,
+                        $response,
+                    );
+                case 400:
+                    return $this->handleResponseWithDataType(
+                        '\KlaviyoAPI\Model\GetAccounts400Response',
+                        $request,
+                        $response,
+                    );
+                case 500:
+                    return $this->handleResponseWithDataType(
+                        '\KlaviyoAPI\Model\GetAccounts400Response',
+                        $request,
+                        $response,
+                    );
+            }
+
+            
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            return $this->handleResponseWithDataType(
+                'array<string,mixed>',
+                $request,
+                $response,
+            );
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        'array<string,mixed>',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\KlaviyoAPI\Model\GetAccounts400Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 500:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\KlaviyoAPI\Model\GetAccounts400Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+            }
+        
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Alias of `getConversationForProfileWithHttpInfo`
+     *
+     * @deprecated use `getConversationForProfileWithHttpInfo` instead
+     */
+    public function getProfileConversationWithHttpInfo(...$args) {
+        return $this->getConversationForProfileWithHttpInfo(...$args);
+    }
+
+    /**
+     * Operation getConversationForProfileAsync
+     *
+     * Get Conversation for Profile
+     *
+     * @param  string $id  (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getConversationForProfile'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getConversationForProfileAsync($id, $apiKey = null, string $contentType = self::contentTypes['getConversationForProfile'][0])
+    {
+        return $this->getConversationForProfileAsyncWithHttpInfo($id, $apiKey, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Alias of `getConversationForProfileAsync`
+     *
+     * @deprecated use `getConversationForProfileAsync` instead
+     */
+    public function getProfileConversationAsync(...$args) {
+        return $this->getConversationForProfileAsync(...$args);
+    }
+
+    /**
+     * Operation getConversationForProfileAsyncWithHttpInfo
+     *
+     * Get Conversation for Profile
+     *
+     * @param  string $id  (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getConversationForProfile'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getConversationForProfileAsyncWithHttpInfo($id, $apiKey = null, string $contentType = self::contentTypes['getConversationForProfile'][0])
+    {
+        $returnType = 'array<string,mixed>';
+        $request = $this->getConversationForProfileRequest($id, $apiKey, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    $parsed_content = json_decode(json_encode($content), TRUE);
+                    if (json_last_error() != JSON_ERROR_NONE) {
+                        $parsed_content = $content;
+                    }
+
+                    return [
+                        $parsed_content,
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Alias of `getConversationForProfileAsyncWithHttpInfo`
+     *
+     * @deprecated use `getConversationForProfileAsyncWithHttpInfo` instead
+     */
+    public function getProfileConversationAsyncWithHttpInfo(...$args) {
+        return $this->getConversationForProfileAsyncWithHttpInfo(...$args);
+    }
+
+    /**
+     * Create request for operation 'getConversationForProfile'
+     *
+     * @param  string $id  (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getConversationForProfile'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function getConversationForProfileRequest($id, $apiKey = null, string $contentType = self::contentTypes['getConversationForProfile'][0])
+    {
+
+        // verify the required parameter 'id' is set
+        if ($id === null || (is_array($id) && count($id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $id when calling getConversationForProfile'
+            );
+        }
+
+
+        $resourcePath = '/api/profiles/{id}/conversation';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'id' . '}',
+                ObjectSerializer::toPathValue($id),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/vnd.api+json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false || stripos($headers['Content-Type'], 'application/vnd.api+json') !== false) {
+                # if Content-Type contains "application/json" or "application/vnd.api+json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        if ($apiKey == null) {
+            $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        } else {
+            $apiKey = 'Klaviyo-API-Key '.$apiKey;
+        }
+
+        $headers['Authorization'] = $apiKey;
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $defaultHeaders['revision'] = ['2026-04-15'];
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Alias of `getConversationForProfileRequest`
+     *
+     * @deprecated use `getConversationForProfileRequest` instead
+     */
+    public function getProfileConversationRequest(...$args) {
+        return $this->getConversationForProfileRequest(...$args);
+    }
+
+    /**
+     * Operation getConversationIdForProfile
+     *
+     * Get Conversation ID for Profile
+     *
+     * @param  string $id  (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getConversationIdForProfile'] to see the possible values for this operation
+     *
+     * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array<string,mixed>|\KlaviyoAPI\Model\GetAccounts400Response|\KlaviyoAPI\Model\GetAccounts400Response
+     */
+    public function getConversationIdForProfile($id, $apiKey = null, string $contentType = self::contentTypes['getConversationIdForProfile'][0])
+    {
+        list($response) = $this->getConversationIdForProfileWithHttpInfo($id, $apiKey, $contentType);
+        return $response;
+    }
+
+    /**
+     * Alias of `getConversationIdForProfile`
+     *
+     * @deprecated use `getConversationIdForProfile` instead
+     */
+    public function getProfileRelationshipsConversation(...$args) {
+        return $this->getConversationIdForProfile(...$args);
+    }
+
+    /**
+     * Operation getConversationIdForProfileWithHttpInfo
+     *
+     * Get Conversation ID for Profile
+     *
+     * @param  string $id  (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getConversationIdForProfile'] to see the possible values for this operation
+     *
+     * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of array<string,mixed>|\KlaviyoAPI\Model\GetAccounts400Response|\KlaviyoAPI\Model\GetAccounts400Response, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getConversationIdForProfileWithHttpInfo($id, $apiKey = null, string $contentType = self::contentTypes['getConversationIdForProfile'][0])
+    {
+        $request = $this->getConversationIdForProfileRequest($id, $apiKey, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            switch($statusCode) {
+                case 200:
+                    return $this->handleResponseWithDataType(
+                        'array<string,mixed>',
+                        $request,
+                        $response,
+                    );
+                case 400:
+                    return $this->handleResponseWithDataType(
+                        '\KlaviyoAPI\Model\GetAccounts400Response',
+                        $request,
+                        $response,
+                    );
+                case 500:
+                    return $this->handleResponseWithDataType(
+                        '\KlaviyoAPI\Model\GetAccounts400Response',
+                        $request,
+                        $response,
+                    );
+            }
+
+            
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            return $this->handleResponseWithDataType(
+                'array<string,mixed>',
+                $request,
+                $response,
+            );
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        'array<string,mixed>',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\KlaviyoAPI\Model\GetAccounts400Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 500:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\KlaviyoAPI\Model\GetAccounts400Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+            }
+        
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Alias of `getConversationIdForProfileWithHttpInfo`
+     *
+     * @deprecated use `getConversationIdForProfileWithHttpInfo` instead
+     */
+    public function getProfileRelationshipsConversationWithHttpInfo(...$args) {
+        return $this->getConversationIdForProfileWithHttpInfo(...$args);
+    }
+
+    /**
+     * Operation getConversationIdForProfileAsync
+     *
+     * Get Conversation ID for Profile
+     *
+     * @param  string $id  (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getConversationIdForProfile'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getConversationIdForProfileAsync($id, $apiKey = null, string $contentType = self::contentTypes['getConversationIdForProfile'][0])
+    {
+        return $this->getConversationIdForProfileAsyncWithHttpInfo($id, $apiKey, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Alias of `getConversationIdForProfileAsync`
+     *
+     * @deprecated use `getConversationIdForProfileAsync` instead
+     */
+    public function getProfileRelationshipsConversationAsync(...$args) {
+        return $this->getConversationIdForProfileAsync(...$args);
+    }
+
+    /**
+     * Operation getConversationIdForProfileAsyncWithHttpInfo
+     *
+     * Get Conversation ID for Profile
+     *
+     * @param  string $id  (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getConversationIdForProfile'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getConversationIdForProfileAsyncWithHttpInfo($id, $apiKey = null, string $contentType = self::contentTypes['getConversationIdForProfile'][0])
+    {
+        $returnType = 'array<string,mixed>';
+        $request = $this->getConversationIdForProfileRequest($id, $apiKey, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    $parsed_content = json_decode(json_encode($content), TRUE);
+                    if (json_last_error() != JSON_ERROR_NONE) {
+                        $parsed_content = $content;
+                    }
+
+                    return [
+                        $parsed_content,
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Alias of `getConversationIdForProfileAsyncWithHttpInfo`
+     *
+     * @deprecated use `getConversationIdForProfileAsyncWithHttpInfo` instead
+     */
+    public function getProfileRelationshipsConversationAsyncWithHttpInfo(...$args) {
+        return $this->getConversationIdForProfileAsyncWithHttpInfo(...$args);
+    }
+
+    /**
+     * Create request for operation 'getConversationIdForProfile'
+     *
+     * @param  string $id  (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getConversationIdForProfile'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function getConversationIdForProfileRequest($id, $apiKey = null, string $contentType = self::contentTypes['getConversationIdForProfile'][0])
+    {
+
+        // verify the required parameter 'id' is set
+        if ($id === null || (is_array($id) && count($id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $id when calling getConversationIdForProfile'
+            );
+        }
+
+
+        $resourcePath = '/api/profiles/{id}/relationships/conversation';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'id' . '}',
+                ObjectSerializer::toPathValue($id),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/vnd.api+json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false || stripos($headers['Content-Type'], 'application/vnd.api+json') !== false) {
+                # if Content-Type contains "application/json" or "application/vnd.api+json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        if ($apiKey == null) {
+            $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        } else {
+            $apiKey = 'Klaviyo-API-Key '.$apiKey;
+        }
+
+        $headers['Authorization'] = $apiKey;
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $defaultHeaders['revision'] = ['2026-04-15'];
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Alias of `getConversationIdForProfileRequest`
+     *
+     * @deprecated use `getConversationIdForProfileRequest` instead
+     */
+    public function getProfileRelationshipsConversationRequest(...$args) {
+        return $this->getConversationIdForProfileRequest(...$args);
+    }
+
+    /**
      * Operation getErrorsForBulkImportProfilesJob
      *
      * Get Errors for Bulk Import Profiles Job
      *
      * @param  string $id  (required)
-     * @param  string[]|null $fields_import_error For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#pagination (optional)
+     * @param  string[]|null $fields_import_error For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination (optional)
      * @param  int|null $page_size Default: 20. Min: 1. Max: 100. (optional, default to 20)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getErrorsForBulkImportProfilesJob'] to see the possible values for this operation
      *
@@ -5782,8 +6500,8 @@ class ProfilesApi
      * Get Errors for Bulk Import Profiles Job
      *
      * @param  string $id  (required)
-     * @param  string[]|null $fields_import_error For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#pagination (optional)
+     * @param  string[]|null $fields_import_error For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination (optional)
      * @param  int|null $page_size Default: 20. Min: 1. Max: 100. (optional, default to 20)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getErrorsForBulkImportProfilesJob'] to see the possible values for this operation
      *
@@ -5925,8 +6643,8 @@ class ProfilesApi
      * Get Errors for Bulk Import Profiles Job
      *
      * @param  string $id  (required)
-     * @param  string[]|null $fields_import_error For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#pagination (optional)
+     * @param  string[]|null $fields_import_error For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination (optional)
      * @param  int|null $page_size Default: 20. Min: 1. Max: 100. (optional, default to 20)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getErrorsForBulkImportProfilesJob'] to see the possible values for this operation
      *
@@ -5976,8 +6694,8 @@ class ProfilesApi
      * Get Errors for Bulk Import Profiles Job
      *
      * @param  string $id  (required)
-     * @param  string[]|null $fields_import_error For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#pagination (optional)
+     * @param  string[]|null $fields_import_error For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination (optional)
      * @param  int|null $page_size Default: 20. Min: 1. Max: 100. (optional, default to 20)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getErrorsForBulkImportProfilesJob'] to see the possible values for this operation
      *
@@ -6061,8 +6779,8 @@ class ProfilesApi
      * Create request for operation 'getErrorsForBulkImportProfilesJob'
      *
      * @param  string $id  (required)
-     * @param  string[]|null $fields_import_error For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#pagination (optional)
+     * @param  string[]|null $fields_import_error For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination (optional)
      * @param  int|null $page_size Default: 20. Min: 1. Max: 100. (optional, default to 20)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getErrorsForBulkImportProfilesJob'] to see the possible values for this operation
      *
@@ -6181,7 +6899,7 @@ class ProfilesApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2026-01-15'];
+        $defaultHeaders['revision'] = ['2026-04-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -6231,7 +6949,7 @@ class ProfilesApi
      * Get List for Bulk Import Profiles Job
      *
      * @param  string $id  (required)
-     * @param  string[]|null $fields_list For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_list For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getListForBulkImportProfilesJob'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -6277,7 +6995,7 @@ class ProfilesApi
      * Get List for Bulk Import Profiles Job
      *
      * @param  string $id  (required)
-     * @param  string[]|null $fields_list For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_list For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getListForBulkImportProfilesJob'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -6418,7 +7136,7 @@ class ProfilesApi
      * Get List for Bulk Import Profiles Job
      *
      * @param  string $id  (required)
-     * @param  string[]|null $fields_list For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_list For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getListForBulkImportProfilesJob'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -6467,7 +7185,7 @@ class ProfilesApi
      * Get List for Bulk Import Profiles Job
      *
      * @param  string $id  (required)
-     * @param  string[]|null $fields_list For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_list For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getListForBulkImportProfilesJob'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -6550,7 +7268,7 @@ class ProfilesApi
      * Create request for operation 'getListForBulkImportProfilesJob'
      *
      * @param  string $id  (required)
-     * @param  string[]|null $fields_list For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_list For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getListForBulkImportProfilesJob'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -6642,7 +7360,7 @@ class ProfilesApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2026-01-15'];
+        $defaultHeaders['revision'] = ['2026-04-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -7088,7 +7806,7 @@ class ProfilesApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2026-01-15'];
+        $defaultHeaders['revision'] = ['2026-04-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -7462,7 +8180,7 @@ class ProfilesApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2026-01-15'];
+        $defaultHeaders['revision'] = ['2026-04-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -7494,7 +8212,7 @@ class ProfilesApi
      * Get Lists for Profile
      *
      * @param  string $id  (required)
-     * @param  string[]|null $fields_list For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_list For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getListsForProfile'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -7522,7 +8240,7 @@ class ProfilesApi
      * Get Lists for Profile
      *
      * @param  string $id  (required)
-     * @param  string[]|null $fields_list For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_list For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getListsForProfile'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -7645,7 +8363,7 @@ class ProfilesApi
      * Get Lists for Profile
      *
      * @param  string $id  (required)
-     * @param  string[]|null $fields_list For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_list For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getListsForProfile'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -7676,7 +8394,7 @@ class ProfilesApi
      * Get Lists for Profile
      *
      * @param  string $id  (required)
-     * @param  string[]|null $fields_list For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_list For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getListsForProfile'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -7741,7 +8459,7 @@ class ProfilesApi
      * Create request for operation 'getListsForProfile'
      *
      * @param  string $id  (required)
-     * @param  string[]|null $fields_list For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_list For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getListsForProfile'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -7833,7 +8551,7 @@ class ProfilesApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2026-01-15'];
+        $defaultHeaders['revision'] = ['2026-04-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -7866,11 +8584,11 @@ class ProfilesApi
      *
      * @param  string $id  (required)
      * @param  string[]|null $additional_fields_profile Request additional fields not included by default in the response. Supported values: &#39;subscriptions&#39;, &#39;predictive_analytics&#39; (optional)
-     * @param  string[]|null $fields_list For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_profile For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_push_token For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_segment For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#relationships (optional)
+     * @param  string[]|null $fields_list For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_profile For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_push_token For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_segment For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#relationships (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getProfile'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -7890,11 +8608,11 @@ class ProfilesApi
      *
      * @param  string $id  (required)
      * @param  string[]|null $additional_fields_profile Request additional fields not included by default in the response. Supported values: &#39;subscriptions&#39;, &#39;predictive_analytics&#39; (optional)
-     * @param  string[]|null $fields_list For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_profile For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_push_token For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_segment For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#relationships (optional)
+     * @param  string[]|null $fields_list For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_profile For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_push_token For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_segment For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#relationships (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getProfile'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -8009,11 +8727,11 @@ class ProfilesApi
      *
      * @param  string $id  (required)
      * @param  string[]|null $additional_fields_profile Request additional fields not included by default in the response. Supported values: &#39;subscriptions&#39;, &#39;predictive_analytics&#39; (optional)
-     * @param  string[]|null $fields_list For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_profile For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_push_token For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_segment For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#relationships (optional)
+     * @param  string[]|null $fields_list For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_profile For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_push_token For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_segment For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#relationships (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getProfile'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -8036,11 +8754,11 @@ class ProfilesApi
      *
      * @param  string $id  (required)
      * @param  string[]|null $additional_fields_profile Request additional fields not included by default in the response. Supported values: &#39;subscriptions&#39;, &#39;predictive_analytics&#39; (optional)
-     * @param  string[]|null $fields_list For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_profile For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_push_token For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_segment For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#relationships (optional)
+     * @param  string[]|null $fields_list For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_profile For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_push_token For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_segment For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#relationships (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getProfile'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -8097,11 +8815,11 @@ class ProfilesApi
      *
      * @param  string $id  (required)
      * @param  string[]|null $additional_fields_profile Request additional fields not included by default in the response. Supported values: &#39;subscriptions&#39;, &#39;predictive_analytics&#39; (optional)
-     * @param  string[]|null $fields_list For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_profile For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_push_token For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_segment For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#relationships (optional)
+     * @param  string[]|null $fields_list For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_profile For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_push_token For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_segment For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#relationships (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getProfile'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -8243,7 +8961,7 @@ class ProfilesApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2026-01-15'];
+        $defaultHeaders['revision'] = ['2026-04-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -8267,7 +8985,7 @@ class ProfilesApi
      *
      * @param  string $id The value of the push token (required)
      * @param  string[]|null $additional_fields_profile Request additional fields not included by default in the response. Supported values: &#39;subscriptions&#39;, &#39;predictive_analytics&#39; (optional)
-     * @param  string[]|null $fields_profile For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_profile For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getProfileForPushToken'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -8296,7 +9014,7 @@ class ProfilesApi
      *
      * @param  string $id The value of the push token (required)
      * @param  string[]|null $additional_fields_profile Request additional fields not included by default in the response. Supported values: &#39;subscriptions&#39;, &#39;predictive_analytics&#39; (optional)
-     * @param  string[]|null $fields_profile For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_profile For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getProfileForPushToken'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -8420,7 +9138,7 @@ class ProfilesApi
      *
      * @param  string $id The value of the push token (required)
      * @param  string[]|null $additional_fields_profile Request additional fields not included by default in the response. Supported values: &#39;subscriptions&#39;, &#39;predictive_analytics&#39; (optional)
-     * @param  string[]|null $fields_profile For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_profile For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getProfileForPushToken'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -8452,7 +9170,7 @@ class ProfilesApi
      *
      * @param  string $id The value of the push token (required)
      * @param  string[]|null $additional_fields_profile Request additional fields not included by default in the response. Supported values: &#39;subscriptions&#39;, &#39;predictive_analytics&#39; (optional)
-     * @param  string[]|null $fields_profile For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_profile For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getProfileForPushToken'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -8518,7 +9236,7 @@ class ProfilesApi
      *
      * @param  string $id The value of the push token (required)
      * @param  string[]|null $additional_fields_profile Request additional fields not included by default in the response. Supported values: &#39;subscriptions&#39;, &#39;predictive_analytics&#39; (optional)
-     * @param  string[]|null $fields_profile For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_profile For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getProfileForPushToken'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -8620,7 +9338,7 @@ class ProfilesApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2026-01-15'];
+        $defaultHeaders['revision'] = ['2026-04-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -8976,7 +9694,7 @@ class ProfilesApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2026-01-15'];
+        $defaultHeaders['revision'] = ['2026-04-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -9008,7 +9726,7 @@ class ProfilesApi
      * Get Profile IDs for Bulk Import Profiles Job
      *
      * @param  string $id  (required)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#pagination (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination (optional)
      * @param  int|null $page_size Default: 20. Min: 1. Max: 100. (optional, default to 20)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getProfileIdsForBulkImportProfilesJob'] to see the possible values for this operation
      *
@@ -9055,7 +9773,7 @@ class ProfilesApi
      * Get Profile IDs for Bulk Import Profiles Job
      *
      * @param  string $id  (required)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#pagination (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination (optional)
      * @param  int|null $page_size Default: 20. Min: 1. Max: 100. (optional, default to 20)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getProfileIdsForBulkImportProfilesJob'] to see the possible values for this operation
      *
@@ -9197,7 +9915,7 @@ class ProfilesApi
      * Get Profile IDs for Bulk Import Profiles Job
      *
      * @param  string $id  (required)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#pagination (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination (optional)
      * @param  int|null $page_size Default: 20. Min: 1. Max: 100. (optional, default to 20)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getProfileIdsForBulkImportProfilesJob'] to see the possible values for this operation
      *
@@ -9247,7 +9965,7 @@ class ProfilesApi
      * Get Profile IDs for Bulk Import Profiles Job
      *
      * @param  string $id  (required)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#pagination (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination (optional)
      * @param  int|null $page_size Default: 20. Min: 1. Max: 100. (optional, default to 20)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getProfileIdsForBulkImportProfilesJob'] to see the possible values for this operation
      *
@@ -9331,7 +10049,7 @@ class ProfilesApi
      * Create request for operation 'getProfileIdsForBulkImportProfilesJob'
      *
      * @param  string $id  (required)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#pagination (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination (optional)
      * @param  int|null $page_size Default: 20. Min: 1. Max: 100. (optional, default to 20)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getProfileIdsForBulkImportProfilesJob'] to see the possible values for this operation
      *
@@ -9440,7 +10158,7 @@ class ProfilesApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2026-01-15'];
+        $defaultHeaders['revision'] = ['2026-04-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -9490,21 +10208,22 @@ class ProfilesApi
      * Get Profiles
      *
      * @param  string[]|null $additional_fields_profile Request additional fields not included by default in the response. Supported values: &#39;subscriptions&#39;, &#39;predictive_analytics&#39; (optional)
-     * @param  string[]|null $fields_profile For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;id&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;email&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;phone_number&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;external_id&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;_kx&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;created&#x60;: &#x60;greater-than&#x60;, &#x60;less-than&#x60;&lt;br&gt;&#x60;updated&#x60;: &#x60;greater-than&#x60;, &#x60;less-than&#x60;&lt;br&gt;&#x60;subscriptions.email.marketing.list_suppressions.reason&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;subscriptions.email.marketing.list_suppressions.timestamp&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60;&lt;br&gt;&#x60;subscriptions.email.marketing.list_suppressions.list_id&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;subscriptions.email.marketing.suppression.reason&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;subscriptions.email.marketing.suppression.timestamp&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60; (optional)
-     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#relationships (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#pagination (optional)
+     * @param  string[]|null $fields_profile For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_push_token For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;id&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;email&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;phone_number&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;external_id&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;_kx&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;created&#x60;: &#x60;greater-than&#x60;, &#x60;less-than&#x60;&lt;br&gt;&#x60;updated&#x60;: &#x60;greater-than&#x60;, &#x60;less-than&#x60;&lt;br&gt;&#x60;subscriptions.email.marketing.list_suppressions.reason&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;subscriptions.email.marketing.list_suppressions.timestamp&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60;&lt;br&gt;&#x60;subscriptions.email.marketing.list_suppressions.list_id&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;subscriptions.email.marketing.suppression.reason&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;subscriptions.email.marketing.suppression.timestamp&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60; (optional)
+     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#relationships (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination (optional)
      * @param  int|null $page_size Default: 20. Min: 1. Max: 100. (optional, default to 20)
-     * @param  string|null $sort For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sorting (optional)
+     * @param  string|null $sort For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sorting (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getProfiles'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array<string,mixed>|\KlaviyoAPI\Model\GetAccounts400Response|\KlaviyoAPI\Model\GetAccounts400Response
      */
-    public function getProfiles($additional_fields_profile = null, $fields_profile = null, $filter = null, $include = null, $page_cursor = null, $page_size = 20, $sort = null, $apiKey = null, string $contentType = self::contentTypes['getProfiles'][0])
+    public function getProfiles($additional_fields_profile = null, $fields_profile = null, $fields_push_token = null, $filter = null, $include = null, $page_cursor = null, $page_size = 20, $sort = null, $apiKey = null, string $contentType = self::contentTypes['getProfiles'][0])
     {
-        list($response) = $this->getProfilesWithHttpInfo($additional_fields_profile, $fields_profile, $filter, $include, $page_cursor, $page_size, $sort, $apiKey, $contentType);
+        list($response) = $this->getProfilesWithHttpInfo($additional_fields_profile, $fields_profile, $fields_push_token, $filter, $include, $page_cursor, $page_size, $sort, $apiKey, $contentType);
         return $response;
     }
 
@@ -9514,21 +10233,22 @@ class ProfilesApi
      * Get Profiles
      *
      * @param  string[]|null $additional_fields_profile Request additional fields not included by default in the response. Supported values: &#39;subscriptions&#39;, &#39;predictive_analytics&#39; (optional)
-     * @param  string[]|null $fields_profile For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;id&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;email&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;phone_number&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;external_id&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;_kx&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;created&#x60;: &#x60;greater-than&#x60;, &#x60;less-than&#x60;&lt;br&gt;&#x60;updated&#x60;: &#x60;greater-than&#x60;, &#x60;less-than&#x60;&lt;br&gt;&#x60;subscriptions.email.marketing.list_suppressions.reason&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;subscriptions.email.marketing.list_suppressions.timestamp&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60;&lt;br&gt;&#x60;subscriptions.email.marketing.list_suppressions.list_id&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;subscriptions.email.marketing.suppression.reason&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;subscriptions.email.marketing.suppression.timestamp&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60; (optional)
-     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#relationships (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#pagination (optional)
+     * @param  string[]|null $fields_profile For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_push_token For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;id&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;email&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;phone_number&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;external_id&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;_kx&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;created&#x60;: &#x60;greater-than&#x60;, &#x60;less-than&#x60;&lt;br&gt;&#x60;updated&#x60;: &#x60;greater-than&#x60;, &#x60;less-than&#x60;&lt;br&gt;&#x60;subscriptions.email.marketing.list_suppressions.reason&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;subscriptions.email.marketing.list_suppressions.timestamp&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60;&lt;br&gt;&#x60;subscriptions.email.marketing.list_suppressions.list_id&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;subscriptions.email.marketing.suppression.reason&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;subscriptions.email.marketing.suppression.timestamp&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60; (optional)
+     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#relationships (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination (optional)
      * @param  int|null $page_size Default: 20. Min: 1. Max: 100. (optional, default to 20)
-     * @param  string|null $sort For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sorting (optional)
+     * @param  string|null $sort For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sorting (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getProfiles'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of array<string,mixed>|\KlaviyoAPI\Model\GetAccounts400Response|\KlaviyoAPI\Model\GetAccounts400Response, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getProfilesWithHttpInfo($additional_fields_profile = null, $fields_profile = null, $filter = null, $include = null, $page_cursor = null, $page_size = 20, $sort = null, $apiKey = null, string $contentType = self::contentTypes['getProfiles'][0])
+    public function getProfilesWithHttpInfo($additional_fields_profile = null, $fields_profile = null, $fields_push_token = null, $filter = null, $include = null, $page_cursor = null, $page_size = 20, $sort = null, $apiKey = null, string $contentType = self::contentTypes['getProfiles'][0])
     {
-        $request = $this->getProfilesRequest($additional_fields_profile, $fields_profile, $filter, $include, $page_cursor, $page_size, $sort, $apiKey, $contentType);
+        $request = $this->getProfilesRequest($additional_fields_profile, $fields_profile, $fields_push_token, $filter, $include, $page_cursor, $page_size, $sort, $apiKey, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -9633,20 +10353,21 @@ class ProfilesApi
      * Get Profiles
      *
      * @param  string[]|null $additional_fields_profile Request additional fields not included by default in the response. Supported values: &#39;subscriptions&#39;, &#39;predictive_analytics&#39; (optional)
-     * @param  string[]|null $fields_profile For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;id&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;email&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;phone_number&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;external_id&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;_kx&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;created&#x60;: &#x60;greater-than&#x60;, &#x60;less-than&#x60;&lt;br&gt;&#x60;updated&#x60;: &#x60;greater-than&#x60;, &#x60;less-than&#x60;&lt;br&gt;&#x60;subscriptions.email.marketing.list_suppressions.reason&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;subscriptions.email.marketing.list_suppressions.timestamp&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60;&lt;br&gt;&#x60;subscriptions.email.marketing.list_suppressions.list_id&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;subscriptions.email.marketing.suppression.reason&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;subscriptions.email.marketing.suppression.timestamp&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60; (optional)
-     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#relationships (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#pagination (optional)
+     * @param  string[]|null $fields_profile For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_push_token For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;id&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;email&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;phone_number&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;external_id&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;_kx&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;created&#x60;: &#x60;greater-than&#x60;, &#x60;less-than&#x60;&lt;br&gt;&#x60;updated&#x60;: &#x60;greater-than&#x60;, &#x60;less-than&#x60;&lt;br&gt;&#x60;subscriptions.email.marketing.list_suppressions.reason&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;subscriptions.email.marketing.list_suppressions.timestamp&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60;&lt;br&gt;&#x60;subscriptions.email.marketing.list_suppressions.list_id&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;subscriptions.email.marketing.suppression.reason&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;subscriptions.email.marketing.suppression.timestamp&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60; (optional)
+     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#relationships (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination (optional)
      * @param  int|null $page_size Default: 20. Min: 1. Max: 100. (optional, default to 20)
-     * @param  string|null $sort For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sorting (optional)
+     * @param  string|null $sort For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sorting (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getProfiles'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getProfilesAsync($additional_fields_profile = null, $fields_profile = null, $filter = null, $include = null, $page_cursor = null, $page_size = 20, $sort = null, $apiKey = null, string $contentType = self::contentTypes['getProfiles'][0])
+    public function getProfilesAsync($additional_fields_profile = null, $fields_profile = null, $fields_push_token = null, $filter = null, $include = null, $page_cursor = null, $page_size = 20, $sort = null, $apiKey = null, string $contentType = self::contentTypes['getProfiles'][0])
     {
-        return $this->getProfilesAsyncWithHttpInfo($additional_fields_profile, $fields_profile, $filter, $include, $page_cursor, $page_size, $sort, $apiKey, $contentType)
+        return $this->getProfilesAsyncWithHttpInfo($additional_fields_profile, $fields_profile, $fields_push_token, $filter, $include, $page_cursor, $page_size, $sort, $apiKey, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -9660,21 +10381,22 @@ class ProfilesApi
      * Get Profiles
      *
      * @param  string[]|null $additional_fields_profile Request additional fields not included by default in the response. Supported values: &#39;subscriptions&#39;, &#39;predictive_analytics&#39; (optional)
-     * @param  string[]|null $fields_profile For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;id&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;email&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;phone_number&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;external_id&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;_kx&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;created&#x60;: &#x60;greater-than&#x60;, &#x60;less-than&#x60;&lt;br&gt;&#x60;updated&#x60;: &#x60;greater-than&#x60;, &#x60;less-than&#x60;&lt;br&gt;&#x60;subscriptions.email.marketing.list_suppressions.reason&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;subscriptions.email.marketing.list_suppressions.timestamp&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60;&lt;br&gt;&#x60;subscriptions.email.marketing.list_suppressions.list_id&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;subscriptions.email.marketing.suppression.reason&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;subscriptions.email.marketing.suppression.timestamp&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60; (optional)
-     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#relationships (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#pagination (optional)
+     * @param  string[]|null $fields_profile For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_push_token For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;id&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;email&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;phone_number&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;external_id&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;_kx&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;created&#x60;: &#x60;greater-than&#x60;, &#x60;less-than&#x60;&lt;br&gt;&#x60;updated&#x60;: &#x60;greater-than&#x60;, &#x60;less-than&#x60;&lt;br&gt;&#x60;subscriptions.email.marketing.list_suppressions.reason&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;subscriptions.email.marketing.list_suppressions.timestamp&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60;&lt;br&gt;&#x60;subscriptions.email.marketing.list_suppressions.list_id&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;subscriptions.email.marketing.suppression.reason&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;subscriptions.email.marketing.suppression.timestamp&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60; (optional)
+     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#relationships (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination (optional)
      * @param  int|null $page_size Default: 20. Min: 1. Max: 100. (optional, default to 20)
-     * @param  string|null $sort For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sorting (optional)
+     * @param  string|null $sort For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sorting (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getProfiles'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getProfilesAsyncWithHttpInfo($additional_fields_profile = null, $fields_profile = null, $filter = null, $include = null, $page_cursor = null, $page_size = 20, $sort = null, $apiKey = null, string $contentType = self::contentTypes['getProfiles'][0])
+    public function getProfilesAsyncWithHttpInfo($additional_fields_profile = null, $fields_profile = null, $fields_push_token = null, $filter = null, $include = null, $page_cursor = null, $page_size = 20, $sort = null, $apiKey = null, string $contentType = self::contentTypes['getProfiles'][0])
     {
         $returnType = 'array<string,mixed>';
-        $request = $this->getProfilesRequest($additional_fields_profile, $fields_profile, $filter, $include, $page_cursor, $page_size, $sort, $apiKey, $contentType);
+        $request = $this->getProfilesRequest($additional_fields_profile, $fields_profile, $fields_push_token, $filter, $include, $page_cursor, $page_size, $sort, $apiKey, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -9721,19 +10443,21 @@ class ProfilesApi
      * Create request for operation 'getProfiles'
      *
      * @param  string[]|null $additional_fields_profile Request additional fields not included by default in the response. Supported values: &#39;subscriptions&#39;, &#39;predictive_analytics&#39; (optional)
-     * @param  string[]|null $fields_profile For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;id&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;email&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;phone_number&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;external_id&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;_kx&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;created&#x60;: &#x60;greater-than&#x60;, &#x60;less-than&#x60;&lt;br&gt;&#x60;updated&#x60;: &#x60;greater-than&#x60;, &#x60;less-than&#x60;&lt;br&gt;&#x60;subscriptions.email.marketing.list_suppressions.reason&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;subscriptions.email.marketing.list_suppressions.timestamp&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60;&lt;br&gt;&#x60;subscriptions.email.marketing.list_suppressions.list_id&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;subscriptions.email.marketing.suppression.reason&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;subscriptions.email.marketing.suppression.timestamp&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60; (optional)
-     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#relationships (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#pagination (optional)
+     * @param  string[]|null $fields_profile For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_push_token For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;id&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;email&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;phone_number&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;external_id&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;_kx&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;created&#x60;: &#x60;greater-than&#x60;, &#x60;less-than&#x60;&lt;br&gt;&#x60;updated&#x60;: &#x60;greater-than&#x60;, &#x60;less-than&#x60;&lt;br&gt;&#x60;subscriptions.email.marketing.list_suppressions.reason&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;subscriptions.email.marketing.list_suppressions.timestamp&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60;&lt;br&gt;&#x60;subscriptions.email.marketing.list_suppressions.list_id&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;subscriptions.email.marketing.suppression.reason&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;subscriptions.email.marketing.suppression.timestamp&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60; (optional)
+     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#relationships (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination (optional)
      * @param  int|null $page_size Default: 20. Min: 1. Max: 100. (optional, default to 20)
-     * @param  string|null $sort For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sorting (optional)
+     * @param  string|null $sort For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sorting (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getProfiles'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getProfilesRequest($additional_fields_profile = null, $fields_profile = null, $filter = null, $include = null, $page_cursor = null, $page_size = 20, $sort = null, $apiKey = null, string $contentType = self::contentTypes['getProfiles'][0])
+    public function getProfilesRequest($additional_fields_profile = null, $fields_profile = null, $fields_push_token = null, $filter = null, $include = null, $page_cursor = null, $page_size = 20, $sort = null, $apiKey = null, string $contentType = self::contentTypes['getProfiles'][0])
     {
+
 
 
 
@@ -9769,6 +10493,15 @@ class ProfilesApi
         $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
             $fields_profile,
             'fields[profile]', // param base name
+            'array', // openApiType
+            'form', // style
+            false, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $fields_push_token,
+            'fields[push-token]', // param base name
             'array', // openApiType
             'form', // style
             false, // explode
@@ -9869,7 +10602,7 @@ class ProfilesApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2026-01-15'];
+        $defaultHeaders['revision'] = ['2026-04-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -9893,8 +10626,8 @@ class ProfilesApi
      *
      * @param  string $id  (required)
      * @param  string[]|null $additional_fields_profile Request additional fields not included by default in the response. Supported values: &#39;subscriptions&#39;, &#39;predictive_analytics&#39; (optional)
-     * @param  string[]|null $fields_profile For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#pagination (optional)
+     * @param  string[]|null $fields_profile For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination (optional)
      * @param  int|null $page_size Default: 20. Min: 1. Max: 100. (optional, default to 20)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getProfilesForBulkImportProfilesJob'] to see the possible values for this operation
      *
@@ -9942,8 +10675,8 @@ class ProfilesApi
      *
      * @param  string $id  (required)
      * @param  string[]|null $additional_fields_profile Request additional fields not included by default in the response. Supported values: &#39;subscriptions&#39;, &#39;predictive_analytics&#39; (optional)
-     * @param  string[]|null $fields_profile For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#pagination (optional)
+     * @param  string[]|null $fields_profile For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination (optional)
      * @param  int|null $page_size Default: 20. Min: 1. Max: 100. (optional, default to 20)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getProfilesForBulkImportProfilesJob'] to see the possible values for this operation
      *
@@ -10086,8 +10819,8 @@ class ProfilesApi
      *
      * @param  string $id  (required)
      * @param  string[]|null $additional_fields_profile Request additional fields not included by default in the response. Supported values: &#39;subscriptions&#39;, &#39;predictive_analytics&#39; (optional)
-     * @param  string[]|null $fields_profile For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#pagination (optional)
+     * @param  string[]|null $fields_profile For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination (optional)
      * @param  int|null $page_size Default: 20. Min: 1. Max: 100. (optional, default to 20)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getProfilesForBulkImportProfilesJob'] to see the possible values for this operation
      *
@@ -10138,8 +10871,8 @@ class ProfilesApi
      *
      * @param  string $id  (required)
      * @param  string[]|null $additional_fields_profile Request additional fields not included by default in the response. Supported values: &#39;subscriptions&#39;, &#39;predictive_analytics&#39; (optional)
-     * @param  string[]|null $fields_profile For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#pagination (optional)
+     * @param  string[]|null $fields_profile For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination (optional)
      * @param  int|null $page_size Default: 20. Min: 1. Max: 100. (optional, default to 20)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getProfilesForBulkImportProfilesJob'] to see the possible values for this operation
      *
@@ -10224,8 +10957,8 @@ class ProfilesApi
      *
      * @param  string $id  (required)
      * @param  string[]|null $additional_fields_profile Request additional fields not included by default in the response. Supported values: &#39;subscriptions&#39;, &#39;predictive_analytics&#39; (optional)
-     * @param  string[]|null $fields_profile For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#pagination (optional)
+     * @param  string[]|null $fields_profile For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination (optional)
      * @param  int|null $page_size Default: 20. Min: 1. Max: 100. (optional, default to 20)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getProfilesForBulkImportProfilesJob'] to see the possible values for this operation
      *
@@ -10354,7 +11087,7 @@ class ProfilesApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2026-01-15'];
+        $defaultHeaders['revision'] = ['2026-04-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -10404,9 +11137,9 @@ class ProfilesApi
      * Get Push Token
      *
      * @param  string $id The value of the push token (required)
-     * @param  string[]|null $fields_profile For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_push_token For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#relationships (optional)
+     * @param  string[]|null $fields_profile For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_push_token For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#relationships (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getPushToken'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -10425,9 +11158,9 @@ class ProfilesApi
      * Get Push Token
      *
      * @param  string $id The value of the push token (required)
-     * @param  string[]|null $fields_profile For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_push_token For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#relationships (optional)
+     * @param  string[]|null $fields_profile For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_push_token For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#relationships (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getPushToken'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -10541,9 +11274,9 @@ class ProfilesApi
      * Get Push Token
      *
      * @param  string $id The value of the push token (required)
-     * @param  string[]|null $fields_profile For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_push_token For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#relationships (optional)
+     * @param  string[]|null $fields_profile For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_push_token For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#relationships (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getPushToken'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -10565,9 +11298,9 @@ class ProfilesApi
      * Get Push Token
      *
      * @param  string $id The value of the push token (required)
-     * @param  string[]|null $fields_profile For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_push_token For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#relationships (optional)
+     * @param  string[]|null $fields_profile For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_push_token For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#relationships (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getPushToken'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -10623,9 +11356,9 @@ class ProfilesApi
      * Create request for operation 'getPushToken'
      *
      * @param  string $id The value of the push token (required)
-     * @param  string[]|null $fields_profile For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_push_token For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#relationships (optional)
+     * @param  string[]|null $fields_profile For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_push_token For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#relationships (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getPushToken'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -10737,7 +11470,7 @@ class ProfilesApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2026-01-15'];
+        $defaultHeaders['revision'] = ['2026-04-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -11084,7 +11817,7 @@ class ProfilesApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2026-01-15'];
+        $defaultHeaders['revision'] = ['2026-04-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -11115,11 +11848,11 @@ class ProfilesApi
      *
      * Get Push Tokens
      *
-     * @param  string[]|null $fields_profile For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_push_token For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;id&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;profile.id&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;enablement_status&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;platform&#x60;: &#x60;equals&#x60; (optional)
-     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#relationships (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#pagination (optional)
+     * @param  string[]|null $fields_profile For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_push_token For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;id&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;profile.id&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;enablement_status&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;platform&#x60;: &#x60;equals&#x60; (optional)
+     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#relationships (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination (optional)
      * @param  int|null $page_size Default: 20. Min: 1. Max: 100. (optional, default to 20)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getPushTokens'] to see the possible values for this operation
      *
@@ -11138,11 +11871,11 @@ class ProfilesApi
      *
      * Get Push Tokens
      *
-     * @param  string[]|null $fields_profile For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_push_token For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;id&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;profile.id&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;enablement_status&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;platform&#x60;: &#x60;equals&#x60; (optional)
-     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#relationships (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#pagination (optional)
+     * @param  string[]|null $fields_profile For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_push_token For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;id&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;profile.id&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;enablement_status&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;platform&#x60;: &#x60;equals&#x60; (optional)
+     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#relationships (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination (optional)
      * @param  int|null $page_size Default: 20. Min: 1. Max: 100. (optional, default to 20)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getPushTokens'] to see the possible values for this operation
      *
@@ -11256,11 +11989,11 @@ class ProfilesApi
      *
      * Get Push Tokens
      *
-     * @param  string[]|null $fields_profile For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_push_token For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;id&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;profile.id&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;enablement_status&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;platform&#x60;: &#x60;equals&#x60; (optional)
-     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#relationships (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#pagination (optional)
+     * @param  string[]|null $fields_profile For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_push_token For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;id&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;profile.id&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;enablement_status&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;platform&#x60;: &#x60;equals&#x60; (optional)
+     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#relationships (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination (optional)
      * @param  int|null $page_size Default: 20. Min: 1. Max: 100. (optional, default to 20)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getPushTokens'] to see the possible values for this operation
      *
@@ -11282,11 +12015,11 @@ class ProfilesApi
      *
      * Get Push Tokens
      *
-     * @param  string[]|null $fields_profile For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_push_token For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;id&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;profile.id&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;enablement_status&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;platform&#x60;: &#x60;equals&#x60; (optional)
-     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#relationships (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#pagination (optional)
+     * @param  string[]|null $fields_profile For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_push_token For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;id&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;profile.id&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;enablement_status&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;platform&#x60;: &#x60;equals&#x60; (optional)
+     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#relationships (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination (optional)
      * @param  int|null $page_size Default: 20. Min: 1. Max: 100. (optional, default to 20)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getPushTokens'] to see the possible values for this operation
      *
@@ -11342,11 +12075,11 @@ class ProfilesApi
     /**
      * Create request for operation 'getPushTokens'
      *
-     * @param  string[]|null $fields_profile For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_push_token For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;id&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;profile.id&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;enablement_status&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;platform&#x60;: &#x60;equals&#x60; (optional)
-     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#relationships (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#pagination (optional)
+     * @param  string[]|null $fields_profile For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_push_token For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;id&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;profile.id&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;enablement_status&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;platform&#x60;: &#x60;equals&#x60; (optional)
+     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#relationships (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination (optional)
      * @param  int|null $page_size Default: 20. Min: 1. Max: 100. (optional, default to 20)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getPushTokens'] to see the possible values for this operation
      *
@@ -11480,7 +12213,7 @@ class ProfilesApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2026-01-15'];
+        $defaultHeaders['revision'] = ['2026-04-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -11503,7 +12236,7 @@ class ProfilesApi
      * Get Push Tokens for Profile
      *
      * @param  string $id  (required)
-     * @param  string[]|null $fields_push_token For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_push_token For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getPushTokensForProfile'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -11531,7 +12264,7 @@ class ProfilesApi
      * Get Push Tokens for Profile
      *
      * @param  string $id  (required)
-     * @param  string[]|null $fields_push_token For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_push_token For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getPushTokensForProfile'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -11654,7 +12387,7 @@ class ProfilesApi
      * Get Push Tokens for Profile
      *
      * @param  string $id  (required)
-     * @param  string[]|null $fields_push_token For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_push_token For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getPushTokensForProfile'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -11685,7 +12418,7 @@ class ProfilesApi
      * Get Push Tokens for Profile
      *
      * @param  string $id  (required)
-     * @param  string[]|null $fields_push_token For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_push_token For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getPushTokensForProfile'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -11750,7 +12483,7 @@ class ProfilesApi
      * Create request for operation 'getPushTokensForProfile'
      *
      * @param  string $id  (required)
-     * @param  string[]|null $fields_push_token For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_push_token For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getPushTokensForProfile'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -11842,7 +12575,7 @@ class ProfilesApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2026-01-15'];
+        $defaultHeaders['revision'] = ['2026-04-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -12198,7 +12931,7 @@ class ProfilesApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2026-01-15'];
+        $defaultHeaders['revision'] = ['2026-04-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -12230,7 +12963,7 @@ class ProfilesApi
      * Get Segments for Profile
      *
      * @param  string $id  (required)
-     * @param  string[]|null $fields_segment For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_segment For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSegmentsForProfile'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -12258,7 +12991,7 @@ class ProfilesApi
      * Get Segments for Profile
      *
      * @param  string $id  (required)
-     * @param  string[]|null $fields_segment For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_segment For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSegmentsForProfile'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -12381,7 +13114,7 @@ class ProfilesApi
      * Get Segments for Profile
      *
      * @param  string $id  (required)
-     * @param  string[]|null $fields_segment For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_segment For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSegmentsForProfile'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -12412,7 +13145,7 @@ class ProfilesApi
      * Get Segments for Profile
      *
      * @param  string $id  (required)
-     * @param  string[]|null $fields_segment For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_segment For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSegmentsForProfile'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -12477,7 +13210,7 @@ class ProfilesApi
      * Create request for operation 'getSegmentsForProfile'
      *
      * @param  string $id  (required)
-     * @param  string[]|null $fields_segment For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_segment For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSegmentsForProfile'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -12569,7 +13302,7 @@ class ProfilesApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2026-01-15'];
+        $defaultHeaders['revision'] = ['2026-04-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -12924,7 +13657,7 @@ class ProfilesApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2026-01-15'];
+        $defaultHeaders['revision'] = ['2026-04-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -13278,7 +14011,7 @@ class ProfilesApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2026-01-15'];
+        $defaultHeaders['revision'] = ['2026-04-15'];
 
         $headers = array_merge(
             $defaultHeaders,

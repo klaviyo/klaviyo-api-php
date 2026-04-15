@@ -58,7 +58,7 @@ class CampaignCreateQueryResourceObjectAttributesSendStrategy implements ModelIn
       * @var string[]
       */
     protected static $openAPITypes = [
-        'method' => '\KlaviyoAPI\Model\SmartSendTimeEnum',
+        'method' => 'string',
         'datetime' => '\DateTime',
         'options' => '\KlaviyoAPI\Model\StaticSendStrategyOptions',
         'throttle_percentage' => 'int',
@@ -253,6 +253,7 @@ class CampaignCreateQueryResourceObjectAttributesSendStrategy implements ModelIn
         return self::$openAPIModelName;
     }
 
+    public const METHOD_SMART_SEND_TIME = 'smart_send_time';
     public const THROTTLE_PERCENTAGE_NUMBER_10 = 10;
     public const THROTTLE_PERCENTAGE_NUMBER_11 = 11;
     public const THROTTLE_PERCENTAGE_NUMBER_13 = 13;
@@ -262,6 +263,18 @@ class CampaignCreateQueryResourceObjectAttributesSendStrategy implements ModelIn
     public const THROTTLE_PERCENTAGE_NUMBER_25 = 25;
     public const THROTTLE_PERCENTAGE_NUMBER_33 = 33;
     public const THROTTLE_PERCENTAGE_NUMBER_50 = 50;
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getMethodAllowableValues()
+    {
+        return [
+            self::METHOD_SMART_SEND_TIME,
+        ];
+    }
 
     /**
      * Gets allowable values of the enum
@@ -335,6 +348,15 @@ class CampaignCreateQueryResourceObjectAttributesSendStrategy implements ModelIn
         if ($this->container['method'] === null) {
             $invalidProperties[] = "'method' can't be null";
         }
+        $allowedValues = $this->getMethodAllowableValues();
+        if (!is_null($this->container['method']) && !in_array($this->container['method'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'method', must be one of '%s'",
+                $this->container['method'],
+                implode("', '", $allowedValues)
+            );
+        }
+
         if ($this->container['datetime'] === null) {
             $invalidProperties[] = "'datetime' can't be null";
         }
@@ -371,7 +393,7 @@ class CampaignCreateQueryResourceObjectAttributesSendStrategy implements ModelIn
     /**
      * Gets method
      *
-     * @return \KlaviyoAPI\Model\SmartSendTimeEnum
+     * @return string
      */
     public function getMethod()
     {
@@ -381,7 +403,7 @@ class CampaignCreateQueryResourceObjectAttributesSendStrategy implements ModelIn
     /**
      * Sets method
      *
-     * @param \KlaviyoAPI\Model\SmartSendTimeEnum $method method
+     * @param string $method method
      *
      * @return self
      */
@@ -389,6 +411,16 @@ class CampaignCreateQueryResourceObjectAttributesSendStrategy implements ModelIn
     {
         if (is_null($method)) {
             throw new \InvalidArgumentException('non-nullable method cannot be null');
+        }
+        $allowedValues = $this->getMethodAllowableValues();
+        if (!in_array($method, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'method', must be one of '%s'",
+                    $method,
+                    implode("', '", $allowedValues)
+                )
+            );
         }
         $this->container['method'] = $method;
 

@@ -59,7 +59,7 @@ class BackInStockDelayAction implements ModelInterface, ArrayAccess, \JsonSerial
     protected static $openAPITypes = [
         'id' => 'string',
         'temporary_id' => 'string',
-        'type' => '\KlaviyoAPI\Model\BackInStockDelayEnum',
+        'type' => 'string',
         'links' => '\KlaviyoAPI\Model\Link'
     ];
 
@@ -246,6 +246,19 @@ class BackInStockDelayAction implements ModelInterface, ArrayAccess, \JsonSerial
         return self::$openAPIModelName;
     }
 
+    public const TYPE_BACK_IN_STOCK_DELAY = 'back-in-stock-delay';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getTypeAllowableValues()
+    {
+        return [
+            self::TYPE_BACK_IN_STOCK_DELAY,
+        ];
+    }
 
     /**
      * Associative array for storing property values
@@ -298,6 +311,15 @@ class BackInStockDelayAction implements ModelInterface, ArrayAccess, \JsonSerial
         if ($this->container['type'] === null) {
             $invalidProperties[] = "'type' can't be null";
         }
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!is_null($this->container['type']) && !in_array($this->container['type'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'type', must be one of '%s'",
+                $this->container['type'],
+                implode("', '", $allowedValues)
+            );
+        }
+
         return $invalidProperties;
     }
 
@@ -326,7 +348,7 @@ class BackInStockDelayAction implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets id
      *
-     * @param string|null $id The real ID of an action.
+     * @param string|null $id The real ID of an action. Not allowed on create.
      *
      * @return self
      */
@@ -384,7 +406,7 @@ class BackInStockDelayAction implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Gets type
      *
-     * @return \KlaviyoAPI\Model\BackInStockDelayEnum
+     * @return string
      */
     public function getType()
     {
@@ -394,7 +416,7 @@ class BackInStockDelayAction implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets type
      *
-     * @param \KlaviyoAPI\Model\BackInStockDelayEnum $type type
+     * @param string $type type
      *
      * @return self
      */
@@ -402,6 +424,16 @@ class BackInStockDelayAction implements ModelInterface, ArrayAccess, \JsonSerial
     {
         if (is_null($type)) {
             throw new \InvalidArgumentException('non-nullable type cannot be null');
+        }
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!in_array($type, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'type', must be one of '%s'",
+                    $type,
+                    implode("', '", $allowedValues)
+                )
+            );
         }
         $this->container['type'] = $type;
 

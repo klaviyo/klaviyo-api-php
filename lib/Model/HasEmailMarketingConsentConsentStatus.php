@@ -57,7 +57,7 @@ class HasEmailMarketingConsentConsentStatus implements ModelInterface, ArrayAcce
       * @var string[]
       */
     protected static $openAPITypes = [
-        'subscription' => '\KlaviyoAPI\Model\NeverSubscribedEnum',
+        'subscription' => 'string',
         'filters' => 'mixed'
     ];
 
@@ -234,6 +234,19 @@ class HasEmailMarketingConsentConsentStatus implements ModelInterface, ArrayAcce
         return self::$openAPIModelName;
     }
 
+    public const SUBSCRIPTION_NEVER_SUBSCRIBED = 'never_subscribed';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getSubscriptionAllowableValues()
+    {
+        return [
+            self::SUBSCRIPTION_NEVER_SUBSCRIBED,
+        ];
+    }
 
     /**
      * Associative array for storing property values
@@ -284,6 +297,15 @@ class HasEmailMarketingConsentConsentStatus implements ModelInterface, ArrayAcce
         if ($this->container['subscription'] === null) {
             $invalidProperties[] = "'subscription' can't be null";
         }
+        $allowedValues = $this->getSubscriptionAllowableValues();
+        if (!is_null($this->container['subscription']) && !in_array($this->container['subscription'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'subscription', must be one of '%s'",
+                $this->container['subscription'],
+                implode("', '", $allowedValues)
+            );
+        }
+
         return $invalidProperties;
     }
 
@@ -302,7 +324,7 @@ class HasEmailMarketingConsentConsentStatus implements ModelInterface, ArrayAcce
     /**
      * Gets subscription
      *
-     * @return \KlaviyoAPI\Model\NeverSubscribedEnum
+     * @return string
      */
     public function getSubscription()
     {
@@ -312,7 +334,7 @@ class HasEmailMarketingConsentConsentStatus implements ModelInterface, ArrayAcce
     /**
      * Sets subscription
      *
-     * @param \KlaviyoAPI\Model\NeverSubscribedEnum $subscription subscription
+     * @param string $subscription subscription
      *
      * @return self
      */
@@ -320,6 +342,16 @@ class HasEmailMarketingConsentConsentStatus implements ModelInterface, ArrayAcce
     {
         if (is_null($subscription)) {
             throw new \InvalidArgumentException('non-nullable subscription cannot be null');
+        }
+        $allowedValues = $this->getSubscriptionAllowableValues();
+        if (!in_array($subscription, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'subscription', must be one of '%s'",
+                    $subscription,
+                    implode("', '", $allowedValues)
+                )
+            );
         }
         $this->container['subscription'] = $subscription;
 

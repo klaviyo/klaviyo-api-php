@@ -57,10 +57,10 @@ class FlowDefinitionTriggersInner implements ModelInterface, ArrayAccess, \JsonS
       * @var string[]
       */
     protected static $openAPITypes = [
-        'type' => '\KlaviyoAPI\Model\LowInventoryEnum',
+        'type' => 'string',
         'id' => 'string',
         'trigger_filter' => '\KlaviyoAPI\Model\LowInventoryConditionFilter',
-        'date_field_type' => '\KlaviyoAPI\Model\ProfilePropertyEnum',
+        'date_field_type' => 'string',
         'date_profile_property' => 'string',
         'timedelta_unit_before_date' => 'string',
         'timedelta_value_before_date' => 'int',
@@ -68,7 +68,7 @@ class FlowDefinitionTriggersInner implements ModelInterface, ArrayAccess, \JsonS
         'timezone' => 'string',
         'trigger_time' => 'string',
         'trigger_days' => 'string[]',
-        'price_drop_amount_value' => '\KlaviyoAPI\Model\NumericOperatorFilterValue',
+        'price_drop_amount_value' => '\KlaviyoAPI\Model\NumericOperatorNumericFilterValue',
         'price_drop_amount_unit' => 'string',
         'audience' => 'string[]',
         'timeframe_days' => 'int',
@@ -330,6 +330,13 @@ class FlowDefinitionTriggersInner implements ModelInterface, ArrayAccess, \JsonS
         return self::$openAPIModelName;
     }
 
+    public const TYPE__LIST = 'list';
+    public const TYPE_SEGMENT = 'segment';
+    public const TYPE_METRIC = 'metric';
+    public const TYPE_DATE = 'date';
+    public const TYPE_PRICE_DROP = 'price-drop';
+    public const TYPE_LOW_INVENTORY = 'low-inventory';
+    public const DATE_FIELD_TYPE_PROFILE_PROPERTY = 'profile-property';
     public const TIMEDELTA_UNIT_BEFORE_DATE_DAYS = 'days';
     public const TIMEDELTA_UNIT_BEFORE_DATE_MONTHS = 'months';
     public const TIMEDELTA_UNIT_BEFORE_DATE_WEEKS = 'weeks';
@@ -786,6 +793,35 @@ class FlowDefinitionTriggersInner implements ModelInterface, ArrayAccess, \JsonS
     public const CURRENCY_TYPE_USD = 'usd';
     public const PRODUCT_LEVEL_PRODUCT = 'product';
     public const PRODUCT_LEVEL_VARIANT = 'variant';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getTypeAllowableValues()
+    {
+        return [
+            self::TYPE__LIST,
+            self::TYPE_SEGMENT,
+            self::TYPE_METRIC,
+            self::TYPE_DATE,
+            self::TYPE_PRICE_DROP,
+            self::TYPE_LOW_INVENTORY,
+        ];
+    }
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getDateFieldTypeAllowableValues()
+    {
+        return [
+            self::DATE_FIELD_TYPE_PROFILE_PROPERTY,
+        ];
+    }
 
     /**
      * Gets allowable values of the enum
@@ -1396,12 +1432,30 @@ class FlowDefinitionTriggersInner implements ModelInterface, ArrayAccess, \JsonS
         if ($this->container['type'] === null) {
             $invalidProperties[] = "'type' can't be null";
         }
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!is_null($this->container['type']) && !in_array($this->container['type'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'type', must be one of '%s'",
+                $this->container['type'],
+                implode("', '", $allowedValues)
+            );
+        }
+
         if ($this->container['trigger_filter'] === null) {
             $invalidProperties[] = "'trigger_filter' can't be null";
         }
         if ($this->container['date_field_type'] === null) {
             $invalidProperties[] = "'date_field_type' can't be null";
         }
+        $allowedValues = $this->getDateFieldTypeAllowableValues();
+        if (!is_null($this->container['date_field_type']) && !in_array($this->container['date_field_type'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'date_field_type', must be one of '%s'",
+                $this->container['date_field_type'],
+                implode("', '", $allowedValues)
+            );
+        }
+
         if ($this->container['date_profile_property'] === null) {
             $invalidProperties[] = "'date_profile_property' can't be null";
         }
@@ -1495,7 +1549,7 @@ class FlowDefinitionTriggersInner implements ModelInterface, ArrayAccess, \JsonS
     /**
      * Gets type
      *
-     * @return \KlaviyoAPI\Model\LowInventoryEnum
+     * @return string
      */
     public function getType()
     {
@@ -1505,7 +1559,7 @@ class FlowDefinitionTriggersInner implements ModelInterface, ArrayAccess, \JsonS
     /**
      * Sets type
      *
-     * @param \KlaviyoAPI\Model\LowInventoryEnum $type type
+     * @param string $type type
      *
      * @return self
      */
@@ -1513,6 +1567,16 @@ class FlowDefinitionTriggersInner implements ModelInterface, ArrayAccess, \JsonS
     {
         if (is_null($type)) {
             throw new \InvalidArgumentException('non-nullable type cannot be null');
+        }
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!in_array($type, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'type', must be one of '%s'",
+                    $type,
+                    implode("', '", $allowedValues)
+                )
+            );
         }
         $this->container['type'] = $type;
 
@@ -1583,7 +1647,7 @@ class FlowDefinitionTriggersInner implements ModelInterface, ArrayAccess, \JsonS
     /**
      * Gets date_field_type
      *
-     * @return \KlaviyoAPI\Model\ProfilePropertyEnum
+     * @return string
      */
     public function getDateFieldType()
     {
@@ -1593,7 +1657,7 @@ class FlowDefinitionTriggersInner implements ModelInterface, ArrayAccess, \JsonS
     /**
      * Sets date_field_type
      *
-     * @param \KlaviyoAPI\Model\ProfilePropertyEnum $date_field_type date_field_type
+     * @param string $date_field_type date_field_type
      *
      * @return self
      */
@@ -1601,6 +1665,16 @@ class FlowDefinitionTriggersInner implements ModelInterface, ArrayAccess, \JsonS
     {
         if (is_null($date_field_type)) {
             throw new \InvalidArgumentException('non-nullable date_field_type cannot be null');
+        }
+        $allowedValues = $this->getDateFieldTypeAllowableValues();
+        if (!in_array($date_field_type, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'date_field_type', must be one of '%s'",
+                    $date_field_type,
+                    implode("', '", $allowedValues)
+                )
+            );
         }
         $this->container['date_field_type'] = $date_field_type;
 
@@ -1845,7 +1919,7 @@ class FlowDefinitionTriggersInner implements ModelInterface, ArrayAccess, \JsonS
     /**
      * Gets price_drop_amount_value
      *
-     * @return \KlaviyoAPI\Model\NumericOperatorFilterValue
+     * @return \KlaviyoAPI\Model\NumericOperatorNumericFilterValue
      */
     public function getPriceDropAmountValue()
     {
@@ -1855,7 +1929,7 @@ class FlowDefinitionTriggersInner implements ModelInterface, ArrayAccess, \JsonS
     /**
      * Sets price_drop_amount_value
      *
-     * @param \KlaviyoAPI\Model\NumericOperatorFilterValue $price_drop_amount_value price_drop_amount_value
+     * @param \KlaviyoAPI\Model\NumericOperatorNumericFilterValue $price_drop_amount_value price_drop_amount_value
      *
      * @return self
      */

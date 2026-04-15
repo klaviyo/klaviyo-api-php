@@ -58,7 +58,10 @@ class BackInStockDynamicButtonDropShadowStyles implements ModelInterface, ArrayA
       */
     protected static $openAPITypes = [
         'enabled' => 'bool',
-        'color' => 'string'
+        'color' => 'string',
+        'blur' => 'int',
+        'x_offset' => 'int',
+        'y_offset' => 'int'
     ];
 
     /**
@@ -70,7 +73,10 @@ class BackInStockDynamicButtonDropShadowStyles implements ModelInterface, ArrayA
       */
     protected static $openAPIFormats = [
         'enabled' => null,
-        'color' => null
+        'color' => null,
+        'blur' => null,
+        'x_offset' => null,
+        'y_offset' => null
     ];
 
     /**
@@ -80,7 +86,10 @@ class BackInStockDynamicButtonDropShadowStyles implements ModelInterface, ArrayA
       */
     protected static array $openAPINullables = [
         'enabled' => false,
-        'color' => false
+        'color' => false,
+        'blur' => false,
+        'x_offset' => false,
+        'y_offset' => false
     ];
 
     /**
@@ -170,7 +179,10 @@ class BackInStockDynamicButtonDropShadowStyles implements ModelInterface, ArrayA
      */
     protected static $attributeMap = [
         'enabled' => 'enabled',
-        'color' => 'color'
+        'color' => 'color',
+        'blur' => 'blur',
+        'x_offset' => 'x_offset',
+        'y_offset' => 'y_offset'
     ];
 
     /**
@@ -180,7 +192,10 @@ class BackInStockDynamicButtonDropShadowStyles implements ModelInterface, ArrayA
      */
     protected static $setters = [
         'enabled' => 'setEnabled',
-        'color' => 'setColor'
+        'color' => 'setColor',
+        'blur' => 'setBlur',
+        'x_offset' => 'setXOffset',
+        'y_offset' => 'setYOffset'
     ];
 
     /**
@@ -190,7 +205,10 @@ class BackInStockDynamicButtonDropShadowStyles implements ModelInterface, ArrayA
      */
     protected static $getters = [
         'enabled' => 'getEnabled',
-        'color' => 'getColor'
+        'color' => 'getColor',
+        'blur' => 'getBlur',
+        'x_offset' => 'getXOffset',
+        'y_offset' => 'getYOffset'
     ];
 
     /**
@@ -252,6 +270,9 @@ class BackInStockDynamicButtonDropShadowStyles implements ModelInterface, ArrayA
     {
         $this->setIfExists('enabled', $data ?? [], false);
         $this->setIfExists('color', $data ?? [], '#000000');
+        $this->setIfExists('blur', $data ?? [], 15);
+        $this->setIfExists('x_offset', $data ?? [], 0);
+        $this->setIfExists('y_offset', $data ?? [], 0);
     }
 
     /**
@@ -346,6 +367,87 @@ class BackInStockDynamicButtonDropShadowStyles implements ModelInterface, ArrayA
             throw new \InvalidArgumentException('non-nullable color cannot be null');
         }
         $this->container['color'] = $color;
+
+        return $this;
+    }
+
+    /**
+     * Gets blur
+     *
+     * @return int|null
+     */
+    public function getBlur()
+    {
+        return $this->container['blur'];
+    }
+
+    /**
+     * Sets blur
+     *
+     * @param int|null $blur blur
+     *
+     * @return self
+     */
+    public function setBlur($blur)
+    {
+        if (is_null($blur)) {
+            throw new \InvalidArgumentException('non-nullable blur cannot be null');
+        }
+        $this->container['blur'] = $blur;
+
+        return $this;
+    }
+
+    /**
+     * Gets x_offset
+     *
+     * @return int|null
+     */
+    public function getXOffset()
+    {
+        return $this->container['x_offset'];
+    }
+
+    /**
+     * Sets x_offset
+     *
+     * @param int|null $x_offset x_offset
+     *
+     * @return self
+     */
+    public function setXOffset($x_offset)
+    {
+        if (is_null($x_offset)) {
+            throw new \InvalidArgumentException('non-nullable x_offset cannot be null');
+        }
+        $this->container['x_offset'] = $x_offset;
+
+        return $this;
+    }
+
+    /**
+     * Gets y_offset
+     *
+     * @return int|null
+     */
+    public function getYOffset()
+    {
+        return $this->container['y_offset'];
+    }
+
+    /**
+     * Sets y_offset
+     *
+     * @param int|null $y_offset y_offset
+     *
+     * @return self
+     */
+    public function setYOffset($y_offset)
+    {
+        if (is_null($y_offset)) {
+            throw new \InvalidArgumentException('non-nullable y_offset cannot be null');
+        }
+        $this->container['y_offset'] = $y_offset;
 
         return $this;
     }

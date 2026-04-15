@@ -57,9 +57,9 @@ class StringInArrayFilter implements ModelInterface, ArrayAccess, \JsonSerializa
       * @var string[]
       */
     protected static $openAPITypes = [
-        'operator' => '\KlaviyoAPI\Model\InEnum',
+        'operator' => 'string',
         'value' => 'string[]',
-        'type' => '\KlaviyoAPI\Model\StringEnum'
+        'type' => 'string'
     ];
 
     /**
@@ -240,6 +240,32 @@ class StringInArrayFilter implements ModelInterface, ArrayAccess, \JsonSerializa
         return self::$openAPIModelName;
     }
 
+    public const OPERATOR_IN = 'in';
+    public const TYPE_STRING = 'string';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getOperatorAllowableValues()
+    {
+        return [
+            self::OPERATOR_IN,
+        ];
+    }
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getTypeAllowableValues()
+    {
+        return [
+            self::TYPE_STRING,
+        ];
+    }
 
     /**
      * Associative array for storing property values
@@ -291,12 +317,30 @@ class StringInArrayFilter implements ModelInterface, ArrayAccess, \JsonSerializa
         if ($this->container['operator'] === null) {
             $invalidProperties[] = "'operator' can't be null";
         }
+        $allowedValues = $this->getOperatorAllowableValues();
+        if (!is_null($this->container['operator']) && !in_array($this->container['operator'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'operator', must be one of '%s'",
+                $this->container['operator'],
+                implode("', '", $allowedValues)
+            );
+        }
+
         if ($this->container['value'] === null) {
             $invalidProperties[] = "'value' can't be null";
         }
         if ($this->container['type'] === null) {
             $invalidProperties[] = "'type' can't be null";
         }
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!is_null($this->container['type']) && !in_array($this->container['type'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'type', must be one of '%s'",
+                $this->container['type'],
+                implode("', '", $allowedValues)
+            );
+        }
+
         return $invalidProperties;
     }
 
@@ -315,7 +359,7 @@ class StringInArrayFilter implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Gets operator
      *
-     * @return \KlaviyoAPI\Model\InEnum
+     * @return string
      */
     public function getOperator()
     {
@@ -325,7 +369,7 @@ class StringInArrayFilter implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets operator
      *
-     * @param \KlaviyoAPI\Model\InEnum $operator operator
+     * @param string $operator operator
      *
      * @return self
      */
@@ -333,6 +377,16 @@ class StringInArrayFilter implements ModelInterface, ArrayAccess, \JsonSerializa
     {
         if (is_null($operator)) {
             throw new \InvalidArgumentException('non-nullable operator cannot be null');
+        }
+        $allowedValues = $this->getOperatorAllowableValues();
+        if (!in_array($operator, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'operator', must be one of '%s'",
+                    $operator,
+                    implode("', '", $allowedValues)
+                )
+            );
         }
         $this->container['operator'] = $operator;
 
@@ -369,7 +423,7 @@ class StringInArrayFilter implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Gets type
      *
-     * @return \KlaviyoAPI\Model\StringEnum
+     * @return string
      */
     public function getType()
     {
@@ -379,7 +433,7 @@ class StringInArrayFilter implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets type
      *
-     * @param \KlaviyoAPI\Model\StringEnum $type type
+     * @param string $type type
      *
      * @return self
      */
@@ -387,6 +441,16 @@ class StringInArrayFilter implements ModelInterface, ArrayAccess, \JsonSerializa
     {
         if (is_null($type)) {
             throw new \InvalidArgumentException('non-nullable type cannot be null');
+        }
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!in_array($type, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'type', must be one of '%s'",
+                    $type,
+                    implode("', '", $allowedValues)
+                )
+            );
         }
         $this->container['type'] = $type;
 

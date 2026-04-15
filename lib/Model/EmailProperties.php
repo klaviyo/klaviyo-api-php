@@ -63,7 +63,7 @@ class EmailProperties implements ModelInterface, ArrayAccess, \JsonSerializable
         'placeholder' => 'string',
         'required' => 'bool',
         'error_messages' => '\KlaviyoAPI\Model\ErrorMessages',
-        'property_name' => '\KlaviyoAPI\Model\DollarSignEmailEnum'
+        'property_name' => 'string'
     ];
 
     /**
@@ -267,6 +267,7 @@ class EmailProperties implements ModelInterface, ArrayAccess, \JsonSerializable
     public const DISPLAY_DEVICE_BOTH = 'both';
     public const DISPLAY_DEVICE_DESKTOP = 'desktop';
     public const DISPLAY_DEVICE_MOBILE = 'mobile';
+    public const PROPERTY_NAME__EMAIL = '$email';
 
     /**
      * Gets allowable values of the enum
@@ -279,6 +280,18 @@ class EmailProperties implements ModelInterface, ArrayAccess, \JsonSerializable
             self::DISPLAY_DEVICE_BOTH,
             self::DISPLAY_DEVICE_DESKTOP,
             self::DISPLAY_DEVICE_MOBILE,
+        ];
+    }
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getPropertyNameAllowableValues()
+    {
+        return [
+            self::PROPERTY_NAME__EMAIL,
         ];
     }
 
@@ -303,7 +316,7 @@ class EmailProperties implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('placeholder', $data ?? [], null);
         $this->setIfExists('required', $data ?? [], false);
         $this->setIfExists('error_messages', $data ?? [], null);
-        $this->setIfExists('property_name', $data ?? [], null);
+        $this->setIfExists('property_name', $data ?? [], '$email');
     }
 
     /**
@@ -332,6 +345,15 @@ class EmailProperties implements ModelInterface, ArrayAccess, \JsonSerializable
     public function listInvalidProperties()
     {
         $invalidProperties = [];
+
+        $allowedValues = $this->getPropertyNameAllowableValues();
+        if (!is_null($this->container['property_name']) && !in_array($this->container['property_name'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'property_name', must be one of '%s'",
+                $this->container['property_name'],
+                implode("', '", $allowedValues)
+            );
+        }
 
         return $invalidProperties;
     }
@@ -543,7 +565,7 @@ class EmailProperties implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets property_name
      *
-     * @return \KlaviyoAPI\Model\DollarSignEmailEnum|null
+     * @return string|null
      */
     public function getPropertyName()
     {
@@ -553,7 +575,7 @@ class EmailProperties implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets property_name
      *
-     * @param \KlaviyoAPI\Model\DollarSignEmailEnum|null $property_name property_name
+     * @param string|null $property_name property_name
      *
      * @return self
      */
@@ -561,6 +583,16 @@ class EmailProperties implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         if (is_null($property_name)) {
             throw new \InvalidArgumentException('non-nullable property_name cannot be null');
+        }
+        $allowedValues = $this->getPropertyNameAllowableValues();
+        if (!in_array($property_name, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'property_name', must be one of '%s'",
+                    $property_name,
+                    implode("', '", $allowedValues)
+                )
+            );
         }
         $this->container['property_name'] = $property_name;
 

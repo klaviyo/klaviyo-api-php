@@ -57,7 +57,7 @@ class CountdownTimerPropertiesConfiguration implements ModelInterface, ArrayAcce
       * @var string[]
       */
     protected static $openAPITypes = [
-        'type' => '\KlaviyoAPI\Model\VariableEnum',
+        'type' => 'string',
         'timezone' => 'string',
         'end_time' => '\DateTime',
         'days' => 'int',
@@ -258,6 +258,8 @@ class CountdownTimerPropertiesConfiguration implements ModelInterface, ArrayAcce
         return self::$openAPIModelName;
     }
 
+    public const TYPE_FIXED = 'fixed';
+    public const TYPE_VARIABLE = 'variable';
     public const TIMEZONE_AFRICA_ABIDJAN = 'Africa/Abidjan';
     public const TIMEZONE_AFRICA_ACCRA = 'Africa/Accra';
     public const TIMEZONE_AFRICA_ADDIS_ABABA = 'Africa/Addis_Ababa';
@@ -854,6 +856,19 @@ class CountdownTimerPropertiesConfiguration implements ModelInterface, ArrayAcce
     public const TIMEZONE_W_SU = 'W-SU';
     public const TIMEZONE_WET = 'WET';
     public const TIMEZONE_ZULU = 'Zulu';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getTypeAllowableValues()
+    {
+        return [
+            self::TYPE_FIXED,
+            self::TYPE_VARIABLE,
+        ];
+    }
 
     /**
      * Gets allowable values of the enum
@@ -1515,6 +1530,15 @@ class CountdownTimerPropertiesConfiguration implements ModelInterface, ArrayAcce
         if ($this->container['type'] === null) {
             $invalidProperties[] = "'type' can't be null";
         }
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!is_null($this->container['type']) && !in_array($this->container['type'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'type', must be one of '%s'",
+                $this->container['type'],
+                implode("', '", $allowedValues)
+            );
+        }
+
         if ($this->container['timezone'] === null) {
             $invalidProperties[] = "'timezone' can't be null";
         }
@@ -1554,7 +1578,7 @@ class CountdownTimerPropertiesConfiguration implements ModelInterface, ArrayAcce
     /**
      * Gets type
      *
-     * @return \KlaviyoAPI\Model\VariableEnum
+     * @return string
      */
     public function getType()
     {
@@ -1564,7 +1588,7 @@ class CountdownTimerPropertiesConfiguration implements ModelInterface, ArrayAcce
     /**
      * Sets type
      *
-     * @param \KlaviyoAPI\Model\VariableEnum $type type
+     * @param string $type type
      *
      * @return self
      */
@@ -1572,6 +1596,16 @@ class CountdownTimerPropertiesConfiguration implements ModelInterface, ArrayAcce
     {
         if (is_null($type)) {
             throw new \InvalidArgumentException('non-nullable type cannot be null');
+        }
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!in_array($type, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'type', must be one of '%s'",
+                    $type,
+                    implode("', '", $allowedValues)
+                )
+            );
         }
         $this->container['type'] = $type;
 

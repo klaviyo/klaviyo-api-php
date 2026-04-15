@@ -57,8 +57,8 @@ class ProfilePropertyDateTrigger implements ModelInterface, ArrayAccess, \JsonSe
       * @var string[]
       */
     protected static $openAPITypes = [
-        'type' => '\KlaviyoAPI\Model\DateEnum',
-        'date_field_type' => '\KlaviyoAPI\Model\ProfilePropertyEnum',
+        'type' => 'string',
+        'date_field_type' => 'string',
         'date_profile_property' => 'string',
         'timedelta_unit_before_date' => 'string',
         'timedelta_value_before_date' => 'int',
@@ -276,6 +276,8 @@ class ProfilePropertyDateTrigger implements ModelInterface, ArrayAccess, \JsonSe
         return self::$openAPIModelName;
     }
 
+    public const TYPE_DATE = 'date';
+    public const DATE_FIELD_TYPE_PROFILE_PROPERTY = 'profile-property';
     public const TIMEDELTA_UNIT_BEFORE_DATE_DAYS = 'days';
     public const TIMEDELTA_UNIT_BEFORE_DATE_MONTHS = 'months';
     public const TIMEDELTA_UNIT_BEFORE_DATE_WEEKS = 'weeks';
@@ -724,6 +726,30 @@ class ProfilePropertyDateTrigger implements ModelInterface, ArrayAccess, \JsonSe
     public const TRIGGER_DAYS_THURSDAY = 'thursday';
     public const TRIGGER_DAYS_TUESDAY = 'tuesday';
     public const TRIGGER_DAYS_WEDNESDAY = 'wednesday';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getTypeAllowableValues()
+    {
+        return [
+            self::TYPE_DATE,
+        ];
+    }
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getDateFieldTypeAllowableValues()
+    {
+        return [
+            self::DATE_FIELD_TYPE_PROFILE_PROPERTY,
+        ];
+    }
 
     /**
      * Gets allowable values of the enum
@@ -1273,9 +1299,27 @@ class ProfilePropertyDateTrigger implements ModelInterface, ArrayAccess, \JsonSe
         if ($this->container['type'] === null) {
             $invalidProperties[] = "'type' can't be null";
         }
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!is_null($this->container['type']) && !in_array($this->container['type'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'type', must be one of '%s'",
+                $this->container['type'],
+                implode("', '", $allowedValues)
+            );
+        }
+
         if ($this->container['date_field_type'] === null) {
             $invalidProperties[] = "'date_field_type' can't be null";
         }
+        $allowedValues = $this->getDateFieldTypeAllowableValues();
+        if (!is_null($this->container['date_field_type']) && !in_array($this->container['date_field_type'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'date_field_type', must be one of '%s'",
+                $this->container['date_field_type'],
+                implode("', '", $allowedValues)
+            );
+        }
+
         if ($this->container['date_profile_property'] === null) {
             $invalidProperties[] = "'date_profile_property' can't be null";
         }
@@ -1330,7 +1374,7 @@ class ProfilePropertyDateTrigger implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Gets type
      *
-     * @return \KlaviyoAPI\Model\DateEnum
+     * @return string
      */
     public function getType()
     {
@@ -1340,7 +1384,7 @@ class ProfilePropertyDateTrigger implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Sets type
      *
-     * @param \KlaviyoAPI\Model\DateEnum $type type
+     * @param string $type type
      *
      * @return self
      */
@@ -1348,6 +1392,16 @@ class ProfilePropertyDateTrigger implements ModelInterface, ArrayAccess, \JsonSe
     {
         if (is_null($type)) {
             throw new \InvalidArgumentException('non-nullable type cannot be null');
+        }
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!in_array($type, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'type', must be one of '%s'",
+                    $type,
+                    implode("', '", $allowedValues)
+                )
+            );
         }
         $this->container['type'] = $type;
 
@@ -1357,7 +1411,7 @@ class ProfilePropertyDateTrigger implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Gets date_field_type
      *
-     * @return \KlaviyoAPI\Model\ProfilePropertyEnum
+     * @return string
      */
     public function getDateFieldType()
     {
@@ -1367,7 +1421,7 @@ class ProfilePropertyDateTrigger implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Sets date_field_type
      *
-     * @param \KlaviyoAPI\Model\ProfilePropertyEnum $date_field_type date_field_type
+     * @param string $date_field_type date_field_type
      *
      * @return self
      */
@@ -1375,6 +1429,16 @@ class ProfilePropertyDateTrigger implements ModelInterface, ArrayAccess, \JsonSe
     {
         if (is_null($date_field_type)) {
             throw new \InvalidArgumentException('non-nullable date_field_type cannot be null');
+        }
+        $allowedValues = $this->getDateFieldTypeAllowableValues();
+        if (!in_array($date_field_type, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'date_field_type', must be one of '%s'",
+                    $date_field_type,
+                    implode("', '", $allowedValues)
+                )
+            );
         }
         $this->container['date_field_type'] = $date_field_type;
 

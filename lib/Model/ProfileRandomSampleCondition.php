@@ -57,7 +57,7 @@ class ProfileRandomSampleCondition implements ModelInterface, ArrayAccess, \Json
       * @var string[]
       */
     protected static $openAPITypes = [
-        'type' => '\KlaviyoAPI\Model\ProfileSampleEnum',
+        'type' => 'string',
         'percentage' => 'int'
     ];
 
@@ -234,6 +234,19 @@ class ProfileRandomSampleCondition implements ModelInterface, ArrayAccess, \Json
         return self::$openAPIModelName;
     }
 
+    public const TYPE_PROFILE_SAMPLE = 'profile-sample';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getTypeAllowableValues()
+    {
+        return [
+            self::TYPE_PROFILE_SAMPLE,
+        ];
+    }
 
     /**
      * Associative array for storing property values
@@ -284,6 +297,15 @@ class ProfileRandomSampleCondition implements ModelInterface, ArrayAccess, \Json
         if ($this->container['type'] === null) {
             $invalidProperties[] = "'type' can't be null";
         }
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!is_null($this->container['type']) && !in_array($this->container['type'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'type', must be one of '%s'",
+                $this->container['type'],
+                implode("', '", $allowedValues)
+            );
+        }
+
         if ($this->container['percentage'] === null) {
             $invalidProperties[] = "'percentage' can't be null";
         }
@@ -305,7 +327,7 @@ class ProfileRandomSampleCondition implements ModelInterface, ArrayAccess, \Json
     /**
      * Gets type
      *
-     * @return \KlaviyoAPI\Model\ProfileSampleEnum
+     * @return string
      */
     public function getType()
     {
@@ -315,7 +337,7 @@ class ProfileRandomSampleCondition implements ModelInterface, ArrayAccess, \Json
     /**
      * Sets type
      *
-     * @param \KlaviyoAPI\Model\ProfileSampleEnum $type type
+     * @param string $type type
      *
      * @return self
      */
@@ -323,6 +345,16 @@ class ProfileRandomSampleCondition implements ModelInterface, ArrayAccess, \Json
     {
         if (is_null($type)) {
             throw new \InvalidArgumentException('non-nullable type cannot be null');
+        }
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!in_array($type, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'type', must be one of '%s'",
+                    $type,
+                    implode("', '", $allowedValues)
+                )
+            );
         }
         $this->container['type'] = $type;
 

@@ -57,7 +57,7 @@ class ProfilePropertyConditionFilter implements ModelInterface, ArrayAccess, \Js
       * @var string[]
       */
     protected static $openAPITypes = [
-        'type' => '\KlaviyoAPI\Model\ExistenceEnum',
+        'type' => 'string',
         'operator' => 'string',
         'value' => 'int',
         'date' => '\DateTime',
@@ -270,11 +270,34 @@ class ProfilePropertyConditionFilter implements ModelInterface, ArrayAccess, \Js
         return self::$openAPIModelName;
     }
 
+    public const TYPE_STRING = 'string';
+    public const TYPE_NUMERIC = 'numeric';
+    public const TYPE_BOOLEAN = 'boolean';
+    public const TYPE_DATE = 'date';
+    public const TYPE__LIST = 'list';
+    public const TYPE_EXISTENCE = 'existence';
     public const OPERATOR_IS_SET = 'is-set';
     public const OPERATOR_NOT_SET = 'not-set';
     public const UNIT_DAY = 'day';
     public const UNIT_HOUR = 'hour';
     public const UNIT_WEEK = 'week';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getTypeAllowableValues()
+    {
+        return [
+            self::TYPE_STRING,
+            self::TYPE_NUMERIC,
+            self::TYPE_BOOLEAN,
+            self::TYPE_DATE,
+            self::TYPE__LIST,
+            self::TYPE_EXISTENCE,
+        ];
+    }
 
     /**
      * Gets allowable values of the enum
@@ -358,6 +381,15 @@ class ProfilePropertyConditionFilter implements ModelInterface, ArrayAccess, \Js
         if ($this->container['type'] === null) {
             $invalidProperties[] = "'type' can't be null";
         }
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!is_null($this->container['type']) && !in_array($this->container['type'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'type', must be one of '%s'",
+                $this->container['type'],
+                implode("', '", $allowedValues)
+            );
+        }
+
         if ($this->container['operator'] === null) {
             $invalidProperties[] = "'operator' can't be null";
         }
@@ -415,7 +447,7 @@ class ProfilePropertyConditionFilter implements ModelInterface, ArrayAccess, \Js
     /**
      * Gets type
      *
-     * @return \KlaviyoAPI\Model\ExistenceEnum
+     * @return string
      */
     public function getType()
     {
@@ -425,7 +457,7 @@ class ProfilePropertyConditionFilter implements ModelInterface, ArrayAccess, \Js
     /**
      * Sets type
      *
-     * @param \KlaviyoAPI\Model\ExistenceEnum $type type
+     * @param string $type type
      *
      * @return self
      */
@@ -433,6 +465,16 @@ class ProfilePropertyConditionFilter implements ModelInterface, ArrayAccess, \Js
     {
         if (is_null($type)) {
             throw new \InvalidArgumentException('non-nullable type cannot be null');
+        }
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!in_array($type, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'type', must be one of '%s'",
+                    $type,
+                    implode("', '", $allowedValues)
+                )
+            );
         }
         $this->container['type'] = $type;
 

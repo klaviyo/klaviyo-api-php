@@ -59,7 +59,7 @@ class PreviouslySubmitted implements ModelInterface, ArrayAccess, \JsonSerializa
     protected static $openAPITypes = [
         'id' => 'string',
         'properties' => 'object',
-        'type' => '\KlaviyoAPI\Model\PreviouslySubmittedEnum'
+        'type' => 'string'
     ];
 
     /**
@@ -240,6 +240,19 @@ class PreviouslySubmitted implements ModelInterface, ArrayAccess, \JsonSerializa
         return self::$openAPIModelName;
     }
 
+    public const TYPE_PREVIOUSLY_SUBMITTED = 'previously_submitted';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getTypeAllowableValues()
+    {
+        return [
+            self::TYPE_PREVIOUSLY_SUBMITTED,
+        ];
+    }
 
     /**
      * Associative array for storing property values
@@ -291,6 +304,15 @@ class PreviouslySubmitted implements ModelInterface, ArrayAccess, \JsonSerializa
         if ($this->container['type'] === null) {
             $invalidProperties[] = "'type' can't be null";
         }
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!is_null($this->container['type']) && !in_array($this->container['type'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'type', must be one of '%s'",
+                $this->container['type'],
+                implode("', '", $allowedValues)
+            );
+        }
+
         return $invalidProperties;
     }
 
@@ -319,7 +341,7 @@ class PreviouslySubmitted implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets id
      *
-     * @param string|null $id id
+     * @param string|null $id Not allowed on create.
      *
      * @return self
      */
@@ -372,7 +394,7 @@ class PreviouslySubmitted implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Gets type
      *
-     * @return \KlaviyoAPI\Model\PreviouslySubmittedEnum
+     * @return string
      */
     public function getType()
     {
@@ -382,7 +404,7 @@ class PreviouslySubmitted implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets type
      *
-     * @param \KlaviyoAPI\Model\PreviouslySubmittedEnum $type type
+     * @param string $type type
      *
      * @return self
      */
@@ -390,6 +412,16 @@ class PreviouslySubmitted implements ModelInterface, ArrayAccess, \JsonSerializa
     {
         if (is_null($type)) {
             throw new \InvalidArgumentException('non-nullable type cannot be null');
+        }
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!in_array($type, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'type', must be one of '%s'",
+                    $type,
+                    implode("', '", $allowedValues)
+                )
+            );
         }
         $this->container['type'] = $type;
 

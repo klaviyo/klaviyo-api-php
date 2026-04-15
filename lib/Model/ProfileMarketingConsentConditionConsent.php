@@ -57,7 +57,7 @@ class ProfileMarketingConsentConditionConsent implements ModelInterface, ArrayAc
       * @var string[]
       */
     protected static $openAPITypes = [
-        'channel' => '\KlaviyoAPI\Model\PushEnum',
+        'channel' => 'string',
         'can_receive_marketing' => 'bool',
         'consent_status' => '\KlaviyoAPI\Model\NoPushMarketing'
     ];
@@ -240,6 +240,19 @@ class ProfileMarketingConsentConditionConsent implements ModelInterface, ArrayAc
         return self::$openAPIModelName;
     }
 
+    public const CHANNEL_PUSH = 'push';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getChannelAllowableValues()
+    {
+        return [
+            self::CHANNEL_PUSH,
+        ];
+    }
 
     /**
      * Associative array for storing property values
@@ -291,6 +304,15 @@ class ProfileMarketingConsentConditionConsent implements ModelInterface, ArrayAc
         if ($this->container['channel'] === null) {
             $invalidProperties[] = "'channel' can't be null";
         }
+        $allowedValues = $this->getChannelAllowableValues();
+        if (!is_null($this->container['channel']) && !in_array($this->container['channel'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'channel', must be one of '%s'",
+                $this->container['channel'],
+                implode("', '", $allowedValues)
+            );
+        }
+
         if ($this->container['can_receive_marketing'] === null) {
             $invalidProperties[] = "'can_receive_marketing' can't be null";
         }
@@ -315,7 +337,7 @@ class ProfileMarketingConsentConditionConsent implements ModelInterface, ArrayAc
     /**
      * Gets channel
      *
-     * @return \KlaviyoAPI\Model\PushEnum
+     * @return string
      */
     public function getChannel()
     {
@@ -325,7 +347,7 @@ class ProfileMarketingConsentConditionConsent implements ModelInterface, ArrayAc
     /**
      * Sets channel
      *
-     * @param \KlaviyoAPI\Model\PushEnum $channel channel
+     * @param string $channel channel
      *
      * @return self
      */
@@ -333,6 +355,16 @@ class ProfileMarketingConsentConditionConsent implements ModelInterface, ArrayAc
     {
         if (is_null($channel)) {
             throw new \InvalidArgumentException('non-nullable channel cannot be null');
+        }
+        $allowedValues = $this->getChannelAllowableValues();
+        if (!in_array($channel, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'channel', must be one of '%s'",
+                    $channel,
+                    implode("', '", $allowedValues)
+                )
+            );
         }
         $this->container['channel'] = $channel;
 

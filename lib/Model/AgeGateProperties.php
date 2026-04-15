@@ -62,7 +62,7 @@ class AgeGateProperties implements ModelInterface, ArrayAccess, \JsonSerializabl
         'show_label' => 'bool',
         'placeholder' => 'string',
         'error_messages' => '\KlaviyoAPI\Model\ErrorMessages',
-        'property_name' => '\KlaviyoAPI\Model\DollarSignAgeGatedDateOfBirthEnum',
+        'property_name' => 'string',
         'date_format' => 'string',
         'sms_country_code' => 'string',
         'required' => 'bool'
@@ -279,6 +279,7 @@ class AgeGateProperties implements ModelInterface, ArrayAccess, \JsonSerializabl
     public const DISPLAY_DEVICE_BOTH = 'both';
     public const DISPLAY_DEVICE_DESKTOP = 'desktop';
     public const DISPLAY_DEVICE_MOBILE = 'mobile';
+    public const PROPERTY_NAME__AGE_GATED_DATE_OF_BIRTH = '$age_gated_date_of_birth';
     public const SMS_COUNTRY_CODE_AT = 'AT';
     public const SMS_COUNTRY_CODE_AU = 'AU';
     public const SMS_COUNTRY_CODE_CH = 'CH';
@@ -302,6 +303,18 @@ class AgeGateProperties implements ModelInterface, ArrayAccess, \JsonSerializabl
             self::DISPLAY_DEVICE_BOTH,
             self::DISPLAY_DEVICE_DESKTOP,
             self::DISPLAY_DEVICE_MOBILE,
+        ];
+    }
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getPropertyNameAllowableValues()
+    {
+        return [
+            self::PROPERTY_NAME__AGE_GATED_DATE_OF_BIRTH,
         ];
     }
 
@@ -347,7 +360,7 @@ class AgeGateProperties implements ModelInterface, ArrayAccess, \JsonSerializabl
         $this->setIfExists('show_label', $data ?? [], false);
         $this->setIfExists('placeholder', $data ?? [], null);
         $this->setIfExists('error_messages', $data ?? [], null);
-        $this->setIfExists('property_name', $data ?? [], null);
+        $this->setIfExists('property_name', $data ?? [], '$age_gated_date_of_birth');
         $this->setIfExists('date_format', $data ?? [], 'MM/DD/YYYY');
         $this->setIfExists('sms_country_code', $data ?? [], 'US');
         $this->setIfExists('required', $data ?? [], true);
@@ -379,6 +392,15 @@ class AgeGateProperties implements ModelInterface, ArrayAccess, \JsonSerializabl
     public function listInvalidProperties()
     {
         $invalidProperties = [];
+
+        $allowedValues = $this->getPropertyNameAllowableValues();
+        if (!is_null($this->container['property_name']) && !in_array($this->container['property_name'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'property_name', must be one of '%s'",
+                $this->container['property_name'],
+                implode("', '", $allowedValues)
+            );
+        }
 
         $allowedValues = $this->getSmsCountryCodeAllowableValues();
         if (!is_null($this->container['sms_country_code']) && !in_array($this->container['sms_country_code'], $allowedValues, true)) {
@@ -565,7 +587,7 @@ class AgeGateProperties implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Gets property_name
      *
-     * @return \KlaviyoAPI\Model\DollarSignAgeGatedDateOfBirthEnum|null
+     * @return string|null
      */
     public function getPropertyName()
     {
@@ -575,7 +597,7 @@ class AgeGateProperties implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Sets property_name
      *
-     * @param \KlaviyoAPI\Model\DollarSignAgeGatedDateOfBirthEnum|null $property_name property_name
+     * @param string|null $property_name property_name
      *
      * @return self
      */
@@ -583,6 +605,16 @@ class AgeGateProperties implements ModelInterface, ArrayAccess, \JsonSerializabl
     {
         if (is_null($property_name)) {
             throw new \InvalidArgumentException('non-nullable property_name cannot be null');
+        }
+        $allowedValues = $this->getPropertyNameAllowableValues();
+        if (!in_array($property_name, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'property_name', must be one of '%s'",
+                    $property_name,
+                    implode("', '", $allowedValues)
+                )
+            );
         }
         $this->container['property_name'] = $property_name;
 

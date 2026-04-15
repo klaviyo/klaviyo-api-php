@@ -57,7 +57,7 @@ class SMSDisclosurePropertiesContent implements ModelInterface, ArrayAccess, \Js
       * @var string[]
       */
     protected static $openAPITypes = [
-        'type' => '\KlaviyoAPI\Model\AccountDefaultEnum',
+        'type' => 'string',
         'compliance_company_name' => 'string',
         'privacy_policy_url' => 'string',
         'terms_of_service_url' => 'string',
@@ -252,6 +252,21 @@ class SMSDisclosurePropertiesContent implements ModelInterface, ArrayAccess, \Js
         return self::$openAPIModelName;
     }
 
+    public const TYPE_CUSTOM = 'custom';
+    public const TYPE_ACCOUNT_DEFAULT = 'account_default';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getTypeAllowableValues()
+    {
+        return [
+            self::TYPE_CUSTOM,
+            self::TYPE_ACCOUNT_DEFAULT,
+        ];
+    }
 
     /**
      * Associative array for storing property values
@@ -305,6 +320,15 @@ class SMSDisclosurePropertiesContent implements ModelInterface, ArrayAccess, \Js
         if ($this->container['type'] === null) {
             $invalidProperties[] = "'type' can't be null";
         }
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!is_null($this->container['type']) && !in_array($this->container['type'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'type', must be one of '%s'",
+                $this->container['type'],
+                implode("', '", $allowedValues)
+            );
+        }
+
         return $invalidProperties;
     }
 
@@ -323,7 +347,7 @@ class SMSDisclosurePropertiesContent implements ModelInterface, ArrayAccess, \Js
     /**
      * Gets type
      *
-     * @return \KlaviyoAPI\Model\AccountDefaultEnum
+     * @return string
      */
     public function getType()
     {
@@ -333,7 +357,7 @@ class SMSDisclosurePropertiesContent implements ModelInterface, ArrayAccess, \Js
     /**
      * Sets type
      *
-     * @param \KlaviyoAPI\Model\AccountDefaultEnum $type type
+     * @param string $type type
      *
      * @return self
      */
@@ -341,6 +365,16 @@ class SMSDisclosurePropertiesContent implements ModelInterface, ArrayAccess, \Js
     {
         if (is_null($type)) {
             throw new \InvalidArgumentException('non-nullable type cannot be null');
+        }
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!in_array($type, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'type', must be one of '%s'",
+                    $type,
+                    implode("', '", $allowedValues)
+                )
+            );
         }
         $this->container['type'] = $type;
 

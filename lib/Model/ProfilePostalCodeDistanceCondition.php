@@ -57,7 +57,7 @@ class ProfilePostalCodeDistanceCondition implements ModelInterface, ArrayAccess,
       * @var string[]
       */
     protected static $openAPITypes = [
-        'type' => '\KlaviyoAPI\Model\ProfilePostalCodeDistanceEnum',
+        'type' => 'string',
         'country_code' => 'string',
         'postal_code' => 'string',
         'unit' => 'string',
@@ -252,8 +252,21 @@ class ProfilePostalCodeDistanceCondition implements ModelInterface, ArrayAccess,
         return self::$openAPIModelName;
     }
 
+    public const TYPE_PROFILE_POSTAL_CODE_DISTANCE = 'profile-postal-code-distance';
     public const UNIT_KILOMETERS = 'kilometers';
     public const UNIT_MILES = 'miles';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getTypeAllowableValues()
+    {
+        return [
+            self::TYPE_PROFILE_POSTAL_CODE_DISTANCE,
+        ];
+    }
 
     /**
      * Gets allowable values of the enum
@@ -320,6 +333,15 @@ class ProfilePostalCodeDistanceCondition implements ModelInterface, ArrayAccess,
         if ($this->container['type'] === null) {
             $invalidProperties[] = "'type' can't be null";
         }
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!is_null($this->container['type']) && !in_array($this->container['type'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'type', must be one of '%s'",
+                $this->container['type'],
+                implode("', '", $allowedValues)
+            );
+        }
+
         if ($this->container['country_code'] === null) {
             $invalidProperties[] = "'country_code' can't be null";
         }
@@ -359,7 +381,7 @@ class ProfilePostalCodeDistanceCondition implements ModelInterface, ArrayAccess,
     /**
      * Gets type
      *
-     * @return \KlaviyoAPI\Model\ProfilePostalCodeDistanceEnum
+     * @return string
      */
     public function getType()
     {
@@ -369,7 +391,7 @@ class ProfilePostalCodeDistanceCondition implements ModelInterface, ArrayAccess,
     /**
      * Sets type
      *
-     * @param \KlaviyoAPI\Model\ProfilePostalCodeDistanceEnum $type type
+     * @param string $type type
      *
      * @return self
      */
@@ -377,6 +399,16 @@ class ProfilePostalCodeDistanceCondition implements ModelInterface, ArrayAccess,
     {
         if (is_null($type)) {
             throw new \InvalidArgumentException('non-nullable type cannot be null');
+        }
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!in_array($type, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'type', must be one of '%s'",
+                    $type,
+                    implode("', '", $allowedValues)
+                )
+            );
         }
         $this->container['type'] = $type;
 

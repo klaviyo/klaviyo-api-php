@@ -57,9 +57,9 @@ class PriceDropTrigger implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'type' => '\KlaviyoAPI\Model\PriceDropEnum',
+        'type' => 'string',
         'trigger_filter' => '\KlaviyoAPI\Model\PriceDropConditionFilter',
-        'price_drop_amount_value' => '\KlaviyoAPI\Model\NumericOperatorFilterValue',
+        'price_drop_amount_value' => '\KlaviyoAPI\Model\NumericOperatorNumericFilterValue',
         'price_drop_amount_unit' => 'string',
         'audience' => 'string[]',
         'timeframe_days' => 'int',
@@ -264,11 +264,24 @@ class PriceDropTrigger implements ModelInterface, ArrayAccess, \JsonSerializable
         return self::$openAPIModelName;
     }
 
+    public const TYPE_PRICE_DROP = 'price-drop';
     public const PRICE_DROP_AMOUNT_UNIT_CURRENCY = 'currency';
     public const PRICE_DROP_AMOUNT_UNIT_PERCENT = 'percent';
     public const AUDIENCE_CHECKOUT_STARTED = 'checkout-started';
     public const AUDIENCE_VIEWED = 'viewed';
     public const CURRENCY_TYPE_USD = 'usd';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getTypeAllowableValues()
+    {
+        return [
+            self::TYPE_PRICE_DROP,
+        ];
+    }
 
     /**
      * Gets allowable values of the enum
@@ -362,6 +375,15 @@ class PriceDropTrigger implements ModelInterface, ArrayAccess, \JsonSerializable
         if ($this->container['type'] === null) {
             $invalidProperties[] = "'type' can't be null";
         }
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!is_null($this->container['type']) && !in_array($this->container['type'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'type', must be one of '%s'",
+                $this->container['type'],
+                implode("', '", $allowedValues)
+            );
+        }
+
         if ($this->container['trigger_filter'] === null) {
             $invalidProperties[] = "'trigger_filter' can't be null";
         }
@@ -407,7 +429,7 @@ class PriceDropTrigger implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets type
      *
-     * @return \KlaviyoAPI\Model\PriceDropEnum
+     * @return string
      */
     public function getType()
     {
@@ -417,7 +439,7 @@ class PriceDropTrigger implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets type
      *
-     * @param \KlaviyoAPI\Model\PriceDropEnum $type type
+     * @param string $type type
      *
      * @return self
      */
@@ -425,6 +447,16 @@ class PriceDropTrigger implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         if (is_null($type)) {
             throw new \InvalidArgumentException('non-nullable type cannot be null');
+        }
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!in_array($type, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'type', must be one of '%s'",
+                    $type,
+                    implode("', '", $allowedValues)
+                )
+            );
         }
         $this->container['type'] = $type;
 
@@ -461,7 +493,7 @@ class PriceDropTrigger implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets price_drop_amount_value
      *
-     * @return \KlaviyoAPI\Model\NumericOperatorFilterValue
+     * @return \KlaviyoAPI\Model\NumericOperatorNumericFilterValue
      */
     public function getPriceDropAmountValue()
     {
@@ -471,7 +503,7 @@ class PriceDropTrigger implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets price_drop_amount_value
      *
-     * @param \KlaviyoAPI\Model\NumericOperatorFilterValue $price_drop_amount_value price_drop_amount_value
+     * @param \KlaviyoAPI\Model\NumericOperatorNumericFilterValue $price_drop_amount_value price_drop_amount_value
      *
      * @return self
      */

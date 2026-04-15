@@ -57,7 +57,7 @@ class CampaignsEmailTrackingOptionsCustomTrackingParamsInner implements ModelInt
       * @var string[]
       */
     protected static $openAPITypes = [
-        'type' => '\KlaviyoAPI\Model\StaticEnum',
+        'type' => 'string',
         'value' => 'string',
         'name' => 'string'
     ];
@@ -240,6 +240,21 @@ class CampaignsEmailTrackingOptionsCustomTrackingParamsInner implements ModelInt
         return self::$openAPIModelName;
     }
 
+    public const TYPE_DYNAMIC = 'dynamic';
+    public const TYPE__STATIC = 'static';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getTypeAllowableValues()
+    {
+        return [
+            self::TYPE_DYNAMIC,
+            self::TYPE__STATIC,
+        ];
+    }
 
     /**
      * Associative array for storing property values
@@ -291,6 +306,15 @@ class CampaignsEmailTrackingOptionsCustomTrackingParamsInner implements ModelInt
         if ($this->container['type'] === null) {
             $invalidProperties[] = "'type' can't be null";
         }
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!is_null($this->container['type']) && !in_array($this->container['type'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'type', must be one of '%s'",
+                $this->container['type'],
+                implode("', '", $allowedValues)
+            );
+        }
+
         if ($this->container['value'] === null) {
             $invalidProperties[] = "'value' can't be null";
         }
@@ -315,7 +339,7 @@ class CampaignsEmailTrackingOptionsCustomTrackingParamsInner implements ModelInt
     /**
      * Gets type
      *
-     * @return \KlaviyoAPI\Model\StaticEnum
+     * @return string
      */
     public function getType()
     {
@@ -325,7 +349,7 @@ class CampaignsEmailTrackingOptionsCustomTrackingParamsInner implements ModelInt
     /**
      * Sets type
      *
-     * @param \KlaviyoAPI\Model\StaticEnum $type type
+     * @param string $type The type of the tracking parameter
      *
      * @return self
      */
@@ -333,6 +357,16 @@ class CampaignsEmailTrackingOptionsCustomTrackingParamsInner implements ModelInt
     {
         if (is_null($type)) {
             throw new \InvalidArgumentException('non-nullable type cannot be null');
+        }
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!in_array($type, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'type', must be one of '%s'",
+                    $type,
+                    implode("', '", $allowedValues)
+                )
+            );
         }
         $this->container['type'] = $type;
 

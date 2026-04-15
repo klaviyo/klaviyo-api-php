@@ -57,7 +57,7 @@ class ThrottledSendStrategy implements ModelInterface, ArrayAccess, \JsonSeriali
       * @var string[]
       */
     protected static $openAPITypes = [
-        'method' => '\KlaviyoAPI\Model\ThrottledEnum',
+        'method' => 'string',
         'datetime' => '\DateTime',
         'throttle_percentage' => 'int'
     ];
@@ -240,6 +240,7 @@ class ThrottledSendStrategy implements ModelInterface, ArrayAccess, \JsonSeriali
         return self::$openAPIModelName;
     }
 
+    public const METHOD_THROTTLED = 'throttled';
     public const THROTTLE_PERCENTAGE_NUMBER_10 = 10;
     public const THROTTLE_PERCENTAGE_NUMBER_11 = 11;
     public const THROTTLE_PERCENTAGE_NUMBER_13 = 13;
@@ -249,6 +250,18 @@ class ThrottledSendStrategy implements ModelInterface, ArrayAccess, \JsonSeriali
     public const THROTTLE_PERCENTAGE_NUMBER_25 = 25;
     public const THROTTLE_PERCENTAGE_NUMBER_33 = 33;
     public const THROTTLE_PERCENTAGE_NUMBER_50 = 50;
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getMethodAllowableValues()
+    {
+        return [
+            self::METHOD_THROTTLED,
+        ];
+    }
 
     /**
      * Gets allowable values of the enum
@@ -320,6 +333,15 @@ class ThrottledSendStrategy implements ModelInterface, ArrayAccess, \JsonSeriali
         if ($this->container['method'] === null) {
             $invalidProperties[] = "'method' can't be null";
         }
+        $allowedValues = $this->getMethodAllowableValues();
+        if (!is_null($this->container['method']) && !in_array($this->container['method'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'method', must be one of '%s'",
+                $this->container['method'],
+                implode("', '", $allowedValues)
+            );
+        }
+
         if ($this->container['datetime'] === null) {
             $invalidProperties[] = "'datetime' can't be null";
         }
@@ -353,7 +375,7 @@ class ThrottledSendStrategy implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Gets method
      *
-     * @return \KlaviyoAPI\Model\ThrottledEnum
+     * @return string
      */
     public function getMethod()
     {
@@ -363,7 +385,7 @@ class ThrottledSendStrategy implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Sets method
      *
-     * @param \KlaviyoAPI\Model\ThrottledEnum $method method
+     * @param string $method method
      *
      * @return self
      */
@@ -371,6 +393,16 @@ class ThrottledSendStrategy implements ModelInterface, ArrayAccess, \JsonSeriali
     {
         if (is_null($method)) {
             throw new \InvalidArgumentException('non-nullable method cannot be null');
+        }
+        $allowedValues = $this->getMethodAllowableValues();
+        if (!in_array($method, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'method', must be one of '%s'",
+                    $method,
+                    implode("', '", $allowedValues)
+                )
+            );
         }
         $this->container['method'] = $method;
 

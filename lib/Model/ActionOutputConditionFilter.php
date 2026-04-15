@@ -57,7 +57,7 @@ class ActionOutputConditionFilter implements ModelInterface, ArrayAccess, \JsonS
       * @var string[]
       */
     protected static $openAPITypes = [
-        'condition_groups' => '\KlaviyoAPI\Model\ActionOutputConditionGroup[]'
+        'condition_groups' => '\KlaviyoAPI\Model\ActionOutputConditionConditionGroup[]'
     ];
 
     /**
@@ -295,7 +295,7 @@ class ActionOutputConditionFilter implements ModelInterface, ArrayAccess, \JsonS
     /**
      * Gets condition_groups
      *
-     * @return \KlaviyoAPI\Model\ActionOutputConditionGroup[]
+     * @return \KlaviyoAPI\Model\ActionOutputConditionConditionGroup[]
      */
     public function getConditionGroups()
     {
@@ -305,7 +305,7 @@ class ActionOutputConditionFilter implements ModelInterface, ArrayAccess, \JsonS
     /**
      * Sets condition_groups
      *
-     * @param \KlaviyoAPI\Model\ActionOutputConditionGroup[] $condition_groups condition_groups
+     * @param \KlaviyoAPI\Model\ActionOutputConditionConditionGroup[] $condition_groups condition_groups
      *
      * @return self
      */
