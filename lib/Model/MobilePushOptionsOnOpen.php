@@ -59,7 +59,8 @@ class MobilePushOptionsOnOpen implements ModelInterface, ArrayAccess, \JsonSeria
     protected static $openAPITypes = [
         'type' => 'string',
         'ios_deep_link' => 'string',
-        'android_deep_link' => 'string'
+        'android_deep_link' => 'string',
+        'web_url' => 'string'
     ];
 
     /**
@@ -72,7 +73,8 @@ class MobilePushOptionsOnOpen implements ModelInterface, ArrayAccess, \JsonSeria
     protected static $openAPIFormats = [
         'type' => null,
         'ios_deep_link' => null,
-        'android_deep_link' => null
+        'android_deep_link' => null,
+        'web_url' => null
     ];
 
     /**
@@ -83,7 +85,8 @@ class MobilePushOptionsOnOpen implements ModelInterface, ArrayAccess, \JsonSeria
     protected static array $openAPINullables = [
         'type' => false,
         'ios_deep_link' => true,
-        'android_deep_link' => true
+        'android_deep_link' => true,
+        'web_url' => true
     ];
 
     /**
@@ -174,7 +177,8 @@ class MobilePushOptionsOnOpen implements ModelInterface, ArrayAccess, \JsonSeria
     protected static $attributeMap = [
         'type' => 'type',
         'ios_deep_link' => 'ios_deep_link',
-        'android_deep_link' => 'android_deep_link'
+        'android_deep_link' => 'android_deep_link',
+        'web_url' => 'web_url'
     ];
 
     /**
@@ -185,7 +189,8 @@ class MobilePushOptionsOnOpen implements ModelInterface, ArrayAccess, \JsonSeria
     protected static $setters = [
         'type' => 'setType',
         'ios_deep_link' => 'setIosDeepLink',
-        'android_deep_link' => 'setAndroidDeepLink'
+        'android_deep_link' => 'setAndroidDeepLink',
+        'web_url' => 'setWebUrl'
     ];
 
     /**
@@ -196,7 +201,8 @@ class MobilePushOptionsOnOpen implements ModelInterface, ArrayAccess, \JsonSeria
     protected static $getters = [
         'type' => 'getType',
         'ios_deep_link' => 'getIosDeepLink',
-        'android_deep_link' => 'getAndroidDeepLink'
+        'android_deep_link' => 'getAndroidDeepLink',
+        'web_url' => 'getWebUrl'
     ];
 
     /**
@@ -242,6 +248,7 @@ class MobilePushOptionsOnOpen implements ModelInterface, ArrayAccess, \JsonSeria
 
     public const TYPE_OPEN_APP = 'open_app';
     public const TYPE_DEEP_LINK = 'deep_link';
+    public const TYPE_OPEN_WEB_URL = 'open_web_url';
 
     /**
      * Gets allowable values of the enum
@@ -253,6 +260,7 @@ class MobilePushOptionsOnOpen implements ModelInterface, ArrayAccess, \JsonSeria
         return [
             self::TYPE_OPEN_APP,
             self::TYPE_DEEP_LINK,
+            self::TYPE_OPEN_WEB_URL,
         ];
     }
 
@@ -274,6 +282,7 @@ class MobilePushOptionsOnOpen implements ModelInterface, ArrayAccess, \JsonSeria
         $this->setIfExists('type', $data ?? [], null);
         $this->setIfExists('ios_deep_link', $data ?? [], null);
         $this->setIfExists('android_deep_link', $data ?? [], null);
+        $this->setIfExists('web_url', $data ?? [], null);
     }
 
     /**
@@ -431,6 +440,40 @@ class MobilePushOptionsOnOpen implements ModelInterface, ArrayAccess, \JsonSeria
             }
         }
         $this->container['android_deep_link'] = $android_deep_link;
+
+        return $this;
+    }
+
+    /**
+     * Gets web_url
+     *
+     * @return string|null
+     */
+    public function getWebUrl()
+    {
+        return $this->container['web_url'];
+    }
+
+    /**
+     * Sets web_url
+     *
+     * @param string|null $web_url External url to open when push notification is triggered
+     *
+     * @return self
+     */
+    public function setWebUrl($web_url)
+    {
+        if (is_null($web_url)) {
+            array_push($this->openAPINullablesSetToNull, 'web_url');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('web_url', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['web_url'] = $web_url;
 
         return $this;
     }

@@ -57,7 +57,8 @@ class EmailSubscriptionParameters implements ModelInterface, ArrayAccess, \JsonS
       * @var string[]
       */
     protected static $openAPITypes = [
-        'marketing' => '\KlaviyoAPI\Model\SubscriptionParameters'
+        'marketing' => '\KlaviyoAPI\Model\SubscriptionParameters',
+        'open_tracking' => '\KlaviyoAPI\Model\OpenTrackingSubscriptionParameters'
     ];
 
     /**
@@ -68,7 +69,8 @@ class EmailSubscriptionParameters implements ModelInterface, ArrayAccess, \JsonS
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'marketing' => null
+        'marketing' => null,
+        'open_tracking' => null
     ];
 
     /**
@@ -77,7 +79,8 @@ class EmailSubscriptionParameters implements ModelInterface, ArrayAccess, \JsonS
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'marketing' => false
+        'marketing' => false,
+        'open_tracking' => false
     ];
 
     /**
@@ -166,7 +169,8 @@ class EmailSubscriptionParameters implements ModelInterface, ArrayAccess, \JsonS
      * @var string[]
      */
     protected static $attributeMap = [
-        'marketing' => 'marketing'
+        'marketing' => 'marketing',
+        'open_tracking' => 'open_tracking'
     ];
 
     /**
@@ -175,7 +179,8 @@ class EmailSubscriptionParameters implements ModelInterface, ArrayAccess, \JsonS
      * @var string[]
      */
     protected static $setters = [
-        'marketing' => 'setMarketing'
+        'marketing' => 'setMarketing',
+        'open_tracking' => 'setOpenTracking'
     ];
 
     /**
@@ -184,7 +189,8 @@ class EmailSubscriptionParameters implements ModelInterface, ArrayAccess, \JsonS
      * @var string[]
      */
     protected static $getters = [
-        'marketing' => 'getMarketing'
+        'marketing' => 'getMarketing',
+        'open_tracking' => 'getOpenTracking'
     ];
 
     /**
@@ -245,6 +251,7 @@ class EmailSubscriptionParameters implements ModelInterface, ArrayAccess, \JsonS
     public function __construct(?array $data = null)
     {
         $this->setIfExists('marketing', $data ?? [], null);
+        $this->setIfExists('open_tracking', $data ?? [], null);
     }
 
     /**
@@ -274,9 +281,6 @@ class EmailSubscriptionParameters implements ModelInterface, ArrayAccess, \JsonS
     {
         $invalidProperties = [];
 
-        if ($this->container['marketing'] === null) {
-            $invalidProperties[] = "'marketing' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -295,7 +299,7 @@ class EmailSubscriptionParameters implements ModelInterface, ArrayAccess, \JsonS
     /**
      * Gets marketing
      *
-     * @return \KlaviyoAPI\Model\SubscriptionParameters
+     * @return \KlaviyoAPI\Model\SubscriptionParameters|null
      */
     public function getMarketing()
     {
@@ -305,7 +309,7 @@ class EmailSubscriptionParameters implements ModelInterface, ArrayAccess, \JsonS
     /**
      * Sets marketing
      *
-     * @param \KlaviyoAPI\Model\SubscriptionParameters $marketing marketing
+     * @param \KlaviyoAPI\Model\SubscriptionParameters|null $marketing marketing
      *
      * @return self
      */
@@ -315,6 +319,33 @@ class EmailSubscriptionParameters implements ModelInterface, ArrayAccess, \JsonS
             throw new \InvalidArgumentException('non-nullable marketing cannot be null');
         }
         $this->container['marketing'] = $marketing;
+
+        return $this;
+    }
+
+    /**
+     * Gets open_tracking
+     *
+     * @return \KlaviyoAPI\Model\OpenTrackingSubscriptionParameters|null
+     */
+    public function getOpenTracking()
+    {
+        return $this->container['open_tracking'];
+    }
+
+    /**
+     * Sets open_tracking
+     *
+     * @param \KlaviyoAPI\Model\OpenTrackingSubscriptionParameters|null $open_tracking open_tracking
+     *
+     * @return self
+     */
+    public function setOpenTracking($open_tracking)
+    {
+        if (is_null($open_tracking)) {
+            throw new \InvalidArgumentException('non-nullable open_tracking cannot be null');
+        }
+        $this->container['open_tracking'] = $open_tracking;
 
         return $this;
     }

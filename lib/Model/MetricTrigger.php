@@ -59,7 +59,7 @@ class MetricTrigger implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $openAPITypes = [
         'type' => 'string',
         'id' => 'string',
-        'trigger_filter' => '\KlaviyoAPI\Model\MetricPropertyConditionFilter'
+        'trigger_filter' => '\KlaviyoAPI\Model\MetricTriggerTriggerFilter'
     ];
 
     /**
@@ -83,7 +83,7 @@ class MetricTrigger implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static array $openAPINullables = [
         'type' => false,
         'id' => true,
-        'trigger_filter' => false
+        'trigger_filter' => true
     ];
 
     /**
@@ -402,7 +402,7 @@ class MetricTrigger implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets trigger_filter
      *
-     * @return \KlaviyoAPI\Model\MetricPropertyConditionFilter|null
+     * @return \KlaviyoAPI\Model\MetricTriggerTriggerFilter|null
      */
     public function getTriggerFilter()
     {
@@ -412,14 +412,21 @@ class MetricTrigger implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets trigger_filter
      *
-     * @param \KlaviyoAPI\Model\MetricPropertyConditionFilter|null $trigger_filter trigger_filter
+     * @param \KlaviyoAPI\Model\MetricTriggerTriggerFilter|null $trigger_filter trigger_filter
      *
      * @return self
      */
     public function setTriggerFilter($trigger_filter)
     {
         if (is_null($trigger_filter)) {
-            throw new \InvalidArgumentException('non-nullable trigger_filter cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'trigger_filter');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('trigger_filter', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['trigger_filter'] = $trigger_filter;
 

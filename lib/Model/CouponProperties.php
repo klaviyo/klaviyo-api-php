@@ -58,6 +58,7 @@ class CouponProperties implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static $openAPITypes = [
         'display_device' => 'string[]',
+        'classname' => 'string',
         'coupon' => '\KlaviyoAPI\Model\CouponPropertiesCoupon',
         'success_message' => 'string'
     ];
@@ -71,6 +72,7 @@ class CouponProperties implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static $openAPIFormats = [
         'display_device' => null,
+        'classname' => null,
         'coupon' => null,
         'success_message' => null
     ];
@@ -82,6 +84,7 @@ class CouponProperties implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static array $openAPINullables = [
         'display_device' => false,
+        'classname' => true,
         'coupon' => false,
         'success_message' => true
     ];
@@ -173,6 +176,7 @@ class CouponProperties implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $attributeMap = [
         'display_device' => 'display_device',
+        'classname' => 'classname',
         'coupon' => 'coupon',
         'success_message' => 'success_message'
     ];
@@ -184,6 +188,7 @@ class CouponProperties implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $setters = [
         'display_device' => 'setDisplayDevice',
+        'classname' => 'setClassname',
         'coupon' => 'setCoupon',
         'success_message' => 'setSuccessMessage'
     ];
@@ -195,6 +200,7 @@ class CouponProperties implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $getters = [
         'display_device' => 'getDisplayDevice',
+        'classname' => 'getClassname',
         'coupon' => 'getCoupon',
         'success_message' => 'getSuccessMessage'
     ];
@@ -274,6 +280,7 @@ class CouponProperties implements ModelInterface, ArrayAccess, \JsonSerializable
     public function __construct(?array $data = null)
     {
         $this->setIfExists('display_device', $data ?? [], null);
+        $this->setIfExists('classname', $data ?? [], null);
         $this->setIfExists('coupon', $data ?? [], null);
         $this->setIfExists('success_message', $data ?? [], null);
     }
@@ -355,6 +362,40 @@ class CouponProperties implements ModelInterface, ArrayAccess, \JsonSerializable
             );
         }
         $this->container['display_device'] = $display_device;
+
+        return $this;
+    }
+
+    /**
+     * Gets classname
+     *
+     * @return string|null
+     */
+    public function getClassname()
+    {
+        return $this->container['classname'];
+    }
+
+    /**
+     * Sets classname
+     *
+     * @param string|null $classname classname
+     *
+     * @return self
+     */
+    public function setClassname($classname)
+    {
+        if (is_null($classname)) {
+            array_push($this->openAPINullablesSetToNull, 'classname');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('classname', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['classname'] = $classname;
 
         return $this;
     }

@@ -57,6 +57,7 @@ class EventsBulkCreateQueryResourceObjectAttributes implements ModelInterface, A
       * @var string[]
       */
     protected static $openAPITypes = [
+        'backfill' => 'bool',
         'profile' => '\KlaviyoAPI\Model\EventsBulkCreateQueryResourceObjectAttributesProfile',
         'events' => '\KlaviyoAPI\Model\EventsBulkCreateQueryResourceObjectAttributesEvents'
     ];
@@ -69,6 +70,7 @@ class EventsBulkCreateQueryResourceObjectAttributes implements ModelInterface, A
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
+        'backfill' => null,
         'profile' => null,
         'events' => null
     ];
@@ -79,6 +81,7 @@ class EventsBulkCreateQueryResourceObjectAttributes implements ModelInterface, A
       * @var boolean[]
       */
     protected static array $openAPINullables = [
+        'backfill' => true,
         'profile' => false,
         'events' => false
     ];
@@ -169,6 +172,7 @@ class EventsBulkCreateQueryResourceObjectAttributes implements ModelInterface, A
      * @var string[]
      */
     protected static $attributeMap = [
+        'backfill' => 'backfill',
         'profile' => 'profile',
         'events' => 'events'
     ];
@@ -179,6 +183,7 @@ class EventsBulkCreateQueryResourceObjectAttributes implements ModelInterface, A
      * @var string[]
      */
     protected static $setters = [
+        'backfill' => 'setBackfill',
         'profile' => 'setProfile',
         'events' => 'setEvents'
     ];
@@ -189,6 +194,7 @@ class EventsBulkCreateQueryResourceObjectAttributes implements ModelInterface, A
      * @var string[]
      */
     protected static $getters = [
+        'backfill' => 'getBackfill',
         'profile' => 'getProfile',
         'events' => 'getEvents'
     ];
@@ -250,6 +256,7 @@ class EventsBulkCreateQueryResourceObjectAttributes implements ModelInterface, A
      */
     public function __construct(?array $data = null)
     {
+        $this->setIfExists('backfill', $data ?? [], false);
         $this->setIfExists('profile', $data ?? [], null);
         $this->setIfExists('events', $data ?? [], null);
     }
@@ -301,6 +308,40 @@ class EventsBulkCreateQueryResourceObjectAttributes implements ModelInterface, A
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets backfill
+     *
+     * @return bool|null
+     */
+    public function getBackfill()
+    {
+        return $this->container['backfill'];
+    }
+
+    /**
+     * Sets backfill
+     *
+     * @param bool|null $backfill When true, the event is recorded but does NOT trigger flows. Use this when backfilling historical events so existing flow definitions do not re-fire on events that already fired in the past.
+     *
+     * @return self
+     */
+    public function setBackfill($backfill)
+    {
+        if (is_null($backfill)) {
+            array_push($this->openAPINullablesSetToNull, 'backfill');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('backfill', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['backfill'] = $backfill;
+
+        return $this;
+    }
 
     /**
      * Gets profile

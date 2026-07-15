@@ -59,8 +59,8 @@ class RowV0BlocksInner implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $openAPITypes = [
         'id' => 'string',
         'type' => 'string',
-        'styles' => '\KlaviyoAPI\Model\ReviewStyles',
-        'properties' => '\KlaviyoAPI\Model\ReviewProperties',
+        'styles' => 'object',
+        'properties' => '\KlaviyoAPI\Model\CustomHTMLProperties',
         'action' => '\KlaviyoAPI\Model\ImageAction',
         'display_device' => 'string[]'
     ];
@@ -278,6 +278,7 @@ class RowV0BlocksInner implements ModelInterface, ArrayAccess, \JsonSerializable
     public const TYPE_SMS_DISCLOSURE = 'sms_disclosure';
     public const TYPE_BIS_PROMOTIONAL_EMAIL_CHECKBOX = 'bis_promotional_email_checkbox';
     public const TYPE_REVIEW = 'review';
+    public const TYPE_CUSTOM_HTML = 'custom_html';
     public const DISPLAY_DEVICE_BOTH = 'both';
     public const DISPLAY_DEVICE_DESKTOP = 'desktop';
     public const DISPLAY_DEVICE_MOBILE = 'mobile';
@@ -310,6 +311,7 @@ class RowV0BlocksInner implements ModelInterface, ArrayAccess, \JsonSerializable
             self::TYPE_SMS_DISCLOSURE,
             self::TYPE_BIS_PROMOTIONAL_EMAIL_CHECKBOX,
             self::TYPE_REVIEW,
+            self::TYPE_CUSTOM_HTML,
         ];
     }
 
@@ -481,7 +483,7 @@ class RowV0BlocksInner implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets styles
      *
-     * @return \KlaviyoAPI\Model\ReviewStyles|null
+     * @return object|null
      */
     public function getStyles()
     {
@@ -491,7 +493,7 @@ class RowV0BlocksInner implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets styles
      *
-     * @param \KlaviyoAPI\Model\ReviewStyles|null $styles styles
+     * @param object|null $styles styles
      *
      * @return self
      */
@@ -500,6 +502,8 @@ class RowV0BlocksInner implements ModelInterface, ArrayAccess, \JsonSerializable
         if (is_null($styles)) {
             throw new \InvalidArgumentException('non-nullable styles cannot be null');
         }
+
+
         $this->container['styles'] = $styles;
 
         return $this;
@@ -508,7 +512,7 @@ class RowV0BlocksInner implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets properties
      *
-     * @return \KlaviyoAPI\Model\ReviewProperties
+     * @return \KlaviyoAPI\Model\CustomHTMLProperties
      */
     public function getProperties()
     {
@@ -518,7 +522,7 @@ class RowV0BlocksInner implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets properties
      *
-     * @param \KlaviyoAPI\Model\ReviewProperties $properties properties
+     * @param \KlaviyoAPI\Model\CustomHTMLProperties $properties properties
      *
      * @return self
      */

@@ -59,7 +59,7 @@ class SMSDisclosureStyles implements ModelInterface, ArrayAccess, \JsonSerializa
     protected static $openAPITypes = [
         'padding' => '\KlaviyoAPI\Model\Padding',
         'background_color' => 'string',
-        'link_styles' => '\KlaviyoAPI\Model\SMSDisclosureTextStyle',
+        'link_styles' => '\KlaviyoAPI\Model\SMSDisclosureLinkTextStyle',
         'text_styles' => '\KlaviyoAPI\Model\SMSDisclosureTextStyle'
     ];
 
@@ -374,7 +374,7 @@ class SMSDisclosureStyles implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Gets link_styles
      *
-     * @return \KlaviyoAPI\Model\SMSDisclosureTextStyle|null
+     * @return \KlaviyoAPI\Model\SMSDisclosureLinkTextStyle|null
      */
     public function getLinkStyles()
     {
@@ -384,7 +384,7 @@ class SMSDisclosureStyles implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets link_styles
      *
-     * @param \KlaviyoAPI\Model\SMSDisclosureTextStyle|null $link_styles link_styles
+     * @param \KlaviyoAPI\Model\SMSDisclosureLinkTextStyle|null $link_styles link_styles
      *
      * @return self
      */

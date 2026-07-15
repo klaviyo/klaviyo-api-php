@@ -59,7 +59,7 @@ class FlowDefinitionTriggersInner implements ModelInterface, ArrayAccess, \JsonS
     protected static $openAPITypes = [
         'type' => 'string',
         'id' => 'string',
-        'trigger_filter' => '\KlaviyoAPI\Model\LowInventoryConditionFilter',
+        'trigger_filter' => '\KlaviyoAPI\Model\LowInventoryTriggerTriggerFilter',
         'date_field_type' => 'string',
         'date_profile_property' => 'string',
         'timedelta_unit_before_date' => 'string',
@@ -68,6 +68,10 @@ class FlowDefinitionTriggersInner implements ModelInterface, ArrayAccess, \JsonS
         'timezone' => 'string',
         'trigger_time' => 'string',
         'trigger_days' => 'string[]',
+        'custom_object_label' => 'string',
+        'custom_object_property_id' => 'int',
+        'object_type_id' => 'string',
+        'object_type_relationship_id' => 'string',
         'price_drop_amount_value' => '\KlaviyoAPI\Model\NumericOperatorNumericFilterValue',
         'price_drop_amount_unit' => 'string',
         'audience' => 'string[]',
@@ -96,6 +100,10 @@ class FlowDefinitionTriggersInner implements ModelInterface, ArrayAccess, \JsonS
         'timezone' => null,
         'trigger_time' => 'time',
         'trigger_days' => null,
+        'custom_object_label' => null,
+        'custom_object_property_id' => null,
+        'object_type_id' => null,
+        'object_type_relationship_id' => null,
         'price_drop_amount_value' => null,
         'price_drop_amount_unit' => null,
         'audience' => null,
@@ -113,7 +121,7 @@ class FlowDefinitionTriggersInner implements ModelInterface, ArrayAccess, \JsonS
     protected static array $openAPINullables = [
         'type' => false,
         'id' => true,
-        'trigger_filter' => false,
+        'trigger_filter' => true,
         'date_field_type' => false,
         'date_profile_property' => false,
         'timedelta_unit_before_date' => false,
@@ -122,6 +130,10 @@ class FlowDefinitionTriggersInner implements ModelInterface, ArrayAccess, \JsonS
         'timezone' => false,
         'trigger_time' => false,
         'trigger_days' => true,
+        'custom_object_label' => false,
+        'custom_object_property_id' => false,
+        'object_type_id' => false,
+        'object_type_relationship_id' => false,
         'price_drop_amount_value' => false,
         'price_drop_amount_unit' => false,
         'audience' => false,
@@ -228,6 +240,10 @@ class FlowDefinitionTriggersInner implements ModelInterface, ArrayAccess, \JsonS
         'timezone' => 'timezone',
         'trigger_time' => 'trigger_time',
         'trigger_days' => 'trigger_days',
+        'custom_object_label' => 'custom_object_label',
+        'custom_object_property_id' => 'custom_object_property_id',
+        'object_type_id' => 'object_type_id',
+        'object_type_relationship_id' => 'object_type_relationship_id',
         'price_drop_amount_value' => 'price_drop_amount_value',
         'price_drop_amount_unit' => 'price_drop_amount_unit',
         'audience' => 'audience',
@@ -254,6 +270,10 @@ class FlowDefinitionTriggersInner implements ModelInterface, ArrayAccess, \JsonS
         'timezone' => 'setTimezone',
         'trigger_time' => 'setTriggerTime',
         'trigger_days' => 'setTriggerDays',
+        'custom_object_label' => 'setCustomObjectLabel',
+        'custom_object_property_id' => 'setCustomObjectPropertyId',
+        'object_type_id' => 'setObjectTypeId',
+        'object_type_relationship_id' => 'setObjectTypeRelationshipId',
         'price_drop_amount_value' => 'setPriceDropAmountValue',
         'price_drop_amount_unit' => 'setPriceDropAmountUnit',
         'audience' => 'setAudience',
@@ -280,6 +300,10 @@ class FlowDefinitionTriggersInner implements ModelInterface, ArrayAccess, \JsonS
         'timezone' => 'getTimezone',
         'trigger_time' => 'getTriggerTime',
         'trigger_days' => 'getTriggerDays',
+        'custom_object_label' => 'getCustomObjectLabel',
+        'custom_object_property_id' => 'getCustomObjectPropertyId',
+        'object_type_id' => 'getObjectTypeId',
+        'object_type_relationship_id' => 'getObjectTypeRelationshipId',
         'price_drop_amount_value' => 'getPriceDropAmountValue',
         'price_drop_amount_unit' => 'getPriceDropAmountUnit',
         'audience' => 'getAudience',
@@ -336,7 +360,7 @@ class FlowDefinitionTriggersInner implements ModelInterface, ArrayAccess, \JsonS
     public const TYPE_DATE = 'date';
     public const TYPE_PRICE_DROP = 'price-drop';
     public const TYPE_LOW_INVENTORY = 'low-inventory';
-    public const DATE_FIELD_TYPE_PROFILE_PROPERTY = 'profile-property';
+    public const DATE_FIELD_TYPE_CUSTOM_OBJECT = 'custom-object';
     public const TIMEDELTA_UNIT_BEFORE_DATE_DAYS = 'days';
     public const TIMEDELTA_UNIT_BEFORE_DATE_MONTHS = 'months';
     public const TIMEDELTA_UNIT_BEFORE_DATE_WEEKS = 'weeks';
@@ -819,7 +843,7 @@ class FlowDefinitionTriggersInner implements ModelInterface, ArrayAccess, \JsonS
     public function getDateFieldTypeAllowableValues()
     {
         return [
-            self::DATE_FIELD_TYPE_PROFILE_PROPERTY,
+            self::DATE_FIELD_TYPE_CUSTOM_OBJECT,
         ];
     }
 
@@ -1393,6 +1417,10 @@ class FlowDefinitionTriggersInner implements ModelInterface, ArrayAccess, \JsonS
         $this->setIfExists('timezone', $data ?? [], 'profile');
         $this->setIfExists('trigger_time', $data ?? [], null);
         $this->setIfExists('trigger_days', $data ?? [], null);
+        $this->setIfExists('custom_object_label', $data ?? [], null);
+        $this->setIfExists('custom_object_property_id', $data ?? [], null);
+        $this->setIfExists('object_type_id', $data ?? [], null);
+        $this->setIfExists('object_type_relationship_id', $data ?? [], null);
         $this->setIfExists('price_drop_amount_value', $data ?? [], null);
         $this->setIfExists('price_drop_amount_unit', $data ?? [], 'currency');
         $this->setIfExists('audience', $data ?? [], null);
@@ -1491,6 +1519,18 @@ class FlowDefinitionTriggersInner implements ModelInterface, ArrayAccess, \JsonS
 
         if ($this->container['trigger_time'] === null) {
             $invalidProperties[] = "'trigger_time' can't be null";
+        }
+        if ($this->container['custom_object_label'] === null) {
+            $invalidProperties[] = "'custom_object_label' can't be null";
+        }
+        if ($this->container['custom_object_property_id'] === null) {
+            $invalidProperties[] = "'custom_object_property_id' can't be null";
+        }
+        if ($this->container['object_type_id'] === null) {
+            $invalidProperties[] = "'object_type_id' can't be null";
+        }
+        if ($this->container['object_type_relationship_id'] === null) {
+            $invalidProperties[] = "'object_type_relationship_id' can't be null";
         }
         if ($this->container['price_drop_amount_value'] === null) {
             $invalidProperties[] = "'price_drop_amount_value' can't be null";
@@ -1620,7 +1660,7 @@ class FlowDefinitionTriggersInner implements ModelInterface, ArrayAccess, \JsonS
     /**
      * Gets trigger_filter
      *
-     * @return \KlaviyoAPI\Model\LowInventoryConditionFilter
+     * @return \KlaviyoAPI\Model\LowInventoryTriggerTriggerFilter
      */
     public function getTriggerFilter()
     {
@@ -1630,14 +1670,21 @@ class FlowDefinitionTriggersInner implements ModelInterface, ArrayAccess, \JsonS
     /**
      * Sets trigger_filter
      *
-     * @param \KlaviyoAPI\Model\LowInventoryConditionFilter $trigger_filter trigger_filter
+     * @param \KlaviyoAPI\Model\LowInventoryTriggerTriggerFilter $trigger_filter trigger_filter
      *
      * @return self
      */
     public function setTriggerFilter($trigger_filter)
     {
         if (is_null($trigger_filter)) {
-            throw new \InvalidArgumentException('non-nullable trigger_filter cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'trigger_filter');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('trigger_filter', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['trigger_filter'] = $trigger_filter;
 
@@ -1912,6 +1959,114 @@ class FlowDefinitionTriggersInner implements ModelInterface, ArrayAccess, \JsonS
             );
         }
         $this->container['trigger_days'] = $trigger_days;
+
+        return $this;
+    }
+
+    /**
+     * Gets custom_object_label
+     *
+     * @return string
+     */
+    public function getCustomObjectLabel()
+    {
+        return $this->container['custom_object_label'];
+    }
+
+    /**
+     * Sets custom_object_label
+     *
+     * @param string $custom_object_label custom_object_label
+     *
+     * @return self
+     */
+    public function setCustomObjectLabel($custom_object_label)
+    {
+        if (is_null($custom_object_label)) {
+            throw new \InvalidArgumentException('non-nullable custom_object_label cannot be null');
+        }
+        $this->container['custom_object_label'] = $custom_object_label;
+
+        return $this;
+    }
+
+    /**
+     * Gets custom_object_property_id
+     *
+     * @return int
+     */
+    public function getCustomObjectPropertyId()
+    {
+        return $this->container['custom_object_property_id'];
+    }
+
+    /**
+     * Sets custom_object_property_id
+     *
+     * @param int $custom_object_property_id custom_object_property_id
+     *
+     * @return self
+     */
+    public function setCustomObjectPropertyId($custom_object_property_id)
+    {
+        if (is_null($custom_object_property_id)) {
+            throw new \InvalidArgumentException('non-nullable custom_object_property_id cannot be null');
+        }
+        $this->container['custom_object_property_id'] = $custom_object_property_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets object_type_id
+     *
+     * @return string
+     */
+    public function getObjectTypeId()
+    {
+        return $this->container['object_type_id'];
+    }
+
+    /**
+     * Sets object_type_id
+     *
+     * @param string $object_type_id object_type_id
+     *
+     * @return self
+     */
+    public function setObjectTypeId($object_type_id)
+    {
+        if (is_null($object_type_id)) {
+            throw new \InvalidArgumentException('non-nullable object_type_id cannot be null');
+        }
+        $this->container['object_type_id'] = $object_type_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets object_type_relationship_id
+     *
+     * @return string
+     */
+    public function getObjectTypeRelationshipId()
+    {
+        return $this->container['object_type_relationship_id'];
+    }
+
+    /**
+     * Sets object_type_relationship_id
+     *
+     * @param string $object_type_relationship_id object_type_relationship_id
+     *
+     * @return self
+     */
+    public function setObjectTypeRelationshipId($object_type_relationship_id)
+    {
+        if (is_null($object_type_relationship_id)) {
+            throw new \InvalidArgumentException('non-nullable object_type_relationship_id cannot be null');
+        }
+        $this->container['object_type_relationship_id'] = $object_type_relationship_id;
 
         return $this;
     }

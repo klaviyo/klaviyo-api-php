@@ -60,7 +60,7 @@ class ImageAction implements ModelInterface, ArrayAccess, \JsonSerializable
         'id' => 'string',
         'submit' => 'bool',
         'type' => 'string',
-        'properties' => 'object'
+        'properties' => '\KlaviyoAPI\Model\IafDeeplinkToScreenProperties'
     ];
 
     /**
@@ -258,6 +258,7 @@ class ImageAction implements ModelInterface, ArrayAccess, \JsonSerializable
     public const TYPE_GO_TO_INBOX = 'go_to_inbox';
     public const TYPE_SUBMIT_BACK_IN_STOCK = 'submit_back_in_stock';
     public const TYPE_SKIP_TO_SUCCESS = 'skip_to_success';
+    public const TYPE_IAF_DEEPLINK_TO_SCREEN = 'iaf_deeplink_to_screen';
 
     /**
      * Gets allowable values of the enum
@@ -279,6 +280,7 @@ class ImageAction implements ModelInterface, ArrayAccess, \JsonSerializable
             self::TYPE_GO_TO_INBOX,
             self::TYPE_SUBMIT_BACK_IN_STOCK,
             self::TYPE_SKIP_TO_SUCCESS,
+            self::TYPE_IAF_DEEPLINK_TO_SCREEN,
         ];
     }
 
@@ -298,7 +300,7 @@ class ImageAction implements ModelInterface, ArrayAccess, \JsonSerializable
     public function __construct(?array $data = null)
     {
         $this->setIfExists('id', $data ?? [], null);
-        $this->setIfExists('submit', $data ?? [], false);
+        $this->setIfExists('submit', $data ?? [], true);
         $this->setIfExists('type', $data ?? [], null);
         $this->setIfExists('properties', $data ?? [], null);
     }
@@ -464,7 +466,7 @@ class ImageAction implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets properties
      *
-     * @return object
+     * @return \KlaviyoAPI\Model\IafDeeplinkToScreenProperties
      */
     public function getProperties()
     {
@@ -474,7 +476,7 @@ class ImageAction implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets properties
      *
-     * @param object $properties properties
+     * @param \KlaviyoAPI\Model\IafDeeplinkToScreenProperties $properties properties
      *
      * @return self
      */
@@ -483,8 +485,6 @@ class ImageAction implements ModelInterface, ArrayAccess, \JsonSerializable
         if (is_null($properties)) {
             throw new \InvalidArgumentException('non-nullable properties cannot be null');
         }
-
-
         $this->container['properties'] = $properties;
 
         return $this;

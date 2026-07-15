@@ -60,7 +60,8 @@ class ButtonStyles implements ModelInterface, ArrayAccess, \JsonSerializable
         'padding' => '\KlaviyoAPI\Model\Padding',
         'background_color' => 'string',
         'width' => 'string',
-        'height' => 'int',
+        'height' => '\KlaviyoAPI\Model\ButtonStylesHeight',
+        'alignment' => 'string',
         'hover_background_color' => 'string',
         'hover_text_color' => 'string',
         'border_styles' => '\KlaviyoAPI\Model\BorderStyle',
@@ -81,6 +82,7 @@ class ButtonStyles implements ModelInterface, ArrayAccess, \JsonSerializable
         'background_color' => null,
         'width' => null,
         'height' => null,
+        'alignment' => null,
         'hover_background_color' => null,
         'hover_text_color' => null,
         'border_styles' => null,
@@ -99,6 +101,7 @@ class ButtonStyles implements ModelInterface, ArrayAccess, \JsonSerializable
         'background_color' => true,
         'width' => false,
         'height' => false,
+        'alignment' => false,
         'hover_background_color' => true,
         'hover_text_color' => true,
         'border_styles' => false,
@@ -197,6 +200,7 @@ class ButtonStyles implements ModelInterface, ArrayAccess, \JsonSerializable
         'background_color' => 'background_color',
         'width' => 'width',
         'height' => 'height',
+        'alignment' => 'alignment',
         'hover_background_color' => 'hover_background_color',
         'hover_text_color' => 'hover_text_color',
         'border_styles' => 'border_styles',
@@ -215,6 +219,7 @@ class ButtonStyles implements ModelInterface, ArrayAccess, \JsonSerializable
         'background_color' => 'setBackgroundColor',
         'width' => 'setWidth',
         'height' => 'setHeight',
+        'alignment' => 'setAlignment',
         'hover_background_color' => 'setHoverBackgroundColor',
         'hover_text_color' => 'setHoverTextColor',
         'border_styles' => 'setBorderStyles',
@@ -233,6 +238,7 @@ class ButtonStyles implements ModelInterface, ArrayAccess, \JsonSerializable
         'background_color' => 'getBackgroundColor',
         'width' => 'getWidth',
         'height' => 'getHeight',
+        'alignment' => 'getAlignment',
         'hover_background_color' => 'getHoverBackgroundColor',
         'hover_text_color' => 'getHoverTextColor',
         'border_styles' => 'getBorderStyles',
@@ -284,6 +290,9 @@ class ButtonStyles implements ModelInterface, ArrayAccess, \JsonSerializable
 
     public const WIDTH_FILL = 'fill';
     public const WIDTH_FIT = 'fit';
+    public const ALIGNMENT_CENTER = 'center';
+    public const ALIGNMENT_LEFT = 'left';
+    public const ALIGNMENT_RIGHT = 'right';
 
     /**
      * Gets allowable values of the enum
@@ -295,6 +304,20 @@ class ButtonStyles implements ModelInterface, ArrayAccess, \JsonSerializable
         return [
             self::WIDTH_FILL,
             self::WIDTH_FIT,
+        ];
+    }
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getAlignmentAllowableValues()
+    {
+        return [
+            self::ALIGNMENT_CENTER,
+            self::ALIGNMENT_LEFT,
+            self::ALIGNMENT_RIGHT,
         ];
     }
 
@@ -316,7 +339,8 @@ class ButtonStyles implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('padding', $data ?? [], null);
         $this->setIfExists('background_color', $data ?? [], null);
         $this->setIfExists('width', $data ?? [], 'fill');
-        $this->setIfExists('height', $data ?? [], 50);
+        $this->setIfExists('height', $data ?? [], null);
+        $this->setIfExists('alignment', $data ?? [], 'center');
         $this->setIfExists('hover_background_color', $data ?? [], null);
         $this->setIfExists('hover_text_color', $data ?? [], null);
         $this->setIfExists('border_styles', $data ?? [], null);
@@ -357,6 +381,15 @@ class ButtonStyles implements ModelInterface, ArrayAccess, \JsonSerializable
             $invalidProperties[] = sprintf(
                 "invalid value '%s' for 'width', must be one of '%s'",
                 $this->container['width'],
+                implode("', '", $allowedValues)
+            );
+        }
+
+        $allowedValues = $this->getAlignmentAllowableValues();
+        if (!is_null($this->container['alignment']) && !in_array($this->container['alignment'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'alignment', must be one of '%s'",
+                $this->container['alignment'],
                 implode("', '", $allowedValues)
             );
         }
@@ -477,7 +510,7 @@ class ButtonStyles implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets height
      *
-     * @return int|null
+     * @return \KlaviyoAPI\Model\ButtonStylesHeight|null
      */
     public function getHeight()
     {
@@ -487,7 +520,7 @@ class ButtonStyles implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets height
      *
-     * @param int|null $height height
+     * @param \KlaviyoAPI\Model\ButtonStylesHeight|null $height height
      *
      * @return self
      */
@@ -497,6 +530,43 @@ class ButtonStyles implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable height cannot be null');
         }
         $this->container['height'] = $height;
+
+        return $this;
+    }
+
+    /**
+     * Gets alignment
+     *
+     * @return string|null
+     */
+    public function getAlignment()
+    {
+        return $this->container['alignment'];
+    }
+
+    /**
+     * Sets alignment
+     *
+     * @param string|null $alignment Horizontal alignment enumeration.
+     *
+     * @return self
+     */
+    public function setAlignment($alignment)
+    {
+        if (is_null($alignment)) {
+            throw new \InvalidArgumentException('non-nullable alignment cannot be null');
+        }
+        $allowedValues = $this->getAlignmentAllowableValues();
+        if (!in_array($alignment, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'alignment', must be one of '%s'",
+                    $alignment,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['alignment'] = $alignment;
 
         return $this;
     }

@@ -143,7 +143,7 @@ class ImagesApi
      * Get Image
      *
      * @param  string $id The ID of the image (required)
-     * @param  string[]|null $fields_image For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_image For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getImage'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -162,7 +162,7 @@ class ImagesApi
      * Get Image
      *
      * @param  string $id The ID of the image (required)
-     * @param  string[]|null $fields_image For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_image For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getImage'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -276,7 +276,7 @@ class ImagesApi
      * Get Image
      *
      * @param  string $id The ID of the image (required)
-     * @param  string[]|null $fields_image For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_image For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getImage'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -298,7 +298,7 @@ class ImagesApi
      * Get Image
      *
      * @param  string $id The ID of the image (required)
-     * @param  string[]|null $fields_image For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_image For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getImage'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -354,7 +354,7 @@ class ImagesApi
      * Create request for operation 'getImage'
      *
      * @param  string $id The ID of the image (required)
-     * @param  string[]|null $fields_image For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_image For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getImage'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -446,7 +446,7 @@ class ImagesApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2026-04-15'];
+        $defaultHeaders['revision'] = ['2026-07-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -468,11 +468,11 @@ class ImagesApi
      *
      * Get Images
      *
-     * @param  string[]|null $fields_image For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;id&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;updated_at&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60;&lt;br&gt;&#x60;format&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;name&#x60;: &#x60;any&#x60;, &#x60;contains&#x60;, &#x60;ends-with&#x60;, &#x60;equals&#x60;, &#x60;starts-with&#x60;&lt;br&gt;&#x60;size&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60;&lt;br&gt;&#x60;hidden&#x60;: &#x60;any&#x60;, &#x60;equals&#x60; (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination (optional)
+     * @param  string[]|null $fields_image For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;id&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;updated_at&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60;&lt;br&gt;&#x60;format&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;name&#x60;: &#x60;any&#x60;, &#x60;contains&#x60;, &#x60;ends-with&#x60;, &#x60;equals&#x60;, &#x60;starts-with&#x60;&lt;br&gt;&#x60;size&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60;&lt;br&gt;&#x60;hidden&#x60;: &#x60;any&#x60;, &#x60;equals&#x60; (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination (optional)
      * @param  int|null $page_size Default: 20. Min: 1. Max: 100. (optional, default to 20)
-     * @param  string|null $sort For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sorting (optional)
+     * @param  string|null $sort For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sorting (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getImages'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -490,11 +490,11 @@ class ImagesApi
      *
      * Get Images
      *
-     * @param  string[]|null $fields_image For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;id&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;updated_at&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60;&lt;br&gt;&#x60;format&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;name&#x60;: &#x60;any&#x60;, &#x60;contains&#x60;, &#x60;ends-with&#x60;, &#x60;equals&#x60;, &#x60;starts-with&#x60;&lt;br&gt;&#x60;size&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60;&lt;br&gt;&#x60;hidden&#x60;: &#x60;any&#x60;, &#x60;equals&#x60; (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination (optional)
+     * @param  string[]|null $fields_image For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;id&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;updated_at&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60;&lt;br&gt;&#x60;format&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;name&#x60;: &#x60;any&#x60;, &#x60;contains&#x60;, &#x60;ends-with&#x60;, &#x60;equals&#x60;, &#x60;starts-with&#x60;&lt;br&gt;&#x60;size&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60;&lt;br&gt;&#x60;hidden&#x60;: &#x60;any&#x60;, &#x60;equals&#x60; (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination (optional)
      * @param  int|null $page_size Default: 20. Min: 1. Max: 100. (optional, default to 20)
-     * @param  string|null $sort For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sorting (optional)
+     * @param  string|null $sort For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sorting (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getImages'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -607,11 +607,11 @@ class ImagesApi
      *
      * Get Images
      *
-     * @param  string[]|null $fields_image For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;id&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;updated_at&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60;&lt;br&gt;&#x60;format&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;name&#x60;: &#x60;any&#x60;, &#x60;contains&#x60;, &#x60;ends-with&#x60;, &#x60;equals&#x60;, &#x60;starts-with&#x60;&lt;br&gt;&#x60;size&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60;&lt;br&gt;&#x60;hidden&#x60;: &#x60;any&#x60;, &#x60;equals&#x60; (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination (optional)
+     * @param  string[]|null $fields_image For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;id&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;updated_at&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60;&lt;br&gt;&#x60;format&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;name&#x60;: &#x60;any&#x60;, &#x60;contains&#x60;, &#x60;ends-with&#x60;, &#x60;equals&#x60;, &#x60;starts-with&#x60;&lt;br&gt;&#x60;size&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60;&lt;br&gt;&#x60;hidden&#x60;: &#x60;any&#x60;, &#x60;equals&#x60; (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination (optional)
      * @param  int|null $page_size Default: 20. Min: 1. Max: 100. (optional, default to 20)
-     * @param  string|null $sort For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sorting (optional)
+     * @param  string|null $sort For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sorting (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getImages'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -632,11 +632,11 @@ class ImagesApi
      *
      * Get Images
      *
-     * @param  string[]|null $fields_image For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;id&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;updated_at&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60;&lt;br&gt;&#x60;format&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;name&#x60;: &#x60;any&#x60;, &#x60;contains&#x60;, &#x60;ends-with&#x60;, &#x60;equals&#x60;, &#x60;starts-with&#x60;&lt;br&gt;&#x60;size&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60;&lt;br&gt;&#x60;hidden&#x60;: &#x60;any&#x60;, &#x60;equals&#x60; (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination (optional)
+     * @param  string[]|null $fields_image For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;id&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;updated_at&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60;&lt;br&gt;&#x60;format&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;name&#x60;: &#x60;any&#x60;, &#x60;contains&#x60;, &#x60;ends-with&#x60;, &#x60;equals&#x60;, &#x60;starts-with&#x60;&lt;br&gt;&#x60;size&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60;&lt;br&gt;&#x60;hidden&#x60;: &#x60;any&#x60;, &#x60;equals&#x60; (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination (optional)
      * @param  int|null $page_size Default: 20. Min: 1. Max: 100. (optional, default to 20)
-     * @param  string|null $sort For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sorting (optional)
+     * @param  string|null $sort For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sorting (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getImages'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -691,11 +691,11 @@ class ImagesApi
     /**
      * Create request for operation 'getImages'
      *
-     * @param  string[]|null $fields_image For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;id&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;updated_at&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60;&lt;br&gt;&#x60;format&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;name&#x60;: &#x60;any&#x60;, &#x60;contains&#x60;, &#x60;ends-with&#x60;, &#x60;equals&#x60;, &#x60;starts-with&#x60;&lt;br&gt;&#x60;size&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60;&lt;br&gt;&#x60;hidden&#x60;: &#x60;any&#x60;, &#x60;equals&#x60; (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination (optional)
+     * @param  string[]|null $fields_image For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;id&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;updated_at&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60;&lt;br&gt;&#x60;format&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;name&#x60;: &#x60;any&#x60;, &#x60;contains&#x60;, &#x60;ends-with&#x60;, &#x60;equals&#x60;, &#x60;starts-with&#x60;&lt;br&gt;&#x60;size&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60;&lt;br&gt;&#x60;hidden&#x60;: &#x60;any&#x60;, &#x60;equals&#x60; (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination (optional)
      * @param  int|null $page_size Default: 20. Min: 1. Max: 100. (optional, default to 20)
-     * @param  string|null $sort For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sorting (optional)
+     * @param  string|null $sort For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sorting (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getImages'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -818,7 +818,7 @@ class ImagesApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2026-04-15'];
+        $defaultHeaders['revision'] = ['2026-07-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -842,15 +842,16 @@ class ImagesApi
      *
      * @param  string $id The ID of the image (required)
      * @param  \KlaviyoAPI\Model\ImagePartialUpdateQuery $image_partial_update_query image_partial_update_query (required)
+     * @param  string[]|null $fields_image For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateImage'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array<string,mixed>|\KlaviyoAPI\Model\GetAccounts400Response|\KlaviyoAPI\Model\GetAccounts400Response
      */
-    public function updateImage($id, $image_partial_update_query, $apiKey = null, string $contentType = self::contentTypes['updateImage'][0])
+    public function updateImage($id, $image_partial_update_query, $fields_image = null, $apiKey = null, string $contentType = self::contentTypes['updateImage'][0])
     {
-        list($response) = $this->updateImageWithHttpInfo($id, $image_partial_update_query, $apiKey, $contentType);
+        list($response) = $this->updateImageWithHttpInfo($id, $image_partial_update_query, $fields_image, $apiKey, $contentType);
         return $response;
     }
 
@@ -861,15 +862,16 @@ class ImagesApi
      *
      * @param  string $id The ID of the image (required)
      * @param  \KlaviyoAPI\Model\ImagePartialUpdateQuery $image_partial_update_query (required)
+     * @param  string[]|null $fields_image For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateImage'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of array<string,mixed>|\KlaviyoAPI\Model\GetAccounts400Response|\KlaviyoAPI\Model\GetAccounts400Response, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updateImageWithHttpInfo($id, $image_partial_update_query, $apiKey = null, string $contentType = self::contentTypes['updateImage'][0])
+    public function updateImageWithHttpInfo($id, $image_partial_update_query, $fields_image = null, $apiKey = null, string $contentType = self::contentTypes['updateImage'][0])
     {
-        $request = $this->updateImageRequest($id, $image_partial_update_query, $apiKey, $contentType);
+        $request = $this->updateImageRequest($id, $image_partial_update_query, $fields_image, $apiKey, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -975,14 +977,15 @@ class ImagesApi
      *
      * @param  string $id The ID of the image (required)
      * @param  \KlaviyoAPI\Model\ImagePartialUpdateQuery $image_partial_update_query (required)
+     * @param  string[]|null $fields_image For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateImage'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateImageAsync($id, $image_partial_update_query, $apiKey = null, string $contentType = self::contentTypes['updateImage'][0])
+    public function updateImageAsync($id, $image_partial_update_query, $fields_image = null, $apiKey = null, string $contentType = self::contentTypes['updateImage'][0])
     {
-        return $this->updateImageAsyncWithHttpInfo($id, $image_partial_update_query, $apiKey, $contentType)
+        return $this->updateImageAsyncWithHttpInfo($id, $image_partial_update_query, $fields_image, $apiKey, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -997,15 +1000,16 @@ class ImagesApi
      *
      * @param  string $id The ID of the image (required)
      * @param  \KlaviyoAPI\Model\ImagePartialUpdateQuery $image_partial_update_query (required)
+     * @param  string[]|null $fields_image For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateImage'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateImageAsyncWithHttpInfo($id, $image_partial_update_query, $apiKey = null, string $contentType = self::contentTypes['updateImage'][0])
+    public function updateImageAsyncWithHttpInfo($id, $image_partial_update_query, $fields_image = null, $apiKey = null, string $contentType = self::contentTypes['updateImage'][0])
     {
         $returnType = 'array<string,mixed>';
-        $request = $this->updateImageRequest($id, $image_partial_update_query, $apiKey, $contentType);
+        $request = $this->updateImageRequest($id, $image_partial_update_query, $fields_image, $apiKey, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1053,12 +1057,13 @@ class ImagesApi
      *
      * @param  string $id The ID of the image (required)
      * @param  \KlaviyoAPI\Model\ImagePartialUpdateQuery $image_partial_update_query (required)
+     * @param  string[]|null $fields_image For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateImage'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function updateImageRequest($id, $image_partial_update_query, $apiKey = null, string $contentType = self::contentTypes['updateImage'][0])
+    public function updateImageRequest($id, $image_partial_update_query, $fields_image = null, $apiKey = null, string $contentType = self::contentTypes['updateImage'][0])
     {
 
         // verify the required parameter 'id' is set
@@ -1076,6 +1081,7 @@ class ImagesApi
         }
 
 
+
         $resourcePath = '/api/images/{id}';
         $formParams = [];
         $queryParams = [];
@@ -1083,6 +1089,15 @@ class ImagesApi
         $httpBody = '';
         $multipart = false;
 
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $fields_image,
+            'fields[image]', // param base name
+            'array', // openApiType
+            'form', // style
+            false, // explode
+            false // required
+        ) ?? []);
 
 
         // path params
@@ -1148,7 +1163,7 @@ class ImagesApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2026-04-15'];
+        $defaultHeaders['revision'] = ['2026-07-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -1171,6 +1186,7 @@ class ImagesApi
      * Upload Image From File
      *
      * @param  \SplFileObject $file The image file to upload. Supported image formats: jpeg,png,gif. Maximum image size: 5MB. (required)
+     * @param  string[]|null $fields_image For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string|null $name A name for the image.  Defaults to the filename if not provided.  If the name matches an existing image, a suffix will be added. (optional)
      * @param  bool|null $hidden If true, this image is not shown in the asset library. (optional, default to false)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['uploadImageFromFile'] to see the possible values for this operation
@@ -1179,9 +1195,9 @@ class ImagesApi
      * @throws \InvalidArgumentException
      * @return array<string,mixed>|\KlaviyoAPI\Model\GetAccounts400Response|\KlaviyoAPI\Model\GetAccounts400Response
      */
-    public function uploadImageFromFile($file, $name = null, $hidden = false, $apiKey = null, string $contentType = self::contentTypes['uploadImageFromFile'][0])
+    public function uploadImageFromFile($file, $fields_image = null, $name = null, $hidden = false, $apiKey = null, string $contentType = self::contentTypes['uploadImageFromFile'][0])
     {
-        list($response) = $this->uploadImageFromFileWithHttpInfo($file, $name, $hidden, $apiKey, $contentType);
+        list($response) = $this->uploadImageFromFileWithHttpInfo($file, $fields_image, $name, $hidden, $apiKey, $contentType);
         return $response;
     }
 
@@ -1200,6 +1216,7 @@ class ImagesApi
      * Upload Image From File
      *
      * @param  \SplFileObject $file The image file to upload. Supported image formats: jpeg,png,gif. Maximum image size: 5MB. (required)
+     * @param  string[]|null $fields_image For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string|null $name A name for the image.  Defaults to the filename if not provided.  If the name matches an existing image, a suffix will be added. (optional)
      * @param  bool|null $hidden If true, this image is not shown in the asset library. (optional, default to false)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['uploadImageFromFile'] to see the possible values for this operation
@@ -1208,9 +1225,9 @@ class ImagesApi
      * @throws \InvalidArgumentException
      * @return array of array<string,mixed>|\KlaviyoAPI\Model\GetAccounts400Response|\KlaviyoAPI\Model\GetAccounts400Response, HTTP status code, HTTP response headers (array of strings)
      */
-    public function uploadImageFromFileWithHttpInfo($file, $name = null, $hidden = false, $apiKey = null, string $contentType = self::contentTypes['uploadImageFromFile'][0])
+    public function uploadImageFromFileWithHttpInfo($file, $fields_image = null, $name = null, $hidden = false, $apiKey = null, string $contentType = self::contentTypes['uploadImageFromFile'][0])
     {
-        $request = $this->uploadImageFromFileRequest($file, $name, $hidden, $apiKey, $contentType);
+        $request = $this->uploadImageFromFileRequest($file, $fields_image, $name, $hidden, $apiKey, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1324,6 +1341,7 @@ class ImagesApi
      * Upload Image From File
      *
      * @param  \SplFileObject $file The image file to upload. Supported image formats: jpeg,png,gif. Maximum image size: 5MB. (required)
+     * @param  string[]|null $fields_image For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string|null $name A name for the image.  Defaults to the filename if not provided.  If the name matches an existing image, a suffix will be added. (optional)
      * @param  bool|null $hidden If true, this image is not shown in the asset library. (optional, default to false)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['uploadImageFromFile'] to see the possible values for this operation
@@ -1331,9 +1349,9 @@ class ImagesApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function uploadImageFromFileAsync($file, $name = null, $hidden = false, $apiKey = null, string $contentType = self::contentTypes['uploadImageFromFile'][0])
+    public function uploadImageFromFileAsync($file, $fields_image = null, $name = null, $hidden = false, $apiKey = null, string $contentType = self::contentTypes['uploadImageFromFile'][0])
     {
-        return $this->uploadImageFromFileAsyncWithHttpInfo($file, $name, $hidden, $apiKey, $contentType)
+        return $this->uploadImageFromFileAsyncWithHttpInfo($file, $fields_image, $name, $hidden, $apiKey, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1356,6 +1374,7 @@ class ImagesApi
      * Upload Image From File
      *
      * @param  \SplFileObject $file The image file to upload. Supported image formats: jpeg,png,gif. Maximum image size: 5MB. (required)
+     * @param  string[]|null $fields_image For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string|null $name A name for the image.  Defaults to the filename if not provided.  If the name matches an existing image, a suffix will be added. (optional)
      * @param  bool|null $hidden If true, this image is not shown in the asset library. (optional, default to false)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['uploadImageFromFile'] to see the possible values for this operation
@@ -1363,10 +1382,10 @@ class ImagesApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function uploadImageFromFileAsyncWithHttpInfo($file, $name = null, $hidden = false, $apiKey = null, string $contentType = self::contentTypes['uploadImageFromFile'][0])
+    public function uploadImageFromFileAsyncWithHttpInfo($file, $fields_image = null, $name = null, $hidden = false, $apiKey = null, string $contentType = self::contentTypes['uploadImageFromFile'][0])
     {
         $returnType = 'array<string,mixed>';
-        $request = $this->uploadImageFromFileRequest($file, $name, $hidden, $apiKey, $contentType);
+        $request = $this->uploadImageFromFileRequest($file, $fields_image, $name, $hidden, $apiKey, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1422,6 +1441,7 @@ class ImagesApi
      * Create request for operation 'uploadImageFromFile'
      *
      * @param  \SplFileObject $file The image file to upload. Supported image formats: jpeg,png,gif. Maximum image size: 5MB. (required)
+     * @param  string[]|null $fields_image For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string|null $name A name for the image.  Defaults to the filename if not provided.  If the name matches an existing image, a suffix will be added. (optional)
      * @param  bool|null $hidden If true, this image is not shown in the asset library. (optional, default to false)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['uploadImageFromFile'] to see the possible values for this operation
@@ -1429,7 +1449,7 @@ class ImagesApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function uploadImageFromFileRequest($file, $name = null, $hidden = false, $apiKey = null, string $contentType = self::contentTypes['uploadImageFromFile'][0])
+    public function uploadImageFromFileRequest($file, $fields_image = null, $name = null, $hidden = false, $apiKey = null, string $contentType = self::contentTypes['uploadImageFromFile'][0])
     {
 
         // verify the required parameter 'file' is set
@@ -1442,6 +1462,7 @@ class ImagesApi
 
 
 
+
         $resourcePath = '/api/image-upload';
         $formParams = [];
         $queryParams = [];
@@ -1449,6 +1470,15 @@ class ImagesApi
         $httpBody = '';
         $multipart = false;
 
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $fields_image,
+            'fields[image]', // param base name
+            'array', // openApiType
+            'form', // style
+            false, // explode
+            false // required
+        ) ?? []);
 
 
 
@@ -1511,7 +1541,7 @@ class ImagesApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2026-04-15'];
+        $defaultHeaders['revision'] = ['2026-07-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -1543,15 +1573,16 @@ class ImagesApi
      * Upload Image From URL
      *
      * @param  \KlaviyoAPI\Model\ImageCreateQuery $image_create_query image_create_query (required)
+     * @param  string[]|null $fields_image For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['uploadImageFromUrl'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array<string,mixed>|\KlaviyoAPI\Model\GetAccounts400Response|\KlaviyoAPI\Model\GetAccounts400Response
      */
-    public function uploadImageFromUrl($image_create_query, $apiKey = null, string $contentType = self::contentTypes['uploadImageFromUrl'][0])
+    public function uploadImageFromUrl($image_create_query, $fields_image = null, $apiKey = null, string $contentType = self::contentTypes['uploadImageFromUrl'][0])
     {
-        list($response) = $this->uploadImageFromUrlWithHttpInfo($image_create_query, $apiKey, $contentType);
+        list($response) = $this->uploadImageFromUrlWithHttpInfo($image_create_query, $fields_image, $apiKey, $contentType);
         return $response;
     }
 
@@ -1570,15 +1601,16 @@ class ImagesApi
      * Upload Image From URL
      *
      * @param  \KlaviyoAPI\Model\ImageCreateQuery $image_create_query (required)
+     * @param  string[]|null $fields_image For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['uploadImageFromUrl'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of array<string,mixed>|\KlaviyoAPI\Model\GetAccounts400Response|\KlaviyoAPI\Model\GetAccounts400Response, HTTP status code, HTTP response headers (array of strings)
      */
-    public function uploadImageFromUrlWithHttpInfo($image_create_query, $apiKey = null, string $contentType = self::contentTypes['uploadImageFromUrl'][0])
+    public function uploadImageFromUrlWithHttpInfo($image_create_query, $fields_image = null, $apiKey = null, string $contentType = self::contentTypes['uploadImageFromUrl'][0])
     {
-        $request = $this->uploadImageFromUrlRequest($image_create_query, $apiKey, $contentType);
+        $request = $this->uploadImageFromUrlRequest($image_create_query, $fields_image, $apiKey, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1692,14 +1724,15 @@ class ImagesApi
      * Upload Image From URL
      *
      * @param  \KlaviyoAPI\Model\ImageCreateQuery $image_create_query (required)
+     * @param  string[]|null $fields_image For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['uploadImageFromUrl'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function uploadImageFromUrlAsync($image_create_query, $apiKey = null, string $contentType = self::contentTypes['uploadImageFromUrl'][0])
+    public function uploadImageFromUrlAsync($image_create_query, $fields_image = null, $apiKey = null, string $contentType = self::contentTypes['uploadImageFromUrl'][0])
     {
-        return $this->uploadImageFromUrlAsyncWithHttpInfo($image_create_query, $apiKey, $contentType)
+        return $this->uploadImageFromUrlAsyncWithHttpInfo($image_create_query, $fields_image, $apiKey, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1722,15 +1755,16 @@ class ImagesApi
      * Upload Image From URL
      *
      * @param  \KlaviyoAPI\Model\ImageCreateQuery $image_create_query (required)
+     * @param  string[]|null $fields_image For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['uploadImageFromUrl'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function uploadImageFromUrlAsyncWithHttpInfo($image_create_query, $apiKey = null, string $contentType = self::contentTypes['uploadImageFromUrl'][0])
+    public function uploadImageFromUrlAsyncWithHttpInfo($image_create_query, $fields_image = null, $apiKey = null, string $contentType = self::contentTypes['uploadImageFromUrl'][0])
     {
         $returnType = 'array<string,mixed>';
-        $request = $this->uploadImageFromUrlRequest($image_create_query, $apiKey, $contentType);
+        $request = $this->uploadImageFromUrlRequest($image_create_query, $fields_image, $apiKey, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1786,12 +1820,13 @@ class ImagesApi
      * Create request for operation 'uploadImageFromUrl'
      *
      * @param  \KlaviyoAPI\Model\ImageCreateQuery $image_create_query (required)
+     * @param  string[]|null $fields_image For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['uploadImageFromUrl'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function uploadImageFromUrlRequest($image_create_query, $apiKey = null, string $contentType = self::contentTypes['uploadImageFromUrl'][0])
+    public function uploadImageFromUrlRequest($image_create_query, $fields_image = null, $apiKey = null, string $contentType = self::contentTypes['uploadImageFromUrl'][0])
     {
 
         // verify the required parameter 'image_create_query' is set
@@ -1802,6 +1837,7 @@ class ImagesApi
         }
 
 
+
         $resourcePath = '/api/images';
         $formParams = [];
         $queryParams = [];
@@ -1809,6 +1845,15 @@ class ImagesApi
         $httpBody = '';
         $multipart = false;
 
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $fields_image,
+            'fields[image]', // param base name
+            'array', // openApiType
+            'form', // style
+            false, // explode
+            false // required
+        ) ?? []);
 
 
 
@@ -1866,7 +1911,7 @@ class ImagesApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2026-04-15'];
+        $defaultHeaders['revision'] = ['2026-07-15'];
 
         $headers = array_merge(
             $defaultHeaders,

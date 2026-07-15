@@ -58,6 +58,7 @@ class SpinToWinProperties implements ModelInterface, ArrayAccess, \JsonSerializa
       */
     protected static $openAPITypes = [
         'display_device' => 'string[]',
+        'classname' => 'string',
         'duplicate_slices' => 'bool',
         'slices' => '\KlaviyoAPI\Model\SpinToWinSliceConfig[]'
     ];
@@ -71,6 +72,7 @@ class SpinToWinProperties implements ModelInterface, ArrayAccess, \JsonSerializa
       */
     protected static $openAPIFormats = [
         'display_device' => null,
+        'classname' => null,
         'duplicate_slices' => null,
         'slices' => null
     ];
@@ -82,6 +84,7 @@ class SpinToWinProperties implements ModelInterface, ArrayAccess, \JsonSerializa
       */
     protected static array $openAPINullables = [
         'display_device' => false,
+        'classname' => true,
         'duplicate_slices' => false,
         'slices' => false
     ];
@@ -173,6 +176,7 @@ class SpinToWinProperties implements ModelInterface, ArrayAccess, \JsonSerializa
      */
     protected static $attributeMap = [
         'display_device' => 'display_device',
+        'classname' => 'classname',
         'duplicate_slices' => 'duplicate_slices',
         'slices' => 'slices'
     ];
@@ -184,6 +188,7 @@ class SpinToWinProperties implements ModelInterface, ArrayAccess, \JsonSerializa
      */
     protected static $setters = [
         'display_device' => 'setDisplayDevice',
+        'classname' => 'setClassname',
         'duplicate_slices' => 'setDuplicateSlices',
         'slices' => 'setSlices'
     ];
@@ -195,6 +200,7 @@ class SpinToWinProperties implements ModelInterface, ArrayAccess, \JsonSerializa
      */
     protected static $getters = [
         'display_device' => 'getDisplayDevice',
+        'classname' => 'getClassname',
         'duplicate_slices' => 'getDuplicateSlices',
         'slices' => 'getSlices'
     ];
@@ -274,6 +280,7 @@ class SpinToWinProperties implements ModelInterface, ArrayAccess, \JsonSerializa
     public function __construct(?array $data = null)
     {
         $this->setIfExists('display_device', $data ?? [], null);
+        $this->setIfExists('classname', $data ?? [], null);
         $this->setIfExists('duplicate_slices', $data ?? [], false);
         $this->setIfExists('slices', $data ?? [], null);
     }
@@ -355,6 +362,40 @@ class SpinToWinProperties implements ModelInterface, ArrayAccess, \JsonSerializa
             );
         }
         $this->container['display_device'] = $display_device;
+
+        return $this;
+    }
+
+    /**
+     * Gets classname
+     *
+     * @return string|null
+     */
+    public function getClassname()
+    {
+        return $this->container['classname'];
+    }
+
+    /**
+     * Sets classname
+     *
+     * @param string|null $classname classname
+     *
+     * @return self
+     */
+    public function setClassname($classname)
+    {
+        if (is_null($classname)) {
+            array_push($this->openAPINullablesSetToNull, 'classname');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('classname', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['classname'] = $classname;
 
         return $this;
     }

@@ -264,33 +264,6 @@ class ImageBlockCroppingProperties implements ModelInterface, ArrayAccess, \Json
         return self::$openAPIModelName;
     }
 
-    public const ASPECT_RATIO__16_9 = '16:9';
-    public const ASPECT_RATIO__1_1 = '1:1';
-    public const ASPECT_RATIO__2_3 = '2:3';
-    public const ASPECT_RATIO__3_4 = '3:4';
-    public const ASPECT_RATIO__4_3 = '4:3';
-    public const ASPECT_RATIO_CIRCLE = 'circle';
-    public const ASPECT_RATIO_CUSTOM = 'custom';
-    public const ASPECT_RATIO_ORIGINAL = 'original';
-
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getAspectRatioAllowableValues()
-    {
-        return [
-            self::ASPECT_RATIO__16_9,
-            self::ASPECT_RATIO__1_1,
-            self::ASPECT_RATIO__2_3,
-            self::ASPECT_RATIO__3_4,
-            self::ASPECT_RATIO__4_3,
-            self::ASPECT_RATIO_CIRCLE,
-            self::ASPECT_RATIO_CUSTOM,
-            self::ASPECT_RATIO_ORIGINAL,
-        ];
-    }
 
     /**
      * Associative array for storing property values
@@ -343,15 +316,6 @@ class ImageBlockCroppingProperties implements ModelInterface, ArrayAccess, \Json
     {
         $invalidProperties = [];
 
-        $allowedValues = $this->getAspectRatioAllowableValues();
-        if (!is_null($this->container['aspect_ratio']) && !in_array($this->container['aspect_ratio'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value '%s' for 'aspect_ratio', must be one of '%s'",
-                $this->container['aspect_ratio'],
-                implode("', '", $allowedValues)
-            );
-        }
-
         return $invalidProperties;
     }
 
@@ -380,7 +344,7 @@ class ImageBlockCroppingProperties implements ModelInterface, ArrayAccess, \Json
     /**
      * Sets aspect_ratio
      *
-     * @param string|null $aspect_ratio Aspect ratio options.
+     * @param string|null $aspect_ratio aspect_ratio
      *
      * @return self
      */
@@ -395,16 +359,6 @@ class ImageBlockCroppingProperties implements ModelInterface, ArrayAccess, \Json
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
-        }
-        $allowedValues = $this->getAspectRatioAllowableValues();
-        if (!is_null($aspect_ratio) && !in_array($aspect_ratio, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value '%s' for 'aspect_ratio', must be one of '%s'",
-                    $aspect_ratio,
-                    implode("', '", $allowedValues)
-                )
-            );
         }
         $this->container['aspect_ratio'] = $aspect_ratio;
 

@@ -149,15 +149,16 @@ class WebhooksApi
      * Create Webhook
      *
      * @param  \KlaviyoAPI\Model\WebhookCreateQuery $webhook_create_query webhook_create_query (required)
+     * @param  string[]|null $fields_webhook For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createWebhook'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array<string,mixed>|\KlaviyoAPI\Model\GetAccounts400Response|\KlaviyoAPI\Model\GetAccounts400Response
      */
-    public function createWebhook($webhook_create_query, $apiKey = null, string $contentType = self::contentTypes['createWebhook'][0])
+    public function createWebhook($webhook_create_query, $fields_webhook = null, $apiKey = null, string $contentType = self::contentTypes['createWebhook'][0])
     {
-        list($response) = $this->createWebhookWithHttpInfo($webhook_create_query, $apiKey, $contentType);
+        list($response) = $this->createWebhookWithHttpInfo($webhook_create_query, $fields_webhook, $apiKey, $contentType);
         return $response;
     }
 
@@ -167,15 +168,16 @@ class WebhooksApi
      * Create Webhook
      *
      * @param  \KlaviyoAPI\Model\WebhookCreateQuery $webhook_create_query (required)
+     * @param  string[]|null $fields_webhook For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createWebhook'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of array<string,mixed>|\KlaviyoAPI\Model\GetAccounts400Response|\KlaviyoAPI\Model\GetAccounts400Response, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createWebhookWithHttpInfo($webhook_create_query, $apiKey = null, string $contentType = self::contentTypes['createWebhook'][0])
+    public function createWebhookWithHttpInfo($webhook_create_query, $fields_webhook = null, $apiKey = null, string $contentType = self::contentTypes['createWebhook'][0])
     {
-        $request = $this->createWebhookRequest($webhook_create_query, $apiKey, $contentType);
+        $request = $this->createWebhookRequest($webhook_create_query, $fields_webhook, $apiKey, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -280,14 +282,15 @@ class WebhooksApi
      * Create Webhook
      *
      * @param  \KlaviyoAPI\Model\WebhookCreateQuery $webhook_create_query (required)
+     * @param  string[]|null $fields_webhook For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createWebhook'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createWebhookAsync($webhook_create_query, $apiKey = null, string $contentType = self::contentTypes['createWebhook'][0])
+    public function createWebhookAsync($webhook_create_query, $fields_webhook = null, $apiKey = null, string $contentType = self::contentTypes['createWebhook'][0])
     {
-        return $this->createWebhookAsyncWithHttpInfo($webhook_create_query, $apiKey, $contentType)
+        return $this->createWebhookAsyncWithHttpInfo($webhook_create_query, $fields_webhook, $apiKey, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -301,15 +304,16 @@ class WebhooksApi
      * Create Webhook
      *
      * @param  \KlaviyoAPI\Model\WebhookCreateQuery $webhook_create_query (required)
+     * @param  string[]|null $fields_webhook For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createWebhook'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createWebhookAsyncWithHttpInfo($webhook_create_query, $apiKey = null, string $contentType = self::contentTypes['createWebhook'][0])
+    public function createWebhookAsyncWithHttpInfo($webhook_create_query, $fields_webhook = null, $apiKey = null, string $contentType = self::contentTypes['createWebhook'][0])
     {
         $returnType = 'array<string,mixed>';
-        $request = $this->createWebhookRequest($webhook_create_query, $apiKey, $contentType);
+        $request = $this->createWebhookRequest($webhook_create_query, $fields_webhook, $apiKey, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -356,12 +360,13 @@ class WebhooksApi
      * Create request for operation 'createWebhook'
      *
      * @param  \KlaviyoAPI\Model\WebhookCreateQuery $webhook_create_query (required)
+     * @param  string[]|null $fields_webhook For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createWebhook'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function createWebhookRequest($webhook_create_query, $apiKey = null, string $contentType = self::contentTypes['createWebhook'][0])
+    public function createWebhookRequest($webhook_create_query, $fields_webhook = null, $apiKey = null, string $contentType = self::contentTypes['createWebhook'][0])
     {
 
         // verify the required parameter 'webhook_create_query' is set
@@ -372,6 +377,7 @@ class WebhooksApi
         }
 
 
+
         $resourcePath = '/api/webhooks';
         $formParams = [];
         $queryParams = [];
@@ -379,6 +385,15 @@ class WebhooksApi
         $httpBody = '';
         $multipart = false;
 
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $fields_webhook,
+            'fields[webhook]', // param base name
+            'array', // openApiType
+            'form', // style
+            false, // explode
+            false // required
+        ) ?? []);
 
 
 
@@ -436,7 +451,7 @@ class WebhooksApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2026-04-15'];
+        $defaultHeaders['revision'] = ['2026-07-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -680,7 +695,7 @@ class WebhooksApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2026-04-15'];
+        $defaultHeaders['revision'] = ['2026-07-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -703,17 +718,18 @@ class WebhooksApi
      * Get Webhook
      *
      * @param  string $id The ID of the webhook. (required)
-     * @param  string[]|null $fields_webhook For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#relationships (optional)
+     * @param  string[]|null $fields_webhook_topic For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_webhook For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#relationships (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWebhook'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array<string,mixed>|\KlaviyoAPI\Model\GetAccounts400Response|\KlaviyoAPI\Model\GetAccounts400Response
      */
-    public function getWebhook($id, $fields_webhook = null, $include = null, $apiKey = null, string $contentType = self::contentTypes['getWebhook'][0])
+    public function getWebhook($id, $fields_webhook_topic = null, $fields_webhook = null, $include = null, $apiKey = null, string $contentType = self::contentTypes['getWebhook'][0])
     {
-        list($response) = $this->getWebhookWithHttpInfo($id, $fields_webhook, $include, $apiKey, $contentType);
+        list($response) = $this->getWebhookWithHttpInfo($id, $fields_webhook_topic, $fields_webhook, $include, $apiKey, $contentType);
         return $response;
     }
 
@@ -723,17 +739,18 @@ class WebhooksApi
      * Get Webhook
      *
      * @param  string $id The ID of the webhook. (required)
-     * @param  string[]|null $fields_webhook For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#relationships (optional)
+     * @param  string[]|null $fields_webhook_topic For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_webhook For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#relationships (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWebhook'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of array<string,mixed>|\KlaviyoAPI\Model\GetAccounts400Response|\KlaviyoAPI\Model\GetAccounts400Response, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getWebhookWithHttpInfo($id, $fields_webhook = null, $include = null, $apiKey = null, string $contentType = self::contentTypes['getWebhook'][0])
+    public function getWebhookWithHttpInfo($id, $fields_webhook_topic = null, $fields_webhook = null, $include = null, $apiKey = null, string $contentType = self::contentTypes['getWebhook'][0])
     {
-        $request = $this->getWebhookRequest($id, $fields_webhook, $include, $apiKey, $contentType);
+        $request = $this->getWebhookRequest($id, $fields_webhook_topic, $fields_webhook, $include, $apiKey, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -838,16 +855,17 @@ class WebhooksApi
      * Get Webhook
      *
      * @param  string $id The ID of the webhook. (required)
-     * @param  string[]|null $fields_webhook For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#relationships (optional)
+     * @param  string[]|null $fields_webhook_topic For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_webhook For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#relationships (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWebhook'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getWebhookAsync($id, $fields_webhook = null, $include = null, $apiKey = null, string $contentType = self::contentTypes['getWebhook'][0])
+    public function getWebhookAsync($id, $fields_webhook_topic = null, $fields_webhook = null, $include = null, $apiKey = null, string $contentType = self::contentTypes['getWebhook'][0])
     {
-        return $this->getWebhookAsyncWithHttpInfo($id, $fields_webhook, $include, $apiKey, $contentType)
+        return $this->getWebhookAsyncWithHttpInfo($id, $fields_webhook_topic, $fields_webhook, $include, $apiKey, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -861,17 +879,18 @@ class WebhooksApi
      * Get Webhook
      *
      * @param  string $id The ID of the webhook. (required)
-     * @param  string[]|null $fields_webhook For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#relationships (optional)
+     * @param  string[]|null $fields_webhook_topic For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_webhook For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#relationships (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWebhook'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getWebhookAsyncWithHttpInfo($id, $fields_webhook = null, $include = null, $apiKey = null, string $contentType = self::contentTypes['getWebhook'][0])
+    public function getWebhookAsyncWithHttpInfo($id, $fields_webhook_topic = null, $fields_webhook = null, $include = null, $apiKey = null, string $contentType = self::contentTypes['getWebhook'][0])
     {
         $returnType = 'array<string,mixed>';
-        $request = $this->getWebhookRequest($id, $fields_webhook, $include, $apiKey, $contentType);
+        $request = $this->getWebhookRequest($id, $fields_webhook_topic, $fields_webhook, $include, $apiKey, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -918,14 +937,15 @@ class WebhooksApi
      * Create request for operation 'getWebhook'
      *
      * @param  string $id The ID of the webhook. (required)
-     * @param  string[]|null $fields_webhook For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#relationships (optional)
+     * @param  string[]|null $fields_webhook_topic For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_webhook For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#relationships (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWebhook'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getWebhookRequest($id, $fields_webhook = null, $include = null, $apiKey = null, string $contentType = self::contentTypes['getWebhook'][0])
+    public function getWebhookRequest($id, $fields_webhook_topic = null, $fields_webhook = null, $include = null, $apiKey = null, string $contentType = self::contentTypes['getWebhook'][0])
     {
 
         // verify the required parameter 'id' is set
@@ -938,6 +958,7 @@ class WebhooksApi
 
 
 
+
         $resourcePath = '/api/webhooks/{id}';
         $formParams = [];
         $queryParams = [];
@@ -945,6 +966,15 @@ class WebhooksApi
         $httpBody = '';
         $multipart = false;
 
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $fields_webhook_topic,
+            'fields[webhook-topic]', // param base name
+            'array', // openApiType
+            'form', // style
+            false, // explode
+            false // required
+        ) ?? []);
         // query params
         $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
             $fields_webhook,
@@ -1021,7 +1051,7 @@ class WebhooksApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2026-04-15'];
+        $defaultHeaders['revision'] = ['2026-07-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -1044,15 +1074,16 @@ class WebhooksApi
      * Get Webhook Topic
      *
      * @param  string $id The ID of the webhook topic. (required)
+     * @param  string[]|null $fields_webhook_topic For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWebhookTopic'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array<string,mixed>|\KlaviyoAPI\Model\GetAccounts400Response|\KlaviyoAPI\Model\GetAccounts400Response
      */
-    public function getWebhookTopic($id, $apiKey = null, string $contentType = self::contentTypes['getWebhookTopic'][0])
+    public function getWebhookTopic($id, $fields_webhook_topic = null, $apiKey = null, string $contentType = self::contentTypes['getWebhookTopic'][0])
     {
-        list($response) = $this->getWebhookTopicWithHttpInfo($id, $apiKey, $contentType);
+        list($response) = $this->getWebhookTopicWithHttpInfo($id, $fields_webhook_topic, $apiKey, $contentType);
         return $response;
     }
 
@@ -1062,15 +1093,16 @@ class WebhooksApi
      * Get Webhook Topic
      *
      * @param  string $id The ID of the webhook topic. (required)
+     * @param  string[]|null $fields_webhook_topic For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWebhookTopic'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of array<string,mixed>|\KlaviyoAPI\Model\GetAccounts400Response|\KlaviyoAPI\Model\GetAccounts400Response, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getWebhookTopicWithHttpInfo($id, $apiKey = null, string $contentType = self::contentTypes['getWebhookTopic'][0])
+    public function getWebhookTopicWithHttpInfo($id, $fields_webhook_topic = null, $apiKey = null, string $contentType = self::contentTypes['getWebhookTopic'][0])
     {
-        $request = $this->getWebhookTopicRequest($id, $apiKey, $contentType);
+        $request = $this->getWebhookTopicRequest($id, $fields_webhook_topic, $apiKey, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1175,14 +1207,15 @@ class WebhooksApi
      * Get Webhook Topic
      *
      * @param  string $id The ID of the webhook topic. (required)
+     * @param  string[]|null $fields_webhook_topic For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWebhookTopic'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getWebhookTopicAsync($id, $apiKey = null, string $contentType = self::contentTypes['getWebhookTopic'][0])
+    public function getWebhookTopicAsync($id, $fields_webhook_topic = null, $apiKey = null, string $contentType = self::contentTypes['getWebhookTopic'][0])
     {
-        return $this->getWebhookTopicAsyncWithHttpInfo($id, $apiKey, $contentType)
+        return $this->getWebhookTopicAsyncWithHttpInfo($id, $fields_webhook_topic, $apiKey, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1196,15 +1229,16 @@ class WebhooksApi
      * Get Webhook Topic
      *
      * @param  string $id The ID of the webhook topic. (required)
+     * @param  string[]|null $fields_webhook_topic For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWebhookTopic'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getWebhookTopicAsyncWithHttpInfo($id, $apiKey = null, string $contentType = self::contentTypes['getWebhookTopic'][0])
+    public function getWebhookTopicAsyncWithHttpInfo($id, $fields_webhook_topic = null, $apiKey = null, string $contentType = self::contentTypes['getWebhookTopic'][0])
     {
         $returnType = 'array<string,mixed>';
-        $request = $this->getWebhookTopicRequest($id, $apiKey, $contentType);
+        $request = $this->getWebhookTopicRequest($id, $fields_webhook_topic, $apiKey, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1251,12 +1285,13 @@ class WebhooksApi
      * Create request for operation 'getWebhookTopic'
      *
      * @param  string $id The ID of the webhook topic. (required)
+     * @param  string[]|null $fields_webhook_topic For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWebhookTopic'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getWebhookTopicRequest($id, $apiKey = null, string $contentType = self::contentTypes['getWebhookTopic'][0])
+    public function getWebhookTopicRequest($id, $fields_webhook_topic = null, $apiKey = null, string $contentType = self::contentTypes['getWebhookTopic'][0])
     {
 
         // verify the required parameter 'id' is set
@@ -1267,6 +1302,7 @@ class WebhooksApi
         }
 
 
+
         $resourcePath = '/api/webhook-topics/{id}';
         $formParams = [];
         $queryParams = [];
@@ -1274,6 +1310,15 @@ class WebhooksApi
         $httpBody = '';
         $multipart = false;
 
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $fields_webhook_topic,
+            'fields[webhook-topic]', // param base name
+            'array', // openApiType
+            'form', // style
+            false, // explode
+            false // required
+        ) ?? []);
 
 
         // path params
@@ -1332,7 +1377,7 @@ class WebhooksApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2026-04-15'];
+        $defaultHeaders['revision'] = ['2026-07-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -1354,15 +1399,16 @@ class WebhooksApi
      *
      * Get Webhook Topics
      *
+     * @param  string[]|null $fields_webhook_topic For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWebhookTopics'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array<string,mixed>|\KlaviyoAPI\Model\GetAccounts400Response|\KlaviyoAPI\Model\GetAccounts400Response
      */
-    public function getWebhookTopics($apiKey = null, string $contentType = self::contentTypes['getWebhookTopics'][0])
+    public function getWebhookTopics($fields_webhook_topic = null, $apiKey = null, string $contentType = self::contentTypes['getWebhookTopics'][0])
     {
-        list($response) = $this->getWebhookTopicsWithHttpInfo($apiKey, $contentType);
+        list($response) = $this->getWebhookTopicsWithHttpInfo($fields_webhook_topic, $apiKey, $contentType);
         return $response;
     }
 
@@ -1371,15 +1417,16 @@ class WebhooksApi
      *
      * Get Webhook Topics
      *
+     * @param  string[]|null $fields_webhook_topic For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWebhookTopics'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of array<string,mixed>|\KlaviyoAPI\Model\GetAccounts400Response|\KlaviyoAPI\Model\GetAccounts400Response, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getWebhookTopicsWithHttpInfo($apiKey = null, string $contentType = self::contentTypes['getWebhookTopics'][0])
+    public function getWebhookTopicsWithHttpInfo($fields_webhook_topic = null, $apiKey = null, string $contentType = self::contentTypes['getWebhookTopics'][0])
     {
-        $request = $this->getWebhookTopicsRequest($apiKey, $contentType);
+        $request = $this->getWebhookTopicsRequest($fields_webhook_topic, $apiKey, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1483,14 +1530,15 @@ class WebhooksApi
      *
      * Get Webhook Topics
      *
+     * @param  string[]|null $fields_webhook_topic For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWebhookTopics'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getWebhookTopicsAsync($apiKey = null, string $contentType = self::contentTypes['getWebhookTopics'][0])
+    public function getWebhookTopicsAsync($fields_webhook_topic = null, $apiKey = null, string $contentType = self::contentTypes['getWebhookTopics'][0])
     {
-        return $this->getWebhookTopicsAsyncWithHttpInfo($apiKey, $contentType)
+        return $this->getWebhookTopicsAsyncWithHttpInfo($fields_webhook_topic, $apiKey, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1503,15 +1551,16 @@ class WebhooksApi
      *
      * Get Webhook Topics
      *
+     * @param  string[]|null $fields_webhook_topic For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWebhookTopics'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getWebhookTopicsAsyncWithHttpInfo($apiKey = null, string $contentType = self::contentTypes['getWebhookTopics'][0])
+    public function getWebhookTopicsAsyncWithHttpInfo($fields_webhook_topic = null, $apiKey = null, string $contentType = self::contentTypes['getWebhookTopics'][0])
     {
         $returnType = 'array<string,mixed>';
-        $request = $this->getWebhookTopicsRequest($apiKey, $contentType);
+        $request = $this->getWebhookTopicsRequest($fields_webhook_topic, $apiKey, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1557,13 +1606,15 @@ class WebhooksApi
     /**
      * Create request for operation 'getWebhookTopics'
      *
+     * @param  string[]|null $fields_webhook_topic For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWebhookTopics'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getWebhookTopicsRequest($apiKey = null, string $contentType = self::contentTypes['getWebhookTopics'][0])
+    public function getWebhookTopicsRequest($fields_webhook_topic = null, $apiKey = null, string $contentType = self::contentTypes['getWebhookTopics'][0])
     {
+
 
 
         $resourcePath = '/api/webhook-topics';
@@ -1573,6 +1624,15 @@ class WebhooksApi
         $httpBody = '';
         $multipart = false;
 
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $fields_webhook_topic,
+            'fields[webhook-topic]', // param base name
+            'array', // openApiType
+            'form', // style
+            false, // explode
+            false // required
+        ) ?? []);
 
 
 
@@ -1623,7 +1683,7 @@ class WebhooksApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2026-04-15'];
+        $defaultHeaders['revision'] = ['2026-07-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -1645,17 +1705,18 @@ class WebhooksApi
      *
      * Get Webhooks
      *
-     * @param  string[]|null $fields_webhook For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#relationships (optional)
+     * @param  string[]|null $fields_webhook_topic For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_webhook For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#relationships (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWebhooks'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array<string,mixed>|\KlaviyoAPI\Model\GetAccounts400Response|\KlaviyoAPI\Model\GetAccounts400Response
      */
-    public function getWebhooks($fields_webhook = null, $include = null, $apiKey = null, string $contentType = self::contentTypes['getWebhooks'][0])
+    public function getWebhooks($fields_webhook_topic = null, $fields_webhook = null, $include = null, $apiKey = null, string $contentType = self::contentTypes['getWebhooks'][0])
     {
-        list($response) = $this->getWebhooksWithHttpInfo($fields_webhook, $include, $apiKey, $contentType);
+        list($response) = $this->getWebhooksWithHttpInfo($fields_webhook_topic, $fields_webhook, $include, $apiKey, $contentType);
         return $response;
     }
 
@@ -1664,17 +1725,18 @@ class WebhooksApi
      *
      * Get Webhooks
      *
-     * @param  string[]|null $fields_webhook For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#relationships (optional)
+     * @param  string[]|null $fields_webhook_topic For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_webhook For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#relationships (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWebhooks'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of array<string,mixed>|\KlaviyoAPI\Model\GetAccounts400Response|\KlaviyoAPI\Model\GetAccounts400Response, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getWebhooksWithHttpInfo($fields_webhook = null, $include = null, $apiKey = null, string $contentType = self::contentTypes['getWebhooks'][0])
+    public function getWebhooksWithHttpInfo($fields_webhook_topic = null, $fields_webhook = null, $include = null, $apiKey = null, string $contentType = self::contentTypes['getWebhooks'][0])
     {
-        $request = $this->getWebhooksRequest($fields_webhook, $include, $apiKey, $contentType);
+        $request = $this->getWebhooksRequest($fields_webhook_topic, $fields_webhook, $include, $apiKey, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1778,16 +1840,17 @@ class WebhooksApi
      *
      * Get Webhooks
      *
-     * @param  string[]|null $fields_webhook For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#relationships (optional)
+     * @param  string[]|null $fields_webhook_topic For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_webhook For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#relationships (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWebhooks'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getWebhooksAsync($fields_webhook = null, $include = null, $apiKey = null, string $contentType = self::contentTypes['getWebhooks'][0])
+    public function getWebhooksAsync($fields_webhook_topic = null, $fields_webhook = null, $include = null, $apiKey = null, string $contentType = self::contentTypes['getWebhooks'][0])
     {
-        return $this->getWebhooksAsyncWithHttpInfo($fields_webhook, $include, $apiKey, $contentType)
+        return $this->getWebhooksAsyncWithHttpInfo($fields_webhook_topic, $fields_webhook, $include, $apiKey, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1800,17 +1863,18 @@ class WebhooksApi
      *
      * Get Webhooks
      *
-     * @param  string[]|null $fields_webhook For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#relationships (optional)
+     * @param  string[]|null $fields_webhook_topic For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_webhook For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#relationships (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWebhooks'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getWebhooksAsyncWithHttpInfo($fields_webhook = null, $include = null, $apiKey = null, string $contentType = self::contentTypes['getWebhooks'][0])
+    public function getWebhooksAsyncWithHttpInfo($fields_webhook_topic = null, $fields_webhook = null, $include = null, $apiKey = null, string $contentType = self::contentTypes['getWebhooks'][0])
     {
         $returnType = 'array<string,mixed>';
-        $request = $this->getWebhooksRequest($fields_webhook, $include, $apiKey, $contentType);
+        $request = $this->getWebhooksRequest($fields_webhook_topic, $fields_webhook, $include, $apiKey, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1856,15 +1920,17 @@ class WebhooksApi
     /**
      * Create request for operation 'getWebhooks'
      *
-     * @param  string[]|null $fields_webhook For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#relationships (optional)
+     * @param  string[]|null $fields_webhook_topic For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_webhook For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#relationships (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWebhooks'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getWebhooksRequest($fields_webhook = null, $include = null, $apiKey = null, string $contentType = self::contentTypes['getWebhooks'][0])
+    public function getWebhooksRequest($fields_webhook_topic = null, $fields_webhook = null, $include = null, $apiKey = null, string $contentType = self::contentTypes['getWebhooks'][0])
     {
+
 
 
 
@@ -1876,6 +1942,15 @@ class WebhooksApi
         $httpBody = '';
         $multipart = false;
 
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $fields_webhook_topic,
+            'fields[webhook-topic]', // param base name
+            'array', // openApiType
+            'form', // style
+            false, // explode
+            false // required
+        ) ?? []);
         // query params
         $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
             $fields_webhook,
@@ -1944,7 +2019,7 @@ class WebhooksApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2026-04-15'];
+        $defaultHeaders['revision'] = ['2026-07-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -1968,15 +2043,16 @@ class WebhooksApi
      *
      * @param  string $id The ID of the webhook. (required)
      * @param  \KlaviyoAPI\Model\WebhookPartialUpdateQuery $webhook_partial_update_query webhook_partial_update_query (required)
+     * @param  string[]|null $fields_webhook For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateWebhook'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array<string,mixed>|\KlaviyoAPI\Model\GetAccounts400Response|\KlaviyoAPI\Model\GetAccounts400Response
      */
-    public function updateWebhook($id, $webhook_partial_update_query, $apiKey = null, string $contentType = self::contentTypes['updateWebhook'][0])
+    public function updateWebhook($id, $webhook_partial_update_query, $fields_webhook = null, $apiKey = null, string $contentType = self::contentTypes['updateWebhook'][0])
     {
-        list($response) = $this->updateWebhookWithHttpInfo($id, $webhook_partial_update_query, $apiKey, $contentType);
+        list($response) = $this->updateWebhookWithHttpInfo($id, $webhook_partial_update_query, $fields_webhook, $apiKey, $contentType);
         return $response;
     }
 
@@ -1987,15 +2063,16 @@ class WebhooksApi
      *
      * @param  string $id The ID of the webhook. (required)
      * @param  \KlaviyoAPI\Model\WebhookPartialUpdateQuery $webhook_partial_update_query (required)
+     * @param  string[]|null $fields_webhook For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateWebhook'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of array<string,mixed>|\KlaviyoAPI\Model\GetAccounts400Response|\KlaviyoAPI\Model\GetAccounts400Response, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updateWebhookWithHttpInfo($id, $webhook_partial_update_query, $apiKey = null, string $contentType = self::contentTypes['updateWebhook'][0])
+    public function updateWebhookWithHttpInfo($id, $webhook_partial_update_query, $fields_webhook = null, $apiKey = null, string $contentType = self::contentTypes['updateWebhook'][0])
     {
-        $request = $this->updateWebhookRequest($id, $webhook_partial_update_query, $apiKey, $contentType);
+        $request = $this->updateWebhookRequest($id, $webhook_partial_update_query, $fields_webhook, $apiKey, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2101,14 +2178,15 @@ class WebhooksApi
      *
      * @param  string $id The ID of the webhook. (required)
      * @param  \KlaviyoAPI\Model\WebhookPartialUpdateQuery $webhook_partial_update_query (required)
+     * @param  string[]|null $fields_webhook For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateWebhook'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateWebhookAsync($id, $webhook_partial_update_query, $apiKey = null, string $contentType = self::contentTypes['updateWebhook'][0])
+    public function updateWebhookAsync($id, $webhook_partial_update_query, $fields_webhook = null, $apiKey = null, string $contentType = self::contentTypes['updateWebhook'][0])
     {
-        return $this->updateWebhookAsyncWithHttpInfo($id, $webhook_partial_update_query, $apiKey, $contentType)
+        return $this->updateWebhookAsyncWithHttpInfo($id, $webhook_partial_update_query, $fields_webhook, $apiKey, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2123,15 +2201,16 @@ class WebhooksApi
      *
      * @param  string $id The ID of the webhook. (required)
      * @param  \KlaviyoAPI\Model\WebhookPartialUpdateQuery $webhook_partial_update_query (required)
+     * @param  string[]|null $fields_webhook For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateWebhook'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateWebhookAsyncWithHttpInfo($id, $webhook_partial_update_query, $apiKey = null, string $contentType = self::contentTypes['updateWebhook'][0])
+    public function updateWebhookAsyncWithHttpInfo($id, $webhook_partial_update_query, $fields_webhook = null, $apiKey = null, string $contentType = self::contentTypes['updateWebhook'][0])
     {
         $returnType = 'array<string,mixed>';
-        $request = $this->updateWebhookRequest($id, $webhook_partial_update_query, $apiKey, $contentType);
+        $request = $this->updateWebhookRequest($id, $webhook_partial_update_query, $fields_webhook, $apiKey, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2179,12 +2258,13 @@ class WebhooksApi
      *
      * @param  string $id The ID of the webhook. (required)
      * @param  \KlaviyoAPI\Model\WebhookPartialUpdateQuery $webhook_partial_update_query (required)
+     * @param  string[]|null $fields_webhook For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateWebhook'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function updateWebhookRequest($id, $webhook_partial_update_query, $apiKey = null, string $contentType = self::contentTypes['updateWebhook'][0])
+    public function updateWebhookRequest($id, $webhook_partial_update_query, $fields_webhook = null, $apiKey = null, string $contentType = self::contentTypes['updateWebhook'][0])
     {
 
         // verify the required parameter 'id' is set
@@ -2202,6 +2282,7 @@ class WebhooksApi
         }
 
 
+
         $resourcePath = '/api/webhooks/{id}';
         $formParams = [];
         $queryParams = [];
@@ -2209,6 +2290,15 @@ class WebhooksApi
         $httpBody = '';
         $multipart = false;
 
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $fields_webhook,
+            'fields[webhook]', // param base name
+            'array', // openApiType
+            'form', // style
+            false, // explode
+            false // required
+        ) ?? []);
 
 
         // path params
@@ -2274,7 +2364,7 @@ class WebhooksApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2026-04-15'];
+        $defaultHeaders['revision'] = ['2026-07-15'];
 
         $headers = array_merge(
             $defaultHeaders,

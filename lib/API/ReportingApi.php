@@ -149,16 +149,17 @@ class ReportingApi
      * Query Campaign Values
      *
      * @param  \KlaviyoAPI\Model\CampaignValuesRequestDTO $campaign_values_request_dto campaign_values_request_dto (required)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination (optional)
+     * @param  string[]|null $fields_campaign_values_report For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['queryCampaignValues'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array<string,mixed>|\KlaviyoAPI\Model\GetAccounts400Response|\KlaviyoAPI\Model\GetAccounts400Response
      */
-    public function queryCampaignValues($campaign_values_request_dto, $page_cursor = null, $apiKey = null, string $contentType = self::contentTypes['queryCampaignValues'][0])
+    public function queryCampaignValues($campaign_values_request_dto, $fields_campaign_values_report = null, $page_cursor = null, $apiKey = null, string $contentType = self::contentTypes['queryCampaignValues'][0])
     {
-        list($response) = $this->queryCampaignValuesWithHttpInfo($campaign_values_request_dto, $page_cursor, $apiKey, $contentType);
+        list($response) = $this->queryCampaignValuesWithHttpInfo($campaign_values_request_dto, $fields_campaign_values_report, $page_cursor, $apiKey, $contentType);
         return $response;
     }
 
@@ -186,16 +187,17 @@ class ReportingApi
      * Query Campaign Values
      *
      * @param  \KlaviyoAPI\Model\CampaignValuesRequestDTO $campaign_values_request_dto (required)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination (optional)
+     * @param  string[]|null $fields_campaign_values_report For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['queryCampaignValues'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of array<string,mixed>|\KlaviyoAPI\Model\GetAccounts400Response|\KlaviyoAPI\Model\GetAccounts400Response, HTTP status code, HTTP response headers (array of strings)
      */
-    public function queryCampaignValuesWithHttpInfo($campaign_values_request_dto, $page_cursor = null, $apiKey = null, string $contentType = self::contentTypes['queryCampaignValues'][0])
+    public function queryCampaignValuesWithHttpInfo($campaign_values_request_dto, $fields_campaign_values_report = null, $page_cursor = null, $apiKey = null, string $contentType = self::contentTypes['queryCampaignValues'][0])
     {
-        $request = $this->queryCampaignValuesRequest($campaign_values_request_dto, $page_cursor, $apiKey, $contentType);
+        $request = $this->queryCampaignValuesRequest($campaign_values_request_dto, $fields_campaign_values_report, $page_cursor, $apiKey, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -318,15 +320,16 @@ class ReportingApi
      * Query Campaign Values
      *
      * @param  \KlaviyoAPI\Model\CampaignValuesRequestDTO $campaign_values_request_dto (required)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination (optional)
+     * @param  string[]|null $fields_campaign_values_report For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['queryCampaignValues'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function queryCampaignValuesAsync($campaign_values_request_dto, $page_cursor = null, $apiKey = null, string $contentType = self::contentTypes['queryCampaignValues'][0])
+    public function queryCampaignValuesAsync($campaign_values_request_dto, $fields_campaign_values_report = null, $page_cursor = null, $apiKey = null, string $contentType = self::contentTypes['queryCampaignValues'][0])
     {
-        return $this->queryCampaignValuesAsyncWithHttpInfo($campaign_values_request_dto, $page_cursor, $apiKey, $contentType)
+        return $this->queryCampaignValuesAsyncWithHttpInfo($campaign_values_request_dto, $fields_campaign_values_report, $page_cursor, $apiKey, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -358,16 +361,17 @@ class ReportingApi
      * Query Campaign Values
      *
      * @param  \KlaviyoAPI\Model\CampaignValuesRequestDTO $campaign_values_request_dto (required)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination (optional)
+     * @param  string[]|null $fields_campaign_values_report For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['queryCampaignValues'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function queryCampaignValuesAsyncWithHttpInfo($campaign_values_request_dto, $page_cursor = null, $apiKey = null, string $contentType = self::contentTypes['queryCampaignValues'][0])
+    public function queryCampaignValuesAsyncWithHttpInfo($campaign_values_request_dto, $fields_campaign_values_report = null, $page_cursor = null, $apiKey = null, string $contentType = self::contentTypes['queryCampaignValues'][0])
     {
         $returnType = 'array<string,mixed>';
-        $request = $this->queryCampaignValuesRequest($campaign_values_request_dto, $page_cursor, $apiKey, $contentType);
+        $request = $this->queryCampaignValuesRequest($campaign_values_request_dto, $fields_campaign_values_report, $page_cursor, $apiKey, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -432,13 +436,14 @@ class ReportingApi
      * Create request for operation 'queryCampaignValues'
      *
      * @param  \KlaviyoAPI\Model\CampaignValuesRequestDTO $campaign_values_request_dto (required)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination (optional)
+     * @param  string[]|null $fields_campaign_values_report For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['queryCampaignValues'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function queryCampaignValuesRequest($campaign_values_request_dto, $page_cursor = null, $apiKey = null, string $contentType = self::contentTypes['queryCampaignValues'][0])
+    public function queryCampaignValuesRequest($campaign_values_request_dto, $fields_campaign_values_report = null, $page_cursor = null, $apiKey = null, string $contentType = self::contentTypes['queryCampaignValues'][0])
     {
 
         // verify the required parameter 'campaign_values_request_dto' is set
@@ -450,6 +455,7 @@ class ReportingApi
 
 
 
+
         $resourcePath = '/api/campaign-values-reports';
         $formParams = [];
         $queryParams = [];
@@ -457,6 +463,15 @@ class ReportingApi
         $httpBody = '';
         $multipart = false;
 
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $fields_campaign_values_report,
+            'fields[campaign-values-report]', // param base name
+            'array', // openApiType
+            'form', // style
+            false, // explode
+            false // required
+        ) ?? []);
         // query params
         $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
             $page_cursor,
@@ -523,7 +538,7 @@ class ReportingApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2026-04-15'];
+        $defaultHeaders['revision'] = ['2026-07-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -564,16 +579,17 @@ class ReportingApi
      * Query Flow Series
      *
      * @param  \KlaviyoAPI\Model\FlowSeriesRequestDTO $flow_series_request_dto flow_series_request_dto (required)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination (optional)
+     * @param  string[]|null $fields_flow_series_report For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['queryFlowSeries'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array<string,mixed>|\KlaviyoAPI\Model\GetAccounts400Response|\KlaviyoAPI\Model\GetAccounts400Response
      */
-    public function queryFlowSeries($flow_series_request_dto, $page_cursor = null, $apiKey = null, string $contentType = self::contentTypes['queryFlowSeries'][0])
+    public function queryFlowSeries($flow_series_request_dto, $fields_flow_series_report = null, $page_cursor = null, $apiKey = null, string $contentType = self::contentTypes['queryFlowSeries'][0])
     {
-        list($response) = $this->queryFlowSeriesWithHttpInfo($flow_series_request_dto, $page_cursor, $apiKey, $contentType);
+        list($response) = $this->queryFlowSeriesWithHttpInfo($flow_series_request_dto, $fields_flow_series_report, $page_cursor, $apiKey, $contentType);
         return $response;
     }
 
@@ -601,16 +617,17 @@ class ReportingApi
      * Query Flow Series
      *
      * @param  \KlaviyoAPI\Model\FlowSeriesRequestDTO $flow_series_request_dto (required)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination (optional)
+     * @param  string[]|null $fields_flow_series_report For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['queryFlowSeries'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of array<string,mixed>|\KlaviyoAPI\Model\GetAccounts400Response|\KlaviyoAPI\Model\GetAccounts400Response, HTTP status code, HTTP response headers (array of strings)
      */
-    public function queryFlowSeriesWithHttpInfo($flow_series_request_dto, $page_cursor = null, $apiKey = null, string $contentType = self::contentTypes['queryFlowSeries'][0])
+    public function queryFlowSeriesWithHttpInfo($flow_series_request_dto, $fields_flow_series_report = null, $page_cursor = null, $apiKey = null, string $contentType = self::contentTypes['queryFlowSeries'][0])
     {
-        $request = $this->queryFlowSeriesRequest($flow_series_request_dto, $page_cursor, $apiKey, $contentType);
+        $request = $this->queryFlowSeriesRequest($flow_series_request_dto, $fields_flow_series_report, $page_cursor, $apiKey, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -733,15 +750,16 @@ class ReportingApi
      * Query Flow Series
      *
      * @param  \KlaviyoAPI\Model\FlowSeriesRequestDTO $flow_series_request_dto (required)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination (optional)
+     * @param  string[]|null $fields_flow_series_report For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['queryFlowSeries'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function queryFlowSeriesAsync($flow_series_request_dto, $page_cursor = null, $apiKey = null, string $contentType = self::contentTypes['queryFlowSeries'][0])
+    public function queryFlowSeriesAsync($flow_series_request_dto, $fields_flow_series_report = null, $page_cursor = null, $apiKey = null, string $contentType = self::contentTypes['queryFlowSeries'][0])
     {
-        return $this->queryFlowSeriesAsyncWithHttpInfo($flow_series_request_dto, $page_cursor, $apiKey, $contentType)
+        return $this->queryFlowSeriesAsyncWithHttpInfo($flow_series_request_dto, $fields_flow_series_report, $page_cursor, $apiKey, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -773,16 +791,17 @@ class ReportingApi
      * Query Flow Series
      *
      * @param  \KlaviyoAPI\Model\FlowSeriesRequestDTO $flow_series_request_dto (required)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination (optional)
+     * @param  string[]|null $fields_flow_series_report For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['queryFlowSeries'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function queryFlowSeriesAsyncWithHttpInfo($flow_series_request_dto, $page_cursor = null, $apiKey = null, string $contentType = self::contentTypes['queryFlowSeries'][0])
+    public function queryFlowSeriesAsyncWithHttpInfo($flow_series_request_dto, $fields_flow_series_report = null, $page_cursor = null, $apiKey = null, string $contentType = self::contentTypes['queryFlowSeries'][0])
     {
         $returnType = 'array<string,mixed>';
-        $request = $this->queryFlowSeriesRequest($flow_series_request_dto, $page_cursor, $apiKey, $contentType);
+        $request = $this->queryFlowSeriesRequest($flow_series_request_dto, $fields_flow_series_report, $page_cursor, $apiKey, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -847,13 +866,14 @@ class ReportingApi
      * Create request for operation 'queryFlowSeries'
      *
      * @param  \KlaviyoAPI\Model\FlowSeriesRequestDTO $flow_series_request_dto (required)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination (optional)
+     * @param  string[]|null $fields_flow_series_report For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['queryFlowSeries'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function queryFlowSeriesRequest($flow_series_request_dto, $page_cursor = null, $apiKey = null, string $contentType = self::contentTypes['queryFlowSeries'][0])
+    public function queryFlowSeriesRequest($flow_series_request_dto, $fields_flow_series_report = null, $page_cursor = null, $apiKey = null, string $contentType = self::contentTypes['queryFlowSeries'][0])
     {
 
         // verify the required parameter 'flow_series_request_dto' is set
@@ -865,6 +885,7 @@ class ReportingApi
 
 
 
+
         $resourcePath = '/api/flow-series-reports';
         $formParams = [];
         $queryParams = [];
@@ -872,6 +893,15 @@ class ReportingApi
         $httpBody = '';
         $multipart = false;
 
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $fields_flow_series_report,
+            'fields[flow-series-report]', // param base name
+            'array', // openApiType
+            'form', // style
+            false, // explode
+            false // required
+        ) ?? []);
         // query params
         $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
             $page_cursor,
@@ -938,7 +968,7 @@ class ReportingApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2026-04-15'];
+        $defaultHeaders['revision'] = ['2026-07-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -979,16 +1009,17 @@ class ReportingApi
      * Query Flow Values
      *
      * @param  \KlaviyoAPI\Model\FlowValuesRequestDTO $flow_values_request_dto flow_values_request_dto (required)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination (optional)
+     * @param  string[]|null $fields_flow_values_report For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['queryFlowValues'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array<string,mixed>|\KlaviyoAPI\Model\GetAccounts400Response|\KlaviyoAPI\Model\GetAccounts400Response
      */
-    public function queryFlowValues($flow_values_request_dto, $page_cursor = null, $apiKey = null, string $contentType = self::contentTypes['queryFlowValues'][0])
+    public function queryFlowValues($flow_values_request_dto, $fields_flow_values_report = null, $page_cursor = null, $apiKey = null, string $contentType = self::contentTypes['queryFlowValues'][0])
     {
-        list($response) = $this->queryFlowValuesWithHttpInfo($flow_values_request_dto, $page_cursor, $apiKey, $contentType);
+        list($response) = $this->queryFlowValuesWithHttpInfo($flow_values_request_dto, $fields_flow_values_report, $page_cursor, $apiKey, $contentType);
         return $response;
     }
 
@@ -1016,16 +1047,17 @@ class ReportingApi
      * Query Flow Values
      *
      * @param  \KlaviyoAPI\Model\FlowValuesRequestDTO $flow_values_request_dto (required)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination (optional)
+     * @param  string[]|null $fields_flow_values_report For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['queryFlowValues'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of array<string,mixed>|\KlaviyoAPI\Model\GetAccounts400Response|\KlaviyoAPI\Model\GetAccounts400Response, HTTP status code, HTTP response headers (array of strings)
      */
-    public function queryFlowValuesWithHttpInfo($flow_values_request_dto, $page_cursor = null, $apiKey = null, string $contentType = self::contentTypes['queryFlowValues'][0])
+    public function queryFlowValuesWithHttpInfo($flow_values_request_dto, $fields_flow_values_report = null, $page_cursor = null, $apiKey = null, string $contentType = self::contentTypes['queryFlowValues'][0])
     {
-        $request = $this->queryFlowValuesRequest($flow_values_request_dto, $page_cursor, $apiKey, $contentType);
+        $request = $this->queryFlowValuesRequest($flow_values_request_dto, $fields_flow_values_report, $page_cursor, $apiKey, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1148,15 +1180,16 @@ class ReportingApi
      * Query Flow Values
      *
      * @param  \KlaviyoAPI\Model\FlowValuesRequestDTO $flow_values_request_dto (required)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination (optional)
+     * @param  string[]|null $fields_flow_values_report For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['queryFlowValues'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function queryFlowValuesAsync($flow_values_request_dto, $page_cursor = null, $apiKey = null, string $contentType = self::contentTypes['queryFlowValues'][0])
+    public function queryFlowValuesAsync($flow_values_request_dto, $fields_flow_values_report = null, $page_cursor = null, $apiKey = null, string $contentType = self::contentTypes['queryFlowValues'][0])
     {
-        return $this->queryFlowValuesAsyncWithHttpInfo($flow_values_request_dto, $page_cursor, $apiKey, $contentType)
+        return $this->queryFlowValuesAsyncWithHttpInfo($flow_values_request_dto, $fields_flow_values_report, $page_cursor, $apiKey, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1188,16 +1221,17 @@ class ReportingApi
      * Query Flow Values
      *
      * @param  \KlaviyoAPI\Model\FlowValuesRequestDTO $flow_values_request_dto (required)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination (optional)
+     * @param  string[]|null $fields_flow_values_report For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['queryFlowValues'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function queryFlowValuesAsyncWithHttpInfo($flow_values_request_dto, $page_cursor = null, $apiKey = null, string $contentType = self::contentTypes['queryFlowValues'][0])
+    public function queryFlowValuesAsyncWithHttpInfo($flow_values_request_dto, $fields_flow_values_report = null, $page_cursor = null, $apiKey = null, string $contentType = self::contentTypes['queryFlowValues'][0])
     {
         $returnType = 'array<string,mixed>';
-        $request = $this->queryFlowValuesRequest($flow_values_request_dto, $page_cursor, $apiKey, $contentType);
+        $request = $this->queryFlowValuesRequest($flow_values_request_dto, $fields_flow_values_report, $page_cursor, $apiKey, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1262,13 +1296,14 @@ class ReportingApi
      * Create request for operation 'queryFlowValues'
      *
      * @param  \KlaviyoAPI\Model\FlowValuesRequestDTO $flow_values_request_dto (required)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination (optional)
+     * @param  string[]|null $fields_flow_values_report For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['queryFlowValues'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function queryFlowValuesRequest($flow_values_request_dto, $page_cursor = null, $apiKey = null, string $contentType = self::contentTypes['queryFlowValues'][0])
+    public function queryFlowValuesRequest($flow_values_request_dto, $fields_flow_values_report = null, $page_cursor = null, $apiKey = null, string $contentType = self::contentTypes['queryFlowValues'][0])
     {
 
         // verify the required parameter 'flow_values_request_dto' is set
@@ -1280,6 +1315,7 @@ class ReportingApi
 
 
 
+
         $resourcePath = '/api/flow-values-reports';
         $formParams = [];
         $queryParams = [];
@@ -1287,6 +1323,15 @@ class ReportingApi
         $httpBody = '';
         $multipart = false;
 
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $fields_flow_values_report,
+            'fields[flow-values-report]', // param base name
+            'array', // openApiType
+            'form', // style
+            false, // explode
+            false // required
+        ) ?? []);
         // query params
         $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
             $page_cursor,
@@ -1353,7 +1398,7 @@ class ReportingApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2026-04-15'];
+        $defaultHeaders['revision'] = ['2026-07-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -1394,15 +1439,16 @@ class ReportingApi
      * Query Form Series
      *
      * @param  \KlaviyoAPI\Model\FormSeriesRequestDTO $form_series_request_dto form_series_request_dto (required)
+     * @param  string[]|null $fields_form_series_report For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['queryFormSeries'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array<string,mixed>|\KlaviyoAPI\Model\GetAccounts400Response|\KlaviyoAPI\Model\GetAccounts400Response
      */
-    public function queryFormSeries($form_series_request_dto, $apiKey = null, string $contentType = self::contentTypes['queryFormSeries'][0])
+    public function queryFormSeries($form_series_request_dto, $fields_form_series_report = null, $apiKey = null, string $contentType = self::contentTypes['queryFormSeries'][0])
     {
-        list($response) = $this->queryFormSeriesWithHttpInfo($form_series_request_dto, $apiKey, $contentType);
+        list($response) = $this->queryFormSeriesWithHttpInfo($form_series_request_dto, $fields_form_series_report, $apiKey, $contentType);
         return $response;
     }
 
@@ -1430,15 +1476,16 @@ class ReportingApi
      * Query Form Series
      *
      * @param  \KlaviyoAPI\Model\FormSeriesRequestDTO $form_series_request_dto (required)
+     * @param  string[]|null $fields_form_series_report For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['queryFormSeries'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of array<string,mixed>|\KlaviyoAPI\Model\GetAccounts400Response|\KlaviyoAPI\Model\GetAccounts400Response, HTTP status code, HTTP response headers (array of strings)
      */
-    public function queryFormSeriesWithHttpInfo($form_series_request_dto, $apiKey = null, string $contentType = self::contentTypes['queryFormSeries'][0])
+    public function queryFormSeriesWithHttpInfo($form_series_request_dto, $fields_form_series_report = null, $apiKey = null, string $contentType = self::contentTypes['queryFormSeries'][0])
     {
-        $request = $this->queryFormSeriesRequest($form_series_request_dto, $apiKey, $contentType);
+        $request = $this->queryFormSeriesRequest($form_series_request_dto, $fields_form_series_report, $apiKey, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1561,14 +1608,15 @@ class ReportingApi
      * Query Form Series
      *
      * @param  \KlaviyoAPI\Model\FormSeriesRequestDTO $form_series_request_dto (required)
+     * @param  string[]|null $fields_form_series_report For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['queryFormSeries'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function queryFormSeriesAsync($form_series_request_dto, $apiKey = null, string $contentType = self::contentTypes['queryFormSeries'][0])
+    public function queryFormSeriesAsync($form_series_request_dto, $fields_form_series_report = null, $apiKey = null, string $contentType = self::contentTypes['queryFormSeries'][0])
     {
-        return $this->queryFormSeriesAsyncWithHttpInfo($form_series_request_dto, $apiKey, $contentType)
+        return $this->queryFormSeriesAsyncWithHttpInfo($form_series_request_dto, $fields_form_series_report, $apiKey, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1600,15 +1648,16 @@ class ReportingApi
      * Query Form Series
      *
      * @param  \KlaviyoAPI\Model\FormSeriesRequestDTO $form_series_request_dto (required)
+     * @param  string[]|null $fields_form_series_report For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['queryFormSeries'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function queryFormSeriesAsyncWithHttpInfo($form_series_request_dto, $apiKey = null, string $contentType = self::contentTypes['queryFormSeries'][0])
+    public function queryFormSeriesAsyncWithHttpInfo($form_series_request_dto, $fields_form_series_report = null, $apiKey = null, string $contentType = self::contentTypes['queryFormSeries'][0])
     {
         $returnType = 'array<string,mixed>';
-        $request = $this->queryFormSeriesRequest($form_series_request_dto, $apiKey, $contentType);
+        $request = $this->queryFormSeriesRequest($form_series_request_dto, $fields_form_series_report, $apiKey, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1673,12 +1722,13 @@ class ReportingApi
      * Create request for operation 'queryFormSeries'
      *
      * @param  \KlaviyoAPI\Model\FormSeriesRequestDTO $form_series_request_dto (required)
+     * @param  string[]|null $fields_form_series_report For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['queryFormSeries'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function queryFormSeriesRequest($form_series_request_dto, $apiKey = null, string $contentType = self::contentTypes['queryFormSeries'][0])
+    public function queryFormSeriesRequest($form_series_request_dto, $fields_form_series_report = null, $apiKey = null, string $contentType = self::contentTypes['queryFormSeries'][0])
     {
 
         // verify the required parameter 'form_series_request_dto' is set
@@ -1689,6 +1739,7 @@ class ReportingApi
         }
 
 
+
         $resourcePath = '/api/form-series-reports';
         $formParams = [];
         $queryParams = [];
@@ -1696,6 +1747,15 @@ class ReportingApi
         $httpBody = '';
         $multipart = false;
 
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $fields_form_series_report,
+            'fields[form-series-report]', // param base name
+            'array', // openApiType
+            'form', // style
+            false, // explode
+            false // required
+        ) ?? []);
 
 
 
@@ -1753,7 +1813,7 @@ class ReportingApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2026-04-15'];
+        $defaultHeaders['revision'] = ['2026-07-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -1794,15 +1854,16 @@ class ReportingApi
      * Query Form Values
      *
      * @param  \KlaviyoAPI\Model\FormValuesRequestDTO $form_values_request_dto form_values_request_dto (required)
+     * @param  string[]|null $fields_form_values_report For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['queryFormValues'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array<string,mixed>|\KlaviyoAPI\Model\GetAccounts400Response|\KlaviyoAPI\Model\GetAccounts400Response
      */
-    public function queryFormValues($form_values_request_dto, $apiKey = null, string $contentType = self::contentTypes['queryFormValues'][0])
+    public function queryFormValues($form_values_request_dto, $fields_form_values_report = null, $apiKey = null, string $contentType = self::contentTypes['queryFormValues'][0])
     {
-        list($response) = $this->queryFormValuesWithHttpInfo($form_values_request_dto, $apiKey, $contentType);
+        list($response) = $this->queryFormValuesWithHttpInfo($form_values_request_dto, $fields_form_values_report, $apiKey, $contentType);
         return $response;
     }
 
@@ -1830,15 +1891,16 @@ class ReportingApi
      * Query Form Values
      *
      * @param  \KlaviyoAPI\Model\FormValuesRequestDTO $form_values_request_dto (required)
+     * @param  string[]|null $fields_form_values_report For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['queryFormValues'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of array<string,mixed>|\KlaviyoAPI\Model\GetAccounts400Response|\KlaviyoAPI\Model\GetAccounts400Response, HTTP status code, HTTP response headers (array of strings)
      */
-    public function queryFormValuesWithHttpInfo($form_values_request_dto, $apiKey = null, string $contentType = self::contentTypes['queryFormValues'][0])
+    public function queryFormValuesWithHttpInfo($form_values_request_dto, $fields_form_values_report = null, $apiKey = null, string $contentType = self::contentTypes['queryFormValues'][0])
     {
-        $request = $this->queryFormValuesRequest($form_values_request_dto, $apiKey, $contentType);
+        $request = $this->queryFormValuesRequest($form_values_request_dto, $fields_form_values_report, $apiKey, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1961,14 +2023,15 @@ class ReportingApi
      * Query Form Values
      *
      * @param  \KlaviyoAPI\Model\FormValuesRequestDTO $form_values_request_dto (required)
+     * @param  string[]|null $fields_form_values_report For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['queryFormValues'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function queryFormValuesAsync($form_values_request_dto, $apiKey = null, string $contentType = self::contentTypes['queryFormValues'][0])
+    public function queryFormValuesAsync($form_values_request_dto, $fields_form_values_report = null, $apiKey = null, string $contentType = self::contentTypes['queryFormValues'][0])
     {
-        return $this->queryFormValuesAsyncWithHttpInfo($form_values_request_dto, $apiKey, $contentType)
+        return $this->queryFormValuesAsyncWithHttpInfo($form_values_request_dto, $fields_form_values_report, $apiKey, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2000,15 +2063,16 @@ class ReportingApi
      * Query Form Values
      *
      * @param  \KlaviyoAPI\Model\FormValuesRequestDTO $form_values_request_dto (required)
+     * @param  string[]|null $fields_form_values_report For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['queryFormValues'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function queryFormValuesAsyncWithHttpInfo($form_values_request_dto, $apiKey = null, string $contentType = self::contentTypes['queryFormValues'][0])
+    public function queryFormValuesAsyncWithHttpInfo($form_values_request_dto, $fields_form_values_report = null, $apiKey = null, string $contentType = self::contentTypes['queryFormValues'][0])
     {
         $returnType = 'array<string,mixed>';
-        $request = $this->queryFormValuesRequest($form_values_request_dto, $apiKey, $contentType);
+        $request = $this->queryFormValuesRequest($form_values_request_dto, $fields_form_values_report, $apiKey, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2073,12 +2137,13 @@ class ReportingApi
      * Create request for operation 'queryFormValues'
      *
      * @param  \KlaviyoAPI\Model\FormValuesRequestDTO $form_values_request_dto (required)
+     * @param  string[]|null $fields_form_values_report For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['queryFormValues'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function queryFormValuesRequest($form_values_request_dto, $apiKey = null, string $contentType = self::contentTypes['queryFormValues'][0])
+    public function queryFormValuesRequest($form_values_request_dto, $fields_form_values_report = null, $apiKey = null, string $contentType = self::contentTypes['queryFormValues'][0])
     {
 
         // verify the required parameter 'form_values_request_dto' is set
@@ -2089,6 +2154,7 @@ class ReportingApi
         }
 
 
+
         $resourcePath = '/api/form-values-reports';
         $formParams = [];
         $queryParams = [];
@@ -2096,6 +2162,15 @@ class ReportingApi
         $httpBody = '';
         $multipart = false;
 
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $fields_form_values_report,
+            'fields[form-values-report]', // param base name
+            'array', // openApiType
+            'form', // style
+            false, // explode
+            false // required
+        ) ?? []);
 
 
 
@@ -2153,7 +2228,7 @@ class ReportingApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2026-04-15'];
+        $defaultHeaders['revision'] = ['2026-07-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -2194,15 +2269,16 @@ class ReportingApi
      * Query Segment Series
      *
      * @param  \KlaviyoAPI\Model\SegmentSeriesRequestDTO $segment_series_request_dto segment_series_request_dto (required)
+     * @param  string[]|null $fields_segment_series_report For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['querySegmentSeries'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array<string,mixed>|\KlaviyoAPI\Model\GetAccounts400Response|\KlaviyoAPI\Model\GetAccounts400Response
      */
-    public function querySegmentSeries($segment_series_request_dto, $apiKey = null, string $contentType = self::contentTypes['querySegmentSeries'][0])
+    public function querySegmentSeries($segment_series_request_dto, $fields_segment_series_report = null, $apiKey = null, string $contentType = self::contentTypes['querySegmentSeries'][0])
     {
-        list($response) = $this->querySegmentSeriesWithHttpInfo($segment_series_request_dto, $apiKey, $contentType);
+        list($response) = $this->querySegmentSeriesWithHttpInfo($segment_series_request_dto, $fields_segment_series_report, $apiKey, $contentType);
         return $response;
     }
 
@@ -2230,15 +2306,16 @@ class ReportingApi
      * Query Segment Series
      *
      * @param  \KlaviyoAPI\Model\SegmentSeriesRequestDTO $segment_series_request_dto (required)
+     * @param  string[]|null $fields_segment_series_report For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['querySegmentSeries'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of array<string,mixed>|\KlaviyoAPI\Model\GetAccounts400Response|\KlaviyoAPI\Model\GetAccounts400Response, HTTP status code, HTTP response headers (array of strings)
      */
-    public function querySegmentSeriesWithHttpInfo($segment_series_request_dto, $apiKey = null, string $contentType = self::contentTypes['querySegmentSeries'][0])
+    public function querySegmentSeriesWithHttpInfo($segment_series_request_dto, $fields_segment_series_report = null, $apiKey = null, string $contentType = self::contentTypes['querySegmentSeries'][0])
     {
-        $request = $this->querySegmentSeriesRequest($segment_series_request_dto, $apiKey, $contentType);
+        $request = $this->querySegmentSeriesRequest($segment_series_request_dto, $fields_segment_series_report, $apiKey, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2361,14 +2438,15 @@ class ReportingApi
      * Query Segment Series
      *
      * @param  \KlaviyoAPI\Model\SegmentSeriesRequestDTO $segment_series_request_dto (required)
+     * @param  string[]|null $fields_segment_series_report For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['querySegmentSeries'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function querySegmentSeriesAsync($segment_series_request_dto, $apiKey = null, string $contentType = self::contentTypes['querySegmentSeries'][0])
+    public function querySegmentSeriesAsync($segment_series_request_dto, $fields_segment_series_report = null, $apiKey = null, string $contentType = self::contentTypes['querySegmentSeries'][0])
     {
-        return $this->querySegmentSeriesAsyncWithHttpInfo($segment_series_request_dto, $apiKey, $contentType)
+        return $this->querySegmentSeriesAsyncWithHttpInfo($segment_series_request_dto, $fields_segment_series_report, $apiKey, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2400,15 +2478,16 @@ class ReportingApi
      * Query Segment Series
      *
      * @param  \KlaviyoAPI\Model\SegmentSeriesRequestDTO $segment_series_request_dto (required)
+     * @param  string[]|null $fields_segment_series_report For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['querySegmentSeries'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function querySegmentSeriesAsyncWithHttpInfo($segment_series_request_dto, $apiKey = null, string $contentType = self::contentTypes['querySegmentSeries'][0])
+    public function querySegmentSeriesAsyncWithHttpInfo($segment_series_request_dto, $fields_segment_series_report = null, $apiKey = null, string $contentType = self::contentTypes['querySegmentSeries'][0])
     {
         $returnType = 'array<string,mixed>';
-        $request = $this->querySegmentSeriesRequest($segment_series_request_dto, $apiKey, $contentType);
+        $request = $this->querySegmentSeriesRequest($segment_series_request_dto, $fields_segment_series_report, $apiKey, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2473,12 +2552,13 @@ class ReportingApi
      * Create request for operation 'querySegmentSeries'
      *
      * @param  \KlaviyoAPI\Model\SegmentSeriesRequestDTO $segment_series_request_dto (required)
+     * @param  string[]|null $fields_segment_series_report For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['querySegmentSeries'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function querySegmentSeriesRequest($segment_series_request_dto, $apiKey = null, string $contentType = self::contentTypes['querySegmentSeries'][0])
+    public function querySegmentSeriesRequest($segment_series_request_dto, $fields_segment_series_report = null, $apiKey = null, string $contentType = self::contentTypes['querySegmentSeries'][0])
     {
 
         // verify the required parameter 'segment_series_request_dto' is set
@@ -2489,6 +2569,7 @@ class ReportingApi
         }
 
 
+
         $resourcePath = '/api/segment-series-reports';
         $formParams = [];
         $queryParams = [];
@@ -2496,6 +2577,15 @@ class ReportingApi
         $httpBody = '';
         $multipart = false;
 
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $fields_segment_series_report,
+            'fields[segment-series-report]', // param base name
+            'array', // openApiType
+            'form', // style
+            false, // explode
+            false // required
+        ) ?? []);
 
 
 
@@ -2553,7 +2643,7 @@ class ReportingApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2026-04-15'];
+        $defaultHeaders['revision'] = ['2026-07-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -2594,15 +2684,16 @@ class ReportingApi
      * Query Segment Values
      *
      * @param  \KlaviyoAPI\Model\SegmentValuesRequestDTO $segment_values_request_dto segment_values_request_dto (required)
+     * @param  string[]|null $fields_segment_values_report For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['querySegmentValues'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array<string,mixed>|\KlaviyoAPI\Model\GetAccounts400Response|\KlaviyoAPI\Model\GetAccounts400Response
      */
-    public function querySegmentValues($segment_values_request_dto, $apiKey = null, string $contentType = self::contentTypes['querySegmentValues'][0])
+    public function querySegmentValues($segment_values_request_dto, $fields_segment_values_report = null, $apiKey = null, string $contentType = self::contentTypes['querySegmentValues'][0])
     {
-        list($response) = $this->querySegmentValuesWithHttpInfo($segment_values_request_dto, $apiKey, $contentType);
+        list($response) = $this->querySegmentValuesWithHttpInfo($segment_values_request_dto, $fields_segment_values_report, $apiKey, $contentType);
         return $response;
     }
 
@@ -2630,15 +2721,16 @@ class ReportingApi
      * Query Segment Values
      *
      * @param  \KlaviyoAPI\Model\SegmentValuesRequestDTO $segment_values_request_dto (required)
+     * @param  string[]|null $fields_segment_values_report For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['querySegmentValues'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of array<string,mixed>|\KlaviyoAPI\Model\GetAccounts400Response|\KlaviyoAPI\Model\GetAccounts400Response, HTTP status code, HTTP response headers (array of strings)
      */
-    public function querySegmentValuesWithHttpInfo($segment_values_request_dto, $apiKey = null, string $contentType = self::contentTypes['querySegmentValues'][0])
+    public function querySegmentValuesWithHttpInfo($segment_values_request_dto, $fields_segment_values_report = null, $apiKey = null, string $contentType = self::contentTypes['querySegmentValues'][0])
     {
-        $request = $this->querySegmentValuesRequest($segment_values_request_dto, $apiKey, $contentType);
+        $request = $this->querySegmentValuesRequest($segment_values_request_dto, $fields_segment_values_report, $apiKey, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2761,14 +2853,15 @@ class ReportingApi
      * Query Segment Values
      *
      * @param  \KlaviyoAPI\Model\SegmentValuesRequestDTO $segment_values_request_dto (required)
+     * @param  string[]|null $fields_segment_values_report For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['querySegmentValues'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function querySegmentValuesAsync($segment_values_request_dto, $apiKey = null, string $contentType = self::contentTypes['querySegmentValues'][0])
+    public function querySegmentValuesAsync($segment_values_request_dto, $fields_segment_values_report = null, $apiKey = null, string $contentType = self::contentTypes['querySegmentValues'][0])
     {
-        return $this->querySegmentValuesAsyncWithHttpInfo($segment_values_request_dto, $apiKey, $contentType)
+        return $this->querySegmentValuesAsyncWithHttpInfo($segment_values_request_dto, $fields_segment_values_report, $apiKey, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2800,15 +2893,16 @@ class ReportingApi
      * Query Segment Values
      *
      * @param  \KlaviyoAPI\Model\SegmentValuesRequestDTO $segment_values_request_dto (required)
+     * @param  string[]|null $fields_segment_values_report For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['querySegmentValues'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function querySegmentValuesAsyncWithHttpInfo($segment_values_request_dto, $apiKey = null, string $contentType = self::contentTypes['querySegmentValues'][0])
+    public function querySegmentValuesAsyncWithHttpInfo($segment_values_request_dto, $fields_segment_values_report = null, $apiKey = null, string $contentType = self::contentTypes['querySegmentValues'][0])
     {
         $returnType = 'array<string,mixed>';
-        $request = $this->querySegmentValuesRequest($segment_values_request_dto, $apiKey, $contentType);
+        $request = $this->querySegmentValuesRequest($segment_values_request_dto, $fields_segment_values_report, $apiKey, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2873,12 +2967,13 @@ class ReportingApi
      * Create request for operation 'querySegmentValues'
      *
      * @param  \KlaviyoAPI\Model\SegmentValuesRequestDTO $segment_values_request_dto (required)
+     * @param  string[]|null $fields_segment_values_report For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['querySegmentValues'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function querySegmentValuesRequest($segment_values_request_dto, $apiKey = null, string $contentType = self::contentTypes['querySegmentValues'][0])
+    public function querySegmentValuesRequest($segment_values_request_dto, $fields_segment_values_report = null, $apiKey = null, string $contentType = self::contentTypes['querySegmentValues'][0])
     {
 
         // verify the required parameter 'segment_values_request_dto' is set
@@ -2889,6 +2984,7 @@ class ReportingApi
         }
 
 
+
         $resourcePath = '/api/segment-values-reports';
         $formParams = [];
         $queryParams = [];
@@ -2896,6 +2992,15 @@ class ReportingApi
         $httpBody = '';
         $multipart = false;
 
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $fields_segment_values_report,
+            'fields[segment-values-report]', // param base name
+            'array', // openApiType
+            'form', // style
+            false, // explode
+            false // required
+        ) ?? []);
 
 
 
@@ -2953,7 +3058,7 @@ class ReportingApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2026-04-15'];
+        $defaultHeaders['revision'] = ['2026-07-15'];
 
         $headers = array_merge(
             $defaultHeaders,

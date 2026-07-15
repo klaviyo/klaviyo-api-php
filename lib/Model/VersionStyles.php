@@ -72,7 +72,8 @@ class VersionStyles implements ModelInterface, ArrayAccess, \JsonSerializable
         'overlay_color' => 'string',
         'rich_text_styles' => '\KlaviyoAPI\Model\RichTextStyles',
         'mobile_overlay' => '\KlaviyoAPI\Model\MobileOverlay',
-        'banner_styles' => '\KlaviyoAPI\Model\BannerStyles'
+        'banner_styles' => '\KlaviyoAPI\Model\BannerStyles',
+        'custom_css' => '\KlaviyoAPI\Model\CustomCss'
     ];
 
     /**
@@ -98,7 +99,8 @@ class VersionStyles implements ModelInterface, ArrayAccess, \JsonSerializable
         'overlay_color' => null,
         'rich_text_styles' => null,
         'mobile_overlay' => null,
-        'banner_styles' => null
+        'banner_styles' => null,
+        'custom_css' => null
     ];
 
     /**
@@ -122,7 +124,8 @@ class VersionStyles implements ModelInterface, ArrayAccess, \JsonSerializable
         'overlay_color' => false,
         'rich_text_styles' => false,
         'mobile_overlay' => false,
-        'banner_styles' => false
+        'banner_styles' => false,
+        'custom_css' => false
     ];
 
     /**
@@ -226,7 +229,8 @@ class VersionStyles implements ModelInterface, ArrayAccess, \JsonSerializable
         'overlay_color' => 'overlay_color',
         'rich_text_styles' => 'rich_text_styles',
         'mobile_overlay' => 'mobile_overlay',
-        'banner_styles' => 'banner_styles'
+        'banner_styles' => 'banner_styles',
+        'custom_css' => 'custom_css'
     ];
 
     /**
@@ -250,7 +254,8 @@ class VersionStyles implements ModelInterface, ArrayAccess, \JsonSerializable
         'overlay_color' => 'setOverlayColor',
         'rich_text_styles' => 'setRichTextStyles',
         'mobile_overlay' => 'setMobileOverlay',
-        'banner_styles' => 'setBannerStyles'
+        'banner_styles' => 'setBannerStyles',
+        'custom_css' => 'setCustomCss'
     ];
 
     /**
@@ -274,7 +279,8 @@ class VersionStyles implements ModelInterface, ArrayAccess, \JsonSerializable
         'overlay_color' => 'getOverlayColor',
         'rich_text_styles' => 'getRichTextStyles',
         'mobile_overlay' => 'getMobileOverlay',
-        'banner_styles' => 'getBannerStyles'
+        'banner_styles' => 'getBannerStyles',
+        'custom_css' => 'getCustomCss'
     ];
 
     /**
@@ -319,6 +325,7 @@ class VersionStyles implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     public const WIDTH_CUSTOM = 'custom';
+    public const WIDTH_FULL = 'full';
     public const WIDTH_LARGE = 'large';
     public const WIDTH_MEDIUM = 'medium';
     public const WIDTH_SMALL = 'small';
@@ -332,6 +339,7 @@ class VersionStyles implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         return [
             self::WIDTH_CUSTOM,
+            self::WIDTH_FULL,
             self::WIDTH_LARGE,
             self::WIDTH_MEDIUM,
             self::WIDTH_SMALL,
@@ -369,6 +377,7 @@ class VersionStyles implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('rich_text_styles', $data ?? [], null);
         $this->setIfExists('mobile_overlay', $data ?? [], null);
         $this->setIfExists('banner_styles', $data ?? [], null);
+        $this->setIfExists('custom_css', $data ?? [], null);
     }
 
     /**
@@ -874,6 +883,33 @@ class VersionStyles implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable banner_styles cannot be null');
         }
         $this->container['banner_styles'] = $banner_styles;
+
+        return $this;
+    }
+
+    /**
+     * Gets custom_css
+     *
+     * @return \KlaviyoAPI\Model\CustomCss|null
+     */
+    public function getCustomCss()
+    {
+        return $this->container['custom_css'];
+    }
+
+    /**
+     * Sets custom_css
+     *
+     * @param \KlaviyoAPI\Model\CustomCss|null $custom_css custom_css
+     *
+     * @return self
+     */
+    public function setCustomCss($custom_css)
+    {
+        if (is_null($custom_css)) {
+            throw new \InvalidArgumentException('non-nullable custom_css cannot be null');
+        }
+        $this->container['custom_css'] = $custom_css;
 
         return $this;
     }

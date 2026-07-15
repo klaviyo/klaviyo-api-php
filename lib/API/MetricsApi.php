@@ -200,15 +200,16 @@ class MetricsApi
      * Create Custom Metric
      *
      * @param  \KlaviyoAPI\Model\CustomMetricCreateQuery $custom_metric_create_query Create a custom metric. (required)
+     * @param  string[]|null $fields_custom_metric For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createCustomMetric'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array<string,mixed>|\KlaviyoAPI\Model\GetAccounts400Response|\KlaviyoAPI\Model\GetAccounts400Response
      */
-    public function createCustomMetric($custom_metric_create_query, $apiKey = null, string $contentType = self::contentTypes['createCustomMetric'][0])
+    public function createCustomMetric($custom_metric_create_query, $fields_custom_metric = null, $apiKey = null, string $contentType = self::contentTypes['createCustomMetric'][0])
     {
-        list($response) = $this->createCustomMetricWithHttpInfo($custom_metric_create_query, $apiKey, $contentType);
+        list($response) = $this->createCustomMetricWithHttpInfo($custom_metric_create_query, $fields_custom_metric, $apiKey, $contentType);
         return $response;
     }
 
@@ -218,15 +219,16 @@ class MetricsApi
      * Create Custom Metric
      *
      * @param  \KlaviyoAPI\Model\CustomMetricCreateQuery $custom_metric_create_query Create a custom metric. (required)
+     * @param  string[]|null $fields_custom_metric For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createCustomMetric'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of array<string,mixed>|\KlaviyoAPI\Model\GetAccounts400Response|\KlaviyoAPI\Model\GetAccounts400Response, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createCustomMetricWithHttpInfo($custom_metric_create_query, $apiKey = null, string $contentType = self::contentTypes['createCustomMetric'][0])
+    public function createCustomMetricWithHttpInfo($custom_metric_create_query, $fields_custom_metric = null, $apiKey = null, string $contentType = self::contentTypes['createCustomMetric'][0])
     {
-        $request = $this->createCustomMetricRequest($custom_metric_create_query, $apiKey, $contentType);
+        $request = $this->createCustomMetricRequest($custom_metric_create_query, $fields_custom_metric, $apiKey, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -331,14 +333,15 @@ class MetricsApi
      * Create Custom Metric
      *
      * @param  \KlaviyoAPI\Model\CustomMetricCreateQuery $custom_metric_create_query Create a custom metric. (required)
+     * @param  string[]|null $fields_custom_metric For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createCustomMetric'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createCustomMetricAsync($custom_metric_create_query, $apiKey = null, string $contentType = self::contentTypes['createCustomMetric'][0])
+    public function createCustomMetricAsync($custom_metric_create_query, $fields_custom_metric = null, $apiKey = null, string $contentType = self::contentTypes['createCustomMetric'][0])
     {
-        return $this->createCustomMetricAsyncWithHttpInfo($custom_metric_create_query, $apiKey, $contentType)
+        return $this->createCustomMetricAsyncWithHttpInfo($custom_metric_create_query, $fields_custom_metric, $apiKey, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -352,15 +355,16 @@ class MetricsApi
      * Create Custom Metric
      *
      * @param  \KlaviyoAPI\Model\CustomMetricCreateQuery $custom_metric_create_query Create a custom metric. (required)
+     * @param  string[]|null $fields_custom_metric For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createCustomMetric'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createCustomMetricAsyncWithHttpInfo($custom_metric_create_query, $apiKey = null, string $contentType = self::contentTypes['createCustomMetric'][0])
+    public function createCustomMetricAsyncWithHttpInfo($custom_metric_create_query, $fields_custom_metric = null, $apiKey = null, string $contentType = self::contentTypes['createCustomMetric'][0])
     {
         $returnType = 'array<string,mixed>';
-        $request = $this->createCustomMetricRequest($custom_metric_create_query, $apiKey, $contentType);
+        $request = $this->createCustomMetricRequest($custom_metric_create_query, $fields_custom_metric, $apiKey, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -407,12 +411,13 @@ class MetricsApi
      * Create request for operation 'createCustomMetric'
      *
      * @param  \KlaviyoAPI\Model\CustomMetricCreateQuery $custom_metric_create_query Create a custom metric. (required)
+     * @param  string[]|null $fields_custom_metric For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createCustomMetric'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function createCustomMetricRequest($custom_metric_create_query, $apiKey = null, string $contentType = self::contentTypes['createCustomMetric'][0])
+    public function createCustomMetricRequest($custom_metric_create_query, $fields_custom_metric = null, $apiKey = null, string $contentType = self::contentTypes['createCustomMetric'][0])
     {
 
         // verify the required parameter 'custom_metric_create_query' is set
@@ -423,6 +428,7 @@ class MetricsApi
         }
 
 
+
         $resourcePath = '/api/custom-metrics';
         $formParams = [];
         $queryParams = [];
@@ -430,6 +436,15 @@ class MetricsApi
         $httpBody = '';
         $multipart = false;
 
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $fields_custom_metric,
+            'fields[custom-metric]', // param base name
+            'array', // openApiType
+            'form', // style
+            false, // explode
+            false // required
+        ) ?? []);
 
 
 
@@ -487,7 +502,7 @@ class MetricsApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2026-04-15'];
+        $defaultHeaders['revision'] = ['2026-07-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -731,7 +746,7 @@ class MetricsApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2026-04-15'];
+        $defaultHeaders['revision'] = ['2026-07-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -754,9 +769,9 @@ class MetricsApi
      * Get Custom Metric
      *
      * @param  string $id The ID of the custom metric (required)
-     * @param  string[]|null $fields_custom_metric For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_metric For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#relationships (optional)
+     * @param  string[]|null $fields_custom_metric For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_metric For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#relationships (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCustomMetric'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -775,9 +790,9 @@ class MetricsApi
      * Get Custom Metric
      *
      * @param  string $id The ID of the custom metric (required)
-     * @param  string[]|null $fields_custom_metric For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_metric For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#relationships (optional)
+     * @param  string[]|null $fields_custom_metric For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_metric For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#relationships (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCustomMetric'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -891,9 +906,9 @@ class MetricsApi
      * Get Custom Metric
      *
      * @param  string $id The ID of the custom metric (required)
-     * @param  string[]|null $fields_custom_metric For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_metric For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#relationships (optional)
+     * @param  string[]|null $fields_custom_metric For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_metric For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#relationships (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCustomMetric'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -915,9 +930,9 @@ class MetricsApi
      * Get Custom Metric
      *
      * @param  string $id The ID of the custom metric (required)
-     * @param  string[]|null $fields_custom_metric For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_metric For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#relationships (optional)
+     * @param  string[]|null $fields_custom_metric For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_metric For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#relationships (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCustomMetric'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -973,9 +988,9 @@ class MetricsApi
      * Create request for operation 'getCustomMetric'
      *
      * @param  string $id The ID of the custom metric (required)
-     * @param  string[]|null $fields_custom_metric For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_metric For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#relationships (optional)
+     * @param  string[]|null $fields_custom_metric For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_metric For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#relationships (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCustomMetric'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1087,7 +1102,7 @@ class MetricsApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2026-04-15'];
+        $defaultHeaders['revision'] = ['2026-07-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -1110,7 +1125,7 @@ class MetricsApi
      * Get Custom Metric for Mapped Metric
      *
      * @param  string $id The type of mapping. (required)
-     * @param  string[]|null $fields_custom_metric For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_custom_metric For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCustomMetricForMappedMetric'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -1138,7 +1153,7 @@ class MetricsApi
      * Get Custom Metric for Mapped Metric
      *
      * @param  string $id The type of mapping. (required)
-     * @param  string[]|null $fields_custom_metric For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_custom_metric For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCustomMetricForMappedMetric'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -1261,7 +1276,7 @@ class MetricsApi
      * Get Custom Metric for Mapped Metric
      *
      * @param  string $id The type of mapping. (required)
-     * @param  string[]|null $fields_custom_metric For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_custom_metric For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCustomMetricForMappedMetric'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1292,7 +1307,7 @@ class MetricsApi
      * Get Custom Metric for Mapped Metric
      *
      * @param  string $id The type of mapping. (required)
-     * @param  string[]|null $fields_custom_metric For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_custom_metric For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCustomMetricForMappedMetric'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1357,7 +1372,7 @@ class MetricsApi
      * Create request for operation 'getCustomMetricForMappedMetric'
      *
      * @param  string $id The type of mapping. (required)
-     * @param  string[]|null $fields_custom_metric For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_custom_metric For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCustomMetricForMappedMetric'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1449,7 +1464,7 @@ class MetricsApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2026-04-15'];
+        $defaultHeaders['revision'] = ['2026-07-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -1805,7 +1820,7 @@ class MetricsApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2026-04-15'];
+        $defaultHeaders['revision'] = ['2026-07-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -1836,9 +1851,9 @@ class MetricsApi
      *
      * Get Custom Metrics
      *
-     * @param  string[]|null $fields_custom_metric For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_metric For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#relationships (optional)
+     * @param  string[]|null $fields_custom_metric For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_metric For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#relationships (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCustomMetrics'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -1856,9 +1871,9 @@ class MetricsApi
      *
      * Get Custom Metrics
      *
-     * @param  string[]|null $fields_custom_metric For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_metric For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#relationships (optional)
+     * @param  string[]|null $fields_custom_metric For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_metric For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#relationships (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCustomMetrics'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -1971,9 +1986,9 @@ class MetricsApi
      *
      * Get Custom Metrics
      *
-     * @param  string[]|null $fields_custom_metric For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_metric For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#relationships (optional)
+     * @param  string[]|null $fields_custom_metric For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_metric For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#relationships (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCustomMetrics'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1994,9 +2009,9 @@ class MetricsApi
      *
      * Get Custom Metrics
      *
-     * @param  string[]|null $fields_custom_metric For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_metric For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#relationships (optional)
+     * @param  string[]|null $fields_custom_metric For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_metric For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#relationships (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCustomMetrics'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -2051,9 +2066,9 @@ class MetricsApi
     /**
      * Create request for operation 'getCustomMetrics'
      *
-     * @param  string[]|null $fields_custom_metric For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_metric For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#relationships (optional)
+     * @param  string[]|null $fields_custom_metric For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_metric For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#relationships (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCustomMetrics'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -2150,7 +2165,7 @@ class MetricsApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2026-04-15'];
+        $defaultHeaders['revision'] = ['2026-07-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -2173,7 +2188,7 @@ class MetricsApi
      * Get Flows Triggered by Metric
      *
      * @param  string $id  (required)
-     * @param  string[]|null $fields_flow For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_flow For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getFlowsTriggeredByMetric'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -2210,7 +2225,7 @@ class MetricsApi
      * Get Flows Triggered by Metric
      *
      * @param  string $id  (required)
-     * @param  string[]|null $fields_flow For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_flow For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getFlowsTriggeredByMetric'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -2342,7 +2357,7 @@ class MetricsApi
      * Get Flows Triggered by Metric
      *
      * @param  string $id  (required)
-     * @param  string[]|null $fields_flow For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_flow For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getFlowsTriggeredByMetric'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -2382,7 +2397,7 @@ class MetricsApi
      * Get Flows Triggered by Metric
      *
      * @param  string $id  (required)
-     * @param  string[]|null $fields_flow For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_flow For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getFlowsTriggeredByMetric'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -2456,7 +2471,7 @@ class MetricsApi
      * Create request for operation 'getFlowsTriggeredByMetric'
      *
      * @param  string $id  (required)
-     * @param  string[]|null $fields_flow For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_flow For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getFlowsTriggeredByMetric'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -2548,7 +2563,7 @@ class MetricsApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2026-04-15'];
+        $defaultHeaders['revision'] = ['2026-07-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -2949,7 +2964,7 @@ class MetricsApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2026-04-15'];
+        $defaultHeaders['revision'] = ['2026-07-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -2990,10 +3005,10 @@ class MetricsApi
      * Get Mapped Metric
      *
      * @param  string $id The type of mapping. (required)
-     * @param  string[]|null $fields_custom_metric For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_mapped_metric For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_metric For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#relationships (optional)
+     * @param  string[]|null $fields_custom_metric For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_mapped_metric For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_metric For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#relationships (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMappedMetric'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -3012,10 +3027,10 @@ class MetricsApi
      * Get Mapped Metric
      *
      * @param  string $id The type of mapping. (required)
-     * @param  string[]|null $fields_custom_metric For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_mapped_metric For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_metric For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#relationships (optional)
+     * @param  string[]|null $fields_custom_metric For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_mapped_metric For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_metric For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#relationships (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMappedMetric'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -3129,10 +3144,10 @@ class MetricsApi
      * Get Mapped Metric
      *
      * @param  string $id The type of mapping. (required)
-     * @param  string[]|null $fields_custom_metric For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_mapped_metric For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_metric For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#relationships (optional)
+     * @param  string[]|null $fields_custom_metric For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_mapped_metric For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_metric For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#relationships (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMappedMetric'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -3154,10 +3169,10 @@ class MetricsApi
      * Get Mapped Metric
      *
      * @param  string $id The type of mapping. (required)
-     * @param  string[]|null $fields_custom_metric For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_mapped_metric For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_metric For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#relationships (optional)
+     * @param  string[]|null $fields_custom_metric For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_mapped_metric For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_metric For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#relationships (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMappedMetric'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -3213,10 +3228,10 @@ class MetricsApi
      * Create request for operation 'getMappedMetric'
      *
      * @param  string $id The type of mapping. (required)
-     * @param  string[]|null $fields_custom_metric For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_mapped_metric For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_metric For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#relationships (optional)
+     * @param  string[]|null $fields_custom_metric For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_mapped_metric For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_metric For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#relationships (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMappedMetric'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -3338,7 +3353,7 @@ class MetricsApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2026-04-15'];
+        $defaultHeaders['revision'] = ['2026-07-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -3360,10 +3375,10 @@ class MetricsApi
      *
      * Get Mapped Metrics
      *
-     * @param  string[]|null $fields_custom_metric For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_mapped_metric For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_metric For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#relationships (optional)
+     * @param  string[]|null $fields_custom_metric For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_mapped_metric For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_metric For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#relationships (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMappedMetrics'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -3381,10 +3396,10 @@ class MetricsApi
      *
      * Get Mapped Metrics
      *
-     * @param  string[]|null $fields_custom_metric For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_mapped_metric For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_metric For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#relationships (optional)
+     * @param  string[]|null $fields_custom_metric For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_mapped_metric For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_metric For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#relationships (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMappedMetrics'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -3497,10 +3512,10 @@ class MetricsApi
      *
      * Get Mapped Metrics
      *
-     * @param  string[]|null $fields_custom_metric For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_mapped_metric For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_metric For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#relationships (optional)
+     * @param  string[]|null $fields_custom_metric For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_mapped_metric For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_metric For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#relationships (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMappedMetrics'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -3521,10 +3536,10 @@ class MetricsApi
      *
      * Get Mapped Metrics
      *
-     * @param  string[]|null $fields_custom_metric For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_mapped_metric For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_metric For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#relationships (optional)
+     * @param  string[]|null $fields_custom_metric For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_mapped_metric For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_metric For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#relationships (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMappedMetrics'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -3579,10 +3594,10 @@ class MetricsApi
     /**
      * Create request for operation 'getMappedMetrics'
      *
-     * @param  string[]|null $fields_custom_metric For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_mapped_metric For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_metric For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#relationships (optional)
+     * @param  string[]|null $fields_custom_metric For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_mapped_metric For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_metric For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#relationships (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMappedMetrics'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -3689,7 +3704,7 @@ class MetricsApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2026-04-15'];
+        $defaultHeaders['revision'] = ['2026-07-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -3712,9 +3727,9 @@ class MetricsApi
      * Get Metric
      *
      * @param  string $id Metric ID (required)
-     * @param  string[]|null $fields_flow For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_metric For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#relationships (optional)
+     * @param  string[]|null $fields_flow For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_metric For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#relationships (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMetric'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -3733,9 +3748,9 @@ class MetricsApi
      * Get Metric
      *
      * @param  string $id Metric ID (required)
-     * @param  string[]|null $fields_flow For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_metric For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#relationships (optional)
+     * @param  string[]|null $fields_flow For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_metric For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#relationships (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMetric'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -3849,9 +3864,9 @@ class MetricsApi
      * Get Metric
      *
      * @param  string $id Metric ID (required)
-     * @param  string[]|null $fields_flow For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_metric For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#relationships (optional)
+     * @param  string[]|null $fields_flow For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_metric For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#relationships (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMetric'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -3873,9 +3888,9 @@ class MetricsApi
      * Get Metric
      *
      * @param  string $id Metric ID (required)
-     * @param  string[]|null $fields_flow For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_metric For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#relationships (optional)
+     * @param  string[]|null $fields_flow For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_metric For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#relationships (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMetric'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -3931,9 +3946,9 @@ class MetricsApi
      * Create request for operation 'getMetric'
      *
      * @param  string $id Metric ID (required)
-     * @param  string[]|null $fields_flow For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_metric For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#relationships (optional)
+     * @param  string[]|null $fields_flow For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_metric For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#relationships (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMetric'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -4045,7 +4060,7 @@ class MetricsApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2026-04-15'];
+        $defaultHeaders['revision'] = ['2026-07-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -4068,7 +4083,7 @@ class MetricsApi
      * Get Metric for Mapped Metric
      *
      * @param  string $id The type of mapping. (required)
-     * @param  string[]|null $fields_metric For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_metric For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMetricForMappedMetric'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -4096,7 +4111,7 @@ class MetricsApi
      * Get Metric for Mapped Metric
      *
      * @param  string $id The type of mapping. (required)
-     * @param  string[]|null $fields_metric For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_metric For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMetricForMappedMetric'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -4219,7 +4234,7 @@ class MetricsApi
      * Get Metric for Mapped Metric
      *
      * @param  string $id The type of mapping. (required)
-     * @param  string[]|null $fields_metric For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_metric For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMetricForMappedMetric'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -4250,7 +4265,7 @@ class MetricsApi
      * Get Metric for Mapped Metric
      *
      * @param  string $id The type of mapping. (required)
-     * @param  string[]|null $fields_metric For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_metric For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMetricForMappedMetric'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -4315,7 +4330,7 @@ class MetricsApi
      * Create request for operation 'getMetricForMappedMetric'
      *
      * @param  string $id The type of mapping. (required)
-     * @param  string[]|null $fields_metric For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_metric For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMetricForMappedMetric'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -4407,7 +4422,7 @@ class MetricsApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2026-04-15'];
+        $defaultHeaders['revision'] = ['2026-07-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -4439,7 +4454,7 @@ class MetricsApi
      * Get Metric for Metric Property
      *
      * @param  string $id The ID of the metric property (required)
-     * @param  string[]|null $fields_metric For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_metric For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMetricForMetricProperty'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -4467,7 +4482,7 @@ class MetricsApi
      * Get Metric for Metric Property
      *
      * @param  string $id The ID of the metric property (required)
-     * @param  string[]|null $fields_metric For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_metric For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMetricForMetricProperty'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -4590,7 +4605,7 @@ class MetricsApi
      * Get Metric for Metric Property
      *
      * @param  string $id The ID of the metric property (required)
-     * @param  string[]|null $fields_metric For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_metric For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMetricForMetricProperty'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -4621,7 +4636,7 @@ class MetricsApi
      * Get Metric for Metric Property
      *
      * @param  string $id The ID of the metric property (required)
-     * @param  string[]|null $fields_metric For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_metric For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMetricForMetricProperty'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -4686,7 +4701,7 @@ class MetricsApi
      * Create request for operation 'getMetricForMetricProperty'
      *
      * @param  string $id The ID of the metric property (required)
-     * @param  string[]|null $fields_metric For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_metric For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMetricForMetricProperty'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -4778,7 +4793,7 @@ class MetricsApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2026-04-15'];
+        $defaultHeaders['revision'] = ['2026-07-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -5134,7 +5149,7 @@ class MetricsApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2026-04-15'];
+        $defaultHeaders['revision'] = ['2026-07-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -5490,7 +5505,7 @@ class MetricsApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2026-04-15'];
+        $defaultHeaders['revision'] = ['2026-07-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -5846,7 +5861,7 @@ class MetricsApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2026-04-15'];
+        $defaultHeaders['revision'] = ['2026-07-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -5879,9 +5894,9 @@ class MetricsApi
      *
      * @param  string $id The ID of the metric property (required)
      * @param  string[]|null $additional_fields_metric_property Request additional fields not included by default in the response. Supported values: &#39;sample_values&#39; (optional)
-     * @param  string[]|null $fields_metric_property For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_metric For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#relationships (optional)
+     * @param  string[]|null $fields_metric_property For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_metric For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#relationships (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMetricProperty'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -5901,9 +5916,9 @@ class MetricsApi
      *
      * @param  string $id The ID of the metric property (required)
      * @param  string[]|null $additional_fields_metric_property Request additional fields not included by default in the response. Supported values: &#39;sample_values&#39; (optional)
-     * @param  string[]|null $fields_metric_property For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_metric For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#relationships (optional)
+     * @param  string[]|null $fields_metric_property For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_metric For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#relationships (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMetricProperty'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -6018,9 +6033,9 @@ class MetricsApi
      *
      * @param  string $id The ID of the metric property (required)
      * @param  string[]|null $additional_fields_metric_property Request additional fields not included by default in the response. Supported values: &#39;sample_values&#39; (optional)
-     * @param  string[]|null $fields_metric_property For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_metric For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#relationships (optional)
+     * @param  string[]|null $fields_metric_property For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_metric For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#relationships (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMetricProperty'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -6043,9 +6058,9 @@ class MetricsApi
      *
      * @param  string $id The ID of the metric property (required)
      * @param  string[]|null $additional_fields_metric_property Request additional fields not included by default in the response. Supported values: &#39;sample_values&#39; (optional)
-     * @param  string[]|null $fields_metric_property For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_metric For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#relationships (optional)
+     * @param  string[]|null $fields_metric_property For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_metric For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#relationships (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMetricProperty'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -6102,9 +6117,9 @@ class MetricsApi
      *
      * @param  string $id The ID of the metric property (required)
      * @param  string[]|null $additional_fields_metric_property Request additional fields not included by default in the response. Supported values: &#39;sample_values&#39; (optional)
-     * @param  string[]|null $fields_metric_property For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_metric For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#relationships (optional)
+     * @param  string[]|null $fields_metric_property For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_metric For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#relationships (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMetricProperty'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -6226,7 +6241,7 @@ class MetricsApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2026-04-15'];
+        $defaultHeaders['revision'] = ['2026-07-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -6248,11 +6263,11 @@ class MetricsApi
      *
      * Get Metrics
      *
-     * @param  string[]|null $fields_flow For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_metric For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;integration.name&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;integration.category&#x60;: &#x60;equals&#x60; (optional)
-     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#relationships (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination (optional)
+     * @param  string[]|null $fields_flow For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_metric For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;integration.name&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;integration.category&#x60;: &#x60;equals&#x60; (optional)
+     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#relationships (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMetrics'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -6270,11 +6285,11 @@ class MetricsApi
      *
      * Get Metrics
      *
-     * @param  string[]|null $fields_flow For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_metric For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;integration.name&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;integration.category&#x60;: &#x60;equals&#x60; (optional)
-     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#relationships (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination (optional)
+     * @param  string[]|null $fields_flow For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_metric For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;integration.name&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;integration.category&#x60;: &#x60;equals&#x60; (optional)
+     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#relationships (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMetrics'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -6387,11 +6402,11 @@ class MetricsApi
      *
      * Get Metrics
      *
-     * @param  string[]|null $fields_flow For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_metric For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;integration.name&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;integration.category&#x60;: &#x60;equals&#x60; (optional)
-     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#relationships (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination (optional)
+     * @param  string[]|null $fields_flow For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_metric For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;integration.name&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;integration.category&#x60;: &#x60;equals&#x60; (optional)
+     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#relationships (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMetrics'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -6412,11 +6427,11 @@ class MetricsApi
      *
      * Get Metrics
      *
-     * @param  string[]|null $fields_flow For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_metric For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;integration.name&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;integration.category&#x60;: &#x60;equals&#x60; (optional)
-     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#relationships (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination (optional)
+     * @param  string[]|null $fields_flow For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_metric For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;integration.name&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;integration.category&#x60;: &#x60;equals&#x60; (optional)
+     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#relationships (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMetrics'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -6471,11 +6486,11 @@ class MetricsApi
     /**
      * Create request for operation 'getMetrics'
      *
-     * @param  string[]|null $fields_flow For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_metric For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;integration.name&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;integration.category&#x60;: &#x60;equals&#x60; (optional)
-     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#relationships (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination (optional)
+     * @param  string[]|null $fields_flow For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_metric For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;integration.name&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;integration.category&#x60;: &#x60;equals&#x60; (optional)
+     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#relationships (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMetrics'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -6592,7 +6607,7 @@ class MetricsApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2026-04-15'];
+        $defaultHeaders['revision'] = ['2026-07-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -6615,7 +6630,7 @@ class MetricsApi
      * Get Metrics for Custom Metric
      *
      * @param  string $id The ID of the custom metric (required)
-     * @param  string[]|null $fields_metric For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_metric For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMetricsForCustomMetric'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -6643,7 +6658,7 @@ class MetricsApi
      * Get Metrics for Custom Metric
      *
      * @param  string $id The ID of the custom metric (required)
-     * @param  string[]|null $fields_metric For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_metric For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMetricsForCustomMetric'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -6766,7 +6781,7 @@ class MetricsApi
      * Get Metrics for Custom Metric
      *
      * @param  string $id The ID of the custom metric (required)
-     * @param  string[]|null $fields_metric For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_metric For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMetricsForCustomMetric'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -6797,7 +6812,7 @@ class MetricsApi
      * Get Metrics for Custom Metric
      *
      * @param  string $id The ID of the custom metric (required)
-     * @param  string[]|null $fields_metric For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_metric For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMetricsForCustomMetric'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -6862,7 +6877,7 @@ class MetricsApi
      * Create request for operation 'getMetricsForCustomMetric'
      *
      * @param  string $id The ID of the custom metric (required)
-     * @param  string[]|null $fields_metric For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_metric For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMetricsForCustomMetric'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -6954,7 +6969,7 @@ class MetricsApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2026-04-15'];
+        $defaultHeaders['revision'] = ['2026-07-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -6987,7 +7002,7 @@ class MetricsApi
      *
      * @param  string $id The ID of the metric (required)
      * @param  string[]|null $additional_fields_metric_property Request additional fields not included by default in the response. Supported values: &#39;sample_values&#39; (optional)
-     * @param  string[]|null $fields_metric_property For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_metric_property For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getPropertiesForMetric'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -7025,7 +7040,7 @@ class MetricsApi
      *
      * @param  string $id The ID of the metric (required)
      * @param  string[]|null $additional_fields_metric_property Request additional fields not included by default in the response. Supported values: &#39;sample_values&#39; (optional)
-     * @param  string[]|null $fields_metric_property For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_metric_property For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getPropertiesForMetric'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -7158,7 +7173,7 @@ class MetricsApi
      *
      * @param  string $id The ID of the metric (required)
      * @param  string[]|null $additional_fields_metric_property Request additional fields not included by default in the response. Supported values: &#39;sample_values&#39; (optional)
-     * @param  string[]|null $fields_metric_property For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_metric_property For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getPropertiesForMetric'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -7199,7 +7214,7 @@ class MetricsApi
      *
      * @param  string $id The ID of the metric (required)
      * @param  string[]|null $additional_fields_metric_property Request additional fields not included by default in the response. Supported values: &#39;sample_values&#39; (optional)
-     * @param  string[]|null $fields_metric_property For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_metric_property For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getPropertiesForMetric'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -7274,7 +7289,7 @@ class MetricsApi
      *
      * @param  string $id The ID of the metric (required)
      * @param  string[]|null $additional_fields_metric_property Request additional fields not included by default in the response. Supported values: &#39;sample_values&#39; (optional)
-     * @param  string[]|null $fields_metric_property For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_metric_property For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getPropertiesForMetric'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -7376,7 +7391,7 @@ class MetricsApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2026-04-15'];
+        $defaultHeaders['revision'] = ['2026-07-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -7777,7 +7792,7 @@ class MetricsApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2026-04-15'];
+        $defaultHeaders['revision'] = ['2026-07-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -7818,15 +7833,16 @@ class MetricsApi
      * Query Metric Aggregates
      *
      * @param  \KlaviyoAPI\Model\MetricAggregateQuery $metric_aggregate_query Retrieve Metric Aggregations (required)
+     * @param  string[]|null $fields_metric_aggregate For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['queryMetricAggregates'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array<string,mixed>|\KlaviyoAPI\Model\GetAccounts400Response|\KlaviyoAPI\Model\GetAccounts400Response
      */
-    public function queryMetricAggregates($metric_aggregate_query, $apiKey = null, string $contentType = self::contentTypes['queryMetricAggregates'][0])
+    public function queryMetricAggregates($metric_aggregate_query, $fields_metric_aggregate = null, $apiKey = null, string $contentType = self::contentTypes['queryMetricAggregates'][0])
     {
-        list($response) = $this->queryMetricAggregatesWithHttpInfo($metric_aggregate_query, $apiKey, $contentType);
+        list($response) = $this->queryMetricAggregatesWithHttpInfo($metric_aggregate_query, $fields_metric_aggregate, $apiKey, $contentType);
         return $response;
     }
 
@@ -7845,15 +7861,16 @@ class MetricsApi
      * Query Metric Aggregates
      *
      * @param  \KlaviyoAPI\Model\MetricAggregateQuery $metric_aggregate_query Retrieve Metric Aggregations (required)
+     * @param  string[]|null $fields_metric_aggregate For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['queryMetricAggregates'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of array<string,mixed>|\KlaviyoAPI\Model\GetAccounts400Response|\KlaviyoAPI\Model\GetAccounts400Response, HTTP status code, HTTP response headers (array of strings)
      */
-    public function queryMetricAggregatesWithHttpInfo($metric_aggregate_query, $apiKey = null, string $contentType = self::contentTypes['queryMetricAggregates'][0])
+    public function queryMetricAggregatesWithHttpInfo($metric_aggregate_query, $fields_metric_aggregate = null, $apiKey = null, string $contentType = self::contentTypes['queryMetricAggregates'][0])
     {
-        $request = $this->queryMetricAggregatesRequest($metric_aggregate_query, $apiKey, $contentType);
+        $request = $this->queryMetricAggregatesRequest($metric_aggregate_query, $fields_metric_aggregate, $apiKey, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -7967,14 +7984,15 @@ class MetricsApi
      * Query Metric Aggregates
      *
      * @param  \KlaviyoAPI\Model\MetricAggregateQuery $metric_aggregate_query Retrieve Metric Aggregations (required)
+     * @param  string[]|null $fields_metric_aggregate For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['queryMetricAggregates'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function queryMetricAggregatesAsync($metric_aggregate_query, $apiKey = null, string $contentType = self::contentTypes['queryMetricAggregates'][0])
+    public function queryMetricAggregatesAsync($metric_aggregate_query, $fields_metric_aggregate = null, $apiKey = null, string $contentType = self::contentTypes['queryMetricAggregates'][0])
     {
-        return $this->queryMetricAggregatesAsyncWithHttpInfo($metric_aggregate_query, $apiKey, $contentType)
+        return $this->queryMetricAggregatesAsyncWithHttpInfo($metric_aggregate_query, $fields_metric_aggregate, $apiKey, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -7997,15 +8015,16 @@ class MetricsApi
      * Query Metric Aggregates
      *
      * @param  \KlaviyoAPI\Model\MetricAggregateQuery $metric_aggregate_query Retrieve Metric Aggregations (required)
+     * @param  string[]|null $fields_metric_aggregate For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['queryMetricAggregates'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function queryMetricAggregatesAsyncWithHttpInfo($metric_aggregate_query, $apiKey = null, string $contentType = self::contentTypes['queryMetricAggregates'][0])
+    public function queryMetricAggregatesAsyncWithHttpInfo($metric_aggregate_query, $fields_metric_aggregate = null, $apiKey = null, string $contentType = self::contentTypes['queryMetricAggregates'][0])
     {
         $returnType = 'array<string,mixed>';
-        $request = $this->queryMetricAggregatesRequest($metric_aggregate_query, $apiKey, $contentType);
+        $request = $this->queryMetricAggregatesRequest($metric_aggregate_query, $fields_metric_aggregate, $apiKey, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -8061,12 +8080,13 @@ class MetricsApi
      * Create request for operation 'queryMetricAggregates'
      *
      * @param  \KlaviyoAPI\Model\MetricAggregateQuery $metric_aggregate_query Retrieve Metric Aggregations (required)
+     * @param  string[]|null $fields_metric_aggregate For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['queryMetricAggregates'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function queryMetricAggregatesRequest($metric_aggregate_query, $apiKey = null, string $contentType = self::contentTypes['queryMetricAggregates'][0])
+    public function queryMetricAggregatesRequest($metric_aggregate_query, $fields_metric_aggregate = null, $apiKey = null, string $contentType = self::contentTypes['queryMetricAggregates'][0])
     {
 
         // verify the required parameter 'metric_aggregate_query' is set
@@ -8077,6 +8097,7 @@ class MetricsApi
         }
 
 
+
         $resourcePath = '/api/metric-aggregates';
         $formParams = [];
         $queryParams = [];
@@ -8084,6 +8105,15 @@ class MetricsApi
         $httpBody = '';
         $multipart = false;
 
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $fields_metric_aggregate,
+            'fields[metric-aggregate]', // param base name
+            'array', // openApiType
+            'form', // style
+            false, // explode
+            false // required
+        ) ?? []);
 
 
 
@@ -8141,7 +8171,7 @@ class MetricsApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2026-04-15'];
+        $defaultHeaders['revision'] = ['2026-07-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -8174,15 +8204,16 @@ class MetricsApi
      *
      * @param  string $id The ID of the custom metric (required)
      * @param  \KlaviyoAPI\Model\CustomMetricPartialUpdateQuery $custom_metric_partial_update_query Update a custom metric by ID. (required)
+     * @param  string[]|null $fields_custom_metric For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateCustomMetric'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array<string,mixed>|\KlaviyoAPI\Model\GetAccounts400Response|\KlaviyoAPI\Model\GetAccounts400Response
      */
-    public function updateCustomMetric($id, $custom_metric_partial_update_query, $apiKey = null, string $contentType = self::contentTypes['updateCustomMetric'][0])
+    public function updateCustomMetric($id, $custom_metric_partial_update_query, $fields_custom_metric = null, $apiKey = null, string $contentType = self::contentTypes['updateCustomMetric'][0])
     {
-        list($response) = $this->updateCustomMetricWithHttpInfo($id, $custom_metric_partial_update_query, $apiKey, $contentType);
+        list($response) = $this->updateCustomMetricWithHttpInfo($id, $custom_metric_partial_update_query, $fields_custom_metric, $apiKey, $contentType);
         return $response;
     }
 
@@ -8193,15 +8224,16 @@ class MetricsApi
      *
      * @param  string $id The ID of the custom metric (required)
      * @param  \KlaviyoAPI\Model\CustomMetricPartialUpdateQuery $custom_metric_partial_update_query Update a custom metric by ID. (required)
+     * @param  string[]|null $fields_custom_metric For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateCustomMetric'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of array<string,mixed>|\KlaviyoAPI\Model\GetAccounts400Response|\KlaviyoAPI\Model\GetAccounts400Response, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updateCustomMetricWithHttpInfo($id, $custom_metric_partial_update_query, $apiKey = null, string $contentType = self::contentTypes['updateCustomMetric'][0])
+    public function updateCustomMetricWithHttpInfo($id, $custom_metric_partial_update_query, $fields_custom_metric = null, $apiKey = null, string $contentType = self::contentTypes['updateCustomMetric'][0])
     {
-        $request = $this->updateCustomMetricRequest($id, $custom_metric_partial_update_query, $apiKey, $contentType);
+        $request = $this->updateCustomMetricRequest($id, $custom_metric_partial_update_query, $fields_custom_metric, $apiKey, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -8307,14 +8339,15 @@ class MetricsApi
      *
      * @param  string $id The ID of the custom metric (required)
      * @param  \KlaviyoAPI\Model\CustomMetricPartialUpdateQuery $custom_metric_partial_update_query Update a custom metric by ID. (required)
+     * @param  string[]|null $fields_custom_metric For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateCustomMetric'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateCustomMetricAsync($id, $custom_metric_partial_update_query, $apiKey = null, string $contentType = self::contentTypes['updateCustomMetric'][0])
+    public function updateCustomMetricAsync($id, $custom_metric_partial_update_query, $fields_custom_metric = null, $apiKey = null, string $contentType = self::contentTypes['updateCustomMetric'][0])
     {
-        return $this->updateCustomMetricAsyncWithHttpInfo($id, $custom_metric_partial_update_query, $apiKey, $contentType)
+        return $this->updateCustomMetricAsyncWithHttpInfo($id, $custom_metric_partial_update_query, $fields_custom_metric, $apiKey, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -8329,15 +8362,16 @@ class MetricsApi
      *
      * @param  string $id The ID of the custom metric (required)
      * @param  \KlaviyoAPI\Model\CustomMetricPartialUpdateQuery $custom_metric_partial_update_query Update a custom metric by ID. (required)
+     * @param  string[]|null $fields_custom_metric For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateCustomMetric'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateCustomMetricAsyncWithHttpInfo($id, $custom_metric_partial_update_query, $apiKey = null, string $contentType = self::contentTypes['updateCustomMetric'][0])
+    public function updateCustomMetricAsyncWithHttpInfo($id, $custom_metric_partial_update_query, $fields_custom_metric = null, $apiKey = null, string $contentType = self::contentTypes['updateCustomMetric'][0])
     {
         $returnType = 'array<string,mixed>';
-        $request = $this->updateCustomMetricRequest($id, $custom_metric_partial_update_query, $apiKey, $contentType);
+        $request = $this->updateCustomMetricRequest($id, $custom_metric_partial_update_query, $fields_custom_metric, $apiKey, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -8385,12 +8419,13 @@ class MetricsApi
      *
      * @param  string $id The ID of the custom metric (required)
      * @param  \KlaviyoAPI\Model\CustomMetricPartialUpdateQuery $custom_metric_partial_update_query Update a custom metric by ID. (required)
+     * @param  string[]|null $fields_custom_metric For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateCustomMetric'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function updateCustomMetricRequest($id, $custom_metric_partial_update_query, $apiKey = null, string $contentType = self::contentTypes['updateCustomMetric'][0])
+    public function updateCustomMetricRequest($id, $custom_metric_partial_update_query, $fields_custom_metric = null, $apiKey = null, string $contentType = self::contentTypes['updateCustomMetric'][0])
     {
 
         // verify the required parameter 'id' is set
@@ -8408,6 +8443,7 @@ class MetricsApi
         }
 
 
+
         $resourcePath = '/api/custom-metrics/{id}';
         $formParams = [];
         $queryParams = [];
@@ -8415,6 +8451,15 @@ class MetricsApi
         $httpBody = '';
         $multipart = false;
 
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $fields_custom_metric,
+            'fields[custom-metric]', // param base name
+            'array', // openApiType
+            'form', // style
+            false, // explode
+            false // required
+        ) ?? []);
 
 
         // path params
@@ -8480,7 +8525,7 @@ class MetricsApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2026-04-15'];
+        $defaultHeaders['revision'] = ['2026-07-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -8504,15 +8549,16 @@ class MetricsApi
      *
      * @param  string $id The type of mapping. (required)
      * @param  \KlaviyoAPI\Model\MappedMetricPartialUpdateQuery $mapped_metric_partial_update_query Update a mapped metric by ID (required)
+     * @param  string[]|null $fields_mapped_metric For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateMappedMetric'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array<string,mixed>|\KlaviyoAPI\Model\GetAccounts400Response|\KlaviyoAPI\Model\GetAccounts400Response
      */
-    public function updateMappedMetric($id, $mapped_metric_partial_update_query, $apiKey = null, string $contentType = self::contentTypes['updateMappedMetric'][0])
+    public function updateMappedMetric($id, $mapped_metric_partial_update_query, $fields_mapped_metric = null, $apiKey = null, string $contentType = self::contentTypes['updateMappedMetric'][0])
     {
-        list($response) = $this->updateMappedMetricWithHttpInfo($id, $mapped_metric_partial_update_query, $apiKey, $contentType);
+        list($response) = $this->updateMappedMetricWithHttpInfo($id, $mapped_metric_partial_update_query, $fields_mapped_metric, $apiKey, $contentType);
         return $response;
     }
 
@@ -8523,15 +8569,16 @@ class MetricsApi
      *
      * @param  string $id The type of mapping. (required)
      * @param  \KlaviyoAPI\Model\MappedMetricPartialUpdateQuery $mapped_metric_partial_update_query Update a mapped metric by ID (required)
+     * @param  string[]|null $fields_mapped_metric For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateMappedMetric'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of array<string,mixed>|\KlaviyoAPI\Model\GetAccounts400Response|\KlaviyoAPI\Model\GetAccounts400Response, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updateMappedMetricWithHttpInfo($id, $mapped_metric_partial_update_query, $apiKey = null, string $contentType = self::contentTypes['updateMappedMetric'][0])
+    public function updateMappedMetricWithHttpInfo($id, $mapped_metric_partial_update_query, $fields_mapped_metric = null, $apiKey = null, string $contentType = self::contentTypes['updateMappedMetric'][0])
     {
-        $request = $this->updateMappedMetricRequest($id, $mapped_metric_partial_update_query, $apiKey, $contentType);
+        $request = $this->updateMappedMetricRequest($id, $mapped_metric_partial_update_query, $fields_mapped_metric, $apiKey, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -8637,14 +8684,15 @@ class MetricsApi
      *
      * @param  string $id The type of mapping. (required)
      * @param  \KlaviyoAPI\Model\MappedMetricPartialUpdateQuery $mapped_metric_partial_update_query Update a mapped metric by ID (required)
+     * @param  string[]|null $fields_mapped_metric For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateMappedMetric'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateMappedMetricAsync($id, $mapped_metric_partial_update_query, $apiKey = null, string $contentType = self::contentTypes['updateMappedMetric'][0])
+    public function updateMappedMetricAsync($id, $mapped_metric_partial_update_query, $fields_mapped_metric = null, $apiKey = null, string $contentType = self::contentTypes['updateMappedMetric'][0])
     {
-        return $this->updateMappedMetricAsyncWithHttpInfo($id, $mapped_metric_partial_update_query, $apiKey, $contentType)
+        return $this->updateMappedMetricAsyncWithHttpInfo($id, $mapped_metric_partial_update_query, $fields_mapped_metric, $apiKey, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -8659,15 +8707,16 @@ class MetricsApi
      *
      * @param  string $id The type of mapping. (required)
      * @param  \KlaviyoAPI\Model\MappedMetricPartialUpdateQuery $mapped_metric_partial_update_query Update a mapped metric by ID (required)
+     * @param  string[]|null $fields_mapped_metric For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateMappedMetric'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateMappedMetricAsyncWithHttpInfo($id, $mapped_metric_partial_update_query, $apiKey = null, string $contentType = self::contentTypes['updateMappedMetric'][0])
+    public function updateMappedMetricAsyncWithHttpInfo($id, $mapped_metric_partial_update_query, $fields_mapped_metric = null, $apiKey = null, string $contentType = self::contentTypes['updateMappedMetric'][0])
     {
         $returnType = 'array<string,mixed>';
-        $request = $this->updateMappedMetricRequest($id, $mapped_metric_partial_update_query, $apiKey, $contentType);
+        $request = $this->updateMappedMetricRequest($id, $mapped_metric_partial_update_query, $fields_mapped_metric, $apiKey, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -8715,12 +8764,13 @@ class MetricsApi
      *
      * @param  string $id The type of mapping. (required)
      * @param  \KlaviyoAPI\Model\MappedMetricPartialUpdateQuery $mapped_metric_partial_update_query Update a mapped metric by ID (required)
+     * @param  string[]|null $fields_mapped_metric For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateMappedMetric'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function updateMappedMetricRequest($id, $mapped_metric_partial_update_query, $apiKey = null, string $contentType = self::contentTypes['updateMappedMetric'][0])
+    public function updateMappedMetricRequest($id, $mapped_metric_partial_update_query, $fields_mapped_metric = null, $apiKey = null, string $contentType = self::contentTypes['updateMappedMetric'][0])
     {
 
         // verify the required parameter 'id' is set
@@ -8738,6 +8788,7 @@ class MetricsApi
         }
 
 
+
         $resourcePath = '/api/mapped-metrics/{id}';
         $formParams = [];
         $queryParams = [];
@@ -8745,6 +8796,15 @@ class MetricsApi
         $httpBody = '';
         $multipart = false;
 
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $fields_mapped_metric,
+            'fields[mapped-metric]', // param base name
+            'array', // openApiType
+            'form', // style
+            false, // explode
+            false // required
+        ) ?? []);
 
 
         // path params
@@ -8810,7 +8870,7 @@ class MetricsApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2026-04-15'];
+        $defaultHeaders['revision'] = ['2026-07-15'];
 
         $headers = array_merge(
             $defaultHeaders,

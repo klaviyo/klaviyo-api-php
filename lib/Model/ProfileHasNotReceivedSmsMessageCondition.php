@@ -58,7 +58,7 @@ class ProfileHasNotReceivedSmsMessageCondition implements ModelInterface, ArrayA
       */
     protected static $openAPITypes = [
         'type' => 'string',
-        'timeframe_filter' => '\KlaviyoAPI\Model\ProfileHasNotReceivedPushMessageConditionTimeframeFilter'
+        'timeframe_filter' => '\KlaviyoAPI\Model\ProfileHasNotReceivedEmailMessageConditionTimeframeFilter'
     ];
 
     /**
@@ -364,7 +364,7 @@ class ProfileHasNotReceivedSmsMessageCondition implements ModelInterface, ArrayA
     /**
      * Gets timeframe_filter
      *
-     * @return \KlaviyoAPI\Model\ProfileHasNotReceivedPushMessageConditionTimeframeFilter
+     * @return \KlaviyoAPI\Model\ProfileHasNotReceivedEmailMessageConditionTimeframeFilter
      */
     public function getTimeframeFilter()
     {
@@ -374,7 +374,7 @@ class ProfileHasNotReceivedSmsMessageCondition implements ModelInterface, ArrayA
     /**
      * Sets timeframe_filter
      *
-     * @param \KlaviyoAPI\Model\ProfileHasNotReceivedPushMessageConditionTimeframeFilter $timeframe_filter timeframe_filter
+     * @param \KlaviyoAPI\Model\ProfileHasNotReceivedEmailMessageConditionTimeframeFilter $timeframe_filter timeframe_filter
      *
      * @return self
      */

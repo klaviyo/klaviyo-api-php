@@ -77,19 +77,118 @@ class CustomObjectsApi
         'bulkCreateDataSourceRecords' => [
             'application/vnd.api+json',
         ],
+        'bulkDeleteObjectRecords' => [
+            'application/vnd.api+json',
+        ],
         'createDataSource' => [
             'application/vnd.api+json',
         ],
         'createDataSourceRecord' => [
             'application/vnd.api+json',
         ],
+        'createObjectSchema' => [
+            'application/vnd.api+json',
+        ],
+        'createObjectSchemaRelationship' => [
+            'application/vnd.api+json',
+        ],
+        'createObjectType' => [
+            'application/vnd.api+json',
+        ],
+        'createProfileSchemaRelationship' => [
+            'application/vnd.api+json',
+        ],
         'deleteDataSource' => [
+            'application/vnd.api+json',
+        ],
+        'deleteObjectSchemaRelationship' => [
+            'application/vnd.api+json',
+        ],
+        'deleteObjectType' => [
+            'application/vnd.api+json',
+        ],
+        'deleteProfileSchemaRelationship' => [
+            'application/vnd.api+json',
+        ],
+        'getCurrentSchemaForObjectType' => [
+            'application/vnd.api+json',
+        ],
+        'getCurrentSchemaIdForObjectType' => [
             'application/vnd.api+json',
         ],
         'getDataSource' => [
             'application/vnd.api+json',
         ],
         'getDataSources' => [
+            'application/vnd.api+json',
+        ],
+        'getDraftSchemaForObjectType' => [
+            'application/vnd.api+json',
+        ],
+        'getDraftSchemaIdForObjectType' => [
+            'application/vnd.api+json',
+        ],
+        'getIngestionLogIdsForObjectType' => [
+            'application/vnd.api+json',
+        ],
+        'getIngestionLogsForObjectType' => [
+            'application/vnd.api+json',
+        ],
+        'getObjectRecord' => [
+            'application/vnd.api+json',
+        ],
+        'getObjectSchema' => [
+            'application/vnd.api+json',
+        ],
+        'getObjectSchemaRelationships' => [
+            'application/vnd.api+json',
+        ],
+        'getObjectType' => [
+            'application/vnd.api+json',
+        ],
+        'getObjectTypeRelationships' => [
+            'application/vnd.api+json',
+        ],
+        'getObjectTypes' => [
+            'application/vnd.api+json',
+        ],
+        'getProfileSchemaRelationships' => [
+            'application/vnd.api+json',
+        ],
+        'getProfileTypeRelationships' => [
+            'application/vnd.api+json',
+        ],
+        'getRecordIdsForObjectType' => [
+            'application/vnd.api+json',
+        ],
+        'getRecordsForObjectType' => [
+            'application/vnd.api+json',
+        ],
+        'getSchemaVersionIdsForObjectType' => [
+            'application/vnd.api+json',
+        ],
+        'getSchemaVersionsForObjectType' => [
+            'application/vnd.api+json',
+        ],
+        'getSourceMapping' => [
+            'application/vnd.api+json',
+        ],
+        'getSourceMappingForObjectSchema' => [
+            'application/vnd.api+json',
+        ],
+        'getSourceMappingIdForObjectSchema' => [
+            'application/vnd.api+json',
+        ],
+        'updateObjectSchema' => [
+            'application/vnd.api+json',
+        ],
+        'updateObjectSchemaRelationship' => [
+            'application/vnd.api+json',
+        ],
+        'updateProfileSchemaRelationship' => [
+            'application/vnd.api+json',
+        ],
+        'updateSourceMapping' => [
             'application/vnd.api+json',
         ],
     ];
@@ -402,7 +501,7 @@ class CustomObjectsApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2026-04-15'];
+        $defaultHeaders['revision'] = ['2026-07-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -429,20 +528,309 @@ class CustomObjectsApi
     }
 
     /**
+     * Operation bulkDeleteObjectRecords
+     *
+     * Bulk Delete Object Records
+     *
+     * @param  \KlaviyoAPI\Model\ObjectRecordDeleteJobCreateQuery $object_record_delete_job_create_query object_record_delete_job_create_query (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['bulkDeleteObjectRecords'] to see the possible values for this operation
+     *
+     * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return void
+     */
+    public function bulkDeleteObjectRecords($object_record_delete_job_create_query, $apiKey = null, string $contentType = self::contentTypes['bulkDeleteObjectRecords'][0])
+    {
+        $this->bulkDeleteObjectRecordsWithHttpInfo($object_record_delete_job_create_query, $apiKey, $contentType);
+    }
+
+    /**
+     * Alias of `bulkDeleteObjectRecords`
+     *
+     * @deprecated use `bulkDeleteObjectRecords` instead
+     */
+    public function createObjectRecordBulkDeleteJob(...$args) {
+        return $this->bulkDeleteObjectRecords(...$args);
+    }
+
+    /**
+     * Operation bulkDeleteObjectRecordsWithHttpInfo
+     *
+     * Bulk Delete Object Records
+     *
+     * @param  \KlaviyoAPI\Model\ObjectRecordDeleteJobCreateQuery $object_record_delete_job_create_query (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['bulkDeleteObjectRecords'] to see the possible values for this operation
+     *
+     * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function bulkDeleteObjectRecordsWithHttpInfo($object_record_delete_job_create_query, $apiKey = null, string $contentType = self::contentTypes['bulkDeleteObjectRecords'][0])
+    {
+        $request = $this->bulkDeleteObjectRecordsRequest($object_record_delete_job_create_query, $apiKey, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            return [null, $statusCode, $response->getHeaders()];
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\KlaviyoAPI\Model\GetAccounts400Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 500:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\KlaviyoAPI\Model\GetAccounts400Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+            }
+        
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Alias of `bulkDeleteObjectRecordsWithHttpInfo`
+     *
+     * @deprecated use `bulkDeleteObjectRecordsWithHttpInfo` instead
+     */
+    public function createObjectRecordBulkDeleteJobWithHttpInfo(...$args) {
+        return $this->bulkDeleteObjectRecordsWithHttpInfo(...$args);
+    }
+
+    /**
+     * Operation bulkDeleteObjectRecordsAsync
+     *
+     * Bulk Delete Object Records
+     *
+     * @param  \KlaviyoAPI\Model\ObjectRecordDeleteJobCreateQuery $object_record_delete_job_create_query (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['bulkDeleteObjectRecords'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function bulkDeleteObjectRecordsAsync($object_record_delete_job_create_query, $apiKey = null, string $contentType = self::contentTypes['bulkDeleteObjectRecords'][0])
+    {
+        return $this->bulkDeleteObjectRecordsAsyncWithHttpInfo($object_record_delete_job_create_query, $apiKey, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Alias of `bulkDeleteObjectRecordsAsync`
+     *
+     * @deprecated use `bulkDeleteObjectRecordsAsync` instead
+     */
+    public function createObjectRecordBulkDeleteJobAsync(...$args) {
+        return $this->bulkDeleteObjectRecordsAsync(...$args);
+    }
+
+    /**
+     * Operation bulkDeleteObjectRecordsAsyncWithHttpInfo
+     *
+     * Bulk Delete Object Records
+     *
+     * @param  \KlaviyoAPI\Model\ObjectRecordDeleteJobCreateQuery $object_record_delete_job_create_query (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['bulkDeleteObjectRecords'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function bulkDeleteObjectRecordsAsyncWithHttpInfo($object_record_delete_job_create_query, $apiKey = null, string $contentType = self::contentTypes['bulkDeleteObjectRecords'][0])
+    {
+        $returnType = '';
+        $request = $this->bulkDeleteObjectRecordsRequest($object_record_delete_job_create_query, $apiKey, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    return [null, $response->getStatusCode(), $response->getHeaders()];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Alias of `bulkDeleteObjectRecordsAsyncWithHttpInfo`
+     *
+     * @deprecated use `bulkDeleteObjectRecordsAsyncWithHttpInfo` instead
+     */
+    public function createObjectRecordBulkDeleteJobAsyncWithHttpInfo(...$args) {
+        return $this->bulkDeleteObjectRecordsAsyncWithHttpInfo(...$args);
+    }
+
+    /**
+     * Create request for operation 'bulkDeleteObjectRecords'
+     *
+     * @param  \KlaviyoAPI\Model\ObjectRecordDeleteJobCreateQuery $object_record_delete_job_create_query (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['bulkDeleteObjectRecords'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function bulkDeleteObjectRecordsRequest($object_record_delete_job_create_query, $apiKey = null, string $contentType = self::contentTypes['bulkDeleteObjectRecords'][0])
+    {
+
+        // verify the required parameter 'object_record_delete_job_create_query' is set
+        if ($object_record_delete_job_create_query === null || (is_array($object_record_delete_job_create_query) && count($object_record_delete_job_create_query) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $object_record_delete_job_create_query when calling bulkDeleteObjectRecords'
+            );
+        }
+
+
+        $resourcePath = '/api/object-record-bulk-delete-jobs';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/vnd.api+json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (isset($object_record_delete_job_create_query)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false || stripos($headers['Content-Type'], 'application/vnd.api+json') !== false) {
+                # if Content-Type contains "application/json" or "application/vnd.api+json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($object_record_delete_job_create_query));
+            } else {
+                $httpBody = $object_record_delete_job_create_query;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false || stripos($headers['Content-Type'], 'application/vnd.api+json') !== false) {
+                # if Content-Type contains "application/json" or "application/vnd.api+json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        if ($apiKey == null) {
+            $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        } else {
+            $apiKey = 'Klaviyo-API-Key '.$apiKey;
+        }
+
+        $headers['Authorization'] = $apiKey;
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $defaultHeaders['revision'] = ['2026-07-15'];
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'POST',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Alias of `bulkDeleteObjectRecordsRequest`
+     *
+     * @deprecated use `bulkDeleteObjectRecordsRequest` instead
+     */
+    public function createObjectRecordBulkDeleteJobRequest(...$args) {
+        return $this->bulkDeleteObjectRecordsRequest(...$args);
+    }
+
+    /**
      * Operation createDataSource
      *
      * Create Data Source
      *
      * @param  \KlaviyoAPI\Model\DataSourceCreateQuery $data_source_create_query Create data source (required)
+     * @param  string[]|null $fields_data_source For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createDataSource'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array<string,mixed>|\KlaviyoAPI\Model\GetAccounts400Response|\KlaviyoAPI\Model\GetAccounts400Response
      */
-    public function createDataSource($data_source_create_query, $apiKey = null, string $contentType = self::contentTypes['createDataSource'][0])
+    public function createDataSource($data_source_create_query, $fields_data_source = null, $apiKey = null, string $contentType = self::contentTypes['createDataSource'][0])
     {
-        list($response) = $this->createDataSourceWithHttpInfo($data_source_create_query, $apiKey, $contentType);
+        list($response) = $this->createDataSourceWithHttpInfo($data_source_create_query, $fields_data_source, $apiKey, $contentType);
         return $response;
     }
 
@@ -452,15 +840,16 @@ class CustomObjectsApi
      * Create Data Source
      *
      * @param  \KlaviyoAPI\Model\DataSourceCreateQuery $data_source_create_query Create data source (required)
+     * @param  string[]|null $fields_data_source For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createDataSource'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of array<string,mixed>|\KlaviyoAPI\Model\GetAccounts400Response|\KlaviyoAPI\Model\GetAccounts400Response, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createDataSourceWithHttpInfo($data_source_create_query, $apiKey = null, string $contentType = self::contentTypes['createDataSource'][0])
+    public function createDataSourceWithHttpInfo($data_source_create_query, $fields_data_source = null, $apiKey = null, string $contentType = self::contentTypes['createDataSource'][0])
     {
-        $request = $this->createDataSourceRequest($data_source_create_query, $apiKey, $contentType);
+        $request = $this->createDataSourceRequest($data_source_create_query, $fields_data_source, $apiKey, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -565,14 +954,15 @@ class CustomObjectsApi
      * Create Data Source
      *
      * @param  \KlaviyoAPI\Model\DataSourceCreateQuery $data_source_create_query Create data source (required)
+     * @param  string[]|null $fields_data_source For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createDataSource'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createDataSourceAsync($data_source_create_query, $apiKey = null, string $contentType = self::contentTypes['createDataSource'][0])
+    public function createDataSourceAsync($data_source_create_query, $fields_data_source = null, $apiKey = null, string $contentType = self::contentTypes['createDataSource'][0])
     {
-        return $this->createDataSourceAsyncWithHttpInfo($data_source_create_query, $apiKey, $contentType)
+        return $this->createDataSourceAsyncWithHttpInfo($data_source_create_query, $fields_data_source, $apiKey, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -586,15 +976,16 @@ class CustomObjectsApi
      * Create Data Source
      *
      * @param  \KlaviyoAPI\Model\DataSourceCreateQuery $data_source_create_query Create data source (required)
+     * @param  string[]|null $fields_data_source For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createDataSource'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createDataSourceAsyncWithHttpInfo($data_source_create_query, $apiKey = null, string $contentType = self::contentTypes['createDataSource'][0])
+    public function createDataSourceAsyncWithHttpInfo($data_source_create_query, $fields_data_source = null, $apiKey = null, string $contentType = self::contentTypes['createDataSource'][0])
     {
         $returnType = 'array<string,mixed>';
-        $request = $this->createDataSourceRequest($data_source_create_query, $apiKey, $contentType);
+        $request = $this->createDataSourceRequest($data_source_create_query, $fields_data_source, $apiKey, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -641,12 +1032,13 @@ class CustomObjectsApi
      * Create request for operation 'createDataSource'
      *
      * @param  \KlaviyoAPI\Model\DataSourceCreateQuery $data_source_create_query Create data source (required)
+     * @param  string[]|null $fields_data_source For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createDataSource'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function createDataSourceRequest($data_source_create_query, $apiKey = null, string $contentType = self::contentTypes['createDataSource'][0])
+    public function createDataSourceRequest($data_source_create_query, $fields_data_source = null, $apiKey = null, string $contentType = self::contentTypes['createDataSource'][0])
     {
 
         // verify the required parameter 'data_source_create_query' is set
@@ -657,6 +1049,7 @@ class CustomObjectsApi
         }
 
 
+
         $resourcePath = '/api/data-sources';
         $formParams = [];
         $queryParams = [];
@@ -664,6 +1057,15 @@ class CustomObjectsApi
         $httpBody = '';
         $multipart = false;
 
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $fields_data_source,
+            'fields[data-source]', // param base name
+            'array', // openApiType
+            'form', // style
+            false, // explode
+            false // required
+        ) ?? []);
 
 
 
@@ -721,7 +1123,7 @@ class CustomObjectsApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2026-04-15'];
+        $defaultHeaders['revision'] = ['2026-07-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -1000,7 +1402,7 @@ class CustomObjectsApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2026-04-15'];
+        $defaultHeaders['revision'] = ['2026-07-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -1024,6 +1426,1362 @@ class CustomObjectsApi
      */
     public function createDataSourceRecordCreateJobRequest(...$args) {
         return $this->createDataSourceRecordRequest(...$args);
+    }
+
+    /**
+     * Operation createObjectSchema
+     *
+     * Create Object Schema
+     *
+     * @param  \KlaviyoAPI\Model\ObjectSchemaCreateQuery $object_schema_create_query Create an object schema (required)
+     * @param  string[]|null $fields_object_schema For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createObjectSchema'] to see the possible values for this operation
+     *
+     * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array<string,mixed>|\KlaviyoAPI\Model\GetAccounts400Response|\KlaviyoAPI\Model\GetAccounts400Response
+     */
+    public function createObjectSchema($object_schema_create_query, $fields_object_schema = null, $apiKey = null, string $contentType = self::contentTypes['createObjectSchema'][0])
+    {
+        list($response) = $this->createObjectSchemaWithHttpInfo($object_schema_create_query, $fields_object_schema, $apiKey, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation createObjectSchemaWithHttpInfo
+     *
+     * Create Object Schema
+     *
+     * @param  \KlaviyoAPI\Model\ObjectSchemaCreateQuery $object_schema_create_query Create an object schema (required)
+     * @param  string[]|null $fields_object_schema For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createObjectSchema'] to see the possible values for this operation
+     *
+     * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of array<string,mixed>|\KlaviyoAPI\Model\GetAccounts400Response|\KlaviyoAPI\Model\GetAccounts400Response, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function createObjectSchemaWithHttpInfo($object_schema_create_query, $fields_object_schema = null, $apiKey = null, string $contentType = self::contentTypes['createObjectSchema'][0])
+    {
+        $request = $this->createObjectSchemaRequest($object_schema_create_query, $fields_object_schema, $apiKey, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            switch($statusCode) {
+                case 201:
+                    return $this->handleResponseWithDataType(
+                        'array<string,mixed>',
+                        $request,
+                        $response,
+                    );
+                case 400:
+                    return $this->handleResponseWithDataType(
+                        '\KlaviyoAPI\Model\GetAccounts400Response',
+                        $request,
+                        $response,
+                    );
+                case 500:
+                    return $this->handleResponseWithDataType(
+                        '\KlaviyoAPI\Model\GetAccounts400Response',
+                        $request,
+                        $response,
+                    );
+            }
+
+            
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            return $this->handleResponseWithDataType(
+                'array<string,mixed>',
+                $request,
+                $response,
+            );
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 201:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        'array<string,mixed>',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\KlaviyoAPI\Model\GetAccounts400Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 500:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\KlaviyoAPI\Model\GetAccounts400Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+            }
+        
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation createObjectSchemaAsync
+     *
+     * Create Object Schema
+     *
+     * @param  \KlaviyoAPI\Model\ObjectSchemaCreateQuery $object_schema_create_query Create an object schema (required)
+     * @param  string[]|null $fields_object_schema For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createObjectSchema'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function createObjectSchemaAsync($object_schema_create_query, $fields_object_schema = null, $apiKey = null, string $contentType = self::contentTypes['createObjectSchema'][0])
+    {
+        return $this->createObjectSchemaAsyncWithHttpInfo($object_schema_create_query, $fields_object_schema, $apiKey, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation createObjectSchemaAsyncWithHttpInfo
+     *
+     * Create Object Schema
+     *
+     * @param  \KlaviyoAPI\Model\ObjectSchemaCreateQuery $object_schema_create_query Create an object schema (required)
+     * @param  string[]|null $fields_object_schema For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createObjectSchema'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function createObjectSchemaAsyncWithHttpInfo($object_schema_create_query, $fields_object_schema = null, $apiKey = null, string $contentType = self::contentTypes['createObjectSchema'][0])
+    {
+        $returnType = 'array<string,mixed>';
+        $request = $this->createObjectSchemaRequest($object_schema_create_query, $fields_object_schema, $apiKey, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    $parsed_content = json_decode(json_encode($content), TRUE);
+                    if (json_last_error() != JSON_ERROR_NONE) {
+                        $parsed_content = $content;
+                    }
+
+                    return [
+                        $parsed_content,
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'createObjectSchema'
+     *
+     * @param  \KlaviyoAPI\Model\ObjectSchemaCreateQuery $object_schema_create_query Create an object schema (required)
+     * @param  string[]|null $fields_object_schema For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createObjectSchema'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function createObjectSchemaRequest($object_schema_create_query, $fields_object_schema = null, $apiKey = null, string $contentType = self::contentTypes['createObjectSchema'][0])
+    {
+
+        // verify the required parameter 'object_schema_create_query' is set
+        if ($object_schema_create_query === null || (is_array($object_schema_create_query) && count($object_schema_create_query) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $object_schema_create_query when calling createObjectSchema'
+            );
+        }
+
+
+
+        $resourcePath = '/api/object-schemas';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $fields_object_schema,
+            'fields[object-schema]', // param base name
+            'array', // openApiType
+            'form', // style
+            false, // explode
+            false // required
+        ) ?? []);
+
+
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/vnd.api+json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (isset($object_schema_create_query)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false || stripos($headers['Content-Type'], 'application/vnd.api+json') !== false) {
+                # if Content-Type contains "application/json" or "application/vnd.api+json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($object_schema_create_query));
+            } else {
+                $httpBody = $object_schema_create_query;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false || stripos($headers['Content-Type'], 'application/vnd.api+json') !== false) {
+                # if Content-Type contains "application/json" or "application/vnd.api+json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        if ($apiKey == null) {
+            $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        } else {
+            $apiKey = 'Klaviyo-API-Key '.$apiKey;
+        }
+
+        $headers['Authorization'] = $apiKey;
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $defaultHeaders['revision'] = ['2026-07-15'];
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'POST',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation createObjectSchemaRelationship
+     *
+     * Create Object Schema Relationship
+     *
+     * @param  string $id The ULID ID of the object schema. (required)
+     * @param  \KlaviyoAPI\Model\ObjectSchemaRelationshipCreateQuery $object_schema_relationship_create_query Create a relationship between object schemas (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createObjectSchemaRelationship'] to see the possible values for this operation
+     *
+     * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return void
+     */
+    public function createObjectSchemaRelationship($id, $object_schema_relationship_create_query, $apiKey = null, string $contentType = self::contentTypes['createObjectSchemaRelationship'][0])
+    {
+        $this->createObjectSchemaRelationshipWithHttpInfo($id, $object_schema_relationship_create_query, $apiKey, $contentType);
+    }
+
+    /**
+     * Alias of `createObjectSchemaRelationship`
+     *
+     * @deprecated use `createObjectSchemaRelationship` instead
+     */
+    public function addSchemasToObjectSchema(...$args) {
+        return $this->createObjectSchemaRelationship(...$args);
+    }
+
+    /**
+     * Alias of `createObjectSchemaRelationship`
+     *
+     * @deprecated use `createObjectSchemaRelationship` instead
+     */
+    public function createObjectSchemaRelationshipsSchemas(...$args) {
+        return $this->createObjectSchemaRelationship(...$args);
+    }
+
+    /**
+     * Operation createObjectSchemaRelationshipWithHttpInfo
+     *
+     * Create Object Schema Relationship
+     *
+     * @param  string $id The ULID ID of the object schema. (required)
+     * @param  \KlaviyoAPI\Model\ObjectSchemaRelationshipCreateQuery $object_schema_relationship_create_query Create a relationship between object schemas (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createObjectSchemaRelationship'] to see the possible values for this operation
+     *
+     * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function createObjectSchemaRelationshipWithHttpInfo($id, $object_schema_relationship_create_query, $apiKey = null, string $contentType = self::contentTypes['createObjectSchemaRelationship'][0])
+    {
+        $request = $this->createObjectSchemaRelationshipRequest($id, $object_schema_relationship_create_query, $apiKey, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            return [null, $statusCode, $response->getHeaders()];
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\KlaviyoAPI\Model\GetAccounts400Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 500:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\KlaviyoAPI\Model\GetAccounts400Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+            }
+        
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Alias of `createObjectSchemaRelationshipWithHttpInfo`
+     *
+     * @deprecated use `createObjectSchemaRelationshipWithHttpInfo` instead
+     */
+    public function addSchemasToObjectSchemaWithHttpInfo(...$args) {
+        return $this->createObjectSchemaRelationshipWithHttpInfo(...$args);
+    }
+
+    /**
+     * Alias of `createObjectSchemaRelationshipWithHttpInfo`
+     *
+     * @deprecated use `createObjectSchemaRelationshipWithHttpInfo` instead
+     */
+    public function createObjectSchemaRelationshipsSchemasWithHttpInfo(...$args) {
+        return $this->createObjectSchemaRelationshipWithHttpInfo(...$args);
+    }
+
+    /**
+     * Operation createObjectSchemaRelationshipAsync
+     *
+     * Create Object Schema Relationship
+     *
+     * @param  string $id The ULID ID of the object schema. (required)
+     * @param  \KlaviyoAPI\Model\ObjectSchemaRelationshipCreateQuery $object_schema_relationship_create_query Create a relationship between object schemas (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createObjectSchemaRelationship'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function createObjectSchemaRelationshipAsync($id, $object_schema_relationship_create_query, $apiKey = null, string $contentType = self::contentTypes['createObjectSchemaRelationship'][0])
+    {
+        return $this->createObjectSchemaRelationshipAsyncWithHttpInfo($id, $object_schema_relationship_create_query, $apiKey, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Alias of `createObjectSchemaRelationshipAsync`
+     *
+     * @deprecated use `createObjectSchemaRelationshipAsync` instead
+     */
+    public function addSchemasToObjectSchemaAsync(...$args) {
+        return $this->createObjectSchemaRelationshipAsync(...$args);
+    }
+
+    /**
+     * Alias of `createObjectSchemaRelationshipAsync`
+     *
+     * @deprecated use `createObjectSchemaRelationshipAsync` instead
+     */
+    public function createObjectSchemaRelationshipsSchemasAsync(...$args) {
+        return $this->createObjectSchemaRelationshipAsync(...$args);
+    }
+
+    /**
+     * Operation createObjectSchemaRelationshipAsyncWithHttpInfo
+     *
+     * Create Object Schema Relationship
+     *
+     * @param  string $id The ULID ID of the object schema. (required)
+     * @param  \KlaviyoAPI\Model\ObjectSchemaRelationshipCreateQuery $object_schema_relationship_create_query Create a relationship between object schemas (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createObjectSchemaRelationship'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function createObjectSchemaRelationshipAsyncWithHttpInfo($id, $object_schema_relationship_create_query, $apiKey = null, string $contentType = self::contentTypes['createObjectSchemaRelationship'][0])
+    {
+        $returnType = '';
+        $request = $this->createObjectSchemaRelationshipRequest($id, $object_schema_relationship_create_query, $apiKey, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    return [null, $response->getStatusCode(), $response->getHeaders()];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Alias of `createObjectSchemaRelationshipAsyncWithHttpInfo`
+     *
+     * @deprecated use `createObjectSchemaRelationshipAsyncWithHttpInfo` instead
+     */
+    public function addSchemasToObjectSchemaAsyncWithHttpInfo(...$args) {
+        return $this->createObjectSchemaRelationshipAsyncWithHttpInfo(...$args);
+    }
+
+    /**
+     * Alias of `createObjectSchemaRelationshipAsyncWithHttpInfo`
+     *
+     * @deprecated use `createObjectSchemaRelationshipAsyncWithHttpInfo` instead
+     */
+    public function createObjectSchemaRelationshipsSchemasAsyncWithHttpInfo(...$args) {
+        return $this->createObjectSchemaRelationshipAsyncWithHttpInfo(...$args);
+    }
+
+    /**
+     * Create request for operation 'createObjectSchemaRelationship'
+     *
+     * @param  string $id The ULID ID of the object schema. (required)
+     * @param  \KlaviyoAPI\Model\ObjectSchemaRelationshipCreateQuery $object_schema_relationship_create_query Create a relationship between object schemas (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createObjectSchemaRelationship'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function createObjectSchemaRelationshipRequest($id, $object_schema_relationship_create_query, $apiKey = null, string $contentType = self::contentTypes['createObjectSchemaRelationship'][0])
+    {
+
+        // verify the required parameter 'id' is set
+        if ($id === null || (is_array($id) && count($id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $id when calling createObjectSchemaRelationship'
+            );
+        }
+
+        // verify the required parameter 'object_schema_relationship_create_query' is set
+        if ($object_schema_relationship_create_query === null || (is_array($object_schema_relationship_create_query) && count($object_schema_relationship_create_query) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $object_schema_relationship_create_query when calling createObjectSchemaRelationship'
+            );
+        }
+
+
+        $resourcePath = '/api/object-schemas/{id}/relationships/object-schemas';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'id' . '}',
+                ObjectSerializer::toPathValue($id),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/vnd.api+json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (isset($object_schema_relationship_create_query)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false || stripos($headers['Content-Type'], 'application/vnd.api+json') !== false) {
+                # if Content-Type contains "application/json" or "application/vnd.api+json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($object_schema_relationship_create_query));
+            } else {
+                $httpBody = $object_schema_relationship_create_query;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false || stripos($headers['Content-Type'], 'application/vnd.api+json') !== false) {
+                # if Content-Type contains "application/json" or "application/vnd.api+json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        if ($apiKey == null) {
+            $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        } else {
+            $apiKey = 'Klaviyo-API-Key '.$apiKey;
+        }
+
+        $headers['Authorization'] = $apiKey;
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $defaultHeaders['revision'] = ['2026-07-15'];
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'POST',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Alias of `createObjectSchemaRelationshipRequest`
+     *
+     * @deprecated use `createObjectSchemaRelationshipRequest` instead
+     */
+    public function addSchemasToObjectSchemaRequest(...$args) {
+        return $this->createObjectSchemaRelationshipRequest(...$args);
+    }
+
+    /**
+     * Alias of `createObjectSchemaRelationshipRequest`
+     *
+     * @deprecated use `createObjectSchemaRelationshipRequest` instead
+     */
+    public function createObjectSchemaRelationshipsSchemasRequest(...$args) {
+        return $this->createObjectSchemaRelationshipRequest(...$args);
+    }
+
+    /**
+     * Operation createObjectType
+     *
+     * Create Object Type
+     *
+     * @param  \KlaviyoAPI\Model\ObjectTypeCreateQuery $object_type_create_query Create an object type (required)
+     * @param  string[]|null $fields_object_type For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createObjectType'] to see the possible values for this operation
+     *
+     * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array<string,mixed>|\KlaviyoAPI\Model\GetAccounts400Response|\KlaviyoAPI\Model\GetAccounts400Response
+     */
+    public function createObjectType($object_type_create_query, $fields_object_type = null, $apiKey = null, string $contentType = self::contentTypes['createObjectType'][0])
+    {
+        list($response) = $this->createObjectTypeWithHttpInfo($object_type_create_query, $fields_object_type, $apiKey, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation createObjectTypeWithHttpInfo
+     *
+     * Create Object Type
+     *
+     * @param  \KlaviyoAPI\Model\ObjectTypeCreateQuery $object_type_create_query Create an object type (required)
+     * @param  string[]|null $fields_object_type For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createObjectType'] to see the possible values for this operation
+     *
+     * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of array<string,mixed>|\KlaviyoAPI\Model\GetAccounts400Response|\KlaviyoAPI\Model\GetAccounts400Response, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function createObjectTypeWithHttpInfo($object_type_create_query, $fields_object_type = null, $apiKey = null, string $contentType = self::contentTypes['createObjectType'][0])
+    {
+        $request = $this->createObjectTypeRequest($object_type_create_query, $fields_object_type, $apiKey, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            switch($statusCode) {
+                case 201:
+                    return $this->handleResponseWithDataType(
+                        'array<string,mixed>',
+                        $request,
+                        $response,
+                    );
+                case 400:
+                    return $this->handleResponseWithDataType(
+                        '\KlaviyoAPI\Model\GetAccounts400Response',
+                        $request,
+                        $response,
+                    );
+                case 500:
+                    return $this->handleResponseWithDataType(
+                        '\KlaviyoAPI\Model\GetAccounts400Response',
+                        $request,
+                        $response,
+                    );
+            }
+
+            
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            return $this->handleResponseWithDataType(
+                'array<string,mixed>',
+                $request,
+                $response,
+            );
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 201:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        'array<string,mixed>',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\KlaviyoAPI\Model\GetAccounts400Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 500:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\KlaviyoAPI\Model\GetAccounts400Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+            }
+        
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation createObjectTypeAsync
+     *
+     * Create Object Type
+     *
+     * @param  \KlaviyoAPI\Model\ObjectTypeCreateQuery $object_type_create_query Create an object type (required)
+     * @param  string[]|null $fields_object_type For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createObjectType'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function createObjectTypeAsync($object_type_create_query, $fields_object_type = null, $apiKey = null, string $contentType = self::contentTypes['createObjectType'][0])
+    {
+        return $this->createObjectTypeAsyncWithHttpInfo($object_type_create_query, $fields_object_type, $apiKey, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation createObjectTypeAsyncWithHttpInfo
+     *
+     * Create Object Type
+     *
+     * @param  \KlaviyoAPI\Model\ObjectTypeCreateQuery $object_type_create_query Create an object type (required)
+     * @param  string[]|null $fields_object_type For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createObjectType'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function createObjectTypeAsyncWithHttpInfo($object_type_create_query, $fields_object_type = null, $apiKey = null, string $contentType = self::contentTypes['createObjectType'][0])
+    {
+        $returnType = 'array<string,mixed>';
+        $request = $this->createObjectTypeRequest($object_type_create_query, $fields_object_type, $apiKey, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    $parsed_content = json_decode(json_encode($content), TRUE);
+                    if (json_last_error() != JSON_ERROR_NONE) {
+                        $parsed_content = $content;
+                    }
+
+                    return [
+                        $parsed_content,
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'createObjectType'
+     *
+     * @param  \KlaviyoAPI\Model\ObjectTypeCreateQuery $object_type_create_query Create an object type (required)
+     * @param  string[]|null $fields_object_type For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createObjectType'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function createObjectTypeRequest($object_type_create_query, $fields_object_type = null, $apiKey = null, string $contentType = self::contentTypes['createObjectType'][0])
+    {
+
+        // verify the required parameter 'object_type_create_query' is set
+        if ($object_type_create_query === null || (is_array($object_type_create_query) && count($object_type_create_query) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $object_type_create_query when calling createObjectType'
+            );
+        }
+
+
+
+        $resourcePath = '/api/object-types';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $fields_object_type,
+            'fields[object-type]', // param base name
+            'array', // openApiType
+            'form', // style
+            false, // explode
+            false // required
+        ) ?? []);
+
+
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/vnd.api+json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (isset($object_type_create_query)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false || stripos($headers['Content-Type'], 'application/vnd.api+json') !== false) {
+                # if Content-Type contains "application/json" or "application/vnd.api+json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($object_type_create_query));
+            } else {
+                $httpBody = $object_type_create_query;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false || stripos($headers['Content-Type'], 'application/vnd.api+json') !== false) {
+                # if Content-Type contains "application/json" or "application/vnd.api+json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        if ($apiKey == null) {
+            $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        } else {
+            $apiKey = 'Klaviyo-API-Key '.$apiKey;
+        }
+
+        $headers['Authorization'] = $apiKey;
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $defaultHeaders['revision'] = ['2026-07-15'];
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'POST',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation createProfileSchemaRelationship
+     *
+     * Create Profile Schema Relationship
+     *
+     * @param  string $id The ULID ID of the object schema. (required)
+     * @param  \KlaviyoAPI\Model\ProfileObjectSchemaRelationshipCreateQuery $profile_object_schema_relationship_create_query Create a relationship between an object schema and a profile. (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createProfileSchemaRelationship'] to see the possible values for this operation
+     *
+     * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return void
+     */
+    public function createProfileSchemaRelationship($id, $profile_object_schema_relationship_create_query, $apiKey = null, string $contentType = self::contentTypes['createProfileSchemaRelationship'][0])
+    {
+        $this->createProfileSchemaRelationshipWithHttpInfo($id, $profile_object_schema_relationship_create_query, $apiKey, $contentType);
+    }
+
+    /**
+     * Alias of `createProfileSchemaRelationship`
+     *
+     * @deprecated use `createProfileSchemaRelationship` instead
+     */
+    public function addProfileObjectSchemasToObjectSchema(...$args) {
+        return $this->createProfileSchemaRelationship(...$args);
+    }
+
+    /**
+     * Alias of `createProfileSchemaRelationship`
+     *
+     * @deprecated use `createProfileSchemaRelationship` instead
+     */
+    public function createObjectSchemaRelationshipsProfileObjectSchemas(...$args) {
+        return $this->createProfileSchemaRelationship(...$args);
+    }
+
+    /**
+     * Operation createProfileSchemaRelationshipWithHttpInfo
+     *
+     * Create Profile Schema Relationship
+     *
+     * @param  string $id The ULID ID of the object schema. (required)
+     * @param  \KlaviyoAPI\Model\ProfileObjectSchemaRelationshipCreateQuery $profile_object_schema_relationship_create_query Create a relationship between an object schema and a profile. (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createProfileSchemaRelationship'] to see the possible values for this operation
+     *
+     * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function createProfileSchemaRelationshipWithHttpInfo($id, $profile_object_schema_relationship_create_query, $apiKey = null, string $contentType = self::contentTypes['createProfileSchemaRelationship'][0])
+    {
+        $request = $this->createProfileSchemaRelationshipRequest($id, $profile_object_schema_relationship_create_query, $apiKey, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            return [null, $statusCode, $response->getHeaders()];
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\KlaviyoAPI\Model\GetAccounts400Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 500:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\KlaviyoAPI\Model\GetAccounts400Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+            }
+        
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Alias of `createProfileSchemaRelationshipWithHttpInfo`
+     *
+     * @deprecated use `createProfileSchemaRelationshipWithHttpInfo` instead
+     */
+    public function addProfileObjectSchemasToObjectSchemaWithHttpInfo(...$args) {
+        return $this->createProfileSchemaRelationshipWithHttpInfo(...$args);
+    }
+
+    /**
+     * Alias of `createProfileSchemaRelationshipWithHttpInfo`
+     *
+     * @deprecated use `createProfileSchemaRelationshipWithHttpInfo` instead
+     */
+    public function createObjectSchemaRelationshipsProfileObjectSchemasWithHttpInfo(...$args) {
+        return $this->createProfileSchemaRelationshipWithHttpInfo(...$args);
+    }
+
+    /**
+     * Operation createProfileSchemaRelationshipAsync
+     *
+     * Create Profile Schema Relationship
+     *
+     * @param  string $id The ULID ID of the object schema. (required)
+     * @param  \KlaviyoAPI\Model\ProfileObjectSchemaRelationshipCreateQuery $profile_object_schema_relationship_create_query Create a relationship between an object schema and a profile. (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createProfileSchemaRelationship'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function createProfileSchemaRelationshipAsync($id, $profile_object_schema_relationship_create_query, $apiKey = null, string $contentType = self::contentTypes['createProfileSchemaRelationship'][0])
+    {
+        return $this->createProfileSchemaRelationshipAsyncWithHttpInfo($id, $profile_object_schema_relationship_create_query, $apiKey, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Alias of `createProfileSchemaRelationshipAsync`
+     *
+     * @deprecated use `createProfileSchemaRelationshipAsync` instead
+     */
+    public function addProfileObjectSchemasToObjectSchemaAsync(...$args) {
+        return $this->createProfileSchemaRelationshipAsync(...$args);
+    }
+
+    /**
+     * Alias of `createProfileSchemaRelationshipAsync`
+     *
+     * @deprecated use `createProfileSchemaRelationshipAsync` instead
+     */
+    public function createObjectSchemaRelationshipsProfileObjectSchemasAsync(...$args) {
+        return $this->createProfileSchemaRelationshipAsync(...$args);
+    }
+
+    /**
+     * Operation createProfileSchemaRelationshipAsyncWithHttpInfo
+     *
+     * Create Profile Schema Relationship
+     *
+     * @param  string $id The ULID ID of the object schema. (required)
+     * @param  \KlaviyoAPI\Model\ProfileObjectSchemaRelationshipCreateQuery $profile_object_schema_relationship_create_query Create a relationship between an object schema and a profile. (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createProfileSchemaRelationship'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function createProfileSchemaRelationshipAsyncWithHttpInfo($id, $profile_object_schema_relationship_create_query, $apiKey = null, string $contentType = self::contentTypes['createProfileSchemaRelationship'][0])
+    {
+        $returnType = '';
+        $request = $this->createProfileSchemaRelationshipRequest($id, $profile_object_schema_relationship_create_query, $apiKey, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    return [null, $response->getStatusCode(), $response->getHeaders()];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Alias of `createProfileSchemaRelationshipAsyncWithHttpInfo`
+     *
+     * @deprecated use `createProfileSchemaRelationshipAsyncWithHttpInfo` instead
+     */
+    public function addProfileObjectSchemasToObjectSchemaAsyncWithHttpInfo(...$args) {
+        return $this->createProfileSchemaRelationshipAsyncWithHttpInfo(...$args);
+    }
+
+    /**
+     * Alias of `createProfileSchemaRelationshipAsyncWithHttpInfo`
+     *
+     * @deprecated use `createProfileSchemaRelationshipAsyncWithHttpInfo` instead
+     */
+    public function createObjectSchemaRelationshipsProfileObjectSchemasAsyncWithHttpInfo(...$args) {
+        return $this->createProfileSchemaRelationshipAsyncWithHttpInfo(...$args);
+    }
+
+    /**
+     * Create request for operation 'createProfileSchemaRelationship'
+     *
+     * @param  string $id The ULID ID of the object schema. (required)
+     * @param  \KlaviyoAPI\Model\ProfileObjectSchemaRelationshipCreateQuery $profile_object_schema_relationship_create_query Create a relationship between an object schema and a profile. (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createProfileSchemaRelationship'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function createProfileSchemaRelationshipRequest($id, $profile_object_schema_relationship_create_query, $apiKey = null, string $contentType = self::contentTypes['createProfileSchemaRelationship'][0])
+    {
+
+        // verify the required parameter 'id' is set
+        if ($id === null || (is_array($id) && count($id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $id when calling createProfileSchemaRelationship'
+            );
+        }
+
+        // verify the required parameter 'profile_object_schema_relationship_create_query' is set
+        if ($profile_object_schema_relationship_create_query === null || (is_array($profile_object_schema_relationship_create_query) && count($profile_object_schema_relationship_create_query) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $profile_object_schema_relationship_create_query when calling createProfileSchemaRelationship'
+            );
+        }
+
+
+        $resourcePath = '/api/object-schemas/{id}/relationships/profile-object-schemas';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'id' . '}',
+                ObjectSerializer::toPathValue($id),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/vnd.api+json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (isset($profile_object_schema_relationship_create_query)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false || stripos($headers['Content-Type'], 'application/vnd.api+json') !== false) {
+                # if Content-Type contains "application/json" or "application/vnd.api+json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($profile_object_schema_relationship_create_query));
+            } else {
+                $httpBody = $profile_object_schema_relationship_create_query;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false || stripos($headers['Content-Type'], 'application/vnd.api+json') !== false) {
+                # if Content-Type contains "application/json" or "application/vnd.api+json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        if ($apiKey == null) {
+            $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        } else {
+            $apiKey = 'Klaviyo-API-Key '.$apiKey;
+        }
+
+        $headers['Authorization'] = $apiKey;
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $defaultHeaders['revision'] = ['2026-07-15'];
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'POST',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Alias of `createProfileSchemaRelationshipRequest`
+     *
+     * @deprecated use `createProfileSchemaRelationshipRequest` instead
+     */
+    public function addProfileObjectSchemasToObjectSchemaRequest(...$args) {
+        return $this->createProfileSchemaRelationshipRequest(...$args);
+    }
+
+    /**
+     * Alias of `createProfileSchemaRelationshipRequest`
+     *
+     * @deprecated use `createProfileSchemaRelationshipRequest` instead
+     */
+    public function createObjectSchemaRelationshipsProfileObjectSchemasRequest(...$args) {
+        return $this->createProfileSchemaRelationshipRequest(...$args);
     }
 
     /**
@@ -1253,7 +3011,7 @@ class CustomObjectsApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2026-04-15'];
+        $defaultHeaders['revision'] = ['2026-07-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -1271,12 +3029,1689 @@ class CustomObjectsApi
     }
 
     /**
+     * Operation deleteObjectSchemaRelationship
+     *
+     * Delete Object Schema Relationship
+     *
+     * @param  string $id The ULID ID of the object schema. (required)
+     * @param  \KlaviyoAPI\Model\ObjectSchemaRelationshipDeleteQuery $object_schema_relationship_delete_query Delete a relationship between object schemas (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteObjectSchemaRelationship'] to see the possible values for this operation
+     *
+     * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return void
+     */
+    public function deleteObjectSchemaRelationship($id, $object_schema_relationship_delete_query, $apiKey = null, string $contentType = self::contentTypes['deleteObjectSchemaRelationship'][0])
+    {
+        $this->deleteObjectSchemaRelationshipWithHttpInfo($id, $object_schema_relationship_delete_query, $apiKey, $contentType);
+    }
+
+    /**
+     * Alias of `deleteObjectSchemaRelationship`
+     *
+     * @deprecated use `deleteObjectSchemaRelationship` instead
+     */
+    public function deleteObjectSchemaRelationshipsSchemas(...$args) {
+        return $this->deleteObjectSchemaRelationship(...$args);
+    }
+
+    /**
+     * Alias of `deleteObjectSchemaRelationship`
+     *
+     * @deprecated use `deleteObjectSchemaRelationship` instead
+     */
+    public function removeSchemasFromObjectSchema(...$args) {
+        return $this->deleteObjectSchemaRelationship(...$args);
+    }
+
+    /**
+     * Operation deleteObjectSchemaRelationshipWithHttpInfo
+     *
+     * Delete Object Schema Relationship
+     *
+     * @param  string $id The ULID ID of the object schema. (required)
+     * @param  \KlaviyoAPI\Model\ObjectSchemaRelationshipDeleteQuery $object_schema_relationship_delete_query Delete a relationship between object schemas (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteObjectSchemaRelationship'] to see the possible values for this operation
+     *
+     * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function deleteObjectSchemaRelationshipWithHttpInfo($id, $object_schema_relationship_delete_query, $apiKey = null, string $contentType = self::contentTypes['deleteObjectSchemaRelationship'][0])
+    {
+        $request = $this->deleteObjectSchemaRelationshipRequest($id, $object_schema_relationship_delete_query, $apiKey, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            return [null, $statusCode, $response->getHeaders()];
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\KlaviyoAPI\Model\GetAccounts400Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 500:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\KlaviyoAPI\Model\GetAccounts400Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+            }
+        
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Alias of `deleteObjectSchemaRelationshipWithHttpInfo`
+     *
+     * @deprecated use `deleteObjectSchemaRelationshipWithHttpInfo` instead
+     */
+    public function deleteObjectSchemaRelationshipsSchemasWithHttpInfo(...$args) {
+        return $this->deleteObjectSchemaRelationshipWithHttpInfo(...$args);
+    }
+
+    /**
+     * Alias of `deleteObjectSchemaRelationshipWithHttpInfo`
+     *
+     * @deprecated use `deleteObjectSchemaRelationshipWithHttpInfo` instead
+     */
+    public function removeSchemasFromObjectSchemaWithHttpInfo(...$args) {
+        return $this->deleteObjectSchemaRelationshipWithHttpInfo(...$args);
+    }
+
+    /**
+     * Operation deleteObjectSchemaRelationshipAsync
+     *
+     * Delete Object Schema Relationship
+     *
+     * @param  string $id The ULID ID of the object schema. (required)
+     * @param  \KlaviyoAPI\Model\ObjectSchemaRelationshipDeleteQuery $object_schema_relationship_delete_query Delete a relationship between object schemas (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteObjectSchemaRelationship'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function deleteObjectSchemaRelationshipAsync($id, $object_schema_relationship_delete_query, $apiKey = null, string $contentType = self::contentTypes['deleteObjectSchemaRelationship'][0])
+    {
+        return $this->deleteObjectSchemaRelationshipAsyncWithHttpInfo($id, $object_schema_relationship_delete_query, $apiKey, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Alias of `deleteObjectSchemaRelationshipAsync`
+     *
+     * @deprecated use `deleteObjectSchemaRelationshipAsync` instead
+     */
+    public function deleteObjectSchemaRelationshipsSchemasAsync(...$args) {
+        return $this->deleteObjectSchemaRelationshipAsync(...$args);
+    }
+
+    /**
+     * Alias of `deleteObjectSchemaRelationshipAsync`
+     *
+     * @deprecated use `deleteObjectSchemaRelationshipAsync` instead
+     */
+    public function removeSchemasFromObjectSchemaAsync(...$args) {
+        return $this->deleteObjectSchemaRelationshipAsync(...$args);
+    }
+
+    /**
+     * Operation deleteObjectSchemaRelationshipAsyncWithHttpInfo
+     *
+     * Delete Object Schema Relationship
+     *
+     * @param  string $id The ULID ID of the object schema. (required)
+     * @param  \KlaviyoAPI\Model\ObjectSchemaRelationshipDeleteQuery $object_schema_relationship_delete_query Delete a relationship between object schemas (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteObjectSchemaRelationship'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function deleteObjectSchemaRelationshipAsyncWithHttpInfo($id, $object_schema_relationship_delete_query, $apiKey = null, string $contentType = self::contentTypes['deleteObjectSchemaRelationship'][0])
+    {
+        $returnType = '';
+        $request = $this->deleteObjectSchemaRelationshipRequest($id, $object_schema_relationship_delete_query, $apiKey, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    return [null, $response->getStatusCode(), $response->getHeaders()];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Alias of `deleteObjectSchemaRelationshipAsyncWithHttpInfo`
+     *
+     * @deprecated use `deleteObjectSchemaRelationshipAsyncWithHttpInfo` instead
+     */
+    public function deleteObjectSchemaRelationshipsSchemasAsyncWithHttpInfo(...$args) {
+        return $this->deleteObjectSchemaRelationshipAsyncWithHttpInfo(...$args);
+    }
+
+    /**
+     * Alias of `deleteObjectSchemaRelationshipAsyncWithHttpInfo`
+     *
+     * @deprecated use `deleteObjectSchemaRelationshipAsyncWithHttpInfo` instead
+     */
+    public function removeSchemasFromObjectSchemaAsyncWithHttpInfo(...$args) {
+        return $this->deleteObjectSchemaRelationshipAsyncWithHttpInfo(...$args);
+    }
+
+    /**
+     * Create request for operation 'deleteObjectSchemaRelationship'
+     *
+     * @param  string $id The ULID ID of the object schema. (required)
+     * @param  \KlaviyoAPI\Model\ObjectSchemaRelationshipDeleteQuery $object_schema_relationship_delete_query Delete a relationship between object schemas (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteObjectSchemaRelationship'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function deleteObjectSchemaRelationshipRequest($id, $object_schema_relationship_delete_query, $apiKey = null, string $contentType = self::contentTypes['deleteObjectSchemaRelationship'][0])
+    {
+
+        // verify the required parameter 'id' is set
+        if ($id === null || (is_array($id) && count($id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $id when calling deleteObjectSchemaRelationship'
+            );
+        }
+
+        // verify the required parameter 'object_schema_relationship_delete_query' is set
+        if ($object_schema_relationship_delete_query === null || (is_array($object_schema_relationship_delete_query) && count($object_schema_relationship_delete_query) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $object_schema_relationship_delete_query when calling deleteObjectSchemaRelationship'
+            );
+        }
+
+
+        $resourcePath = '/api/object-schemas/{id}/relationships/object-schemas';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'id' . '}',
+                ObjectSerializer::toPathValue($id),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/vnd.api+json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (isset($object_schema_relationship_delete_query)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false || stripos($headers['Content-Type'], 'application/vnd.api+json') !== false) {
+                # if Content-Type contains "application/json" or "application/vnd.api+json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($object_schema_relationship_delete_query));
+            } else {
+                $httpBody = $object_schema_relationship_delete_query;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false || stripos($headers['Content-Type'], 'application/vnd.api+json') !== false) {
+                # if Content-Type contains "application/json" or "application/vnd.api+json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        if ($apiKey == null) {
+            $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        } else {
+            $apiKey = 'Klaviyo-API-Key '.$apiKey;
+        }
+
+        $headers['Authorization'] = $apiKey;
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $defaultHeaders['revision'] = ['2026-07-15'];
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'DELETE',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Alias of `deleteObjectSchemaRelationshipRequest`
+     *
+     * @deprecated use `deleteObjectSchemaRelationshipRequest` instead
+     */
+    public function deleteObjectSchemaRelationshipsSchemasRequest(...$args) {
+        return $this->deleteObjectSchemaRelationshipRequest(...$args);
+    }
+
+    /**
+     * Alias of `deleteObjectSchemaRelationshipRequest`
+     *
+     * @deprecated use `deleteObjectSchemaRelationshipRequest` instead
+     */
+    public function removeSchemasFromObjectSchemaRequest(...$args) {
+        return $this->deleteObjectSchemaRelationshipRequest(...$args);
+    }
+
+    /**
+     * Operation deleteObjectType
+     *
+     * Delete Object Type
+     *
+     * @param  string $id The ULID ID of the object type. (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteObjectType'] to see the possible values for this operation
+     *
+     * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return void
+     */
+    public function deleteObjectType($id, $apiKey = null, string $contentType = self::contentTypes['deleteObjectType'][0])
+    {
+        $this->deleteObjectTypeWithHttpInfo($id, $apiKey, $contentType);
+    }
+
+    /**
+     * Operation deleteObjectTypeWithHttpInfo
+     *
+     * Delete Object Type
+     *
+     * @param  string $id The ULID ID of the object type. (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteObjectType'] to see the possible values for this operation
+     *
+     * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function deleteObjectTypeWithHttpInfo($id, $apiKey = null, string $contentType = self::contentTypes['deleteObjectType'][0])
+    {
+        $request = $this->deleteObjectTypeRequest($id, $apiKey, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            return [null, $statusCode, $response->getHeaders()];
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\KlaviyoAPI\Model\GetAccounts400Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 500:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\KlaviyoAPI\Model\GetAccounts400Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+            }
+        
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation deleteObjectTypeAsync
+     *
+     * Delete Object Type
+     *
+     * @param  string $id The ULID ID of the object type. (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteObjectType'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function deleteObjectTypeAsync($id, $apiKey = null, string $contentType = self::contentTypes['deleteObjectType'][0])
+    {
+        return $this->deleteObjectTypeAsyncWithHttpInfo($id, $apiKey, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation deleteObjectTypeAsyncWithHttpInfo
+     *
+     * Delete Object Type
+     *
+     * @param  string $id The ULID ID of the object type. (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteObjectType'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function deleteObjectTypeAsyncWithHttpInfo($id, $apiKey = null, string $contentType = self::contentTypes['deleteObjectType'][0])
+    {
+        $returnType = '';
+        $request = $this->deleteObjectTypeRequest($id, $apiKey, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    return [null, $response->getStatusCode(), $response->getHeaders()];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'deleteObjectType'
+     *
+     * @param  string $id The ULID ID of the object type. (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteObjectType'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function deleteObjectTypeRequest($id, $apiKey = null, string $contentType = self::contentTypes['deleteObjectType'][0])
+    {
+
+        // verify the required parameter 'id' is set
+        if ($id === null || (is_array($id) && count($id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $id when calling deleteObjectType'
+            );
+        }
+
+
+        $resourcePath = '/api/object-types/{id}';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'id' . '}',
+                ObjectSerializer::toPathValue($id),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/vnd.api+json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false || stripos($headers['Content-Type'], 'application/vnd.api+json') !== false) {
+                # if Content-Type contains "application/json" or "application/vnd.api+json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        if ($apiKey == null) {
+            $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        } else {
+            $apiKey = 'Klaviyo-API-Key '.$apiKey;
+        }
+
+        $headers['Authorization'] = $apiKey;
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $defaultHeaders['revision'] = ['2026-07-15'];
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'DELETE',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation deleteProfileSchemaRelationship
+     *
+     * Delete Profile Schema Relationship
+     *
+     * @param  string $id The ULID ID of the object schema. (required)
+     * @param  \KlaviyoAPI\Model\ProfileObjectSchemaRelationshipDeleteQuery $profile_object_schema_relationship_delete_query Delete a relationship between an object schema and a profile (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteProfileSchemaRelationship'] to see the possible values for this operation
+     *
+     * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return void
+     */
+    public function deleteProfileSchemaRelationship($id, $profile_object_schema_relationship_delete_query, $apiKey = null, string $contentType = self::contentTypes['deleteProfileSchemaRelationship'][0])
+    {
+        $this->deleteProfileSchemaRelationshipWithHttpInfo($id, $profile_object_schema_relationship_delete_query, $apiKey, $contentType);
+    }
+
+    /**
+     * Alias of `deleteProfileSchemaRelationship`
+     *
+     * @deprecated use `deleteProfileSchemaRelationship` instead
+     */
+    public function deleteObjectSchemaRelationshipsProfileObjectSchemas(...$args) {
+        return $this->deleteProfileSchemaRelationship(...$args);
+    }
+
+    /**
+     * Alias of `deleteProfileSchemaRelationship`
+     *
+     * @deprecated use `deleteProfileSchemaRelationship` instead
+     */
+    public function removeProfileObjectSchemasFromObjectSchema(...$args) {
+        return $this->deleteProfileSchemaRelationship(...$args);
+    }
+
+    /**
+     * Operation deleteProfileSchemaRelationshipWithHttpInfo
+     *
+     * Delete Profile Schema Relationship
+     *
+     * @param  string $id The ULID ID of the object schema. (required)
+     * @param  \KlaviyoAPI\Model\ProfileObjectSchemaRelationshipDeleteQuery $profile_object_schema_relationship_delete_query Delete a relationship between an object schema and a profile (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteProfileSchemaRelationship'] to see the possible values for this operation
+     *
+     * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function deleteProfileSchemaRelationshipWithHttpInfo($id, $profile_object_schema_relationship_delete_query, $apiKey = null, string $contentType = self::contentTypes['deleteProfileSchemaRelationship'][0])
+    {
+        $request = $this->deleteProfileSchemaRelationshipRequest($id, $profile_object_schema_relationship_delete_query, $apiKey, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            return [null, $statusCode, $response->getHeaders()];
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\KlaviyoAPI\Model\GetAccounts400Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 500:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\KlaviyoAPI\Model\GetAccounts400Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+            }
+        
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Alias of `deleteProfileSchemaRelationshipWithHttpInfo`
+     *
+     * @deprecated use `deleteProfileSchemaRelationshipWithHttpInfo` instead
+     */
+    public function deleteObjectSchemaRelationshipsProfileObjectSchemasWithHttpInfo(...$args) {
+        return $this->deleteProfileSchemaRelationshipWithHttpInfo(...$args);
+    }
+
+    /**
+     * Alias of `deleteProfileSchemaRelationshipWithHttpInfo`
+     *
+     * @deprecated use `deleteProfileSchemaRelationshipWithHttpInfo` instead
+     */
+    public function removeProfileObjectSchemasFromObjectSchemaWithHttpInfo(...$args) {
+        return $this->deleteProfileSchemaRelationshipWithHttpInfo(...$args);
+    }
+
+    /**
+     * Operation deleteProfileSchemaRelationshipAsync
+     *
+     * Delete Profile Schema Relationship
+     *
+     * @param  string $id The ULID ID of the object schema. (required)
+     * @param  \KlaviyoAPI\Model\ProfileObjectSchemaRelationshipDeleteQuery $profile_object_schema_relationship_delete_query Delete a relationship between an object schema and a profile (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteProfileSchemaRelationship'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function deleteProfileSchemaRelationshipAsync($id, $profile_object_schema_relationship_delete_query, $apiKey = null, string $contentType = self::contentTypes['deleteProfileSchemaRelationship'][0])
+    {
+        return $this->deleteProfileSchemaRelationshipAsyncWithHttpInfo($id, $profile_object_schema_relationship_delete_query, $apiKey, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Alias of `deleteProfileSchemaRelationshipAsync`
+     *
+     * @deprecated use `deleteProfileSchemaRelationshipAsync` instead
+     */
+    public function deleteObjectSchemaRelationshipsProfileObjectSchemasAsync(...$args) {
+        return $this->deleteProfileSchemaRelationshipAsync(...$args);
+    }
+
+    /**
+     * Alias of `deleteProfileSchemaRelationshipAsync`
+     *
+     * @deprecated use `deleteProfileSchemaRelationshipAsync` instead
+     */
+    public function removeProfileObjectSchemasFromObjectSchemaAsync(...$args) {
+        return $this->deleteProfileSchemaRelationshipAsync(...$args);
+    }
+
+    /**
+     * Operation deleteProfileSchemaRelationshipAsyncWithHttpInfo
+     *
+     * Delete Profile Schema Relationship
+     *
+     * @param  string $id The ULID ID of the object schema. (required)
+     * @param  \KlaviyoAPI\Model\ProfileObjectSchemaRelationshipDeleteQuery $profile_object_schema_relationship_delete_query Delete a relationship between an object schema and a profile (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteProfileSchemaRelationship'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function deleteProfileSchemaRelationshipAsyncWithHttpInfo($id, $profile_object_schema_relationship_delete_query, $apiKey = null, string $contentType = self::contentTypes['deleteProfileSchemaRelationship'][0])
+    {
+        $returnType = '';
+        $request = $this->deleteProfileSchemaRelationshipRequest($id, $profile_object_schema_relationship_delete_query, $apiKey, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    return [null, $response->getStatusCode(), $response->getHeaders()];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Alias of `deleteProfileSchemaRelationshipAsyncWithHttpInfo`
+     *
+     * @deprecated use `deleteProfileSchemaRelationshipAsyncWithHttpInfo` instead
+     */
+    public function deleteObjectSchemaRelationshipsProfileObjectSchemasAsyncWithHttpInfo(...$args) {
+        return $this->deleteProfileSchemaRelationshipAsyncWithHttpInfo(...$args);
+    }
+
+    /**
+     * Alias of `deleteProfileSchemaRelationshipAsyncWithHttpInfo`
+     *
+     * @deprecated use `deleteProfileSchemaRelationshipAsyncWithHttpInfo` instead
+     */
+    public function removeProfileObjectSchemasFromObjectSchemaAsyncWithHttpInfo(...$args) {
+        return $this->deleteProfileSchemaRelationshipAsyncWithHttpInfo(...$args);
+    }
+
+    /**
+     * Create request for operation 'deleteProfileSchemaRelationship'
+     *
+     * @param  string $id The ULID ID of the object schema. (required)
+     * @param  \KlaviyoAPI\Model\ProfileObjectSchemaRelationshipDeleteQuery $profile_object_schema_relationship_delete_query Delete a relationship between an object schema and a profile (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteProfileSchemaRelationship'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function deleteProfileSchemaRelationshipRequest($id, $profile_object_schema_relationship_delete_query, $apiKey = null, string $contentType = self::contentTypes['deleteProfileSchemaRelationship'][0])
+    {
+
+        // verify the required parameter 'id' is set
+        if ($id === null || (is_array($id) && count($id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $id when calling deleteProfileSchemaRelationship'
+            );
+        }
+
+        // verify the required parameter 'profile_object_schema_relationship_delete_query' is set
+        if ($profile_object_schema_relationship_delete_query === null || (is_array($profile_object_schema_relationship_delete_query) && count($profile_object_schema_relationship_delete_query) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $profile_object_schema_relationship_delete_query when calling deleteProfileSchemaRelationship'
+            );
+        }
+
+
+        $resourcePath = '/api/object-schemas/{id}/relationships/profile-object-schemas';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'id' . '}',
+                ObjectSerializer::toPathValue($id),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/vnd.api+json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (isset($profile_object_schema_relationship_delete_query)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false || stripos($headers['Content-Type'], 'application/vnd.api+json') !== false) {
+                # if Content-Type contains "application/json" or "application/vnd.api+json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($profile_object_schema_relationship_delete_query));
+            } else {
+                $httpBody = $profile_object_schema_relationship_delete_query;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false || stripos($headers['Content-Type'], 'application/vnd.api+json') !== false) {
+                # if Content-Type contains "application/json" or "application/vnd.api+json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        if ($apiKey == null) {
+            $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        } else {
+            $apiKey = 'Klaviyo-API-Key '.$apiKey;
+        }
+
+        $headers['Authorization'] = $apiKey;
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $defaultHeaders['revision'] = ['2026-07-15'];
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'DELETE',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Alias of `deleteProfileSchemaRelationshipRequest`
+     *
+     * @deprecated use `deleteProfileSchemaRelationshipRequest` instead
+     */
+    public function deleteObjectSchemaRelationshipsProfileObjectSchemasRequest(...$args) {
+        return $this->deleteProfileSchemaRelationshipRequest(...$args);
+    }
+
+    /**
+     * Alias of `deleteProfileSchemaRelationshipRequest`
+     *
+     * @deprecated use `deleteProfileSchemaRelationshipRequest` instead
+     */
+    public function removeProfileObjectSchemasFromObjectSchemaRequest(...$args) {
+        return $this->deleteProfileSchemaRelationshipRequest(...$args);
+    }
+
+    /**
+     * Operation getCurrentSchemaForObjectType
+     *
+     * Get Current Schema for Object Type
+     *
+     * @param  string $id The ULID ID of the object type. (required)
+     * @param  string[]|null $fields_object_schema For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCurrentSchemaForObjectType'] to see the possible values for this operation
+     *
+     * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array<string,mixed>|\KlaviyoAPI\Model\GetAccounts400Response|\KlaviyoAPI\Model\GetAccounts400Response
+     */
+    public function getCurrentSchemaForObjectType($id, $fields_object_schema = null, $apiKey = null, string $contentType = self::contentTypes['getCurrentSchemaForObjectType'][0])
+    {
+        list($response) = $this->getCurrentSchemaForObjectTypeWithHttpInfo($id, $fields_object_schema, $apiKey, $contentType);
+        return $response;
+    }
+
+    /**
+     * Alias of `getCurrentSchemaForObjectType`
+     *
+     * @deprecated use `getCurrentSchemaForObjectType` instead
+     */
+    public function getObjectTypeCurrentSchema(...$args) {
+        return $this->getCurrentSchemaForObjectType(...$args);
+    }
+
+    /**
+     * Operation getCurrentSchemaForObjectTypeWithHttpInfo
+     *
+     * Get Current Schema for Object Type
+     *
+     * @param  string $id The ULID ID of the object type. (required)
+     * @param  string[]|null $fields_object_schema For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCurrentSchemaForObjectType'] to see the possible values for this operation
+     *
+     * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of array<string,mixed>|\KlaviyoAPI\Model\GetAccounts400Response|\KlaviyoAPI\Model\GetAccounts400Response, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getCurrentSchemaForObjectTypeWithHttpInfo($id, $fields_object_schema = null, $apiKey = null, string $contentType = self::contentTypes['getCurrentSchemaForObjectType'][0])
+    {
+        $request = $this->getCurrentSchemaForObjectTypeRequest($id, $fields_object_schema, $apiKey, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            switch($statusCode) {
+                case 200:
+                    return $this->handleResponseWithDataType(
+                        'array<string,mixed>',
+                        $request,
+                        $response,
+                    );
+                case 400:
+                    return $this->handleResponseWithDataType(
+                        '\KlaviyoAPI\Model\GetAccounts400Response',
+                        $request,
+                        $response,
+                    );
+                case 500:
+                    return $this->handleResponseWithDataType(
+                        '\KlaviyoAPI\Model\GetAccounts400Response',
+                        $request,
+                        $response,
+                    );
+            }
+
+            
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            return $this->handleResponseWithDataType(
+                'array<string,mixed>',
+                $request,
+                $response,
+            );
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        'array<string,mixed>',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\KlaviyoAPI\Model\GetAccounts400Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 500:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\KlaviyoAPI\Model\GetAccounts400Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+            }
+        
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Alias of `getCurrentSchemaForObjectTypeWithHttpInfo`
+     *
+     * @deprecated use `getCurrentSchemaForObjectTypeWithHttpInfo` instead
+     */
+    public function getObjectTypeCurrentSchemaWithHttpInfo(...$args) {
+        return $this->getCurrentSchemaForObjectTypeWithHttpInfo(...$args);
+    }
+
+    /**
+     * Operation getCurrentSchemaForObjectTypeAsync
+     *
+     * Get Current Schema for Object Type
+     *
+     * @param  string $id The ULID ID of the object type. (required)
+     * @param  string[]|null $fields_object_schema For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCurrentSchemaForObjectType'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getCurrentSchemaForObjectTypeAsync($id, $fields_object_schema = null, $apiKey = null, string $contentType = self::contentTypes['getCurrentSchemaForObjectType'][0])
+    {
+        return $this->getCurrentSchemaForObjectTypeAsyncWithHttpInfo($id, $fields_object_schema, $apiKey, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Alias of `getCurrentSchemaForObjectTypeAsync`
+     *
+     * @deprecated use `getCurrentSchemaForObjectTypeAsync` instead
+     */
+    public function getObjectTypeCurrentSchemaAsync(...$args) {
+        return $this->getCurrentSchemaForObjectTypeAsync(...$args);
+    }
+
+    /**
+     * Operation getCurrentSchemaForObjectTypeAsyncWithHttpInfo
+     *
+     * Get Current Schema for Object Type
+     *
+     * @param  string $id The ULID ID of the object type. (required)
+     * @param  string[]|null $fields_object_schema For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCurrentSchemaForObjectType'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getCurrentSchemaForObjectTypeAsyncWithHttpInfo($id, $fields_object_schema = null, $apiKey = null, string $contentType = self::contentTypes['getCurrentSchemaForObjectType'][0])
+    {
+        $returnType = 'array<string,mixed>';
+        $request = $this->getCurrentSchemaForObjectTypeRequest($id, $fields_object_schema, $apiKey, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    $parsed_content = json_decode(json_encode($content), TRUE);
+                    if (json_last_error() != JSON_ERROR_NONE) {
+                        $parsed_content = $content;
+                    }
+
+                    return [
+                        $parsed_content,
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Alias of `getCurrentSchemaForObjectTypeAsyncWithHttpInfo`
+     *
+     * @deprecated use `getCurrentSchemaForObjectTypeAsyncWithHttpInfo` instead
+     */
+    public function getObjectTypeCurrentSchemaAsyncWithHttpInfo(...$args) {
+        return $this->getCurrentSchemaForObjectTypeAsyncWithHttpInfo(...$args);
+    }
+
+    /**
+     * Create request for operation 'getCurrentSchemaForObjectType'
+     *
+     * @param  string $id The ULID ID of the object type. (required)
+     * @param  string[]|null $fields_object_schema For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCurrentSchemaForObjectType'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function getCurrentSchemaForObjectTypeRequest($id, $fields_object_schema = null, $apiKey = null, string $contentType = self::contentTypes['getCurrentSchemaForObjectType'][0])
+    {
+
+        // verify the required parameter 'id' is set
+        if ($id === null || (is_array($id) && count($id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $id when calling getCurrentSchemaForObjectType'
+            );
+        }
+
+
+
+        $resourcePath = '/api/object-types/{id}/current-schema';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $fields_object_schema,
+            'fields[object-schema]', // param base name
+            'array', // openApiType
+            'form', // style
+            false, // explode
+            false // required
+        ) ?? []);
+
+
+        // path params
+        if ($id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'id' . '}',
+                ObjectSerializer::toPathValue($id),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/vnd.api+json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false || stripos($headers['Content-Type'], 'application/vnd.api+json') !== false) {
+                # if Content-Type contains "application/json" or "application/vnd.api+json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        if ($apiKey == null) {
+            $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        } else {
+            $apiKey = 'Klaviyo-API-Key '.$apiKey;
+        }
+
+        $headers['Authorization'] = $apiKey;
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $defaultHeaders['revision'] = ['2026-07-15'];
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Alias of `getCurrentSchemaForObjectTypeRequest`
+     *
+     * @deprecated use `getCurrentSchemaForObjectTypeRequest` instead
+     */
+    public function getObjectTypeCurrentSchemaRequest(...$args) {
+        return $this->getCurrentSchemaForObjectTypeRequest(...$args);
+    }
+
+    /**
+     * Operation getCurrentSchemaIdForObjectType
+     *
+     * Get Current Schema ID for Object Type
+     *
+     * @param  string $id The ULID ID of the object type. (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCurrentSchemaIdForObjectType'] to see the possible values for this operation
+     *
+     * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array<string,mixed>|\KlaviyoAPI\Model\GetAccounts400Response|\KlaviyoAPI\Model\GetAccounts400Response
+     */
+    public function getCurrentSchemaIdForObjectType($id, $apiKey = null, string $contentType = self::contentTypes['getCurrentSchemaIdForObjectType'][0])
+    {
+        list($response) = $this->getCurrentSchemaIdForObjectTypeWithHttpInfo($id, $apiKey, $contentType);
+        return $response;
+    }
+
+    /**
+     * Alias of `getCurrentSchemaIdForObjectType`
+     *
+     * @deprecated use `getCurrentSchemaIdForObjectType` instead
+     */
+    public function getObjectTypeRelationshipsCurrentSchema(...$args) {
+        return $this->getCurrentSchemaIdForObjectType(...$args);
+    }
+
+    /**
+     * Operation getCurrentSchemaIdForObjectTypeWithHttpInfo
+     *
+     * Get Current Schema ID for Object Type
+     *
+     * @param  string $id The ULID ID of the object type. (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCurrentSchemaIdForObjectType'] to see the possible values for this operation
+     *
+     * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of array<string,mixed>|\KlaviyoAPI\Model\GetAccounts400Response|\KlaviyoAPI\Model\GetAccounts400Response, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getCurrentSchemaIdForObjectTypeWithHttpInfo($id, $apiKey = null, string $contentType = self::contentTypes['getCurrentSchemaIdForObjectType'][0])
+    {
+        $request = $this->getCurrentSchemaIdForObjectTypeRequest($id, $apiKey, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            switch($statusCode) {
+                case 200:
+                    return $this->handleResponseWithDataType(
+                        'array<string,mixed>',
+                        $request,
+                        $response,
+                    );
+                case 400:
+                    return $this->handleResponseWithDataType(
+                        '\KlaviyoAPI\Model\GetAccounts400Response',
+                        $request,
+                        $response,
+                    );
+                case 500:
+                    return $this->handleResponseWithDataType(
+                        '\KlaviyoAPI\Model\GetAccounts400Response',
+                        $request,
+                        $response,
+                    );
+            }
+
+            
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            return $this->handleResponseWithDataType(
+                'array<string,mixed>',
+                $request,
+                $response,
+            );
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        'array<string,mixed>',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\KlaviyoAPI\Model\GetAccounts400Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 500:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\KlaviyoAPI\Model\GetAccounts400Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+            }
+        
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Alias of `getCurrentSchemaIdForObjectTypeWithHttpInfo`
+     *
+     * @deprecated use `getCurrentSchemaIdForObjectTypeWithHttpInfo` instead
+     */
+    public function getObjectTypeRelationshipsCurrentSchemaWithHttpInfo(...$args) {
+        return $this->getCurrentSchemaIdForObjectTypeWithHttpInfo(...$args);
+    }
+
+    /**
+     * Operation getCurrentSchemaIdForObjectTypeAsync
+     *
+     * Get Current Schema ID for Object Type
+     *
+     * @param  string $id The ULID ID of the object type. (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCurrentSchemaIdForObjectType'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getCurrentSchemaIdForObjectTypeAsync($id, $apiKey = null, string $contentType = self::contentTypes['getCurrentSchemaIdForObjectType'][0])
+    {
+        return $this->getCurrentSchemaIdForObjectTypeAsyncWithHttpInfo($id, $apiKey, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Alias of `getCurrentSchemaIdForObjectTypeAsync`
+     *
+     * @deprecated use `getCurrentSchemaIdForObjectTypeAsync` instead
+     */
+    public function getObjectTypeRelationshipsCurrentSchemaAsync(...$args) {
+        return $this->getCurrentSchemaIdForObjectTypeAsync(...$args);
+    }
+
+    /**
+     * Operation getCurrentSchemaIdForObjectTypeAsyncWithHttpInfo
+     *
+     * Get Current Schema ID for Object Type
+     *
+     * @param  string $id The ULID ID of the object type. (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCurrentSchemaIdForObjectType'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getCurrentSchemaIdForObjectTypeAsyncWithHttpInfo($id, $apiKey = null, string $contentType = self::contentTypes['getCurrentSchemaIdForObjectType'][0])
+    {
+        $returnType = 'array<string,mixed>';
+        $request = $this->getCurrentSchemaIdForObjectTypeRequest($id, $apiKey, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    $parsed_content = json_decode(json_encode($content), TRUE);
+                    if (json_last_error() != JSON_ERROR_NONE) {
+                        $parsed_content = $content;
+                    }
+
+                    return [
+                        $parsed_content,
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Alias of `getCurrentSchemaIdForObjectTypeAsyncWithHttpInfo`
+     *
+     * @deprecated use `getCurrentSchemaIdForObjectTypeAsyncWithHttpInfo` instead
+     */
+    public function getObjectTypeRelationshipsCurrentSchemaAsyncWithHttpInfo(...$args) {
+        return $this->getCurrentSchemaIdForObjectTypeAsyncWithHttpInfo(...$args);
+    }
+
+    /**
+     * Create request for operation 'getCurrentSchemaIdForObjectType'
+     *
+     * @param  string $id The ULID ID of the object type. (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCurrentSchemaIdForObjectType'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function getCurrentSchemaIdForObjectTypeRequest($id, $apiKey = null, string $contentType = self::contentTypes['getCurrentSchemaIdForObjectType'][0])
+    {
+
+        // verify the required parameter 'id' is set
+        if ($id === null || (is_array($id) && count($id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $id when calling getCurrentSchemaIdForObjectType'
+            );
+        }
+
+
+        $resourcePath = '/api/object-types/{id}/relationships/current-schema';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'id' . '}',
+                ObjectSerializer::toPathValue($id),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/vnd.api+json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false || stripos($headers['Content-Type'], 'application/vnd.api+json') !== false) {
+                # if Content-Type contains "application/json" or "application/vnd.api+json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        if ($apiKey == null) {
+            $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        } else {
+            $apiKey = 'Klaviyo-API-Key '.$apiKey;
+        }
+
+        $headers['Authorization'] = $apiKey;
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $defaultHeaders['revision'] = ['2026-07-15'];
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Alias of `getCurrentSchemaIdForObjectTypeRequest`
+     *
+     * @deprecated use `getCurrentSchemaIdForObjectTypeRequest` instead
+     */
+    public function getObjectTypeRelationshipsCurrentSchemaRequest(...$args) {
+        return $this->getCurrentSchemaIdForObjectTypeRequest(...$args);
+    }
+
+    /**
      * Operation getDataSource
      *
      * Get Data Source
      *
      * @param  string $id The ID of the data source (required)
-     * @param  string[]|null $fields_data_source For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_data_source For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDataSource'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -1295,7 +4730,7 @@ class CustomObjectsApi
      * Get Data Source
      *
      * @param  string $id The ID of the data source (required)
-     * @param  string[]|null $fields_data_source For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_data_source For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDataSource'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -1409,7 +4844,7 @@ class CustomObjectsApi
      * Get Data Source
      *
      * @param  string $id The ID of the data source (required)
-     * @param  string[]|null $fields_data_source For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_data_source For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDataSource'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1431,7 +4866,7 @@ class CustomObjectsApi
      * Get Data Source
      *
      * @param  string $id The ID of the data source (required)
-     * @param  string[]|null $fields_data_source For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_data_source For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDataSource'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1487,7 +4922,7 @@ class CustomObjectsApi
      * Create request for operation 'getDataSource'
      *
      * @param  string $id The ID of the data source (required)
-     * @param  string[]|null $fields_data_source For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_data_source For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDataSource'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1579,7 +5014,7 @@ class CustomObjectsApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2026-04-15'];
+        $defaultHeaders['revision'] = ['2026-07-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -1601,8 +5036,8 @@ class CustomObjectsApi
      *
      * Get Data Sources
      *
-     * @param  string[]|null $fields_data_source For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination (optional)
+     * @param  string[]|null $fields_data_source For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination (optional)
      * @param  int|null $page_size Default: 20. Min: 1. Max: 100. (optional, default to 20)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDataSources'] to see the possible values for this operation
      *
@@ -1621,8 +5056,8 @@ class CustomObjectsApi
      *
      * Get Data Sources
      *
-     * @param  string[]|null $fields_data_source For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination (optional)
+     * @param  string[]|null $fields_data_source For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination (optional)
      * @param  int|null $page_size Default: 20. Min: 1. Max: 100. (optional, default to 20)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDataSources'] to see the possible values for this operation
      *
@@ -1736,8 +5171,8 @@ class CustomObjectsApi
      *
      * Get Data Sources
      *
-     * @param  string[]|null $fields_data_source For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination (optional)
+     * @param  string[]|null $fields_data_source For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination (optional)
      * @param  int|null $page_size Default: 20. Min: 1. Max: 100. (optional, default to 20)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDataSources'] to see the possible values for this operation
      *
@@ -1759,8 +5194,8 @@ class CustomObjectsApi
      *
      * Get Data Sources
      *
-     * @param  string[]|null $fields_data_source For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination (optional)
+     * @param  string[]|null $fields_data_source For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination (optional)
      * @param  int|null $page_size Default: 20. Min: 1. Max: 100. (optional, default to 20)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDataSources'] to see the possible values for this operation
      *
@@ -1816,8 +5251,8 @@ class CustomObjectsApi
     /**
      * Create request for operation 'getDataSources'
      *
-     * @param  string[]|null $fields_data_source For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination (optional)
+     * @param  string[]|null $fields_data_source For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination (optional)
      * @param  int|null $page_size Default: 20. Min: 1. Max: 100. (optional, default to 20)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDataSources'] to see the possible values for this operation
      *
@@ -1921,7 +5356,7 @@ class CustomObjectsApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2026-04-15'];
+        $defaultHeaders['revision'] = ['2026-07-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -1932,6 +5367,8563 @@ class CustomObjectsApi
         $query = ObjectSerializer::buildQuery($queryParams);
         return new Request(
             'GET',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation getDraftSchemaForObjectType
+     *
+     * Get Draft Schema for Object Type
+     *
+     * @param  string $id The ULID ID of the object type. (required)
+     * @param  string[]|null $fields_object_schema For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDraftSchemaForObjectType'] to see the possible values for this operation
+     *
+     * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array<string,mixed>|\KlaviyoAPI\Model\GetAccounts400Response|\KlaviyoAPI\Model\GetAccounts400Response
+     */
+    public function getDraftSchemaForObjectType($id, $fields_object_schema = null, $apiKey = null, string $contentType = self::contentTypes['getDraftSchemaForObjectType'][0])
+    {
+        list($response) = $this->getDraftSchemaForObjectTypeWithHttpInfo($id, $fields_object_schema, $apiKey, $contentType);
+        return $response;
+    }
+
+    /**
+     * Alias of `getDraftSchemaForObjectType`
+     *
+     * @deprecated use `getDraftSchemaForObjectType` instead
+     */
+    public function getObjectTypeDraftSchema(...$args) {
+        return $this->getDraftSchemaForObjectType(...$args);
+    }
+
+    /**
+     * Operation getDraftSchemaForObjectTypeWithHttpInfo
+     *
+     * Get Draft Schema for Object Type
+     *
+     * @param  string $id The ULID ID of the object type. (required)
+     * @param  string[]|null $fields_object_schema For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDraftSchemaForObjectType'] to see the possible values for this operation
+     *
+     * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of array<string,mixed>|\KlaviyoAPI\Model\GetAccounts400Response|\KlaviyoAPI\Model\GetAccounts400Response, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getDraftSchemaForObjectTypeWithHttpInfo($id, $fields_object_schema = null, $apiKey = null, string $contentType = self::contentTypes['getDraftSchemaForObjectType'][0])
+    {
+        $request = $this->getDraftSchemaForObjectTypeRequest($id, $fields_object_schema, $apiKey, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            switch($statusCode) {
+                case 200:
+                    return $this->handleResponseWithDataType(
+                        'array<string,mixed>',
+                        $request,
+                        $response,
+                    );
+                case 400:
+                    return $this->handleResponseWithDataType(
+                        '\KlaviyoAPI\Model\GetAccounts400Response',
+                        $request,
+                        $response,
+                    );
+                case 500:
+                    return $this->handleResponseWithDataType(
+                        '\KlaviyoAPI\Model\GetAccounts400Response',
+                        $request,
+                        $response,
+                    );
+            }
+
+            
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            return $this->handleResponseWithDataType(
+                'array<string,mixed>',
+                $request,
+                $response,
+            );
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        'array<string,mixed>',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\KlaviyoAPI\Model\GetAccounts400Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 500:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\KlaviyoAPI\Model\GetAccounts400Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+            }
+        
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Alias of `getDraftSchemaForObjectTypeWithHttpInfo`
+     *
+     * @deprecated use `getDraftSchemaForObjectTypeWithHttpInfo` instead
+     */
+    public function getObjectTypeDraftSchemaWithHttpInfo(...$args) {
+        return $this->getDraftSchemaForObjectTypeWithHttpInfo(...$args);
+    }
+
+    /**
+     * Operation getDraftSchemaForObjectTypeAsync
+     *
+     * Get Draft Schema for Object Type
+     *
+     * @param  string $id The ULID ID of the object type. (required)
+     * @param  string[]|null $fields_object_schema For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDraftSchemaForObjectType'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getDraftSchemaForObjectTypeAsync($id, $fields_object_schema = null, $apiKey = null, string $contentType = self::contentTypes['getDraftSchemaForObjectType'][0])
+    {
+        return $this->getDraftSchemaForObjectTypeAsyncWithHttpInfo($id, $fields_object_schema, $apiKey, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Alias of `getDraftSchemaForObjectTypeAsync`
+     *
+     * @deprecated use `getDraftSchemaForObjectTypeAsync` instead
+     */
+    public function getObjectTypeDraftSchemaAsync(...$args) {
+        return $this->getDraftSchemaForObjectTypeAsync(...$args);
+    }
+
+    /**
+     * Operation getDraftSchemaForObjectTypeAsyncWithHttpInfo
+     *
+     * Get Draft Schema for Object Type
+     *
+     * @param  string $id The ULID ID of the object type. (required)
+     * @param  string[]|null $fields_object_schema For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDraftSchemaForObjectType'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getDraftSchemaForObjectTypeAsyncWithHttpInfo($id, $fields_object_schema = null, $apiKey = null, string $contentType = self::contentTypes['getDraftSchemaForObjectType'][0])
+    {
+        $returnType = 'array<string,mixed>';
+        $request = $this->getDraftSchemaForObjectTypeRequest($id, $fields_object_schema, $apiKey, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    $parsed_content = json_decode(json_encode($content), TRUE);
+                    if (json_last_error() != JSON_ERROR_NONE) {
+                        $parsed_content = $content;
+                    }
+
+                    return [
+                        $parsed_content,
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Alias of `getDraftSchemaForObjectTypeAsyncWithHttpInfo`
+     *
+     * @deprecated use `getDraftSchemaForObjectTypeAsyncWithHttpInfo` instead
+     */
+    public function getObjectTypeDraftSchemaAsyncWithHttpInfo(...$args) {
+        return $this->getDraftSchemaForObjectTypeAsyncWithHttpInfo(...$args);
+    }
+
+    /**
+     * Create request for operation 'getDraftSchemaForObjectType'
+     *
+     * @param  string $id The ULID ID of the object type. (required)
+     * @param  string[]|null $fields_object_schema For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDraftSchemaForObjectType'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function getDraftSchemaForObjectTypeRequest($id, $fields_object_schema = null, $apiKey = null, string $contentType = self::contentTypes['getDraftSchemaForObjectType'][0])
+    {
+
+        // verify the required parameter 'id' is set
+        if ($id === null || (is_array($id) && count($id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $id when calling getDraftSchemaForObjectType'
+            );
+        }
+
+
+
+        $resourcePath = '/api/object-types/{id}/draft-schema';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $fields_object_schema,
+            'fields[object-schema]', // param base name
+            'array', // openApiType
+            'form', // style
+            false, // explode
+            false // required
+        ) ?? []);
+
+
+        // path params
+        if ($id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'id' . '}',
+                ObjectSerializer::toPathValue($id),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/vnd.api+json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false || stripos($headers['Content-Type'], 'application/vnd.api+json') !== false) {
+                # if Content-Type contains "application/json" or "application/vnd.api+json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        if ($apiKey == null) {
+            $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        } else {
+            $apiKey = 'Klaviyo-API-Key '.$apiKey;
+        }
+
+        $headers['Authorization'] = $apiKey;
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $defaultHeaders['revision'] = ['2026-07-15'];
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Alias of `getDraftSchemaForObjectTypeRequest`
+     *
+     * @deprecated use `getDraftSchemaForObjectTypeRequest` instead
+     */
+    public function getObjectTypeDraftSchemaRequest(...$args) {
+        return $this->getDraftSchemaForObjectTypeRequest(...$args);
+    }
+
+    /**
+     * Operation getDraftSchemaIdForObjectType
+     *
+     * Get Draft Schema ID for Object Type
+     *
+     * @param  string $id The ULID ID of the object type. (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDraftSchemaIdForObjectType'] to see the possible values for this operation
+     *
+     * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array<string,mixed>|\KlaviyoAPI\Model\GetAccounts400Response|\KlaviyoAPI\Model\GetAccounts400Response
+     */
+    public function getDraftSchemaIdForObjectType($id, $apiKey = null, string $contentType = self::contentTypes['getDraftSchemaIdForObjectType'][0])
+    {
+        list($response) = $this->getDraftSchemaIdForObjectTypeWithHttpInfo($id, $apiKey, $contentType);
+        return $response;
+    }
+
+    /**
+     * Alias of `getDraftSchemaIdForObjectType`
+     *
+     * @deprecated use `getDraftSchemaIdForObjectType` instead
+     */
+    public function getObjectTypeRelationshipsDraftSchema(...$args) {
+        return $this->getDraftSchemaIdForObjectType(...$args);
+    }
+
+    /**
+     * Operation getDraftSchemaIdForObjectTypeWithHttpInfo
+     *
+     * Get Draft Schema ID for Object Type
+     *
+     * @param  string $id The ULID ID of the object type. (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDraftSchemaIdForObjectType'] to see the possible values for this operation
+     *
+     * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of array<string,mixed>|\KlaviyoAPI\Model\GetAccounts400Response|\KlaviyoAPI\Model\GetAccounts400Response, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getDraftSchemaIdForObjectTypeWithHttpInfo($id, $apiKey = null, string $contentType = self::contentTypes['getDraftSchemaIdForObjectType'][0])
+    {
+        $request = $this->getDraftSchemaIdForObjectTypeRequest($id, $apiKey, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            switch($statusCode) {
+                case 200:
+                    return $this->handleResponseWithDataType(
+                        'array<string,mixed>',
+                        $request,
+                        $response,
+                    );
+                case 400:
+                    return $this->handleResponseWithDataType(
+                        '\KlaviyoAPI\Model\GetAccounts400Response',
+                        $request,
+                        $response,
+                    );
+                case 500:
+                    return $this->handleResponseWithDataType(
+                        '\KlaviyoAPI\Model\GetAccounts400Response',
+                        $request,
+                        $response,
+                    );
+            }
+
+            
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            return $this->handleResponseWithDataType(
+                'array<string,mixed>',
+                $request,
+                $response,
+            );
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        'array<string,mixed>',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\KlaviyoAPI\Model\GetAccounts400Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 500:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\KlaviyoAPI\Model\GetAccounts400Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+            }
+        
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Alias of `getDraftSchemaIdForObjectTypeWithHttpInfo`
+     *
+     * @deprecated use `getDraftSchemaIdForObjectTypeWithHttpInfo` instead
+     */
+    public function getObjectTypeRelationshipsDraftSchemaWithHttpInfo(...$args) {
+        return $this->getDraftSchemaIdForObjectTypeWithHttpInfo(...$args);
+    }
+
+    /**
+     * Operation getDraftSchemaIdForObjectTypeAsync
+     *
+     * Get Draft Schema ID for Object Type
+     *
+     * @param  string $id The ULID ID of the object type. (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDraftSchemaIdForObjectType'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getDraftSchemaIdForObjectTypeAsync($id, $apiKey = null, string $contentType = self::contentTypes['getDraftSchemaIdForObjectType'][0])
+    {
+        return $this->getDraftSchemaIdForObjectTypeAsyncWithHttpInfo($id, $apiKey, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Alias of `getDraftSchemaIdForObjectTypeAsync`
+     *
+     * @deprecated use `getDraftSchemaIdForObjectTypeAsync` instead
+     */
+    public function getObjectTypeRelationshipsDraftSchemaAsync(...$args) {
+        return $this->getDraftSchemaIdForObjectTypeAsync(...$args);
+    }
+
+    /**
+     * Operation getDraftSchemaIdForObjectTypeAsyncWithHttpInfo
+     *
+     * Get Draft Schema ID for Object Type
+     *
+     * @param  string $id The ULID ID of the object type. (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDraftSchemaIdForObjectType'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getDraftSchemaIdForObjectTypeAsyncWithHttpInfo($id, $apiKey = null, string $contentType = self::contentTypes['getDraftSchemaIdForObjectType'][0])
+    {
+        $returnType = 'array<string,mixed>';
+        $request = $this->getDraftSchemaIdForObjectTypeRequest($id, $apiKey, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    $parsed_content = json_decode(json_encode($content), TRUE);
+                    if (json_last_error() != JSON_ERROR_NONE) {
+                        $parsed_content = $content;
+                    }
+
+                    return [
+                        $parsed_content,
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Alias of `getDraftSchemaIdForObjectTypeAsyncWithHttpInfo`
+     *
+     * @deprecated use `getDraftSchemaIdForObjectTypeAsyncWithHttpInfo` instead
+     */
+    public function getObjectTypeRelationshipsDraftSchemaAsyncWithHttpInfo(...$args) {
+        return $this->getDraftSchemaIdForObjectTypeAsyncWithHttpInfo(...$args);
+    }
+
+    /**
+     * Create request for operation 'getDraftSchemaIdForObjectType'
+     *
+     * @param  string $id The ULID ID of the object type. (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDraftSchemaIdForObjectType'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function getDraftSchemaIdForObjectTypeRequest($id, $apiKey = null, string $contentType = self::contentTypes['getDraftSchemaIdForObjectType'][0])
+    {
+
+        // verify the required parameter 'id' is set
+        if ($id === null || (is_array($id) && count($id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $id when calling getDraftSchemaIdForObjectType'
+            );
+        }
+
+
+        $resourcePath = '/api/object-types/{id}/relationships/draft-schema';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'id' . '}',
+                ObjectSerializer::toPathValue($id),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/vnd.api+json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false || stripos($headers['Content-Type'], 'application/vnd.api+json') !== false) {
+                # if Content-Type contains "application/json" or "application/vnd.api+json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        if ($apiKey == null) {
+            $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        } else {
+            $apiKey = 'Klaviyo-API-Key '.$apiKey;
+        }
+
+        $headers['Authorization'] = $apiKey;
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $defaultHeaders['revision'] = ['2026-07-15'];
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Alias of `getDraftSchemaIdForObjectTypeRequest`
+     *
+     * @deprecated use `getDraftSchemaIdForObjectTypeRequest` instead
+     */
+    public function getObjectTypeRelationshipsDraftSchemaRequest(...$args) {
+        return $this->getDraftSchemaIdForObjectTypeRequest(...$args);
+    }
+
+    /**
+     * Operation getIngestionLogIdsForObjectType
+     *
+     * Get Ingestion Log IDs for Object Type
+     *
+     * @param  string $id The ULID ID of the object type. (required)
+     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;record_id&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;status&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;event_type&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;timestamp&#x60;: &#x60;greater-or-equal&#x60;, &#x60;less-than&#x60; (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getIngestionLogIdsForObjectType'] to see the possible values for this operation
+     *
+     * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array<string,mixed>|\KlaviyoAPI\Model\GetAccounts400Response|\KlaviyoAPI\Model\GetAccounts400Response
+     */
+    public function getIngestionLogIdsForObjectType($id, $filter = null, $page_cursor = null, $apiKey = null, string $contentType = self::contentTypes['getIngestionLogIdsForObjectType'][0])
+    {
+        list($response) = $this->getIngestionLogIdsForObjectTypeWithHttpInfo($id, $filter, $page_cursor, $apiKey, $contentType);
+        return $response;
+    }
+
+    /**
+     * Alias of `getIngestionLogIdsForObjectType`
+     *
+     * @deprecated use `getIngestionLogIdsForObjectType` instead
+     */
+    public function getObjectTypeRelationshipsIngestionLogs(...$args) {
+        return $this->getIngestionLogIdsForObjectType(...$args);
+    }
+
+    /**
+     * Operation getIngestionLogIdsForObjectTypeWithHttpInfo
+     *
+     * Get Ingestion Log IDs for Object Type
+     *
+     * @param  string $id The ULID ID of the object type. (required)
+     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;record_id&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;status&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;event_type&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;timestamp&#x60;: &#x60;greater-or-equal&#x60;, &#x60;less-than&#x60; (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getIngestionLogIdsForObjectType'] to see the possible values for this operation
+     *
+     * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of array<string,mixed>|\KlaviyoAPI\Model\GetAccounts400Response|\KlaviyoAPI\Model\GetAccounts400Response, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getIngestionLogIdsForObjectTypeWithHttpInfo($id, $filter = null, $page_cursor = null, $apiKey = null, string $contentType = self::contentTypes['getIngestionLogIdsForObjectType'][0])
+    {
+        $request = $this->getIngestionLogIdsForObjectTypeRequest($id, $filter, $page_cursor, $apiKey, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            switch($statusCode) {
+                case 200:
+                    return $this->handleResponseWithDataType(
+                        'array<string,mixed>',
+                        $request,
+                        $response,
+                    );
+                case 400:
+                    return $this->handleResponseWithDataType(
+                        '\KlaviyoAPI\Model\GetAccounts400Response',
+                        $request,
+                        $response,
+                    );
+                case 500:
+                    return $this->handleResponseWithDataType(
+                        '\KlaviyoAPI\Model\GetAccounts400Response',
+                        $request,
+                        $response,
+                    );
+            }
+
+            
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            return $this->handleResponseWithDataType(
+                'array<string,mixed>',
+                $request,
+                $response,
+            );
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        'array<string,mixed>',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\KlaviyoAPI\Model\GetAccounts400Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 500:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\KlaviyoAPI\Model\GetAccounts400Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+            }
+        
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Alias of `getIngestionLogIdsForObjectTypeWithHttpInfo`
+     *
+     * @deprecated use `getIngestionLogIdsForObjectTypeWithHttpInfo` instead
+     */
+    public function getObjectTypeRelationshipsIngestionLogsWithHttpInfo(...$args) {
+        return $this->getIngestionLogIdsForObjectTypeWithHttpInfo(...$args);
+    }
+
+    /**
+     * Operation getIngestionLogIdsForObjectTypeAsync
+     *
+     * Get Ingestion Log IDs for Object Type
+     *
+     * @param  string $id The ULID ID of the object type. (required)
+     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;record_id&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;status&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;event_type&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;timestamp&#x60;: &#x60;greater-or-equal&#x60;, &#x60;less-than&#x60; (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getIngestionLogIdsForObjectType'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getIngestionLogIdsForObjectTypeAsync($id, $filter = null, $page_cursor = null, $apiKey = null, string $contentType = self::contentTypes['getIngestionLogIdsForObjectType'][0])
+    {
+        return $this->getIngestionLogIdsForObjectTypeAsyncWithHttpInfo($id, $filter, $page_cursor, $apiKey, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Alias of `getIngestionLogIdsForObjectTypeAsync`
+     *
+     * @deprecated use `getIngestionLogIdsForObjectTypeAsync` instead
+     */
+    public function getObjectTypeRelationshipsIngestionLogsAsync(...$args) {
+        return $this->getIngestionLogIdsForObjectTypeAsync(...$args);
+    }
+
+    /**
+     * Operation getIngestionLogIdsForObjectTypeAsyncWithHttpInfo
+     *
+     * Get Ingestion Log IDs for Object Type
+     *
+     * @param  string $id The ULID ID of the object type. (required)
+     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;record_id&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;status&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;event_type&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;timestamp&#x60;: &#x60;greater-or-equal&#x60;, &#x60;less-than&#x60; (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getIngestionLogIdsForObjectType'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getIngestionLogIdsForObjectTypeAsyncWithHttpInfo($id, $filter = null, $page_cursor = null, $apiKey = null, string $contentType = self::contentTypes['getIngestionLogIdsForObjectType'][0])
+    {
+        $returnType = 'array<string,mixed>';
+        $request = $this->getIngestionLogIdsForObjectTypeRequest($id, $filter, $page_cursor, $apiKey, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    $parsed_content = json_decode(json_encode($content), TRUE);
+                    if (json_last_error() != JSON_ERROR_NONE) {
+                        $parsed_content = $content;
+                    }
+
+                    return [
+                        $parsed_content,
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Alias of `getIngestionLogIdsForObjectTypeAsyncWithHttpInfo`
+     *
+     * @deprecated use `getIngestionLogIdsForObjectTypeAsyncWithHttpInfo` instead
+     */
+    public function getObjectTypeRelationshipsIngestionLogsAsyncWithHttpInfo(...$args) {
+        return $this->getIngestionLogIdsForObjectTypeAsyncWithHttpInfo(...$args);
+    }
+
+    /**
+     * Create request for operation 'getIngestionLogIdsForObjectType'
+     *
+     * @param  string $id The ULID ID of the object type. (required)
+     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;record_id&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;status&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;event_type&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;timestamp&#x60;: &#x60;greater-or-equal&#x60;, &#x60;less-than&#x60; (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getIngestionLogIdsForObjectType'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function getIngestionLogIdsForObjectTypeRequest($id, $filter = null, $page_cursor = null, $apiKey = null, string $contentType = self::contentTypes['getIngestionLogIdsForObjectType'][0])
+    {
+
+        // verify the required parameter 'id' is set
+        if ($id === null || (is_array($id) && count($id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $id when calling getIngestionLogIdsForObjectType'
+            );
+        }
+
+
+
+
+        $resourcePath = '/api/object-types/{id}/relationships/object-ingestion-logs';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $filter,
+            'filter', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $page_cursor,
+            'page[cursor]', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+
+
+        // path params
+        if ($id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'id' . '}',
+                ObjectSerializer::toPathValue($id),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/vnd.api+json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false || stripos($headers['Content-Type'], 'application/vnd.api+json') !== false) {
+                # if Content-Type contains "application/json" or "application/vnd.api+json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        if ($apiKey == null) {
+            $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        } else {
+            $apiKey = 'Klaviyo-API-Key '.$apiKey;
+        }
+
+        $headers['Authorization'] = $apiKey;
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $defaultHeaders['revision'] = ['2026-07-15'];
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Alias of `getIngestionLogIdsForObjectTypeRequest`
+     *
+     * @deprecated use `getIngestionLogIdsForObjectTypeRequest` instead
+     */
+    public function getObjectTypeRelationshipsIngestionLogsRequest(...$args) {
+        return $this->getIngestionLogIdsForObjectTypeRequest(...$args);
+    }
+
+    /**
+     * Operation getIngestionLogsForObjectType
+     *
+     * Get Ingestion Logs for Object Type
+     *
+     * @param  string $id The ULID ID of the object type. (required)
+     * @param  string[]|null $fields_object_ingestion_log For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_object_record For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_object_type For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;record_id&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;status&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;event_type&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;timestamp&#x60;: &#x60;greater-or-equal&#x60;, &#x60;less-than&#x60; (optional)
+     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#relationships (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getIngestionLogsForObjectType'] to see the possible values for this operation
+     *
+     * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array<string,mixed>|\KlaviyoAPI\Model\GetAccounts400Response|\KlaviyoAPI\Model\GetAccounts400Response
+     */
+    public function getIngestionLogsForObjectType($id, $fields_object_ingestion_log = null, $fields_object_record = null, $fields_object_type = null, $filter = null, $include = null, $page_cursor = null, $apiKey = null, string $contentType = self::contentTypes['getIngestionLogsForObjectType'][0])
+    {
+        list($response) = $this->getIngestionLogsForObjectTypeWithHttpInfo($id, $fields_object_ingestion_log, $fields_object_record, $fields_object_type, $filter, $include, $page_cursor, $apiKey, $contentType);
+        return $response;
+    }
+
+    /**
+     * Alias of `getIngestionLogsForObjectType`
+     *
+     * @deprecated use `getIngestionLogsForObjectType` instead
+     */
+    public function getObjectTypeIngestionLogs(...$args) {
+        return $this->getIngestionLogsForObjectType(...$args);
+    }
+
+    /**
+     * Operation getIngestionLogsForObjectTypeWithHttpInfo
+     *
+     * Get Ingestion Logs for Object Type
+     *
+     * @param  string $id The ULID ID of the object type. (required)
+     * @param  string[]|null $fields_object_ingestion_log For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_object_record For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_object_type For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;record_id&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;status&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;event_type&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;timestamp&#x60;: &#x60;greater-or-equal&#x60;, &#x60;less-than&#x60; (optional)
+     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#relationships (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getIngestionLogsForObjectType'] to see the possible values for this operation
+     *
+     * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of array<string,mixed>|\KlaviyoAPI\Model\GetAccounts400Response|\KlaviyoAPI\Model\GetAccounts400Response, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getIngestionLogsForObjectTypeWithHttpInfo($id, $fields_object_ingestion_log = null, $fields_object_record = null, $fields_object_type = null, $filter = null, $include = null, $page_cursor = null, $apiKey = null, string $contentType = self::contentTypes['getIngestionLogsForObjectType'][0])
+    {
+        $request = $this->getIngestionLogsForObjectTypeRequest($id, $fields_object_ingestion_log, $fields_object_record, $fields_object_type, $filter, $include, $page_cursor, $apiKey, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            switch($statusCode) {
+                case 200:
+                    return $this->handleResponseWithDataType(
+                        'array<string,mixed>',
+                        $request,
+                        $response,
+                    );
+                case 400:
+                    return $this->handleResponseWithDataType(
+                        '\KlaviyoAPI\Model\GetAccounts400Response',
+                        $request,
+                        $response,
+                    );
+                case 500:
+                    return $this->handleResponseWithDataType(
+                        '\KlaviyoAPI\Model\GetAccounts400Response',
+                        $request,
+                        $response,
+                    );
+            }
+
+            
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            return $this->handleResponseWithDataType(
+                'array<string,mixed>',
+                $request,
+                $response,
+            );
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        'array<string,mixed>',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\KlaviyoAPI\Model\GetAccounts400Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 500:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\KlaviyoAPI\Model\GetAccounts400Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+            }
+        
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Alias of `getIngestionLogsForObjectTypeWithHttpInfo`
+     *
+     * @deprecated use `getIngestionLogsForObjectTypeWithHttpInfo` instead
+     */
+    public function getObjectTypeIngestionLogsWithHttpInfo(...$args) {
+        return $this->getIngestionLogsForObjectTypeWithHttpInfo(...$args);
+    }
+
+    /**
+     * Operation getIngestionLogsForObjectTypeAsync
+     *
+     * Get Ingestion Logs for Object Type
+     *
+     * @param  string $id The ULID ID of the object type. (required)
+     * @param  string[]|null $fields_object_ingestion_log For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_object_record For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_object_type For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;record_id&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;status&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;event_type&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;timestamp&#x60;: &#x60;greater-or-equal&#x60;, &#x60;less-than&#x60; (optional)
+     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#relationships (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getIngestionLogsForObjectType'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getIngestionLogsForObjectTypeAsync($id, $fields_object_ingestion_log = null, $fields_object_record = null, $fields_object_type = null, $filter = null, $include = null, $page_cursor = null, $apiKey = null, string $contentType = self::contentTypes['getIngestionLogsForObjectType'][0])
+    {
+        return $this->getIngestionLogsForObjectTypeAsyncWithHttpInfo($id, $fields_object_ingestion_log, $fields_object_record, $fields_object_type, $filter, $include, $page_cursor, $apiKey, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Alias of `getIngestionLogsForObjectTypeAsync`
+     *
+     * @deprecated use `getIngestionLogsForObjectTypeAsync` instead
+     */
+    public function getObjectTypeIngestionLogsAsync(...$args) {
+        return $this->getIngestionLogsForObjectTypeAsync(...$args);
+    }
+
+    /**
+     * Operation getIngestionLogsForObjectTypeAsyncWithHttpInfo
+     *
+     * Get Ingestion Logs for Object Type
+     *
+     * @param  string $id The ULID ID of the object type. (required)
+     * @param  string[]|null $fields_object_ingestion_log For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_object_record For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_object_type For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;record_id&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;status&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;event_type&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;timestamp&#x60;: &#x60;greater-or-equal&#x60;, &#x60;less-than&#x60; (optional)
+     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#relationships (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getIngestionLogsForObjectType'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getIngestionLogsForObjectTypeAsyncWithHttpInfo($id, $fields_object_ingestion_log = null, $fields_object_record = null, $fields_object_type = null, $filter = null, $include = null, $page_cursor = null, $apiKey = null, string $contentType = self::contentTypes['getIngestionLogsForObjectType'][0])
+    {
+        $returnType = 'array<string,mixed>';
+        $request = $this->getIngestionLogsForObjectTypeRequest($id, $fields_object_ingestion_log, $fields_object_record, $fields_object_type, $filter, $include, $page_cursor, $apiKey, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    $parsed_content = json_decode(json_encode($content), TRUE);
+                    if (json_last_error() != JSON_ERROR_NONE) {
+                        $parsed_content = $content;
+                    }
+
+                    return [
+                        $parsed_content,
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Alias of `getIngestionLogsForObjectTypeAsyncWithHttpInfo`
+     *
+     * @deprecated use `getIngestionLogsForObjectTypeAsyncWithHttpInfo` instead
+     */
+    public function getObjectTypeIngestionLogsAsyncWithHttpInfo(...$args) {
+        return $this->getIngestionLogsForObjectTypeAsyncWithHttpInfo(...$args);
+    }
+
+    /**
+     * Create request for operation 'getIngestionLogsForObjectType'
+     *
+     * @param  string $id The ULID ID of the object type. (required)
+     * @param  string[]|null $fields_object_ingestion_log For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_object_record For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_object_type For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;record_id&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;status&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;event_type&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;timestamp&#x60;: &#x60;greater-or-equal&#x60;, &#x60;less-than&#x60; (optional)
+     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#relationships (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getIngestionLogsForObjectType'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function getIngestionLogsForObjectTypeRequest($id, $fields_object_ingestion_log = null, $fields_object_record = null, $fields_object_type = null, $filter = null, $include = null, $page_cursor = null, $apiKey = null, string $contentType = self::contentTypes['getIngestionLogsForObjectType'][0])
+    {
+
+        // verify the required parameter 'id' is set
+        if ($id === null || (is_array($id) && count($id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $id when calling getIngestionLogsForObjectType'
+            );
+        }
+
+
+
+
+
+
+
+
+        $resourcePath = '/api/object-types/{id}/object-ingestion-logs';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $fields_object_ingestion_log,
+            'fields[object-ingestion-log]', // param base name
+            'array', // openApiType
+            'form', // style
+            false, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $fields_object_record,
+            'fields[object-record]', // param base name
+            'array', // openApiType
+            'form', // style
+            false, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $fields_object_type,
+            'fields[object-type]', // param base name
+            'array', // openApiType
+            'form', // style
+            false, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $filter,
+            'filter', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $include,
+            'include', // param base name
+            'array', // openApiType
+            'form', // style
+            false, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $page_cursor,
+            'page[cursor]', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+
+
+        // path params
+        if ($id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'id' . '}',
+                ObjectSerializer::toPathValue($id),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/vnd.api+json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false || stripos($headers['Content-Type'], 'application/vnd.api+json') !== false) {
+                # if Content-Type contains "application/json" or "application/vnd.api+json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        if ($apiKey == null) {
+            $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        } else {
+            $apiKey = 'Klaviyo-API-Key '.$apiKey;
+        }
+
+        $headers['Authorization'] = $apiKey;
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $defaultHeaders['revision'] = ['2026-07-15'];
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Alias of `getIngestionLogsForObjectTypeRequest`
+     *
+     * @deprecated use `getIngestionLogsForObjectTypeRequest` instead
+     */
+    public function getObjectTypeIngestionLogsRequest(...$args) {
+        return $this->getIngestionLogsForObjectTypeRequest(...$args);
+    }
+
+    /**
+     * Operation getObjectRecord
+     *
+     * Get Object Record
+     *
+     * @param  string $id The compound ID of the object record, formatted as object_type_id:::object_record_id (required)
+     * @param  string[]|null $fields_object_record For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getObjectRecord'] to see the possible values for this operation
+     *
+     * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array<string,mixed>|\KlaviyoAPI\Model\GetAccounts400Response|\KlaviyoAPI\Model\GetAccounts400Response
+     */
+    public function getObjectRecord($id, $fields_object_record = null, $apiKey = null, string $contentType = self::contentTypes['getObjectRecord'][0])
+    {
+        list($response) = $this->getObjectRecordWithHttpInfo($id, $fields_object_record, $apiKey, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation getObjectRecordWithHttpInfo
+     *
+     * Get Object Record
+     *
+     * @param  string $id The compound ID of the object record, formatted as object_type_id:::object_record_id (required)
+     * @param  string[]|null $fields_object_record For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getObjectRecord'] to see the possible values for this operation
+     *
+     * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of array<string,mixed>|\KlaviyoAPI\Model\GetAccounts400Response|\KlaviyoAPI\Model\GetAccounts400Response, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getObjectRecordWithHttpInfo($id, $fields_object_record = null, $apiKey = null, string $contentType = self::contentTypes['getObjectRecord'][0])
+    {
+        $request = $this->getObjectRecordRequest($id, $fields_object_record, $apiKey, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            switch($statusCode) {
+                case 200:
+                    return $this->handleResponseWithDataType(
+                        'array<string,mixed>',
+                        $request,
+                        $response,
+                    );
+                case 400:
+                    return $this->handleResponseWithDataType(
+                        '\KlaviyoAPI\Model\GetAccounts400Response',
+                        $request,
+                        $response,
+                    );
+                case 500:
+                    return $this->handleResponseWithDataType(
+                        '\KlaviyoAPI\Model\GetAccounts400Response',
+                        $request,
+                        $response,
+                    );
+            }
+
+            
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            return $this->handleResponseWithDataType(
+                'array<string,mixed>',
+                $request,
+                $response,
+            );
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        'array<string,mixed>',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\KlaviyoAPI\Model\GetAccounts400Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 500:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\KlaviyoAPI\Model\GetAccounts400Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+            }
+        
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation getObjectRecordAsync
+     *
+     * Get Object Record
+     *
+     * @param  string $id The compound ID of the object record, formatted as object_type_id:::object_record_id (required)
+     * @param  string[]|null $fields_object_record For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getObjectRecord'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getObjectRecordAsync($id, $fields_object_record = null, $apiKey = null, string $contentType = self::contentTypes['getObjectRecord'][0])
+    {
+        return $this->getObjectRecordAsyncWithHttpInfo($id, $fields_object_record, $apiKey, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation getObjectRecordAsyncWithHttpInfo
+     *
+     * Get Object Record
+     *
+     * @param  string $id The compound ID of the object record, formatted as object_type_id:::object_record_id (required)
+     * @param  string[]|null $fields_object_record For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getObjectRecord'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getObjectRecordAsyncWithHttpInfo($id, $fields_object_record = null, $apiKey = null, string $contentType = self::contentTypes['getObjectRecord'][0])
+    {
+        $returnType = 'array<string,mixed>';
+        $request = $this->getObjectRecordRequest($id, $fields_object_record, $apiKey, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    $parsed_content = json_decode(json_encode($content), TRUE);
+                    if (json_last_error() != JSON_ERROR_NONE) {
+                        $parsed_content = $content;
+                    }
+
+                    return [
+                        $parsed_content,
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'getObjectRecord'
+     *
+     * @param  string $id The compound ID of the object record, formatted as object_type_id:::object_record_id (required)
+     * @param  string[]|null $fields_object_record For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getObjectRecord'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function getObjectRecordRequest($id, $fields_object_record = null, $apiKey = null, string $contentType = self::contentTypes['getObjectRecord'][0])
+    {
+
+        // verify the required parameter 'id' is set
+        if ($id === null || (is_array($id) && count($id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $id when calling getObjectRecord'
+            );
+        }
+
+
+
+        $resourcePath = '/api/object-records/{id}';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $fields_object_record,
+            'fields[object-record]', // param base name
+            'array', // openApiType
+            'form', // style
+            false, // explode
+            false // required
+        ) ?? []);
+
+
+        // path params
+        if ($id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'id' . '}',
+                ObjectSerializer::toPathValue($id),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/vnd.api+json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false || stripos($headers['Content-Type'], 'application/vnd.api+json') !== false) {
+                # if Content-Type contains "application/json" or "application/vnd.api+json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        if ($apiKey == null) {
+            $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        } else {
+            $apiKey = 'Klaviyo-API-Key '.$apiKey;
+        }
+
+        $headers['Authorization'] = $apiKey;
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $defaultHeaders['revision'] = ['2026-07-15'];
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation getObjectSchema
+     *
+     * Get Object Schema
+     *
+     * @param  string $id The ULID ID of the object schema. (required)
+     * @param  string[]|null $fields_object_schema For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_profile_object_schema For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_source_mapping For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#relationships (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getObjectSchema'] to see the possible values for this operation
+     *
+     * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array<string,mixed>|\KlaviyoAPI\Model\GetAccounts400Response|\KlaviyoAPI\Model\GetAccounts400Response
+     */
+    public function getObjectSchema($id, $fields_object_schema = null, $fields_profile_object_schema = null, $fields_source_mapping = null, $include = null, $apiKey = null, string $contentType = self::contentTypes['getObjectSchema'][0])
+    {
+        list($response) = $this->getObjectSchemaWithHttpInfo($id, $fields_object_schema, $fields_profile_object_schema, $fields_source_mapping, $include, $apiKey, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation getObjectSchemaWithHttpInfo
+     *
+     * Get Object Schema
+     *
+     * @param  string $id The ULID ID of the object schema. (required)
+     * @param  string[]|null $fields_object_schema For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_profile_object_schema For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_source_mapping For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#relationships (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getObjectSchema'] to see the possible values for this operation
+     *
+     * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of array<string,mixed>|\KlaviyoAPI\Model\GetAccounts400Response|\KlaviyoAPI\Model\GetAccounts400Response, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getObjectSchemaWithHttpInfo($id, $fields_object_schema = null, $fields_profile_object_schema = null, $fields_source_mapping = null, $include = null, $apiKey = null, string $contentType = self::contentTypes['getObjectSchema'][0])
+    {
+        $request = $this->getObjectSchemaRequest($id, $fields_object_schema, $fields_profile_object_schema, $fields_source_mapping, $include, $apiKey, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            switch($statusCode) {
+                case 200:
+                    return $this->handleResponseWithDataType(
+                        'array<string,mixed>',
+                        $request,
+                        $response,
+                    );
+                case 400:
+                    return $this->handleResponseWithDataType(
+                        '\KlaviyoAPI\Model\GetAccounts400Response',
+                        $request,
+                        $response,
+                    );
+                case 500:
+                    return $this->handleResponseWithDataType(
+                        '\KlaviyoAPI\Model\GetAccounts400Response',
+                        $request,
+                        $response,
+                    );
+            }
+
+            
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            return $this->handleResponseWithDataType(
+                'array<string,mixed>',
+                $request,
+                $response,
+            );
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        'array<string,mixed>',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\KlaviyoAPI\Model\GetAccounts400Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 500:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\KlaviyoAPI\Model\GetAccounts400Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+            }
+        
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation getObjectSchemaAsync
+     *
+     * Get Object Schema
+     *
+     * @param  string $id The ULID ID of the object schema. (required)
+     * @param  string[]|null $fields_object_schema For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_profile_object_schema For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_source_mapping For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#relationships (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getObjectSchema'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getObjectSchemaAsync($id, $fields_object_schema = null, $fields_profile_object_schema = null, $fields_source_mapping = null, $include = null, $apiKey = null, string $contentType = self::contentTypes['getObjectSchema'][0])
+    {
+        return $this->getObjectSchemaAsyncWithHttpInfo($id, $fields_object_schema, $fields_profile_object_schema, $fields_source_mapping, $include, $apiKey, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation getObjectSchemaAsyncWithHttpInfo
+     *
+     * Get Object Schema
+     *
+     * @param  string $id The ULID ID of the object schema. (required)
+     * @param  string[]|null $fields_object_schema For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_profile_object_schema For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_source_mapping For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#relationships (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getObjectSchema'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getObjectSchemaAsyncWithHttpInfo($id, $fields_object_schema = null, $fields_profile_object_schema = null, $fields_source_mapping = null, $include = null, $apiKey = null, string $contentType = self::contentTypes['getObjectSchema'][0])
+    {
+        $returnType = 'array<string,mixed>';
+        $request = $this->getObjectSchemaRequest($id, $fields_object_schema, $fields_profile_object_schema, $fields_source_mapping, $include, $apiKey, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    $parsed_content = json_decode(json_encode($content), TRUE);
+                    if (json_last_error() != JSON_ERROR_NONE) {
+                        $parsed_content = $content;
+                    }
+
+                    return [
+                        $parsed_content,
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'getObjectSchema'
+     *
+     * @param  string $id The ULID ID of the object schema. (required)
+     * @param  string[]|null $fields_object_schema For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_profile_object_schema For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_source_mapping For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#relationships (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getObjectSchema'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function getObjectSchemaRequest($id, $fields_object_schema = null, $fields_profile_object_schema = null, $fields_source_mapping = null, $include = null, $apiKey = null, string $contentType = self::contentTypes['getObjectSchema'][0])
+    {
+
+        // verify the required parameter 'id' is set
+        if ($id === null || (is_array($id) && count($id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $id when calling getObjectSchema'
+            );
+        }
+
+
+
+
+
+
+        $resourcePath = '/api/object-schemas/{id}';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $fields_object_schema,
+            'fields[object-schema]', // param base name
+            'array', // openApiType
+            'form', // style
+            false, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $fields_profile_object_schema,
+            'fields[profile-object-schema]', // param base name
+            'array', // openApiType
+            'form', // style
+            false, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $fields_source_mapping,
+            'fields[source-mapping]', // param base name
+            'array', // openApiType
+            'form', // style
+            false, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $include,
+            'include', // param base name
+            'array', // openApiType
+            'form', // style
+            false, // explode
+            false // required
+        ) ?? []);
+
+
+        // path params
+        if ($id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'id' . '}',
+                ObjectSerializer::toPathValue($id),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/vnd.api+json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false || stripos($headers['Content-Type'], 'application/vnd.api+json') !== false) {
+                # if Content-Type contains "application/json" or "application/vnd.api+json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        if ($apiKey == null) {
+            $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        } else {
+            $apiKey = 'Klaviyo-API-Key '.$apiKey;
+        }
+
+        $headers['Authorization'] = $apiKey;
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $defaultHeaders['revision'] = ['2026-07-15'];
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation getObjectSchemaRelationships
+     *
+     * Get Object Schema Relationships
+     *
+     * @param  string $id The ULID ID of the object schema. (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getObjectSchemaRelationships'] to see the possible values for this operation
+     *
+     * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array<string,mixed>|\KlaviyoAPI\Model\GetAccounts400Response|\KlaviyoAPI\Model\GetAccounts400Response
+     */
+    public function getObjectSchemaRelationships($id, $apiKey = null, string $contentType = self::contentTypes['getObjectSchemaRelationships'][0])
+    {
+        list($response) = $this->getObjectSchemaRelationshipsWithHttpInfo($id, $apiKey, $contentType);
+        return $response;
+    }
+
+    /**
+     * Alias of `getObjectSchemaRelationships`
+     *
+     * @deprecated use `getObjectSchemaRelationships` instead
+     */
+    public function getObjectSchemaRelationshipsSchemas(...$args) {
+        return $this->getObjectSchemaRelationships(...$args);
+    }
+
+    /**
+     * Alias of `getObjectSchemaRelationships`
+     *
+     * @deprecated use `getObjectSchemaRelationships` instead
+     */
+    public function getSchemaIdsForObjectSchema(...$args) {
+        return $this->getObjectSchemaRelationships(...$args);
+    }
+
+    /**
+     * Operation getObjectSchemaRelationshipsWithHttpInfo
+     *
+     * Get Object Schema Relationships
+     *
+     * @param  string $id The ULID ID of the object schema. (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getObjectSchemaRelationships'] to see the possible values for this operation
+     *
+     * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of array<string,mixed>|\KlaviyoAPI\Model\GetAccounts400Response|\KlaviyoAPI\Model\GetAccounts400Response, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getObjectSchemaRelationshipsWithHttpInfo($id, $apiKey = null, string $contentType = self::contentTypes['getObjectSchemaRelationships'][0])
+    {
+        $request = $this->getObjectSchemaRelationshipsRequest($id, $apiKey, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            switch($statusCode) {
+                case 200:
+                    return $this->handleResponseWithDataType(
+                        'array<string,mixed>',
+                        $request,
+                        $response,
+                    );
+                case 400:
+                    return $this->handleResponseWithDataType(
+                        '\KlaviyoAPI\Model\GetAccounts400Response',
+                        $request,
+                        $response,
+                    );
+                case 500:
+                    return $this->handleResponseWithDataType(
+                        '\KlaviyoAPI\Model\GetAccounts400Response',
+                        $request,
+                        $response,
+                    );
+            }
+
+            
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            return $this->handleResponseWithDataType(
+                'array<string,mixed>',
+                $request,
+                $response,
+            );
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        'array<string,mixed>',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\KlaviyoAPI\Model\GetAccounts400Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 500:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\KlaviyoAPI\Model\GetAccounts400Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+            }
+        
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Alias of `getObjectSchemaRelationshipsWithHttpInfo`
+     *
+     * @deprecated use `getObjectSchemaRelationshipsWithHttpInfo` instead
+     */
+    public function getObjectSchemaRelationshipsSchemasWithHttpInfo(...$args) {
+        return $this->getObjectSchemaRelationshipsWithHttpInfo(...$args);
+    }
+
+    /**
+     * Alias of `getObjectSchemaRelationshipsWithHttpInfo`
+     *
+     * @deprecated use `getObjectSchemaRelationshipsWithHttpInfo` instead
+     */
+    public function getSchemaIdsForObjectSchemaWithHttpInfo(...$args) {
+        return $this->getObjectSchemaRelationshipsWithHttpInfo(...$args);
+    }
+
+    /**
+     * Operation getObjectSchemaRelationshipsAsync
+     *
+     * Get Object Schema Relationships
+     *
+     * @param  string $id The ULID ID of the object schema. (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getObjectSchemaRelationships'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getObjectSchemaRelationshipsAsync($id, $apiKey = null, string $contentType = self::contentTypes['getObjectSchemaRelationships'][0])
+    {
+        return $this->getObjectSchemaRelationshipsAsyncWithHttpInfo($id, $apiKey, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Alias of `getObjectSchemaRelationshipsAsync`
+     *
+     * @deprecated use `getObjectSchemaRelationshipsAsync` instead
+     */
+    public function getObjectSchemaRelationshipsSchemasAsync(...$args) {
+        return $this->getObjectSchemaRelationshipsAsync(...$args);
+    }
+
+    /**
+     * Alias of `getObjectSchemaRelationshipsAsync`
+     *
+     * @deprecated use `getObjectSchemaRelationshipsAsync` instead
+     */
+    public function getSchemaIdsForObjectSchemaAsync(...$args) {
+        return $this->getObjectSchemaRelationshipsAsync(...$args);
+    }
+
+    /**
+     * Operation getObjectSchemaRelationshipsAsyncWithHttpInfo
+     *
+     * Get Object Schema Relationships
+     *
+     * @param  string $id The ULID ID of the object schema. (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getObjectSchemaRelationships'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getObjectSchemaRelationshipsAsyncWithHttpInfo($id, $apiKey = null, string $contentType = self::contentTypes['getObjectSchemaRelationships'][0])
+    {
+        $returnType = 'array<string,mixed>';
+        $request = $this->getObjectSchemaRelationshipsRequest($id, $apiKey, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    $parsed_content = json_decode(json_encode($content), TRUE);
+                    if (json_last_error() != JSON_ERROR_NONE) {
+                        $parsed_content = $content;
+                    }
+
+                    return [
+                        $parsed_content,
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Alias of `getObjectSchemaRelationshipsAsyncWithHttpInfo`
+     *
+     * @deprecated use `getObjectSchemaRelationshipsAsyncWithHttpInfo` instead
+     */
+    public function getObjectSchemaRelationshipsSchemasAsyncWithHttpInfo(...$args) {
+        return $this->getObjectSchemaRelationshipsAsyncWithHttpInfo(...$args);
+    }
+
+    /**
+     * Alias of `getObjectSchemaRelationshipsAsyncWithHttpInfo`
+     *
+     * @deprecated use `getObjectSchemaRelationshipsAsyncWithHttpInfo` instead
+     */
+    public function getSchemaIdsForObjectSchemaAsyncWithHttpInfo(...$args) {
+        return $this->getObjectSchemaRelationshipsAsyncWithHttpInfo(...$args);
+    }
+
+    /**
+     * Create request for operation 'getObjectSchemaRelationships'
+     *
+     * @param  string $id The ULID ID of the object schema. (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getObjectSchemaRelationships'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function getObjectSchemaRelationshipsRequest($id, $apiKey = null, string $contentType = self::contentTypes['getObjectSchemaRelationships'][0])
+    {
+
+        // verify the required parameter 'id' is set
+        if ($id === null || (is_array($id) && count($id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $id when calling getObjectSchemaRelationships'
+            );
+        }
+
+
+        $resourcePath = '/api/object-schemas/{id}/relationships/object-schemas';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'id' . '}',
+                ObjectSerializer::toPathValue($id),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/vnd.api+json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false || stripos($headers['Content-Type'], 'application/vnd.api+json') !== false) {
+                # if Content-Type contains "application/json" or "application/vnd.api+json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        if ($apiKey == null) {
+            $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        } else {
+            $apiKey = 'Klaviyo-API-Key '.$apiKey;
+        }
+
+        $headers['Authorization'] = $apiKey;
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $defaultHeaders['revision'] = ['2026-07-15'];
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Alias of `getObjectSchemaRelationshipsRequest`
+     *
+     * @deprecated use `getObjectSchemaRelationshipsRequest` instead
+     */
+    public function getObjectSchemaRelationshipsSchemasRequest(...$args) {
+        return $this->getObjectSchemaRelationshipsRequest(...$args);
+    }
+
+    /**
+     * Alias of `getObjectSchemaRelationshipsRequest`
+     *
+     * @deprecated use `getObjectSchemaRelationshipsRequest` instead
+     */
+    public function getSchemaIdsForObjectSchemaRequest(...$args) {
+        return $this->getObjectSchemaRelationshipsRequest(...$args);
+    }
+
+    /**
+     * Operation getObjectType
+     *
+     * Get Object Type
+     *
+     * @param  string $id The ULID ID of the object type. (required)
+     * @param  string[]|null $fields_object_schema For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_object_type For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_profile_object_type For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#relationships (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getObjectType'] to see the possible values for this operation
+     *
+     * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array<string,mixed>|\KlaviyoAPI\Model\GetAccounts400Response|\KlaviyoAPI\Model\GetAccounts400Response
+     */
+    public function getObjectType($id, $fields_object_schema = null, $fields_object_type = null, $fields_profile_object_type = null, $include = null, $apiKey = null, string $contentType = self::contentTypes['getObjectType'][0])
+    {
+        list($response) = $this->getObjectTypeWithHttpInfo($id, $fields_object_schema, $fields_object_type, $fields_profile_object_type, $include, $apiKey, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation getObjectTypeWithHttpInfo
+     *
+     * Get Object Type
+     *
+     * @param  string $id The ULID ID of the object type. (required)
+     * @param  string[]|null $fields_object_schema For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_object_type For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_profile_object_type For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#relationships (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getObjectType'] to see the possible values for this operation
+     *
+     * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of array<string,mixed>|\KlaviyoAPI\Model\GetAccounts400Response|\KlaviyoAPI\Model\GetAccounts400Response, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getObjectTypeWithHttpInfo($id, $fields_object_schema = null, $fields_object_type = null, $fields_profile_object_type = null, $include = null, $apiKey = null, string $contentType = self::contentTypes['getObjectType'][0])
+    {
+        $request = $this->getObjectTypeRequest($id, $fields_object_schema, $fields_object_type, $fields_profile_object_type, $include, $apiKey, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            switch($statusCode) {
+                case 200:
+                    return $this->handleResponseWithDataType(
+                        'array<string,mixed>',
+                        $request,
+                        $response,
+                    );
+                case 400:
+                    return $this->handleResponseWithDataType(
+                        '\KlaviyoAPI\Model\GetAccounts400Response',
+                        $request,
+                        $response,
+                    );
+                case 500:
+                    return $this->handleResponseWithDataType(
+                        '\KlaviyoAPI\Model\GetAccounts400Response',
+                        $request,
+                        $response,
+                    );
+            }
+
+            
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            return $this->handleResponseWithDataType(
+                'array<string,mixed>',
+                $request,
+                $response,
+            );
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        'array<string,mixed>',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\KlaviyoAPI\Model\GetAccounts400Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 500:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\KlaviyoAPI\Model\GetAccounts400Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+            }
+        
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation getObjectTypeAsync
+     *
+     * Get Object Type
+     *
+     * @param  string $id The ULID ID of the object type. (required)
+     * @param  string[]|null $fields_object_schema For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_object_type For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_profile_object_type For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#relationships (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getObjectType'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getObjectTypeAsync($id, $fields_object_schema = null, $fields_object_type = null, $fields_profile_object_type = null, $include = null, $apiKey = null, string $contentType = self::contentTypes['getObjectType'][0])
+    {
+        return $this->getObjectTypeAsyncWithHttpInfo($id, $fields_object_schema, $fields_object_type, $fields_profile_object_type, $include, $apiKey, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation getObjectTypeAsyncWithHttpInfo
+     *
+     * Get Object Type
+     *
+     * @param  string $id The ULID ID of the object type. (required)
+     * @param  string[]|null $fields_object_schema For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_object_type For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_profile_object_type For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#relationships (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getObjectType'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getObjectTypeAsyncWithHttpInfo($id, $fields_object_schema = null, $fields_object_type = null, $fields_profile_object_type = null, $include = null, $apiKey = null, string $contentType = self::contentTypes['getObjectType'][0])
+    {
+        $returnType = 'array<string,mixed>';
+        $request = $this->getObjectTypeRequest($id, $fields_object_schema, $fields_object_type, $fields_profile_object_type, $include, $apiKey, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    $parsed_content = json_decode(json_encode($content), TRUE);
+                    if (json_last_error() != JSON_ERROR_NONE) {
+                        $parsed_content = $content;
+                    }
+
+                    return [
+                        $parsed_content,
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'getObjectType'
+     *
+     * @param  string $id The ULID ID of the object type. (required)
+     * @param  string[]|null $fields_object_schema For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_object_type For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_profile_object_type For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#relationships (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getObjectType'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function getObjectTypeRequest($id, $fields_object_schema = null, $fields_object_type = null, $fields_profile_object_type = null, $include = null, $apiKey = null, string $contentType = self::contentTypes['getObjectType'][0])
+    {
+
+        // verify the required parameter 'id' is set
+        if ($id === null || (is_array($id) && count($id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $id when calling getObjectType'
+            );
+        }
+
+
+
+
+
+
+        $resourcePath = '/api/object-types/{id}';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $fields_object_schema,
+            'fields[object-schema]', // param base name
+            'array', // openApiType
+            'form', // style
+            false, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $fields_object_type,
+            'fields[object-type]', // param base name
+            'array', // openApiType
+            'form', // style
+            false, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $fields_profile_object_type,
+            'fields[profile-object-type]', // param base name
+            'array', // openApiType
+            'form', // style
+            false, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $include,
+            'include', // param base name
+            'array', // openApiType
+            'form', // style
+            false, // explode
+            false // required
+        ) ?? []);
+
+
+        // path params
+        if ($id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'id' . '}',
+                ObjectSerializer::toPathValue($id),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/vnd.api+json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false || stripos($headers['Content-Type'], 'application/vnd.api+json') !== false) {
+                # if Content-Type contains "application/json" or "application/vnd.api+json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        if ($apiKey == null) {
+            $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        } else {
+            $apiKey = 'Klaviyo-API-Key '.$apiKey;
+        }
+
+        $headers['Authorization'] = $apiKey;
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $defaultHeaders['revision'] = ['2026-07-15'];
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation getObjectTypeRelationships
+     *
+     * Get Object Type Relationships
+     *
+     * @param  string $id The ULID ID of the object type. (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getObjectTypeRelationships'] to see the possible values for this operation
+     *
+     * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array<string,mixed>|\KlaviyoAPI\Model\GetAccounts400Response|\KlaviyoAPI\Model\GetAccounts400Response
+     */
+    public function getObjectTypeRelationships($id, $apiKey = null, string $contentType = self::contentTypes['getObjectTypeRelationships'][0])
+    {
+        list($response) = $this->getObjectTypeRelationshipsWithHttpInfo($id, $apiKey, $contentType);
+        return $response;
+    }
+
+    /**
+     * Alias of `getObjectTypeRelationships`
+     *
+     * @deprecated use `getObjectTypeRelationships` instead
+     */
+    public function getObjectTypeRelationshipsTypes(...$args) {
+        return $this->getObjectTypeRelationships(...$args);
+    }
+
+    /**
+     * Alias of `getObjectTypeRelationships`
+     *
+     * @deprecated use `getObjectTypeRelationships` instead
+     */
+    public function getTypeIdsForObjectType(...$args) {
+        return $this->getObjectTypeRelationships(...$args);
+    }
+
+    /**
+     * Operation getObjectTypeRelationshipsWithHttpInfo
+     *
+     * Get Object Type Relationships
+     *
+     * @param  string $id The ULID ID of the object type. (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getObjectTypeRelationships'] to see the possible values for this operation
+     *
+     * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of array<string,mixed>|\KlaviyoAPI\Model\GetAccounts400Response|\KlaviyoAPI\Model\GetAccounts400Response, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getObjectTypeRelationshipsWithHttpInfo($id, $apiKey = null, string $contentType = self::contentTypes['getObjectTypeRelationships'][0])
+    {
+        $request = $this->getObjectTypeRelationshipsRequest($id, $apiKey, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            switch($statusCode) {
+                case 200:
+                    return $this->handleResponseWithDataType(
+                        'array<string,mixed>',
+                        $request,
+                        $response,
+                    );
+                case 400:
+                    return $this->handleResponseWithDataType(
+                        '\KlaviyoAPI\Model\GetAccounts400Response',
+                        $request,
+                        $response,
+                    );
+                case 500:
+                    return $this->handleResponseWithDataType(
+                        '\KlaviyoAPI\Model\GetAccounts400Response',
+                        $request,
+                        $response,
+                    );
+            }
+
+            
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            return $this->handleResponseWithDataType(
+                'array<string,mixed>',
+                $request,
+                $response,
+            );
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        'array<string,mixed>',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\KlaviyoAPI\Model\GetAccounts400Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 500:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\KlaviyoAPI\Model\GetAccounts400Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+            }
+        
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Alias of `getObjectTypeRelationshipsWithHttpInfo`
+     *
+     * @deprecated use `getObjectTypeRelationshipsWithHttpInfo` instead
+     */
+    public function getObjectTypeRelationshipsTypesWithHttpInfo(...$args) {
+        return $this->getObjectTypeRelationshipsWithHttpInfo(...$args);
+    }
+
+    /**
+     * Alias of `getObjectTypeRelationshipsWithHttpInfo`
+     *
+     * @deprecated use `getObjectTypeRelationshipsWithHttpInfo` instead
+     */
+    public function getTypeIdsForObjectTypeWithHttpInfo(...$args) {
+        return $this->getObjectTypeRelationshipsWithHttpInfo(...$args);
+    }
+
+    /**
+     * Operation getObjectTypeRelationshipsAsync
+     *
+     * Get Object Type Relationships
+     *
+     * @param  string $id The ULID ID of the object type. (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getObjectTypeRelationships'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getObjectTypeRelationshipsAsync($id, $apiKey = null, string $contentType = self::contentTypes['getObjectTypeRelationships'][0])
+    {
+        return $this->getObjectTypeRelationshipsAsyncWithHttpInfo($id, $apiKey, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Alias of `getObjectTypeRelationshipsAsync`
+     *
+     * @deprecated use `getObjectTypeRelationshipsAsync` instead
+     */
+    public function getObjectTypeRelationshipsTypesAsync(...$args) {
+        return $this->getObjectTypeRelationshipsAsync(...$args);
+    }
+
+    /**
+     * Alias of `getObjectTypeRelationshipsAsync`
+     *
+     * @deprecated use `getObjectTypeRelationshipsAsync` instead
+     */
+    public function getTypeIdsForObjectTypeAsync(...$args) {
+        return $this->getObjectTypeRelationshipsAsync(...$args);
+    }
+
+    /**
+     * Operation getObjectTypeRelationshipsAsyncWithHttpInfo
+     *
+     * Get Object Type Relationships
+     *
+     * @param  string $id The ULID ID of the object type. (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getObjectTypeRelationships'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getObjectTypeRelationshipsAsyncWithHttpInfo($id, $apiKey = null, string $contentType = self::contentTypes['getObjectTypeRelationships'][0])
+    {
+        $returnType = 'array<string,mixed>';
+        $request = $this->getObjectTypeRelationshipsRequest($id, $apiKey, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    $parsed_content = json_decode(json_encode($content), TRUE);
+                    if (json_last_error() != JSON_ERROR_NONE) {
+                        $parsed_content = $content;
+                    }
+
+                    return [
+                        $parsed_content,
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Alias of `getObjectTypeRelationshipsAsyncWithHttpInfo`
+     *
+     * @deprecated use `getObjectTypeRelationshipsAsyncWithHttpInfo` instead
+     */
+    public function getObjectTypeRelationshipsTypesAsyncWithHttpInfo(...$args) {
+        return $this->getObjectTypeRelationshipsAsyncWithHttpInfo(...$args);
+    }
+
+    /**
+     * Alias of `getObjectTypeRelationshipsAsyncWithHttpInfo`
+     *
+     * @deprecated use `getObjectTypeRelationshipsAsyncWithHttpInfo` instead
+     */
+    public function getTypeIdsForObjectTypeAsyncWithHttpInfo(...$args) {
+        return $this->getObjectTypeRelationshipsAsyncWithHttpInfo(...$args);
+    }
+
+    /**
+     * Create request for operation 'getObjectTypeRelationships'
+     *
+     * @param  string $id The ULID ID of the object type. (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getObjectTypeRelationships'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function getObjectTypeRelationshipsRequest($id, $apiKey = null, string $contentType = self::contentTypes['getObjectTypeRelationships'][0])
+    {
+
+        // verify the required parameter 'id' is set
+        if ($id === null || (is_array($id) && count($id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $id when calling getObjectTypeRelationships'
+            );
+        }
+
+
+        $resourcePath = '/api/object-types/{id}/relationships/object-types';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'id' . '}',
+                ObjectSerializer::toPathValue($id),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/vnd.api+json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false || stripos($headers['Content-Type'], 'application/vnd.api+json') !== false) {
+                # if Content-Type contains "application/json" or "application/vnd.api+json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        if ($apiKey == null) {
+            $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        } else {
+            $apiKey = 'Klaviyo-API-Key '.$apiKey;
+        }
+
+        $headers['Authorization'] = $apiKey;
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $defaultHeaders['revision'] = ['2026-07-15'];
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Alias of `getObjectTypeRelationshipsRequest`
+     *
+     * @deprecated use `getObjectTypeRelationshipsRequest` instead
+     */
+    public function getObjectTypeRelationshipsTypesRequest(...$args) {
+        return $this->getObjectTypeRelationshipsRequest(...$args);
+    }
+
+    /**
+     * Alias of `getObjectTypeRelationshipsRequest`
+     *
+     * @deprecated use `getObjectTypeRelationshipsRequest` instead
+     */
+    public function getTypeIdsForObjectTypeRequest(...$args) {
+        return $this->getObjectTypeRelationshipsRequest(...$args);
+    }
+
+    /**
+     * Operation getObjectTypes
+     *
+     * Get Object Types
+     *
+     * @param  string[]|null $fields_object_schema For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_object_type For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;namespace&#x60;: &#x60;equals&#x60; (optional)
+     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#relationships (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getObjectTypes'] to see the possible values for this operation
+     *
+     * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array<string,mixed>|\KlaviyoAPI\Model\GetAccounts400Response|\KlaviyoAPI\Model\GetAccounts400Response
+     */
+    public function getObjectTypes($fields_object_schema = null, $fields_object_type = null, $filter = null, $include = null, $apiKey = null, string $contentType = self::contentTypes['getObjectTypes'][0])
+    {
+        list($response) = $this->getObjectTypesWithHttpInfo($fields_object_schema, $fields_object_type, $filter, $include, $apiKey, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation getObjectTypesWithHttpInfo
+     *
+     * Get Object Types
+     *
+     * @param  string[]|null $fields_object_schema For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_object_type For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;namespace&#x60;: &#x60;equals&#x60; (optional)
+     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#relationships (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getObjectTypes'] to see the possible values for this operation
+     *
+     * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of array<string,mixed>|\KlaviyoAPI\Model\GetAccounts400Response|\KlaviyoAPI\Model\GetAccounts400Response, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getObjectTypesWithHttpInfo($fields_object_schema = null, $fields_object_type = null, $filter = null, $include = null, $apiKey = null, string $contentType = self::contentTypes['getObjectTypes'][0])
+    {
+        $request = $this->getObjectTypesRequest($fields_object_schema, $fields_object_type, $filter, $include, $apiKey, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            switch($statusCode) {
+                case 200:
+                    return $this->handleResponseWithDataType(
+                        'array<string,mixed>',
+                        $request,
+                        $response,
+                    );
+                case 400:
+                    return $this->handleResponseWithDataType(
+                        '\KlaviyoAPI\Model\GetAccounts400Response',
+                        $request,
+                        $response,
+                    );
+                case 500:
+                    return $this->handleResponseWithDataType(
+                        '\KlaviyoAPI\Model\GetAccounts400Response',
+                        $request,
+                        $response,
+                    );
+            }
+
+            
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            return $this->handleResponseWithDataType(
+                'array<string,mixed>',
+                $request,
+                $response,
+            );
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        'array<string,mixed>',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\KlaviyoAPI\Model\GetAccounts400Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 500:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\KlaviyoAPI\Model\GetAccounts400Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+            }
+        
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation getObjectTypesAsync
+     *
+     * Get Object Types
+     *
+     * @param  string[]|null $fields_object_schema For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_object_type For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;namespace&#x60;: &#x60;equals&#x60; (optional)
+     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#relationships (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getObjectTypes'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getObjectTypesAsync($fields_object_schema = null, $fields_object_type = null, $filter = null, $include = null, $apiKey = null, string $contentType = self::contentTypes['getObjectTypes'][0])
+    {
+        return $this->getObjectTypesAsyncWithHttpInfo($fields_object_schema, $fields_object_type, $filter, $include, $apiKey, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation getObjectTypesAsyncWithHttpInfo
+     *
+     * Get Object Types
+     *
+     * @param  string[]|null $fields_object_schema For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_object_type For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;namespace&#x60;: &#x60;equals&#x60; (optional)
+     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#relationships (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getObjectTypes'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getObjectTypesAsyncWithHttpInfo($fields_object_schema = null, $fields_object_type = null, $filter = null, $include = null, $apiKey = null, string $contentType = self::contentTypes['getObjectTypes'][0])
+    {
+        $returnType = 'array<string,mixed>';
+        $request = $this->getObjectTypesRequest($fields_object_schema, $fields_object_type, $filter, $include, $apiKey, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    $parsed_content = json_decode(json_encode($content), TRUE);
+                    if (json_last_error() != JSON_ERROR_NONE) {
+                        $parsed_content = $content;
+                    }
+
+                    return [
+                        $parsed_content,
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'getObjectTypes'
+     *
+     * @param  string[]|null $fields_object_schema For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_object_type For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;namespace&#x60;: &#x60;equals&#x60; (optional)
+     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#relationships (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getObjectTypes'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function getObjectTypesRequest($fields_object_schema = null, $fields_object_type = null, $filter = null, $include = null, $apiKey = null, string $contentType = self::contentTypes['getObjectTypes'][0])
+    {
+
+
+
+
+
+
+        $resourcePath = '/api/object-types';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $fields_object_schema,
+            'fields[object-schema]', // param base name
+            'array', // openApiType
+            'form', // style
+            false, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $fields_object_type,
+            'fields[object-type]', // param base name
+            'array', // openApiType
+            'form', // style
+            false, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $filter,
+            'filter', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $include,
+            'include', // param base name
+            'array', // openApiType
+            'form', // style
+            false, // explode
+            false // required
+        ) ?? []);
+
+
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/vnd.api+json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false || stripos($headers['Content-Type'], 'application/vnd.api+json') !== false) {
+                # if Content-Type contains "application/json" or "application/vnd.api+json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        if ($apiKey == null) {
+            $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        } else {
+            $apiKey = 'Klaviyo-API-Key '.$apiKey;
+        }
+
+        $headers['Authorization'] = $apiKey;
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $defaultHeaders['revision'] = ['2026-07-15'];
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation getProfileSchemaRelationships
+     *
+     * Get Profile Schema Relationships
+     *
+     * @param  string $id The ULID ID of the object schema. (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getProfileSchemaRelationships'] to see the possible values for this operation
+     *
+     * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array<string,mixed>|\KlaviyoAPI\Model\GetAccounts400Response|\KlaviyoAPI\Model\GetAccounts400Response
+     */
+    public function getProfileSchemaRelationships($id, $apiKey = null, string $contentType = self::contentTypes['getProfileSchemaRelationships'][0])
+    {
+        list($response) = $this->getProfileSchemaRelationshipsWithHttpInfo($id, $apiKey, $contentType);
+        return $response;
+    }
+
+    /**
+     * Alias of `getProfileSchemaRelationships`
+     *
+     * @deprecated use `getProfileSchemaRelationships` instead
+     */
+    public function getObjectSchemaRelationshipsProfileObjectSchemas(...$args) {
+        return $this->getProfileSchemaRelationships(...$args);
+    }
+
+    /**
+     * Alias of `getProfileSchemaRelationships`
+     *
+     * @deprecated use `getProfileSchemaRelationships` instead
+     */
+    public function getProfileObjectSchemaIdsForObjectSchema(...$args) {
+        return $this->getProfileSchemaRelationships(...$args);
+    }
+
+    /**
+     * Operation getProfileSchemaRelationshipsWithHttpInfo
+     *
+     * Get Profile Schema Relationships
+     *
+     * @param  string $id The ULID ID of the object schema. (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getProfileSchemaRelationships'] to see the possible values for this operation
+     *
+     * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of array<string,mixed>|\KlaviyoAPI\Model\GetAccounts400Response|\KlaviyoAPI\Model\GetAccounts400Response, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getProfileSchemaRelationshipsWithHttpInfo($id, $apiKey = null, string $contentType = self::contentTypes['getProfileSchemaRelationships'][0])
+    {
+        $request = $this->getProfileSchemaRelationshipsRequest($id, $apiKey, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            switch($statusCode) {
+                case 200:
+                    return $this->handleResponseWithDataType(
+                        'array<string,mixed>',
+                        $request,
+                        $response,
+                    );
+                case 400:
+                    return $this->handleResponseWithDataType(
+                        '\KlaviyoAPI\Model\GetAccounts400Response',
+                        $request,
+                        $response,
+                    );
+                case 500:
+                    return $this->handleResponseWithDataType(
+                        '\KlaviyoAPI\Model\GetAccounts400Response',
+                        $request,
+                        $response,
+                    );
+            }
+
+            
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            return $this->handleResponseWithDataType(
+                'array<string,mixed>',
+                $request,
+                $response,
+            );
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        'array<string,mixed>',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\KlaviyoAPI\Model\GetAccounts400Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 500:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\KlaviyoAPI\Model\GetAccounts400Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+            }
+        
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Alias of `getProfileSchemaRelationshipsWithHttpInfo`
+     *
+     * @deprecated use `getProfileSchemaRelationshipsWithHttpInfo` instead
+     */
+    public function getObjectSchemaRelationshipsProfileObjectSchemasWithHttpInfo(...$args) {
+        return $this->getProfileSchemaRelationshipsWithHttpInfo(...$args);
+    }
+
+    /**
+     * Alias of `getProfileSchemaRelationshipsWithHttpInfo`
+     *
+     * @deprecated use `getProfileSchemaRelationshipsWithHttpInfo` instead
+     */
+    public function getProfileObjectSchemaIdsForObjectSchemaWithHttpInfo(...$args) {
+        return $this->getProfileSchemaRelationshipsWithHttpInfo(...$args);
+    }
+
+    /**
+     * Operation getProfileSchemaRelationshipsAsync
+     *
+     * Get Profile Schema Relationships
+     *
+     * @param  string $id The ULID ID of the object schema. (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getProfileSchemaRelationships'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getProfileSchemaRelationshipsAsync($id, $apiKey = null, string $contentType = self::contentTypes['getProfileSchemaRelationships'][0])
+    {
+        return $this->getProfileSchemaRelationshipsAsyncWithHttpInfo($id, $apiKey, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Alias of `getProfileSchemaRelationshipsAsync`
+     *
+     * @deprecated use `getProfileSchemaRelationshipsAsync` instead
+     */
+    public function getObjectSchemaRelationshipsProfileObjectSchemasAsync(...$args) {
+        return $this->getProfileSchemaRelationshipsAsync(...$args);
+    }
+
+    /**
+     * Alias of `getProfileSchemaRelationshipsAsync`
+     *
+     * @deprecated use `getProfileSchemaRelationshipsAsync` instead
+     */
+    public function getProfileObjectSchemaIdsForObjectSchemaAsync(...$args) {
+        return $this->getProfileSchemaRelationshipsAsync(...$args);
+    }
+
+    /**
+     * Operation getProfileSchemaRelationshipsAsyncWithHttpInfo
+     *
+     * Get Profile Schema Relationships
+     *
+     * @param  string $id The ULID ID of the object schema. (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getProfileSchemaRelationships'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getProfileSchemaRelationshipsAsyncWithHttpInfo($id, $apiKey = null, string $contentType = self::contentTypes['getProfileSchemaRelationships'][0])
+    {
+        $returnType = 'array<string,mixed>';
+        $request = $this->getProfileSchemaRelationshipsRequest($id, $apiKey, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    $parsed_content = json_decode(json_encode($content), TRUE);
+                    if (json_last_error() != JSON_ERROR_NONE) {
+                        $parsed_content = $content;
+                    }
+
+                    return [
+                        $parsed_content,
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Alias of `getProfileSchemaRelationshipsAsyncWithHttpInfo`
+     *
+     * @deprecated use `getProfileSchemaRelationshipsAsyncWithHttpInfo` instead
+     */
+    public function getObjectSchemaRelationshipsProfileObjectSchemasAsyncWithHttpInfo(...$args) {
+        return $this->getProfileSchemaRelationshipsAsyncWithHttpInfo(...$args);
+    }
+
+    /**
+     * Alias of `getProfileSchemaRelationshipsAsyncWithHttpInfo`
+     *
+     * @deprecated use `getProfileSchemaRelationshipsAsyncWithHttpInfo` instead
+     */
+    public function getProfileObjectSchemaIdsForObjectSchemaAsyncWithHttpInfo(...$args) {
+        return $this->getProfileSchemaRelationshipsAsyncWithHttpInfo(...$args);
+    }
+
+    /**
+     * Create request for operation 'getProfileSchemaRelationships'
+     *
+     * @param  string $id The ULID ID of the object schema. (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getProfileSchemaRelationships'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function getProfileSchemaRelationshipsRequest($id, $apiKey = null, string $contentType = self::contentTypes['getProfileSchemaRelationships'][0])
+    {
+
+        // verify the required parameter 'id' is set
+        if ($id === null || (is_array($id) && count($id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $id when calling getProfileSchemaRelationships'
+            );
+        }
+
+
+        $resourcePath = '/api/object-schemas/{id}/relationships/profile-object-schemas';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'id' . '}',
+                ObjectSerializer::toPathValue($id),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/vnd.api+json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false || stripos($headers['Content-Type'], 'application/vnd.api+json') !== false) {
+                # if Content-Type contains "application/json" or "application/vnd.api+json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        if ($apiKey == null) {
+            $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        } else {
+            $apiKey = 'Klaviyo-API-Key '.$apiKey;
+        }
+
+        $headers['Authorization'] = $apiKey;
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $defaultHeaders['revision'] = ['2026-07-15'];
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Alias of `getProfileSchemaRelationshipsRequest`
+     *
+     * @deprecated use `getProfileSchemaRelationshipsRequest` instead
+     */
+    public function getObjectSchemaRelationshipsProfileObjectSchemasRequest(...$args) {
+        return $this->getProfileSchemaRelationshipsRequest(...$args);
+    }
+
+    /**
+     * Alias of `getProfileSchemaRelationshipsRequest`
+     *
+     * @deprecated use `getProfileSchemaRelationshipsRequest` instead
+     */
+    public function getProfileObjectSchemaIdsForObjectSchemaRequest(...$args) {
+        return $this->getProfileSchemaRelationshipsRequest(...$args);
+    }
+
+    /**
+     * Operation getProfileTypeRelationships
+     *
+     * Get Profile Type Relationships
+     *
+     * @param  string $id The ULID ID of the object type. (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getProfileTypeRelationships'] to see the possible values for this operation
+     *
+     * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array<string,mixed>|\KlaviyoAPI\Model\GetAccounts400Response|\KlaviyoAPI\Model\GetAccounts400Response
+     */
+    public function getProfileTypeRelationships($id, $apiKey = null, string $contentType = self::contentTypes['getProfileTypeRelationships'][0])
+    {
+        list($response) = $this->getProfileTypeRelationshipsWithHttpInfo($id, $apiKey, $contentType);
+        return $response;
+    }
+
+    /**
+     * Alias of `getProfileTypeRelationships`
+     *
+     * @deprecated use `getProfileTypeRelationships` instead
+     */
+    public function getObjectTypeRelationshipsProfileObjectTypes(...$args) {
+        return $this->getProfileTypeRelationships(...$args);
+    }
+
+    /**
+     * Alias of `getProfileTypeRelationships`
+     *
+     * @deprecated use `getProfileTypeRelationships` instead
+     */
+    public function getProfileObjectTypeIdsForObjectType(...$args) {
+        return $this->getProfileTypeRelationships(...$args);
+    }
+
+    /**
+     * Operation getProfileTypeRelationshipsWithHttpInfo
+     *
+     * Get Profile Type Relationships
+     *
+     * @param  string $id The ULID ID of the object type. (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getProfileTypeRelationships'] to see the possible values for this operation
+     *
+     * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of array<string,mixed>|\KlaviyoAPI\Model\GetAccounts400Response|\KlaviyoAPI\Model\GetAccounts400Response, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getProfileTypeRelationshipsWithHttpInfo($id, $apiKey = null, string $contentType = self::contentTypes['getProfileTypeRelationships'][0])
+    {
+        $request = $this->getProfileTypeRelationshipsRequest($id, $apiKey, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            switch($statusCode) {
+                case 200:
+                    return $this->handleResponseWithDataType(
+                        'array<string,mixed>',
+                        $request,
+                        $response,
+                    );
+                case 400:
+                    return $this->handleResponseWithDataType(
+                        '\KlaviyoAPI\Model\GetAccounts400Response',
+                        $request,
+                        $response,
+                    );
+                case 500:
+                    return $this->handleResponseWithDataType(
+                        '\KlaviyoAPI\Model\GetAccounts400Response',
+                        $request,
+                        $response,
+                    );
+            }
+
+            
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            return $this->handleResponseWithDataType(
+                'array<string,mixed>',
+                $request,
+                $response,
+            );
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        'array<string,mixed>',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\KlaviyoAPI\Model\GetAccounts400Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 500:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\KlaviyoAPI\Model\GetAccounts400Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+            }
+        
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Alias of `getProfileTypeRelationshipsWithHttpInfo`
+     *
+     * @deprecated use `getProfileTypeRelationshipsWithHttpInfo` instead
+     */
+    public function getObjectTypeRelationshipsProfileObjectTypesWithHttpInfo(...$args) {
+        return $this->getProfileTypeRelationshipsWithHttpInfo(...$args);
+    }
+
+    /**
+     * Alias of `getProfileTypeRelationshipsWithHttpInfo`
+     *
+     * @deprecated use `getProfileTypeRelationshipsWithHttpInfo` instead
+     */
+    public function getProfileObjectTypeIdsForObjectTypeWithHttpInfo(...$args) {
+        return $this->getProfileTypeRelationshipsWithHttpInfo(...$args);
+    }
+
+    /**
+     * Operation getProfileTypeRelationshipsAsync
+     *
+     * Get Profile Type Relationships
+     *
+     * @param  string $id The ULID ID of the object type. (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getProfileTypeRelationships'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getProfileTypeRelationshipsAsync($id, $apiKey = null, string $contentType = self::contentTypes['getProfileTypeRelationships'][0])
+    {
+        return $this->getProfileTypeRelationshipsAsyncWithHttpInfo($id, $apiKey, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Alias of `getProfileTypeRelationshipsAsync`
+     *
+     * @deprecated use `getProfileTypeRelationshipsAsync` instead
+     */
+    public function getObjectTypeRelationshipsProfileObjectTypesAsync(...$args) {
+        return $this->getProfileTypeRelationshipsAsync(...$args);
+    }
+
+    /**
+     * Alias of `getProfileTypeRelationshipsAsync`
+     *
+     * @deprecated use `getProfileTypeRelationshipsAsync` instead
+     */
+    public function getProfileObjectTypeIdsForObjectTypeAsync(...$args) {
+        return $this->getProfileTypeRelationshipsAsync(...$args);
+    }
+
+    /**
+     * Operation getProfileTypeRelationshipsAsyncWithHttpInfo
+     *
+     * Get Profile Type Relationships
+     *
+     * @param  string $id The ULID ID of the object type. (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getProfileTypeRelationships'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getProfileTypeRelationshipsAsyncWithHttpInfo($id, $apiKey = null, string $contentType = self::contentTypes['getProfileTypeRelationships'][0])
+    {
+        $returnType = 'array<string,mixed>';
+        $request = $this->getProfileTypeRelationshipsRequest($id, $apiKey, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    $parsed_content = json_decode(json_encode($content), TRUE);
+                    if (json_last_error() != JSON_ERROR_NONE) {
+                        $parsed_content = $content;
+                    }
+
+                    return [
+                        $parsed_content,
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Alias of `getProfileTypeRelationshipsAsyncWithHttpInfo`
+     *
+     * @deprecated use `getProfileTypeRelationshipsAsyncWithHttpInfo` instead
+     */
+    public function getObjectTypeRelationshipsProfileObjectTypesAsyncWithHttpInfo(...$args) {
+        return $this->getProfileTypeRelationshipsAsyncWithHttpInfo(...$args);
+    }
+
+    /**
+     * Alias of `getProfileTypeRelationshipsAsyncWithHttpInfo`
+     *
+     * @deprecated use `getProfileTypeRelationshipsAsyncWithHttpInfo` instead
+     */
+    public function getProfileObjectTypeIdsForObjectTypeAsyncWithHttpInfo(...$args) {
+        return $this->getProfileTypeRelationshipsAsyncWithHttpInfo(...$args);
+    }
+
+    /**
+     * Create request for operation 'getProfileTypeRelationships'
+     *
+     * @param  string $id The ULID ID of the object type. (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getProfileTypeRelationships'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function getProfileTypeRelationshipsRequest($id, $apiKey = null, string $contentType = self::contentTypes['getProfileTypeRelationships'][0])
+    {
+
+        // verify the required parameter 'id' is set
+        if ($id === null || (is_array($id) && count($id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $id when calling getProfileTypeRelationships'
+            );
+        }
+
+
+        $resourcePath = '/api/object-types/{id}/relationships/profile-object-types';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'id' . '}',
+                ObjectSerializer::toPathValue($id),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/vnd.api+json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false || stripos($headers['Content-Type'], 'application/vnd.api+json') !== false) {
+                # if Content-Type contains "application/json" or "application/vnd.api+json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        if ($apiKey == null) {
+            $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        } else {
+            $apiKey = 'Klaviyo-API-Key '.$apiKey;
+        }
+
+        $headers['Authorization'] = $apiKey;
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $defaultHeaders['revision'] = ['2026-07-15'];
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Alias of `getProfileTypeRelationshipsRequest`
+     *
+     * @deprecated use `getProfileTypeRelationshipsRequest` instead
+     */
+    public function getObjectTypeRelationshipsProfileObjectTypesRequest(...$args) {
+        return $this->getProfileTypeRelationshipsRequest(...$args);
+    }
+
+    /**
+     * Alias of `getProfileTypeRelationshipsRequest`
+     *
+     * @deprecated use `getProfileTypeRelationshipsRequest` instead
+     */
+    public function getProfileObjectTypeIdsForObjectTypeRequest(...$args) {
+        return $this->getProfileTypeRelationshipsRequest(...$args);
+    }
+
+    /**
+     * Operation getRecordIdsForObjectType
+     *
+     * Get Record IDs for Object Type
+     *
+     * @param  string $id The ULID ID of the object type. (required)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination (optional)
+     * @param  int|null $page_size Default: 20. Min: 1. Max: 100. (optional, default to 20)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRecordIdsForObjectType'] to see the possible values for this operation
+     *
+     * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array<string,mixed>|\KlaviyoAPI\Model\GetAccounts400Response|\KlaviyoAPI\Model\GetAccounts400Response
+     */
+    public function getRecordIdsForObjectType($id, $page_cursor = null, $page_size = 20, $apiKey = null, string $contentType = self::contentTypes['getRecordIdsForObjectType'][0])
+    {
+        list($response) = $this->getRecordIdsForObjectTypeWithHttpInfo($id, $page_cursor, $page_size, $apiKey, $contentType);
+        return $response;
+    }
+
+    /**
+     * Alias of `getRecordIdsForObjectType`
+     *
+     * @deprecated use `getRecordIdsForObjectType` instead
+     */
+    public function getObjectTypeRelationshipsRecords(...$args) {
+        return $this->getRecordIdsForObjectType(...$args);
+    }
+
+    /**
+     * Operation getRecordIdsForObjectTypeWithHttpInfo
+     *
+     * Get Record IDs for Object Type
+     *
+     * @param  string $id The ULID ID of the object type. (required)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination (optional)
+     * @param  int|null $page_size Default: 20. Min: 1. Max: 100. (optional, default to 20)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRecordIdsForObjectType'] to see the possible values for this operation
+     *
+     * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of array<string,mixed>|\KlaviyoAPI\Model\GetAccounts400Response|\KlaviyoAPI\Model\GetAccounts400Response, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getRecordIdsForObjectTypeWithHttpInfo($id, $page_cursor = null, $page_size = 20, $apiKey = null, string $contentType = self::contentTypes['getRecordIdsForObjectType'][0])
+    {
+        $request = $this->getRecordIdsForObjectTypeRequest($id, $page_cursor, $page_size, $apiKey, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            switch($statusCode) {
+                case 200:
+                    return $this->handleResponseWithDataType(
+                        'array<string,mixed>',
+                        $request,
+                        $response,
+                    );
+                case 400:
+                    return $this->handleResponseWithDataType(
+                        '\KlaviyoAPI\Model\GetAccounts400Response',
+                        $request,
+                        $response,
+                    );
+                case 500:
+                    return $this->handleResponseWithDataType(
+                        '\KlaviyoAPI\Model\GetAccounts400Response',
+                        $request,
+                        $response,
+                    );
+            }
+
+            
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            return $this->handleResponseWithDataType(
+                'array<string,mixed>',
+                $request,
+                $response,
+            );
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        'array<string,mixed>',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\KlaviyoAPI\Model\GetAccounts400Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 500:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\KlaviyoAPI\Model\GetAccounts400Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+            }
+        
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Alias of `getRecordIdsForObjectTypeWithHttpInfo`
+     *
+     * @deprecated use `getRecordIdsForObjectTypeWithHttpInfo` instead
+     */
+    public function getObjectTypeRelationshipsRecordsWithHttpInfo(...$args) {
+        return $this->getRecordIdsForObjectTypeWithHttpInfo(...$args);
+    }
+
+    /**
+     * Operation getRecordIdsForObjectTypeAsync
+     *
+     * Get Record IDs for Object Type
+     *
+     * @param  string $id The ULID ID of the object type. (required)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination (optional)
+     * @param  int|null $page_size Default: 20. Min: 1. Max: 100. (optional, default to 20)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRecordIdsForObjectType'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getRecordIdsForObjectTypeAsync($id, $page_cursor = null, $page_size = 20, $apiKey = null, string $contentType = self::contentTypes['getRecordIdsForObjectType'][0])
+    {
+        return $this->getRecordIdsForObjectTypeAsyncWithHttpInfo($id, $page_cursor, $page_size, $apiKey, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Alias of `getRecordIdsForObjectTypeAsync`
+     *
+     * @deprecated use `getRecordIdsForObjectTypeAsync` instead
+     */
+    public function getObjectTypeRelationshipsRecordsAsync(...$args) {
+        return $this->getRecordIdsForObjectTypeAsync(...$args);
+    }
+
+    /**
+     * Operation getRecordIdsForObjectTypeAsyncWithHttpInfo
+     *
+     * Get Record IDs for Object Type
+     *
+     * @param  string $id The ULID ID of the object type. (required)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination (optional)
+     * @param  int|null $page_size Default: 20. Min: 1. Max: 100. (optional, default to 20)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRecordIdsForObjectType'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getRecordIdsForObjectTypeAsyncWithHttpInfo($id, $page_cursor = null, $page_size = 20, $apiKey = null, string $contentType = self::contentTypes['getRecordIdsForObjectType'][0])
+    {
+        $returnType = 'array<string,mixed>';
+        $request = $this->getRecordIdsForObjectTypeRequest($id, $page_cursor, $page_size, $apiKey, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    $parsed_content = json_decode(json_encode($content), TRUE);
+                    if (json_last_error() != JSON_ERROR_NONE) {
+                        $parsed_content = $content;
+                    }
+
+                    return [
+                        $parsed_content,
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Alias of `getRecordIdsForObjectTypeAsyncWithHttpInfo`
+     *
+     * @deprecated use `getRecordIdsForObjectTypeAsyncWithHttpInfo` instead
+     */
+    public function getObjectTypeRelationshipsRecordsAsyncWithHttpInfo(...$args) {
+        return $this->getRecordIdsForObjectTypeAsyncWithHttpInfo(...$args);
+    }
+
+    /**
+     * Create request for operation 'getRecordIdsForObjectType'
+     *
+     * @param  string $id The ULID ID of the object type. (required)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination (optional)
+     * @param  int|null $page_size Default: 20. Min: 1. Max: 100. (optional, default to 20)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRecordIdsForObjectType'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function getRecordIdsForObjectTypeRequest($id, $page_cursor = null, $page_size = 20, $apiKey = null, string $contentType = self::contentTypes['getRecordIdsForObjectType'][0])
+    {
+
+        // verify the required parameter 'id' is set
+        if ($id === null || (is_array($id) && count($id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $id when calling getRecordIdsForObjectType'
+            );
+        }
+
+
+        if ($page_size !== null && $page_size > 100) {
+            throw new \InvalidArgumentException('invalid value for "$page_size" when calling CustomObjectsApi.getRecordIdsForObjectType, must be smaller than or equal to 100.');
+        }
+        if ($page_size !== null && $page_size < 1) {
+            throw new \InvalidArgumentException('invalid value for "$page_size" when calling CustomObjectsApi.getRecordIdsForObjectType, must be bigger than or equal to 1.');
+        }
+        
+
+        $resourcePath = '/api/object-types/{id}/relationships/object-records';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $page_cursor,
+            'page[cursor]', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $page_size,
+            'page[size]', // param base name
+            'integer', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+
+
+        // path params
+        if ($id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'id' . '}',
+                ObjectSerializer::toPathValue($id),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/vnd.api+json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false || stripos($headers['Content-Type'], 'application/vnd.api+json') !== false) {
+                # if Content-Type contains "application/json" or "application/vnd.api+json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        if ($apiKey == null) {
+            $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        } else {
+            $apiKey = 'Klaviyo-API-Key '.$apiKey;
+        }
+
+        $headers['Authorization'] = $apiKey;
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $defaultHeaders['revision'] = ['2026-07-15'];
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Alias of `getRecordIdsForObjectTypeRequest`
+     *
+     * @deprecated use `getRecordIdsForObjectTypeRequest` instead
+     */
+    public function getObjectTypeRelationshipsRecordsRequest(...$args) {
+        return $this->getRecordIdsForObjectTypeRequest(...$args);
+    }
+
+    /**
+     * Operation getRecordsForObjectType
+     *
+     * Get Records for Object Type
+     *
+     * @param  string $id The ULID ID of the object type. (required)
+     * @param  string[]|null $fields_object_record For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination (optional)
+     * @param  int|null $page_size Default: 20. Min: 1. Max: 100. (optional, default to 20)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRecordsForObjectType'] to see the possible values for this operation
+     *
+     * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array<string,mixed>|\KlaviyoAPI\Model\GetAccounts400Response|\KlaviyoAPI\Model\GetAccounts400Response
+     */
+    public function getRecordsForObjectType($id, $fields_object_record = null, $page_cursor = null, $page_size = 20, $apiKey = null, string $contentType = self::contentTypes['getRecordsForObjectType'][0])
+    {
+        list($response) = $this->getRecordsForObjectTypeWithHttpInfo($id, $fields_object_record, $page_cursor, $page_size, $apiKey, $contentType);
+        return $response;
+    }
+
+    /**
+     * Alias of `getRecordsForObjectType`
+     *
+     * @deprecated use `getRecordsForObjectType` instead
+     */
+    public function getObjectTypeRecords(...$args) {
+        return $this->getRecordsForObjectType(...$args);
+    }
+
+    /**
+     * Operation getRecordsForObjectTypeWithHttpInfo
+     *
+     * Get Records for Object Type
+     *
+     * @param  string $id The ULID ID of the object type. (required)
+     * @param  string[]|null $fields_object_record For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination (optional)
+     * @param  int|null $page_size Default: 20. Min: 1. Max: 100. (optional, default to 20)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRecordsForObjectType'] to see the possible values for this operation
+     *
+     * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of array<string,mixed>|\KlaviyoAPI\Model\GetAccounts400Response|\KlaviyoAPI\Model\GetAccounts400Response, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getRecordsForObjectTypeWithHttpInfo($id, $fields_object_record = null, $page_cursor = null, $page_size = 20, $apiKey = null, string $contentType = self::contentTypes['getRecordsForObjectType'][0])
+    {
+        $request = $this->getRecordsForObjectTypeRequest($id, $fields_object_record, $page_cursor, $page_size, $apiKey, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            switch($statusCode) {
+                case 200:
+                    return $this->handleResponseWithDataType(
+                        'array<string,mixed>',
+                        $request,
+                        $response,
+                    );
+                case 400:
+                    return $this->handleResponseWithDataType(
+                        '\KlaviyoAPI\Model\GetAccounts400Response',
+                        $request,
+                        $response,
+                    );
+                case 500:
+                    return $this->handleResponseWithDataType(
+                        '\KlaviyoAPI\Model\GetAccounts400Response',
+                        $request,
+                        $response,
+                    );
+            }
+
+            
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            return $this->handleResponseWithDataType(
+                'array<string,mixed>',
+                $request,
+                $response,
+            );
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        'array<string,mixed>',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\KlaviyoAPI\Model\GetAccounts400Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 500:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\KlaviyoAPI\Model\GetAccounts400Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+            }
+        
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Alias of `getRecordsForObjectTypeWithHttpInfo`
+     *
+     * @deprecated use `getRecordsForObjectTypeWithHttpInfo` instead
+     */
+    public function getObjectTypeRecordsWithHttpInfo(...$args) {
+        return $this->getRecordsForObjectTypeWithHttpInfo(...$args);
+    }
+
+    /**
+     * Operation getRecordsForObjectTypeAsync
+     *
+     * Get Records for Object Type
+     *
+     * @param  string $id The ULID ID of the object type. (required)
+     * @param  string[]|null $fields_object_record For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination (optional)
+     * @param  int|null $page_size Default: 20. Min: 1. Max: 100. (optional, default to 20)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRecordsForObjectType'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getRecordsForObjectTypeAsync($id, $fields_object_record = null, $page_cursor = null, $page_size = 20, $apiKey = null, string $contentType = self::contentTypes['getRecordsForObjectType'][0])
+    {
+        return $this->getRecordsForObjectTypeAsyncWithHttpInfo($id, $fields_object_record, $page_cursor, $page_size, $apiKey, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Alias of `getRecordsForObjectTypeAsync`
+     *
+     * @deprecated use `getRecordsForObjectTypeAsync` instead
+     */
+    public function getObjectTypeRecordsAsync(...$args) {
+        return $this->getRecordsForObjectTypeAsync(...$args);
+    }
+
+    /**
+     * Operation getRecordsForObjectTypeAsyncWithHttpInfo
+     *
+     * Get Records for Object Type
+     *
+     * @param  string $id The ULID ID of the object type. (required)
+     * @param  string[]|null $fields_object_record For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination (optional)
+     * @param  int|null $page_size Default: 20. Min: 1. Max: 100. (optional, default to 20)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRecordsForObjectType'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getRecordsForObjectTypeAsyncWithHttpInfo($id, $fields_object_record = null, $page_cursor = null, $page_size = 20, $apiKey = null, string $contentType = self::contentTypes['getRecordsForObjectType'][0])
+    {
+        $returnType = 'array<string,mixed>';
+        $request = $this->getRecordsForObjectTypeRequest($id, $fields_object_record, $page_cursor, $page_size, $apiKey, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    $parsed_content = json_decode(json_encode($content), TRUE);
+                    if (json_last_error() != JSON_ERROR_NONE) {
+                        $parsed_content = $content;
+                    }
+
+                    return [
+                        $parsed_content,
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Alias of `getRecordsForObjectTypeAsyncWithHttpInfo`
+     *
+     * @deprecated use `getRecordsForObjectTypeAsyncWithHttpInfo` instead
+     */
+    public function getObjectTypeRecordsAsyncWithHttpInfo(...$args) {
+        return $this->getRecordsForObjectTypeAsyncWithHttpInfo(...$args);
+    }
+
+    /**
+     * Create request for operation 'getRecordsForObjectType'
+     *
+     * @param  string $id The ULID ID of the object type. (required)
+     * @param  string[]|null $fields_object_record For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination (optional)
+     * @param  int|null $page_size Default: 20. Min: 1. Max: 100. (optional, default to 20)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRecordsForObjectType'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function getRecordsForObjectTypeRequest($id, $fields_object_record = null, $page_cursor = null, $page_size = 20, $apiKey = null, string $contentType = self::contentTypes['getRecordsForObjectType'][0])
+    {
+
+        // verify the required parameter 'id' is set
+        if ($id === null || (is_array($id) && count($id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $id when calling getRecordsForObjectType'
+            );
+        }
+
+
+
+        if ($page_size !== null && $page_size > 100) {
+            throw new \InvalidArgumentException('invalid value for "$page_size" when calling CustomObjectsApi.getRecordsForObjectType, must be smaller than or equal to 100.');
+        }
+        if ($page_size !== null && $page_size < 1) {
+            throw new \InvalidArgumentException('invalid value for "$page_size" when calling CustomObjectsApi.getRecordsForObjectType, must be bigger than or equal to 1.');
+        }
+        
+
+        $resourcePath = '/api/object-types/{id}/object-records';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $fields_object_record,
+            'fields[object-record]', // param base name
+            'array', // openApiType
+            'form', // style
+            false, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $page_cursor,
+            'page[cursor]', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $page_size,
+            'page[size]', // param base name
+            'integer', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+
+
+        // path params
+        if ($id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'id' . '}',
+                ObjectSerializer::toPathValue($id),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/vnd.api+json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false || stripos($headers['Content-Type'], 'application/vnd.api+json') !== false) {
+                # if Content-Type contains "application/json" or "application/vnd.api+json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        if ($apiKey == null) {
+            $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        } else {
+            $apiKey = 'Klaviyo-API-Key '.$apiKey;
+        }
+
+        $headers['Authorization'] = $apiKey;
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $defaultHeaders['revision'] = ['2026-07-15'];
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Alias of `getRecordsForObjectTypeRequest`
+     *
+     * @deprecated use `getRecordsForObjectTypeRequest` instead
+     */
+    public function getObjectTypeRecordsRequest(...$args) {
+        return $this->getRecordsForObjectTypeRequest(...$args);
+    }
+
+    /**
+     * Operation getSchemaVersionIdsForObjectType
+     *
+     * Get Schema Version IDs for Object Type
+     *
+     * @param  string $id The ULID ID of the object type. (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSchemaVersionIdsForObjectType'] to see the possible values for this operation
+     *
+     * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array<string,mixed>|\KlaviyoAPI\Model\GetAccounts400Response|\KlaviyoAPI\Model\GetAccounts400Response
+     */
+    public function getSchemaVersionIdsForObjectType($id, $apiKey = null, string $contentType = self::contentTypes['getSchemaVersionIdsForObjectType'][0])
+    {
+        list($response) = $this->getSchemaVersionIdsForObjectTypeWithHttpInfo($id, $apiKey, $contentType);
+        return $response;
+    }
+
+    /**
+     * Alias of `getSchemaVersionIdsForObjectType`
+     *
+     * @deprecated use `getSchemaVersionIdsForObjectType` instead
+     */
+    public function getObjectTypeRelationshipsSchemaVersions(...$args) {
+        return $this->getSchemaVersionIdsForObjectType(...$args);
+    }
+
+    /**
+     * Operation getSchemaVersionIdsForObjectTypeWithHttpInfo
+     *
+     * Get Schema Version IDs for Object Type
+     *
+     * @param  string $id The ULID ID of the object type. (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSchemaVersionIdsForObjectType'] to see the possible values for this operation
+     *
+     * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of array<string,mixed>|\KlaviyoAPI\Model\GetAccounts400Response|\KlaviyoAPI\Model\GetAccounts400Response, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getSchemaVersionIdsForObjectTypeWithHttpInfo($id, $apiKey = null, string $contentType = self::contentTypes['getSchemaVersionIdsForObjectType'][0])
+    {
+        $request = $this->getSchemaVersionIdsForObjectTypeRequest($id, $apiKey, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            switch($statusCode) {
+                case 200:
+                    return $this->handleResponseWithDataType(
+                        'array<string,mixed>',
+                        $request,
+                        $response,
+                    );
+                case 400:
+                    return $this->handleResponseWithDataType(
+                        '\KlaviyoAPI\Model\GetAccounts400Response',
+                        $request,
+                        $response,
+                    );
+                case 500:
+                    return $this->handleResponseWithDataType(
+                        '\KlaviyoAPI\Model\GetAccounts400Response',
+                        $request,
+                        $response,
+                    );
+            }
+
+            
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            return $this->handleResponseWithDataType(
+                'array<string,mixed>',
+                $request,
+                $response,
+            );
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        'array<string,mixed>',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\KlaviyoAPI\Model\GetAccounts400Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 500:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\KlaviyoAPI\Model\GetAccounts400Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+            }
+        
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Alias of `getSchemaVersionIdsForObjectTypeWithHttpInfo`
+     *
+     * @deprecated use `getSchemaVersionIdsForObjectTypeWithHttpInfo` instead
+     */
+    public function getObjectTypeRelationshipsSchemaVersionsWithHttpInfo(...$args) {
+        return $this->getSchemaVersionIdsForObjectTypeWithHttpInfo(...$args);
+    }
+
+    /**
+     * Operation getSchemaVersionIdsForObjectTypeAsync
+     *
+     * Get Schema Version IDs for Object Type
+     *
+     * @param  string $id The ULID ID of the object type. (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSchemaVersionIdsForObjectType'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getSchemaVersionIdsForObjectTypeAsync($id, $apiKey = null, string $contentType = self::contentTypes['getSchemaVersionIdsForObjectType'][0])
+    {
+        return $this->getSchemaVersionIdsForObjectTypeAsyncWithHttpInfo($id, $apiKey, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Alias of `getSchemaVersionIdsForObjectTypeAsync`
+     *
+     * @deprecated use `getSchemaVersionIdsForObjectTypeAsync` instead
+     */
+    public function getObjectTypeRelationshipsSchemaVersionsAsync(...$args) {
+        return $this->getSchemaVersionIdsForObjectTypeAsync(...$args);
+    }
+
+    /**
+     * Operation getSchemaVersionIdsForObjectTypeAsyncWithHttpInfo
+     *
+     * Get Schema Version IDs for Object Type
+     *
+     * @param  string $id The ULID ID of the object type. (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSchemaVersionIdsForObjectType'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getSchemaVersionIdsForObjectTypeAsyncWithHttpInfo($id, $apiKey = null, string $contentType = self::contentTypes['getSchemaVersionIdsForObjectType'][0])
+    {
+        $returnType = 'array<string,mixed>';
+        $request = $this->getSchemaVersionIdsForObjectTypeRequest($id, $apiKey, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    $parsed_content = json_decode(json_encode($content), TRUE);
+                    if (json_last_error() != JSON_ERROR_NONE) {
+                        $parsed_content = $content;
+                    }
+
+                    return [
+                        $parsed_content,
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Alias of `getSchemaVersionIdsForObjectTypeAsyncWithHttpInfo`
+     *
+     * @deprecated use `getSchemaVersionIdsForObjectTypeAsyncWithHttpInfo` instead
+     */
+    public function getObjectTypeRelationshipsSchemaVersionsAsyncWithHttpInfo(...$args) {
+        return $this->getSchemaVersionIdsForObjectTypeAsyncWithHttpInfo(...$args);
+    }
+
+    /**
+     * Create request for operation 'getSchemaVersionIdsForObjectType'
+     *
+     * @param  string $id The ULID ID of the object type. (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSchemaVersionIdsForObjectType'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function getSchemaVersionIdsForObjectTypeRequest($id, $apiKey = null, string $contentType = self::contentTypes['getSchemaVersionIdsForObjectType'][0])
+    {
+
+        // verify the required parameter 'id' is set
+        if ($id === null || (is_array($id) && count($id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $id when calling getSchemaVersionIdsForObjectType'
+            );
+        }
+
+
+        $resourcePath = '/api/object-types/{id}/relationships/schema-versions';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'id' . '}',
+                ObjectSerializer::toPathValue($id),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/vnd.api+json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false || stripos($headers['Content-Type'], 'application/vnd.api+json') !== false) {
+                # if Content-Type contains "application/json" or "application/vnd.api+json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        if ($apiKey == null) {
+            $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        } else {
+            $apiKey = 'Klaviyo-API-Key '.$apiKey;
+        }
+
+        $headers['Authorization'] = $apiKey;
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $defaultHeaders['revision'] = ['2026-07-15'];
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Alias of `getSchemaVersionIdsForObjectTypeRequest`
+     *
+     * @deprecated use `getSchemaVersionIdsForObjectTypeRequest` instead
+     */
+    public function getObjectTypeRelationshipsSchemaVersionsRequest(...$args) {
+        return $this->getSchemaVersionIdsForObjectTypeRequest(...$args);
+    }
+
+    /**
+     * Operation getSchemaVersionsForObjectType
+     *
+     * Get Schema Versions for Object Type
+     *
+     * @param  string $id The ULID ID of the object type. (required)
+     * @param  string[]|null $fields_object_schema For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSchemaVersionsForObjectType'] to see the possible values for this operation
+     *
+     * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array<string,mixed>|\KlaviyoAPI\Model\GetAccounts400Response|\KlaviyoAPI\Model\GetAccounts400Response
+     */
+    public function getSchemaVersionsForObjectType($id, $fields_object_schema = null, $apiKey = null, string $contentType = self::contentTypes['getSchemaVersionsForObjectType'][0])
+    {
+        list($response) = $this->getSchemaVersionsForObjectTypeWithHttpInfo($id, $fields_object_schema, $apiKey, $contentType);
+        return $response;
+    }
+
+    /**
+     * Alias of `getSchemaVersionsForObjectType`
+     *
+     * @deprecated use `getSchemaVersionsForObjectType` instead
+     */
+    public function getObjectTypeSchemaVersions(...$args) {
+        return $this->getSchemaVersionsForObjectType(...$args);
+    }
+
+    /**
+     * Operation getSchemaVersionsForObjectTypeWithHttpInfo
+     *
+     * Get Schema Versions for Object Type
+     *
+     * @param  string $id The ULID ID of the object type. (required)
+     * @param  string[]|null $fields_object_schema For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSchemaVersionsForObjectType'] to see the possible values for this operation
+     *
+     * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of array<string,mixed>|\KlaviyoAPI\Model\GetAccounts400Response|\KlaviyoAPI\Model\GetAccounts400Response, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getSchemaVersionsForObjectTypeWithHttpInfo($id, $fields_object_schema = null, $apiKey = null, string $contentType = self::contentTypes['getSchemaVersionsForObjectType'][0])
+    {
+        $request = $this->getSchemaVersionsForObjectTypeRequest($id, $fields_object_schema, $apiKey, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            switch($statusCode) {
+                case 200:
+                    return $this->handleResponseWithDataType(
+                        'array<string,mixed>',
+                        $request,
+                        $response,
+                    );
+                case 400:
+                    return $this->handleResponseWithDataType(
+                        '\KlaviyoAPI\Model\GetAccounts400Response',
+                        $request,
+                        $response,
+                    );
+                case 500:
+                    return $this->handleResponseWithDataType(
+                        '\KlaviyoAPI\Model\GetAccounts400Response',
+                        $request,
+                        $response,
+                    );
+            }
+
+            
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            return $this->handleResponseWithDataType(
+                'array<string,mixed>',
+                $request,
+                $response,
+            );
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        'array<string,mixed>',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\KlaviyoAPI\Model\GetAccounts400Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 500:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\KlaviyoAPI\Model\GetAccounts400Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+            }
+        
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Alias of `getSchemaVersionsForObjectTypeWithHttpInfo`
+     *
+     * @deprecated use `getSchemaVersionsForObjectTypeWithHttpInfo` instead
+     */
+    public function getObjectTypeSchemaVersionsWithHttpInfo(...$args) {
+        return $this->getSchemaVersionsForObjectTypeWithHttpInfo(...$args);
+    }
+
+    /**
+     * Operation getSchemaVersionsForObjectTypeAsync
+     *
+     * Get Schema Versions for Object Type
+     *
+     * @param  string $id The ULID ID of the object type. (required)
+     * @param  string[]|null $fields_object_schema For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSchemaVersionsForObjectType'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getSchemaVersionsForObjectTypeAsync($id, $fields_object_schema = null, $apiKey = null, string $contentType = self::contentTypes['getSchemaVersionsForObjectType'][0])
+    {
+        return $this->getSchemaVersionsForObjectTypeAsyncWithHttpInfo($id, $fields_object_schema, $apiKey, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Alias of `getSchemaVersionsForObjectTypeAsync`
+     *
+     * @deprecated use `getSchemaVersionsForObjectTypeAsync` instead
+     */
+    public function getObjectTypeSchemaVersionsAsync(...$args) {
+        return $this->getSchemaVersionsForObjectTypeAsync(...$args);
+    }
+
+    /**
+     * Operation getSchemaVersionsForObjectTypeAsyncWithHttpInfo
+     *
+     * Get Schema Versions for Object Type
+     *
+     * @param  string $id The ULID ID of the object type. (required)
+     * @param  string[]|null $fields_object_schema For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSchemaVersionsForObjectType'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getSchemaVersionsForObjectTypeAsyncWithHttpInfo($id, $fields_object_schema = null, $apiKey = null, string $contentType = self::contentTypes['getSchemaVersionsForObjectType'][0])
+    {
+        $returnType = 'array<string,mixed>';
+        $request = $this->getSchemaVersionsForObjectTypeRequest($id, $fields_object_schema, $apiKey, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    $parsed_content = json_decode(json_encode($content), TRUE);
+                    if (json_last_error() != JSON_ERROR_NONE) {
+                        $parsed_content = $content;
+                    }
+
+                    return [
+                        $parsed_content,
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Alias of `getSchemaVersionsForObjectTypeAsyncWithHttpInfo`
+     *
+     * @deprecated use `getSchemaVersionsForObjectTypeAsyncWithHttpInfo` instead
+     */
+    public function getObjectTypeSchemaVersionsAsyncWithHttpInfo(...$args) {
+        return $this->getSchemaVersionsForObjectTypeAsyncWithHttpInfo(...$args);
+    }
+
+    /**
+     * Create request for operation 'getSchemaVersionsForObjectType'
+     *
+     * @param  string $id The ULID ID of the object type. (required)
+     * @param  string[]|null $fields_object_schema For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSchemaVersionsForObjectType'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function getSchemaVersionsForObjectTypeRequest($id, $fields_object_schema = null, $apiKey = null, string $contentType = self::contentTypes['getSchemaVersionsForObjectType'][0])
+    {
+
+        // verify the required parameter 'id' is set
+        if ($id === null || (is_array($id) && count($id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $id when calling getSchemaVersionsForObjectType'
+            );
+        }
+
+
+
+        $resourcePath = '/api/object-types/{id}/schema-versions';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $fields_object_schema,
+            'fields[object-schema]', // param base name
+            'array', // openApiType
+            'form', // style
+            false, // explode
+            false // required
+        ) ?? []);
+
+
+        // path params
+        if ($id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'id' . '}',
+                ObjectSerializer::toPathValue($id),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/vnd.api+json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false || stripos($headers['Content-Type'], 'application/vnd.api+json') !== false) {
+                # if Content-Type contains "application/json" or "application/vnd.api+json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        if ($apiKey == null) {
+            $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        } else {
+            $apiKey = 'Klaviyo-API-Key '.$apiKey;
+        }
+
+        $headers['Authorization'] = $apiKey;
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $defaultHeaders['revision'] = ['2026-07-15'];
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Alias of `getSchemaVersionsForObjectTypeRequest`
+     *
+     * @deprecated use `getSchemaVersionsForObjectTypeRequest` instead
+     */
+    public function getObjectTypeSchemaVersionsRequest(...$args) {
+        return $this->getSchemaVersionsForObjectTypeRequest(...$args);
+    }
+
+    /**
+     * Operation getSourceMapping
+     *
+     * Get Source Mapping
+     *
+     * @param  string $id The ID of the source mapping (required)
+     * @param  string[]|null $fields_source_mapping For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSourceMapping'] to see the possible values for this operation
+     *
+     * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array<string,mixed>|\KlaviyoAPI\Model\GetAccounts400Response|\KlaviyoAPI\Model\GetAccounts400Response
+     */
+    public function getSourceMapping($id, $fields_source_mapping = null, $apiKey = null, string $contentType = self::contentTypes['getSourceMapping'][0])
+    {
+        list($response) = $this->getSourceMappingWithHttpInfo($id, $fields_source_mapping, $apiKey, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation getSourceMappingWithHttpInfo
+     *
+     * Get Source Mapping
+     *
+     * @param  string $id The ID of the source mapping (required)
+     * @param  string[]|null $fields_source_mapping For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSourceMapping'] to see the possible values for this operation
+     *
+     * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of array<string,mixed>|\KlaviyoAPI\Model\GetAccounts400Response|\KlaviyoAPI\Model\GetAccounts400Response, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getSourceMappingWithHttpInfo($id, $fields_source_mapping = null, $apiKey = null, string $contentType = self::contentTypes['getSourceMapping'][0])
+    {
+        $request = $this->getSourceMappingRequest($id, $fields_source_mapping, $apiKey, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            switch($statusCode) {
+                case 200:
+                    return $this->handleResponseWithDataType(
+                        'array<string,mixed>',
+                        $request,
+                        $response,
+                    );
+                case 400:
+                    return $this->handleResponseWithDataType(
+                        '\KlaviyoAPI\Model\GetAccounts400Response',
+                        $request,
+                        $response,
+                    );
+                case 500:
+                    return $this->handleResponseWithDataType(
+                        '\KlaviyoAPI\Model\GetAccounts400Response',
+                        $request,
+                        $response,
+                    );
+            }
+
+            
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            return $this->handleResponseWithDataType(
+                'array<string,mixed>',
+                $request,
+                $response,
+            );
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        'array<string,mixed>',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\KlaviyoAPI\Model\GetAccounts400Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 500:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\KlaviyoAPI\Model\GetAccounts400Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+            }
+        
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation getSourceMappingAsync
+     *
+     * Get Source Mapping
+     *
+     * @param  string $id The ID of the source mapping (required)
+     * @param  string[]|null $fields_source_mapping For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSourceMapping'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getSourceMappingAsync($id, $fields_source_mapping = null, $apiKey = null, string $contentType = self::contentTypes['getSourceMapping'][0])
+    {
+        return $this->getSourceMappingAsyncWithHttpInfo($id, $fields_source_mapping, $apiKey, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation getSourceMappingAsyncWithHttpInfo
+     *
+     * Get Source Mapping
+     *
+     * @param  string $id The ID of the source mapping (required)
+     * @param  string[]|null $fields_source_mapping For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSourceMapping'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getSourceMappingAsyncWithHttpInfo($id, $fields_source_mapping = null, $apiKey = null, string $contentType = self::contentTypes['getSourceMapping'][0])
+    {
+        $returnType = 'array<string,mixed>';
+        $request = $this->getSourceMappingRequest($id, $fields_source_mapping, $apiKey, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    $parsed_content = json_decode(json_encode($content), TRUE);
+                    if (json_last_error() != JSON_ERROR_NONE) {
+                        $parsed_content = $content;
+                    }
+
+                    return [
+                        $parsed_content,
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'getSourceMapping'
+     *
+     * @param  string $id The ID of the source mapping (required)
+     * @param  string[]|null $fields_source_mapping For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSourceMapping'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function getSourceMappingRequest($id, $fields_source_mapping = null, $apiKey = null, string $contentType = self::contentTypes['getSourceMapping'][0])
+    {
+
+        // verify the required parameter 'id' is set
+        if ($id === null || (is_array($id) && count($id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $id when calling getSourceMapping'
+            );
+        }
+
+
+
+        $resourcePath = '/api/source-mappings/{id}';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $fields_source_mapping,
+            'fields[source-mapping]', // param base name
+            'array', // openApiType
+            'form', // style
+            false, // explode
+            false // required
+        ) ?? []);
+
+
+        // path params
+        if ($id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'id' . '}',
+                ObjectSerializer::toPathValue($id),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/vnd.api+json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false || stripos($headers['Content-Type'], 'application/vnd.api+json') !== false) {
+                # if Content-Type contains "application/json" or "application/vnd.api+json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        if ($apiKey == null) {
+            $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        } else {
+            $apiKey = 'Klaviyo-API-Key '.$apiKey;
+        }
+
+        $headers['Authorization'] = $apiKey;
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $defaultHeaders['revision'] = ['2026-07-15'];
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation getSourceMappingForObjectSchema
+     *
+     * Get Source Mapping for Object Schema
+     *
+     * @param  string $id The ULID ID of the object schema. (required)
+     * @param  string[]|null $fields_source_mapping For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSourceMappingForObjectSchema'] to see the possible values for this operation
+     *
+     * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array<string,mixed>|\KlaviyoAPI\Model\GetAccounts400Response|\KlaviyoAPI\Model\GetAccounts400Response
+     */
+    public function getSourceMappingForObjectSchema($id, $fields_source_mapping = null, $apiKey = null, string $contentType = self::contentTypes['getSourceMappingForObjectSchema'][0])
+    {
+        list($response) = $this->getSourceMappingForObjectSchemaWithHttpInfo($id, $fields_source_mapping, $apiKey, $contentType);
+        return $response;
+    }
+
+    /**
+     * Alias of `getSourceMappingForObjectSchema`
+     *
+     * @deprecated use `getSourceMappingForObjectSchema` instead
+     */
+    public function getObjectSchemaSourceMapping(...$args) {
+        return $this->getSourceMappingForObjectSchema(...$args);
+    }
+
+    /**
+     * Operation getSourceMappingForObjectSchemaWithHttpInfo
+     *
+     * Get Source Mapping for Object Schema
+     *
+     * @param  string $id The ULID ID of the object schema. (required)
+     * @param  string[]|null $fields_source_mapping For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSourceMappingForObjectSchema'] to see the possible values for this operation
+     *
+     * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of array<string,mixed>|\KlaviyoAPI\Model\GetAccounts400Response|\KlaviyoAPI\Model\GetAccounts400Response, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getSourceMappingForObjectSchemaWithHttpInfo($id, $fields_source_mapping = null, $apiKey = null, string $contentType = self::contentTypes['getSourceMappingForObjectSchema'][0])
+    {
+        $request = $this->getSourceMappingForObjectSchemaRequest($id, $fields_source_mapping, $apiKey, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            switch($statusCode) {
+                case 200:
+                    return $this->handleResponseWithDataType(
+                        'array<string,mixed>',
+                        $request,
+                        $response,
+                    );
+                case 400:
+                    return $this->handleResponseWithDataType(
+                        '\KlaviyoAPI\Model\GetAccounts400Response',
+                        $request,
+                        $response,
+                    );
+                case 500:
+                    return $this->handleResponseWithDataType(
+                        '\KlaviyoAPI\Model\GetAccounts400Response',
+                        $request,
+                        $response,
+                    );
+            }
+
+            
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            return $this->handleResponseWithDataType(
+                'array<string,mixed>',
+                $request,
+                $response,
+            );
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        'array<string,mixed>',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\KlaviyoAPI\Model\GetAccounts400Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 500:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\KlaviyoAPI\Model\GetAccounts400Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+            }
+        
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Alias of `getSourceMappingForObjectSchemaWithHttpInfo`
+     *
+     * @deprecated use `getSourceMappingForObjectSchemaWithHttpInfo` instead
+     */
+    public function getObjectSchemaSourceMappingWithHttpInfo(...$args) {
+        return $this->getSourceMappingForObjectSchemaWithHttpInfo(...$args);
+    }
+
+    /**
+     * Operation getSourceMappingForObjectSchemaAsync
+     *
+     * Get Source Mapping for Object Schema
+     *
+     * @param  string $id The ULID ID of the object schema. (required)
+     * @param  string[]|null $fields_source_mapping For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSourceMappingForObjectSchema'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getSourceMappingForObjectSchemaAsync($id, $fields_source_mapping = null, $apiKey = null, string $contentType = self::contentTypes['getSourceMappingForObjectSchema'][0])
+    {
+        return $this->getSourceMappingForObjectSchemaAsyncWithHttpInfo($id, $fields_source_mapping, $apiKey, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Alias of `getSourceMappingForObjectSchemaAsync`
+     *
+     * @deprecated use `getSourceMappingForObjectSchemaAsync` instead
+     */
+    public function getObjectSchemaSourceMappingAsync(...$args) {
+        return $this->getSourceMappingForObjectSchemaAsync(...$args);
+    }
+
+    /**
+     * Operation getSourceMappingForObjectSchemaAsyncWithHttpInfo
+     *
+     * Get Source Mapping for Object Schema
+     *
+     * @param  string $id The ULID ID of the object schema. (required)
+     * @param  string[]|null $fields_source_mapping For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSourceMappingForObjectSchema'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getSourceMappingForObjectSchemaAsyncWithHttpInfo($id, $fields_source_mapping = null, $apiKey = null, string $contentType = self::contentTypes['getSourceMappingForObjectSchema'][0])
+    {
+        $returnType = 'array<string,mixed>';
+        $request = $this->getSourceMappingForObjectSchemaRequest($id, $fields_source_mapping, $apiKey, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    $parsed_content = json_decode(json_encode($content), TRUE);
+                    if (json_last_error() != JSON_ERROR_NONE) {
+                        $parsed_content = $content;
+                    }
+
+                    return [
+                        $parsed_content,
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Alias of `getSourceMappingForObjectSchemaAsyncWithHttpInfo`
+     *
+     * @deprecated use `getSourceMappingForObjectSchemaAsyncWithHttpInfo` instead
+     */
+    public function getObjectSchemaSourceMappingAsyncWithHttpInfo(...$args) {
+        return $this->getSourceMappingForObjectSchemaAsyncWithHttpInfo(...$args);
+    }
+
+    /**
+     * Create request for operation 'getSourceMappingForObjectSchema'
+     *
+     * @param  string $id The ULID ID of the object schema. (required)
+     * @param  string[]|null $fields_source_mapping For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSourceMappingForObjectSchema'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function getSourceMappingForObjectSchemaRequest($id, $fields_source_mapping = null, $apiKey = null, string $contentType = self::contentTypes['getSourceMappingForObjectSchema'][0])
+    {
+
+        // verify the required parameter 'id' is set
+        if ($id === null || (is_array($id) && count($id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $id when calling getSourceMappingForObjectSchema'
+            );
+        }
+
+
+
+        $resourcePath = '/api/object-schemas/{id}/source-mapping';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $fields_source_mapping,
+            'fields[source-mapping]', // param base name
+            'array', // openApiType
+            'form', // style
+            false, // explode
+            false // required
+        ) ?? []);
+
+
+        // path params
+        if ($id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'id' . '}',
+                ObjectSerializer::toPathValue($id),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/vnd.api+json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false || stripos($headers['Content-Type'], 'application/vnd.api+json') !== false) {
+                # if Content-Type contains "application/json" or "application/vnd.api+json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        if ($apiKey == null) {
+            $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        } else {
+            $apiKey = 'Klaviyo-API-Key '.$apiKey;
+        }
+
+        $headers['Authorization'] = $apiKey;
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $defaultHeaders['revision'] = ['2026-07-15'];
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Alias of `getSourceMappingForObjectSchemaRequest`
+     *
+     * @deprecated use `getSourceMappingForObjectSchemaRequest` instead
+     */
+    public function getObjectSchemaSourceMappingRequest(...$args) {
+        return $this->getSourceMappingForObjectSchemaRequest(...$args);
+    }
+
+    /**
+     * Operation getSourceMappingIdForObjectSchema
+     *
+     * Get Source Mapping ID for Object Schema
+     *
+     * @param  string $id The ULID ID of the object schema. (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSourceMappingIdForObjectSchema'] to see the possible values for this operation
+     *
+     * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array<string,mixed>|\KlaviyoAPI\Model\GetAccounts400Response|\KlaviyoAPI\Model\GetAccounts400Response
+     */
+    public function getSourceMappingIdForObjectSchema($id, $apiKey = null, string $contentType = self::contentTypes['getSourceMappingIdForObjectSchema'][0])
+    {
+        list($response) = $this->getSourceMappingIdForObjectSchemaWithHttpInfo($id, $apiKey, $contentType);
+        return $response;
+    }
+
+    /**
+     * Alias of `getSourceMappingIdForObjectSchema`
+     *
+     * @deprecated use `getSourceMappingIdForObjectSchema` instead
+     */
+    public function getObjectSchemaRelationshipsSourceMapping(...$args) {
+        return $this->getSourceMappingIdForObjectSchema(...$args);
+    }
+
+    /**
+     * Operation getSourceMappingIdForObjectSchemaWithHttpInfo
+     *
+     * Get Source Mapping ID for Object Schema
+     *
+     * @param  string $id The ULID ID of the object schema. (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSourceMappingIdForObjectSchema'] to see the possible values for this operation
+     *
+     * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of array<string,mixed>|\KlaviyoAPI\Model\GetAccounts400Response|\KlaviyoAPI\Model\GetAccounts400Response, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getSourceMappingIdForObjectSchemaWithHttpInfo($id, $apiKey = null, string $contentType = self::contentTypes['getSourceMappingIdForObjectSchema'][0])
+    {
+        $request = $this->getSourceMappingIdForObjectSchemaRequest($id, $apiKey, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            switch($statusCode) {
+                case 200:
+                    return $this->handleResponseWithDataType(
+                        'array<string,mixed>',
+                        $request,
+                        $response,
+                    );
+                case 400:
+                    return $this->handleResponseWithDataType(
+                        '\KlaviyoAPI\Model\GetAccounts400Response',
+                        $request,
+                        $response,
+                    );
+                case 500:
+                    return $this->handleResponseWithDataType(
+                        '\KlaviyoAPI\Model\GetAccounts400Response',
+                        $request,
+                        $response,
+                    );
+            }
+
+            
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            return $this->handleResponseWithDataType(
+                'array<string,mixed>',
+                $request,
+                $response,
+            );
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        'array<string,mixed>',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\KlaviyoAPI\Model\GetAccounts400Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 500:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\KlaviyoAPI\Model\GetAccounts400Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+            }
+        
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Alias of `getSourceMappingIdForObjectSchemaWithHttpInfo`
+     *
+     * @deprecated use `getSourceMappingIdForObjectSchemaWithHttpInfo` instead
+     */
+    public function getObjectSchemaRelationshipsSourceMappingWithHttpInfo(...$args) {
+        return $this->getSourceMappingIdForObjectSchemaWithHttpInfo(...$args);
+    }
+
+    /**
+     * Operation getSourceMappingIdForObjectSchemaAsync
+     *
+     * Get Source Mapping ID for Object Schema
+     *
+     * @param  string $id The ULID ID of the object schema. (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSourceMappingIdForObjectSchema'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getSourceMappingIdForObjectSchemaAsync($id, $apiKey = null, string $contentType = self::contentTypes['getSourceMappingIdForObjectSchema'][0])
+    {
+        return $this->getSourceMappingIdForObjectSchemaAsyncWithHttpInfo($id, $apiKey, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Alias of `getSourceMappingIdForObjectSchemaAsync`
+     *
+     * @deprecated use `getSourceMappingIdForObjectSchemaAsync` instead
+     */
+    public function getObjectSchemaRelationshipsSourceMappingAsync(...$args) {
+        return $this->getSourceMappingIdForObjectSchemaAsync(...$args);
+    }
+
+    /**
+     * Operation getSourceMappingIdForObjectSchemaAsyncWithHttpInfo
+     *
+     * Get Source Mapping ID for Object Schema
+     *
+     * @param  string $id The ULID ID of the object schema. (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSourceMappingIdForObjectSchema'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getSourceMappingIdForObjectSchemaAsyncWithHttpInfo($id, $apiKey = null, string $contentType = self::contentTypes['getSourceMappingIdForObjectSchema'][0])
+    {
+        $returnType = 'array<string,mixed>';
+        $request = $this->getSourceMappingIdForObjectSchemaRequest($id, $apiKey, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    $parsed_content = json_decode(json_encode($content), TRUE);
+                    if (json_last_error() != JSON_ERROR_NONE) {
+                        $parsed_content = $content;
+                    }
+
+                    return [
+                        $parsed_content,
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Alias of `getSourceMappingIdForObjectSchemaAsyncWithHttpInfo`
+     *
+     * @deprecated use `getSourceMappingIdForObjectSchemaAsyncWithHttpInfo` instead
+     */
+    public function getObjectSchemaRelationshipsSourceMappingAsyncWithHttpInfo(...$args) {
+        return $this->getSourceMappingIdForObjectSchemaAsyncWithHttpInfo(...$args);
+    }
+
+    /**
+     * Create request for operation 'getSourceMappingIdForObjectSchema'
+     *
+     * @param  string $id The ULID ID of the object schema. (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSourceMappingIdForObjectSchema'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function getSourceMappingIdForObjectSchemaRequest($id, $apiKey = null, string $contentType = self::contentTypes['getSourceMappingIdForObjectSchema'][0])
+    {
+
+        // verify the required parameter 'id' is set
+        if ($id === null || (is_array($id) && count($id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $id when calling getSourceMappingIdForObjectSchema'
+            );
+        }
+
+
+        $resourcePath = '/api/object-schemas/{id}/relationships/source-mapping';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'id' . '}',
+                ObjectSerializer::toPathValue($id),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/vnd.api+json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false || stripos($headers['Content-Type'], 'application/vnd.api+json') !== false) {
+                # if Content-Type contains "application/json" or "application/vnd.api+json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        if ($apiKey == null) {
+            $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        } else {
+            $apiKey = 'Klaviyo-API-Key '.$apiKey;
+        }
+
+        $headers['Authorization'] = $apiKey;
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $defaultHeaders['revision'] = ['2026-07-15'];
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Alias of `getSourceMappingIdForObjectSchemaRequest`
+     *
+     * @deprecated use `getSourceMappingIdForObjectSchemaRequest` instead
+     */
+    public function getObjectSchemaRelationshipsSourceMappingRequest(...$args) {
+        return $this->getSourceMappingIdForObjectSchemaRequest(...$args);
+    }
+
+    /**
+     * Operation updateObjectSchema
+     *
+     * Update Object Schema
+     *
+     * @param  string $id The ULID ID of the object schema. (required)
+     * @param  \KlaviyoAPI\Model\ObjectSchemaPartialUpdateQuery $object_schema_partial_update_query Update a object schema by ID (required)
+     * @param  string[]|null $fields_object_schema For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateObjectSchema'] to see the possible values for this operation
+     *
+     * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array<string,mixed>|\KlaviyoAPI\Model\GetAccounts400Response|\KlaviyoAPI\Model\GetAccounts400Response
+     */
+    public function updateObjectSchema($id, $object_schema_partial_update_query, $fields_object_schema = null, $apiKey = null, string $contentType = self::contentTypes['updateObjectSchema'][0])
+    {
+        list($response) = $this->updateObjectSchemaWithHttpInfo($id, $object_schema_partial_update_query, $fields_object_schema, $apiKey, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation updateObjectSchemaWithHttpInfo
+     *
+     * Update Object Schema
+     *
+     * @param  string $id The ULID ID of the object schema. (required)
+     * @param  \KlaviyoAPI\Model\ObjectSchemaPartialUpdateQuery $object_schema_partial_update_query Update a object schema by ID (required)
+     * @param  string[]|null $fields_object_schema For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateObjectSchema'] to see the possible values for this operation
+     *
+     * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of array<string,mixed>|\KlaviyoAPI\Model\GetAccounts400Response|\KlaviyoAPI\Model\GetAccounts400Response, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function updateObjectSchemaWithHttpInfo($id, $object_schema_partial_update_query, $fields_object_schema = null, $apiKey = null, string $contentType = self::contentTypes['updateObjectSchema'][0])
+    {
+        $request = $this->updateObjectSchemaRequest($id, $object_schema_partial_update_query, $fields_object_schema, $apiKey, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            switch($statusCode) {
+                case 200:
+                    return $this->handleResponseWithDataType(
+                        'array<string,mixed>',
+                        $request,
+                        $response,
+                    );
+                case 400:
+                    return $this->handleResponseWithDataType(
+                        '\KlaviyoAPI\Model\GetAccounts400Response',
+                        $request,
+                        $response,
+                    );
+                case 500:
+                    return $this->handleResponseWithDataType(
+                        '\KlaviyoAPI\Model\GetAccounts400Response',
+                        $request,
+                        $response,
+                    );
+            }
+
+            
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            return $this->handleResponseWithDataType(
+                'array<string,mixed>',
+                $request,
+                $response,
+            );
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        'array<string,mixed>',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\KlaviyoAPI\Model\GetAccounts400Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 500:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\KlaviyoAPI\Model\GetAccounts400Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+            }
+        
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation updateObjectSchemaAsync
+     *
+     * Update Object Schema
+     *
+     * @param  string $id The ULID ID of the object schema. (required)
+     * @param  \KlaviyoAPI\Model\ObjectSchemaPartialUpdateQuery $object_schema_partial_update_query Update a object schema by ID (required)
+     * @param  string[]|null $fields_object_schema For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateObjectSchema'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function updateObjectSchemaAsync($id, $object_schema_partial_update_query, $fields_object_schema = null, $apiKey = null, string $contentType = self::contentTypes['updateObjectSchema'][0])
+    {
+        return $this->updateObjectSchemaAsyncWithHttpInfo($id, $object_schema_partial_update_query, $fields_object_schema, $apiKey, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation updateObjectSchemaAsyncWithHttpInfo
+     *
+     * Update Object Schema
+     *
+     * @param  string $id The ULID ID of the object schema. (required)
+     * @param  \KlaviyoAPI\Model\ObjectSchemaPartialUpdateQuery $object_schema_partial_update_query Update a object schema by ID (required)
+     * @param  string[]|null $fields_object_schema For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateObjectSchema'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function updateObjectSchemaAsyncWithHttpInfo($id, $object_schema_partial_update_query, $fields_object_schema = null, $apiKey = null, string $contentType = self::contentTypes['updateObjectSchema'][0])
+    {
+        $returnType = 'array<string,mixed>';
+        $request = $this->updateObjectSchemaRequest($id, $object_schema_partial_update_query, $fields_object_schema, $apiKey, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    $parsed_content = json_decode(json_encode($content), TRUE);
+                    if (json_last_error() != JSON_ERROR_NONE) {
+                        $parsed_content = $content;
+                    }
+
+                    return [
+                        $parsed_content,
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'updateObjectSchema'
+     *
+     * @param  string $id The ULID ID of the object schema. (required)
+     * @param  \KlaviyoAPI\Model\ObjectSchemaPartialUpdateQuery $object_schema_partial_update_query Update a object schema by ID (required)
+     * @param  string[]|null $fields_object_schema For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateObjectSchema'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function updateObjectSchemaRequest($id, $object_schema_partial_update_query, $fields_object_schema = null, $apiKey = null, string $contentType = self::contentTypes['updateObjectSchema'][0])
+    {
+
+        // verify the required parameter 'id' is set
+        if ($id === null || (is_array($id) && count($id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $id when calling updateObjectSchema'
+            );
+        }
+
+        // verify the required parameter 'object_schema_partial_update_query' is set
+        if ($object_schema_partial_update_query === null || (is_array($object_schema_partial_update_query) && count($object_schema_partial_update_query) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $object_schema_partial_update_query when calling updateObjectSchema'
+            );
+        }
+
+
+
+        $resourcePath = '/api/object-schemas/{id}';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $fields_object_schema,
+            'fields[object-schema]', // param base name
+            'array', // openApiType
+            'form', // style
+            false, // explode
+            false // required
+        ) ?? []);
+
+
+        // path params
+        if ($id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'id' . '}',
+                ObjectSerializer::toPathValue($id),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/vnd.api+json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (isset($object_schema_partial_update_query)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false || stripos($headers['Content-Type'], 'application/vnd.api+json') !== false) {
+                # if Content-Type contains "application/json" or "application/vnd.api+json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($object_schema_partial_update_query));
+            } else {
+                $httpBody = $object_schema_partial_update_query;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false || stripos($headers['Content-Type'], 'application/vnd.api+json') !== false) {
+                # if Content-Type contains "application/json" or "application/vnd.api+json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        if ($apiKey == null) {
+            $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        } else {
+            $apiKey = 'Klaviyo-API-Key '.$apiKey;
+        }
+
+        $headers['Authorization'] = $apiKey;
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $defaultHeaders['revision'] = ['2026-07-15'];
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'PATCH',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation updateObjectSchemaRelationship
+     *
+     * Update Object Schema Relationship
+     *
+     * @param  string $id The ULID ID of the object schema. (required)
+     * @param  \KlaviyoAPI\Model\ObjectSchemaRelationshipPartialUpdateQuery $object_schema_relationship_partial_update_query Update a relationship between object schemas (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateObjectSchemaRelationship'] to see the possible values for this operation
+     *
+     * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return void
+     */
+    public function updateObjectSchemaRelationship($id, $object_schema_relationship_partial_update_query, $apiKey = null, string $contentType = self::contentTypes['updateObjectSchemaRelationship'][0])
+    {
+        $this->updateObjectSchemaRelationshipWithHttpInfo($id, $object_schema_relationship_partial_update_query, $apiKey, $contentType);
+    }
+
+    /**
+     * Alias of `updateObjectSchemaRelationship`
+     *
+     * @deprecated use `updateObjectSchemaRelationship` instead
+     */
+    public function updateObjectSchemaRelationshipsSchemas(...$args) {
+        return $this->updateObjectSchemaRelationship(...$args);
+    }
+
+    /**
+     * Alias of `updateObjectSchemaRelationship`
+     *
+     * @deprecated use `updateObjectSchemaRelationship` instead
+     */
+    public function updateSchemasForObjectSchema(...$args) {
+        return $this->updateObjectSchemaRelationship(...$args);
+    }
+
+    /**
+     * Operation updateObjectSchemaRelationshipWithHttpInfo
+     *
+     * Update Object Schema Relationship
+     *
+     * @param  string $id The ULID ID of the object schema. (required)
+     * @param  \KlaviyoAPI\Model\ObjectSchemaRelationshipPartialUpdateQuery $object_schema_relationship_partial_update_query Update a relationship between object schemas (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateObjectSchemaRelationship'] to see the possible values for this operation
+     *
+     * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function updateObjectSchemaRelationshipWithHttpInfo($id, $object_schema_relationship_partial_update_query, $apiKey = null, string $contentType = self::contentTypes['updateObjectSchemaRelationship'][0])
+    {
+        $request = $this->updateObjectSchemaRelationshipRequest($id, $object_schema_relationship_partial_update_query, $apiKey, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            return [null, $statusCode, $response->getHeaders()];
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\KlaviyoAPI\Model\GetAccounts400Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 500:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\KlaviyoAPI\Model\GetAccounts400Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+            }
+        
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Alias of `updateObjectSchemaRelationshipWithHttpInfo`
+     *
+     * @deprecated use `updateObjectSchemaRelationshipWithHttpInfo` instead
+     */
+    public function updateObjectSchemaRelationshipsSchemasWithHttpInfo(...$args) {
+        return $this->updateObjectSchemaRelationshipWithHttpInfo(...$args);
+    }
+
+    /**
+     * Alias of `updateObjectSchemaRelationshipWithHttpInfo`
+     *
+     * @deprecated use `updateObjectSchemaRelationshipWithHttpInfo` instead
+     */
+    public function updateSchemasForObjectSchemaWithHttpInfo(...$args) {
+        return $this->updateObjectSchemaRelationshipWithHttpInfo(...$args);
+    }
+
+    /**
+     * Operation updateObjectSchemaRelationshipAsync
+     *
+     * Update Object Schema Relationship
+     *
+     * @param  string $id The ULID ID of the object schema. (required)
+     * @param  \KlaviyoAPI\Model\ObjectSchemaRelationshipPartialUpdateQuery $object_schema_relationship_partial_update_query Update a relationship between object schemas (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateObjectSchemaRelationship'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function updateObjectSchemaRelationshipAsync($id, $object_schema_relationship_partial_update_query, $apiKey = null, string $contentType = self::contentTypes['updateObjectSchemaRelationship'][0])
+    {
+        return $this->updateObjectSchemaRelationshipAsyncWithHttpInfo($id, $object_schema_relationship_partial_update_query, $apiKey, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Alias of `updateObjectSchemaRelationshipAsync`
+     *
+     * @deprecated use `updateObjectSchemaRelationshipAsync` instead
+     */
+    public function updateObjectSchemaRelationshipsSchemasAsync(...$args) {
+        return $this->updateObjectSchemaRelationshipAsync(...$args);
+    }
+
+    /**
+     * Alias of `updateObjectSchemaRelationshipAsync`
+     *
+     * @deprecated use `updateObjectSchemaRelationshipAsync` instead
+     */
+    public function updateSchemasForObjectSchemaAsync(...$args) {
+        return $this->updateObjectSchemaRelationshipAsync(...$args);
+    }
+
+    /**
+     * Operation updateObjectSchemaRelationshipAsyncWithHttpInfo
+     *
+     * Update Object Schema Relationship
+     *
+     * @param  string $id The ULID ID of the object schema. (required)
+     * @param  \KlaviyoAPI\Model\ObjectSchemaRelationshipPartialUpdateQuery $object_schema_relationship_partial_update_query Update a relationship between object schemas (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateObjectSchemaRelationship'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function updateObjectSchemaRelationshipAsyncWithHttpInfo($id, $object_schema_relationship_partial_update_query, $apiKey = null, string $contentType = self::contentTypes['updateObjectSchemaRelationship'][0])
+    {
+        $returnType = '';
+        $request = $this->updateObjectSchemaRelationshipRequest($id, $object_schema_relationship_partial_update_query, $apiKey, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    return [null, $response->getStatusCode(), $response->getHeaders()];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Alias of `updateObjectSchemaRelationshipAsyncWithHttpInfo`
+     *
+     * @deprecated use `updateObjectSchemaRelationshipAsyncWithHttpInfo` instead
+     */
+    public function updateObjectSchemaRelationshipsSchemasAsyncWithHttpInfo(...$args) {
+        return $this->updateObjectSchemaRelationshipAsyncWithHttpInfo(...$args);
+    }
+
+    /**
+     * Alias of `updateObjectSchemaRelationshipAsyncWithHttpInfo`
+     *
+     * @deprecated use `updateObjectSchemaRelationshipAsyncWithHttpInfo` instead
+     */
+    public function updateSchemasForObjectSchemaAsyncWithHttpInfo(...$args) {
+        return $this->updateObjectSchemaRelationshipAsyncWithHttpInfo(...$args);
+    }
+
+    /**
+     * Create request for operation 'updateObjectSchemaRelationship'
+     *
+     * @param  string $id The ULID ID of the object schema. (required)
+     * @param  \KlaviyoAPI\Model\ObjectSchemaRelationshipPartialUpdateQuery $object_schema_relationship_partial_update_query Update a relationship between object schemas (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateObjectSchemaRelationship'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function updateObjectSchemaRelationshipRequest($id, $object_schema_relationship_partial_update_query, $apiKey = null, string $contentType = self::contentTypes['updateObjectSchemaRelationship'][0])
+    {
+
+        // verify the required parameter 'id' is set
+        if ($id === null || (is_array($id) && count($id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $id when calling updateObjectSchemaRelationship'
+            );
+        }
+
+        // verify the required parameter 'object_schema_relationship_partial_update_query' is set
+        if ($object_schema_relationship_partial_update_query === null || (is_array($object_schema_relationship_partial_update_query) && count($object_schema_relationship_partial_update_query) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $object_schema_relationship_partial_update_query when calling updateObjectSchemaRelationship'
+            );
+        }
+
+
+        $resourcePath = '/api/object-schemas/{id}/relationships/object-schemas';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'id' . '}',
+                ObjectSerializer::toPathValue($id),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/vnd.api+json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (isset($object_schema_relationship_partial_update_query)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false || stripos($headers['Content-Type'], 'application/vnd.api+json') !== false) {
+                # if Content-Type contains "application/json" or "application/vnd.api+json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($object_schema_relationship_partial_update_query));
+            } else {
+                $httpBody = $object_schema_relationship_partial_update_query;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false || stripos($headers['Content-Type'], 'application/vnd.api+json') !== false) {
+                # if Content-Type contains "application/json" or "application/vnd.api+json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        if ($apiKey == null) {
+            $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        } else {
+            $apiKey = 'Klaviyo-API-Key '.$apiKey;
+        }
+
+        $headers['Authorization'] = $apiKey;
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $defaultHeaders['revision'] = ['2026-07-15'];
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'PATCH',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Alias of `updateObjectSchemaRelationshipRequest`
+     *
+     * @deprecated use `updateObjectSchemaRelationshipRequest` instead
+     */
+    public function updateObjectSchemaRelationshipsSchemasRequest(...$args) {
+        return $this->updateObjectSchemaRelationshipRequest(...$args);
+    }
+
+    /**
+     * Alias of `updateObjectSchemaRelationshipRequest`
+     *
+     * @deprecated use `updateObjectSchemaRelationshipRequest` instead
+     */
+    public function updateSchemasForObjectSchemaRequest(...$args) {
+        return $this->updateObjectSchemaRelationshipRequest(...$args);
+    }
+
+    /**
+     * Operation updateProfileSchemaRelationship
+     *
+     * Update Profile Schema Relationship
+     *
+     * @param  string $id The ULID ID of the object schema. (required)
+     * @param  \KlaviyoAPI\Model\ProfileObjectSchemaRelationshipPartialUpdateQuery $profile_object_schema_relationship_partial_update_query Update a relationship between an object schema and a profile (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateProfileSchemaRelationship'] to see the possible values for this operation
+     *
+     * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return void
+     */
+    public function updateProfileSchemaRelationship($id, $profile_object_schema_relationship_partial_update_query, $apiKey = null, string $contentType = self::contentTypes['updateProfileSchemaRelationship'][0])
+    {
+        $this->updateProfileSchemaRelationshipWithHttpInfo($id, $profile_object_schema_relationship_partial_update_query, $apiKey, $contentType);
+    }
+
+    /**
+     * Alias of `updateProfileSchemaRelationship`
+     *
+     * @deprecated use `updateProfileSchemaRelationship` instead
+     */
+    public function updateObjectSchemaRelationshipsProfileObjectSchemas(...$args) {
+        return $this->updateProfileSchemaRelationship(...$args);
+    }
+
+    /**
+     * Alias of `updateProfileSchemaRelationship`
+     *
+     * @deprecated use `updateProfileSchemaRelationship` instead
+     */
+    public function updateProfileObjectSchemasForObjectSchema(...$args) {
+        return $this->updateProfileSchemaRelationship(...$args);
+    }
+
+    /**
+     * Operation updateProfileSchemaRelationshipWithHttpInfo
+     *
+     * Update Profile Schema Relationship
+     *
+     * @param  string $id The ULID ID of the object schema. (required)
+     * @param  \KlaviyoAPI\Model\ProfileObjectSchemaRelationshipPartialUpdateQuery $profile_object_schema_relationship_partial_update_query Update a relationship between an object schema and a profile (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateProfileSchemaRelationship'] to see the possible values for this operation
+     *
+     * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function updateProfileSchemaRelationshipWithHttpInfo($id, $profile_object_schema_relationship_partial_update_query, $apiKey = null, string $contentType = self::contentTypes['updateProfileSchemaRelationship'][0])
+    {
+        $request = $this->updateProfileSchemaRelationshipRequest($id, $profile_object_schema_relationship_partial_update_query, $apiKey, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            return [null, $statusCode, $response->getHeaders()];
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\KlaviyoAPI\Model\GetAccounts400Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 500:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\KlaviyoAPI\Model\GetAccounts400Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+            }
+        
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Alias of `updateProfileSchemaRelationshipWithHttpInfo`
+     *
+     * @deprecated use `updateProfileSchemaRelationshipWithHttpInfo` instead
+     */
+    public function updateObjectSchemaRelationshipsProfileObjectSchemasWithHttpInfo(...$args) {
+        return $this->updateProfileSchemaRelationshipWithHttpInfo(...$args);
+    }
+
+    /**
+     * Alias of `updateProfileSchemaRelationshipWithHttpInfo`
+     *
+     * @deprecated use `updateProfileSchemaRelationshipWithHttpInfo` instead
+     */
+    public function updateProfileObjectSchemasForObjectSchemaWithHttpInfo(...$args) {
+        return $this->updateProfileSchemaRelationshipWithHttpInfo(...$args);
+    }
+
+    /**
+     * Operation updateProfileSchemaRelationshipAsync
+     *
+     * Update Profile Schema Relationship
+     *
+     * @param  string $id The ULID ID of the object schema. (required)
+     * @param  \KlaviyoAPI\Model\ProfileObjectSchemaRelationshipPartialUpdateQuery $profile_object_schema_relationship_partial_update_query Update a relationship between an object schema and a profile (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateProfileSchemaRelationship'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function updateProfileSchemaRelationshipAsync($id, $profile_object_schema_relationship_partial_update_query, $apiKey = null, string $contentType = self::contentTypes['updateProfileSchemaRelationship'][0])
+    {
+        return $this->updateProfileSchemaRelationshipAsyncWithHttpInfo($id, $profile_object_schema_relationship_partial_update_query, $apiKey, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Alias of `updateProfileSchemaRelationshipAsync`
+     *
+     * @deprecated use `updateProfileSchemaRelationshipAsync` instead
+     */
+    public function updateObjectSchemaRelationshipsProfileObjectSchemasAsync(...$args) {
+        return $this->updateProfileSchemaRelationshipAsync(...$args);
+    }
+
+    /**
+     * Alias of `updateProfileSchemaRelationshipAsync`
+     *
+     * @deprecated use `updateProfileSchemaRelationshipAsync` instead
+     */
+    public function updateProfileObjectSchemasForObjectSchemaAsync(...$args) {
+        return $this->updateProfileSchemaRelationshipAsync(...$args);
+    }
+
+    /**
+     * Operation updateProfileSchemaRelationshipAsyncWithHttpInfo
+     *
+     * Update Profile Schema Relationship
+     *
+     * @param  string $id The ULID ID of the object schema. (required)
+     * @param  \KlaviyoAPI\Model\ProfileObjectSchemaRelationshipPartialUpdateQuery $profile_object_schema_relationship_partial_update_query Update a relationship between an object schema and a profile (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateProfileSchemaRelationship'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function updateProfileSchemaRelationshipAsyncWithHttpInfo($id, $profile_object_schema_relationship_partial_update_query, $apiKey = null, string $contentType = self::contentTypes['updateProfileSchemaRelationship'][0])
+    {
+        $returnType = '';
+        $request = $this->updateProfileSchemaRelationshipRequest($id, $profile_object_schema_relationship_partial_update_query, $apiKey, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    return [null, $response->getStatusCode(), $response->getHeaders()];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Alias of `updateProfileSchemaRelationshipAsyncWithHttpInfo`
+     *
+     * @deprecated use `updateProfileSchemaRelationshipAsyncWithHttpInfo` instead
+     */
+    public function updateObjectSchemaRelationshipsProfileObjectSchemasAsyncWithHttpInfo(...$args) {
+        return $this->updateProfileSchemaRelationshipAsyncWithHttpInfo(...$args);
+    }
+
+    /**
+     * Alias of `updateProfileSchemaRelationshipAsyncWithHttpInfo`
+     *
+     * @deprecated use `updateProfileSchemaRelationshipAsyncWithHttpInfo` instead
+     */
+    public function updateProfileObjectSchemasForObjectSchemaAsyncWithHttpInfo(...$args) {
+        return $this->updateProfileSchemaRelationshipAsyncWithHttpInfo(...$args);
+    }
+
+    /**
+     * Create request for operation 'updateProfileSchemaRelationship'
+     *
+     * @param  string $id The ULID ID of the object schema. (required)
+     * @param  \KlaviyoAPI\Model\ProfileObjectSchemaRelationshipPartialUpdateQuery $profile_object_schema_relationship_partial_update_query Update a relationship between an object schema and a profile (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateProfileSchemaRelationship'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function updateProfileSchemaRelationshipRequest($id, $profile_object_schema_relationship_partial_update_query, $apiKey = null, string $contentType = self::contentTypes['updateProfileSchemaRelationship'][0])
+    {
+
+        // verify the required parameter 'id' is set
+        if ($id === null || (is_array($id) && count($id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $id when calling updateProfileSchemaRelationship'
+            );
+        }
+
+        // verify the required parameter 'profile_object_schema_relationship_partial_update_query' is set
+        if ($profile_object_schema_relationship_partial_update_query === null || (is_array($profile_object_schema_relationship_partial_update_query) && count($profile_object_schema_relationship_partial_update_query) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $profile_object_schema_relationship_partial_update_query when calling updateProfileSchemaRelationship'
+            );
+        }
+
+
+        $resourcePath = '/api/object-schemas/{id}/relationships/profile-object-schemas';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'id' . '}',
+                ObjectSerializer::toPathValue($id),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/vnd.api+json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (isset($profile_object_schema_relationship_partial_update_query)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false || stripos($headers['Content-Type'], 'application/vnd.api+json') !== false) {
+                # if Content-Type contains "application/json" or "application/vnd.api+json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($profile_object_schema_relationship_partial_update_query));
+            } else {
+                $httpBody = $profile_object_schema_relationship_partial_update_query;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false || stripos($headers['Content-Type'], 'application/vnd.api+json') !== false) {
+                # if Content-Type contains "application/json" or "application/vnd.api+json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        if ($apiKey == null) {
+            $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        } else {
+            $apiKey = 'Klaviyo-API-Key '.$apiKey;
+        }
+
+        $headers['Authorization'] = $apiKey;
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $defaultHeaders['revision'] = ['2026-07-15'];
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'PATCH',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Alias of `updateProfileSchemaRelationshipRequest`
+     *
+     * @deprecated use `updateProfileSchemaRelationshipRequest` instead
+     */
+    public function updateObjectSchemaRelationshipsProfileObjectSchemasRequest(...$args) {
+        return $this->updateProfileSchemaRelationshipRequest(...$args);
+    }
+
+    /**
+     * Alias of `updateProfileSchemaRelationshipRequest`
+     *
+     * @deprecated use `updateProfileSchemaRelationshipRequest` instead
+     */
+    public function updateProfileObjectSchemasForObjectSchemaRequest(...$args) {
+        return $this->updateProfileSchemaRelationshipRequest(...$args);
+    }
+
+    /**
+     * Operation updateSourceMapping
+     *
+     * Update Source Mapping
+     *
+     * @param  string $id The ULID ID of the source mapping (required)
+     * @param  \KlaviyoAPI\Model\SourceMappingPartialUpdateQuery $source_mapping_partial_update_query Update a source mapping by ID (required)
+     * @param  string[]|null $fields_source_mapping For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateSourceMapping'] to see the possible values for this operation
+     *
+     * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array<string,mixed>|\KlaviyoAPI\Model\GetAccounts400Response|\KlaviyoAPI\Model\GetAccounts400Response
+     */
+    public function updateSourceMapping($id, $source_mapping_partial_update_query, $fields_source_mapping = null, $apiKey = null, string $contentType = self::contentTypes['updateSourceMapping'][0])
+    {
+        list($response) = $this->updateSourceMappingWithHttpInfo($id, $source_mapping_partial_update_query, $fields_source_mapping, $apiKey, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation updateSourceMappingWithHttpInfo
+     *
+     * Update Source Mapping
+     *
+     * @param  string $id The ULID ID of the source mapping (required)
+     * @param  \KlaviyoAPI\Model\SourceMappingPartialUpdateQuery $source_mapping_partial_update_query Update a source mapping by ID (required)
+     * @param  string[]|null $fields_source_mapping For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateSourceMapping'] to see the possible values for this operation
+     *
+     * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of array<string,mixed>|\KlaviyoAPI\Model\GetAccounts400Response|\KlaviyoAPI\Model\GetAccounts400Response, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function updateSourceMappingWithHttpInfo($id, $source_mapping_partial_update_query, $fields_source_mapping = null, $apiKey = null, string $contentType = self::contentTypes['updateSourceMapping'][0])
+    {
+        $request = $this->updateSourceMappingRequest($id, $source_mapping_partial_update_query, $fields_source_mapping, $apiKey, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            switch($statusCode) {
+                case 200:
+                    return $this->handleResponseWithDataType(
+                        'array<string,mixed>',
+                        $request,
+                        $response,
+                    );
+                case 400:
+                    return $this->handleResponseWithDataType(
+                        '\KlaviyoAPI\Model\GetAccounts400Response',
+                        $request,
+                        $response,
+                    );
+                case 500:
+                    return $this->handleResponseWithDataType(
+                        '\KlaviyoAPI\Model\GetAccounts400Response',
+                        $request,
+                        $response,
+                    );
+            }
+
+            
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            return $this->handleResponseWithDataType(
+                'array<string,mixed>',
+                $request,
+                $response,
+            );
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        'array<string,mixed>',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\KlaviyoAPI\Model\GetAccounts400Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 500:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\KlaviyoAPI\Model\GetAccounts400Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+            }
+        
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation updateSourceMappingAsync
+     *
+     * Update Source Mapping
+     *
+     * @param  string $id The ULID ID of the source mapping (required)
+     * @param  \KlaviyoAPI\Model\SourceMappingPartialUpdateQuery $source_mapping_partial_update_query Update a source mapping by ID (required)
+     * @param  string[]|null $fields_source_mapping For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateSourceMapping'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function updateSourceMappingAsync($id, $source_mapping_partial_update_query, $fields_source_mapping = null, $apiKey = null, string $contentType = self::contentTypes['updateSourceMapping'][0])
+    {
+        return $this->updateSourceMappingAsyncWithHttpInfo($id, $source_mapping_partial_update_query, $fields_source_mapping, $apiKey, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation updateSourceMappingAsyncWithHttpInfo
+     *
+     * Update Source Mapping
+     *
+     * @param  string $id The ULID ID of the source mapping (required)
+     * @param  \KlaviyoAPI\Model\SourceMappingPartialUpdateQuery $source_mapping_partial_update_query Update a source mapping by ID (required)
+     * @param  string[]|null $fields_source_mapping For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateSourceMapping'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function updateSourceMappingAsyncWithHttpInfo($id, $source_mapping_partial_update_query, $fields_source_mapping = null, $apiKey = null, string $contentType = self::contentTypes['updateSourceMapping'][0])
+    {
+        $returnType = 'array<string,mixed>';
+        $request = $this->updateSourceMappingRequest($id, $source_mapping_partial_update_query, $fields_source_mapping, $apiKey, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    $parsed_content = json_decode(json_encode($content), TRUE);
+                    if (json_last_error() != JSON_ERROR_NONE) {
+                        $parsed_content = $content;
+                    }
+
+                    return [
+                        $parsed_content,
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'updateSourceMapping'
+     *
+     * @param  string $id The ULID ID of the source mapping (required)
+     * @param  \KlaviyoAPI\Model\SourceMappingPartialUpdateQuery $source_mapping_partial_update_query Update a source mapping by ID (required)
+     * @param  string[]|null $fields_source_mapping For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateSourceMapping'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function updateSourceMappingRequest($id, $source_mapping_partial_update_query, $fields_source_mapping = null, $apiKey = null, string $contentType = self::contentTypes['updateSourceMapping'][0])
+    {
+
+        // verify the required parameter 'id' is set
+        if ($id === null || (is_array($id) && count($id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $id when calling updateSourceMapping'
+            );
+        }
+
+        // verify the required parameter 'source_mapping_partial_update_query' is set
+        if ($source_mapping_partial_update_query === null || (is_array($source_mapping_partial_update_query) && count($source_mapping_partial_update_query) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $source_mapping_partial_update_query when calling updateSourceMapping'
+            );
+        }
+
+
+
+        $resourcePath = '/api/source-mappings/{id}';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $fields_source_mapping,
+            'fields[source-mapping]', // param base name
+            'array', // openApiType
+            'form', // style
+            false, // explode
+            false // required
+        ) ?? []);
+
+
+        // path params
+        if ($id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'id' . '}',
+                ObjectSerializer::toPathValue($id),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/vnd.api+json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (isset($source_mapping_partial_update_query)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false || stripos($headers['Content-Type'], 'application/vnd.api+json') !== false) {
+                # if Content-Type contains "application/json" or "application/vnd.api+json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($source_mapping_partial_update_query));
+            } else {
+                $httpBody = $source_mapping_partial_update_query;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false || stripos($headers['Content-Type'], 'application/vnd.api+json') !== false) {
+                # if Content-Type contains "application/json" or "application/vnd.api+json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        if ($apiKey == null) {
+            $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        } else {
+            $apiKey = 'Klaviyo-API-Key '.$apiKey;
+        }
+
+        $headers['Authorization'] = $apiKey;
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $defaultHeaders['revision'] = ['2026-07-15'];
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'PATCH',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody

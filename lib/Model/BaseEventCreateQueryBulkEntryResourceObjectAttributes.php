@@ -61,6 +61,7 @@ class BaseEventCreateQueryBulkEntryResourceObjectAttributes implements ModelInte
         'time' => '\DateTime',
         'value' => 'float',
         'value_currency' => 'string',
+        'backfill' => 'bool',
         'metric' => '\KlaviyoAPI\Model\EventCreateQueryV2ResourceObjectAttributesMetric',
         'unique_id' => 'string'
     ];
@@ -77,6 +78,7 @@ class BaseEventCreateQueryBulkEntryResourceObjectAttributes implements ModelInte
         'time' => 'date-time',
         'value' => null,
         'value_currency' => null,
+        'backfill' => null,
         'metric' => null,
         'unique_id' => null
     ];
@@ -91,6 +93,7 @@ class BaseEventCreateQueryBulkEntryResourceObjectAttributes implements ModelInte
         'time' => true,
         'value' => true,
         'value_currency' => true,
+        'backfill' => true,
         'metric' => false,
         'unique_id' => true
     ];
@@ -185,6 +188,7 @@ class BaseEventCreateQueryBulkEntryResourceObjectAttributes implements ModelInte
         'time' => 'time',
         'value' => 'value',
         'value_currency' => 'value_currency',
+        'backfill' => 'backfill',
         'metric' => 'metric',
         'unique_id' => 'unique_id'
     ];
@@ -199,6 +203,7 @@ class BaseEventCreateQueryBulkEntryResourceObjectAttributes implements ModelInte
         'time' => 'setTime',
         'value' => 'setValue',
         'value_currency' => 'setValueCurrency',
+        'backfill' => 'setBackfill',
         'metric' => 'setMetric',
         'unique_id' => 'setUniqueId'
     ];
@@ -213,6 +218,7 @@ class BaseEventCreateQueryBulkEntryResourceObjectAttributes implements ModelInte
         'time' => 'getTime',
         'value' => 'getValue',
         'value_currency' => 'getValueCurrency',
+        'backfill' => 'getBackfill',
         'metric' => 'getMetric',
         'unique_id' => 'getUniqueId'
     ];
@@ -278,6 +284,7 @@ class BaseEventCreateQueryBulkEntryResourceObjectAttributes implements ModelInte
         $this->setIfExists('time', $data ?? [], null);
         $this->setIfExists('value', $data ?? [], null);
         $this->setIfExists('value_currency', $data ?? [], null);
+        $this->setIfExists('backfill', $data ?? [], false);
         $this->setIfExists('metric', $data ?? [], null);
         $this->setIfExists('unique_id', $data ?? [], null);
     }
@@ -370,7 +377,7 @@ class BaseEventCreateQueryBulkEntryResourceObjectAttributes implements ModelInte
     /**
      * Sets time
      *
-     * @param \DateTime|null $time When this event occurred. By default, the time the request was received will be used. The time is truncated to the second. The time must be after the year 2000 and can only be up to 1 year in the future.
+     * @param \DateTime|null $time When this event occurred. By default, the time the request was received will be used. The time is truncated to the second. The time must be after the year 1990 and can only be up to 1 year in the future.
      *
      * @return self
      */
@@ -455,6 +462,40 @@ class BaseEventCreateQueryBulkEntryResourceObjectAttributes implements ModelInte
             }
         }
         $this->container['value_currency'] = $value_currency;
+
+        return $this;
+    }
+
+    /**
+     * Gets backfill
+     *
+     * @return bool|null
+     */
+    public function getBackfill()
+    {
+        return $this->container['backfill'];
+    }
+
+    /**
+     * Sets backfill
+     *
+     * @param bool|null $backfill When true, the event is recorded but does NOT trigger flows. Use this when backfilling historical events so existing flow definitions do not re-fire on events that already fired in the past.
+     *
+     * @return self
+     */
+    public function setBackfill($backfill)
+    {
+        if (is_null($backfill)) {
+            array_push($this->openAPINullablesSetToNull, 'backfill');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('backfill', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['backfill'] = $backfill;
 
         return $this;
     }

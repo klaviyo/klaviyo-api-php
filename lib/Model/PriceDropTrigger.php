@@ -58,7 +58,7 @@ class PriceDropTrigger implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static $openAPITypes = [
         'type' => 'string',
-        'trigger_filter' => '\KlaviyoAPI\Model\PriceDropConditionFilter',
+        'trigger_filter' => '\KlaviyoAPI\Model\PriceDropTriggerTriggerFilter',
         'price_drop_amount_value' => '\KlaviyoAPI\Model\NumericOperatorNumericFilterValue',
         'price_drop_amount_unit' => 'string',
         'audience' => 'string[]',
@@ -90,7 +90,7 @@ class PriceDropTrigger implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static array $openAPINullables = [
         'type' => false,
-        'trigger_filter' => false,
+        'trigger_filter' => true,
         'price_drop_amount_value' => false,
         'price_drop_amount_unit' => false,
         'audience' => false,
@@ -466,7 +466,7 @@ class PriceDropTrigger implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets trigger_filter
      *
-     * @return \KlaviyoAPI\Model\PriceDropConditionFilter
+     * @return \KlaviyoAPI\Model\PriceDropTriggerTriggerFilter
      */
     public function getTriggerFilter()
     {
@@ -476,14 +476,21 @@ class PriceDropTrigger implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets trigger_filter
      *
-     * @param \KlaviyoAPI\Model\PriceDropConditionFilter $trigger_filter trigger_filter
+     * @param \KlaviyoAPI\Model\PriceDropTriggerTriggerFilter $trigger_filter trigger_filter
      *
      * @return self
      */
     public function setTriggerFilter($trigger_filter)
     {
         if (is_null($trigger_filter)) {
-            throw new \InvalidArgumentException('non-nullable trigger_filter cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'trigger_filter');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('trigger_filter', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['trigger_filter'] = $trigger_filter;
 

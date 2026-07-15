@@ -57,7 +57,8 @@ class ProfileMeta implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'patch_properties' => '\KlaviyoAPI\Model\ProfileMetaPatchProperties'
+        'patch_properties' => '\KlaviyoAPI\Model\ProfileMetaPatchProperties',
+        'patch_identifiers' => '\KlaviyoAPI\Model\PatchIdentifiers'
     ];
 
     /**
@@ -68,7 +69,8 @@ class ProfileMeta implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'patch_properties' => null
+        'patch_properties' => null,
+        'patch_identifiers' => null
     ];
 
     /**
@@ -77,7 +79,8 @@ class ProfileMeta implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'patch_properties' => false
+        'patch_properties' => false,
+        'patch_identifiers' => false
     ];
 
     /**
@@ -166,7 +169,8 @@ class ProfileMeta implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'patch_properties' => 'patch_properties'
+        'patch_properties' => 'patch_properties',
+        'patch_identifiers' => 'patch_identifiers'
     ];
 
     /**
@@ -175,7 +179,8 @@ class ProfileMeta implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'patch_properties' => 'setPatchProperties'
+        'patch_properties' => 'setPatchProperties',
+        'patch_identifiers' => 'setPatchIdentifiers'
     ];
 
     /**
@@ -184,7 +189,8 @@ class ProfileMeta implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'patch_properties' => 'getPatchProperties'
+        'patch_properties' => 'getPatchProperties',
+        'patch_identifiers' => 'getPatchIdentifiers'
     ];
 
     /**
@@ -245,6 +251,7 @@ class ProfileMeta implements ModelInterface, ArrayAccess, \JsonSerializable
     public function __construct(?array $data = null)
     {
         $this->setIfExists('patch_properties', $data ?? [], null);
+        $this->setIfExists('patch_identifiers', $data ?? [], null);
     }
 
     /**
@@ -312,6 +319,33 @@ class ProfileMeta implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable patch_properties cannot be null');
         }
         $this->container['patch_properties'] = $patch_properties;
+
+        return $this;
+    }
+
+    /**
+     * Gets patch_identifiers
+     *
+     * @return \KlaviyoAPI\Model\PatchIdentifiers|null
+     */
+    public function getPatchIdentifiers()
+    {
+        return $this->container['patch_identifiers'];
+    }
+
+    /**
+     * Sets patch_identifiers
+     *
+     * @param \KlaviyoAPI\Model\PatchIdentifiers|null $patch_identifiers patch_identifiers
+     *
+     * @return self
+     */
+    public function setPatchIdentifiers($patch_identifiers)
+    {
+        if (is_null($patch_identifiers)) {
+            throw new \InvalidArgumentException('non-nullable patch_identifiers cannot be null');
+        }
+        $this->container['patch_identifiers'] = $patch_identifiers;
 
         return $this;
     }

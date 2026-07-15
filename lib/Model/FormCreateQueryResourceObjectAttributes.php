@@ -247,7 +247,6 @@ class FormCreateQueryResourceObjectAttributes implements ModelInterface, ArrayAc
     }
 
     public const STATUS_DRAFT = 'draft';
-    public const STATUS_LIVE = 'live';
 
     /**
      * Gets allowable values of the enum
@@ -258,7 +257,6 @@ class FormCreateQueryResourceObjectAttributes implements ModelInterface, ArrayAc
     {
         return [
             self::STATUS_DRAFT,
-            self::STATUS_LIVE,
         ];
     }
 

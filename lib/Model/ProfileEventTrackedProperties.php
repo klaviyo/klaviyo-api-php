@@ -57,7 +57,8 @@ class ProfileEventTrackedProperties implements ModelInterface, ArrayAccess, \Jso
       * @var string[]
       */
     protected static $openAPITypes = [
-        'metric' => 'string'
+        'metric' => 'string',
+        'property_filters' => '\KlaviyoAPI\Model\PropertyFilter[]'
     ];
 
     /**
@@ -68,7 +69,8 @@ class ProfileEventTrackedProperties implements ModelInterface, ArrayAccess, \Jso
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'metric' => null
+        'metric' => null,
+        'property_filters' => null
     ];
 
     /**
@@ -77,7 +79,8 @@ class ProfileEventTrackedProperties implements ModelInterface, ArrayAccess, \Jso
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'metric' => false
+        'metric' => true,
+        'property_filters' => true
     ];
 
     /**
@@ -166,7 +169,8 @@ class ProfileEventTrackedProperties implements ModelInterface, ArrayAccess, \Jso
      * @var string[]
      */
     protected static $attributeMap = [
-        'metric' => 'metric'
+        'metric' => 'metric',
+        'property_filters' => 'property_filters'
     ];
 
     /**
@@ -175,7 +179,8 @@ class ProfileEventTrackedProperties implements ModelInterface, ArrayAccess, \Jso
      * @var string[]
      */
     protected static $setters = [
-        'metric' => 'setMetric'
+        'metric' => 'setMetric',
+        'property_filters' => 'setPropertyFilters'
     ];
 
     /**
@@ -184,7 +189,8 @@ class ProfileEventTrackedProperties implements ModelInterface, ArrayAccess, \Jso
      * @var string[]
      */
     protected static $getters = [
-        'metric' => 'getMetric'
+        'metric' => 'getMetric',
+        'property_filters' => 'getPropertyFilters'
     ];
 
     /**
@@ -244,7 +250,8 @@ class ProfileEventTrackedProperties implements ModelInterface, ArrayAccess, \Jso
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('metric', $data ?? [], null);
+        $this->setIfExists('metric', $data ?? [], '');
+        $this->setIfExists('property_filters', $data ?? [], null);
     }
 
     /**
@@ -274,9 +281,6 @@ class ProfileEventTrackedProperties implements ModelInterface, ArrayAccess, \Jso
     {
         $invalidProperties = [];
 
-        if ($this->container['metric'] === null) {
-            $invalidProperties[] = "'metric' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -295,7 +299,7 @@ class ProfileEventTrackedProperties implements ModelInterface, ArrayAccess, \Jso
     /**
      * Gets metric
      *
-     * @return string
+     * @return string|null
      */
     public function getMetric()
     {
@@ -305,16 +309,57 @@ class ProfileEventTrackedProperties implements ModelInterface, ArrayAccess, \Jso
     /**
      * Sets metric
      *
-     * @param string $metric metric
+     * @param string|null $metric metric
      *
      * @return self
      */
     public function setMetric($metric)
     {
         if (is_null($metric)) {
-            throw new \InvalidArgumentException('non-nullable metric cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'metric');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('metric', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['metric'] = $metric;
+
+        return $this;
+    }
+
+    /**
+     * Gets property_filters
+     *
+     * @return \KlaviyoAPI\Model\PropertyFilter[]|null
+     */
+    public function getPropertyFilters()
+    {
+        return $this->container['property_filters'];
+    }
+
+    /**
+     * Sets property_filters
+     *
+     * @param \KlaviyoAPI\Model\PropertyFilter[]|null $property_filters property_filters
+     *
+     * @return self
+     */
+    public function setPropertyFilters($property_filters)
+    {
+        if (is_null($property_filters)) {
+            array_push($this->openAPINullablesSetToNull, 'property_filters');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('property_filters', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['property_filters'] = $property_filters;
 
         return $this;
     }

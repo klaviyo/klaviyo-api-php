@@ -62,6 +62,8 @@ class QuoteStyle implements ModelInterface, ArrayAccess, \JsonSerializable
         'text_color' => 'string',
         'character_spacing' => 'int',
         'font_weight' => 'int',
+        'font_style' => 'string',
+        'text_decoration' => 'string',
         'alignment' => 'string',
         'line_height' => 'float'
     ];
@@ -79,6 +81,8 @@ class QuoteStyle implements ModelInterface, ArrayAccess, \JsonSerializable
         'text_color' => null,
         'character_spacing' => null,
         'font_weight' => null,
+        'font_style' => null,
+        'text_decoration' => null,
         'alignment' => null,
         'line_height' => null
     ];
@@ -94,6 +98,8 @@ class QuoteStyle implements ModelInterface, ArrayAccess, \JsonSerializable
         'text_color' => false,
         'character_spacing' => false,
         'font_weight' => false,
+        'font_style' => true,
+        'text_decoration' => true,
         'alignment' => false,
         'line_height' => false
     ];
@@ -189,6 +195,8 @@ class QuoteStyle implements ModelInterface, ArrayAccess, \JsonSerializable
         'text_color' => 'text_color',
         'character_spacing' => 'character_spacing',
         'font_weight' => 'font_weight',
+        'font_style' => 'font_style',
+        'text_decoration' => 'text_decoration',
         'alignment' => 'alignment',
         'line_height' => 'line_height'
     ];
@@ -204,6 +212,8 @@ class QuoteStyle implements ModelInterface, ArrayAccess, \JsonSerializable
         'text_color' => 'setTextColor',
         'character_spacing' => 'setCharacterSpacing',
         'font_weight' => 'setFontWeight',
+        'font_style' => 'setFontStyle',
+        'text_decoration' => 'setTextDecoration',
         'alignment' => 'setAlignment',
         'line_height' => 'setLineHeight'
     ];
@@ -219,6 +229,8 @@ class QuoteStyle implements ModelInterface, ArrayAccess, \JsonSerializable
         'text_color' => 'getTextColor',
         'character_spacing' => 'getCharacterSpacing',
         'font_weight' => 'getFontWeight',
+        'font_style' => 'getFontStyle',
+        'text_decoration' => 'getTextDecoration',
         'alignment' => 'getAlignment',
         'line_height' => 'getLineHeight'
     ];
@@ -302,6 +314,8 @@ class QuoteStyle implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('text_color', $data ?? [], '#000000');
         $this->setIfExists('character_spacing', $data ?? [], 0);
         $this->setIfExists('font_weight', $data ?? [], 400);
+        $this->setIfExists('font_style', $data ?? [], null);
+        $this->setIfExists('text_decoration', $data ?? [], null);
         $this->setIfExists('alignment', $data ?? [], 'center');
         $this->setIfExists('line_height', $data ?? [], 1.5);
     }
@@ -488,6 +502,74 @@ class QuoteStyle implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable font_weight cannot be null');
         }
         $this->container['font_weight'] = $font_weight;
+
+        return $this;
+    }
+
+    /**
+     * Gets font_style
+     *
+     * @return string|null
+     */
+    public function getFontStyle()
+    {
+        return $this->container['font_style'];
+    }
+
+    /**
+     * Sets font_style
+     *
+     * @param string|null $font_style font_style
+     *
+     * @return self
+     */
+    public function setFontStyle($font_style)
+    {
+        if (is_null($font_style)) {
+            array_push($this->openAPINullablesSetToNull, 'font_style');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('font_style', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['font_style'] = $font_style;
+
+        return $this;
+    }
+
+    /**
+     * Gets text_decoration
+     *
+     * @return string|null
+     */
+    public function getTextDecoration()
+    {
+        return $this->container['text_decoration'];
+    }
+
+    /**
+     * Sets text_decoration
+     *
+     * @param string|null $text_decoration text_decoration
+     *
+     * @return self
+     */
+    public function setTextDecoration($text_decoration)
+    {
+        if (is_null($text_decoration)) {
+            array_push($this->openAPINullablesSetToNull, 'text_decoration');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('text_decoration', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['text_decoration'] = $text_decoration;
 
         return $this;
     }

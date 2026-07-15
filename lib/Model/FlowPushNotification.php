@@ -68,11 +68,12 @@ class FlowPushNotification implements ModelInterface, ArrayAccess, \JsonSerializ
         'on_open' => 'string',
         'ios_link' => 'string',
         'android_link' => 'string',
+        'web_url' => 'string',
         'push_type' => 'string',
         'kv_pairs' => 'object',
         'conversion_metric_id' => 'string',
         'smart_sending_enabled' => 'bool',
-        'additional_filters' => '\KlaviyoAPI\Model\FlowPushNotificationAdditionalFilters',
+        'additional_filters' => '\KlaviyoAPI\Model\ConditionalBranchActionDataProfileFilter',
         'action_buttons' => '\KlaviyoAPI\Model\PushActionButton[]',
         'name' => 'string',
         'id' => 'string'
@@ -97,6 +98,7 @@ class FlowPushNotification implements ModelInterface, ArrayAccess, \JsonSerializ
         'on_open' => null,
         'ios_link' => null,
         'android_link' => null,
+        'web_url' => null,
         'push_type' => null,
         'kv_pairs' => null,
         'conversion_metric_id' => null,
@@ -124,6 +126,7 @@ class FlowPushNotification implements ModelInterface, ArrayAccess, \JsonSerializ
         'on_open' => false,
         'ios_link' => true,
         'android_link' => true,
+        'web_url' => true,
         'push_type' => true,
         'kv_pairs' => true,
         'conversion_metric_id' => true,
@@ -231,6 +234,7 @@ class FlowPushNotification implements ModelInterface, ArrayAccess, \JsonSerializ
         'on_open' => 'on_open',
         'ios_link' => 'ios_link',
         'android_link' => 'android_link',
+        'web_url' => 'web_url',
         'push_type' => 'push_type',
         'kv_pairs' => 'kv_pairs',
         'conversion_metric_id' => 'conversion_metric_id',
@@ -258,6 +262,7 @@ class FlowPushNotification implements ModelInterface, ArrayAccess, \JsonSerializ
         'on_open' => 'setOnOpen',
         'ios_link' => 'setIosLink',
         'android_link' => 'setAndroidLink',
+        'web_url' => 'setWebUrl',
         'push_type' => 'setPushType',
         'kv_pairs' => 'setKvPairs',
         'conversion_metric_id' => 'setConversionMetricId',
@@ -285,6 +290,7 @@ class FlowPushNotification implements ModelInterface, ArrayAccess, \JsonSerializ
         'on_open' => 'getOnOpen',
         'ios_link' => 'getIosLink',
         'android_link' => 'getAndroidLink',
+        'web_url' => 'getWebUrl',
         'push_type' => 'getPushType',
         'kv_pairs' => 'getKvPairs',
         'conversion_metric_id' => 'getConversionMetricId',
@@ -338,6 +344,7 @@ class FlowPushNotification implements ModelInterface, ArrayAccess, \JsonSerializ
 
     public const ON_OPEN_HOME = 'home';
     public const ON_OPEN_LINK = 'link';
+    public const ON_OPEN_OPEN_URL = 'open_url';
     public const PUSH_TYPE_SILENT = 'silent';
     public const PUSH_TYPE_STANDARD = 'standard';
 
@@ -351,6 +358,7 @@ class FlowPushNotification implements ModelInterface, ArrayAccess, \JsonSerializ
         return [
             self::ON_OPEN_HOME,
             self::ON_OPEN_LINK,
+            self::ON_OPEN_OPEN_URL,
         ];
     }
 
@@ -393,6 +401,7 @@ class FlowPushNotification implements ModelInterface, ArrayAccess, \JsonSerializ
         $this->setIfExists('on_open', $data ?? [], 'home');
         $this->setIfExists('ios_link', $data ?? [], null);
         $this->setIfExists('android_link', $data ?? [], null);
+        $this->setIfExists('web_url', $data ?? [], null);
         $this->setIfExists('push_type', $data ?? [], null);
         $this->setIfExists('kv_pairs', $data ?? [], null);
         $this->setIfExists('conversion_metric_id', $data ?? [], null);
@@ -816,6 +825,40 @@ class FlowPushNotification implements ModelInterface, ArrayAccess, \JsonSerializ
     }
 
     /**
+     * Gets web_url
+     *
+     * @return string|null
+     */
+    public function getWebUrl()
+    {
+        return $this->container['web_url'];
+    }
+
+    /**
+     * Sets web_url
+     *
+     * @param string|null $web_url web_url
+     *
+     * @return self
+     */
+    public function setWebUrl($web_url)
+    {
+        if (is_null($web_url)) {
+            array_push($this->openAPINullablesSetToNull, 'web_url');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('web_url', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['web_url'] = $web_url;
+
+        return $this;
+    }
+
+    /**
      * Gets push_type
      *
      * @return string|null
@@ -957,7 +1000,7 @@ class FlowPushNotification implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Gets additional_filters
      *
-     * @return \KlaviyoAPI\Model\FlowPushNotificationAdditionalFilters|null
+     * @return \KlaviyoAPI\Model\ConditionalBranchActionDataProfileFilter|null
      */
     public function getAdditionalFilters()
     {
@@ -967,7 +1010,7 @@ class FlowPushNotification implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Sets additional_filters
      *
-     * @param \KlaviyoAPI\Model\FlowPushNotificationAdditionalFilters|null $additional_filters additional_filters
+     * @param \KlaviyoAPI\Model\ConditionalBranchActionDataProfileFilter|null $additional_filters additional_filters
      *
      * @return self
      */

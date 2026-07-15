@@ -49,7 +49,7 @@ class ActionOutputConditionFilter implements ModelInterface, ArrayAccess, \JsonS
       *
       * @var string
       */
-    protected static $openAPIModelName = 'ActionOutputConditionFilter';
+    protected static $openAPIModelName = 'ActionOutputCondition_filter';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,7 +57,11 @@ class ActionOutputConditionFilter implements ModelInterface, ArrayAccess, \JsonS
       * @var string[]
       */
     protected static $openAPITypes = [
-        'condition_groups' => '\KlaviyoAPI\Model\ActionOutputConditionConditionGroup[]'
+        'type' => 'string',
+        'operator' => 'string',
+        'value' => 'bool',
+        'start' => '\KlaviyoAPI\Model\NumericOperatorNumericFilterValue',
+        'end' => '\KlaviyoAPI\Model\NumericOperatorNumericFilterValue'
     ];
 
     /**
@@ -68,7 +72,11 @@ class ActionOutputConditionFilter implements ModelInterface, ArrayAccess, \JsonS
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'condition_groups' => null
+        'type' => null,
+        'operator' => null,
+        'value' => null,
+        'start' => null,
+        'end' => null
     ];
 
     /**
@@ -77,7 +85,11 @@ class ActionOutputConditionFilter implements ModelInterface, ArrayAccess, \JsonS
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'condition_groups' => false
+        'type' => false,
+        'operator' => false,
+        'value' => false,
+        'start' => false,
+        'end' => false
     ];
 
     /**
@@ -166,7 +178,11 @@ class ActionOutputConditionFilter implements ModelInterface, ArrayAccess, \JsonS
      * @var string[]
      */
     protected static $attributeMap = [
-        'condition_groups' => 'condition_groups'
+        'type' => 'type',
+        'operator' => 'operator',
+        'value' => 'value',
+        'start' => 'start',
+        'end' => 'end'
     ];
 
     /**
@@ -175,7 +191,11 @@ class ActionOutputConditionFilter implements ModelInterface, ArrayAccess, \JsonS
      * @var string[]
      */
     protected static $setters = [
-        'condition_groups' => 'setConditionGroups'
+        'type' => 'setType',
+        'operator' => 'setOperator',
+        'value' => 'setValue',
+        'start' => 'setStart',
+        'end' => 'setEnd'
     ];
 
     /**
@@ -184,7 +204,11 @@ class ActionOutputConditionFilter implements ModelInterface, ArrayAccess, \JsonS
      * @var string[]
      */
     protected static $getters = [
-        'condition_groups' => 'getConditionGroups'
+        'type' => 'getType',
+        'operator' => 'getOperator',
+        'value' => 'getValue',
+        'start' => 'getStart',
+        'end' => 'getEnd'
     ];
 
     /**
@@ -228,6 +252,40 @@ class ActionOutputConditionFilter implements ModelInterface, ArrayAccess, \JsonS
         return self::$openAPIModelName;
     }
 
+    public const TYPE_STRING = 'string';
+    public const TYPE_NUMERIC = 'numeric';
+    public const TYPE_BOOLEAN = 'boolean';
+    public const TYPE_EXISTENCE = 'existence';
+    public const OPERATOR_IS_SET = 'is-set';
+    public const OPERATOR_NOT_SET = 'not-set';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getTypeAllowableValues()
+    {
+        return [
+            self::TYPE_STRING,
+            self::TYPE_NUMERIC,
+            self::TYPE_BOOLEAN,
+            self::TYPE_EXISTENCE,
+        ];
+    }
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getOperatorAllowableValues()
+    {
+        return [
+            self::OPERATOR_IS_SET,
+            self::OPERATOR_NOT_SET,
+        ];
+    }
 
     /**
      * Associative array for storing property values
@@ -244,7 +302,11 @@ class ActionOutputConditionFilter implements ModelInterface, ArrayAccess, \JsonS
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('condition_groups', $data ?? [], null);
+        $this->setIfExists('type', $data ?? [], null);
+        $this->setIfExists('operator', $data ?? [], null);
+        $this->setIfExists('value', $data ?? [], null);
+        $this->setIfExists('start', $data ?? [], null);
+        $this->setIfExists('end', $data ?? [], null);
     }
 
     /**
@@ -274,8 +336,38 @@ class ActionOutputConditionFilter implements ModelInterface, ArrayAccess, \JsonS
     {
         $invalidProperties = [];
 
-        if ($this->container['condition_groups'] === null) {
-            $invalidProperties[] = "'condition_groups' can't be null";
+        if ($this->container['type'] === null) {
+            $invalidProperties[] = "'type' can't be null";
+        }
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!is_null($this->container['type']) && !in_array($this->container['type'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'type', must be one of '%s'",
+                $this->container['type'],
+                implode("', '", $allowedValues)
+            );
+        }
+
+        if ($this->container['operator'] === null) {
+            $invalidProperties[] = "'operator' can't be null";
+        }
+        $allowedValues = $this->getOperatorAllowableValues();
+        if (!is_null($this->container['operator']) && !in_array($this->container['operator'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'operator', must be one of '%s'",
+                $this->container['operator'],
+                implode("', '", $allowedValues)
+            );
+        }
+
+        if ($this->container['value'] === null) {
+            $invalidProperties[] = "'value' can't be null";
+        }
+        if ($this->container['start'] === null) {
+            $invalidProperties[] = "'start' can't be null";
+        }
+        if ($this->container['end'] === null) {
+            $invalidProperties[] = "'end' can't be null";
         }
         return $invalidProperties;
     }
@@ -293,28 +385,156 @@ class ActionOutputConditionFilter implements ModelInterface, ArrayAccess, \JsonS
 
 
     /**
-     * Gets condition_groups
+     * Gets type
      *
-     * @return \KlaviyoAPI\Model\ActionOutputConditionConditionGroup[]
+     * @return string
      */
-    public function getConditionGroups()
+    public function getType()
     {
-        return $this->container['condition_groups'];
+        return $this->container['type'];
     }
 
     /**
-     * Sets condition_groups
+     * Sets type
      *
-     * @param \KlaviyoAPI\Model\ActionOutputConditionConditionGroup[] $condition_groups condition_groups
+     * @param string $type type
      *
      * @return self
      */
-    public function setConditionGroups($condition_groups)
+    public function setType($type)
     {
-        if (is_null($condition_groups)) {
-            throw new \InvalidArgumentException('non-nullable condition_groups cannot be null');
+        if (is_null($type)) {
+            throw new \InvalidArgumentException('non-nullable type cannot be null');
         }
-        $this->container['condition_groups'] = $condition_groups;
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!in_array($type, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'type', must be one of '%s'",
+                    $type,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['type'] = $type;
+
+        return $this;
+    }
+
+    /**
+     * Gets operator
+     *
+     * @return string
+     */
+    public function getOperator()
+    {
+        return $this->container['operator'];
+    }
+
+    /**
+     * Sets operator
+     *
+     * @param string $operator Operators for existence filters.
+     *
+     * @return self
+     */
+    public function setOperator($operator)
+    {
+        if (is_null($operator)) {
+            throw new \InvalidArgumentException('non-nullable operator cannot be null');
+        }
+        $allowedValues = $this->getOperatorAllowableValues();
+        if (!in_array($operator, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'operator', must be one of '%s'",
+                    $operator,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['operator'] = $operator;
+
+        return $this;
+    }
+
+    /**
+     * Gets value
+     *
+     * @return bool
+     */
+    public function getValue()
+    {
+        return $this->container['value'];
+    }
+
+    /**
+     * Sets value
+     *
+     * @param bool $value value
+     *
+     * @return self
+     */
+    public function setValue($value)
+    {
+        if (is_null($value)) {
+            throw new \InvalidArgumentException('non-nullable value cannot be null');
+        }
+        $this->container['value'] = $value;
+
+        return $this;
+    }
+
+    /**
+     * Gets start
+     *
+     * @return \KlaviyoAPI\Model\NumericOperatorNumericFilterValue
+     */
+    public function getStart()
+    {
+        return $this->container['start'];
+    }
+
+    /**
+     * Sets start
+     *
+     * @param \KlaviyoAPI\Model\NumericOperatorNumericFilterValue $start start
+     *
+     * @return self
+     */
+    public function setStart($start)
+    {
+        if (is_null($start)) {
+            throw new \InvalidArgumentException('non-nullable start cannot be null');
+        }
+        $this->container['start'] = $start;
+
+        return $this;
+    }
+
+    /**
+     * Gets end
+     *
+     * @return \KlaviyoAPI\Model\NumericOperatorNumericFilterValue
+     */
+    public function getEnd()
+    {
+        return $this->container['end'];
+    }
+
+    /**
+     * Sets end
+     *
+     * @param \KlaviyoAPI\Model\NumericOperatorNumericFilterValue $end end
+     *
+     * @return self
+     */
+    public function setEnd($end)
+    {
+        if (is_null($end)) {
+            throw new \InvalidArgumentException('non-nullable end cannot be null');
+        }
+        $this->container['end'] = $end;
 
         return $this;
     }

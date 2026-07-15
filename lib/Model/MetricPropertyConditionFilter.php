@@ -49,7 +49,7 @@ class MetricPropertyConditionFilter implements ModelInterface, ArrayAccess, \Jso
       *
       * @var string
       */
-    protected static $openAPIModelName = 'MetricPropertyConditionFilter';
+    protected static $openAPIModelName = 'MetricPropertyCondition_filter';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,7 +57,14 @@ class MetricPropertyConditionFilter implements ModelInterface, ArrayAccess, \Jso
       * @var string[]
       */
     protected static $openAPITypes = [
-        'condition_groups' => '\KlaviyoAPI\Model\MetricPropertyConditionConditionGroup[]'
+        'type' => 'string',
+        'operator' => 'string',
+        'value' => 'int',
+        'start' => 'int',
+        'end' => 'int',
+        'date' => '\DateTime',
+        'unit' => 'string',
+        'quantity' => 'int'
     ];
 
     /**
@@ -68,7 +75,14 @@ class MetricPropertyConditionFilter implements ModelInterface, ArrayAccess, \Jso
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'condition_groups' => null
+        'type' => null,
+        'operator' => null,
+        'value' => null,
+        'start' => null,
+        'end' => null,
+        'date' => 'date-time',
+        'unit' => null,
+        'quantity' => null
     ];
 
     /**
@@ -77,7 +91,14 @@ class MetricPropertyConditionFilter implements ModelInterface, ArrayAccess, \Jso
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'condition_groups' => false
+        'type' => false,
+        'operator' => false,
+        'value' => false,
+        'start' => false,
+        'end' => false,
+        'date' => false,
+        'unit' => false,
+        'quantity' => false
     ];
 
     /**
@@ -166,7 +187,14 @@ class MetricPropertyConditionFilter implements ModelInterface, ArrayAccess, \Jso
      * @var string[]
      */
     protected static $attributeMap = [
-        'condition_groups' => 'condition_groups'
+        'type' => 'type',
+        'operator' => 'operator',
+        'value' => 'value',
+        'start' => 'start',
+        'end' => 'end',
+        'date' => 'date',
+        'unit' => 'unit',
+        'quantity' => 'quantity'
     ];
 
     /**
@@ -175,7 +203,14 @@ class MetricPropertyConditionFilter implements ModelInterface, ArrayAccess, \Jso
      * @var string[]
      */
     protected static $setters = [
-        'condition_groups' => 'setConditionGroups'
+        'type' => 'setType',
+        'operator' => 'setOperator',
+        'value' => 'setValue',
+        'start' => 'setStart',
+        'end' => 'setEnd',
+        'date' => 'setDate',
+        'unit' => 'setUnit',
+        'quantity' => 'setQuantity'
     ];
 
     /**
@@ -184,7 +219,14 @@ class MetricPropertyConditionFilter implements ModelInterface, ArrayAccess, \Jso
      * @var string[]
      */
     protected static $getters = [
-        'condition_groups' => 'getConditionGroups'
+        'type' => 'getType',
+        'operator' => 'getOperator',
+        'value' => 'getValue',
+        'start' => 'getStart',
+        'end' => 'getEnd',
+        'date' => 'getDate',
+        'unit' => 'getUnit',
+        'quantity' => 'getQuantity'
     ];
 
     /**
@@ -228,6 +270,61 @@ class MetricPropertyConditionFilter implements ModelInterface, ArrayAccess, \Jso
         return self::$openAPIModelName;
     }
 
+    public const TYPE_STRING = 'string';
+    public const TYPE_NUMERIC = 'numeric';
+    public const TYPE_BOOLEAN = 'boolean';
+    public const TYPE_DATE = 'date';
+    public const TYPE__LIST = 'list';
+    public const TYPE_EXISTENCE = 'existence';
+    public const OPERATOR_IS_SET = 'is-set';
+    public const OPERATOR_NOT_SET = 'not-set';
+    public const UNIT_DAY = 'day';
+    public const UNIT_HOUR = 'hour';
+    public const UNIT_WEEK = 'week';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getTypeAllowableValues()
+    {
+        return [
+            self::TYPE_STRING,
+            self::TYPE_NUMERIC,
+            self::TYPE_BOOLEAN,
+            self::TYPE_DATE,
+            self::TYPE__LIST,
+            self::TYPE_EXISTENCE,
+        ];
+    }
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getOperatorAllowableValues()
+    {
+        return [
+            self::OPERATOR_IS_SET,
+            self::OPERATOR_NOT_SET,
+        ];
+    }
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getUnitAllowableValues()
+    {
+        return [
+            self::UNIT_DAY,
+            self::UNIT_HOUR,
+            self::UNIT_WEEK,
+        ];
+    }
 
     /**
      * Associative array for storing property values
@@ -244,7 +341,14 @@ class MetricPropertyConditionFilter implements ModelInterface, ArrayAccess, \Jso
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('condition_groups', $data ?? [], null);
+        $this->setIfExists('type', $data ?? [], null);
+        $this->setIfExists('operator', $data ?? [], null);
+        $this->setIfExists('value', $data ?? [], null);
+        $this->setIfExists('start', $data ?? [], null);
+        $this->setIfExists('end', $data ?? [], null);
+        $this->setIfExists('date', $data ?? [], null);
+        $this->setIfExists('unit', $data ?? [], null);
+        $this->setIfExists('quantity', $data ?? [], null);
     }
 
     /**
@@ -274,8 +378,56 @@ class MetricPropertyConditionFilter implements ModelInterface, ArrayAccess, \Jso
     {
         $invalidProperties = [];
 
-        if ($this->container['condition_groups'] === null) {
-            $invalidProperties[] = "'condition_groups' can't be null";
+        if ($this->container['type'] === null) {
+            $invalidProperties[] = "'type' can't be null";
+        }
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!is_null($this->container['type']) && !in_array($this->container['type'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'type', must be one of '%s'",
+                $this->container['type'],
+                implode("', '", $allowedValues)
+            );
+        }
+
+        if ($this->container['operator'] === null) {
+            $invalidProperties[] = "'operator' can't be null";
+        }
+        $allowedValues = $this->getOperatorAllowableValues();
+        if (!is_null($this->container['operator']) && !in_array($this->container['operator'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'operator', must be one of '%s'",
+                $this->container['operator'],
+                implode("', '", $allowedValues)
+            );
+        }
+
+        if ($this->container['value'] === null) {
+            $invalidProperties[] = "'value' can't be null";
+        }
+        if ($this->container['start'] === null) {
+            $invalidProperties[] = "'start' can't be null";
+        }
+        if ($this->container['end'] === null) {
+            $invalidProperties[] = "'end' can't be null";
+        }
+        if ($this->container['date'] === null) {
+            $invalidProperties[] = "'date' can't be null";
+        }
+        if ($this->container['unit'] === null) {
+            $invalidProperties[] = "'unit' can't be null";
+        }
+        $allowedValues = $this->getUnitAllowableValues();
+        if (!is_null($this->container['unit']) && !in_array($this->container['unit'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'unit', must be one of '%s'",
+                $this->container['unit'],
+                implode("', '", $allowedValues)
+            );
+        }
+
+        if ($this->container['quantity'] === null) {
+            $invalidProperties[] = "'quantity' can't be null";
         }
         return $invalidProperties;
     }
@@ -293,28 +445,247 @@ class MetricPropertyConditionFilter implements ModelInterface, ArrayAccess, \Jso
 
 
     /**
-     * Gets condition_groups
+     * Gets type
      *
-     * @return \KlaviyoAPI\Model\MetricPropertyConditionConditionGroup[]
+     * @return string
      */
-    public function getConditionGroups()
+    public function getType()
     {
-        return $this->container['condition_groups'];
+        return $this->container['type'];
     }
 
     /**
-     * Sets condition_groups
+     * Sets type
      *
-     * @param \KlaviyoAPI\Model\MetricPropertyConditionConditionGroup[] $condition_groups condition_groups
+     * @param string $type type
      *
      * @return self
      */
-    public function setConditionGroups($condition_groups)
+    public function setType($type)
     {
-        if (is_null($condition_groups)) {
-            throw new \InvalidArgumentException('non-nullable condition_groups cannot be null');
+        if (is_null($type)) {
+            throw new \InvalidArgumentException('non-nullable type cannot be null');
         }
-        $this->container['condition_groups'] = $condition_groups;
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!in_array($type, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'type', must be one of '%s'",
+                    $type,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['type'] = $type;
+
+        return $this;
+    }
+
+    /**
+     * Gets operator
+     *
+     * @return string
+     */
+    public function getOperator()
+    {
+        return $this->container['operator'];
+    }
+
+    /**
+     * Sets operator
+     *
+     * @param string $operator Operators for existence filters.
+     *
+     * @return self
+     */
+    public function setOperator($operator)
+    {
+        if (is_null($operator)) {
+            throw new \InvalidArgumentException('non-nullable operator cannot be null');
+        }
+        $allowedValues = $this->getOperatorAllowableValues();
+        if (!in_array($operator, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'operator', must be one of '%s'",
+                    $operator,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['operator'] = $operator;
+
+        return $this;
+    }
+
+    /**
+     * Gets value
+     *
+     * @return int
+     */
+    public function getValue()
+    {
+        return $this->container['value'];
+    }
+
+    /**
+     * Sets value
+     *
+     * @param int $value value
+     *
+     * @return self
+     */
+    public function setValue($value)
+    {
+        if (is_null($value)) {
+            throw new \InvalidArgumentException('non-nullable value cannot be null');
+        }
+        $this->container['value'] = $value;
+
+        return $this;
+    }
+
+    /**
+     * Gets start
+     *
+     * @return int
+     */
+    public function getStart()
+    {
+        return $this->container['start'];
+    }
+
+    /**
+     * Sets start
+     *
+     * @param int $start start
+     *
+     * @return self
+     */
+    public function setStart($start)
+    {
+        if (is_null($start)) {
+            throw new \InvalidArgumentException('non-nullable start cannot be null');
+        }
+        $this->container['start'] = $start;
+
+        return $this;
+    }
+
+    /**
+     * Gets end
+     *
+     * @return int
+     */
+    public function getEnd()
+    {
+        return $this->container['end'];
+    }
+
+    /**
+     * Sets end
+     *
+     * @param int $end end
+     *
+     * @return self
+     */
+    public function setEnd($end)
+    {
+        if (is_null($end)) {
+            throw new \InvalidArgumentException('non-nullable end cannot be null');
+        }
+        $this->container['end'] = $end;
+
+        return $this;
+    }
+
+    /**
+     * Gets date
+     *
+     * @return \DateTime
+     */
+    public function getDate()
+    {
+        return $this->container['date'];
+    }
+
+    /**
+     * Sets date
+     *
+     * @param \DateTime $date date
+     *
+     * @return self
+     */
+    public function setDate($date)
+    {
+        if (is_null($date)) {
+            throw new \InvalidArgumentException('non-nullable date cannot be null');
+        }
+        $this->container['date'] = $date;
+
+        return $this;
+    }
+
+    /**
+     * Gets unit
+     *
+     * @return string
+     */
+    public function getUnit()
+    {
+        return $this->container['unit'];
+    }
+
+    /**
+     * Sets unit
+     *
+     * @param string $unit Units for relative date filters.
+     *
+     * @return self
+     */
+    public function setUnit($unit)
+    {
+        if (is_null($unit)) {
+            throw new \InvalidArgumentException('non-nullable unit cannot be null');
+        }
+        $allowedValues = $this->getUnitAllowableValues();
+        if (!in_array($unit, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'unit', must be one of '%s'",
+                    $unit,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['unit'] = $unit;
+
+        return $this;
+    }
+
+    /**
+     * Gets quantity
+     *
+     * @return int
+     */
+    public function getQuantity()
+    {
+        return $this->container['quantity'];
+    }
+
+    /**
+     * Sets quantity
+     *
+     * @param int $quantity quantity
+     *
+     * @return self
+     */
+    public function setQuantity($quantity)
+    {
+        if (is_null($quantity)) {
+            throw new \InvalidArgumentException('non-nullable quantity cannot be null');
+        }
+        $this->container['quantity'] = $quantity;
 
         return $this;
     }

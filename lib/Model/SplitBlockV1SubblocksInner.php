@@ -410,14 +410,6 @@ class SplitBlockV1SubblocksInner implements ModelInterface, ArrayAccess, \JsonSe
     public const IMAGE_ALIGN_CENTER = 'center';
     public const IMAGE_ALIGN_LEFT = 'left';
     public const IMAGE_ALIGN_RIGHT = 'right';
-    public const CROPPING_ASPECT_RATIO__16_9 = '16:9';
-    public const CROPPING_ASPECT_RATIO__1_1 = '1:1';
-    public const CROPPING_ASPECT_RATIO__2_3 = '2:3';
-    public const CROPPING_ASPECT_RATIO__3_4 = '3:4';
-    public const CROPPING_ASPECT_RATIO__4_3 = '4:3';
-    public const CROPPING_ASPECT_RATIO_CIRCLE = 'circle';
-    public const CROPPING_ASPECT_RATIO_CUSTOM = 'custom';
-    public const CROPPING_ASPECT_RATIO_ORIGINAL = 'original';
 
     /**
      * Gets allowable values of the enum
@@ -485,25 +477,6 @@ class SplitBlockV1SubblocksInner implements ModelInterface, ArrayAccess, \JsonSe
             self::IMAGE_ALIGN_CENTER,
             self::IMAGE_ALIGN_LEFT,
             self::IMAGE_ALIGN_RIGHT,
-        ];
-    }
-
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getCroppingAspectRatioAllowableValues()
-    {
-        return [
-            self::CROPPING_ASPECT_RATIO__16_9,
-            self::CROPPING_ASPECT_RATIO__1_1,
-            self::CROPPING_ASPECT_RATIO__2_3,
-            self::CROPPING_ASPECT_RATIO__3_4,
-            self::CROPPING_ASPECT_RATIO__4_3,
-            self::CROPPING_ASPECT_RATIO_CIRCLE,
-            self::CROPPING_ASPECT_RATIO_CUSTOM,
-            self::CROPPING_ASPECT_RATIO_ORIGINAL,
         ];
     }
 
@@ -624,15 +597,6 @@ class SplitBlockV1SubblocksInner implements ModelInterface, ArrayAccess, \JsonSe
             $invalidProperties[] = sprintf(
                 "invalid value '%s' for 'image_align', must be one of '%s'",
                 $this->container['image_align'],
-                implode("', '", $allowedValues)
-            );
-        }
-
-        $allowedValues = $this->getCroppingAspectRatioAllowableValues();
-        if (!is_null($this->container['cropping_aspect_ratio']) && !in_array($this->container['cropping_aspect_ratio'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value '%s' for 'cropping_aspect_ratio', must be one of '%s'",
-                $this->container['cropping_aspect_ratio'],
                 implode("', '", $allowedValues)
             );
         }
@@ -1524,7 +1488,7 @@ class SplitBlockV1SubblocksInner implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Sets cropping_aspect_ratio
      *
-     * @param string|null $cropping_aspect_ratio Aspect ratio options.
+     * @param string|null $cropping_aspect_ratio cropping_aspect_ratio
      *
      * @return self
      */
@@ -1539,16 +1503,6 @@ class SplitBlockV1SubblocksInner implements ModelInterface, ArrayAccess, \JsonSe
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
-        }
-        $allowedValues = $this->getCroppingAspectRatioAllowableValues();
-        if (!is_null($cropping_aspect_ratio) && !in_array($cropping_aspect_ratio, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value '%s' for 'cropping_aspect_ratio', must be one of '%s'",
-                    $cropping_aspect_ratio,
-                    implode("', '", $allowedValues)
-                )
-            );
         }
         $this->container['cropping_aspect_ratio'] = $cropping_aspect_ratio;
 

@@ -59,7 +59,9 @@ class DisplayOptions implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $openAPITypes = [
         'show_on' => 'string',
         'content_repeat' => '\KlaviyoAPI\Model\ContentRepeatV1',
-        'visibility' => '\KlaviyoAPI\Model\Visibility'
+        'visibility' => '\KlaviyoAPI\Model\Visibility',
+        'layout_type' => 'string',
+        'layout_config' => 'object'
     ];
 
     /**
@@ -72,7 +74,9 @@ class DisplayOptions implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $openAPIFormats = [
         'show_on' => null,
         'content_repeat' => null,
-        'visibility' => null
+        'visibility' => null,
+        'layout_type' => null,
+        'layout_config' => null
     ];
 
     /**
@@ -83,7 +87,9 @@ class DisplayOptions implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static array $openAPINullables = [
         'show_on' => true,
         'content_repeat' => false,
-        'visibility' => false
+        'visibility' => false,
+        'layout_type' => true,
+        'layout_config' => true
     ];
 
     /**
@@ -174,7 +180,9 @@ class DisplayOptions implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $attributeMap = [
         'show_on' => 'show_on',
         'content_repeat' => 'content_repeat',
-        'visibility' => 'visibility'
+        'visibility' => 'visibility',
+        'layout_type' => 'layout_type',
+        'layout_config' => 'layout_config'
     ];
 
     /**
@@ -185,7 +193,9 @@ class DisplayOptions implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $setters = [
         'show_on' => 'setShowOn',
         'content_repeat' => 'setContentRepeat',
-        'visibility' => 'setVisibility'
+        'visibility' => 'setVisibility',
+        'layout_type' => 'setLayoutType',
+        'layout_config' => 'setLayoutConfig'
     ];
 
     /**
@@ -196,7 +206,9 @@ class DisplayOptions implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $getters = [
         'show_on' => 'getShowOn',
         'content_repeat' => 'getContentRepeat',
-        'visibility' => 'getVisibility'
+        'visibility' => 'getVisibility',
+        'layout_type' => 'getLayoutType',
+        'layout_config' => 'getLayoutConfig'
     ];
 
     /**
@@ -276,6 +288,8 @@ class DisplayOptions implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('show_on', $data ?? [], null);
         $this->setIfExists('content_repeat', $data ?? [], null);
         $this->setIfExists('visibility', $data ?? [], null);
+        $this->setIfExists('layout_type', $data ?? [], null);
+        $this->setIfExists('layout_config', $data ?? [], null);
     }
 
     /**
@@ -423,6 +437,74 @@ class DisplayOptions implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable visibility cannot be null');
         }
         $this->container['visibility'] = $visibility;
+
+        return $this;
+    }
+
+    /**
+     * Gets layout_type
+     *
+     * @return string|null
+     */
+    public function getLayoutType()
+    {
+        return $this->container['layout_type'];
+    }
+
+    /**
+     * Sets layout_type
+     *
+     * @param string|null $layout_type layout_type
+     *
+     * @return self
+     */
+    public function setLayoutType($layout_type)
+    {
+        if (is_null($layout_type)) {
+            array_push($this->openAPINullablesSetToNull, 'layout_type');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('layout_type', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['layout_type'] = $layout_type;
+
+        return $this;
+    }
+
+    /**
+     * Gets layout_config
+     *
+     * @return object|null
+     */
+    public function getLayoutConfig()
+    {
+        return $this->container['layout_config'];
+    }
+
+    /**
+     * Sets layout_config
+     *
+     * @param object|null $layout_config layout_config
+     *
+     * @return self
+     */
+    public function setLayoutConfig($layout_config)
+    {
+        if (is_null($layout_config)) {
+            array_push($this->openAPINullablesSetToNull, 'layout_config');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('layout_config', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['layout_config'] = $layout_config;
 
         return $this;
     }

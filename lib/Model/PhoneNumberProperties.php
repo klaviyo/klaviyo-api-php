@@ -58,6 +58,7 @@ class PhoneNumberProperties implements ModelInterface, ArrayAccess, \JsonSeriali
       */
     protected static $openAPITypes = [
         'display_device' => 'string[]',
+        'classname' => 'string',
         'label' => 'string',
         'show_label' => 'bool',
         'placeholder' => 'string',
@@ -77,6 +78,7 @@ class PhoneNumberProperties implements ModelInterface, ArrayAccess, \JsonSeriali
       */
     protected static $openAPIFormats = [
         'display_device' => null,
+        'classname' => null,
         'label' => null,
         'show_label' => null,
         'placeholder' => null,
@@ -94,6 +96,7 @@ class PhoneNumberProperties implements ModelInterface, ArrayAccess, \JsonSeriali
       */
     protected static array $openAPINullables = [
         'display_device' => false,
+        'classname' => true,
         'label' => true,
         'show_label' => false,
         'placeholder' => true,
@@ -191,6 +194,7 @@ class PhoneNumberProperties implements ModelInterface, ArrayAccess, \JsonSeriali
      */
     protected static $attributeMap = [
         'display_device' => 'display_device',
+        'classname' => 'classname',
         'label' => 'label',
         'show_label' => 'show_label',
         'placeholder' => 'placeholder',
@@ -208,6 +212,7 @@ class PhoneNumberProperties implements ModelInterface, ArrayAccess, \JsonSeriali
      */
     protected static $setters = [
         'display_device' => 'setDisplayDevice',
+        'classname' => 'setClassname',
         'label' => 'setLabel',
         'show_label' => 'setShowLabel',
         'placeholder' => 'setPlaceholder',
@@ -225,6 +230,7 @@ class PhoneNumberProperties implements ModelInterface, ArrayAccess, \JsonSeriali
      */
     protected static $getters = [
         'display_device' => 'getDisplayDevice',
+        'classname' => 'getClassname',
         'label' => 'getLabel',
         'show_label' => 'getShowLabel',
         'placeholder' => 'getPlaceholder',
@@ -327,6 +333,7 @@ class PhoneNumberProperties implements ModelInterface, ArrayAccess, \JsonSeriali
     public function __construct(?array $data = null)
     {
         $this->setIfExists('display_device', $data ?? [], null);
+        $this->setIfExists('classname', $data ?? [], null);
         $this->setIfExists('label', $data ?? [], null);
         $this->setIfExists('show_label', $data ?? [], false);
         $this->setIfExists('placeholder', $data ?? [], null);
@@ -411,6 +418,40 @@ class PhoneNumberProperties implements ModelInterface, ArrayAccess, \JsonSeriali
             );
         }
         $this->container['display_device'] = $display_device;
+
+        return $this;
+    }
+
+    /**
+     * Gets classname
+     *
+     * @return string|null
+     */
+    public function getClassname()
+    {
+        return $this->container['classname'];
+    }
+
+    /**
+     * Sets classname
+     *
+     * @param string|null $classname classname
+     *
+     * @return self
+     */
+    public function setClassname($classname)
+    {
+        if (is_null($classname)) {
+            array_push($this->openAPINullablesSetToNull, 'classname');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('classname', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['classname'] = $classname;
 
         return $this;
     }

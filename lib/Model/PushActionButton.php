@@ -89,7 +89,7 @@ class PushActionButton implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static array $openAPINullables = [
         'label' => false,
         'action_type' => false,
-        'position' => false,
+        'position' => true,
         'url' => true,
         'icon' => true,
         'custom_action_id' => true
@@ -343,9 +343,6 @@ class PushActionButton implements ModelInterface, ArrayAccess, \JsonSerializable
             );
         }
 
-        if ($this->container['position'] === null) {
-            $invalidProperties[] = "'position' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -428,7 +425,7 @@ class PushActionButton implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets position
      *
-     * @return int
+     * @return int|null
      */
     public function getPosition()
     {
@@ -438,14 +435,21 @@ class PushActionButton implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets position
      *
-     * @param int $position position
+     * @param int|null $position position
      *
      * @return self
      */
     public function setPosition($position)
     {
         if (is_null($position)) {
-            throw new \InvalidArgumentException('non-nullable position cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'position');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('position', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['position'] = $position;
 

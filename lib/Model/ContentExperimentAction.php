@@ -61,7 +61,7 @@ class ContentExperimentAction implements ModelInterface, ArrayAccess, \JsonSeria
         'temporary_id' => 'string',
         'type' => 'string',
         'links' => '\KlaviyoAPI\Model\Link',
-        'data' => '\KlaviyoAPI\Model\SendPushNotificationActionContentExperimentActionData'
+        'data' => '\KlaviyoAPI\Model\ContentExperimentActionData'
     ];
 
     /**
@@ -480,7 +480,7 @@ class ContentExperimentAction implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Gets data
      *
-     * @return \KlaviyoAPI\Model\SendPushNotificationActionContentExperimentActionData
+     * @return \KlaviyoAPI\Model\ContentExperimentActionData
      */
     public function getData()
     {
@@ -490,7 +490,7 @@ class ContentExperimentAction implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Sets data
      *
-     * @param \KlaviyoAPI\Model\SendPushNotificationActionContentExperimentActionData $data data
+     * @param \KlaviyoAPI\Model\ContentExperimentActionData $data data
      *
      * @return self
      */

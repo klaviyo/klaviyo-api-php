@@ -58,6 +58,7 @@ class HTMLTextProperties implements ModelInterface, ArrayAccess, \JsonSerializab
       */
     protected static $openAPITypes = [
         'display_device' => 'string[]',
+        'classname' => 'string',
         'content' => 'string'
     ];
 
@@ -70,6 +71,7 @@ class HTMLTextProperties implements ModelInterface, ArrayAccess, \JsonSerializab
       */
     protected static $openAPIFormats = [
         'display_device' => null,
+        'classname' => null,
         'content' => null
     ];
 
@@ -80,6 +82,7 @@ class HTMLTextProperties implements ModelInterface, ArrayAccess, \JsonSerializab
       */
     protected static array $openAPINullables = [
         'display_device' => false,
+        'classname' => true,
         'content' => false
     ];
 
@@ -170,6 +173,7 @@ class HTMLTextProperties implements ModelInterface, ArrayAccess, \JsonSerializab
      */
     protected static $attributeMap = [
         'display_device' => 'display_device',
+        'classname' => 'classname',
         'content' => 'content'
     ];
 
@@ -180,6 +184,7 @@ class HTMLTextProperties implements ModelInterface, ArrayAccess, \JsonSerializab
      */
     protected static $setters = [
         'display_device' => 'setDisplayDevice',
+        'classname' => 'setClassname',
         'content' => 'setContent'
     ];
 
@@ -190,6 +195,7 @@ class HTMLTextProperties implements ModelInterface, ArrayAccess, \JsonSerializab
      */
     protected static $getters = [
         'display_device' => 'getDisplayDevice',
+        'classname' => 'getClassname',
         'content' => 'getContent'
     ];
 
@@ -268,6 +274,7 @@ class HTMLTextProperties implements ModelInterface, ArrayAccess, \JsonSerializab
     public function __construct(?array $data = null)
     {
         $this->setIfExists('display_device', $data ?? [], null);
+        $this->setIfExists('classname', $data ?? [], null);
         $this->setIfExists('content', $data ?? [], '');
     }
 
@@ -345,6 +352,40 @@ class HTMLTextProperties implements ModelInterface, ArrayAccess, \JsonSerializab
             );
         }
         $this->container['display_device'] = $display_device;
+
+        return $this;
+    }
+
+    /**
+     * Gets classname
+     *
+     * @return string|null
+     */
+    public function getClassname()
+    {
+        return $this->container['classname'];
+    }
+
+    /**
+     * Sets classname
+     *
+     * @param string|null $classname classname
+     *
+     * @return self
+     */
+    public function setClassname($classname)
+    {
+        if (is_null($classname)) {
+            array_push($this->openAPINullablesSetToNull, 'classname');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('classname', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['classname'] = $classname;
 
         return $this;
     }

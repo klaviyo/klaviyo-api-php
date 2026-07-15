@@ -60,7 +60,7 @@ class TriggerBranchActionDataTriggerFilterConditionGroupsInnerConditionsInner im
         'type' => 'string',
         'metric_id' => 'string',
         'field' => 'string',
-        'filter' => '\KlaviyoAPI\Model\LowInventoryConditionFilter2',
+        'filter' => '\KlaviyoAPI\Model\MetricPropertyConditionFilter',
         'property_id' => 'int',
         'custom_object_label' => 'string'
     ];
@@ -473,7 +473,7 @@ class TriggerBranchActionDataTriggerFilterConditionGroupsInnerConditionsInner im
     /**
      * Gets filter
      *
-     * @return \KlaviyoAPI\Model\LowInventoryConditionFilter2
+     * @return \KlaviyoAPI\Model\MetricPropertyConditionFilter
      */
     public function getFilter()
     {
@@ -483,7 +483,7 @@ class TriggerBranchActionDataTriggerFilterConditionGroupsInnerConditionsInner im
     /**
      * Sets filter
      *
-     * @param \KlaviyoAPI\Model\LowInventoryConditionFilter2 $filter filter
+     * @param \KlaviyoAPI\Model\MetricPropertyConditionFilter $filter filter
      *
      * @return self
      */

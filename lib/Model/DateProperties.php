@@ -58,6 +58,7 @@ class DateProperties implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static $openAPITypes = [
         'display_device' => 'string[]',
+        'classname' => 'string',
         'property_name' => 'string',
         'label' => 'string',
         'show_label' => 'bool',
@@ -76,6 +77,7 @@ class DateProperties implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static $openAPIFormats = [
         'display_device' => null,
+        'classname' => null,
         'property_name' => null,
         'label' => null,
         'show_label' => null,
@@ -92,6 +94,7 @@ class DateProperties implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static array $openAPINullables = [
         'display_device' => false,
+        'classname' => true,
         'property_name' => false,
         'label' => true,
         'show_label' => false,
@@ -188,6 +191,7 @@ class DateProperties implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $attributeMap = [
         'display_device' => 'display_device',
+        'classname' => 'classname',
         'property_name' => 'property_name',
         'label' => 'label',
         'show_label' => 'show_label',
@@ -204,6 +208,7 @@ class DateProperties implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $setters = [
         'display_device' => 'setDisplayDevice',
+        'classname' => 'setClassname',
         'property_name' => 'setPropertyName',
         'label' => 'setLabel',
         'show_label' => 'setShowLabel',
@@ -220,6 +225,7 @@ class DateProperties implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $getters = [
         'display_device' => 'getDisplayDevice',
+        'classname' => 'getClassname',
         'property_name' => 'getPropertyName',
         'label' => 'getLabel',
         'show_label' => 'getShowLabel',
@@ -304,6 +310,7 @@ class DateProperties implements ModelInterface, ArrayAccess, \JsonSerializable
     public function __construct(?array $data = null)
     {
         $this->setIfExists('display_device', $data ?? [], null);
+        $this->setIfExists('classname', $data ?? [], null);
         $this->setIfExists('property_name', $data ?? [], null);
         $this->setIfExists('label', $data ?? [], null);
         $this->setIfExists('show_label', $data ?? [], false);
@@ -390,6 +397,40 @@ class DateProperties implements ModelInterface, ArrayAccess, \JsonSerializable
             );
         }
         $this->container['display_device'] = $display_device;
+
+        return $this;
+    }
+
+    /**
+     * Gets classname
+     *
+     * @return string|null
+     */
+    public function getClassname()
+    {
+        return $this->container['classname'];
+    }
+
+    /**
+     * Sets classname
+     *
+     * @param string|null $classname classname
+     *
+     * @return self
+     */
+    public function setClassname($classname)
+    {
+        if (is_null($classname)) {
+            array_push($this->openAPINullablesSetToNull, 'classname');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('classname', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['classname'] = $classname;
 
         return $this;
     }

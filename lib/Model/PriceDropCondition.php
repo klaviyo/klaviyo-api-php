@@ -60,7 +60,7 @@ class PriceDropCondition implements ModelInterface, ArrayAccess, \JsonSerializab
         'type' => 'string',
         'metric_id' => 'string',
         'field' => 'string',
-        'filter' => '\KlaviyoAPI\Model\PriceDropConditionFilter2'
+        'filter' => '\KlaviyoAPI\Model\MetricPropertyConditionFilter'
     ];
 
     /**
@@ -445,7 +445,7 @@ class PriceDropCondition implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Gets filter
      *
-     * @return \KlaviyoAPI\Model\PriceDropConditionFilter2
+     * @return \KlaviyoAPI\Model\MetricPropertyConditionFilter
      */
     public function getFilter()
     {
@@ -455,7 +455,7 @@ class PriceDropCondition implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets filter
      *
-     * @param \KlaviyoAPI\Model\PriceDropConditionFilter2 $filter filter
+     * @param \KlaviyoAPI\Model\MetricPropertyConditionFilter $filter filter
      *
      * @return self
      */

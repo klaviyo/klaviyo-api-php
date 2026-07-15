@@ -62,16 +62,17 @@ class ConditionalBranchActionDataProfileFilterConditionGroupsInnerConditionsInne
         'filter' => '\KlaviyoAPI\Model\IntegerFilter',
         'is_member' => 'bool',
         'group_ids' => 'string[]',
-        'timeframe_filter' => '\KlaviyoAPI\Model\FlowsProfileMetricConditionTimeframeFilter',
+        'timeframe_filter' => '\KlaviyoAPI\Model\ProfileHasNotReceivedEmailMessageConditionTimeframeFilter',
         'in_region' => 'bool',
         'region' => 'string',
         'country_code' => 'string',
         'postal_code' => 'string',
         'unit' => 'string',
         'dimension' => 'string',
+        'measurement' => 'string',
+        'predicted_channel' => 'string',
         'consent' => '\KlaviyoAPI\Model\ProfileMarketingConsentConditionConsent',
         'metric_id' => 'string',
-        'measurement' => 'string',
         'measurement_filter' => '\KlaviyoAPI\Model\NumericOperatorNumericFilter',
         'metric_filters' => '\KlaviyoAPI\Model\ProfileMetricPropertyFilter[]',
         'percentage' => 'int',
@@ -102,9 +103,10 @@ class ConditionalBranchActionDataProfileFilterConditionGroupsInnerConditionsInne
         'postal_code' => null,
         'unit' => null,
         'dimension' => null,
+        'measurement' => null,
+        'predicted_channel' => null,
         'consent' => null,
         'metric_id' => null,
-        'measurement' => null,
         'measurement_filter' => null,
         'metric_filters' => null,
         'percentage' => null,
@@ -133,9 +135,10 @@ class ConditionalBranchActionDataProfileFilterConditionGroupsInnerConditionsInne
         'postal_code' => false,
         'unit' => false,
         'dimension' => false,
+        'measurement' => false,
+        'predicted_channel' => false,
         'consent' => false,
         'metric_id' => false,
-        'measurement' => false,
         'measurement_filter' => false,
         'metric_filters' => true,
         'percentage' => false,
@@ -244,9 +247,10 @@ class ConditionalBranchActionDataProfileFilterConditionGroupsInnerConditionsInne
         'postal_code' => 'postal_code',
         'unit' => 'unit',
         'dimension' => 'dimension',
+        'measurement' => 'measurement',
+        'predicted_channel' => 'predicted_channel',
         'consent' => 'consent',
         'metric_id' => 'metric_id',
-        'measurement' => 'measurement',
         'measurement_filter' => 'measurement_filter',
         'metric_filters' => 'metric_filters',
         'percentage' => 'percentage',
@@ -275,9 +279,10 @@ class ConditionalBranchActionDataProfileFilterConditionGroupsInnerConditionsInne
         'postal_code' => 'setPostalCode',
         'unit' => 'setUnit',
         'dimension' => 'setDimension',
+        'measurement' => 'setMeasurement',
+        'predicted_channel' => 'setPredictedChannel',
         'consent' => 'setConsent',
         'metric_id' => 'setMetricId',
-        'measurement' => 'setMeasurement',
         'measurement_filter' => 'setMeasurementFilter',
         'metric_filters' => 'setMetricFilters',
         'percentage' => 'setPercentage',
@@ -306,9 +311,10 @@ class ConditionalBranchActionDataProfileFilterConditionGroupsInnerConditionsInne
         'postal_code' => 'getPostalCode',
         'unit' => 'getUnit',
         'dimension' => 'getDimension',
+        'measurement' => 'getMeasurement',
+        'predicted_channel' => 'getPredictedChannel',
         'consent' => 'getConsent',
         'metric_id' => 'getMetricId',
-        'measurement' => 'getMeasurement',
         'measurement_filter' => 'getMeasurementFilter',
         'metric_filters' => 'getMetricFilters',
         'percentage' => 'getPercentage',
@@ -370,20 +376,20 @@ class ConditionalBranchActionDataProfileFilterConditionGroupsInnerConditionsInne
     public const TYPE_PROFILE_SAMPLE = 'profile-sample';
     public const TYPE_PROFILE_HAS_CUSTOM_OBJECT = 'profile-has-custom-object';
     public const TYPE_PROFILE_PERMISSIONS = 'profile-permissions';
+    public const TYPE_PROFILE_NOT_SENT_EMAIL = 'profile-not-sent-email';
+    public const TYPE_PROFILE_NOT_SENT_SMS = 'profile-not-sent-sms';
+    public const TYPE_PROFILE_NOT_SENT_PUSH = 'profile-not-sent-push';
     public const REGION_EUROPEAN_UNION = 'european_union';
     public const REGION_UNITED_STATES = 'united_states';
     public const UNIT_KILOMETERS = 'kilometers';
     public const UNIT_MILES = 'miles';
-    public const DIMENSION_AVERAGE_DAYS_BETWEEN_ORDERS = 'average_days_between_orders';
-    public const DIMENSION_AVERAGE_ORDER_VALUE = 'average_order_value';
-    public const DIMENSION_CHURN_PROBABILITY = 'churn_probability';
-    public const DIMENSION_HISTORIC_CLV = 'historic_clv';
-    public const DIMENSION_HISTORIC_NUMBER_OF_ORDERS = 'historic_number_of_orders';
-    public const DIMENSION_PREDICTED_CLV = 'predicted_clv';
-    public const DIMENSION_PREDICTED_NUMBER_OF_ORDERS = 'predicted_number_of_orders';
-    public const DIMENSION_TOTAL_CLV = 'total_clv';
+    public const DIMENSION_CHANNEL_AFFINITY = 'channel_affinity';
     public const MEASUREMENT_COUNT = 'count';
     public const MEASUREMENT_SUM = 'sum';
+    public const PREDICTED_CHANNEL_EMAIL = 'email';
+    public const PREDICTED_CHANNEL_PUSH = 'push';
+    public const PREDICTED_CHANNEL_SMS = 'sms';
+    public const PREDICTED_CHANNEL_WHATSAPP = 'whatsapp';
     public const CHANNEL_WHATSAPP_MARKETING = 'whatsapp_marketing';
     public const CHANNEL_WHATSAPP_TRANSACTIONAL = 'whatsapp_transactional';
 
@@ -405,6 +411,9 @@ class ConditionalBranchActionDataProfileFilterConditionGroupsInnerConditionsInne
             self::TYPE_PROFILE_SAMPLE,
             self::TYPE_PROFILE_HAS_CUSTOM_OBJECT,
             self::TYPE_PROFILE_PERMISSIONS,
+            self::TYPE_PROFILE_NOT_SENT_EMAIL,
+            self::TYPE_PROFILE_NOT_SENT_SMS,
+            self::TYPE_PROFILE_NOT_SENT_PUSH,
         ];
     }
 
@@ -442,14 +451,7 @@ class ConditionalBranchActionDataProfileFilterConditionGroupsInnerConditionsInne
     public function getDimensionAllowableValues()
     {
         return [
-            self::DIMENSION_AVERAGE_DAYS_BETWEEN_ORDERS,
-            self::DIMENSION_AVERAGE_ORDER_VALUE,
-            self::DIMENSION_CHURN_PROBABILITY,
-            self::DIMENSION_HISTORIC_CLV,
-            self::DIMENSION_HISTORIC_NUMBER_OF_ORDERS,
-            self::DIMENSION_PREDICTED_CLV,
-            self::DIMENSION_PREDICTED_NUMBER_OF_ORDERS,
-            self::DIMENSION_TOTAL_CLV,
+            self::DIMENSION_CHANNEL_AFFINITY,
         ];
     }
 
@@ -463,6 +465,21 @@ class ConditionalBranchActionDataProfileFilterConditionGroupsInnerConditionsInne
         return [
             self::MEASUREMENT_COUNT,
             self::MEASUREMENT_SUM,
+        ];
+    }
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getPredictedChannelAllowableValues()
+    {
+        return [
+            self::PREDICTED_CHANNEL_EMAIL,
+            self::PREDICTED_CHANNEL_PUSH,
+            self::PREDICTED_CHANNEL_SMS,
+            self::PREDICTED_CHANNEL_WHATSAPP,
         ];
     }
 
@@ -506,9 +523,10 @@ class ConditionalBranchActionDataProfileFilterConditionGroupsInnerConditionsInne
         $this->setIfExists('postal_code', $data ?? [], null);
         $this->setIfExists('unit', $data ?? [], null);
         $this->setIfExists('dimension', $data ?? [], null);
+        $this->setIfExists('measurement', $data ?? [], null);
+        $this->setIfExists('predicted_channel', $data ?? [], null);
         $this->setIfExists('consent', $data ?? [], null);
         $this->setIfExists('metric_id', $data ?? [], null);
-        $this->setIfExists('measurement', $data ?? [], null);
         $this->setIfExists('measurement_filter', $data ?? [], null);
         $this->setIfExists('metric_filters', $data ?? [], null);
         $this->setIfExists('percentage', $data ?? [], null);
@@ -618,12 +636,6 @@ class ConditionalBranchActionDataProfileFilterConditionGroupsInnerConditionsInne
             );
         }
 
-        if ($this->container['consent'] === null) {
-            $invalidProperties[] = "'consent' can't be null";
-        }
-        if ($this->container['metric_id'] === null) {
-            $invalidProperties[] = "'metric_id' can't be null";
-        }
         if ($this->container['measurement'] === null) {
             $invalidProperties[] = "'measurement' can't be null";
         }
@@ -636,6 +648,24 @@ class ConditionalBranchActionDataProfileFilterConditionGroupsInnerConditionsInne
             );
         }
 
+        if ($this->container['predicted_channel'] === null) {
+            $invalidProperties[] = "'predicted_channel' can't be null";
+        }
+        $allowedValues = $this->getPredictedChannelAllowableValues();
+        if (!is_null($this->container['predicted_channel']) && !in_array($this->container['predicted_channel'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'predicted_channel', must be one of '%s'",
+                $this->container['predicted_channel'],
+                implode("', '", $allowedValues)
+            );
+        }
+
+        if ($this->container['consent'] === null) {
+            $invalidProperties[] = "'consent' can't be null";
+        }
+        if ($this->container['metric_id'] === null) {
+            $invalidProperties[] = "'metric_id' can't be null";
+        }
         if ($this->container['measurement_filter'] === null) {
             $invalidProperties[] = "'measurement_filter' can't be null";
         }
@@ -829,7 +859,7 @@ class ConditionalBranchActionDataProfileFilterConditionGroupsInnerConditionsInne
     /**
      * Gets timeframe_filter
      *
-     * @return \KlaviyoAPI\Model\FlowsProfileMetricConditionTimeframeFilter
+     * @return \KlaviyoAPI\Model\ProfileHasNotReceivedEmailMessageConditionTimeframeFilter
      */
     public function getTimeframeFilter()
     {
@@ -839,7 +869,7 @@ class ConditionalBranchActionDataProfileFilterConditionGroupsInnerConditionsInne
     /**
      * Sets timeframe_filter
      *
-     * @param \KlaviyoAPI\Model\FlowsProfileMetricConditionTimeframeFilter $timeframe_filter timeframe_filter
+     * @param \KlaviyoAPI\Model\ProfileHasNotReceivedEmailMessageConditionTimeframeFilter $timeframe_filter timeframe_filter
      *
      * @return self
      */
@@ -1021,7 +1051,7 @@ class ConditionalBranchActionDataProfileFilterConditionGroupsInnerConditionsInne
     /**
      * Sets dimension
      *
-     * @param string $dimension Dimensions for numeric profile predictive analytics conditions.
+     * @param string $dimension Possible dimension for channel affinity criterion.
      *
      * @return self
      */
@@ -1041,6 +1071,80 @@ class ConditionalBranchActionDataProfileFilterConditionGroupsInnerConditionsInne
             );
         }
         $this->container['dimension'] = $dimension;
+
+        return $this;
+    }
+
+    /**
+     * Gets measurement
+     *
+     * @return string
+     */
+    public function getMeasurement()
+    {
+        return $this->container['measurement'];
+    }
+
+    /**
+     * Sets measurement
+     *
+     * @param string $measurement Measurements for profile metrics.
+     *
+     * @return self
+     */
+    public function setMeasurement($measurement)
+    {
+        if (is_null($measurement)) {
+            throw new \InvalidArgumentException('non-nullable measurement cannot be null');
+        }
+        $allowedValues = $this->getMeasurementAllowableValues();
+        if (!in_array($measurement, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'measurement', must be one of '%s'",
+                    $measurement,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['measurement'] = $measurement;
+
+        return $this;
+    }
+
+    /**
+     * Gets predicted_channel
+     *
+     * @return string
+     */
+    public function getPredictedChannel()
+    {
+        return $this->container['predicted_channel'];
+    }
+
+    /**
+     * Sets predicted_channel
+     *
+     * @param string $predicted_channel Possible channels in a channel affinity definition.
+     *
+     * @return self
+     */
+    public function setPredictedChannel($predicted_channel)
+    {
+        if (is_null($predicted_channel)) {
+            throw new \InvalidArgumentException('non-nullable predicted_channel cannot be null');
+        }
+        $allowedValues = $this->getPredictedChannelAllowableValues();
+        if (!in_array($predicted_channel, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'predicted_channel', must be one of '%s'",
+                    $predicted_channel,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['predicted_channel'] = $predicted_channel;
 
         return $this;
     }
@@ -1095,43 +1199,6 @@ class ConditionalBranchActionDataProfileFilterConditionGroupsInnerConditionsInne
             throw new \InvalidArgumentException('non-nullable metric_id cannot be null');
         }
         $this->container['metric_id'] = $metric_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets measurement
-     *
-     * @return string
-     */
-    public function getMeasurement()
-    {
-        return $this->container['measurement'];
-    }
-
-    /**
-     * Sets measurement
-     *
-     * @param string $measurement Measurements for profile metrics.
-     *
-     * @return self
-     */
-    public function setMeasurement($measurement)
-    {
-        if (is_null($measurement)) {
-            throw new \InvalidArgumentException('non-nullable measurement cannot be null');
-        }
-        $allowedValues = $this->getMeasurementAllowableValues();
-        if (!in_array($measurement, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value '%s' for 'measurement', must be one of '%s'",
-                    $measurement,
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
-        $this->container['measurement'] = $measurement;
 
         return $this;
     }

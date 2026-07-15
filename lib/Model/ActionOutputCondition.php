@@ -60,7 +60,7 @@ class ActionOutputCondition implements ModelInterface, ArrayAccess, \JsonSeriali
         'type' => 'string',
         'output_config_id' => 'int',
         'field' => 'string',
-        'filter' => '\KlaviyoAPI\Model\ActionOutputConditionFilter2'
+        'filter' => '\KlaviyoAPI\Model\ActionOutputConditionFilter'
     ];
 
     /**
@@ -438,7 +438,7 @@ class ActionOutputCondition implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Gets filter
      *
-     * @return \KlaviyoAPI\Model\ActionOutputConditionFilter2
+     * @return \KlaviyoAPI\Model\ActionOutputConditionFilter
      */
     public function getFilter()
     {
@@ -448,7 +448,7 @@ class ActionOutputCondition implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Sets filter
      *
-     * @param \KlaviyoAPI\Model\ActionOutputConditionFilter2 $filter filter
+     * @param \KlaviyoAPI\Model\ActionOutputConditionFilter $filter filter
      *
      * @return self
      */

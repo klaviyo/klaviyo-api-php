@@ -60,6 +60,7 @@ class FlowSms implements ModelInterface, ArrayAccess, \JsonSerializable
         'body' => 'string',
         'image_id' => 'string',
         'dynamic_image' => 'string',
+        'message_hierarchy' => 'object[]',
         'shorten_links' => 'bool',
         'include_contact_card' => 'bool',
         'add_org_prefix' => 'bool',
@@ -71,7 +72,7 @@ class FlowSms implements ModelInterface, ArrayAccess, \JsonSerializable
         'add_tracking_params' => 'bool',
         'custom_tracking_params' => '\KlaviyoAPI\Model\UtmParam[]',
         'template_id' => 'string',
-        'additional_filters' => '\KlaviyoAPI\Model\FlowSmsAdditionalFilters',
+        'additional_filters' => '\KlaviyoAPI\Model\ConditionalBranchActionDataProfileFilter',
         'name' => 'string',
         'id' => 'string'
     ];
@@ -87,6 +88,7 @@ class FlowSms implements ModelInterface, ArrayAccess, \JsonSerializable
         'body' => null,
         'image_id' => null,
         'dynamic_image' => null,
+        'message_hierarchy' => null,
         'shorten_links' => null,
         'include_contact_card' => null,
         'add_org_prefix' => null,
@@ -112,6 +114,7 @@ class FlowSms implements ModelInterface, ArrayAccess, \JsonSerializable
         'body' => false,
         'image_id' => true,
         'dynamic_image' => true,
+        'message_hierarchy' => true,
         'shorten_links' => false,
         'include_contact_card' => false,
         'add_org_prefix' => false,
@@ -217,6 +220,7 @@ class FlowSms implements ModelInterface, ArrayAccess, \JsonSerializable
         'body' => 'body',
         'image_id' => 'image_id',
         'dynamic_image' => 'dynamic_image',
+        'message_hierarchy' => 'message_hierarchy',
         'shorten_links' => 'shorten_links',
         'include_contact_card' => 'include_contact_card',
         'add_org_prefix' => 'add_org_prefix',
@@ -242,6 +246,7 @@ class FlowSms implements ModelInterface, ArrayAccess, \JsonSerializable
         'body' => 'setBody',
         'image_id' => 'setImageId',
         'dynamic_image' => 'setDynamicImage',
+        'message_hierarchy' => 'setMessageHierarchy',
         'shorten_links' => 'setShortenLinks',
         'include_contact_card' => 'setIncludeContactCard',
         'add_org_prefix' => 'setAddOrgPrefix',
@@ -267,6 +272,7 @@ class FlowSms implements ModelInterface, ArrayAccess, \JsonSerializable
         'body' => 'getBody',
         'image_id' => 'getImageId',
         'dynamic_image' => 'getDynamicImage',
+        'message_hierarchy' => 'getMessageHierarchy',
         'shorten_links' => 'getShortenLinks',
         'include_contact_card' => 'getIncludeContactCard',
         'add_org_prefix' => 'getAddOrgPrefix',
@@ -343,6 +349,7 @@ class FlowSms implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('body', $data ?? [], null);
         $this->setIfExists('image_id', $data ?? [], null);
         $this->setIfExists('dynamic_image', $data ?? [], null);
+        $this->setIfExists('message_hierarchy', $data ?? [], null);
         $this->setIfExists('shorten_links', $data ?? [], true);
         $this->setIfExists('include_contact_card', $data ?? [], false);
         $this->setIfExists('add_org_prefix', $data ?? [], true);
@@ -495,6 +502,40 @@ class FlowSms implements ModelInterface, ArrayAccess, \JsonSerializable
             }
         }
         $this->container['dynamic_image'] = $dynamic_image;
+
+        return $this;
+    }
+
+    /**
+     * Gets message_hierarchy
+     *
+     * @return object[]|null
+     */
+    public function getMessageHierarchy()
+    {
+        return $this->container['message_hierarchy'];
+    }
+
+    /**
+     * Sets message_hierarchy
+     *
+     * @param object[]|null $message_hierarchy The RCS/SMS message hierarchy (fallback chain). Each item contains a message_format ('RCS' or 'SMS'), message body, and optional rich content.
+     *
+     * @return self
+     */
+    public function setMessageHierarchy($message_hierarchy)
+    {
+        if (is_null($message_hierarchy)) {
+            array_push($this->openAPINullablesSetToNull, 'message_hierarchy');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('message_hierarchy', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['message_hierarchy'] = $message_hierarchy;
 
         return $this;
     }
@@ -813,7 +854,7 @@ class FlowSms implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets additional_filters
      *
-     * @return \KlaviyoAPI\Model\FlowSmsAdditionalFilters|null
+     * @return \KlaviyoAPI\Model\ConditionalBranchActionDataProfileFilter|null
      */
     public function getAdditionalFilters()
     {
@@ -823,7 +864,7 @@ class FlowSms implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets additional_filters
      *
-     * @param \KlaviyoAPI\Model\FlowSmsAdditionalFilters|null $additional_filters additional_filters
+     * @param \KlaviyoAPI\Model\ConditionalBranchActionDataProfileFilter|null $additional_filters additional_filters
      *
      * @return self
      */

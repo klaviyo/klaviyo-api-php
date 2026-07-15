@@ -584,9 +584,6 @@ class ReviewBlockStyles implements ModelInterface, ArrayAccess, \JsonSerializabl
     public const QUOTE_STYLE_LINE = 'line';
     public const QUOTE_STYLE_SQUARE = 'square';
     public const QUOTE_STYLE_STANDARD = 'standard';
-    public const SHADOW_COLOR_DARK = 'dark';
-    public const SHADOW_COLOR_LIGHT = 'light';
-    public const SHADOW_COLOR_MEDIUM = 'medium';
     public const STAR_SIZE_LARGE = 'large';
     public const STAR_SIZE_MEDIUM = 'medium';
     public const STAR_SIZE_SMALL = 'small';
@@ -598,6 +595,9 @@ class ReviewBlockStyles implements ModelInterface, ArrayAccess, \JsonSerializabl
     public const STAR_ALIGNMENT_RIGHT = 'right';
     public const VERIFIED_FONT_STYLE_ITALIC = 'italic';
     public const VERIFIED_FONT_STYLE_NORMAL = 'normal';
+    public const VERIFIED_BADGE_COLOR_DARK = 'dark';
+    public const VERIFIED_BADGE_COLOR__DEFAULT = 'default';
+    public const VERIFIED_BADGE_COLOR_LIGHT = 'light';
     public const VERIFIED_BADGE_STYLE_BADGE_AND_TEXT = 'badge-and-text';
     public const VERIFIED_BADGE_STYLE_BADGE_ONLY = 'badge-only';
     public const VERIFIED_BADGE_STYLE_TEXT_ONLY = 'text-only';
@@ -744,20 +744,6 @@ class ReviewBlockStyles implements ModelInterface, ArrayAccess, \JsonSerializabl
      *
      * @return string[]
      */
-    public function getShadowColorAllowableValues()
-    {
-        return [
-            self::SHADOW_COLOR_DARK,
-            self::SHADOW_COLOR_LIGHT,
-            self::SHADOW_COLOR_MEDIUM,
-        ];
-    }
-
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
     public function getStarSizeAllowableValues()
     {
         return [
@@ -805,6 +791,20 @@ class ReviewBlockStyles implements ModelInterface, ArrayAccess, \JsonSerializabl
         return [
             self::VERIFIED_FONT_STYLE_ITALIC,
             self::VERIFIED_FONT_STYLE_NORMAL,
+        ];
+    }
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getVerifiedBadgeColorAllowableValues()
+    {
+        return [
+            self::VERIFIED_BADGE_COLOR_DARK,
+            self::VERIFIED_BADGE_COLOR__DEFAULT,
+            self::VERIFIED_BADGE_COLOR_LIGHT,
         ];
     }
 
@@ -1001,15 +1001,6 @@ class ReviewBlockStyles implements ModelInterface, ArrayAccess, \JsonSerializabl
             );
         }
 
-        $allowedValues = $this->getShadowColorAllowableValues();
-        if (!is_null($this->container['shadow_color']) && !in_array($this->container['shadow_color'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value '%s' for 'shadow_color', must be one of '%s'",
-                $this->container['shadow_color'],
-                implode("', '", $allowedValues)
-            );
-        }
-
         $allowedValues = $this->getStarSizeAllowableValues();
         if (!is_null($this->container['star_size']) && !in_array($this->container['star_size'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
@@ -1042,6 +1033,15 @@ class ReviewBlockStyles implements ModelInterface, ArrayAccess, \JsonSerializabl
             $invalidProperties[] = sprintf(
                 "invalid value '%s' for 'verified_font_style', must be one of '%s'",
                 $this->container['verified_font_style'],
+                implode("', '", $allowedValues)
+            );
+        }
+
+        $allowedValues = $this->getVerifiedBadgeColorAllowableValues();
+        if (!is_null($this->container['verified_badge_color']) && !in_array($this->container['verified_badge_color'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'verified_badge_color', must be one of '%s'",
+                $this->container['verified_badge_color'],
                 implode("', '", $allowedValues)
             );
         }
@@ -2397,7 +2397,7 @@ class ReviewBlockStyles implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Sets shadow_color
      *
-     * @param string|null $shadow_color Shadow color.
+     * @param string|null $shadow_color shadow_color
      *
      * @return self
      */
@@ -2412,16 +2412,6 @@ class ReviewBlockStyles implements ModelInterface, ArrayAccess, \JsonSerializabl
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
-        }
-        $allowedValues = $this->getShadowColorAllowableValues();
-        if (!is_null($shadow_color) && !in_array($shadow_color, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value '%s' for 'shadow_color', must be one of '%s'",
-                    $shadow_color,
-                    implode("', '", $allowedValues)
-                )
-            );
         }
         $this->container['shadow_color'] = $shadow_color;
 
@@ -2957,7 +2947,7 @@ class ReviewBlockStyles implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Sets verified_badge_color
      *
-     * @param string|null $verified_badge_color verified_badge_color
+     * @param string|null $verified_badge_color Review block verified badge color.
      *
      * @return self
      */
@@ -2972,6 +2962,16 @@ class ReviewBlockStyles implements ModelInterface, ArrayAccess, \JsonSerializabl
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
+        }
+        $allowedValues = $this->getVerifiedBadgeColorAllowableValues();
+        if (!is_null($verified_badge_color) && !in_array($verified_badge_color, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'verified_badge_color', must be one of '%s'",
+                    $verified_badge_color,
+                    implode("', '", $allowedValues)
+                )
+            );
         }
         $this->container['verified_badge_color'] = $verified_badge_color;
 

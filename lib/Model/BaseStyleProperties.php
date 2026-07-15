@@ -61,7 +61,8 @@ class BaseStyleProperties implements ModelInterface, ArrayAccess, \JsonSerializa
         'currency_set_on_template' => 'bool',
         'disable_websafe_fonts' => 'bool',
         'is_user_draggable' => 'bool',
-        'mobile_optimizations' => 'bool'
+        'mobile_optimizations' => 'bool',
+        'tip_tap_enabled' => 'bool'
     ];
 
     /**
@@ -76,7 +77,8 @@ class BaseStyleProperties implements ModelInterface, ArrayAccess, \JsonSerializa
         'currency_set_on_template' => null,
         'disable_websafe_fonts' => null,
         'is_user_draggable' => null,
-        'mobile_optimizations' => null
+        'mobile_optimizations' => null,
+        'tip_tap_enabled' => null
     ];
 
     /**
@@ -89,7 +91,8 @@ class BaseStyleProperties implements ModelInterface, ArrayAccess, \JsonSerializa
         'currency_set_on_template' => true,
         'disable_websafe_fonts' => true,
         'is_user_draggable' => true,
-        'mobile_optimizations' => true
+        'mobile_optimizations' => true,
+        'tip_tap_enabled' => true
     ];
 
     /**
@@ -182,7 +185,8 @@ class BaseStyleProperties implements ModelInterface, ArrayAccess, \JsonSerializa
         'currency_set_on_template' => 'currency_set_on_template',
         'disable_websafe_fonts' => 'disable_websafe_fonts',
         'is_user_draggable' => 'is_user_draggable',
-        'mobile_optimizations' => 'mobile_optimizations'
+        'mobile_optimizations' => 'mobile_optimizations',
+        'tip_tap_enabled' => 'tip_tap_enabled'
     ];
 
     /**
@@ -195,7 +199,8 @@ class BaseStyleProperties implements ModelInterface, ArrayAccess, \JsonSerializa
         'currency_set_on_template' => 'setCurrencySetOnTemplate',
         'disable_websafe_fonts' => 'setDisableWebsafeFonts',
         'is_user_draggable' => 'setIsUserDraggable',
-        'mobile_optimizations' => 'setMobileOptimizations'
+        'mobile_optimizations' => 'setMobileOptimizations',
+        'tip_tap_enabled' => 'setTipTapEnabled'
     ];
 
     /**
@@ -208,7 +213,8 @@ class BaseStyleProperties implements ModelInterface, ArrayAccess, \JsonSerializa
         'currency_set_on_template' => 'getCurrencySetOnTemplate',
         'disable_websafe_fonts' => 'getDisableWebsafeFonts',
         'is_user_draggable' => 'getIsUserDraggable',
-        'mobile_optimizations' => 'getMobileOptimizations'
+        'mobile_optimizations' => 'getMobileOptimizations',
+        'tip_tap_enabled' => 'getTipTapEnabled'
     ];
 
     /**
@@ -273,6 +279,7 @@ class BaseStyleProperties implements ModelInterface, ArrayAccess, \JsonSerializa
         $this->setIfExists('disable_websafe_fonts', $data ?? [], null);
         $this->setIfExists('is_user_draggable', $data ?? [], null);
         $this->setIfExists('mobile_optimizations', $data ?? [], null);
+        $this->setIfExists('tip_tap_enabled', $data ?? [], null);
     }
 
     /**
@@ -483,6 +490,40 @@ class BaseStyleProperties implements ModelInterface, ArrayAccess, \JsonSerializa
             }
         }
         $this->container['mobile_optimizations'] = $mobile_optimizations;
+
+        return $this;
+    }
+
+    /**
+     * Gets tip_tap_enabled
+     *
+     * @return bool|null
+     */
+    public function getTipTapEnabled()
+    {
+        return $this->container['tip_tap_enabled'];
+    }
+
+    /**
+     * Sets tip_tap_enabled
+     *
+     * @param bool|null $tip_tap_enabled tip_tap_enabled
+     *
+     * @return self
+     */
+    public function setTipTapEnabled($tip_tap_enabled)
+    {
+        if (is_null($tip_tap_enabled)) {
+            array_push($this->openAPINullablesSetToNull, 'tip_tap_enabled');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('tip_tap_enabled', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['tip_tap_enabled'] = $tip_tap_enabled;
 
         return $this;
     }

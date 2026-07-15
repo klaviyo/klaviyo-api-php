@@ -424,7 +424,7 @@ class TemplateDefinition implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets styles
      *
-     * @param \KlaviyoAPI\Model\TemplateDefinitionStylesInner[] $styles styles
+     * @param \KlaviyoAPI\Model\TemplateDefinitionStylesInner[] $styles When present, must contain exactly one of each style type.
      *
      * @return self
      */

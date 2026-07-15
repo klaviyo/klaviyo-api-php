@@ -69,7 +69,7 @@ class FlowEmail implements ModelInterface, ArrayAccess, \JsonSerializable
         'transactional' => 'bool',
         'add_tracking_params' => 'bool',
         'custom_tracking_params' => '\KlaviyoAPI\Model\UtmParam[]',
-        'additional_filters' => '\KlaviyoAPI\Model\FlowEmailAdditionalFilters',
+        'additional_filters' => '\KlaviyoAPI\Model\ConditionalBranchActionDataProfileFilter',
         'name' => 'string',
         'id' => 'string'
     ];
@@ -372,27 +372,6 @@ class FlowEmail implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
-        if ($this->container['from_email'] === null) {
-            $invalidProperties[] = "'from_email' can't be null";
-        }
-        if ($this->container['from_label'] === null) {
-            $invalidProperties[] = "'from_label' can't be null";
-        }
-        if ($this->container['reply_to_email'] === null) {
-            $invalidProperties[] = "'reply_to_email' can't be null";
-        }
-        if ($this->container['cc_email'] === null) {
-            $invalidProperties[] = "'cc_email' can't be null";
-        }
-        if ($this->container['bcc_email'] === null) {
-            $invalidProperties[] = "'bcc_email' can't be null";
-        }
-        if ($this->container['subject_line'] === null) {
-            $invalidProperties[] = "'subject_line' can't be null";
-        }
-        if ($this->container['preview_text'] === null) {
-            $invalidProperties[] = "'preview_text' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -411,7 +390,7 @@ class FlowEmail implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets from_email
      *
-     * @return string
+     * @return string|null
      */
     public function getFromEmail()
     {
@@ -421,7 +400,7 @@ class FlowEmail implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets from_email
      *
-     * @param string $from_email from_email
+     * @param string|null $from_email from_email
      *
      * @return self
      */
@@ -445,7 +424,7 @@ class FlowEmail implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets from_label
      *
-     * @return string
+     * @return string|null
      */
     public function getFromLabel()
     {
@@ -455,7 +434,7 @@ class FlowEmail implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets from_label
      *
-     * @param string $from_label from_label
+     * @param string|null $from_label from_label
      *
      * @return self
      */
@@ -479,7 +458,7 @@ class FlowEmail implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets reply_to_email
      *
-     * @return string
+     * @return string|null
      */
     public function getReplyToEmail()
     {
@@ -489,7 +468,7 @@ class FlowEmail implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets reply_to_email
      *
-     * @param string $reply_to_email reply_to_email
+     * @param string|null $reply_to_email reply_to_email
      *
      * @return self
      */
@@ -513,7 +492,7 @@ class FlowEmail implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets cc_email
      *
-     * @return string
+     * @return string|null
      */
     public function getCcEmail()
     {
@@ -523,7 +502,7 @@ class FlowEmail implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets cc_email
      *
-     * @param string $cc_email cc_email
+     * @param string|null $cc_email cc_email
      *
      * @return self
      */
@@ -547,7 +526,7 @@ class FlowEmail implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets bcc_email
      *
-     * @return string
+     * @return string|null
      */
     public function getBccEmail()
     {
@@ -557,7 +536,7 @@ class FlowEmail implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets bcc_email
      *
-     * @param string $bcc_email bcc_email
+     * @param string|null $bcc_email bcc_email
      *
      * @return self
      */
@@ -581,7 +560,7 @@ class FlowEmail implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets subject_line
      *
-     * @return string
+     * @return string|null
      */
     public function getSubjectLine()
     {
@@ -591,7 +570,7 @@ class FlowEmail implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets subject_line
      *
-     * @param string $subject_line subject_line
+     * @param string|null $subject_line subject_line
      *
      * @return self
      */
@@ -615,7 +594,7 @@ class FlowEmail implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets preview_text
      *
-     * @return string
+     * @return string|null
      */
     public function getPreviewText()
     {
@@ -625,7 +604,7 @@ class FlowEmail implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets preview_text
      *
-     * @param string $preview_text preview_text
+     * @param string|null $preview_text preview_text
      *
      * @return self
      */
@@ -798,7 +777,7 @@ class FlowEmail implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets additional_filters
      *
-     * @return \KlaviyoAPI\Model\FlowEmailAdditionalFilters|null
+     * @return \KlaviyoAPI\Model\ConditionalBranchActionDataProfileFilter|null
      */
     public function getAdditionalFilters()
     {
@@ -808,7 +787,7 @@ class FlowEmail implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets additional_filters
      *
-     * @param \KlaviyoAPI\Model\FlowEmailAdditionalFilters|null $additional_filters additional_filters
+     * @param \KlaviyoAPI\Model\ConditionalBranchActionDataProfileFilter|null $additional_filters additional_filters
      *
      * @return self
      */

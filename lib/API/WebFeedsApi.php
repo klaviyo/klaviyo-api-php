@@ -143,15 +143,16 @@ class WebFeedsApi
      * Create Web Feed
      *
      * @param  \KlaviyoAPI\Model\WebFeedCreateQuery $web_feed_create_query Create a web feed (required)
+     * @param  string[]|null $fields_web_feed For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createWebFeed'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array<string,mixed>|\KlaviyoAPI\Model\GetAccounts400Response|\KlaviyoAPI\Model\GetAccounts400Response
      */
-    public function createWebFeed($web_feed_create_query, $apiKey = null, string $contentType = self::contentTypes['createWebFeed'][0])
+    public function createWebFeed($web_feed_create_query, $fields_web_feed = null, $apiKey = null, string $contentType = self::contentTypes['createWebFeed'][0])
     {
-        list($response) = $this->createWebFeedWithHttpInfo($web_feed_create_query, $apiKey, $contentType);
+        list($response) = $this->createWebFeedWithHttpInfo($web_feed_create_query, $fields_web_feed, $apiKey, $contentType);
         return $response;
     }
 
@@ -161,15 +162,16 @@ class WebFeedsApi
      * Create Web Feed
      *
      * @param  \KlaviyoAPI\Model\WebFeedCreateQuery $web_feed_create_query Create a web feed (required)
+     * @param  string[]|null $fields_web_feed For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createWebFeed'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of array<string,mixed>|\KlaviyoAPI\Model\GetAccounts400Response|\KlaviyoAPI\Model\GetAccounts400Response, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createWebFeedWithHttpInfo($web_feed_create_query, $apiKey = null, string $contentType = self::contentTypes['createWebFeed'][0])
+    public function createWebFeedWithHttpInfo($web_feed_create_query, $fields_web_feed = null, $apiKey = null, string $contentType = self::contentTypes['createWebFeed'][0])
     {
-        $request = $this->createWebFeedRequest($web_feed_create_query, $apiKey, $contentType);
+        $request = $this->createWebFeedRequest($web_feed_create_query, $fields_web_feed, $apiKey, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -274,14 +276,15 @@ class WebFeedsApi
      * Create Web Feed
      *
      * @param  \KlaviyoAPI\Model\WebFeedCreateQuery $web_feed_create_query Create a web feed (required)
+     * @param  string[]|null $fields_web_feed For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createWebFeed'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createWebFeedAsync($web_feed_create_query, $apiKey = null, string $contentType = self::contentTypes['createWebFeed'][0])
+    public function createWebFeedAsync($web_feed_create_query, $fields_web_feed = null, $apiKey = null, string $contentType = self::contentTypes['createWebFeed'][0])
     {
-        return $this->createWebFeedAsyncWithHttpInfo($web_feed_create_query, $apiKey, $contentType)
+        return $this->createWebFeedAsyncWithHttpInfo($web_feed_create_query, $fields_web_feed, $apiKey, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -295,15 +298,16 @@ class WebFeedsApi
      * Create Web Feed
      *
      * @param  \KlaviyoAPI\Model\WebFeedCreateQuery $web_feed_create_query Create a web feed (required)
+     * @param  string[]|null $fields_web_feed For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createWebFeed'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createWebFeedAsyncWithHttpInfo($web_feed_create_query, $apiKey = null, string $contentType = self::contentTypes['createWebFeed'][0])
+    public function createWebFeedAsyncWithHttpInfo($web_feed_create_query, $fields_web_feed = null, $apiKey = null, string $contentType = self::contentTypes['createWebFeed'][0])
     {
         $returnType = 'array<string,mixed>';
-        $request = $this->createWebFeedRequest($web_feed_create_query, $apiKey, $contentType);
+        $request = $this->createWebFeedRequest($web_feed_create_query, $fields_web_feed, $apiKey, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -350,12 +354,13 @@ class WebFeedsApi
      * Create request for operation 'createWebFeed'
      *
      * @param  \KlaviyoAPI\Model\WebFeedCreateQuery $web_feed_create_query Create a web feed (required)
+     * @param  string[]|null $fields_web_feed For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createWebFeed'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function createWebFeedRequest($web_feed_create_query, $apiKey = null, string $contentType = self::contentTypes['createWebFeed'][0])
+    public function createWebFeedRequest($web_feed_create_query, $fields_web_feed = null, $apiKey = null, string $contentType = self::contentTypes['createWebFeed'][0])
     {
 
         // verify the required parameter 'web_feed_create_query' is set
@@ -366,6 +371,7 @@ class WebFeedsApi
         }
 
 
+
         $resourcePath = '/api/web-feeds';
         $formParams = [];
         $queryParams = [];
@@ -373,6 +379,15 @@ class WebFeedsApi
         $httpBody = '';
         $multipart = false;
 
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $fields_web_feed,
+            'fields[web-feed]', // param base name
+            'array', // openApiType
+            'form', // style
+            false, // explode
+            false // required
+        ) ?? []);
 
 
 
@@ -430,7 +445,7 @@ class WebFeedsApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2026-04-15'];
+        $defaultHeaders['revision'] = ['2026-07-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -674,7 +689,7 @@ class WebFeedsApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2026-04-15'];
+        $defaultHeaders['revision'] = ['2026-07-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -697,7 +712,7 @@ class WebFeedsApi
      * Get Web Feed
      *
      * @param  string $id The ID of the web feed (required)
-     * @param  string[]|null $fields_web_feed For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_web_feed For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWebFeed'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -716,7 +731,7 @@ class WebFeedsApi
      * Get Web Feed
      *
      * @param  string $id The ID of the web feed (required)
-     * @param  string[]|null $fields_web_feed For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_web_feed For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWebFeed'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -830,7 +845,7 @@ class WebFeedsApi
      * Get Web Feed
      *
      * @param  string $id The ID of the web feed (required)
-     * @param  string[]|null $fields_web_feed For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_web_feed For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWebFeed'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -852,7 +867,7 @@ class WebFeedsApi
      * Get Web Feed
      *
      * @param  string $id The ID of the web feed (required)
-     * @param  string[]|null $fields_web_feed For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_web_feed For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWebFeed'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -908,7 +923,7 @@ class WebFeedsApi
      * Create request for operation 'getWebFeed'
      *
      * @param  string $id The ID of the web feed (required)
-     * @param  string[]|null $fields_web_feed For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_web_feed For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWebFeed'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1000,7 +1015,7 @@ class WebFeedsApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2026-04-15'];
+        $defaultHeaders['revision'] = ['2026-07-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -1022,11 +1037,11 @@ class WebFeedsApi
      *
      * Get Web Feeds
      *
-     * @param  string[]|null $fields_web_feed For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;name&#x60;: &#x60;any&#x60;, &#x60;contains&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;created&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60;&lt;br&gt;&#x60;updated&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60; (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination (optional)
+     * @param  string[]|null $fields_web_feed For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;name&#x60;: &#x60;any&#x60;, &#x60;contains&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;created&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60;&lt;br&gt;&#x60;updated&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60; (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination (optional)
      * @param  int|null $page_size Default: 5. Min: 1. Max: 20. (optional, default to 5)
-     * @param  string|null $sort For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sorting (optional)
+     * @param  string|null $sort For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sorting (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWebFeeds'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -1044,11 +1059,11 @@ class WebFeedsApi
      *
      * Get Web Feeds
      *
-     * @param  string[]|null $fields_web_feed For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;name&#x60;: &#x60;any&#x60;, &#x60;contains&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;created&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60;&lt;br&gt;&#x60;updated&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60; (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination (optional)
+     * @param  string[]|null $fields_web_feed For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;name&#x60;: &#x60;any&#x60;, &#x60;contains&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;created&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60;&lt;br&gt;&#x60;updated&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60; (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination (optional)
      * @param  int|null $page_size Default: 5. Min: 1. Max: 20. (optional, default to 5)
-     * @param  string|null $sort For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sorting (optional)
+     * @param  string|null $sort For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sorting (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWebFeeds'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -1161,11 +1176,11 @@ class WebFeedsApi
      *
      * Get Web Feeds
      *
-     * @param  string[]|null $fields_web_feed For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;name&#x60;: &#x60;any&#x60;, &#x60;contains&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;created&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60;&lt;br&gt;&#x60;updated&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60; (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination (optional)
+     * @param  string[]|null $fields_web_feed For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;name&#x60;: &#x60;any&#x60;, &#x60;contains&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;created&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60;&lt;br&gt;&#x60;updated&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60; (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination (optional)
      * @param  int|null $page_size Default: 5. Min: 1. Max: 20. (optional, default to 5)
-     * @param  string|null $sort For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sorting (optional)
+     * @param  string|null $sort For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sorting (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWebFeeds'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1186,11 +1201,11 @@ class WebFeedsApi
      *
      * Get Web Feeds
      *
-     * @param  string[]|null $fields_web_feed For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;name&#x60;: &#x60;any&#x60;, &#x60;contains&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;created&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60;&lt;br&gt;&#x60;updated&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60; (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination (optional)
+     * @param  string[]|null $fields_web_feed For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;name&#x60;: &#x60;any&#x60;, &#x60;contains&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;created&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60;&lt;br&gt;&#x60;updated&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60; (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination (optional)
      * @param  int|null $page_size Default: 5. Min: 1. Max: 20. (optional, default to 5)
-     * @param  string|null $sort For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sorting (optional)
+     * @param  string|null $sort For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sorting (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWebFeeds'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1245,11 +1260,11 @@ class WebFeedsApi
     /**
      * Create request for operation 'getWebFeeds'
      *
-     * @param  string[]|null $fields_web_feed For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;name&#x60;: &#x60;any&#x60;, &#x60;contains&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;created&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60;&lt;br&gt;&#x60;updated&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60; (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination (optional)
+     * @param  string[]|null $fields_web_feed For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;name&#x60;: &#x60;any&#x60;, &#x60;contains&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;created&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60;&lt;br&gt;&#x60;updated&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60; (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination (optional)
      * @param  int|null $page_size Default: 5. Min: 1. Max: 20. (optional, default to 5)
-     * @param  string|null $sort For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sorting (optional)
+     * @param  string|null $sort For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sorting (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWebFeeds'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1372,7 +1387,7 @@ class WebFeedsApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2026-04-15'];
+        $defaultHeaders['revision'] = ['2026-07-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -1396,15 +1411,16 @@ class WebFeedsApi
      *
      * @param  string $id The ID of the web feed (required)
      * @param  \KlaviyoAPI\Model\WebFeedPartialUpdateQuery $web_feed_partial_update_query Update a web feed by ID (required)
+     * @param  string[]|null $fields_web_feed For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateWebFeed'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array<string,mixed>|\KlaviyoAPI\Model\GetAccounts400Response|\KlaviyoAPI\Model\GetAccounts400Response
      */
-    public function updateWebFeed($id, $web_feed_partial_update_query, $apiKey = null, string $contentType = self::contentTypes['updateWebFeed'][0])
+    public function updateWebFeed($id, $web_feed_partial_update_query, $fields_web_feed = null, $apiKey = null, string $contentType = self::contentTypes['updateWebFeed'][0])
     {
-        list($response) = $this->updateWebFeedWithHttpInfo($id, $web_feed_partial_update_query, $apiKey, $contentType);
+        list($response) = $this->updateWebFeedWithHttpInfo($id, $web_feed_partial_update_query, $fields_web_feed, $apiKey, $contentType);
         return $response;
     }
 
@@ -1415,15 +1431,16 @@ class WebFeedsApi
      *
      * @param  string $id The ID of the web feed (required)
      * @param  \KlaviyoAPI\Model\WebFeedPartialUpdateQuery $web_feed_partial_update_query Update a web feed by ID (required)
+     * @param  string[]|null $fields_web_feed For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateWebFeed'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of array<string,mixed>|\KlaviyoAPI\Model\GetAccounts400Response|\KlaviyoAPI\Model\GetAccounts400Response, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updateWebFeedWithHttpInfo($id, $web_feed_partial_update_query, $apiKey = null, string $contentType = self::contentTypes['updateWebFeed'][0])
+    public function updateWebFeedWithHttpInfo($id, $web_feed_partial_update_query, $fields_web_feed = null, $apiKey = null, string $contentType = self::contentTypes['updateWebFeed'][0])
     {
-        $request = $this->updateWebFeedRequest($id, $web_feed_partial_update_query, $apiKey, $contentType);
+        $request = $this->updateWebFeedRequest($id, $web_feed_partial_update_query, $fields_web_feed, $apiKey, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1529,14 +1546,15 @@ class WebFeedsApi
      *
      * @param  string $id The ID of the web feed (required)
      * @param  \KlaviyoAPI\Model\WebFeedPartialUpdateQuery $web_feed_partial_update_query Update a web feed by ID (required)
+     * @param  string[]|null $fields_web_feed For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateWebFeed'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateWebFeedAsync($id, $web_feed_partial_update_query, $apiKey = null, string $contentType = self::contentTypes['updateWebFeed'][0])
+    public function updateWebFeedAsync($id, $web_feed_partial_update_query, $fields_web_feed = null, $apiKey = null, string $contentType = self::contentTypes['updateWebFeed'][0])
     {
-        return $this->updateWebFeedAsyncWithHttpInfo($id, $web_feed_partial_update_query, $apiKey, $contentType)
+        return $this->updateWebFeedAsyncWithHttpInfo($id, $web_feed_partial_update_query, $fields_web_feed, $apiKey, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1551,15 +1569,16 @@ class WebFeedsApi
      *
      * @param  string $id The ID of the web feed (required)
      * @param  \KlaviyoAPI\Model\WebFeedPartialUpdateQuery $web_feed_partial_update_query Update a web feed by ID (required)
+     * @param  string[]|null $fields_web_feed For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateWebFeed'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateWebFeedAsyncWithHttpInfo($id, $web_feed_partial_update_query, $apiKey = null, string $contentType = self::contentTypes['updateWebFeed'][0])
+    public function updateWebFeedAsyncWithHttpInfo($id, $web_feed_partial_update_query, $fields_web_feed = null, $apiKey = null, string $contentType = self::contentTypes['updateWebFeed'][0])
     {
         $returnType = 'array<string,mixed>';
-        $request = $this->updateWebFeedRequest($id, $web_feed_partial_update_query, $apiKey, $contentType);
+        $request = $this->updateWebFeedRequest($id, $web_feed_partial_update_query, $fields_web_feed, $apiKey, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1607,12 +1626,13 @@ class WebFeedsApi
      *
      * @param  string $id The ID of the web feed (required)
      * @param  \KlaviyoAPI\Model\WebFeedPartialUpdateQuery $web_feed_partial_update_query Update a web feed by ID (required)
+     * @param  string[]|null $fields_web_feed For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateWebFeed'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function updateWebFeedRequest($id, $web_feed_partial_update_query, $apiKey = null, string $contentType = self::contentTypes['updateWebFeed'][0])
+    public function updateWebFeedRequest($id, $web_feed_partial_update_query, $fields_web_feed = null, $apiKey = null, string $contentType = self::contentTypes['updateWebFeed'][0])
     {
 
         // verify the required parameter 'id' is set
@@ -1630,6 +1650,7 @@ class WebFeedsApi
         }
 
 
+
         $resourcePath = '/api/web-feeds/{id}';
         $formParams = [];
         $queryParams = [];
@@ -1637,6 +1658,15 @@ class WebFeedsApi
         $httpBody = '';
         $multipart = false;
 
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $fields_web_feed,
+            'fields[web-feed]', // param base name
+            'array', // openApiType
+            'form', // style
+            false, // explode
+            false // required
+        ) ?? []);
 
 
         // path params
@@ -1702,7 +1732,7 @@ class WebFeedsApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2026-04-15'];
+        $defaultHeaders['revision'] = ['2026-07-15'];
 
         $headers = array_merge(
             $defaultHeaders,

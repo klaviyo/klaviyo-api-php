@@ -58,6 +58,7 @@ class SignupCounterProperties implements ModelInterface, ArrayAccess, \JsonSeria
       */
     protected static $openAPITypes = [
         'display_device' => 'string[]',
+        'classname' => 'string',
         'timeframe' => 'string',
         'min_submits' => 'int',
         'content' => 'string'
@@ -72,6 +73,7 @@ class SignupCounterProperties implements ModelInterface, ArrayAccess, \JsonSeria
       */
     protected static $openAPIFormats = [
         'display_device' => null,
+        'classname' => null,
         'timeframe' => null,
         'min_submits' => null,
         'content' => null
@@ -84,6 +86,7 @@ class SignupCounterProperties implements ModelInterface, ArrayAccess, \JsonSeria
       */
     protected static array $openAPINullables = [
         'display_device' => false,
+        'classname' => true,
         'timeframe' => false,
         'min_submits' => false,
         'content' => false
@@ -176,6 +179,7 @@ class SignupCounterProperties implements ModelInterface, ArrayAccess, \JsonSeria
      */
     protected static $attributeMap = [
         'display_device' => 'display_device',
+        'classname' => 'classname',
         'timeframe' => 'timeframe',
         'min_submits' => 'min_submits',
         'content' => 'content'
@@ -188,6 +192,7 @@ class SignupCounterProperties implements ModelInterface, ArrayAccess, \JsonSeria
      */
     protected static $setters = [
         'display_device' => 'setDisplayDevice',
+        'classname' => 'setClassname',
         'timeframe' => 'setTimeframe',
         'min_submits' => 'setMinSubmits',
         'content' => 'setContent'
@@ -200,6 +205,7 @@ class SignupCounterProperties implements ModelInterface, ArrayAccess, \JsonSeria
      */
     protected static $getters = [
         'display_device' => 'getDisplayDevice',
+        'classname' => 'getClassname',
         'timeframe' => 'getTimeframe',
         'min_submits' => 'getMinSubmits',
         'content' => 'getContent'
@@ -299,6 +305,7 @@ class SignupCounterProperties implements ModelInterface, ArrayAccess, \JsonSeria
     public function __construct(?array $data = null)
     {
         $this->setIfExists('display_device', $data ?? [], null);
+        $this->setIfExists('classname', $data ?? [], null);
         $this->setIfExists('timeframe', $data ?? [], null);
         $this->setIfExists('min_submits', $data ?? [], null);
         $this->setIfExists('content', $data ?? [], null);
@@ -396,6 +403,40 @@ class SignupCounterProperties implements ModelInterface, ArrayAccess, \JsonSeria
             );
         }
         $this->container['display_device'] = $display_device;
+
+        return $this;
+    }
+
+    /**
+     * Gets classname
+     *
+     * @return string|null
+     */
+    public function getClassname()
+    {
+        return $this->container['classname'];
+    }
+
+    /**
+     * Sets classname
+     *
+     * @param string|null $classname classname
+     *
+     * @return self
+     */
+    public function setClassname($classname)
+    {
+        if (is_null($classname)) {
+            array_push($this->openAPINullablesSetToNull, 'classname');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('classname', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['classname'] = $classname;
 
         return $this;
     }

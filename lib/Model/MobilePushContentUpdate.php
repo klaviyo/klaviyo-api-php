@@ -59,7 +59,8 @@ class MobilePushContentUpdate implements ModelInterface, ArrayAccess, \JsonSeria
     protected static $openAPITypes = [
         'title' => 'string',
         'body' => 'string',
-        'dynamic_image' => 'string'
+        'dynamic_image' => 'string',
+        'action_buttons' => '\KlaviyoAPI\Model\PushActionButtonDefinition[]'
     ];
 
     /**
@@ -72,7 +73,8 @@ class MobilePushContentUpdate implements ModelInterface, ArrayAccess, \JsonSeria
     protected static $openAPIFormats = [
         'title' => null,
         'body' => null,
-        'dynamic_image' => null
+        'dynamic_image' => null,
+        'action_buttons' => null
     ];
 
     /**
@@ -83,7 +85,8 @@ class MobilePushContentUpdate implements ModelInterface, ArrayAccess, \JsonSeria
     protected static array $openAPINullables = [
         'title' => true,
         'body' => true,
-        'dynamic_image' => true
+        'dynamic_image' => true,
+        'action_buttons' => true
     ];
 
     /**
@@ -174,7 +177,8 @@ class MobilePushContentUpdate implements ModelInterface, ArrayAccess, \JsonSeria
     protected static $attributeMap = [
         'title' => 'title',
         'body' => 'body',
-        'dynamic_image' => 'dynamic_image'
+        'dynamic_image' => 'dynamic_image',
+        'action_buttons' => 'action_buttons'
     ];
 
     /**
@@ -185,7 +189,8 @@ class MobilePushContentUpdate implements ModelInterface, ArrayAccess, \JsonSeria
     protected static $setters = [
         'title' => 'setTitle',
         'body' => 'setBody',
-        'dynamic_image' => 'setDynamicImage'
+        'dynamic_image' => 'setDynamicImage',
+        'action_buttons' => 'setActionButtons'
     ];
 
     /**
@@ -196,7 +201,8 @@ class MobilePushContentUpdate implements ModelInterface, ArrayAccess, \JsonSeria
     protected static $getters = [
         'title' => 'getTitle',
         'body' => 'getBody',
-        'dynamic_image' => 'getDynamicImage'
+        'dynamic_image' => 'getDynamicImage',
+        'action_buttons' => 'getActionButtons'
     ];
 
     /**
@@ -259,6 +265,7 @@ class MobilePushContentUpdate implements ModelInterface, ArrayAccess, \JsonSeria
         $this->setIfExists('title', $data ?? [], null);
         $this->setIfExists('body', $data ?? [], null);
         $this->setIfExists('dynamic_image', $data ?? [], null);
+        $this->setIfExists('action_buttons', $data ?? [], null);
     }
 
     /**
@@ -401,6 +408,40 @@ class MobilePushContentUpdate implements ModelInterface, ArrayAccess, \JsonSeria
             }
         }
         $this->container['dynamic_image'] = $dynamic_image;
+
+        return $this;
+    }
+
+    /**
+     * Gets action_buttons
+     *
+     * @return \KlaviyoAPI\Model\PushActionButtonDefinition[]|null
+     */
+    public function getActionButtons()
+    {
+        return $this->container['action_buttons'];
+    }
+
+    /**
+     * Sets action_buttons
+     *
+     * @param \KlaviyoAPI\Model\PushActionButtonDefinition[]|null $action_buttons Action buttons for the push notification (max 3, positions 0-indexed with no gaps)
+     *
+     * @return self
+     */
+    public function setActionButtons($action_buttons)
+    {
+        if (is_null($action_buttons)) {
+            array_push($this->openAPINullablesSetToNull, 'action_buttons');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('action_buttons', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['action_buttons'] = $action_buttons;
 
         return $this;
     }

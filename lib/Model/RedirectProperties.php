@@ -257,7 +257,7 @@ class RedirectProperties implements ModelInterface, ArrayAccess, \JsonSerializab
     public function __construct(?array $data = null)
     {
         $this->setIfExists('list_id', $data ?? [], null);
-        $this->setIfExists('url', $data ?? [], null);
+        $this->setIfExists('url', $data ?? [], '');
         $this->setIfExists('new_window', $data ?? [], false);
     }
 
@@ -288,9 +288,6 @@ class RedirectProperties implements ModelInterface, ArrayAccess, \JsonSerializab
     {
         $invalidProperties = [];
 
-        if ($this->container['url'] === null) {
-            $invalidProperties[] = "'url' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -343,7 +340,7 @@ class RedirectProperties implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Gets url
      *
-     * @return string
+     * @return string|null
      */
     public function getUrl()
     {
@@ -353,7 +350,7 @@ class RedirectProperties implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets url
      *
-     * @param string $url url
+     * @param string|null $url url
      *
      * @return self
      */

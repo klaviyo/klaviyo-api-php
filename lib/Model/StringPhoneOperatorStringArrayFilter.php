@@ -408,7 +408,7 @@ class StringPhoneOperatorStringArrayFilter implements ModelInterface, ArrayAcces
     /**
      * Sets operator
      *
-     * @param string $operator Operators for phone string array filters.  Example condition using this filter:         {
+     * @param string $operator Operators for phone string array filters.  Example condition using this filter:         {             \"type\": \"profile-property\",             \"field\": \"phone\",             \"filter\": {                 \"type\": \"string\",                 \"operator\": \"phone-country-code-in\",                 \"value\": [\"US\", \"GB\"]             }         }
      *
      * @return self
      */

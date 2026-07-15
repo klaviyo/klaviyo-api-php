@@ -274,9 +274,6 @@ class Link implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
-        if ($this->container['next'] === null) {
-            $invalidProperties[] = "'next' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -295,7 +292,7 @@ class Link implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets next
      *
-     * @return string
+     * @return string|null
      */
     public function getNext()
     {
@@ -305,7 +302,7 @@ class Link implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets next
      *
-     * @param string $next next
+     * @param string|null $next next
      *
      * @return self
      */

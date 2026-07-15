@@ -258,6 +258,7 @@ class ProfilePredictiveAnalyticsChannelAffinityPriorityCondition implements Mode
     public const PREDICTED_CHANNEL_EMAIL = 'email';
     public const PREDICTED_CHANNEL_PUSH = 'push';
     public const PREDICTED_CHANNEL_SMS = 'sms';
+    public const PREDICTED_CHANNEL_WHATSAPP = 'whatsapp';
 
     /**
      * Gets allowable values of the enum
@@ -306,6 +307,7 @@ class ProfilePredictiveAnalyticsChannelAffinityPriorityCondition implements Mode
             self::PREDICTED_CHANNEL_EMAIL,
             self::PREDICTED_CHANNEL_PUSH,
             self::PREDICTED_CHANNEL_SMS,
+            self::PREDICTED_CHANNEL_WHATSAPP,
         ];
     }
 

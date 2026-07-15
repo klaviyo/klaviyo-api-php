@@ -391,6 +391,7 @@ class ConditionGroupConditionsInner implements ModelInterface, ArrayAccess, \Jso
     public const PREDICTED_CHANNEL_EMAIL = 'email';
     public const PREDICTED_CHANNEL_PUSH = 'push';
     public const PREDICTED_CHANNEL_SMS = 'sms';
+    public const PREDICTED_CHANNEL_WHATSAPP = 'whatsapp';
     public const CHANNEL_WHATSAPP_MARKETING = 'whatsapp_marketing';
     public const CHANNEL_WHATSAPP_TRANSACTIONAL = 'whatsapp_transactional';
     public const COMPLETION_WINDOW_SECONDS_DAYS_1 = 'DAYS_1';
@@ -485,6 +486,7 @@ class ConditionGroupConditionsInner implements ModelInterface, ArrayAccess, \Jso
             self::PREDICTED_CHANNEL_EMAIL,
             self::PREDICTED_CHANNEL_PUSH,
             self::PREDICTED_CHANNEL_SMS,
+            self::PREDICTED_CHANNEL_WHATSAPP,
         ];
     }
 

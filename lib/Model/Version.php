@@ -69,7 +69,9 @@ class Version implements ModelInterface, ArrayAccess, \JsonSerializable
         'location' => 'string',
         'status' => 'string',
         'ab_test' => 'bool',
-        'specialties' => 'string[]'
+        'specialties' => 'string[]',
+        'channel' => 'string',
+        'message_priority' => 'int'
     ];
 
     /**
@@ -92,7 +94,9 @@ class Version implements ModelInterface, ArrayAccess, \JsonSerializable
         'location' => null,
         'status' => null,
         'ab_test' => null,
-        'specialties' => null
+        'specialties' => null,
+        'channel' => null,
+        'message_priority' => null
     ];
 
     /**
@@ -113,7 +117,9 @@ class Version implements ModelInterface, ArrayAccess, \JsonSerializable
         'location' => true,
         'status' => false,
         'ab_test' => false,
-        'specialties' => false
+        'specialties' => false,
+        'channel' => false,
+        'message_priority' => false
     ];
 
     /**
@@ -214,7 +220,9 @@ class Version implements ModelInterface, ArrayAccess, \JsonSerializable
         'location' => 'location',
         'status' => 'status',
         'ab_test' => 'ab_test',
-        'specialties' => 'specialties'
+        'specialties' => 'specialties',
+        'channel' => 'channel',
+        'message_priority' => 'message_priority'
     ];
 
     /**
@@ -235,7 +243,9 @@ class Version implements ModelInterface, ArrayAccess, \JsonSerializable
         'location' => 'setLocation',
         'status' => 'setStatus',
         'ab_test' => 'setAbTest',
-        'specialties' => 'setSpecialties'
+        'specialties' => 'setSpecialties',
+        'channel' => 'setChannel',
+        'message_priority' => 'setMessagePriority'
     ];
 
     /**
@@ -256,7 +266,9 @@ class Version implements ModelInterface, ArrayAccess, \JsonSerializable
         'location' => 'getLocation',
         'status' => 'getStatus',
         'ab_test' => 'getAbTest',
-        'specialties' => 'getSpecialties'
+        'specialties' => 'getSpecialties',
+        'channel' => 'getChannel',
+        'message_priority' => 'getMessagePriority'
     ];
 
     /**
@@ -316,6 +328,8 @@ class Version implements ModelInterface, ArrayAccess, \JsonSerializable
     public const STATUS_DRAFT = 'draft';
     public const STATUS_LIVE = 'live';
     public const SPECIALTIES_BACK_IN_STOCK = 'BACK_IN_STOCK';
+    public const CHANNEL_IN_APP = 'IN_APP';
+    public const CHANNEL_WEB = 'WEB';
 
     /**
      * Gets allowable values of the enum
@@ -378,6 +392,19 @@ class Version implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getChannelAllowableValues()
+    {
+        return [
+            self::CHANNEL_IN_APP,
+            self::CHANNEL_WEB,
+        ];
+    }
+
+    /**
      * Associative array for storing property values
      *
      * @var mixed[]
@@ -405,6 +432,8 @@ class Version implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('status', $data ?? [], 'draft');
         $this->setIfExists('ab_test', $data ?? [], false);
         $this->setIfExists('specialties', $data ?? [], null);
+        $this->setIfExists('channel', $data ?? [], 'WEB');
+        $this->setIfExists('message_priority', $data ?? [], 50);
     }
 
     /**
@@ -460,6 +489,15 @@ class Version implements ModelInterface, ArrayAccess, \JsonSerializable
             $invalidProperties[] = sprintf(
                 "invalid value '%s' for 'status', must be one of '%s'",
                 $this->container['status'],
+                implode("', '", $allowedValues)
+            );
+        }
+
+        $allowedValues = $this->getChannelAllowableValues();
+        if (!is_null($this->container['channel']) && !in_array($this->container['channel'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'channel', must be one of '%s'",
+                $this->container['channel'],
                 implode("', '", $allowedValues)
             );
         }
@@ -886,6 +924,70 @@ class Version implements ModelInterface, ArrayAccess, \JsonSerializable
             );
         }
         $this->container['specialties'] = $specialties;
+
+        return $this;
+    }
+
+    /**
+     * Gets channel
+     *
+     * @return string|null
+     */
+    public function getChannel()
+    {
+        return $this->container['channel'];
+    }
+
+    /**
+     * Sets channel
+     *
+     * @param string|null $channel Form channel type enumeration.
+     *
+     * @return self
+     */
+    public function setChannel($channel)
+    {
+        if (is_null($channel)) {
+            throw new \InvalidArgumentException('non-nullable channel cannot be null');
+        }
+        $allowedValues = $this->getChannelAllowableValues();
+        if (!in_array($channel, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'channel', must be one of '%s'",
+                    $channel,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['channel'] = $channel;
+
+        return $this;
+    }
+
+    /**
+     * Gets message_priority
+     *
+     * @return int|null
+     */
+    public function getMessagePriority()
+    {
+        return $this->container['message_priority'];
+    }
+
+    /**
+     * Sets message_priority
+     *
+     * @param int|null $message_priority message_priority
+     *
+     * @return self
+     */
+    public function setMessagePriority($message_priority)
+    {
+        if (is_null($message_priority)) {
+            throw new \InvalidArgumentException('non-nullable message_priority cannot be null');
+        }
+        $this->container['message_priority'] = $message_priority;
 
         return $this;
     }

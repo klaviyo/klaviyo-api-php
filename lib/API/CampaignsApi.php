@@ -206,15 +206,16 @@ class CampaignsApi
      * Assign Template to Campaign Message
      *
      * @param  \KlaviyoAPI\Model\CampaignMessageAssignTemplateQuery $campaign_message_assign_template_query Takes a reusable template, clones it, and assigns the non-reusable clone to the message. (required)
+     * @param  string[]|null $fields_campaign_message For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['assignTemplateToCampaignMessage'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array<string,mixed>|\KlaviyoAPI\Model\GetAccounts400Response|\KlaviyoAPI\Model\GetAccounts400Response
      */
-    public function assignTemplateToCampaignMessage($campaign_message_assign_template_query, $apiKey = null, string $contentType = self::contentTypes['assignTemplateToCampaignMessage'][0])
+    public function assignTemplateToCampaignMessage($campaign_message_assign_template_query, $fields_campaign_message = null, $apiKey = null, string $contentType = self::contentTypes['assignTemplateToCampaignMessage'][0])
     {
-        list($response) = $this->assignTemplateToCampaignMessageWithHttpInfo($campaign_message_assign_template_query, $apiKey, $contentType);
+        list($response) = $this->assignTemplateToCampaignMessageWithHttpInfo($campaign_message_assign_template_query, $fields_campaign_message, $apiKey, $contentType);
         return $response;
     }
 
@@ -233,15 +234,16 @@ class CampaignsApi
      * Assign Template to Campaign Message
      *
      * @param  \KlaviyoAPI\Model\CampaignMessageAssignTemplateQuery $campaign_message_assign_template_query Takes a reusable template, clones it, and assigns the non-reusable clone to the message. (required)
+     * @param  string[]|null $fields_campaign_message For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['assignTemplateToCampaignMessage'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of array<string,mixed>|\KlaviyoAPI\Model\GetAccounts400Response|\KlaviyoAPI\Model\GetAccounts400Response, HTTP status code, HTTP response headers (array of strings)
      */
-    public function assignTemplateToCampaignMessageWithHttpInfo($campaign_message_assign_template_query, $apiKey = null, string $contentType = self::contentTypes['assignTemplateToCampaignMessage'][0])
+    public function assignTemplateToCampaignMessageWithHttpInfo($campaign_message_assign_template_query, $fields_campaign_message = null, $apiKey = null, string $contentType = self::contentTypes['assignTemplateToCampaignMessage'][0])
     {
-        $request = $this->assignTemplateToCampaignMessageRequest($campaign_message_assign_template_query, $apiKey, $contentType);
+        $request = $this->assignTemplateToCampaignMessageRequest($campaign_message_assign_template_query, $fields_campaign_message, $apiKey, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -355,14 +357,15 @@ class CampaignsApi
      * Assign Template to Campaign Message
      *
      * @param  \KlaviyoAPI\Model\CampaignMessageAssignTemplateQuery $campaign_message_assign_template_query Takes a reusable template, clones it, and assigns the non-reusable clone to the message. (required)
+     * @param  string[]|null $fields_campaign_message For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['assignTemplateToCampaignMessage'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function assignTemplateToCampaignMessageAsync($campaign_message_assign_template_query, $apiKey = null, string $contentType = self::contentTypes['assignTemplateToCampaignMessage'][0])
+    public function assignTemplateToCampaignMessageAsync($campaign_message_assign_template_query, $fields_campaign_message = null, $apiKey = null, string $contentType = self::contentTypes['assignTemplateToCampaignMessage'][0])
     {
-        return $this->assignTemplateToCampaignMessageAsyncWithHttpInfo($campaign_message_assign_template_query, $apiKey, $contentType)
+        return $this->assignTemplateToCampaignMessageAsyncWithHttpInfo($campaign_message_assign_template_query, $fields_campaign_message, $apiKey, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -385,15 +388,16 @@ class CampaignsApi
      * Assign Template to Campaign Message
      *
      * @param  \KlaviyoAPI\Model\CampaignMessageAssignTemplateQuery $campaign_message_assign_template_query Takes a reusable template, clones it, and assigns the non-reusable clone to the message. (required)
+     * @param  string[]|null $fields_campaign_message For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['assignTemplateToCampaignMessage'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function assignTemplateToCampaignMessageAsyncWithHttpInfo($campaign_message_assign_template_query, $apiKey = null, string $contentType = self::contentTypes['assignTemplateToCampaignMessage'][0])
+    public function assignTemplateToCampaignMessageAsyncWithHttpInfo($campaign_message_assign_template_query, $fields_campaign_message = null, $apiKey = null, string $contentType = self::contentTypes['assignTemplateToCampaignMessage'][0])
     {
         $returnType = 'array<string,mixed>';
-        $request = $this->assignTemplateToCampaignMessageRequest($campaign_message_assign_template_query, $apiKey, $contentType);
+        $request = $this->assignTemplateToCampaignMessageRequest($campaign_message_assign_template_query, $fields_campaign_message, $apiKey, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -449,12 +453,13 @@ class CampaignsApi
      * Create request for operation 'assignTemplateToCampaignMessage'
      *
      * @param  \KlaviyoAPI\Model\CampaignMessageAssignTemplateQuery $campaign_message_assign_template_query Takes a reusable template, clones it, and assigns the non-reusable clone to the message. (required)
+     * @param  string[]|null $fields_campaign_message For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['assignTemplateToCampaignMessage'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function assignTemplateToCampaignMessageRequest($campaign_message_assign_template_query, $apiKey = null, string $contentType = self::contentTypes['assignTemplateToCampaignMessage'][0])
+    public function assignTemplateToCampaignMessageRequest($campaign_message_assign_template_query, $fields_campaign_message = null, $apiKey = null, string $contentType = self::contentTypes['assignTemplateToCampaignMessage'][0])
     {
 
         // verify the required parameter 'campaign_message_assign_template_query' is set
@@ -465,6 +470,7 @@ class CampaignsApi
         }
 
 
+
         $resourcePath = '/api/campaign-message-assign-template';
         $formParams = [];
         $queryParams = [];
@@ -472,6 +478,15 @@ class CampaignsApi
         $httpBody = '';
         $multipart = false;
 
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $fields_campaign_message,
+            'fields[campaign-message]', // param base name
+            'array', // openApiType
+            'form', // style
+            false, // explode
+            false // required
+        ) ?? []);
 
 
 
@@ -529,7 +544,7 @@ class CampaignsApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2026-04-15'];
+        $defaultHeaders['revision'] = ['2026-07-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -837,7 +852,7 @@ class CampaignsApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2026-04-15'];
+        $defaultHeaders['revision'] = ['2026-07-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -869,15 +884,16 @@ class CampaignsApi
      * Create Campaign
      *
      * @param  \KlaviyoAPI\Model\CampaignCreateQuery $campaign_create_query Creates a campaign from parameters (required)
+     * @param  string[]|null $fields_campaign For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createCampaign'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array<string,mixed>|\KlaviyoAPI\Model\GetAccounts400Response|\KlaviyoAPI\Model\GetAccounts400Response
      */
-    public function createCampaign($campaign_create_query, $apiKey = null, string $contentType = self::contentTypes['createCampaign'][0])
+    public function createCampaign($campaign_create_query, $fields_campaign = null, $apiKey = null, string $contentType = self::contentTypes['createCampaign'][0])
     {
-        list($response) = $this->createCampaignWithHttpInfo($campaign_create_query, $apiKey, $contentType);
+        list($response) = $this->createCampaignWithHttpInfo($campaign_create_query, $fields_campaign, $apiKey, $contentType);
         return $response;
     }
 
@@ -887,15 +903,16 @@ class CampaignsApi
      * Create Campaign
      *
      * @param  \KlaviyoAPI\Model\CampaignCreateQuery $campaign_create_query Creates a campaign from parameters (required)
+     * @param  string[]|null $fields_campaign For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createCampaign'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of array<string,mixed>|\KlaviyoAPI\Model\GetAccounts400Response|\KlaviyoAPI\Model\GetAccounts400Response, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createCampaignWithHttpInfo($campaign_create_query, $apiKey = null, string $contentType = self::contentTypes['createCampaign'][0])
+    public function createCampaignWithHttpInfo($campaign_create_query, $fields_campaign = null, $apiKey = null, string $contentType = self::contentTypes['createCampaign'][0])
     {
-        $request = $this->createCampaignRequest($campaign_create_query, $apiKey, $contentType);
+        $request = $this->createCampaignRequest($campaign_create_query, $fields_campaign, $apiKey, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1000,14 +1017,15 @@ class CampaignsApi
      * Create Campaign
      *
      * @param  \KlaviyoAPI\Model\CampaignCreateQuery $campaign_create_query Creates a campaign from parameters (required)
+     * @param  string[]|null $fields_campaign For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createCampaign'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createCampaignAsync($campaign_create_query, $apiKey = null, string $contentType = self::contentTypes['createCampaign'][0])
+    public function createCampaignAsync($campaign_create_query, $fields_campaign = null, $apiKey = null, string $contentType = self::contentTypes['createCampaign'][0])
     {
-        return $this->createCampaignAsyncWithHttpInfo($campaign_create_query, $apiKey, $contentType)
+        return $this->createCampaignAsyncWithHttpInfo($campaign_create_query, $fields_campaign, $apiKey, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1021,15 +1039,16 @@ class CampaignsApi
      * Create Campaign
      *
      * @param  \KlaviyoAPI\Model\CampaignCreateQuery $campaign_create_query Creates a campaign from parameters (required)
+     * @param  string[]|null $fields_campaign For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createCampaign'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createCampaignAsyncWithHttpInfo($campaign_create_query, $apiKey = null, string $contentType = self::contentTypes['createCampaign'][0])
+    public function createCampaignAsyncWithHttpInfo($campaign_create_query, $fields_campaign = null, $apiKey = null, string $contentType = self::contentTypes['createCampaign'][0])
     {
         $returnType = 'array<string,mixed>';
-        $request = $this->createCampaignRequest($campaign_create_query, $apiKey, $contentType);
+        $request = $this->createCampaignRequest($campaign_create_query, $fields_campaign, $apiKey, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1076,12 +1095,13 @@ class CampaignsApi
      * Create request for operation 'createCampaign'
      *
      * @param  \KlaviyoAPI\Model\CampaignCreateQuery $campaign_create_query Creates a campaign from parameters (required)
+     * @param  string[]|null $fields_campaign For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createCampaign'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function createCampaignRequest($campaign_create_query, $apiKey = null, string $contentType = self::contentTypes['createCampaign'][0])
+    public function createCampaignRequest($campaign_create_query, $fields_campaign = null, $apiKey = null, string $contentType = self::contentTypes['createCampaign'][0])
     {
 
         // verify the required parameter 'campaign_create_query' is set
@@ -1092,6 +1112,7 @@ class CampaignsApi
         }
 
 
+
         $resourcePath = '/api/campaigns';
         $formParams = [];
         $queryParams = [];
@@ -1099,6 +1120,15 @@ class CampaignsApi
         $httpBody = '';
         $multipart = false;
 
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $fields_campaign,
+            'fields[campaign]', // param base name
+            'array', // openApiType
+            'form', // style
+            false, // explode
+            false // required
+        ) ?? []);
 
 
 
@@ -1156,7 +1186,7 @@ class CampaignsApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2026-04-15'];
+        $defaultHeaders['revision'] = ['2026-07-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -1179,15 +1209,16 @@ class CampaignsApi
      * Create Campaign Clone
      *
      * @param  \KlaviyoAPI\Model\CampaignCloneQuery $campaign_clone_query Clones a campaign from an existing campaign (required)
+     * @param  string[]|null $fields_campaign For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createCampaignClone'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array<string,mixed>|\KlaviyoAPI\Model\GetAccounts400Response|\KlaviyoAPI\Model\GetAccounts400Response
      */
-    public function createCampaignClone($campaign_clone_query, $apiKey = null, string $contentType = self::contentTypes['createCampaignClone'][0])
+    public function createCampaignClone($campaign_clone_query, $fields_campaign = null, $apiKey = null, string $contentType = self::contentTypes['createCampaignClone'][0])
     {
-        list($response) = $this->createCampaignCloneWithHttpInfo($campaign_clone_query, $apiKey, $contentType);
+        list($response) = $this->createCampaignCloneWithHttpInfo($campaign_clone_query, $fields_campaign, $apiKey, $contentType);
         return $response;
     }
 
@@ -1206,15 +1237,16 @@ class CampaignsApi
      * Create Campaign Clone
      *
      * @param  \KlaviyoAPI\Model\CampaignCloneQuery $campaign_clone_query Clones a campaign from an existing campaign (required)
+     * @param  string[]|null $fields_campaign For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createCampaignClone'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of array<string,mixed>|\KlaviyoAPI\Model\GetAccounts400Response|\KlaviyoAPI\Model\GetAccounts400Response, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createCampaignCloneWithHttpInfo($campaign_clone_query, $apiKey = null, string $contentType = self::contentTypes['createCampaignClone'][0])
+    public function createCampaignCloneWithHttpInfo($campaign_clone_query, $fields_campaign = null, $apiKey = null, string $contentType = self::contentTypes['createCampaignClone'][0])
     {
-        $request = $this->createCampaignCloneRequest($campaign_clone_query, $apiKey, $contentType);
+        $request = $this->createCampaignCloneRequest($campaign_clone_query, $fields_campaign, $apiKey, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1328,14 +1360,15 @@ class CampaignsApi
      * Create Campaign Clone
      *
      * @param  \KlaviyoAPI\Model\CampaignCloneQuery $campaign_clone_query Clones a campaign from an existing campaign (required)
+     * @param  string[]|null $fields_campaign For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createCampaignClone'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createCampaignCloneAsync($campaign_clone_query, $apiKey = null, string $contentType = self::contentTypes['createCampaignClone'][0])
+    public function createCampaignCloneAsync($campaign_clone_query, $fields_campaign = null, $apiKey = null, string $contentType = self::contentTypes['createCampaignClone'][0])
     {
-        return $this->createCampaignCloneAsyncWithHttpInfo($campaign_clone_query, $apiKey, $contentType)
+        return $this->createCampaignCloneAsyncWithHttpInfo($campaign_clone_query, $fields_campaign, $apiKey, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1358,15 +1391,16 @@ class CampaignsApi
      * Create Campaign Clone
      *
      * @param  \KlaviyoAPI\Model\CampaignCloneQuery $campaign_clone_query Clones a campaign from an existing campaign (required)
+     * @param  string[]|null $fields_campaign For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createCampaignClone'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createCampaignCloneAsyncWithHttpInfo($campaign_clone_query, $apiKey = null, string $contentType = self::contentTypes['createCampaignClone'][0])
+    public function createCampaignCloneAsyncWithHttpInfo($campaign_clone_query, $fields_campaign = null, $apiKey = null, string $contentType = self::contentTypes['createCampaignClone'][0])
     {
         $returnType = 'array<string,mixed>';
-        $request = $this->createCampaignCloneRequest($campaign_clone_query, $apiKey, $contentType);
+        $request = $this->createCampaignCloneRequest($campaign_clone_query, $fields_campaign, $apiKey, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1422,12 +1456,13 @@ class CampaignsApi
      * Create request for operation 'createCampaignClone'
      *
      * @param  \KlaviyoAPI\Model\CampaignCloneQuery $campaign_clone_query Clones a campaign from an existing campaign (required)
+     * @param  string[]|null $fields_campaign For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createCampaignClone'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function createCampaignCloneRequest($campaign_clone_query, $apiKey = null, string $contentType = self::contentTypes['createCampaignClone'][0])
+    public function createCampaignCloneRequest($campaign_clone_query, $fields_campaign = null, $apiKey = null, string $contentType = self::contentTypes['createCampaignClone'][0])
     {
 
         // verify the required parameter 'campaign_clone_query' is set
@@ -1438,6 +1473,7 @@ class CampaignsApi
         }
 
 
+
         $resourcePath = '/api/campaign-clone';
         $formParams = [];
         $queryParams = [];
@@ -1445,6 +1481,15 @@ class CampaignsApi
         $httpBody = '';
         $multipart = false;
 
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $fields_campaign,
+            'fields[campaign]', // param base name
+            'array', // openApiType
+            'form', // style
+            false, // explode
+            false // required
+        ) ?? []);
 
 
 
@@ -1502,7 +1547,7 @@ class CampaignsApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2026-04-15'];
+        $defaultHeaders['revision'] = ['2026-07-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -1755,7 +1800,7 @@ class CampaignsApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2026-04-15'];
+        $defaultHeaders['revision'] = ['2026-07-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -1778,10 +1823,10 @@ class CampaignsApi
      * Get Campaign
      *
      * @param  string $id The campaign ID to be retrieved (required)
-     * @param  string[]|null $fields_campaign_message For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_campaign For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_tag For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#relationships (optional)
+     * @param  string[]|null $fields_campaign_message For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_campaign For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_tag For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#relationships (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCampaign'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -1800,10 +1845,10 @@ class CampaignsApi
      * Get Campaign
      *
      * @param  string $id The campaign ID to be retrieved (required)
-     * @param  string[]|null $fields_campaign_message For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_campaign For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_tag For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#relationships (optional)
+     * @param  string[]|null $fields_campaign_message For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_campaign For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_tag For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#relationships (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCampaign'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -1917,10 +1962,10 @@ class CampaignsApi
      * Get Campaign
      *
      * @param  string $id The campaign ID to be retrieved (required)
-     * @param  string[]|null $fields_campaign_message For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_campaign For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_tag For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#relationships (optional)
+     * @param  string[]|null $fields_campaign_message For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_campaign For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_tag For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#relationships (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCampaign'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1942,10 +1987,10 @@ class CampaignsApi
      * Get Campaign
      *
      * @param  string $id The campaign ID to be retrieved (required)
-     * @param  string[]|null $fields_campaign_message For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_campaign For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_tag For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#relationships (optional)
+     * @param  string[]|null $fields_campaign_message For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_campaign For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_tag For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#relationships (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCampaign'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -2001,10 +2046,10 @@ class CampaignsApi
      * Create request for operation 'getCampaign'
      *
      * @param  string $id The campaign ID to be retrieved (required)
-     * @param  string[]|null $fields_campaign_message For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_campaign For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_tag For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#relationships (optional)
+     * @param  string[]|null $fields_campaign_message For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_campaign For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_tag For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#relationships (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCampaign'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -2126,7 +2171,7 @@ class CampaignsApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2026-04-15'];
+        $defaultHeaders['revision'] = ['2026-07-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -2149,7 +2194,7 @@ class CampaignsApi
      * Get Campaign for Campaign Message
      *
      * @param  string $id  (required)
-     * @param  string[]|null $fields_campaign For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_campaign For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCampaignForCampaignMessage'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -2177,7 +2222,7 @@ class CampaignsApi
      * Get Campaign for Campaign Message
      *
      * @param  string $id  (required)
-     * @param  string[]|null $fields_campaign For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_campaign For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCampaignForCampaignMessage'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -2300,7 +2345,7 @@ class CampaignsApi
      * Get Campaign for Campaign Message
      *
      * @param  string $id  (required)
-     * @param  string[]|null $fields_campaign For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_campaign For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCampaignForCampaignMessage'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -2331,7 +2376,7 @@ class CampaignsApi
      * Get Campaign for Campaign Message
      *
      * @param  string $id  (required)
-     * @param  string[]|null $fields_campaign For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_campaign For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCampaignForCampaignMessage'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -2396,7 +2441,7 @@ class CampaignsApi
      * Create request for operation 'getCampaignForCampaignMessage'
      *
      * @param  string $id  (required)
-     * @param  string[]|null $fields_campaign For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_campaign For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCampaignForCampaignMessage'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -2488,7 +2533,7 @@ class CampaignsApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2026-04-15'];
+        $defaultHeaders['revision'] = ['2026-07-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -2844,7 +2889,7 @@ class CampaignsApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2026-04-15'];
+        $defaultHeaders['revision'] = ['2026-07-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -2876,11 +2921,11 @@ class CampaignsApi
      * Get Campaign Message
      *
      * @param  string $id The message ID to be retrieved (required)
-     * @param  string[]|null $fields_campaign_message For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_campaign For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_image For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_template For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#relationships (optional)
+     * @param  string[]|null $fields_campaign_message For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_campaign For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_image For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_template For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#relationships (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCampaignMessage'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -2899,11 +2944,11 @@ class CampaignsApi
      * Get Campaign Message
      *
      * @param  string $id The message ID to be retrieved (required)
-     * @param  string[]|null $fields_campaign_message For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_campaign For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_image For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_template For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#relationships (optional)
+     * @param  string[]|null $fields_campaign_message For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_campaign For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_image For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_template For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#relationships (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCampaignMessage'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -3017,11 +3062,11 @@ class CampaignsApi
      * Get Campaign Message
      *
      * @param  string $id The message ID to be retrieved (required)
-     * @param  string[]|null $fields_campaign_message For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_campaign For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_image For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_template For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#relationships (optional)
+     * @param  string[]|null $fields_campaign_message For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_campaign For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_image For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_template For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#relationships (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCampaignMessage'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -3043,11 +3088,11 @@ class CampaignsApi
      * Get Campaign Message
      *
      * @param  string $id The message ID to be retrieved (required)
-     * @param  string[]|null $fields_campaign_message For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_campaign For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_image For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_template For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#relationships (optional)
+     * @param  string[]|null $fields_campaign_message For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_campaign For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_image For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_template For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#relationships (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCampaignMessage'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -3103,11 +3148,11 @@ class CampaignsApi
      * Create request for operation 'getCampaignMessage'
      *
      * @param  string $id The message ID to be retrieved (required)
-     * @param  string[]|null $fields_campaign_message For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_campaign For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_image For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_template For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#relationships (optional)
+     * @param  string[]|null $fields_campaign_message For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_campaign For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_image For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_template For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#relationships (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCampaignMessage'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -3239,7 +3284,7 @@ class CampaignsApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2026-04-15'];
+        $defaultHeaders['revision'] = ['2026-07-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -3262,7 +3307,7 @@ class CampaignsApi
      * Get Campaign Recipient Estimation
      *
      * @param  string $id The ID of the campaign for which to get the estimated number of recipients (required)
-     * @param  string[]|null $fields_campaign_recipient_estimation For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_campaign_recipient_estimation For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCampaignRecipientEstimation'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -3281,7 +3326,7 @@ class CampaignsApi
      * Get Campaign Recipient Estimation
      *
      * @param  string $id The ID of the campaign for which to get the estimated number of recipients (required)
-     * @param  string[]|null $fields_campaign_recipient_estimation For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_campaign_recipient_estimation For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCampaignRecipientEstimation'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -3395,7 +3440,7 @@ class CampaignsApi
      * Get Campaign Recipient Estimation
      *
      * @param  string $id The ID of the campaign for which to get the estimated number of recipients (required)
-     * @param  string[]|null $fields_campaign_recipient_estimation For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_campaign_recipient_estimation For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCampaignRecipientEstimation'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -3417,7 +3462,7 @@ class CampaignsApi
      * Get Campaign Recipient Estimation
      *
      * @param  string $id The ID of the campaign for which to get the estimated number of recipients (required)
-     * @param  string[]|null $fields_campaign_recipient_estimation For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_campaign_recipient_estimation For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCampaignRecipientEstimation'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -3473,7 +3518,7 @@ class CampaignsApi
      * Create request for operation 'getCampaignRecipientEstimation'
      *
      * @param  string $id The ID of the campaign for which to get the estimated number of recipients (required)
-     * @param  string[]|null $fields_campaign_recipient_estimation For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_campaign_recipient_estimation For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCampaignRecipientEstimation'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -3565,7 +3610,7 @@ class CampaignsApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2026-04-15'];
+        $defaultHeaders['revision'] = ['2026-07-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -3588,7 +3633,7 @@ class CampaignsApi
      * Get Campaign Recipient Estimation Job
      *
      * @param  string $id The ID of the campaign to get recipient estimation status (required)
-     * @param  string[]|null $fields_campaign_recipient_estimation_job For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_campaign_recipient_estimation_job For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCampaignRecipientEstimationJob'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -3607,7 +3652,7 @@ class CampaignsApi
      * Get Campaign Recipient Estimation Job
      *
      * @param  string $id The ID of the campaign to get recipient estimation status (required)
-     * @param  string[]|null $fields_campaign_recipient_estimation_job For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_campaign_recipient_estimation_job For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCampaignRecipientEstimationJob'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -3721,7 +3766,7 @@ class CampaignsApi
      * Get Campaign Recipient Estimation Job
      *
      * @param  string $id The ID of the campaign to get recipient estimation status (required)
-     * @param  string[]|null $fields_campaign_recipient_estimation_job For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_campaign_recipient_estimation_job For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCampaignRecipientEstimationJob'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -3743,7 +3788,7 @@ class CampaignsApi
      * Get Campaign Recipient Estimation Job
      *
      * @param  string $id The ID of the campaign to get recipient estimation status (required)
-     * @param  string[]|null $fields_campaign_recipient_estimation_job For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_campaign_recipient_estimation_job For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCampaignRecipientEstimationJob'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -3799,7 +3844,7 @@ class CampaignsApi
      * Create request for operation 'getCampaignRecipientEstimationJob'
      *
      * @param  string $id The ID of the campaign to get recipient estimation status (required)
-     * @param  string[]|null $fields_campaign_recipient_estimation_job For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_campaign_recipient_estimation_job For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCampaignRecipientEstimationJob'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -3891,7 +3936,7 @@ class CampaignsApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2026-04-15'];
+        $defaultHeaders['revision'] = ['2026-07-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -3914,7 +3959,7 @@ class CampaignsApi
      * Get Campaign Send Job
      *
      * @param  string $id The ID of the campaign to send (required)
-     * @param  string[]|null $fields_campaign_send_job For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_campaign_send_job For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCampaignSendJob'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -3933,7 +3978,7 @@ class CampaignsApi
      * Get Campaign Send Job
      *
      * @param  string $id The ID of the campaign to send (required)
-     * @param  string[]|null $fields_campaign_send_job For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_campaign_send_job For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCampaignSendJob'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -4047,7 +4092,7 @@ class CampaignsApi
      * Get Campaign Send Job
      *
      * @param  string $id The ID of the campaign to send (required)
-     * @param  string[]|null $fields_campaign_send_job For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_campaign_send_job For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCampaignSendJob'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -4069,7 +4114,7 @@ class CampaignsApi
      * Get Campaign Send Job
      *
      * @param  string $id The ID of the campaign to send (required)
-     * @param  string[]|null $fields_campaign_send_job For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_campaign_send_job For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCampaignSendJob'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -4125,7 +4170,7 @@ class CampaignsApi
      * Create request for operation 'getCampaignSendJob'
      *
      * @param  string $id The ID of the campaign to send (required)
-     * @param  string[]|null $fields_campaign_send_job For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_campaign_send_job For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCampaignSendJob'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -4217,7 +4262,7 @@ class CampaignsApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2026-04-15'];
+        $defaultHeaders['revision'] = ['2026-07-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -4239,22 +4284,23 @@ class CampaignsApi
      *
      * Get Campaigns
      *
-     * @param  string $filter For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;id&#x60;: &#x60;any&#x60;&lt;br&gt;&#x60;messages.channel&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;name&#x60;: &#x60;contains&#x60;&lt;br&gt;&#x60;status&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;archived&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;created_at&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60;&lt;br&gt;&#x60;scheduled_at&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60;&lt;br&gt;&#x60;updated_at&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60; (required)
-     * @param  string[]|null $fields_campaign_message For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_campaign For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_tag For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#relationships (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination (optional)
-     * @param  string|null $sort For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sorting (optional)
+     * @param  string $filter For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;id&#x60;: &#x60;any&#x60;&lt;br&gt;&#x60;messages.channel&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;name&#x60;: &#x60;contains&#x60;&lt;br&gt;&#x60;status&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;archived&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;created_at&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60;&lt;br&gt;&#x60;scheduled_at&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60;&lt;br&gt;&#x60;updated_at&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60; (required)
+     * @param  string[]|null $fields_campaign_message For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_campaign For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_tag For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#relationships (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination (optional)
+     * @param  int|null $page_size Default: 100. Min: 1. Max: 100. (optional, default to 100)
+     * @param  string|null $sort For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sorting (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCampaigns'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array<string,mixed>|\KlaviyoAPI\Model\GetAccounts400Response|\KlaviyoAPI\Model\GetAccounts400Response
      */
-    public function getCampaigns($filter, $fields_campaign_message = null, $fields_campaign = null, $fields_tag = null, $include = null, $page_cursor = null, $sort = null, $apiKey = null, string $contentType = self::contentTypes['getCampaigns'][0])
+    public function getCampaigns($filter, $fields_campaign_message = null, $fields_campaign = null, $fields_tag = null, $include = null, $page_cursor = null, $page_size = 100, $sort = null, $apiKey = null, string $contentType = self::contentTypes['getCampaigns'][0])
     {
-        list($response) = $this->getCampaignsWithHttpInfo($filter, $fields_campaign_message, $fields_campaign, $fields_tag, $include, $page_cursor, $sort, $apiKey, $contentType);
+        list($response) = $this->getCampaignsWithHttpInfo($filter, $fields_campaign_message, $fields_campaign, $fields_tag, $include, $page_cursor, $page_size, $sort, $apiKey, $contentType);
         return $response;
     }
 
@@ -4263,22 +4309,23 @@ class CampaignsApi
      *
      * Get Campaigns
      *
-     * @param  string $filter For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;id&#x60;: &#x60;any&#x60;&lt;br&gt;&#x60;messages.channel&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;name&#x60;: &#x60;contains&#x60;&lt;br&gt;&#x60;status&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;archived&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;created_at&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60;&lt;br&gt;&#x60;scheduled_at&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60;&lt;br&gt;&#x60;updated_at&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60; (required)
-     * @param  string[]|null $fields_campaign_message For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_campaign For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_tag For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#relationships (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination (optional)
-     * @param  string|null $sort For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sorting (optional)
+     * @param  string $filter For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;id&#x60;: &#x60;any&#x60;&lt;br&gt;&#x60;messages.channel&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;name&#x60;: &#x60;contains&#x60;&lt;br&gt;&#x60;status&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;archived&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;created_at&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60;&lt;br&gt;&#x60;scheduled_at&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60;&lt;br&gt;&#x60;updated_at&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60; (required)
+     * @param  string[]|null $fields_campaign_message For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_campaign For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_tag For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#relationships (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination (optional)
+     * @param  int|null $page_size Default: 100. Min: 1. Max: 100. (optional, default to 100)
+     * @param  string|null $sort For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sorting (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCampaigns'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of array<string,mixed>|\KlaviyoAPI\Model\GetAccounts400Response|\KlaviyoAPI\Model\GetAccounts400Response, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getCampaignsWithHttpInfo($filter, $fields_campaign_message = null, $fields_campaign = null, $fields_tag = null, $include = null, $page_cursor = null, $sort = null, $apiKey = null, string $contentType = self::contentTypes['getCampaigns'][0])
+    public function getCampaignsWithHttpInfo($filter, $fields_campaign_message = null, $fields_campaign = null, $fields_tag = null, $include = null, $page_cursor = null, $page_size = 100, $sort = null, $apiKey = null, string $contentType = self::contentTypes['getCampaigns'][0])
     {
-        $request = $this->getCampaignsRequest($filter, $fields_campaign_message, $fields_campaign, $fields_tag, $include, $page_cursor, $sort, $apiKey, $contentType);
+        $request = $this->getCampaignsRequest($filter, $fields_campaign_message, $fields_campaign, $fields_tag, $include, $page_cursor, $page_size, $sort, $apiKey, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -4382,21 +4429,22 @@ class CampaignsApi
      *
      * Get Campaigns
      *
-     * @param  string $filter For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;id&#x60;: &#x60;any&#x60;&lt;br&gt;&#x60;messages.channel&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;name&#x60;: &#x60;contains&#x60;&lt;br&gt;&#x60;status&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;archived&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;created_at&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60;&lt;br&gt;&#x60;scheduled_at&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60;&lt;br&gt;&#x60;updated_at&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60; (required)
-     * @param  string[]|null $fields_campaign_message For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_campaign For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_tag For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#relationships (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination (optional)
-     * @param  string|null $sort For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sorting (optional)
+     * @param  string $filter For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;id&#x60;: &#x60;any&#x60;&lt;br&gt;&#x60;messages.channel&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;name&#x60;: &#x60;contains&#x60;&lt;br&gt;&#x60;status&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;archived&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;created_at&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60;&lt;br&gt;&#x60;scheduled_at&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60;&lt;br&gt;&#x60;updated_at&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60; (required)
+     * @param  string[]|null $fields_campaign_message For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_campaign For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_tag For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#relationships (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination (optional)
+     * @param  int|null $page_size Default: 100. Min: 1. Max: 100. (optional, default to 100)
+     * @param  string|null $sort For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sorting (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCampaigns'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getCampaignsAsync($filter, $fields_campaign_message = null, $fields_campaign = null, $fields_tag = null, $include = null, $page_cursor = null, $sort = null, $apiKey = null, string $contentType = self::contentTypes['getCampaigns'][0])
+    public function getCampaignsAsync($filter, $fields_campaign_message = null, $fields_campaign = null, $fields_tag = null, $include = null, $page_cursor = null, $page_size = 100, $sort = null, $apiKey = null, string $contentType = self::contentTypes['getCampaigns'][0])
     {
-        return $this->getCampaignsAsyncWithHttpInfo($filter, $fields_campaign_message, $fields_campaign, $fields_tag, $include, $page_cursor, $sort, $apiKey, $contentType)
+        return $this->getCampaignsAsyncWithHttpInfo($filter, $fields_campaign_message, $fields_campaign, $fields_tag, $include, $page_cursor, $page_size, $sort, $apiKey, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -4409,22 +4457,23 @@ class CampaignsApi
      *
      * Get Campaigns
      *
-     * @param  string $filter For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;id&#x60;: &#x60;any&#x60;&lt;br&gt;&#x60;messages.channel&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;name&#x60;: &#x60;contains&#x60;&lt;br&gt;&#x60;status&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;archived&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;created_at&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60;&lt;br&gt;&#x60;scheduled_at&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60;&lt;br&gt;&#x60;updated_at&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60; (required)
-     * @param  string[]|null $fields_campaign_message For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_campaign For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_tag For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#relationships (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination (optional)
-     * @param  string|null $sort For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sorting (optional)
+     * @param  string $filter For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;id&#x60;: &#x60;any&#x60;&lt;br&gt;&#x60;messages.channel&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;name&#x60;: &#x60;contains&#x60;&lt;br&gt;&#x60;status&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;archived&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;created_at&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60;&lt;br&gt;&#x60;scheduled_at&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60;&lt;br&gt;&#x60;updated_at&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60; (required)
+     * @param  string[]|null $fields_campaign_message For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_campaign For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_tag For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#relationships (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination (optional)
+     * @param  int|null $page_size Default: 100. Min: 1. Max: 100. (optional, default to 100)
+     * @param  string|null $sort For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sorting (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCampaigns'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getCampaignsAsyncWithHttpInfo($filter, $fields_campaign_message = null, $fields_campaign = null, $fields_tag = null, $include = null, $page_cursor = null, $sort = null, $apiKey = null, string $contentType = self::contentTypes['getCampaigns'][0])
+    public function getCampaignsAsyncWithHttpInfo($filter, $fields_campaign_message = null, $fields_campaign = null, $fields_tag = null, $include = null, $page_cursor = null, $page_size = 100, $sort = null, $apiKey = null, string $contentType = self::contentTypes['getCampaigns'][0])
     {
         $returnType = 'array<string,mixed>';
-        $request = $this->getCampaignsRequest($filter, $fields_campaign_message, $fields_campaign, $fields_tag, $include, $page_cursor, $sort, $apiKey, $contentType);
+        $request = $this->getCampaignsRequest($filter, $fields_campaign_message, $fields_campaign, $fields_tag, $include, $page_cursor, $page_size, $sort, $apiKey, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -4470,19 +4519,20 @@ class CampaignsApi
     /**
      * Create request for operation 'getCampaigns'
      *
-     * @param  string $filter For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;id&#x60;: &#x60;any&#x60;&lt;br&gt;&#x60;messages.channel&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;name&#x60;: &#x60;contains&#x60;&lt;br&gt;&#x60;status&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;archived&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;created_at&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60;&lt;br&gt;&#x60;scheduled_at&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60;&lt;br&gt;&#x60;updated_at&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60; (required)
-     * @param  string[]|null $fields_campaign_message For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_campaign For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_tag For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#relationships (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination (optional)
-     * @param  string|null $sort For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sorting (optional)
+     * @param  string $filter For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;id&#x60;: &#x60;any&#x60;&lt;br&gt;&#x60;messages.channel&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;name&#x60;: &#x60;contains&#x60;&lt;br&gt;&#x60;status&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;archived&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;created_at&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60;&lt;br&gt;&#x60;scheduled_at&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60;&lt;br&gt;&#x60;updated_at&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60; (required)
+     * @param  string[]|null $fields_campaign_message For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_campaign For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_tag For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#relationships (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination (optional)
+     * @param  int|null $page_size Default: 100. Min: 1. Max: 100. (optional, default to 100)
+     * @param  string|null $sort For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sorting (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCampaigns'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getCampaignsRequest($filter, $fields_campaign_message = null, $fields_campaign = null, $fields_tag = null, $include = null, $page_cursor = null, $sort = null, $apiKey = null, string $contentType = self::contentTypes['getCampaigns'][0])
+    public function getCampaignsRequest($filter, $fields_campaign_message = null, $fields_campaign = null, $fields_tag = null, $include = null, $page_cursor = null, $page_size = 100, $sort = null, $apiKey = null, string $contentType = self::contentTypes['getCampaigns'][0])
     {
 
         // verify the required parameter 'filter' is set
@@ -4497,6 +4547,13 @@ class CampaignsApi
 
 
 
+        if ($page_size !== null && $page_size > 100) {
+            throw new \InvalidArgumentException('invalid value for "$page_size" when calling CampaignsApi.getCampaigns, must be smaller than or equal to 100.');
+        }
+        if ($page_size !== null && $page_size < 1) {
+            throw new \InvalidArgumentException('invalid value for "$page_size" when calling CampaignsApi.getCampaigns, must be bigger than or equal to 1.');
+        }
+        
 
 
         $resourcePath = '/api/campaigns';
@@ -4562,6 +4619,15 @@ class CampaignsApi
         ) ?? []);
         // query params
         $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $page_size,
+            'page[size]', // param base name
+            'integer', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
             $sort,
             'sort', // param base name
             'string', // openApiType
@@ -4619,7 +4685,7 @@ class CampaignsApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2026-04-15'];
+        $defaultHeaders['revision'] = ['2026-07-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -4642,7 +4708,7 @@ class CampaignsApi
      * Get Image for Campaign Message
      *
      * @param  string $id  (required)
-     * @param  string[]|null $fields_image For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_image For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getImageForCampaignMessage'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -4670,7 +4736,7 @@ class CampaignsApi
      * Get Image for Campaign Message
      *
      * @param  string $id  (required)
-     * @param  string[]|null $fields_image For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_image For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getImageForCampaignMessage'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -4793,7 +4859,7 @@ class CampaignsApi
      * Get Image for Campaign Message
      *
      * @param  string $id  (required)
-     * @param  string[]|null $fields_image For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_image For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getImageForCampaignMessage'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -4824,7 +4890,7 @@ class CampaignsApi
      * Get Image for Campaign Message
      *
      * @param  string $id  (required)
-     * @param  string[]|null $fields_image For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_image For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getImageForCampaignMessage'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -4889,7 +4955,7 @@ class CampaignsApi
      * Create request for operation 'getImageForCampaignMessage'
      *
      * @param  string $id  (required)
-     * @param  string[]|null $fields_image For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_image For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getImageForCampaignMessage'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -4981,7 +5047,7 @@ class CampaignsApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2026-04-15'];
+        $defaultHeaders['revision'] = ['2026-07-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -5337,7 +5403,7 @@ class CampaignsApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2026-04-15'];
+        $defaultHeaders['revision'] = ['2026-07-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -5729,7 +5795,7 @@ class CampaignsApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2026-04-15'];
+        $defaultHeaders['revision'] = ['2026-07-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -5770,11 +5836,11 @@ class CampaignsApi
      * Get Messages for Campaign
      *
      * @param  string $id  (required)
-     * @param  string[]|null $fields_campaign_message For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_campaign For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_image For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_template For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#relationships (optional)
+     * @param  string[]|null $fields_campaign_message For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_campaign For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_image For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_template For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#relationships (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMessagesForCampaign'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -5811,11 +5877,11 @@ class CampaignsApi
      * Get Messages for Campaign
      *
      * @param  string $id  (required)
-     * @param  string[]|null $fields_campaign_message For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_campaign For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_image For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_template For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#relationships (optional)
+     * @param  string[]|null $fields_campaign_message For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_campaign For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_image For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_template For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#relationships (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMessagesForCampaign'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -5947,11 +6013,11 @@ class CampaignsApi
      * Get Messages for Campaign
      *
      * @param  string $id  (required)
-     * @param  string[]|null $fields_campaign_message For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_campaign For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_image For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_template For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#relationships (optional)
+     * @param  string[]|null $fields_campaign_message For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_campaign For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_image For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_template For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#relationships (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMessagesForCampaign'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -5991,11 +6057,11 @@ class CampaignsApi
      * Get Messages for Campaign
      *
      * @param  string $id  (required)
-     * @param  string[]|null $fields_campaign_message For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_campaign For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_image For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_template For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#relationships (optional)
+     * @param  string[]|null $fields_campaign_message For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_campaign For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_image For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_template For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#relationships (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMessagesForCampaign'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -6069,11 +6135,11 @@ class CampaignsApi
      * Create request for operation 'getMessagesForCampaign'
      *
      * @param  string $id  (required)
-     * @param  string[]|null $fields_campaign_message For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_campaign For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_image For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_template For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#relationships (optional)
+     * @param  string[]|null $fields_campaign_message For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_campaign For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_image For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_template For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#relationships (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMessagesForCampaign'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -6205,7 +6271,7 @@ class CampaignsApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2026-04-15'];
+        $defaultHeaders['revision'] = ['2026-07-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -6570,7 +6636,7 @@ class CampaignsApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2026-04-15'];
+        $defaultHeaders['revision'] = ['2026-07-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -6602,7 +6668,7 @@ class CampaignsApi
      * Get Tags for Campaign
      *
      * @param  string $id  (required)
-     * @param  string[]|null $fields_tag For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_tag For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTagsForCampaign'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -6630,7 +6696,7 @@ class CampaignsApi
      * Get Tags for Campaign
      *
      * @param  string $id  (required)
-     * @param  string[]|null $fields_tag For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_tag For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTagsForCampaign'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -6753,7 +6819,7 @@ class CampaignsApi
      * Get Tags for Campaign
      *
      * @param  string $id  (required)
-     * @param  string[]|null $fields_tag For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_tag For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTagsForCampaign'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -6784,7 +6850,7 @@ class CampaignsApi
      * Get Tags for Campaign
      *
      * @param  string $id  (required)
-     * @param  string[]|null $fields_tag For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_tag For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTagsForCampaign'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -6849,7 +6915,7 @@ class CampaignsApi
      * Create request for operation 'getTagsForCampaign'
      *
      * @param  string $id  (required)
-     * @param  string[]|null $fields_tag For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_tag For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTagsForCampaign'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -6941,7 +7007,7 @@ class CampaignsApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2026-04-15'];
+        $defaultHeaders['revision'] = ['2026-07-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -6973,7 +7039,7 @@ class CampaignsApi
      * Get Template for Campaign Message
      *
      * @param  string $id  (required)
-     * @param  string[]|null $fields_template For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_template For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTemplateForCampaignMessage'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -7001,7 +7067,7 @@ class CampaignsApi
      * Get Template for Campaign Message
      *
      * @param  string $id  (required)
-     * @param  string[]|null $fields_template For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_template For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTemplateForCampaignMessage'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -7124,7 +7190,7 @@ class CampaignsApi
      * Get Template for Campaign Message
      *
      * @param  string $id  (required)
-     * @param  string[]|null $fields_template For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_template For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTemplateForCampaignMessage'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -7155,7 +7221,7 @@ class CampaignsApi
      * Get Template for Campaign Message
      *
      * @param  string $id  (required)
-     * @param  string[]|null $fields_template For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_template For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTemplateForCampaignMessage'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -7220,7 +7286,7 @@ class CampaignsApi
      * Create request for operation 'getTemplateForCampaignMessage'
      *
      * @param  string $id  (required)
-     * @param  string[]|null $fields_template For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_template For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTemplateForCampaignMessage'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -7312,7 +7378,7 @@ class CampaignsApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2026-04-15'];
+        $defaultHeaders['revision'] = ['2026-07-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -7668,7 +7734,7 @@ class CampaignsApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2026-04-15'];
+        $defaultHeaders['revision'] = ['2026-07-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -7700,15 +7766,16 @@ class CampaignsApi
      * Refresh Campaign Recipient Estimation
      *
      * @param  \KlaviyoAPI\Model\CampaignRecipientEstimationJobCreateQuery $campaign_recipient_estimation_job_create_query Trigger an asynchronous job to update the estimated number of recipients for the given campaign ID. Use the &#x60;Get Campaign Recipient Estimation Job&#x60; endpoint to retrieve the status of this estimation job. Use the &#x60;Get Campaign Recipient Estimation&#x60; endpoint to retrieve the estimated recipient count for a given campaign. (required)
+     * @param  string[]|null $fields_campaign_recipient_estimation_job For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['refreshCampaignRecipientEstimation'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array<string,mixed>|\KlaviyoAPI\Model\GetAccounts400Response|\KlaviyoAPI\Model\GetAccounts400Response
      */
-    public function refreshCampaignRecipientEstimation($campaign_recipient_estimation_job_create_query, $apiKey = null, string $contentType = self::contentTypes['refreshCampaignRecipientEstimation'][0])
+    public function refreshCampaignRecipientEstimation($campaign_recipient_estimation_job_create_query, $fields_campaign_recipient_estimation_job = null, $apiKey = null, string $contentType = self::contentTypes['refreshCampaignRecipientEstimation'][0])
     {
-        list($response) = $this->refreshCampaignRecipientEstimationWithHttpInfo($campaign_recipient_estimation_job_create_query, $apiKey, $contentType);
+        list($response) = $this->refreshCampaignRecipientEstimationWithHttpInfo($campaign_recipient_estimation_job_create_query, $fields_campaign_recipient_estimation_job, $apiKey, $contentType);
         return $response;
     }
 
@@ -7727,15 +7794,16 @@ class CampaignsApi
      * Refresh Campaign Recipient Estimation
      *
      * @param  \KlaviyoAPI\Model\CampaignRecipientEstimationJobCreateQuery $campaign_recipient_estimation_job_create_query Trigger an asynchronous job to update the estimated number of recipients for the given campaign ID. Use the &#x60;Get Campaign Recipient Estimation Job&#x60; endpoint to retrieve the status of this estimation job. Use the &#x60;Get Campaign Recipient Estimation&#x60; endpoint to retrieve the estimated recipient count for a given campaign. (required)
+     * @param  string[]|null $fields_campaign_recipient_estimation_job For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['refreshCampaignRecipientEstimation'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of array<string,mixed>|\KlaviyoAPI\Model\GetAccounts400Response|\KlaviyoAPI\Model\GetAccounts400Response, HTTP status code, HTTP response headers (array of strings)
      */
-    public function refreshCampaignRecipientEstimationWithHttpInfo($campaign_recipient_estimation_job_create_query, $apiKey = null, string $contentType = self::contentTypes['refreshCampaignRecipientEstimation'][0])
+    public function refreshCampaignRecipientEstimationWithHttpInfo($campaign_recipient_estimation_job_create_query, $fields_campaign_recipient_estimation_job = null, $apiKey = null, string $contentType = self::contentTypes['refreshCampaignRecipientEstimation'][0])
     {
-        $request = $this->refreshCampaignRecipientEstimationRequest($campaign_recipient_estimation_job_create_query, $apiKey, $contentType);
+        $request = $this->refreshCampaignRecipientEstimationRequest($campaign_recipient_estimation_job_create_query, $fields_campaign_recipient_estimation_job, $apiKey, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -7849,14 +7917,15 @@ class CampaignsApi
      * Refresh Campaign Recipient Estimation
      *
      * @param  \KlaviyoAPI\Model\CampaignRecipientEstimationJobCreateQuery $campaign_recipient_estimation_job_create_query Trigger an asynchronous job to update the estimated number of recipients for the given campaign ID. Use the &#x60;Get Campaign Recipient Estimation Job&#x60; endpoint to retrieve the status of this estimation job. Use the &#x60;Get Campaign Recipient Estimation&#x60; endpoint to retrieve the estimated recipient count for a given campaign. (required)
+     * @param  string[]|null $fields_campaign_recipient_estimation_job For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['refreshCampaignRecipientEstimation'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function refreshCampaignRecipientEstimationAsync($campaign_recipient_estimation_job_create_query, $apiKey = null, string $contentType = self::contentTypes['refreshCampaignRecipientEstimation'][0])
+    public function refreshCampaignRecipientEstimationAsync($campaign_recipient_estimation_job_create_query, $fields_campaign_recipient_estimation_job = null, $apiKey = null, string $contentType = self::contentTypes['refreshCampaignRecipientEstimation'][0])
     {
-        return $this->refreshCampaignRecipientEstimationAsyncWithHttpInfo($campaign_recipient_estimation_job_create_query, $apiKey, $contentType)
+        return $this->refreshCampaignRecipientEstimationAsyncWithHttpInfo($campaign_recipient_estimation_job_create_query, $fields_campaign_recipient_estimation_job, $apiKey, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -7879,15 +7948,16 @@ class CampaignsApi
      * Refresh Campaign Recipient Estimation
      *
      * @param  \KlaviyoAPI\Model\CampaignRecipientEstimationJobCreateQuery $campaign_recipient_estimation_job_create_query Trigger an asynchronous job to update the estimated number of recipients for the given campaign ID. Use the &#x60;Get Campaign Recipient Estimation Job&#x60; endpoint to retrieve the status of this estimation job. Use the &#x60;Get Campaign Recipient Estimation&#x60; endpoint to retrieve the estimated recipient count for a given campaign. (required)
+     * @param  string[]|null $fields_campaign_recipient_estimation_job For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['refreshCampaignRecipientEstimation'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function refreshCampaignRecipientEstimationAsyncWithHttpInfo($campaign_recipient_estimation_job_create_query, $apiKey = null, string $contentType = self::contentTypes['refreshCampaignRecipientEstimation'][0])
+    public function refreshCampaignRecipientEstimationAsyncWithHttpInfo($campaign_recipient_estimation_job_create_query, $fields_campaign_recipient_estimation_job = null, $apiKey = null, string $contentType = self::contentTypes['refreshCampaignRecipientEstimation'][0])
     {
         $returnType = 'array<string,mixed>';
-        $request = $this->refreshCampaignRecipientEstimationRequest($campaign_recipient_estimation_job_create_query, $apiKey, $contentType);
+        $request = $this->refreshCampaignRecipientEstimationRequest($campaign_recipient_estimation_job_create_query, $fields_campaign_recipient_estimation_job, $apiKey, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -7943,12 +8013,13 @@ class CampaignsApi
      * Create request for operation 'refreshCampaignRecipientEstimation'
      *
      * @param  \KlaviyoAPI\Model\CampaignRecipientEstimationJobCreateQuery $campaign_recipient_estimation_job_create_query Trigger an asynchronous job to update the estimated number of recipients for the given campaign ID. Use the &#x60;Get Campaign Recipient Estimation Job&#x60; endpoint to retrieve the status of this estimation job. Use the &#x60;Get Campaign Recipient Estimation&#x60; endpoint to retrieve the estimated recipient count for a given campaign. (required)
+     * @param  string[]|null $fields_campaign_recipient_estimation_job For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['refreshCampaignRecipientEstimation'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function refreshCampaignRecipientEstimationRequest($campaign_recipient_estimation_job_create_query, $apiKey = null, string $contentType = self::contentTypes['refreshCampaignRecipientEstimation'][0])
+    public function refreshCampaignRecipientEstimationRequest($campaign_recipient_estimation_job_create_query, $fields_campaign_recipient_estimation_job = null, $apiKey = null, string $contentType = self::contentTypes['refreshCampaignRecipientEstimation'][0])
     {
 
         // verify the required parameter 'campaign_recipient_estimation_job_create_query' is set
@@ -7959,6 +8030,7 @@ class CampaignsApi
         }
 
 
+
         $resourcePath = '/api/campaign-recipient-estimation-jobs';
         $formParams = [];
         $queryParams = [];
@@ -7966,6 +8038,15 @@ class CampaignsApi
         $httpBody = '';
         $multipart = false;
 
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $fields_campaign_recipient_estimation_job,
+            'fields[campaign-recipient-estimation-job]', // param base name
+            'array', // openApiType
+            'form', // style
+            false, // explode
+            false // required
+        ) ?? []);
 
 
 
@@ -8023,7 +8104,7 @@ class CampaignsApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2026-04-15'];
+        $defaultHeaders['revision'] = ['2026-07-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -8055,15 +8136,16 @@ class CampaignsApi
      * Send Campaign
      *
      * @param  \KlaviyoAPI\Model\CampaignSendJobCreateQuery $campaign_send_job_create_query Trigger the campaign to send asynchronously (required)
+     * @param  string[]|null $fields_campaign_send_job For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['sendCampaign'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array<string,mixed>|\KlaviyoAPI\Model\GetAccounts400Response|\KlaviyoAPI\Model\GetAccounts400Response
      */
-    public function sendCampaign($campaign_send_job_create_query, $apiKey = null, string $contentType = self::contentTypes['sendCampaign'][0])
+    public function sendCampaign($campaign_send_job_create_query, $fields_campaign_send_job = null, $apiKey = null, string $contentType = self::contentTypes['sendCampaign'][0])
     {
-        list($response) = $this->sendCampaignWithHttpInfo($campaign_send_job_create_query, $apiKey, $contentType);
+        list($response) = $this->sendCampaignWithHttpInfo($campaign_send_job_create_query, $fields_campaign_send_job, $apiKey, $contentType);
         return $response;
     }
 
@@ -8082,15 +8164,16 @@ class CampaignsApi
      * Send Campaign
      *
      * @param  \KlaviyoAPI\Model\CampaignSendJobCreateQuery $campaign_send_job_create_query Trigger the campaign to send asynchronously (required)
+     * @param  string[]|null $fields_campaign_send_job For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['sendCampaign'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of array<string,mixed>|\KlaviyoAPI\Model\GetAccounts400Response|\KlaviyoAPI\Model\GetAccounts400Response, HTTP status code, HTTP response headers (array of strings)
      */
-    public function sendCampaignWithHttpInfo($campaign_send_job_create_query, $apiKey = null, string $contentType = self::contentTypes['sendCampaign'][0])
+    public function sendCampaignWithHttpInfo($campaign_send_job_create_query, $fields_campaign_send_job = null, $apiKey = null, string $contentType = self::contentTypes['sendCampaign'][0])
     {
-        $request = $this->sendCampaignRequest($campaign_send_job_create_query, $apiKey, $contentType);
+        $request = $this->sendCampaignRequest($campaign_send_job_create_query, $fields_campaign_send_job, $apiKey, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -8204,14 +8287,15 @@ class CampaignsApi
      * Send Campaign
      *
      * @param  \KlaviyoAPI\Model\CampaignSendJobCreateQuery $campaign_send_job_create_query Trigger the campaign to send asynchronously (required)
+     * @param  string[]|null $fields_campaign_send_job For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['sendCampaign'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function sendCampaignAsync($campaign_send_job_create_query, $apiKey = null, string $contentType = self::contentTypes['sendCampaign'][0])
+    public function sendCampaignAsync($campaign_send_job_create_query, $fields_campaign_send_job = null, $apiKey = null, string $contentType = self::contentTypes['sendCampaign'][0])
     {
-        return $this->sendCampaignAsyncWithHttpInfo($campaign_send_job_create_query, $apiKey, $contentType)
+        return $this->sendCampaignAsyncWithHttpInfo($campaign_send_job_create_query, $fields_campaign_send_job, $apiKey, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -8234,15 +8318,16 @@ class CampaignsApi
      * Send Campaign
      *
      * @param  \KlaviyoAPI\Model\CampaignSendJobCreateQuery $campaign_send_job_create_query Trigger the campaign to send asynchronously (required)
+     * @param  string[]|null $fields_campaign_send_job For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['sendCampaign'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function sendCampaignAsyncWithHttpInfo($campaign_send_job_create_query, $apiKey = null, string $contentType = self::contentTypes['sendCampaign'][0])
+    public function sendCampaignAsyncWithHttpInfo($campaign_send_job_create_query, $fields_campaign_send_job = null, $apiKey = null, string $contentType = self::contentTypes['sendCampaign'][0])
     {
         $returnType = 'array<string,mixed>';
-        $request = $this->sendCampaignRequest($campaign_send_job_create_query, $apiKey, $contentType);
+        $request = $this->sendCampaignRequest($campaign_send_job_create_query, $fields_campaign_send_job, $apiKey, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -8298,12 +8383,13 @@ class CampaignsApi
      * Create request for operation 'sendCampaign'
      *
      * @param  \KlaviyoAPI\Model\CampaignSendJobCreateQuery $campaign_send_job_create_query Trigger the campaign to send asynchronously (required)
+     * @param  string[]|null $fields_campaign_send_job For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['sendCampaign'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function sendCampaignRequest($campaign_send_job_create_query, $apiKey = null, string $contentType = self::contentTypes['sendCampaign'][0])
+    public function sendCampaignRequest($campaign_send_job_create_query, $fields_campaign_send_job = null, $apiKey = null, string $contentType = self::contentTypes['sendCampaign'][0])
     {
 
         // verify the required parameter 'campaign_send_job_create_query' is set
@@ -8314,6 +8400,7 @@ class CampaignsApi
         }
 
 
+
         $resourcePath = '/api/campaign-send-jobs';
         $formParams = [];
         $queryParams = [];
@@ -8321,6 +8408,15 @@ class CampaignsApi
         $httpBody = '';
         $multipart = false;
 
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $fields_campaign_send_job,
+            'fields[campaign-send-job]', // param base name
+            'array', // openApiType
+            'form', // style
+            false, // explode
+            false // required
+        ) ?? []);
 
 
 
@@ -8378,7 +8474,7 @@ class CampaignsApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2026-04-15'];
+        $defaultHeaders['revision'] = ['2026-07-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -8411,15 +8507,16 @@ class CampaignsApi
      *
      * @param  string $id The campaign ID to be retrieved (required)
      * @param  \KlaviyoAPI\Model\CampaignPartialUpdateQuery $campaign_partial_update_query Update a campaign and return it (required)
+     * @param  string[]|null $fields_campaign For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateCampaign'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array<string,mixed>|\KlaviyoAPI\Model\GetAccounts400Response|\KlaviyoAPI\Model\GetAccounts400Response
      */
-    public function updateCampaign($id, $campaign_partial_update_query, $apiKey = null, string $contentType = self::contentTypes['updateCampaign'][0])
+    public function updateCampaign($id, $campaign_partial_update_query, $fields_campaign = null, $apiKey = null, string $contentType = self::contentTypes['updateCampaign'][0])
     {
-        list($response) = $this->updateCampaignWithHttpInfo($id, $campaign_partial_update_query, $apiKey, $contentType);
+        list($response) = $this->updateCampaignWithHttpInfo($id, $campaign_partial_update_query, $fields_campaign, $apiKey, $contentType);
         return $response;
     }
 
@@ -8430,15 +8527,16 @@ class CampaignsApi
      *
      * @param  string $id The campaign ID to be retrieved (required)
      * @param  \KlaviyoAPI\Model\CampaignPartialUpdateQuery $campaign_partial_update_query Update a campaign and return it (required)
+     * @param  string[]|null $fields_campaign For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateCampaign'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of array<string,mixed>|\KlaviyoAPI\Model\GetAccounts400Response|\KlaviyoAPI\Model\GetAccounts400Response, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updateCampaignWithHttpInfo($id, $campaign_partial_update_query, $apiKey = null, string $contentType = self::contentTypes['updateCampaign'][0])
+    public function updateCampaignWithHttpInfo($id, $campaign_partial_update_query, $fields_campaign = null, $apiKey = null, string $contentType = self::contentTypes['updateCampaign'][0])
     {
-        $request = $this->updateCampaignRequest($id, $campaign_partial_update_query, $apiKey, $contentType);
+        $request = $this->updateCampaignRequest($id, $campaign_partial_update_query, $fields_campaign, $apiKey, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -8544,14 +8642,15 @@ class CampaignsApi
      *
      * @param  string $id The campaign ID to be retrieved (required)
      * @param  \KlaviyoAPI\Model\CampaignPartialUpdateQuery $campaign_partial_update_query Update a campaign and return it (required)
+     * @param  string[]|null $fields_campaign For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateCampaign'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateCampaignAsync($id, $campaign_partial_update_query, $apiKey = null, string $contentType = self::contentTypes['updateCampaign'][0])
+    public function updateCampaignAsync($id, $campaign_partial_update_query, $fields_campaign = null, $apiKey = null, string $contentType = self::contentTypes['updateCampaign'][0])
     {
-        return $this->updateCampaignAsyncWithHttpInfo($id, $campaign_partial_update_query, $apiKey, $contentType)
+        return $this->updateCampaignAsyncWithHttpInfo($id, $campaign_partial_update_query, $fields_campaign, $apiKey, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -8566,15 +8665,16 @@ class CampaignsApi
      *
      * @param  string $id The campaign ID to be retrieved (required)
      * @param  \KlaviyoAPI\Model\CampaignPartialUpdateQuery $campaign_partial_update_query Update a campaign and return it (required)
+     * @param  string[]|null $fields_campaign For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateCampaign'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateCampaignAsyncWithHttpInfo($id, $campaign_partial_update_query, $apiKey = null, string $contentType = self::contentTypes['updateCampaign'][0])
+    public function updateCampaignAsyncWithHttpInfo($id, $campaign_partial_update_query, $fields_campaign = null, $apiKey = null, string $contentType = self::contentTypes['updateCampaign'][0])
     {
         $returnType = 'array<string,mixed>';
-        $request = $this->updateCampaignRequest($id, $campaign_partial_update_query, $apiKey, $contentType);
+        $request = $this->updateCampaignRequest($id, $campaign_partial_update_query, $fields_campaign, $apiKey, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -8622,12 +8722,13 @@ class CampaignsApi
      *
      * @param  string $id The campaign ID to be retrieved (required)
      * @param  \KlaviyoAPI\Model\CampaignPartialUpdateQuery $campaign_partial_update_query Update a campaign and return it (required)
+     * @param  string[]|null $fields_campaign For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateCampaign'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function updateCampaignRequest($id, $campaign_partial_update_query, $apiKey = null, string $contentType = self::contentTypes['updateCampaign'][0])
+    public function updateCampaignRequest($id, $campaign_partial_update_query, $fields_campaign = null, $apiKey = null, string $contentType = self::contentTypes['updateCampaign'][0])
     {
 
         // verify the required parameter 'id' is set
@@ -8645,6 +8746,7 @@ class CampaignsApi
         }
 
 
+
         $resourcePath = '/api/campaigns/{id}';
         $formParams = [];
         $queryParams = [];
@@ -8652,6 +8754,15 @@ class CampaignsApi
         $httpBody = '';
         $multipart = false;
 
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $fields_campaign,
+            'fields[campaign]', // param base name
+            'array', // openApiType
+            'form', // style
+            false, // explode
+            false // required
+        ) ?? []);
 
 
         // path params
@@ -8717,7 +8828,7 @@ class CampaignsApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2026-04-15'];
+        $defaultHeaders['revision'] = ['2026-07-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -8741,15 +8852,16 @@ class CampaignsApi
      *
      * @param  string $id The message ID to be retrieved (required)
      * @param  \KlaviyoAPI\Model\CampaignMessagePartialUpdateQuery $campaign_message_partial_update_query Update a message and return it (required)
+     * @param  string[]|null $fields_campaign_message For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateCampaignMessage'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array<string,mixed>|\KlaviyoAPI\Model\GetAccounts400Response|\KlaviyoAPI\Model\GetAccounts400Response
      */
-    public function updateCampaignMessage($id, $campaign_message_partial_update_query, $apiKey = null, string $contentType = self::contentTypes['updateCampaignMessage'][0])
+    public function updateCampaignMessage($id, $campaign_message_partial_update_query, $fields_campaign_message = null, $apiKey = null, string $contentType = self::contentTypes['updateCampaignMessage'][0])
     {
-        list($response) = $this->updateCampaignMessageWithHttpInfo($id, $campaign_message_partial_update_query, $apiKey, $contentType);
+        list($response) = $this->updateCampaignMessageWithHttpInfo($id, $campaign_message_partial_update_query, $fields_campaign_message, $apiKey, $contentType);
         return $response;
     }
 
@@ -8760,15 +8872,16 @@ class CampaignsApi
      *
      * @param  string $id The message ID to be retrieved (required)
      * @param  \KlaviyoAPI\Model\CampaignMessagePartialUpdateQuery $campaign_message_partial_update_query Update a message and return it (required)
+     * @param  string[]|null $fields_campaign_message For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateCampaignMessage'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of array<string,mixed>|\KlaviyoAPI\Model\GetAccounts400Response|\KlaviyoAPI\Model\GetAccounts400Response, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updateCampaignMessageWithHttpInfo($id, $campaign_message_partial_update_query, $apiKey = null, string $contentType = self::contentTypes['updateCampaignMessage'][0])
+    public function updateCampaignMessageWithHttpInfo($id, $campaign_message_partial_update_query, $fields_campaign_message = null, $apiKey = null, string $contentType = self::contentTypes['updateCampaignMessage'][0])
     {
-        $request = $this->updateCampaignMessageRequest($id, $campaign_message_partial_update_query, $apiKey, $contentType);
+        $request = $this->updateCampaignMessageRequest($id, $campaign_message_partial_update_query, $fields_campaign_message, $apiKey, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -8874,14 +8987,15 @@ class CampaignsApi
      *
      * @param  string $id The message ID to be retrieved (required)
      * @param  \KlaviyoAPI\Model\CampaignMessagePartialUpdateQuery $campaign_message_partial_update_query Update a message and return it (required)
+     * @param  string[]|null $fields_campaign_message For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateCampaignMessage'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateCampaignMessageAsync($id, $campaign_message_partial_update_query, $apiKey = null, string $contentType = self::contentTypes['updateCampaignMessage'][0])
+    public function updateCampaignMessageAsync($id, $campaign_message_partial_update_query, $fields_campaign_message = null, $apiKey = null, string $contentType = self::contentTypes['updateCampaignMessage'][0])
     {
-        return $this->updateCampaignMessageAsyncWithHttpInfo($id, $campaign_message_partial_update_query, $apiKey, $contentType)
+        return $this->updateCampaignMessageAsyncWithHttpInfo($id, $campaign_message_partial_update_query, $fields_campaign_message, $apiKey, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -8896,15 +9010,16 @@ class CampaignsApi
      *
      * @param  string $id The message ID to be retrieved (required)
      * @param  \KlaviyoAPI\Model\CampaignMessagePartialUpdateQuery $campaign_message_partial_update_query Update a message and return it (required)
+     * @param  string[]|null $fields_campaign_message For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateCampaignMessage'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateCampaignMessageAsyncWithHttpInfo($id, $campaign_message_partial_update_query, $apiKey = null, string $contentType = self::contentTypes['updateCampaignMessage'][0])
+    public function updateCampaignMessageAsyncWithHttpInfo($id, $campaign_message_partial_update_query, $fields_campaign_message = null, $apiKey = null, string $contentType = self::contentTypes['updateCampaignMessage'][0])
     {
         $returnType = 'array<string,mixed>';
-        $request = $this->updateCampaignMessageRequest($id, $campaign_message_partial_update_query, $apiKey, $contentType);
+        $request = $this->updateCampaignMessageRequest($id, $campaign_message_partial_update_query, $fields_campaign_message, $apiKey, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -8952,12 +9067,13 @@ class CampaignsApi
      *
      * @param  string $id The message ID to be retrieved (required)
      * @param  \KlaviyoAPI\Model\CampaignMessagePartialUpdateQuery $campaign_message_partial_update_query Update a message and return it (required)
+     * @param  string[]|null $fields_campaign_message For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateCampaignMessage'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function updateCampaignMessageRequest($id, $campaign_message_partial_update_query, $apiKey = null, string $contentType = self::contentTypes['updateCampaignMessage'][0])
+    public function updateCampaignMessageRequest($id, $campaign_message_partial_update_query, $fields_campaign_message = null, $apiKey = null, string $contentType = self::contentTypes['updateCampaignMessage'][0])
     {
 
         // verify the required parameter 'id' is set
@@ -8975,6 +9091,7 @@ class CampaignsApi
         }
 
 
+
         $resourcePath = '/api/campaign-messages/{id}';
         $formParams = [];
         $queryParams = [];
@@ -8982,6 +9099,15 @@ class CampaignsApi
         $httpBody = '';
         $multipart = false;
 
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $fields_campaign_message,
+            'fields[campaign-message]', // param base name
+            'array', // openApiType
+            'form', // style
+            false, // explode
+            false // required
+        ) ?? []);
 
 
         // path params
@@ -9047,7 +9173,7 @@ class CampaignsApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2026-04-15'];
+        $defaultHeaders['revision'] = ['2026-07-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -9346,7 +9472,7 @@ class CampaignsApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2026-04-15'];
+        $defaultHeaders['revision'] = ['2026-07-15'];
 
         $headers = array_merge(
             $defaultHeaders,

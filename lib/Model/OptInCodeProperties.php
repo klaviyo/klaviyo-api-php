@@ -57,6 +57,7 @@ class OptInCodeProperties implements ModelInterface, ArrayAccess, \JsonSerializa
       * @var string[]
       */
     protected static $openAPITypes = [
+        'classname' => 'string',
         'label' => 'string',
         'show_label' => 'bool',
         'placeholder' => 'string',
@@ -74,6 +75,7 @@ class OptInCodeProperties implements ModelInterface, ArrayAccess, \JsonSerializa
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
+        'classname' => null,
         'label' => null,
         'show_label' => null,
         'placeholder' => null,
@@ -89,6 +91,7 @@ class OptInCodeProperties implements ModelInterface, ArrayAccess, \JsonSerializa
       * @var boolean[]
       */
     protected static array $openAPINullables = [
+        'classname' => true,
         'label' => true,
         'show_label' => false,
         'placeholder' => true,
@@ -184,6 +187,7 @@ class OptInCodeProperties implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $attributeMap = [
+        'classname' => 'classname',
         'label' => 'label',
         'show_label' => 'show_label',
         'placeholder' => 'placeholder',
@@ -199,6 +203,7 @@ class OptInCodeProperties implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $setters = [
+        'classname' => 'setClassname',
         'label' => 'setLabel',
         'show_label' => 'setShowLabel',
         'placeholder' => 'setPlaceholder',
@@ -214,6 +219,7 @@ class OptInCodeProperties implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $getters = [
+        'classname' => 'getClassname',
         'label' => 'getLabel',
         'show_label' => 'getShowLabel',
         'placeholder' => 'getPlaceholder',
@@ -310,6 +316,7 @@ class OptInCodeProperties implements ModelInterface, ArrayAccess, \JsonSerializa
      */
     public function __construct(?array $data = null)
     {
+        $this->setIfExists('classname', $data ?? [], null);
         $this->setIfExists('label', $data ?? [], null);
         $this->setIfExists('show_label', $data ?? [], false);
         $this->setIfExists('placeholder', $data ?? [], null);
@@ -369,6 +376,40 @@ class OptInCodeProperties implements ModelInterface, ArrayAccess, \JsonSerializa
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets classname
+     *
+     * @return string|null
+     */
+    public function getClassname()
+    {
+        return $this->container['classname'];
+    }
+
+    /**
+     * Sets classname
+     *
+     * @param string|null $classname classname
+     *
+     * @return self
+     */
+    public function setClassname($classname)
+    {
+        if (is_null($classname)) {
+            array_push($this->openAPINullablesSetToNull, 'classname');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('classname', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['classname'] = $classname;
+
+        return $this;
+    }
 
     /**
      * Gets label

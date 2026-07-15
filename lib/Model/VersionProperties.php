@@ -61,7 +61,8 @@ class VersionProperties implements ModelInterface, ArrayAccess, \JsonSerializabl
         'click_outside_to_close' => 'string[]',
         'rule_based_trigger_evaluation' => 'string',
         'record_utm_params_on_submit' => 'bool',
-        'show_close_button' => 'bool'
+        'show_close_button' => 'bool',
+        'accessible_name' => 'string'
     ];
 
     /**
@@ -76,7 +77,8 @@ class VersionProperties implements ModelInterface, ArrayAccess, \JsonSerializabl
         'click_outside_to_close' => null,
         'rule_based_trigger_evaluation' => null,
         'record_utm_params_on_submit' => null,
-        'show_close_button' => null
+        'show_close_button' => null,
+        'accessible_name' => null
     ];
 
     /**
@@ -89,7 +91,8 @@ class VersionProperties implements ModelInterface, ArrayAccess, \JsonSerializabl
         'click_outside_to_close' => true,
         'rule_based_trigger_evaluation' => true,
         'record_utm_params_on_submit' => false,
-        'show_close_button' => false
+        'show_close_button' => false,
+        'accessible_name' => true
     ];
 
     /**
@@ -182,7 +185,8 @@ class VersionProperties implements ModelInterface, ArrayAccess, \JsonSerializabl
         'click_outside_to_close' => 'click_outside_to_close',
         'rule_based_trigger_evaluation' => 'rule_based_trigger_evaluation',
         'record_utm_params_on_submit' => 'record_utm_params_on_submit',
-        'show_close_button' => 'show_close_button'
+        'show_close_button' => 'show_close_button',
+        'accessible_name' => 'accessible_name'
     ];
 
     /**
@@ -195,7 +199,8 @@ class VersionProperties implements ModelInterface, ArrayAccess, \JsonSerializabl
         'click_outside_to_close' => 'setClickOutsideToClose',
         'rule_based_trigger_evaluation' => 'setRuleBasedTriggerEvaluation',
         'record_utm_params_on_submit' => 'setRecordUtmParamsOnSubmit',
-        'show_close_button' => 'setShowCloseButton'
+        'show_close_button' => 'setShowCloseButton',
+        'accessible_name' => 'setAccessibleName'
     ];
 
     /**
@@ -208,7 +213,8 @@ class VersionProperties implements ModelInterface, ArrayAccess, \JsonSerializabl
         'click_outside_to_close' => 'getClickOutsideToClose',
         'rule_based_trigger_evaluation' => 'getRuleBasedTriggerEvaluation',
         'record_utm_params_on_submit' => 'getRecordUtmParamsOnSubmit',
-        'show_close_button' => 'getShowCloseButton'
+        'show_close_button' => 'getShowCloseButton',
+        'accessible_name' => 'getAccessibleName'
     ];
 
     /**
@@ -305,6 +311,7 @@ class VersionProperties implements ModelInterface, ArrayAccess, \JsonSerializabl
         $this->setIfExists('rule_based_trigger_evaluation', $data ?? [], 'any');
         $this->setIfExists('record_utm_params_on_submit', $data ?? [], false);
         $this->setIfExists('show_close_button', $data ?? [], true);
+        $this->setIfExists('accessible_name', $data ?? [], null);
     }
 
     /**
@@ -522,6 +529,40 @@ class VersionProperties implements ModelInterface, ArrayAccess, \JsonSerializabl
             throw new \InvalidArgumentException('non-nullable show_close_button cannot be null');
         }
         $this->container['show_close_button'] = $show_close_button;
+
+        return $this;
+    }
+
+    /**
+     * Gets accessible_name
+     *
+     * @return string|null
+     */
+    public function getAccessibleName()
+    {
+        return $this->container['accessible_name'];
+    }
+
+    /**
+     * Sets accessible_name
+     *
+     * @param string|null $accessible_name accessible_name
+     *
+     * @return self
+     */
+    public function setAccessibleName($accessible_name)
+    {
+        if (is_null($accessible_name)) {
+            array_push($this->openAPINullablesSetToNull, 'accessible_name');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('accessible_name', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['accessible_name'] = $accessible_name;
 
         return $this;
     }

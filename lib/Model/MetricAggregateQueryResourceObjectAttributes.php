@@ -315,6 +315,7 @@ class MetricAggregateQueryResourceObjectAttributes implements ModelInterface, Ar
     public const BY_FROM_PHONE_REGION = 'From Phone Region';
     public const BY_INBOX_PROVIDER = 'Inbox Provider';
     public const BY__LIST = 'List';
+    public const BY_MESSAGE_FORMAT = 'Message Format';
     public const BY_MESSAGE_NAME = 'Message Name';
     public const BY_MESSAGE_TYPE = 'Message Type';
     public const BY_METHOD = 'Method';
@@ -376,6 +377,8 @@ class MetricAggregateQueryResourceObjectAttributes implements ModelInterface, Ar
     public const SORT_INBOX_PROVIDER_DESC = '-Inbox Provider';
     public const SORT__LIST = 'List';
     public const SORT__LIST_DESC = '-List';
+    public const SORT_MESSAGE_FORMAT = 'Message Format';
+    public const SORT_MESSAGE_FORMAT_DESC = '-Message Format';
     public const SORT_MESSAGE_NAME = 'Message Name';
     public const SORT_MESSAGE_NAME_DESC = '-Message Name';
     public const SORT_MESSAGE_TYPE = 'Message Type';
@@ -464,6 +467,7 @@ class MetricAggregateQueryResourceObjectAttributes implements ModelInterface, Ar
             self::BY_FROM_PHONE_REGION,
             self::BY_INBOX_PROVIDER,
             self::BY__LIST,
+            self::BY_MESSAGE_FORMAT,
             self::BY_MESSAGE_NAME,
             self::BY_MESSAGE_TYPE,
             self::BY_METHOD,
@@ -536,6 +540,8 @@ class MetricAggregateQueryResourceObjectAttributes implements ModelInterface, Ar
             self::SORT_INBOX_PROVIDER_DESC,
             self::SORT__LIST,
             self::SORT__LIST_DESC,
+            self::SORT_MESSAGE_FORMAT,
+            self::SORT_MESSAGE_FORMAT_DESC,
             self::SORT_MESSAGE_NAME,
             self::SORT_MESSAGE_NAME_DESC,
             self::SORT_MESSAGE_TYPE,

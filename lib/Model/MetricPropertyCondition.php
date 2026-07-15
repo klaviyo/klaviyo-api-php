@@ -60,7 +60,7 @@ class MetricPropertyCondition implements ModelInterface, ArrayAccess, \JsonSeria
         'type' => 'string',
         'metric_id' => 'string',
         'field' => 'string',
-        'filter' => '\KlaviyoAPI\Model\MetricPropertyConditionFilter2'
+        'filter' => '\KlaviyoAPI\Model\MetricPropertyConditionFilter'
     ];
 
     /**
@@ -438,7 +438,7 @@ class MetricPropertyCondition implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Gets filter
      *
-     * @return \KlaviyoAPI\Model\MetricPropertyConditionFilter2
+     * @return \KlaviyoAPI\Model\MetricPropertyConditionFilter
      */
     public function getFilter()
     {
@@ -448,7 +448,7 @@ class MetricPropertyCondition implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Sets filter
      *
-     * @param \KlaviyoAPI\Model\MetricPropertyConditionFilter2 $filter filter
+     * @param \KlaviyoAPI\Model\MetricPropertyConditionFilter $filter filter
      *
      * @return self
      */

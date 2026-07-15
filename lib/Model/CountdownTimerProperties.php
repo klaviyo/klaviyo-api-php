@@ -58,6 +58,7 @@ class CountdownTimerProperties implements ModelInterface, ArrayAccess, \JsonSeri
       */
     protected static $openAPITypes = [
         'display_device' => 'string[]',
+        'classname' => 'string',
         'clock_face' => 'string',
         'animation' => 'string',
         'configuration' => '\KlaviyoAPI\Model\CountdownTimerPropertiesConfiguration'
@@ -72,6 +73,7 @@ class CountdownTimerProperties implements ModelInterface, ArrayAccess, \JsonSeri
       */
     protected static $openAPIFormats = [
         'display_device' => null,
+        'classname' => null,
         'clock_face' => null,
         'animation' => null,
         'configuration' => null
@@ -84,6 +86,7 @@ class CountdownTimerProperties implements ModelInterface, ArrayAccess, \JsonSeri
       */
     protected static array $openAPINullables = [
         'display_device' => false,
+        'classname' => true,
         'clock_face' => false,
         'animation' => true,
         'configuration' => false
@@ -176,6 +179,7 @@ class CountdownTimerProperties implements ModelInterface, ArrayAccess, \JsonSeri
      */
     protected static $attributeMap = [
         'display_device' => 'display_device',
+        'classname' => 'classname',
         'clock_face' => 'clock_face',
         'animation' => 'animation',
         'configuration' => 'configuration'
@@ -188,6 +192,7 @@ class CountdownTimerProperties implements ModelInterface, ArrayAccess, \JsonSeri
      */
     protected static $setters = [
         'display_device' => 'setDisplayDevice',
+        'classname' => 'setClassname',
         'clock_face' => 'setClockFace',
         'animation' => 'setAnimation',
         'configuration' => 'setConfiguration'
@@ -200,6 +205,7 @@ class CountdownTimerProperties implements ModelInterface, ArrayAccess, \JsonSeri
      */
     protected static $getters = [
         'display_device' => 'getDisplayDevice',
+        'classname' => 'getClassname',
         'clock_face' => 'getClockFace',
         'animation' => 'getAnimation',
         'configuration' => 'getConfiguration'
@@ -312,6 +318,7 @@ class CountdownTimerProperties implements ModelInterface, ArrayAccess, \JsonSeri
     public function __construct(?array $data = null)
     {
         $this->setIfExists('display_device', $data ?? [], null);
+        $this->setIfExists('classname', $data ?? [], null);
         $this->setIfExists('clock_face', $data ?? [], 'simple');
         $this->setIfExists('animation', $data ?? [], 'heartbeat');
         $this->setIfExists('configuration', $data ?? [], null);
@@ -412,6 +419,40 @@ class CountdownTimerProperties implements ModelInterface, ArrayAccess, \JsonSeri
             );
         }
         $this->container['display_device'] = $display_device;
+
+        return $this;
+    }
+
+    /**
+     * Gets classname
+     *
+     * @return string|null
+     */
+    public function getClassname()
+    {
+        return $this->container['classname'];
+    }
+
+    /**
+     * Sets classname
+     *
+     * @param string|null $classname classname
+     *
+     * @return self
+     */
+    public function setClassname($classname)
+    {
+        if (is_null($classname)) {
+            array_push($this->openAPINullablesSetToNull, 'classname');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('classname', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['classname'] = $classname;
 
         return $this;
     }

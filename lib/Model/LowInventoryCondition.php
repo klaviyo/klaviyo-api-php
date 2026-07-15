@@ -60,7 +60,7 @@ class LowInventoryCondition implements ModelInterface, ArrayAccess, \JsonSeriali
         'type' => 'string',
         'metric_id' => 'string',
         'field' => 'string',
-        'filter' => '\KlaviyoAPI\Model\LowInventoryConditionFilter2'
+        'filter' => '\KlaviyoAPI\Model\MetricPropertyConditionFilter'
     ];
 
     /**
@@ -445,7 +445,7 @@ class LowInventoryCondition implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Gets filter
      *
-     * @return \KlaviyoAPI\Model\LowInventoryConditionFilter2
+     * @return \KlaviyoAPI\Model\MetricPropertyConditionFilter
      */
     public function getFilter()
     {
@@ -455,7 +455,7 @@ class LowInventoryCondition implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Sets filter
      *
-     * @param \KlaviyoAPI\Model\LowInventoryConditionFilter2 $filter filter
+     * @param \KlaviyoAPI\Model\MetricPropertyConditionFilter $filter filter
      *
      * @return self
      */

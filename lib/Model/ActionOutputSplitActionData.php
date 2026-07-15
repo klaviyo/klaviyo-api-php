@@ -57,7 +57,7 @@ class ActionOutputSplitActionData implements ModelInterface, ArrayAccess, \JsonS
       * @var string[]
       */
     protected static $openAPITypes = [
-        'action_output_filter' => '\KlaviyoAPI\Model\ActionOutputConditionFilter'
+        'action_output_filter' => '\KlaviyoAPI\Model\ActionOutputSplitActionDataActionOutputFilter'
     ];
 
     /**
@@ -77,7 +77,7 @@ class ActionOutputSplitActionData implements ModelInterface, ArrayAccess, \JsonS
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'action_output_filter' => false
+        'action_output_filter' => true
     ];
 
     /**
@@ -295,7 +295,7 @@ class ActionOutputSplitActionData implements ModelInterface, ArrayAccess, \JsonS
     /**
      * Gets action_output_filter
      *
-     * @return \KlaviyoAPI\Model\ActionOutputConditionFilter
+     * @return \KlaviyoAPI\Model\ActionOutputSplitActionDataActionOutputFilter
      */
     public function getActionOutputFilter()
     {
@@ -305,14 +305,21 @@ class ActionOutputSplitActionData implements ModelInterface, ArrayAccess, \JsonS
     /**
      * Sets action_output_filter
      *
-     * @param \KlaviyoAPI\Model\ActionOutputConditionFilter $action_output_filter action_output_filter
+     * @param \KlaviyoAPI\Model\ActionOutputSplitActionDataActionOutputFilter $action_output_filter action_output_filter
      *
      * @return self
      */
     public function setActionOutputFilter($action_output_filter)
     {
         if (is_null($action_output_filter)) {
-            throw new \InvalidArgumentException('non-nullable action_output_filter cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'action_output_filter');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('action_output_filter', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['action_output_filter'] = $action_output_filter;
 

@@ -60,7 +60,7 @@ class CustomObjectPropertyCondition implements ModelInterface, ArrayAccess, \Jso
         'type' => 'string',
         'custom_object_label' => 'string',
         'field' => 'string',
-        'filter' => '\KlaviyoAPI\Model\CustomObjectPropertyConditionFilter'
+        'filter' => '\KlaviyoAPI\Model\MetricPropertyConditionFilter'
     ];
 
     /**
@@ -438,7 +438,7 @@ class CustomObjectPropertyCondition implements ModelInterface, ArrayAccess, \Jso
     /**
      * Gets filter
      *
-     * @return \KlaviyoAPI\Model\CustomObjectPropertyConditionFilter
+     * @return \KlaviyoAPI\Model\MetricPropertyConditionFilter
      */
     public function getFilter()
     {
@@ -448,7 +448,7 @@ class CustomObjectPropertyCondition implements ModelInterface, ArrayAccess, \Jso
     /**
      * Sets filter
      *
-     * @param \KlaviyoAPI\Model\CustomObjectPropertyConditionFilter $filter filter
+     * @param \KlaviyoAPI\Model\MetricPropertyConditionFilter $filter filter
      *
      * @return self
      */

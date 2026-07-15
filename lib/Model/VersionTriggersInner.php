@@ -241,6 +241,7 @@ class VersionTriggersInner implements ModelInterface, ArrayAccess, \JsonSerializ
     }
 
     public const TYPE_AFTER_CLOSE_OR_SUBMIT_TIMEOUT = 'after_close_or_submit_timeout';
+    public const TYPE_CART_CONTENT = 'cart_content';
     public const TYPE_CART_ITEM_COUNT = 'cart_item_count';
     public const TYPE_CART_PRODUCT = 'cart_product';
     public const TYPE_CART_VALUE = 'cart_value';
@@ -269,6 +270,7 @@ class VersionTriggersInner implements ModelInterface, ArrayAccess, \JsonSerializ
     {
         return [
             self::TYPE_AFTER_CLOSE_OR_SUBMIT_TIMEOUT,
+            self::TYPE_CART_CONTENT,
             self::TYPE_CART_ITEM_COUNT,
             self::TYPE_CART_PRODUCT,
             self::TYPE_CART_VALUE,
