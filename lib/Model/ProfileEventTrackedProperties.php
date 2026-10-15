@@ -58,7 +58,8 @@ class ProfileEventTrackedProperties implements ModelInterface, ArrayAccess, \Jso
       */
     protected static $openAPITypes = [
         'metric' => 'string',
-        'property_filters' => '\KlaviyoAPI\Model\PropertyFilter[]'
+        'property_filters' => '\KlaviyoAPI\Model\PropertyFilter[]',
+        'delay_seconds' => 'int'
     ];
 
     /**
@@ -70,7 +71,8 @@ class ProfileEventTrackedProperties implements ModelInterface, ArrayAccess, \Jso
       */
     protected static $openAPIFormats = [
         'metric' => null,
-        'property_filters' => null
+        'property_filters' => null,
+        'delay_seconds' => null
     ];
 
     /**
@@ -80,7 +82,8 @@ class ProfileEventTrackedProperties implements ModelInterface, ArrayAccess, \Jso
       */
     protected static array $openAPINullables = [
         'metric' => true,
-        'property_filters' => true
+        'property_filters' => true,
+        'delay_seconds' => true
     ];
 
     /**
@@ -170,7 +173,8 @@ class ProfileEventTrackedProperties implements ModelInterface, ArrayAccess, \Jso
      */
     protected static $attributeMap = [
         'metric' => 'metric',
-        'property_filters' => 'property_filters'
+        'property_filters' => 'property_filters',
+        'delay_seconds' => 'delay_seconds'
     ];
 
     /**
@@ -180,7 +184,8 @@ class ProfileEventTrackedProperties implements ModelInterface, ArrayAccess, \Jso
      */
     protected static $setters = [
         'metric' => 'setMetric',
-        'property_filters' => 'setPropertyFilters'
+        'property_filters' => 'setPropertyFilters',
+        'delay_seconds' => 'setDelaySeconds'
     ];
 
     /**
@@ -190,7 +195,8 @@ class ProfileEventTrackedProperties implements ModelInterface, ArrayAccess, \Jso
      */
     protected static $getters = [
         'metric' => 'getMetric',
-        'property_filters' => 'getPropertyFilters'
+        'property_filters' => 'getPropertyFilters',
+        'delay_seconds' => 'getDelaySeconds'
     ];
 
     /**
@@ -252,6 +258,7 @@ class ProfileEventTrackedProperties implements ModelInterface, ArrayAccess, \Jso
     {
         $this->setIfExists('metric', $data ?? [], '');
         $this->setIfExists('property_filters', $data ?? [], null);
+        $this->setIfExists('delay_seconds', $data ?? [], null);
     }
 
     /**
@@ -360,6 +367,40 @@ class ProfileEventTrackedProperties implements ModelInterface, ArrayAccess, \Jso
             }
         }
         $this->container['property_filters'] = $property_filters;
+
+        return $this;
+    }
+
+    /**
+     * Gets delay_seconds
+     *
+     * @return int|null
+     */
+    public function getDelaySeconds()
+    {
+        return $this->container['delay_seconds'];
+    }
+
+    /**
+     * Sets delay_seconds
+     *
+     * @param int|null $delay_seconds delay_seconds
+     *
+     * @return self
+     */
+    public function setDelaySeconds($delay_seconds)
+    {
+        if (is_null($delay_seconds)) {
+            array_push($this->openAPINullablesSetToNull, 'delay_seconds');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('delay_seconds', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['delay_seconds'] = $delay_seconds;
 
         return $this;
     }

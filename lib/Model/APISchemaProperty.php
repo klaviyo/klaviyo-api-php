@@ -249,6 +249,7 @@ class APISchemaProperty implements ModelInterface, ArrayAccess, \JsonSerializabl
     public const TYPE_BOOLEAN = 'boolean';
     public const TYPE_FLOAT = 'float';
     public const TYPE_INT = 'int';
+    public const TYPE_LIST_STR = 'list_str';
     public const TYPE_STRING = 'string';
     public const TYPE_TIMESTAMP = 'timestamp';
 
@@ -263,6 +264,7 @@ class APISchemaProperty implements ModelInterface, ArrayAccess, \JsonSerializabl
             self::TYPE_BOOLEAN,
             self::TYPE_FLOAT,
             self::TYPE_INT,
+            self::TYPE_LIST_STR,
             self::TYPE_STRING,
             self::TYPE_TIMESTAMP,
         ];

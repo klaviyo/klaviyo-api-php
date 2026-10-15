@@ -274,6 +274,9 @@ class DataSourceRecordBulkCreateJobCreateQueryResourceObjectRelationships implem
     {
         $invalidProperties = [];
 
+        if ($this->container['data_source'] === null) {
+            $invalidProperties[] = "'data_source' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -292,7 +295,7 @@ class DataSourceRecordBulkCreateJobCreateQueryResourceObjectRelationships implem
     /**
      * Gets data_source
      *
-     * @return \KlaviyoAPI\Model\DataSourceRecordBulkCreateJobCreateQueryResourceObjectRelationshipsDataSource|null
+     * @return \KlaviyoAPI\Model\DataSourceRecordBulkCreateJobCreateQueryResourceObjectRelationshipsDataSource
      */
     public function getDataSource()
     {
@@ -302,7 +305,7 @@ class DataSourceRecordBulkCreateJobCreateQueryResourceObjectRelationships implem
     /**
      * Sets data_source
      *
-     * @param \KlaviyoAPI\Model\DataSourceRecordBulkCreateJobCreateQueryResourceObjectRelationshipsDataSource|null $data_source data_source
+     * @param \KlaviyoAPI\Model\DataSourceRecordBulkCreateJobCreateQueryResourceObjectRelationshipsDataSource $data_source data_source
      *
      * @return self
      */

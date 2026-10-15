@@ -59,8 +59,10 @@ class CountdownTimerProperties implements ModelInterface, ArrayAccess, \JsonSeri
     protected static $openAPITypes = [
         'display_device' => 'string[]',
         'classname' => 'string',
+        'block_animation' => '\KlaviyoAPI\Model\Animation',
         'clock_face' => 'string',
         'animation' => 'string',
+        'label_format' => 'string',
         'configuration' => '\KlaviyoAPI\Model\CountdownTimerPropertiesConfiguration'
     ];
 
@@ -74,8 +76,10 @@ class CountdownTimerProperties implements ModelInterface, ArrayAccess, \JsonSeri
     protected static $openAPIFormats = [
         'display_device' => null,
         'classname' => null,
+        'block_animation' => null,
         'clock_face' => null,
         'animation' => null,
+        'label_format' => null,
         'configuration' => null
     ];
 
@@ -87,8 +91,10 @@ class CountdownTimerProperties implements ModelInterface, ArrayAccess, \JsonSeri
     protected static array $openAPINullables = [
         'display_device' => false,
         'classname' => true,
+        'block_animation' => false,
         'clock_face' => false,
         'animation' => true,
+        'label_format' => true,
         'configuration' => false
     ];
 
@@ -180,8 +186,10 @@ class CountdownTimerProperties implements ModelInterface, ArrayAccess, \JsonSeri
     protected static $attributeMap = [
         'display_device' => 'display_device',
         'classname' => 'classname',
+        'block_animation' => 'block_animation',
         'clock_face' => 'clock_face',
         'animation' => 'animation',
+        'label_format' => 'label_format',
         'configuration' => 'configuration'
     ];
 
@@ -193,8 +201,10 @@ class CountdownTimerProperties implements ModelInterface, ArrayAccess, \JsonSeri
     protected static $setters = [
         'display_device' => 'setDisplayDevice',
         'classname' => 'setClassname',
+        'block_animation' => 'setBlockAnimation',
         'clock_face' => 'setClockFace',
         'animation' => 'setAnimation',
+        'label_format' => 'setLabelFormat',
         'configuration' => 'setConfiguration'
     ];
 
@@ -206,8 +216,10 @@ class CountdownTimerProperties implements ModelInterface, ArrayAccess, \JsonSeri
     protected static $getters = [
         'display_device' => 'getDisplayDevice',
         'classname' => 'getClassname',
+        'block_animation' => 'getBlockAnimation',
         'clock_face' => 'getClockFace',
         'animation' => 'getAnimation',
+        'label_format' => 'getLabelFormat',
         'configuration' => 'getConfiguration'
     ];
 
@@ -260,6 +272,10 @@ class CountdownTimerProperties implements ModelInterface, ArrayAccess, \JsonSeri
     public const ANIMATION_FLASH = 'flash';
     public const ANIMATION_HEARTBEAT = 'heartbeat';
     public const ANIMATION_PULSE = 'pulse';
+    public const LABEL_FORMAT_DOUBLE_CHAR = 'double_char';
+    public const LABEL_FORMAT_FULL = 'full';
+    public const LABEL_FORMAT_SHORTENED = 'shortened';
+    public const LABEL_FORMAT_SINGLE_CHAR = 'single_char';
 
     /**
      * Gets allowable values of the enum
@@ -303,6 +319,21 @@ class CountdownTimerProperties implements ModelInterface, ArrayAccess, \JsonSeri
     }
 
     /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getLabelFormatAllowableValues()
+    {
+        return [
+            self::LABEL_FORMAT_DOUBLE_CHAR,
+            self::LABEL_FORMAT_FULL,
+            self::LABEL_FORMAT_SHORTENED,
+            self::LABEL_FORMAT_SINGLE_CHAR,
+        ];
+    }
+
+    /**
      * Associative array for storing property values
      *
      * @var mixed[]
@@ -319,8 +350,10 @@ class CountdownTimerProperties implements ModelInterface, ArrayAccess, \JsonSeri
     {
         $this->setIfExists('display_device', $data ?? [], null);
         $this->setIfExists('classname', $data ?? [], null);
+        $this->setIfExists('block_animation', $data ?? [], null);
         $this->setIfExists('clock_face', $data ?? [], 'simple');
         $this->setIfExists('animation', $data ?? [], 'heartbeat');
+        $this->setIfExists('label_format', $data ?? [], null);
         $this->setIfExists('configuration', $data ?? [], null);
     }
 
@@ -365,6 +398,15 @@ class CountdownTimerProperties implements ModelInterface, ArrayAccess, \JsonSeri
             $invalidProperties[] = sprintf(
                 "invalid value '%s' for 'animation', must be one of '%s'",
                 $this->container['animation'],
+                implode("', '", $allowedValues)
+            );
+        }
+
+        $allowedValues = $this->getLabelFormatAllowableValues();
+        if (!is_null($this->container['label_format']) && !in_array($this->container['label_format'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'label_format', must be one of '%s'",
+                $this->container['label_format'],
                 implode("', '", $allowedValues)
             );
         }
@@ -458,6 +500,33 @@ class CountdownTimerProperties implements ModelInterface, ArrayAccess, \JsonSeri
     }
 
     /**
+     * Gets block_animation
+     *
+     * @return \KlaviyoAPI\Model\Animation|null
+     */
+    public function getBlockAnimation()
+    {
+        return $this->container['block_animation'];
+    }
+
+    /**
+     * Sets block_animation
+     *
+     * @param \KlaviyoAPI\Model\Animation|null $block_animation block_animation
+     *
+     * @return self
+     */
+    public function setBlockAnimation($block_animation)
+    {
+        if (is_null($block_animation)) {
+            throw new \InvalidArgumentException('non-nullable block_animation cannot be null');
+        }
+        $this->container['block_animation'] = $block_animation;
+
+        return $this;
+    }
+
+    /**
      * Gets clock_face
      *
      * @return string|null
@@ -534,6 +603,50 @@ class CountdownTimerProperties implements ModelInterface, ArrayAccess, \JsonSeri
             );
         }
         $this->container['animation'] = $animation;
+
+        return $this;
+    }
+
+    /**
+     * Gets label_format
+     *
+     * @return string|null
+     */
+    public function getLabelFormat()
+    {
+        return $this->container['label_format'];
+    }
+
+    /**
+     * Sets label_format
+     *
+     * @param string|null $label_format Label lengths for countdown timer units.
+     *
+     * @return self
+     */
+    public function setLabelFormat($label_format)
+    {
+        if (is_null($label_format)) {
+            array_push($this->openAPINullablesSetToNull, 'label_format');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('label_format', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $allowedValues = $this->getLabelFormatAllowableValues();
+        if (!is_null($label_format) && !in_array($label_format, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'label_format', must be one of '%s'",
+                    $label_format,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['label_format'] = $label_format;
 
         return $this;
     }

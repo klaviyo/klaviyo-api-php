@@ -57,7 +57,8 @@ class ConversationMessageCreateQueryResourceObjectAttributes implements ModelInt
       * @var string[]
       */
     protected static $openAPITypes = [
-        'body' => 'string'
+        'body' => 'string',
+        'message_hierarchy' => '\KlaviyoAPI\Model\FlowSmsMessageHierarchyInner[]'
     ];
 
     /**
@@ -68,7 +69,8 @@ class ConversationMessageCreateQueryResourceObjectAttributes implements ModelInt
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'body' => null
+        'body' => null,
+        'message_hierarchy' => null
     ];
 
     /**
@@ -77,7 +79,8 @@ class ConversationMessageCreateQueryResourceObjectAttributes implements ModelInt
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'body' => false
+        'body' => false,
+        'message_hierarchy' => true
     ];
 
     /**
@@ -166,7 +169,8 @@ class ConversationMessageCreateQueryResourceObjectAttributes implements ModelInt
      * @var string[]
      */
     protected static $attributeMap = [
-        'body' => 'body'
+        'body' => 'body',
+        'message_hierarchy' => 'message_hierarchy'
     ];
 
     /**
@@ -175,7 +179,8 @@ class ConversationMessageCreateQueryResourceObjectAttributes implements ModelInt
      * @var string[]
      */
     protected static $setters = [
-        'body' => 'setBody'
+        'body' => 'setBody',
+        'message_hierarchy' => 'setMessageHierarchy'
     ];
 
     /**
@@ -184,7 +189,8 @@ class ConversationMessageCreateQueryResourceObjectAttributes implements ModelInt
      * @var string[]
      */
     protected static $getters = [
-        'body' => 'getBody'
+        'body' => 'getBody',
+        'message_hierarchy' => 'getMessageHierarchy'
     ];
 
     /**
@@ -245,6 +251,7 @@ class ConversationMessageCreateQueryResourceObjectAttributes implements ModelInt
     public function __construct(?array $data = null)
     {
         $this->setIfExists('body', $data ?? [], null);
+        $this->setIfExists('message_hierarchy', $data ?? [], null);
     }
 
     /**
@@ -315,6 +322,40 @@ class ConversationMessageCreateQueryResourceObjectAttributes implements ModelInt
             throw new \InvalidArgumentException('non-nullable body cannot be null');
         }
         $this->container['body'] = $body;
+
+        return $this;
+    }
+
+    /**
+     * Gets message_hierarchy
+     *
+     * @return \KlaviyoAPI\Model\FlowSmsMessageHierarchyInner[]|null
+     */
+    public function getMessageHierarchy()
+    {
+        return $this->container['message_hierarchy'];
+    }
+
+    /**
+     * Sets message_hierarchy
+     *
+     * @param \KlaviyoAPI\Model\FlowSmsMessageHierarchyInner[]|null $message_hierarchy An ordered RCS and SMS pair to send instead of a plain SMS: the RCS content first, then the SMS fallback delivered when RCS cannot be sent.
+     *
+     * @return self
+     */
+    public function setMessageHierarchy($message_hierarchy)
+    {
+        if (is_null($message_hierarchy)) {
+            array_push($this->openAPINullablesSetToNull, 'message_hierarchy');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('message_hierarchy', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['message_hierarchy'] = $message_hierarchy;
 
         return $this;
     }

@@ -77,7 +77,7 @@ class DataSourceRecordBulkCreateJobCreateQueryResourceObjectAttributes implement
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'data_source_records' => true
+        'data_source_records' => false
     ];
 
     /**
@@ -274,6 +274,9 @@ class DataSourceRecordBulkCreateJobCreateQueryResourceObjectAttributes implement
     {
         $invalidProperties = [];
 
+        if ($this->container['data_source_records'] === null) {
+            $invalidProperties[] = "'data_source_records' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -292,7 +295,7 @@ class DataSourceRecordBulkCreateJobCreateQueryResourceObjectAttributes implement
     /**
      * Gets data_source_records
      *
-     * @return \KlaviyoAPI\Model\DataSourceRecordBulkCreateJobCreateQueryResourceObjectAttributesDataSourceRecords|null
+     * @return \KlaviyoAPI\Model\DataSourceRecordBulkCreateJobCreateQueryResourceObjectAttributesDataSourceRecords
      */
     public function getDataSourceRecords()
     {
@@ -302,21 +305,14 @@ class DataSourceRecordBulkCreateJobCreateQueryResourceObjectAttributes implement
     /**
      * Sets data_source_records
      *
-     * @param \KlaviyoAPI\Model\DataSourceRecordBulkCreateJobCreateQueryResourceObjectAttributesDataSourceRecords|null $data_source_records data_source_records
+     * @param \KlaviyoAPI\Model\DataSourceRecordBulkCreateJobCreateQueryResourceObjectAttributesDataSourceRecords $data_source_records data_source_records
      *
      * @return self
      */
     public function setDataSourceRecords($data_source_records)
     {
         if (is_null($data_source_records)) {
-            array_push($this->openAPINullablesSetToNull, 'data_source_records');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('data_source_records', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable data_source_records cannot be null');
         }
         $this->container['data_source_records'] = $data_source_records;
 

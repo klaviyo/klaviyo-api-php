@@ -59,7 +59,8 @@ class PushProfileUpsertQueryResourceObject implements ModelInterface, ArrayAcces
     protected static $openAPITypes = [
         'type' => '\KlaviyoAPI\Model\ProfileEnum',
         'id' => 'string',
-        'attributes' => '\KlaviyoAPI\Model\PushProfileUpsertQueryResourceObjectAttributes'
+        'attributes' => '\KlaviyoAPI\Model\PushProfileUpsertQueryResourceObjectAttributes',
+        'meta' => '\KlaviyoAPI\Model\ProfileMeta'
     ];
 
     /**
@@ -72,7 +73,8 @@ class PushProfileUpsertQueryResourceObject implements ModelInterface, ArrayAcces
     protected static $openAPIFormats = [
         'type' => null,
         'id' => null,
-        'attributes' => null
+        'attributes' => null,
+        'meta' => null
     ];
 
     /**
@@ -83,7 +85,8 @@ class PushProfileUpsertQueryResourceObject implements ModelInterface, ArrayAcces
     protected static array $openAPINullables = [
         'type' => false,
         'id' => true,
-        'attributes' => false
+        'attributes' => false,
+        'meta' => false
     ];
 
     /**
@@ -174,7 +177,8 @@ class PushProfileUpsertQueryResourceObject implements ModelInterface, ArrayAcces
     protected static $attributeMap = [
         'type' => 'type',
         'id' => 'id',
-        'attributes' => 'attributes'
+        'attributes' => 'attributes',
+        'meta' => 'meta'
     ];
 
     /**
@@ -185,7 +189,8 @@ class PushProfileUpsertQueryResourceObject implements ModelInterface, ArrayAcces
     protected static $setters = [
         'type' => 'setType',
         'id' => 'setId',
-        'attributes' => 'setAttributes'
+        'attributes' => 'setAttributes',
+        'meta' => 'setMeta'
     ];
 
     /**
@@ -196,7 +201,8 @@ class PushProfileUpsertQueryResourceObject implements ModelInterface, ArrayAcces
     protected static $getters = [
         'type' => 'getType',
         'id' => 'getId',
-        'attributes' => 'getAttributes'
+        'attributes' => 'getAttributes',
+        'meta' => 'getMeta'
     ];
 
     /**
@@ -259,6 +265,7 @@ class PushProfileUpsertQueryResourceObject implements ModelInterface, ArrayAcces
         $this->setIfExists('type', $data ?? [], null);
         $this->setIfExists('id', $data ?? [], null);
         $this->setIfExists('attributes', $data ?? [], null);
+        $this->setIfExists('meta', $data ?? [], null);
     }
 
     /**
@@ -393,6 +400,33 @@ class PushProfileUpsertQueryResourceObject implements ModelInterface, ArrayAcces
             throw new \InvalidArgumentException('non-nullable attributes cannot be null');
         }
         $this->container['attributes'] = $attributes;
+
+        return $this;
+    }
+
+    /**
+     * Gets meta
+     *
+     * @return \KlaviyoAPI\Model\ProfileMeta|null
+     */
+    public function getMeta()
+    {
+        return $this->container['meta'];
+    }
+
+    /**
+     * Sets meta
+     *
+     * @param \KlaviyoAPI\Model\ProfileMeta|null $meta meta
+     *
+     * @return self
+     */
+    public function setMeta($meta)
+    {
+        if (is_null($meta)) {
+            throw new \InvalidArgumentException('non-nullable meta cannot be null');
+        }
+        $this->container['meta'] = $meta;
 
         return $this;
     }

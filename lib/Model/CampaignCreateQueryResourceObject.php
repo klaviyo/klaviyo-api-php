@@ -58,7 +58,8 @@ class CampaignCreateQueryResourceObject implements ModelInterface, ArrayAccess, 
       */
     protected static $openAPITypes = [
         'type' => '\KlaviyoAPI\Model\CampaignEnum',
-        'attributes' => '\KlaviyoAPI\Model\CampaignCreateQueryResourceObjectAttributes'
+        'attributes' => '\KlaviyoAPI\Model\CampaignCreateQueryResourceObjectAttributes',
+        'relationships' => '\KlaviyoAPI\Model\CampaignCreateQueryResourceObjectRelationships'
     ];
 
     /**
@@ -70,7 +71,8 @@ class CampaignCreateQueryResourceObject implements ModelInterface, ArrayAccess, 
       */
     protected static $openAPIFormats = [
         'type' => null,
-        'attributes' => null
+        'attributes' => null,
+        'relationships' => null
     ];
 
     /**
@@ -80,7 +82,8 @@ class CampaignCreateQueryResourceObject implements ModelInterface, ArrayAccess, 
       */
     protected static array $openAPINullables = [
         'type' => false,
-        'attributes' => false
+        'attributes' => false,
+        'relationships' => false
     ];
 
     /**
@@ -170,7 +173,8 @@ class CampaignCreateQueryResourceObject implements ModelInterface, ArrayAccess, 
      */
     protected static $attributeMap = [
         'type' => 'type',
-        'attributes' => 'attributes'
+        'attributes' => 'attributes',
+        'relationships' => 'relationships'
     ];
 
     /**
@@ -180,7 +184,8 @@ class CampaignCreateQueryResourceObject implements ModelInterface, ArrayAccess, 
      */
     protected static $setters = [
         'type' => 'setType',
-        'attributes' => 'setAttributes'
+        'attributes' => 'setAttributes',
+        'relationships' => 'setRelationships'
     ];
 
     /**
@@ -190,7 +195,8 @@ class CampaignCreateQueryResourceObject implements ModelInterface, ArrayAccess, 
      */
     protected static $getters = [
         'type' => 'getType',
-        'attributes' => 'getAttributes'
+        'attributes' => 'getAttributes',
+        'relationships' => 'getRelationships'
     ];
 
     /**
@@ -252,6 +258,7 @@ class CampaignCreateQueryResourceObject implements ModelInterface, ArrayAccess, 
     {
         $this->setIfExists('type', $data ?? [], null);
         $this->setIfExists('attributes', $data ?? [], null);
+        $this->setIfExists('relationships', $data ?? [], null);
     }
 
     /**
@@ -352,6 +359,33 @@ class CampaignCreateQueryResourceObject implements ModelInterface, ArrayAccess, 
             throw new \InvalidArgumentException('non-nullable attributes cannot be null');
         }
         $this->container['attributes'] = $attributes;
+
+        return $this;
+    }
+
+    /**
+     * Gets relationships
+     *
+     * @return \KlaviyoAPI\Model\CampaignCreateQueryResourceObjectRelationships|null
+     */
+    public function getRelationships()
+    {
+        return $this->container['relationships'];
+    }
+
+    /**
+     * Sets relationships
+     *
+     * @param \KlaviyoAPI\Model\CampaignCreateQueryResourceObjectRelationships|null $relationships relationships
+     *
+     * @return self
+     */
+    public function setRelationships($relationships)
+    {
+        if (is_null($relationships)) {
+            throw new \InvalidArgumentException('non-nullable relationships cannot be null');
+        }
+        $this->container['relationships'] = $relationships;
 
         return $this;
     }

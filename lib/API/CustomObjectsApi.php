@@ -501,7 +501,7 @@ class CustomObjectsApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2026-07-15'];
+        $defaultHeaders['revision'] = ['2026-10-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -789,7 +789,7 @@ class CustomObjectsApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2026-07-15'];
+        $defaultHeaders['revision'] = ['2026-10-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -821,7 +821,7 @@ class CustomObjectsApi
      * Create Data Source
      *
      * @param  \KlaviyoAPI\Model\DataSourceCreateQuery $data_source_create_query Create data source (required)
-     * @param  string[]|null $fields_data_source For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_data_source For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createDataSource'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -840,7 +840,7 @@ class CustomObjectsApi
      * Create Data Source
      *
      * @param  \KlaviyoAPI\Model\DataSourceCreateQuery $data_source_create_query Create data source (required)
-     * @param  string[]|null $fields_data_source For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_data_source For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createDataSource'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -954,7 +954,7 @@ class CustomObjectsApi
      * Create Data Source
      *
      * @param  \KlaviyoAPI\Model\DataSourceCreateQuery $data_source_create_query Create data source (required)
-     * @param  string[]|null $fields_data_source For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_data_source For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createDataSource'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -976,7 +976,7 @@ class CustomObjectsApi
      * Create Data Source
      *
      * @param  \KlaviyoAPI\Model\DataSourceCreateQuery $data_source_create_query Create data source (required)
-     * @param  string[]|null $fields_data_source For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_data_source For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createDataSource'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1032,7 +1032,7 @@ class CustomObjectsApi
      * Create request for operation 'createDataSource'
      *
      * @param  \KlaviyoAPI\Model\DataSourceCreateQuery $data_source_create_query Create data source (required)
-     * @param  string[]|null $fields_data_source For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_data_source For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createDataSource'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1123,7 +1123,7 @@ class CustomObjectsApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2026-07-15'];
+        $defaultHeaders['revision'] = ['2026-10-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -1402,7 +1402,7 @@ class CustomObjectsApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2026-07-15'];
+        $defaultHeaders['revision'] = ['2026-10-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -1434,7 +1434,7 @@ class CustomObjectsApi
      * Create Object Schema
      *
      * @param  \KlaviyoAPI\Model\ObjectSchemaCreateQuery $object_schema_create_query Create an object schema (required)
-     * @param  string[]|null $fields_object_schema For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_object_schema For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createObjectSchema'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -1453,7 +1453,7 @@ class CustomObjectsApi
      * Create Object Schema
      *
      * @param  \KlaviyoAPI\Model\ObjectSchemaCreateQuery $object_schema_create_query Create an object schema (required)
-     * @param  string[]|null $fields_object_schema For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_object_schema For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createObjectSchema'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -1567,7 +1567,7 @@ class CustomObjectsApi
      * Create Object Schema
      *
      * @param  \KlaviyoAPI\Model\ObjectSchemaCreateQuery $object_schema_create_query Create an object schema (required)
-     * @param  string[]|null $fields_object_schema For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_object_schema For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createObjectSchema'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1589,7 +1589,7 @@ class CustomObjectsApi
      * Create Object Schema
      *
      * @param  \KlaviyoAPI\Model\ObjectSchemaCreateQuery $object_schema_create_query Create an object schema (required)
-     * @param  string[]|null $fields_object_schema For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_object_schema For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createObjectSchema'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1645,7 +1645,7 @@ class CustomObjectsApi
      * Create request for operation 'createObjectSchema'
      *
      * @param  \KlaviyoAPI\Model\ObjectSchemaCreateQuery $object_schema_create_query Create an object schema (required)
-     * @param  string[]|null $fields_object_schema For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_object_schema For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createObjectSchema'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1736,7 +1736,7 @@ class CustomObjectsApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2026-07-15'];
+        $defaultHeaders['revision'] = ['2026-10-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -2071,7 +2071,7 @@ class CustomObjectsApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2026-07-15'];
+        $defaultHeaders['revision'] = ['2026-10-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -2112,7 +2112,7 @@ class CustomObjectsApi
      * Create Object Type
      *
      * @param  \KlaviyoAPI\Model\ObjectTypeCreateQuery $object_type_create_query Create an object type (required)
-     * @param  string[]|null $fields_object_type For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_object_type For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createObjectType'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -2131,7 +2131,7 @@ class CustomObjectsApi
      * Create Object Type
      *
      * @param  \KlaviyoAPI\Model\ObjectTypeCreateQuery $object_type_create_query Create an object type (required)
-     * @param  string[]|null $fields_object_type For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_object_type For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createObjectType'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -2245,7 +2245,7 @@ class CustomObjectsApi
      * Create Object Type
      *
      * @param  \KlaviyoAPI\Model\ObjectTypeCreateQuery $object_type_create_query Create an object type (required)
-     * @param  string[]|null $fields_object_type For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_object_type For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createObjectType'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -2267,7 +2267,7 @@ class CustomObjectsApi
      * Create Object Type
      *
      * @param  \KlaviyoAPI\Model\ObjectTypeCreateQuery $object_type_create_query Create an object type (required)
-     * @param  string[]|null $fields_object_type For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_object_type For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createObjectType'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -2323,7 +2323,7 @@ class CustomObjectsApi
      * Create request for operation 'createObjectType'
      *
      * @param  \KlaviyoAPI\Model\ObjectTypeCreateQuery $object_type_create_query Create an object type (required)
-     * @param  string[]|null $fields_object_type For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_object_type For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createObjectType'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -2414,7 +2414,7 @@ class CustomObjectsApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2026-07-15'];
+        $defaultHeaders['revision'] = ['2026-10-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -2749,7 +2749,7 @@ class CustomObjectsApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2026-07-15'];
+        $defaultHeaders['revision'] = ['2026-10-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -3011,7 +3011,7 @@ class CustomObjectsApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2026-07-15'];
+        $defaultHeaders['revision'] = ['2026-10-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -3346,7 +3346,7 @@ class CustomObjectsApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2026-07-15'];
+        $defaultHeaders['revision'] = ['2026-10-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -3608,7 +3608,7 @@ class CustomObjectsApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2026-07-15'];
+        $defaultHeaders['revision'] = ['2026-10-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -3943,7 +3943,7 @@ class CustomObjectsApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2026-07-15'];
+        $defaultHeaders['revision'] = ['2026-10-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -3984,7 +3984,7 @@ class CustomObjectsApi
      * Get Current Schema for Object Type
      *
      * @param  string $id The ULID ID of the object type. (required)
-     * @param  string[]|null $fields_object_schema For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_object_schema For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCurrentSchemaForObjectType'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -4012,7 +4012,7 @@ class CustomObjectsApi
      * Get Current Schema for Object Type
      *
      * @param  string $id The ULID ID of the object type. (required)
-     * @param  string[]|null $fields_object_schema For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_object_schema For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCurrentSchemaForObjectType'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -4135,7 +4135,7 @@ class CustomObjectsApi
      * Get Current Schema for Object Type
      *
      * @param  string $id The ULID ID of the object type. (required)
-     * @param  string[]|null $fields_object_schema For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_object_schema For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCurrentSchemaForObjectType'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -4166,7 +4166,7 @@ class CustomObjectsApi
      * Get Current Schema for Object Type
      *
      * @param  string $id The ULID ID of the object type. (required)
-     * @param  string[]|null $fields_object_schema For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_object_schema For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCurrentSchemaForObjectType'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -4231,7 +4231,7 @@ class CustomObjectsApi
      * Create request for operation 'getCurrentSchemaForObjectType'
      *
      * @param  string $id The ULID ID of the object type. (required)
-     * @param  string[]|null $fields_object_schema For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_object_schema For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCurrentSchemaForObjectType'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -4323,7 +4323,7 @@ class CustomObjectsApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2026-07-15'];
+        $defaultHeaders['revision'] = ['2026-10-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -4679,7 +4679,7 @@ class CustomObjectsApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2026-07-15'];
+        $defaultHeaders['revision'] = ['2026-10-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -4711,7 +4711,7 @@ class CustomObjectsApi
      * Get Data Source
      *
      * @param  string $id The ID of the data source (required)
-     * @param  string[]|null $fields_data_source For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_data_source For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDataSource'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -4730,7 +4730,7 @@ class CustomObjectsApi
      * Get Data Source
      *
      * @param  string $id The ID of the data source (required)
-     * @param  string[]|null $fields_data_source For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_data_source For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDataSource'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -4844,7 +4844,7 @@ class CustomObjectsApi
      * Get Data Source
      *
      * @param  string $id The ID of the data source (required)
-     * @param  string[]|null $fields_data_source For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_data_source For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDataSource'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -4866,7 +4866,7 @@ class CustomObjectsApi
      * Get Data Source
      *
      * @param  string $id The ID of the data source (required)
-     * @param  string[]|null $fields_data_source For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_data_source For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDataSource'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -4922,7 +4922,7 @@ class CustomObjectsApi
      * Create request for operation 'getDataSource'
      *
      * @param  string $id The ID of the data source (required)
-     * @param  string[]|null $fields_data_source For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_data_source For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDataSource'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -5014,7 +5014,7 @@ class CustomObjectsApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2026-07-15'];
+        $defaultHeaders['revision'] = ['2026-10-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -5036,8 +5036,9 @@ class CustomObjectsApi
      *
      * Get Data Sources
      *
-     * @param  string[]|null $fields_data_source For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination (optional)
+     * @param  string[]|null $fields_data_source For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;namespace&#x60;: &#x60;equals&#x60; (string) (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#pagination (optional)
      * @param  int|null $page_size Default: 20. Min: 1. Max: 100. (optional, default to 20)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDataSources'] to see the possible values for this operation
      *
@@ -5045,9 +5046,9 @@ class CustomObjectsApi
      * @throws \InvalidArgumentException
      * @return array<string,mixed>|\KlaviyoAPI\Model\GetAccounts400Response|\KlaviyoAPI\Model\GetAccounts400Response
      */
-    public function getDataSources($fields_data_source = null, $page_cursor = null, $page_size = 20, $apiKey = null, string $contentType = self::contentTypes['getDataSources'][0])
+    public function getDataSources($fields_data_source = null, $filter = null, $page_cursor = null, $page_size = 20, $apiKey = null, string $contentType = self::contentTypes['getDataSources'][0])
     {
-        list($response) = $this->getDataSourcesWithHttpInfo($fields_data_source, $page_cursor, $page_size, $apiKey, $contentType);
+        list($response) = $this->getDataSourcesWithHttpInfo($fields_data_source, $filter, $page_cursor, $page_size, $apiKey, $contentType);
         return $response;
     }
 
@@ -5056,8 +5057,9 @@ class CustomObjectsApi
      *
      * Get Data Sources
      *
-     * @param  string[]|null $fields_data_source For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination (optional)
+     * @param  string[]|null $fields_data_source For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;namespace&#x60;: &#x60;equals&#x60; (string) (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#pagination (optional)
      * @param  int|null $page_size Default: 20. Min: 1. Max: 100. (optional, default to 20)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDataSources'] to see the possible values for this operation
      *
@@ -5065,9 +5067,9 @@ class CustomObjectsApi
      * @throws \InvalidArgumentException
      * @return array of array<string,mixed>|\KlaviyoAPI\Model\GetAccounts400Response|\KlaviyoAPI\Model\GetAccounts400Response, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getDataSourcesWithHttpInfo($fields_data_source = null, $page_cursor = null, $page_size = 20, $apiKey = null, string $contentType = self::contentTypes['getDataSources'][0])
+    public function getDataSourcesWithHttpInfo($fields_data_source = null, $filter = null, $page_cursor = null, $page_size = 20, $apiKey = null, string $contentType = self::contentTypes['getDataSources'][0])
     {
-        $request = $this->getDataSourcesRequest($fields_data_source, $page_cursor, $page_size, $apiKey, $contentType);
+        $request = $this->getDataSourcesRequest($fields_data_source, $filter, $page_cursor, $page_size, $apiKey, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -5171,17 +5173,18 @@ class CustomObjectsApi
      *
      * Get Data Sources
      *
-     * @param  string[]|null $fields_data_source For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination (optional)
+     * @param  string[]|null $fields_data_source For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;namespace&#x60;: &#x60;equals&#x60; (string) (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#pagination (optional)
      * @param  int|null $page_size Default: 20. Min: 1. Max: 100. (optional, default to 20)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDataSources'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getDataSourcesAsync($fields_data_source = null, $page_cursor = null, $page_size = 20, $apiKey = null, string $contentType = self::contentTypes['getDataSources'][0])
+    public function getDataSourcesAsync($fields_data_source = null, $filter = null, $page_cursor = null, $page_size = 20, $apiKey = null, string $contentType = self::contentTypes['getDataSources'][0])
     {
-        return $this->getDataSourcesAsyncWithHttpInfo($fields_data_source, $page_cursor, $page_size, $apiKey, $contentType)
+        return $this->getDataSourcesAsyncWithHttpInfo($fields_data_source, $filter, $page_cursor, $page_size, $apiKey, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -5194,18 +5197,19 @@ class CustomObjectsApi
      *
      * Get Data Sources
      *
-     * @param  string[]|null $fields_data_source For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination (optional)
+     * @param  string[]|null $fields_data_source For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;namespace&#x60;: &#x60;equals&#x60; (string) (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#pagination (optional)
      * @param  int|null $page_size Default: 20. Min: 1. Max: 100. (optional, default to 20)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDataSources'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getDataSourcesAsyncWithHttpInfo($fields_data_source = null, $page_cursor = null, $page_size = 20, $apiKey = null, string $contentType = self::contentTypes['getDataSources'][0])
+    public function getDataSourcesAsyncWithHttpInfo($fields_data_source = null, $filter = null, $page_cursor = null, $page_size = 20, $apiKey = null, string $contentType = self::contentTypes['getDataSources'][0])
     {
         $returnType = 'array<string,mixed>';
-        $request = $this->getDataSourcesRequest($fields_data_source, $page_cursor, $page_size, $apiKey, $contentType);
+        $request = $this->getDataSourcesRequest($fields_data_source, $filter, $page_cursor, $page_size, $apiKey, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -5251,16 +5255,18 @@ class CustomObjectsApi
     /**
      * Create request for operation 'getDataSources'
      *
-     * @param  string[]|null $fields_data_source For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination (optional)
+     * @param  string[]|null $fields_data_source For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;namespace&#x60;: &#x60;equals&#x60; (string) (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#pagination (optional)
      * @param  int|null $page_size Default: 20. Min: 1. Max: 100. (optional, default to 20)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDataSources'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getDataSourcesRequest($fields_data_source = null, $page_cursor = null, $page_size = 20, $apiKey = null, string $contentType = self::contentTypes['getDataSources'][0])
+    public function getDataSourcesRequest($fields_data_source = null, $filter = null, $page_cursor = null, $page_size = 20, $apiKey = null, string $contentType = self::contentTypes['getDataSources'][0])
     {
+
 
 
 
@@ -5286,6 +5292,15 @@ class CustomObjectsApi
             'array', // openApiType
             'form', // style
             false, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $filter,
+            'filter', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
             false // required
         ) ?? []);
         // query params
@@ -5356,7 +5371,7 @@ class CustomObjectsApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2026-07-15'];
+        $defaultHeaders['revision'] = ['2026-10-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -5379,7 +5394,7 @@ class CustomObjectsApi
      * Get Draft Schema for Object Type
      *
      * @param  string $id The ULID ID of the object type. (required)
-     * @param  string[]|null $fields_object_schema For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_object_schema For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDraftSchemaForObjectType'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -5407,7 +5422,7 @@ class CustomObjectsApi
      * Get Draft Schema for Object Type
      *
      * @param  string $id The ULID ID of the object type. (required)
-     * @param  string[]|null $fields_object_schema For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_object_schema For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDraftSchemaForObjectType'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -5530,7 +5545,7 @@ class CustomObjectsApi
      * Get Draft Schema for Object Type
      *
      * @param  string $id The ULID ID of the object type. (required)
-     * @param  string[]|null $fields_object_schema For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_object_schema For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDraftSchemaForObjectType'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -5561,7 +5576,7 @@ class CustomObjectsApi
      * Get Draft Schema for Object Type
      *
      * @param  string $id The ULID ID of the object type. (required)
-     * @param  string[]|null $fields_object_schema For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_object_schema For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDraftSchemaForObjectType'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -5626,7 +5641,7 @@ class CustomObjectsApi
      * Create request for operation 'getDraftSchemaForObjectType'
      *
      * @param  string $id The ULID ID of the object type. (required)
-     * @param  string[]|null $fields_object_schema For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_object_schema For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDraftSchemaForObjectType'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -5718,7 +5733,7 @@ class CustomObjectsApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2026-07-15'];
+        $defaultHeaders['revision'] = ['2026-10-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -6074,7 +6089,7 @@ class CustomObjectsApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2026-07-15'];
+        $defaultHeaders['revision'] = ['2026-10-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -6106,8 +6121,8 @@ class CustomObjectsApi
      * Get Ingestion Log IDs for Object Type
      *
      * @param  string $id The ULID ID of the object type. (required)
-     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;record_id&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;status&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;event_type&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;timestamp&#x60;: &#x60;greater-or-equal&#x60;, &#x60;less-than&#x60; (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination (optional)
+     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;record_id&#x60;: &#x60;equals&#x60; (string)&lt;br&gt;&#x60;status&#x60;: &#x60;any&#x60;, &#x60;equals&#x60; (allowed values: &#x60;&#39;error&#39;&#x60;, &#x60;&#39;warning&#39;&#x60;, &#x60;&#39;info&#39;&#x60;)&lt;br&gt;&#x60;event_type&#x60;: &#x60;any&#x60;, &#x60;equals&#x60; (allowed values: &#x60;&#39;validation_error&#39;&#x60;)&lt;br&gt;&#x60;timestamp&#x60;: &#x60;greater-or-equal&#x60;, &#x60;less-than&#x60; (date-time) (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#pagination (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getIngestionLogIdsForObjectType'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -6135,8 +6150,8 @@ class CustomObjectsApi
      * Get Ingestion Log IDs for Object Type
      *
      * @param  string $id The ULID ID of the object type. (required)
-     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;record_id&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;status&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;event_type&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;timestamp&#x60;: &#x60;greater-or-equal&#x60;, &#x60;less-than&#x60; (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination (optional)
+     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;record_id&#x60;: &#x60;equals&#x60; (string)&lt;br&gt;&#x60;status&#x60;: &#x60;any&#x60;, &#x60;equals&#x60; (allowed values: &#x60;&#39;error&#39;&#x60;, &#x60;&#39;warning&#39;&#x60;, &#x60;&#39;info&#39;&#x60;)&lt;br&gt;&#x60;event_type&#x60;: &#x60;any&#x60;, &#x60;equals&#x60; (allowed values: &#x60;&#39;validation_error&#39;&#x60;)&lt;br&gt;&#x60;timestamp&#x60;: &#x60;greater-or-equal&#x60;, &#x60;less-than&#x60; (date-time) (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#pagination (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getIngestionLogIdsForObjectType'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -6259,8 +6274,8 @@ class CustomObjectsApi
      * Get Ingestion Log IDs for Object Type
      *
      * @param  string $id The ULID ID of the object type. (required)
-     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;record_id&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;status&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;event_type&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;timestamp&#x60;: &#x60;greater-or-equal&#x60;, &#x60;less-than&#x60; (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination (optional)
+     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;record_id&#x60;: &#x60;equals&#x60; (string)&lt;br&gt;&#x60;status&#x60;: &#x60;any&#x60;, &#x60;equals&#x60; (allowed values: &#x60;&#39;error&#39;&#x60;, &#x60;&#39;warning&#39;&#x60;, &#x60;&#39;info&#39;&#x60;)&lt;br&gt;&#x60;event_type&#x60;: &#x60;any&#x60;, &#x60;equals&#x60; (allowed values: &#x60;&#39;validation_error&#39;&#x60;)&lt;br&gt;&#x60;timestamp&#x60;: &#x60;greater-or-equal&#x60;, &#x60;less-than&#x60; (date-time) (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#pagination (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getIngestionLogIdsForObjectType'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -6291,8 +6306,8 @@ class CustomObjectsApi
      * Get Ingestion Log IDs for Object Type
      *
      * @param  string $id The ULID ID of the object type. (required)
-     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;record_id&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;status&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;event_type&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;timestamp&#x60;: &#x60;greater-or-equal&#x60;, &#x60;less-than&#x60; (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination (optional)
+     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;record_id&#x60;: &#x60;equals&#x60; (string)&lt;br&gt;&#x60;status&#x60;: &#x60;any&#x60;, &#x60;equals&#x60; (allowed values: &#x60;&#39;error&#39;&#x60;, &#x60;&#39;warning&#39;&#x60;, &#x60;&#39;info&#39;&#x60;)&lt;br&gt;&#x60;event_type&#x60;: &#x60;any&#x60;, &#x60;equals&#x60; (allowed values: &#x60;&#39;validation_error&#39;&#x60;)&lt;br&gt;&#x60;timestamp&#x60;: &#x60;greater-or-equal&#x60;, &#x60;less-than&#x60; (date-time) (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#pagination (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getIngestionLogIdsForObjectType'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -6357,8 +6372,8 @@ class CustomObjectsApi
      * Create request for operation 'getIngestionLogIdsForObjectType'
      *
      * @param  string $id The ULID ID of the object type. (required)
-     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;record_id&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;status&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;event_type&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;timestamp&#x60;: &#x60;greater-or-equal&#x60;, &#x60;less-than&#x60; (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination (optional)
+     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;record_id&#x60;: &#x60;equals&#x60; (string)&lt;br&gt;&#x60;status&#x60;: &#x60;any&#x60;, &#x60;equals&#x60; (allowed values: &#x60;&#39;error&#39;&#x60;, &#x60;&#39;warning&#39;&#x60;, &#x60;&#39;info&#39;&#x60;)&lt;br&gt;&#x60;event_type&#x60;: &#x60;any&#x60;, &#x60;equals&#x60; (allowed values: &#x60;&#39;validation_error&#39;&#x60;)&lt;br&gt;&#x60;timestamp&#x60;: &#x60;greater-or-equal&#x60;, &#x60;less-than&#x60; (date-time) (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#pagination (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getIngestionLogIdsForObjectType'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -6460,7 +6475,7 @@ class CustomObjectsApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2026-07-15'];
+        $defaultHeaders['revision'] = ['2026-10-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -6492,12 +6507,12 @@ class CustomObjectsApi
      * Get Ingestion Logs for Object Type
      *
      * @param  string $id The ULID ID of the object type. (required)
-     * @param  string[]|null $fields_object_ingestion_log For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_object_record For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_object_type For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;record_id&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;status&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;event_type&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;timestamp&#x60;: &#x60;greater-or-equal&#x60;, &#x60;less-than&#x60; (optional)
-     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#relationships (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination (optional)
+     * @param  string[]|null $fields_object_ingestion_log For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_object_record For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_object_type For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;record_id&#x60;: &#x60;equals&#x60; (string)&lt;br&gt;&#x60;status&#x60;: &#x60;any&#x60;, &#x60;equals&#x60; (allowed values: &#x60;&#39;error&#39;&#x60;, &#x60;&#39;warning&#39;&#x60;, &#x60;&#39;info&#39;&#x60;)&lt;br&gt;&#x60;event_type&#x60;: &#x60;any&#x60;, &#x60;equals&#x60; (allowed values: &#x60;&#39;validation_error&#39;&#x60;)&lt;br&gt;&#x60;timestamp&#x60;: &#x60;greater-or-equal&#x60;, &#x60;less-than&#x60; (date-time) (optional)
+     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#relationships (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#pagination (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getIngestionLogsForObjectType'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -6525,12 +6540,12 @@ class CustomObjectsApi
      * Get Ingestion Logs for Object Type
      *
      * @param  string $id The ULID ID of the object type. (required)
-     * @param  string[]|null $fields_object_ingestion_log For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_object_record For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_object_type For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;record_id&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;status&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;event_type&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;timestamp&#x60;: &#x60;greater-or-equal&#x60;, &#x60;less-than&#x60; (optional)
-     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#relationships (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination (optional)
+     * @param  string[]|null $fields_object_ingestion_log For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_object_record For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_object_type For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;record_id&#x60;: &#x60;equals&#x60; (string)&lt;br&gt;&#x60;status&#x60;: &#x60;any&#x60;, &#x60;equals&#x60; (allowed values: &#x60;&#39;error&#39;&#x60;, &#x60;&#39;warning&#39;&#x60;, &#x60;&#39;info&#39;&#x60;)&lt;br&gt;&#x60;event_type&#x60;: &#x60;any&#x60;, &#x60;equals&#x60; (allowed values: &#x60;&#39;validation_error&#39;&#x60;)&lt;br&gt;&#x60;timestamp&#x60;: &#x60;greater-or-equal&#x60;, &#x60;less-than&#x60; (date-time) (optional)
+     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#relationships (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#pagination (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getIngestionLogsForObjectType'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -6653,12 +6668,12 @@ class CustomObjectsApi
      * Get Ingestion Logs for Object Type
      *
      * @param  string $id The ULID ID of the object type. (required)
-     * @param  string[]|null $fields_object_ingestion_log For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_object_record For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_object_type For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;record_id&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;status&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;event_type&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;timestamp&#x60;: &#x60;greater-or-equal&#x60;, &#x60;less-than&#x60; (optional)
-     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#relationships (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination (optional)
+     * @param  string[]|null $fields_object_ingestion_log For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_object_record For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_object_type For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;record_id&#x60;: &#x60;equals&#x60; (string)&lt;br&gt;&#x60;status&#x60;: &#x60;any&#x60;, &#x60;equals&#x60; (allowed values: &#x60;&#39;error&#39;&#x60;, &#x60;&#39;warning&#39;&#x60;, &#x60;&#39;info&#39;&#x60;)&lt;br&gt;&#x60;event_type&#x60;: &#x60;any&#x60;, &#x60;equals&#x60; (allowed values: &#x60;&#39;validation_error&#39;&#x60;)&lt;br&gt;&#x60;timestamp&#x60;: &#x60;greater-or-equal&#x60;, &#x60;less-than&#x60; (date-time) (optional)
+     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#relationships (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#pagination (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getIngestionLogsForObjectType'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -6689,12 +6704,12 @@ class CustomObjectsApi
      * Get Ingestion Logs for Object Type
      *
      * @param  string $id The ULID ID of the object type. (required)
-     * @param  string[]|null $fields_object_ingestion_log For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_object_record For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_object_type For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;record_id&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;status&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;event_type&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;timestamp&#x60;: &#x60;greater-or-equal&#x60;, &#x60;less-than&#x60; (optional)
-     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#relationships (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination (optional)
+     * @param  string[]|null $fields_object_ingestion_log For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_object_record For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_object_type For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;record_id&#x60;: &#x60;equals&#x60; (string)&lt;br&gt;&#x60;status&#x60;: &#x60;any&#x60;, &#x60;equals&#x60; (allowed values: &#x60;&#39;error&#39;&#x60;, &#x60;&#39;warning&#39;&#x60;, &#x60;&#39;info&#39;&#x60;)&lt;br&gt;&#x60;event_type&#x60;: &#x60;any&#x60;, &#x60;equals&#x60; (allowed values: &#x60;&#39;validation_error&#39;&#x60;)&lt;br&gt;&#x60;timestamp&#x60;: &#x60;greater-or-equal&#x60;, &#x60;less-than&#x60; (date-time) (optional)
+     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#relationships (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#pagination (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getIngestionLogsForObjectType'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -6759,12 +6774,12 @@ class CustomObjectsApi
      * Create request for operation 'getIngestionLogsForObjectType'
      *
      * @param  string $id The ULID ID of the object type. (required)
-     * @param  string[]|null $fields_object_ingestion_log For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_object_record For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_object_type For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;record_id&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;status&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;event_type&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;timestamp&#x60;: &#x60;greater-or-equal&#x60;, &#x60;less-than&#x60; (optional)
-     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#relationships (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination (optional)
+     * @param  string[]|null $fields_object_ingestion_log For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_object_record For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_object_type For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;record_id&#x60;: &#x60;equals&#x60; (string)&lt;br&gt;&#x60;status&#x60;: &#x60;any&#x60;, &#x60;equals&#x60; (allowed values: &#x60;&#39;error&#39;&#x60;, &#x60;&#39;warning&#39;&#x60;, &#x60;&#39;info&#39;&#x60;)&lt;br&gt;&#x60;event_type&#x60;: &#x60;any&#x60;, &#x60;equals&#x60; (allowed values: &#x60;&#39;validation_error&#39;&#x60;)&lt;br&gt;&#x60;timestamp&#x60;: &#x60;greater-or-equal&#x60;, &#x60;less-than&#x60; (date-time) (optional)
+     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#relationships (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#pagination (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getIngestionLogsForObjectType'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -6906,7 +6921,7 @@ class CustomObjectsApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2026-07-15'];
+        $defaultHeaders['revision'] = ['2026-10-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -6938,7 +6953,7 @@ class CustomObjectsApi
      * Get Object Record
      *
      * @param  string $id The compound ID of the object record, formatted as object_type_id:::object_record_id (required)
-     * @param  string[]|null $fields_object_record For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_object_record For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getObjectRecord'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -6957,7 +6972,7 @@ class CustomObjectsApi
      * Get Object Record
      *
      * @param  string $id The compound ID of the object record, formatted as object_type_id:::object_record_id (required)
-     * @param  string[]|null $fields_object_record For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_object_record For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getObjectRecord'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -7071,7 +7086,7 @@ class CustomObjectsApi
      * Get Object Record
      *
      * @param  string $id The compound ID of the object record, formatted as object_type_id:::object_record_id (required)
-     * @param  string[]|null $fields_object_record For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_object_record For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getObjectRecord'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -7093,7 +7108,7 @@ class CustomObjectsApi
      * Get Object Record
      *
      * @param  string $id The compound ID of the object record, formatted as object_type_id:::object_record_id (required)
-     * @param  string[]|null $fields_object_record For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_object_record For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getObjectRecord'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -7149,7 +7164,7 @@ class CustomObjectsApi
      * Create request for operation 'getObjectRecord'
      *
      * @param  string $id The compound ID of the object record, formatted as object_type_id:::object_record_id (required)
-     * @param  string[]|null $fields_object_record For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_object_record For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getObjectRecord'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -7241,7 +7256,7 @@ class CustomObjectsApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2026-07-15'];
+        $defaultHeaders['revision'] = ['2026-10-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -7264,10 +7279,10 @@ class CustomObjectsApi
      * Get Object Schema
      *
      * @param  string $id The ULID ID of the object schema. (required)
-     * @param  string[]|null $fields_object_schema For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_profile_object_schema For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_source_mapping For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#relationships (optional)
+     * @param  string[]|null $fields_object_schema For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_profile_object_schema For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_source_mapping For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#relationships (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getObjectSchema'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -7286,10 +7301,10 @@ class CustomObjectsApi
      * Get Object Schema
      *
      * @param  string $id The ULID ID of the object schema. (required)
-     * @param  string[]|null $fields_object_schema For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_profile_object_schema For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_source_mapping For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#relationships (optional)
+     * @param  string[]|null $fields_object_schema For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_profile_object_schema For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_source_mapping For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#relationships (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getObjectSchema'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -7403,10 +7418,10 @@ class CustomObjectsApi
      * Get Object Schema
      *
      * @param  string $id The ULID ID of the object schema. (required)
-     * @param  string[]|null $fields_object_schema For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_profile_object_schema For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_source_mapping For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#relationships (optional)
+     * @param  string[]|null $fields_object_schema For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_profile_object_schema For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_source_mapping For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#relationships (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getObjectSchema'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -7428,10 +7443,10 @@ class CustomObjectsApi
      * Get Object Schema
      *
      * @param  string $id The ULID ID of the object schema. (required)
-     * @param  string[]|null $fields_object_schema For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_profile_object_schema For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_source_mapping For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#relationships (optional)
+     * @param  string[]|null $fields_object_schema For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_profile_object_schema For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_source_mapping For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#relationships (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getObjectSchema'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -7487,10 +7502,10 @@ class CustomObjectsApi
      * Create request for operation 'getObjectSchema'
      *
      * @param  string $id The ULID ID of the object schema. (required)
-     * @param  string[]|null $fields_object_schema For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_profile_object_schema For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_source_mapping For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#relationships (optional)
+     * @param  string[]|null $fields_object_schema For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_profile_object_schema For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_source_mapping For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#relationships (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getObjectSchema'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -7612,7 +7627,7 @@ class CustomObjectsApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2026-07-15'];
+        $defaultHeaders['revision'] = ['2026-10-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -7995,7 +8010,7 @@ class CustomObjectsApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2026-07-15'];
+        $defaultHeaders['revision'] = ['2026-10-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -8036,10 +8051,10 @@ class CustomObjectsApi
      * Get Object Type
      *
      * @param  string $id The ULID ID of the object type. (required)
-     * @param  string[]|null $fields_object_schema For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_object_type For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_profile_object_type For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#relationships (optional)
+     * @param  string[]|null $fields_object_schema For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_object_type For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_profile_object_type For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#relationships (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getObjectType'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -8058,10 +8073,10 @@ class CustomObjectsApi
      * Get Object Type
      *
      * @param  string $id The ULID ID of the object type. (required)
-     * @param  string[]|null $fields_object_schema For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_object_type For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_profile_object_type For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#relationships (optional)
+     * @param  string[]|null $fields_object_schema For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_object_type For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_profile_object_type For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#relationships (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getObjectType'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -8175,10 +8190,10 @@ class CustomObjectsApi
      * Get Object Type
      *
      * @param  string $id The ULID ID of the object type. (required)
-     * @param  string[]|null $fields_object_schema For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_object_type For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_profile_object_type For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#relationships (optional)
+     * @param  string[]|null $fields_object_schema For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_object_type For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_profile_object_type For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#relationships (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getObjectType'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -8200,10 +8215,10 @@ class CustomObjectsApi
      * Get Object Type
      *
      * @param  string $id The ULID ID of the object type. (required)
-     * @param  string[]|null $fields_object_schema For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_object_type For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_profile_object_type For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#relationships (optional)
+     * @param  string[]|null $fields_object_schema For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_object_type For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_profile_object_type For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#relationships (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getObjectType'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -8259,10 +8274,10 @@ class CustomObjectsApi
      * Create request for operation 'getObjectType'
      *
      * @param  string $id The ULID ID of the object type. (required)
-     * @param  string[]|null $fields_object_schema For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_object_type For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_profile_object_type For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#relationships (optional)
+     * @param  string[]|null $fields_object_schema For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_object_type For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_profile_object_type For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#relationships (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getObjectType'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -8384,7 +8399,7 @@ class CustomObjectsApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2026-07-15'];
+        $defaultHeaders['revision'] = ['2026-10-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -8767,7 +8782,7 @@ class CustomObjectsApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2026-07-15'];
+        $defaultHeaders['revision'] = ['2026-10-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -8807,10 +8822,10 @@ class CustomObjectsApi
      *
      * Get Object Types
      *
-     * @param  string[]|null $fields_object_schema For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_object_type For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;namespace&#x60;: &#x60;equals&#x60; (optional)
-     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#relationships (optional)
+     * @param  string[]|null $fields_object_schema For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_object_type For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;namespace&#x60;: &#x60;equals&#x60; (string) (optional)
+     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#relationships (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getObjectTypes'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -8828,10 +8843,10 @@ class CustomObjectsApi
      *
      * Get Object Types
      *
-     * @param  string[]|null $fields_object_schema For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_object_type For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;namespace&#x60;: &#x60;equals&#x60; (optional)
-     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#relationships (optional)
+     * @param  string[]|null $fields_object_schema For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_object_type For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;namespace&#x60;: &#x60;equals&#x60; (string) (optional)
+     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#relationships (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getObjectTypes'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -8944,10 +8959,10 @@ class CustomObjectsApi
      *
      * Get Object Types
      *
-     * @param  string[]|null $fields_object_schema For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_object_type For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;namespace&#x60;: &#x60;equals&#x60; (optional)
-     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#relationships (optional)
+     * @param  string[]|null $fields_object_schema For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_object_type For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;namespace&#x60;: &#x60;equals&#x60; (string) (optional)
+     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#relationships (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getObjectTypes'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -8968,10 +8983,10 @@ class CustomObjectsApi
      *
      * Get Object Types
      *
-     * @param  string[]|null $fields_object_schema For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_object_type For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;namespace&#x60;: &#x60;equals&#x60; (optional)
-     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#relationships (optional)
+     * @param  string[]|null $fields_object_schema For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_object_type For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;namespace&#x60;: &#x60;equals&#x60; (string) (optional)
+     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#relationships (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getObjectTypes'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -9026,10 +9041,10 @@ class CustomObjectsApi
     /**
      * Create request for operation 'getObjectTypes'
      *
-     * @param  string[]|null $fields_object_schema For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_object_type For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;namespace&#x60;: &#x60;equals&#x60; (optional)
-     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#relationships (optional)
+     * @param  string[]|null $fields_object_schema For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_object_type For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;namespace&#x60;: &#x60;equals&#x60; (string) (optional)
+     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#relationships (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getObjectTypes'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -9136,7 +9151,7 @@ class CustomObjectsApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2026-07-15'];
+        $defaultHeaders['revision'] = ['2026-10-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -9519,7 +9534,7 @@ class CustomObjectsApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2026-07-15'];
+        $defaultHeaders['revision'] = ['2026-10-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -9920,7 +9935,7 @@ class CustomObjectsApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2026-07-15'];
+        $defaultHeaders['revision'] = ['2026-10-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -9961,7 +9976,7 @@ class CustomObjectsApi
      * Get Record IDs for Object Type
      *
      * @param  string $id The ULID ID of the object type. (required)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#pagination (optional)
      * @param  int|null $page_size Default: 20. Min: 1. Max: 100. (optional, default to 20)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRecordIdsForObjectType'] to see the possible values for this operation
      *
@@ -9990,7 +10005,7 @@ class CustomObjectsApi
      * Get Record IDs for Object Type
      *
      * @param  string $id The ULID ID of the object type. (required)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#pagination (optional)
      * @param  int|null $page_size Default: 20. Min: 1. Max: 100. (optional, default to 20)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRecordIdsForObjectType'] to see the possible values for this operation
      *
@@ -10114,7 +10129,7 @@ class CustomObjectsApi
      * Get Record IDs for Object Type
      *
      * @param  string $id The ULID ID of the object type. (required)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#pagination (optional)
      * @param  int|null $page_size Default: 20. Min: 1. Max: 100. (optional, default to 20)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRecordIdsForObjectType'] to see the possible values for this operation
      *
@@ -10146,7 +10161,7 @@ class CustomObjectsApi
      * Get Record IDs for Object Type
      *
      * @param  string $id The ULID ID of the object type. (required)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#pagination (optional)
      * @param  int|null $page_size Default: 20. Min: 1. Max: 100. (optional, default to 20)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRecordIdsForObjectType'] to see the possible values for this operation
      *
@@ -10212,7 +10227,7 @@ class CustomObjectsApi
      * Create request for operation 'getRecordIdsForObjectType'
      *
      * @param  string $id The ULID ID of the object type. (required)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#pagination (optional)
      * @param  int|null $page_size Default: 20. Min: 1. Max: 100. (optional, default to 20)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRecordIdsForObjectType'] to see the possible values for this operation
      *
@@ -10321,7 +10336,7 @@ class CustomObjectsApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2026-07-15'];
+        $defaultHeaders['revision'] = ['2026-10-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -10353,8 +10368,8 @@ class CustomObjectsApi
      * Get Records for Object Type
      *
      * @param  string $id The ULID ID of the object type. (required)
-     * @param  string[]|null $fields_object_record For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination (optional)
+     * @param  string[]|null $fields_object_record For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#pagination (optional)
      * @param  int|null $page_size Default: 20. Min: 1. Max: 100. (optional, default to 20)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRecordsForObjectType'] to see the possible values for this operation
      *
@@ -10383,8 +10398,8 @@ class CustomObjectsApi
      * Get Records for Object Type
      *
      * @param  string $id The ULID ID of the object type. (required)
-     * @param  string[]|null $fields_object_record For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination (optional)
+     * @param  string[]|null $fields_object_record For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#pagination (optional)
      * @param  int|null $page_size Default: 20. Min: 1. Max: 100. (optional, default to 20)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRecordsForObjectType'] to see the possible values for this operation
      *
@@ -10508,8 +10523,8 @@ class CustomObjectsApi
      * Get Records for Object Type
      *
      * @param  string $id The ULID ID of the object type. (required)
-     * @param  string[]|null $fields_object_record For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination (optional)
+     * @param  string[]|null $fields_object_record For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#pagination (optional)
      * @param  int|null $page_size Default: 20. Min: 1. Max: 100. (optional, default to 20)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRecordsForObjectType'] to see the possible values for this operation
      *
@@ -10541,8 +10556,8 @@ class CustomObjectsApi
      * Get Records for Object Type
      *
      * @param  string $id The ULID ID of the object type. (required)
-     * @param  string[]|null $fields_object_record For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination (optional)
+     * @param  string[]|null $fields_object_record For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#pagination (optional)
      * @param  int|null $page_size Default: 20. Min: 1. Max: 100. (optional, default to 20)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRecordsForObjectType'] to see the possible values for this operation
      *
@@ -10608,8 +10623,8 @@ class CustomObjectsApi
      * Create request for operation 'getRecordsForObjectType'
      *
      * @param  string $id The ULID ID of the object type. (required)
-     * @param  string[]|null $fields_object_record For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination (optional)
+     * @param  string[]|null $fields_object_record For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#pagination (optional)
      * @param  int|null $page_size Default: 20. Min: 1. Max: 100. (optional, default to 20)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRecordsForObjectType'] to see the possible values for this operation
      *
@@ -10728,7 +10743,7 @@ class CustomObjectsApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2026-07-15'];
+        $defaultHeaders['revision'] = ['2026-10-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -11084,7 +11099,7 @@ class CustomObjectsApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2026-07-15'];
+        $defaultHeaders['revision'] = ['2026-10-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -11116,7 +11131,7 @@ class CustomObjectsApi
      * Get Schema Versions for Object Type
      *
      * @param  string $id The ULID ID of the object type. (required)
-     * @param  string[]|null $fields_object_schema For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_object_schema For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSchemaVersionsForObjectType'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -11144,7 +11159,7 @@ class CustomObjectsApi
      * Get Schema Versions for Object Type
      *
      * @param  string $id The ULID ID of the object type. (required)
-     * @param  string[]|null $fields_object_schema For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_object_schema For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSchemaVersionsForObjectType'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -11267,7 +11282,7 @@ class CustomObjectsApi
      * Get Schema Versions for Object Type
      *
      * @param  string $id The ULID ID of the object type. (required)
-     * @param  string[]|null $fields_object_schema For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_object_schema For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSchemaVersionsForObjectType'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -11298,7 +11313,7 @@ class CustomObjectsApi
      * Get Schema Versions for Object Type
      *
      * @param  string $id The ULID ID of the object type. (required)
-     * @param  string[]|null $fields_object_schema For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_object_schema For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSchemaVersionsForObjectType'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -11363,7 +11378,7 @@ class CustomObjectsApi
      * Create request for operation 'getSchemaVersionsForObjectType'
      *
      * @param  string $id The ULID ID of the object type. (required)
-     * @param  string[]|null $fields_object_schema For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_object_schema For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSchemaVersionsForObjectType'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -11455,7 +11470,7 @@ class CustomObjectsApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2026-07-15'];
+        $defaultHeaders['revision'] = ['2026-10-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -11487,7 +11502,7 @@ class CustomObjectsApi
      * Get Source Mapping
      *
      * @param  string $id The ID of the source mapping (required)
-     * @param  string[]|null $fields_source_mapping For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_source_mapping For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSourceMapping'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -11506,7 +11521,7 @@ class CustomObjectsApi
      * Get Source Mapping
      *
      * @param  string $id The ID of the source mapping (required)
-     * @param  string[]|null $fields_source_mapping For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_source_mapping For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSourceMapping'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -11620,7 +11635,7 @@ class CustomObjectsApi
      * Get Source Mapping
      *
      * @param  string $id The ID of the source mapping (required)
-     * @param  string[]|null $fields_source_mapping For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_source_mapping For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSourceMapping'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -11642,7 +11657,7 @@ class CustomObjectsApi
      * Get Source Mapping
      *
      * @param  string $id The ID of the source mapping (required)
-     * @param  string[]|null $fields_source_mapping For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_source_mapping For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSourceMapping'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -11698,7 +11713,7 @@ class CustomObjectsApi
      * Create request for operation 'getSourceMapping'
      *
      * @param  string $id The ID of the source mapping (required)
-     * @param  string[]|null $fields_source_mapping For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_source_mapping For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSourceMapping'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -11790,7 +11805,7 @@ class CustomObjectsApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2026-07-15'];
+        $defaultHeaders['revision'] = ['2026-10-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -11813,7 +11828,7 @@ class CustomObjectsApi
      * Get Source Mapping for Object Schema
      *
      * @param  string $id The ULID ID of the object schema. (required)
-     * @param  string[]|null $fields_source_mapping For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_source_mapping For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSourceMappingForObjectSchema'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -11841,7 +11856,7 @@ class CustomObjectsApi
      * Get Source Mapping for Object Schema
      *
      * @param  string $id The ULID ID of the object schema. (required)
-     * @param  string[]|null $fields_source_mapping For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_source_mapping For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSourceMappingForObjectSchema'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -11964,7 +11979,7 @@ class CustomObjectsApi
      * Get Source Mapping for Object Schema
      *
      * @param  string $id The ULID ID of the object schema. (required)
-     * @param  string[]|null $fields_source_mapping For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_source_mapping For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSourceMappingForObjectSchema'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -11995,7 +12010,7 @@ class CustomObjectsApi
      * Get Source Mapping for Object Schema
      *
      * @param  string $id The ULID ID of the object schema. (required)
-     * @param  string[]|null $fields_source_mapping For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_source_mapping For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSourceMappingForObjectSchema'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -12060,7 +12075,7 @@ class CustomObjectsApi
      * Create request for operation 'getSourceMappingForObjectSchema'
      *
      * @param  string $id The ULID ID of the object schema. (required)
-     * @param  string[]|null $fields_source_mapping For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_source_mapping For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSourceMappingForObjectSchema'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -12152,7 +12167,7 @@ class CustomObjectsApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2026-07-15'];
+        $defaultHeaders['revision'] = ['2026-10-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -12508,7 +12523,7 @@ class CustomObjectsApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2026-07-15'];
+        $defaultHeaders['revision'] = ['2026-10-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -12541,7 +12556,7 @@ class CustomObjectsApi
      *
      * @param  string $id The ULID ID of the object schema. (required)
      * @param  \KlaviyoAPI\Model\ObjectSchemaPartialUpdateQuery $object_schema_partial_update_query Update a object schema by ID (required)
-     * @param  string[]|null $fields_object_schema For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_object_schema For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateObjectSchema'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -12561,7 +12576,7 @@ class CustomObjectsApi
      *
      * @param  string $id The ULID ID of the object schema. (required)
      * @param  \KlaviyoAPI\Model\ObjectSchemaPartialUpdateQuery $object_schema_partial_update_query Update a object schema by ID (required)
-     * @param  string[]|null $fields_object_schema For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_object_schema For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateObjectSchema'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -12676,7 +12691,7 @@ class CustomObjectsApi
      *
      * @param  string $id The ULID ID of the object schema. (required)
      * @param  \KlaviyoAPI\Model\ObjectSchemaPartialUpdateQuery $object_schema_partial_update_query Update a object schema by ID (required)
-     * @param  string[]|null $fields_object_schema For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_object_schema For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateObjectSchema'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -12699,7 +12714,7 @@ class CustomObjectsApi
      *
      * @param  string $id The ULID ID of the object schema. (required)
      * @param  \KlaviyoAPI\Model\ObjectSchemaPartialUpdateQuery $object_schema_partial_update_query Update a object schema by ID (required)
-     * @param  string[]|null $fields_object_schema For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_object_schema For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateObjectSchema'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -12756,7 +12771,7 @@ class CustomObjectsApi
      *
      * @param  string $id The ULID ID of the object schema. (required)
      * @param  \KlaviyoAPI\Model\ObjectSchemaPartialUpdateQuery $object_schema_partial_update_query Update a object schema by ID (required)
-     * @param  string[]|null $fields_object_schema For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_object_schema For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateObjectSchema'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -12862,7 +12877,7 @@ class CustomObjectsApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2026-07-15'];
+        $defaultHeaders['revision'] = ['2026-10-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -13197,7 +13212,7 @@ class CustomObjectsApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2026-07-15'];
+        $defaultHeaders['revision'] = ['2026-10-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -13550,7 +13565,7 @@ class CustomObjectsApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2026-07-15'];
+        $defaultHeaders['revision'] = ['2026-10-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -13592,7 +13607,7 @@ class CustomObjectsApi
      *
      * @param  string $id The ULID ID of the source mapping (required)
      * @param  \KlaviyoAPI\Model\SourceMappingPartialUpdateQuery $source_mapping_partial_update_query Update a source mapping by ID (required)
-     * @param  string[]|null $fields_source_mapping For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_source_mapping For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateSourceMapping'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -13612,7 +13627,7 @@ class CustomObjectsApi
      *
      * @param  string $id The ULID ID of the source mapping (required)
      * @param  \KlaviyoAPI\Model\SourceMappingPartialUpdateQuery $source_mapping_partial_update_query Update a source mapping by ID (required)
-     * @param  string[]|null $fields_source_mapping For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_source_mapping For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateSourceMapping'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -13727,7 +13742,7 @@ class CustomObjectsApi
      *
      * @param  string $id The ULID ID of the source mapping (required)
      * @param  \KlaviyoAPI\Model\SourceMappingPartialUpdateQuery $source_mapping_partial_update_query Update a source mapping by ID (required)
-     * @param  string[]|null $fields_source_mapping For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_source_mapping For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateSourceMapping'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -13750,7 +13765,7 @@ class CustomObjectsApi
      *
      * @param  string $id The ULID ID of the source mapping (required)
      * @param  \KlaviyoAPI\Model\SourceMappingPartialUpdateQuery $source_mapping_partial_update_query Update a source mapping by ID (required)
-     * @param  string[]|null $fields_source_mapping For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_source_mapping For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateSourceMapping'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -13807,7 +13822,7 @@ class CustomObjectsApi
      *
      * @param  string $id The ULID ID of the source mapping (required)
      * @param  \KlaviyoAPI\Model\SourceMappingPartialUpdateQuery $source_mapping_partial_update_query Update a source mapping by ID (required)
-     * @param  string[]|null $fields_source_mapping For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_source_mapping For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateSourceMapping'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -13913,7 +13928,7 @@ class CustomObjectsApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2026-07-15'];
+        $defaultHeaders['revision'] = ['2026-10-15'];
 
         $headers = array_merge(
             $defaultHeaders,

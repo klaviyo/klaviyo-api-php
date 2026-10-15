@@ -60,7 +60,7 @@ class ImageAction implements ModelInterface, ArrayAccess, \JsonSerializable
         'id' => 'string',
         'submit' => 'bool',
         'type' => 'string',
-        'properties' => '\KlaviyoAPI\Model\IafDeeplinkToScreenProperties'
+        'properties' => '\KlaviyoAPI\Model\IafOpenUrlProperties'
     ];
 
     /**
@@ -259,6 +259,7 @@ class ImageAction implements ModelInterface, ArrayAccess, \JsonSerializable
     public const TYPE_SUBMIT_BACK_IN_STOCK = 'submit_back_in_stock';
     public const TYPE_SKIP_TO_SUCCESS = 'skip_to_success';
     public const TYPE_IAF_DEEPLINK_TO_SCREEN = 'iaf_deeplink_to_screen';
+    public const TYPE_IAF_OPEN_URL = 'iaf_open_url';
 
     /**
      * Gets allowable values of the enum
@@ -281,6 +282,7 @@ class ImageAction implements ModelInterface, ArrayAccess, \JsonSerializable
             self::TYPE_SUBMIT_BACK_IN_STOCK,
             self::TYPE_SKIP_TO_SUCCESS,
             self::TYPE_IAF_DEEPLINK_TO_SCREEN,
+            self::TYPE_IAF_OPEN_URL,
         ];
     }
 
@@ -466,7 +468,7 @@ class ImageAction implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets properties
      *
-     * @return \KlaviyoAPI\Model\IafDeeplinkToScreenProperties
+     * @return \KlaviyoAPI\Model\IafOpenUrlProperties
      */
     public function getProperties()
     {
@@ -476,7 +478,7 @@ class ImageAction implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets properties
      *
-     * @param \KlaviyoAPI\Model\IafDeeplinkToScreenProperties $properties properties
+     * @param \KlaviyoAPI\Model\IafOpenUrlProperties $properties properties
      *
      * @return self
      */

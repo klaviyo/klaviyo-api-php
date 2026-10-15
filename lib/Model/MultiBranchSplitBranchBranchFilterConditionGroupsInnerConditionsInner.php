@@ -59,7 +59,7 @@ class MultiBranchSplitBranchBranchFilterConditionGroupsInnerConditionsInner impl
     protected static $openAPITypes = [
         'type' => 'string',
         'property' => 'string',
-        'filter' => '\KlaviyoAPI\Model\CustomObjectTriggerConditionFilter',
+        'filter' => '\KlaviyoAPI\Model\MetricPropertyConditionFilter',
         'is_member' => 'bool',
         'group_ids' => 'string[]',
         'timeframe_filter' => '\KlaviyoAPI\Model\ProfileHasNotReceivedEmailMessageConditionTimeframeFilter',
@@ -82,7 +82,8 @@ class MultiBranchSplitBranchBranchFilterConditionGroupsInnerConditionsInner impl
         'permission' => '\KlaviyoAPI\Model\ProfilePermissionsConditionPermission',
         'channel' => 'string',
         'field' => 'string',
-        'property_id' => 'int'
+        'property_id' => 'int',
+        'custom_object_label' => 'string'
     ];
 
     /**
@@ -118,7 +119,8 @@ class MultiBranchSplitBranchBranchFilterConditionGroupsInnerConditionsInner impl
         'permission' => null,
         'channel' => null,
         'field' => null,
-        'property_id' => null
+        'property_id' => null,
+        'custom_object_label' => null
     ];
 
     /**
@@ -142,7 +144,7 @@ class MultiBranchSplitBranchBranchFilterConditionGroupsInnerConditionsInner impl
         'measurement' => false,
         'predicted_channel' => false,
         'consent' => false,
-        'metric_id' => false,
+        'metric_id' => true,
         'measurement_filter' => false,
         'metric_filters' => true,
         'percentage' => false,
@@ -152,7 +154,8 @@ class MultiBranchSplitBranchBranchFilterConditionGroupsInnerConditionsInner impl
         'permission' => false,
         'channel' => false,
         'field' => false,
-        'property_id' => false
+        'property_id' => false,
+        'custom_object_label' => false
     ];
 
     /**
@@ -266,7 +269,8 @@ class MultiBranchSplitBranchBranchFilterConditionGroupsInnerConditionsInner impl
         'permission' => 'permission',
         'channel' => 'channel',
         'field' => 'field',
-        'property_id' => 'property_id'
+        'property_id' => 'property_id',
+        'custom_object_label' => 'custom_object_label'
     ];
 
     /**
@@ -300,7 +304,8 @@ class MultiBranchSplitBranchBranchFilterConditionGroupsInnerConditionsInner impl
         'permission' => 'setPermission',
         'channel' => 'setChannel',
         'field' => 'setField',
-        'property_id' => 'setPropertyId'
+        'property_id' => 'setPropertyId',
+        'custom_object_label' => 'setCustomObjectLabel'
     ];
 
     /**
@@ -334,7 +339,8 @@ class MultiBranchSplitBranchBranchFilterConditionGroupsInnerConditionsInner impl
         'permission' => 'getPermission',
         'channel' => 'getChannel',
         'field' => 'getField',
-        'property_id' => 'getPropertyId'
+        'property_id' => 'getPropertyId',
+        'custom_object_label' => 'getCustomObjectLabel'
     ];
 
     /**
@@ -391,8 +397,12 @@ class MultiBranchSplitBranchBranchFilterConditionGroupsInnerConditionsInner impl
     public const TYPE_PROFILE_NOT_SENT_EMAIL = 'profile-not-sent-email';
     public const TYPE_PROFILE_NOT_SENT_SMS = 'profile-not-sent-sms';
     public const TYPE_PROFILE_NOT_SENT_PUSH = 'profile-not-sent-push';
+    public const TYPE_PROFILE_NOT_IN_FLOW = 'profile-not-in-flow';
     public const TYPE_METRIC_PROPERTY = 'metric-property';
     public const TYPE_CUSTOM_OBJECT_TRIGGER_PROPERTY = 'custom-object-trigger-property';
+    public const TYPE_CUSTOM_OBJECT_PROPERTY = 'custom-object-property';
+    public const TYPE_PRICE_DROP_PROPERTY = 'price-drop-property';
+    public const TYPE_LOW_INVENTORY_PROPERTY = 'low-inventory-property';
     public const REGION_EUROPEAN_UNION = 'european_union';
     public const REGION_UNITED_STATES = 'united_states';
     public const UNIT_KILOMETERS = 'kilometers';
@@ -404,6 +414,8 @@ class MultiBranchSplitBranchBranchFilterConditionGroupsInnerConditionsInner impl
     public const PREDICTED_CHANNEL_PUSH = 'push';
     public const PREDICTED_CHANNEL_SMS = 'sms';
     public const PREDICTED_CHANNEL_WHATSAPP = 'whatsapp';
+    public const CHANNEL_EMAIL_CLICK_TRACKING = 'email_click_tracking';
+    public const CHANNEL_EMAIL_OPEN_TRACKING = 'email_open_tracking';
     public const CHANNEL_WHATSAPP_MARKETING = 'whatsapp_marketing';
     public const CHANNEL_WHATSAPP_TRANSACTIONAL = 'whatsapp_transactional';
 
@@ -428,8 +440,12 @@ class MultiBranchSplitBranchBranchFilterConditionGroupsInnerConditionsInner impl
             self::TYPE_PROFILE_NOT_SENT_EMAIL,
             self::TYPE_PROFILE_NOT_SENT_SMS,
             self::TYPE_PROFILE_NOT_SENT_PUSH,
+            self::TYPE_PROFILE_NOT_IN_FLOW,
             self::TYPE_METRIC_PROPERTY,
             self::TYPE_CUSTOM_OBJECT_TRIGGER_PROPERTY,
+            self::TYPE_CUSTOM_OBJECT_PROPERTY,
+            self::TYPE_PRICE_DROP_PROPERTY,
+            self::TYPE_LOW_INVENTORY_PROPERTY,
         ];
     }
 
@@ -507,6 +523,8 @@ class MultiBranchSplitBranchBranchFilterConditionGroupsInnerConditionsInner impl
     public function getChannelAllowableValues()
     {
         return [
+            self::CHANNEL_EMAIL_CLICK_TRACKING,
+            self::CHANNEL_EMAIL_OPEN_TRACKING,
             self::CHANNEL_WHATSAPP_MARKETING,
             self::CHANNEL_WHATSAPP_TRANSACTIONAL,
         ];
@@ -553,6 +571,7 @@ class MultiBranchSplitBranchBranchFilterConditionGroupsInnerConditionsInner impl
         $this->setIfExists('channel', $data ?? [], null);
         $this->setIfExists('field', $data ?? [], null);
         $this->setIfExists('property_id', $data ?? [], null);
+        $this->setIfExists('custom_object_label', $data ?? [], null);
     }
 
     /**
@@ -720,6 +739,9 @@ class MultiBranchSplitBranchBranchFilterConditionGroupsInnerConditionsInner impl
         if ($this->container['property_id'] === null) {
             $invalidProperties[] = "'property_id' can't be null";
         }
+        if ($this->container['custom_object_label'] === null) {
+            $invalidProperties[] = "'custom_object_label' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -785,7 +807,7 @@ class MultiBranchSplitBranchBranchFilterConditionGroupsInnerConditionsInner impl
     /**
      * Sets property
      *
-     * @param string $property property
+     * @param string $property The profile property to check. Use one of the well-known property names (e.g. `email`, `first_name`) or, for custom profile properties, the form `properties['property name']`.
      *
      * @return self
      */
@@ -802,7 +824,7 @@ class MultiBranchSplitBranchBranchFilterConditionGroupsInnerConditionsInner impl
     /**
      * Gets filter
      *
-     * @return \KlaviyoAPI\Model\CustomObjectTriggerConditionFilter
+     * @return \KlaviyoAPI\Model\MetricPropertyConditionFilter
      */
     public function getFilter()
     {
@@ -812,7 +834,7 @@ class MultiBranchSplitBranchBranchFilterConditionGroupsInnerConditionsInner impl
     /**
      * Sets filter
      *
-     * @param \KlaviyoAPI\Model\CustomObjectTriggerConditionFilter $filter filter
+     * @param \KlaviyoAPI\Model\MetricPropertyConditionFilter $filter filter
      *
      * @return self
      */
@@ -1220,7 +1242,14 @@ class MultiBranchSplitBranchBranchFilterConditionGroupsInnerConditionsInner impl
     public function setMetricId($metric_id)
     {
         if (is_null($metric_id)) {
-            throw new \InvalidArgumentException('non-nullable metric_id cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'metric_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('metric_id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['metric_id'] = $metric_id;
 
@@ -1510,6 +1539,33 @@ class MultiBranchSplitBranchBranchFilterConditionGroupsInnerConditionsInner impl
             throw new \InvalidArgumentException('non-nullable property_id cannot be null');
         }
         $this->container['property_id'] = $property_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets custom_object_label
+     *
+     * @return string
+     */
+    public function getCustomObjectLabel()
+    {
+        return $this->container['custom_object_label'];
+    }
+
+    /**
+     * Sets custom_object_label
+     *
+     * @param string $custom_object_label custom_object_label
+     *
+     * @return self
+     */
+    public function setCustomObjectLabel($custom_object_label)
+    {
+        if (is_null($custom_object_label)) {
+            throw new \InvalidArgumentException('non-nullable custom_object_label cannot be null');
+        }
+        $this->container['custom_object_label'] = $custom_object_label;
 
         return $this;
     }

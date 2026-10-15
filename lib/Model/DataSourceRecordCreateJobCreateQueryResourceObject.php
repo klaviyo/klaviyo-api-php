@@ -294,6 +294,9 @@ class DataSourceRecordCreateJobCreateQueryResourceObject implements ModelInterfa
         if ($this->container['attributes'] === null) {
             $invalidProperties[] = "'attributes' can't be null";
         }
+        if ($this->container['relationships'] === null) {
+            $invalidProperties[] = "'relationships' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -366,7 +369,7 @@ class DataSourceRecordCreateJobCreateQueryResourceObject implements ModelInterfa
     /**
      * Gets relationships
      *
-     * @return \KlaviyoAPI\Model\DataSourceRecordBulkCreateJobCreateQueryResourceObjectRelationships|null
+     * @return \KlaviyoAPI\Model\DataSourceRecordBulkCreateJobCreateQueryResourceObjectRelationships
      */
     public function getRelationships()
     {
@@ -376,7 +379,7 @@ class DataSourceRecordCreateJobCreateQueryResourceObject implements ModelInterfa
     /**
      * Sets relationships
      *
-     * @param \KlaviyoAPI\Model\DataSourceRecordBulkCreateJobCreateQueryResourceObjectRelationships|null $relationships relationships
+     * @param \KlaviyoAPI\Model\DataSourceRecordBulkCreateJobCreateQueryResourceObjectRelationships $relationships relationships
      *
      * @return self
      */

@@ -131,15 +131,15 @@ class ClientApi
      * Get Client IP Allowlist
      *
      * @param  string $id id (required)
-     * @param  string $company_id Your Public API Key / Site ID. See [this article](https://help.klaviyo.com/hc/en-us/articles/115005062267) for more details. (required)
-     * @param  string[]|null $fields_ip_allowlist For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $company_id Your Public API Key / Site ID. See [this article](https://help.klaviyo.com/hc/en-us/articles/115005062267) for more details. (optional)
+     * @param  string[]|null $fields_ip_allowlist For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getClientIpAllowlist'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array<string,mixed>|\KlaviyoAPI\Model\GetAccounts400Response|\KlaviyoAPI\Model\GetAccounts400Response
      */
-    public function getClientIpAllowlist($id, $company_id, $fields_ip_allowlist = null, $apiKey = null, string $contentType = self::contentTypes['getClientIpAllowlist'][0])
+    public function getClientIpAllowlist($id, $company_id = null, $fields_ip_allowlist = null, $apiKey = null, string $contentType = self::contentTypes['getClientIpAllowlist'][0])
     {
         list($response) = $this->getClientIpAllowlistWithHttpInfo($id, $company_id, $fields_ip_allowlist, $apiKey, $contentType);
         return $response;
@@ -151,15 +151,15 @@ class ClientApi
      * Get Client IP Allowlist
      *
      * @param  string $id (required)
-     * @param  string $company_id Your Public API Key / Site ID. See [this article](https://help.klaviyo.com/hc/en-us/articles/115005062267) for more details. (required)
-     * @param  string[]|null $fields_ip_allowlist For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $company_id Your Public API Key / Site ID. See [this article](https://help.klaviyo.com/hc/en-us/articles/115005062267) for more details. (optional)
+     * @param  string[]|null $fields_ip_allowlist For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getClientIpAllowlist'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of array<string,mixed>|\KlaviyoAPI\Model\GetAccounts400Response|\KlaviyoAPI\Model\GetAccounts400Response, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getClientIpAllowlistWithHttpInfo($id, $company_id, $fields_ip_allowlist = null, $apiKey = null, string $contentType = self::contentTypes['getClientIpAllowlist'][0])
+    public function getClientIpAllowlistWithHttpInfo($id, $company_id = null, $fields_ip_allowlist = null, $apiKey = null, string $contentType = self::contentTypes['getClientIpAllowlist'][0])
     {
         $request = $this->getClientIpAllowlistRequest($id, $company_id, $fields_ip_allowlist, $apiKey, $contentType);
 
@@ -266,14 +266,14 @@ class ClientApi
      * Get Client IP Allowlist
      *
      * @param  string $id (required)
-     * @param  string $company_id Your Public API Key / Site ID. See [this article](https://help.klaviyo.com/hc/en-us/articles/115005062267) for more details. (required)
-     * @param  string[]|null $fields_ip_allowlist For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $company_id Your Public API Key / Site ID. See [this article](https://help.klaviyo.com/hc/en-us/articles/115005062267) for more details. (optional)
+     * @param  string[]|null $fields_ip_allowlist For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getClientIpAllowlist'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getClientIpAllowlistAsync($id, $company_id, $fields_ip_allowlist = null, $apiKey = null, string $contentType = self::contentTypes['getClientIpAllowlist'][0])
+    public function getClientIpAllowlistAsync($id, $company_id = null, $fields_ip_allowlist = null, $apiKey = null, string $contentType = self::contentTypes['getClientIpAllowlist'][0])
     {
         return $this->getClientIpAllowlistAsyncWithHttpInfo($id, $company_id, $fields_ip_allowlist, $apiKey, $contentType)
             ->then(
@@ -289,14 +289,14 @@ class ClientApi
      * Get Client IP Allowlist
      *
      * @param  string $id (required)
-     * @param  string $company_id Your Public API Key / Site ID. See [this article](https://help.klaviyo.com/hc/en-us/articles/115005062267) for more details. (required)
-     * @param  string[]|null $fields_ip_allowlist For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $company_id Your Public API Key / Site ID. See [this article](https://help.klaviyo.com/hc/en-us/articles/115005062267) for more details. (optional)
+     * @param  string[]|null $fields_ip_allowlist For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getClientIpAllowlist'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getClientIpAllowlistAsyncWithHttpInfo($id, $company_id, $fields_ip_allowlist = null, $apiKey = null, string $contentType = self::contentTypes['getClientIpAllowlist'][0])
+    public function getClientIpAllowlistAsyncWithHttpInfo($id, $company_id = null, $fields_ip_allowlist = null, $apiKey = null, string $contentType = self::contentTypes['getClientIpAllowlist'][0])
     {
         $returnType = 'array<string,mixed>';
         $request = $this->getClientIpAllowlistRequest($id, $company_id, $fields_ip_allowlist, $apiKey, $contentType);
@@ -346,14 +346,14 @@ class ClientApi
      * Create request for operation 'getClientIpAllowlist'
      *
      * @param  string $id (required)
-     * @param  string $company_id Your Public API Key / Site ID. See [this article](https://help.klaviyo.com/hc/en-us/articles/115005062267) for more details. (required)
-     * @param  string[]|null $fields_ip_allowlist For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $company_id Your Public API Key / Site ID. See [this article](https://help.klaviyo.com/hc/en-us/articles/115005062267) for more details. (optional)
+     * @param  string[]|null $fields_ip_allowlist For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getClientIpAllowlist'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getClientIpAllowlistRequest($id, $company_id, $fields_ip_allowlist = null, $apiKey = null, string $contentType = self::contentTypes['getClientIpAllowlist'][0])
+    public function getClientIpAllowlistRequest($id, $company_id = null, $fields_ip_allowlist = null, $apiKey = null, string $contentType = self::contentTypes['getClientIpAllowlist'][0])
     {
 
         // verify the required parameter 'id' is set
@@ -363,12 +363,6 @@ class ClientApi
             );
         }
 
-        // verify the required parameter 'company_id' is set
-        if ($company_id === null || (is_array($company_id) && count($company_id) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $company_id when calling getClientIpAllowlist'
-            );
-        }
 
 
 
@@ -386,7 +380,7 @@ class ClientApi
             'string', // openApiType
             'form', // style
             true, // explode
-            true // required
+            false // required
         ) ?? []);
         // query params
         $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
@@ -446,7 +440,7 @@ class ClientApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2026-07-15'];
+        $defaultHeaders['revision'] = ['2026-10-15'];
 
         $headers = array_merge(
             $defaultHeaders,

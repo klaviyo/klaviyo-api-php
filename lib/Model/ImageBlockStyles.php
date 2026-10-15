@@ -67,6 +67,7 @@ class ImageBlockStyles implements ModelInterface, ArrayAccess, \JsonSerializable
         'block_padding_left' => 'int',
         'block_padding_right' => 'int',
         'block_padding_top' => 'int',
+        'border_radius' => 'int',
         'full_width_mobile' => 'bool',
         'height' => 'int',
         'inner_padding_bottom' => 'int',
@@ -96,6 +97,7 @@ class ImageBlockStyles implements ModelInterface, ArrayAccess, \JsonSerializable
         'block_padding_left' => null,
         'block_padding_right' => null,
         'block_padding_top' => null,
+        'border_radius' => null,
         'full_width_mobile' => null,
         'height' => null,
         'inner_padding_bottom' => null,
@@ -123,6 +125,7 @@ class ImageBlockStyles implements ModelInterface, ArrayAccess, \JsonSerializable
         'block_padding_left' => true,
         'block_padding_right' => true,
         'block_padding_top' => true,
+        'border_radius' => true,
         'full_width_mobile' => true,
         'height' => true,
         'inner_padding_bottom' => true,
@@ -230,6 +233,7 @@ class ImageBlockStyles implements ModelInterface, ArrayAccess, \JsonSerializable
         'block_padding_left' => 'block_padding_left',
         'block_padding_right' => 'block_padding_right',
         'block_padding_top' => 'block_padding_top',
+        'border_radius' => 'border_radius',
         'full_width_mobile' => 'full_width_mobile',
         'height' => 'height',
         'inner_padding_bottom' => 'inner_padding_bottom',
@@ -257,6 +261,7 @@ class ImageBlockStyles implements ModelInterface, ArrayAccess, \JsonSerializable
         'block_padding_left' => 'setBlockPaddingLeft',
         'block_padding_right' => 'setBlockPaddingRight',
         'block_padding_top' => 'setBlockPaddingTop',
+        'border_radius' => 'setBorderRadius',
         'full_width_mobile' => 'setFullWidthMobile',
         'height' => 'setHeight',
         'inner_padding_bottom' => 'setInnerPaddingBottom',
@@ -284,6 +289,7 @@ class ImageBlockStyles implements ModelInterface, ArrayAccess, \JsonSerializable
         'block_padding_left' => 'getBlockPaddingLeft',
         'block_padding_right' => 'getBlockPaddingRight',
         'block_padding_top' => 'getBlockPaddingTop',
+        'border_radius' => 'getBorderRadius',
         'full_width_mobile' => 'getFullWidthMobile',
         'height' => 'getHeight',
         'inner_padding_bottom' => 'getInnerPaddingBottom',
@@ -406,6 +412,7 @@ class ImageBlockStyles implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('block_padding_left', $data ?? [], null);
         $this->setIfExists('block_padding_right', $data ?? [], null);
         $this->setIfExists('block_padding_top', $data ?? [], null);
+        $this->setIfExists('border_radius', $data ?? [], null);
         $this->setIfExists('full_width_mobile', $data ?? [], null);
         $this->setIfExists('height', $data ?? [], null);
         $this->setIfExists('inner_padding_bottom', $data ?? [], null);
@@ -833,6 +840,40 @@ class ImageBlockStyles implements ModelInterface, ArrayAccess, \JsonSerializable
             }
         }
         $this->container['block_padding_top'] = $block_padding_top;
+
+        return $this;
+    }
+
+    /**
+     * Gets border_radius
+     *
+     * @return int|null
+     */
+    public function getBorderRadius()
+    {
+        return $this->container['border_radius'];
+    }
+
+    /**
+     * Sets border_radius
+     *
+     * @param int|null $border_radius border_radius
+     *
+     * @return self
+     */
+    public function setBorderRadius($border_radius)
+    {
+        if (is_null($border_radius)) {
+            array_push($this->openAPINullablesSetToNull, 'border_radius');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('border_radius', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['border_radius'] = $border_radius;
 
         return $this;
     }

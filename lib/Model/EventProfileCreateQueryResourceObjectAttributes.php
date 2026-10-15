@@ -69,8 +69,7 @@ class EventProfileCreateQueryResourceObjectAttributes implements ModelInterface,
         'title' => 'string',
         'image' => 'string',
         'location' => '\KlaviyoAPI\Model\ProfileLocation',
-        'properties' => 'object',
-        'meta' => '\KlaviyoAPI\Model\OnsiteProfileMeta'
+        'properties' => 'object'
     ];
 
     /**
@@ -93,8 +92,7 @@ class EventProfileCreateQueryResourceObjectAttributes implements ModelInterface,
         'title' => null,
         'image' => null,
         'location' => null,
-        'properties' => null,
-        'meta' => null
+        'properties' => null
     ];
 
     /**
@@ -115,8 +113,7 @@ class EventProfileCreateQueryResourceObjectAttributes implements ModelInterface,
         'title' => true,
         'image' => true,
         'location' => false,
-        'properties' => true,
-        'meta' => false
+        'properties' => true
     ];
 
     /**
@@ -217,8 +214,7 @@ class EventProfileCreateQueryResourceObjectAttributes implements ModelInterface,
         'title' => 'title',
         'image' => 'image',
         'location' => 'location',
-        'properties' => 'properties',
-        'meta' => 'meta'
+        'properties' => 'properties'
     ];
 
     /**
@@ -239,8 +235,7 @@ class EventProfileCreateQueryResourceObjectAttributes implements ModelInterface,
         'title' => 'setTitle',
         'image' => 'setImage',
         'location' => 'setLocation',
-        'properties' => 'setProperties',
-        'meta' => 'setMeta'
+        'properties' => 'setProperties'
     ];
 
     /**
@@ -261,8 +256,7 @@ class EventProfileCreateQueryResourceObjectAttributes implements ModelInterface,
         'title' => 'getTitle',
         'image' => 'getImage',
         'location' => 'getLocation',
-        'properties' => 'getProperties',
-        'meta' => 'getMeta'
+        'properties' => 'getProperties'
     ];
 
     /**
@@ -335,7 +329,6 @@ class EventProfileCreateQueryResourceObjectAttributes implements ModelInterface,
         $this->setIfExists('image', $data ?? [], null);
         $this->setIfExists('location', $data ?? [], null);
         $this->setIfExists('properties', $data ?? [], null);
-        $this->setIfExists('meta', $data ?? [], null);
     }
 
     /**
@@ -811,33 +804,6 @@ class EventProfileCreateQueryResourceObjectAttributes implements ModelInterface,
             }
         }
         $this->container['properties'] = $properties;
-
-        return $this;
-    }
-
-    /**
-     * Gets meta
-     *
-     * @return \KlaviyoAPI\Model\OnsiteProfileMeta|null
-     */
-    public function getMeta()
-    {
-        return $this->container['meta'];
-    }
-
-    /**
-     * Sets meta
-     *
-     * @param \KlaviyoAPI\Model\OnsiteProfileMeta|null $meta meta
-     *
-     * @return self
-     */
-    public function setMeta($meta)
-    {
-        if (is_null($meta)) {
-            throw new \InvalidArgumentException('non-nullable meta cannot be null');
-        }
-        $this->container['meta'] = $meta;
 
         return $this;
     }

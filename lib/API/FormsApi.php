@@ -101,6 +101,15 @@ class FormsApi
         'getVersionsForForm' => [
             'application/vnd.api+json',
         ],
+        'publishForm' => [
+            'application/vnd.api+json',
+        ],
+        'unpublishForm' => [
+            'application/vnd.api+json',
+        ],
+        'updateForm' => [
+            'application/vnd.api+json',
+        ],
     ];
 
     /**
@@ -155,7 +164,7 @@ class FormsApi
      * Create Form
      *
      * @param  \KlaviyoAPI\Model\FormCreateQuery $form_create_query Creates a Form from parameters (required)
-     * @param  string[]|null $fields_form For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_form For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createForm'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -174,7 +183,7 @@ class FormsApi
      * Create Form
      *
      * @param  \KlaviyoAPI\Model\FormCreateQuery $form_create_query Creates a Form from parameters (required)
-     * @param  string[]|null $fields_form For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_form For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createForm'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -288,7 +297,7 @@ class FormsApi
      * Create Form
      *
      * @param  \KlaviyoAPI\Model\FormCreateQuery $form_create_query Creates a Form from parameters (required)
-     * @param  string[]|null $fields_form For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_form For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createForm'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -310,7 +319,7 @@ class FormsApi
      * Create Form
      *
      * @param  \KlaviyoAPI\Model\FormCreateQuery $form_create_query Creates a Form from parameters (required)
-     * @param  string[]|null $fields_form For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_form For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createForm'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -366,7 +375,7 @@ class FormsApi
      * Create request for operation 'createForm'
      *
      * @param  \KlaviyoAPI\Model\FormCreateQuery $form_create_query Creates a Form from parameters (required)
-     * @param  string[]|null $fields_form For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_form For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createForm'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -457,7 +466,7 @@ class FormsApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2026-07-15'];
+        $defaultHeaders['revision'] = ['2026-10-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -701,7 +710,7 @@ class FormsApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2026-07-15'];
+        $defaultHeaders['revision'] = ['2026-10-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -724,7 +733,7 @@ class FormsApi
      * Get Form
      *
      * @param  string $id The ID of the form (required)
-     * @param  string[]|null $fields_form For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_form For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getForm'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -743,7 +752,7 @@ class FormsApi
      * Get Form
      *
      * @param  string $id The ID of the form (required)
-     * @param  string[]|null $fields_form For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_form For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getForm'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -857,7 +866,7 @@ class FormsApi
      * Get Form
      *
      * @param  string $id The ID of the form (required)
-     * @param  string[]|null $fields_form For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_form For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getForm'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -879,7 +888,7 @@ class FormsApi
      * Get Form
      *
      * @param  string $id The ID of the form (required)
-     * @param  string[]|null $fields_form For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_form For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getForm'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -935,7 +944,7 @@ class FormsApi
      * Create request for operation 'getForm'
      *
      * @param  string $id The ID of the form (required)
-     * @param  string[]|null $fields_form For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_form For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getForm'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1027,7 +1036,7 @@ class FormsApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2026-07-15'];
+        $defaultHeaders['revision'] = ['2026-10-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -1050,7 +1059,7 @@ class FormsApi
      * Get Form for Form Version
      *
      * @param  string $id The ID of the form version (required)
-     * @param  string[]|null $fields_form For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_form For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getFormForFormVersion'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -1078,7 +1087,7 @@ class FormsApi
      * Get Form for Form Version
      *
      * @param  string $id The ID of the form version (required)
-     * @param  string[]|null $fields_form For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_form For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getFormForFormVersion'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -1201,7 +1210,7 @@ class FormsApi
      * Get Form for Form Version
      *
      * @param  string $id The ID of the form version (required)
-     * @param  string[]|null $fields_form For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_form For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getFormForFormVersion'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1232,7 +1241,7 @@ class FormsApi
      * Get Form for Form Version
      *
      * @param  string $id The ID of the form version (required)
-     * @param  string[]|null $fields_form For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_form For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getFormForFormVersion'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1297,7 +1306,7 @@ class FormsApi
      * Create request for operation 'getFormForFormVersion'
      *
      * @param  string $id The ID of the form version (required)
-     * @param  string[]|null $fields_form For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_form For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getFormForFormVersion'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1389,7 +1398,7 @@ class FormsApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2026-07-15'];
+        $defaultHeaders['revision'] = ['2026-10-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -1745,7 +1754,7 @@ class FormsApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2026-07-15'];
+        $defaultHeaders['revision'] = ['2026-10-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -1777,9 +1786,9 @@ class FormsApi
      * Get Form Version
      *
      * @param  string $id The ID of the form version (required)
-     * @param  string[]|null $fields_form_version For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_form For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#relationships (optional)
+     * @param  string[]|null $fields_form_version For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_form For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#relationships (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getFormVersion'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -1798,9 +1807,9 @@ class FormsApi
      * Get Form Version
      *
      * @param  string $id The ID of the form version (required)
-     * @param  string[]|null $fields_form_version For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_form For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#relationships (optional)
+     * @param  string[]|null $fields_form_version For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_form For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#relationships (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getFormVersion'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -1914,9 +1923,9 @@ class FormsApi
      * Get Form Version
      *
      * @param  string $id The ID of the form version (required)
-     * @param  string[]|null $fields_form_version For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_form For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#relationships (optional)
+     * @param  string[]|null $fields_form_version For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_form For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#relationships (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getFormVersion'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1938,9 +1947,9 @@ class FormsApi
      * Get Form Version
      *
      * @param  string $id The ID of the form version (required)
-     * @param  string[]|null $fields_form_version For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_form For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#relationships (optional)
+     * @param  string[]|null $fields_form_version For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_form For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#relationships (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getFormVersion'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1996,9 +2005,9 @@ class FormsApi
      * Create request for operation 'getFormVersion'
      *
      * @param  string $id The ID of the form version (required)
-     * @param  string[]|null $fields_form_version For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_form For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#relationships (optional)
+     * @param  string[]|null $fields_form_version For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_form For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#relationships (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getFormVersion'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -2110,7 +2119,7 @@ class FormsApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2026-07-15'];
+        $defaultHeaders['revision'] = ['2026-10-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -2132,11 +2141,11 @@ class FormsApi
      *
      * Get Forms
      *
-     * @param  string[]|null $fields_form For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;id&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;name&#x60;: &#x60;any&#x60;, &#x60;contains&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;ab_test&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;updated_at&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60;&lt;br&gt;&#x60;created_at&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60;&lt;br&gt;&#x60;status&#x60;: &#x60;equals&#x60; (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination (optional)
+     * @param  string[]|null $fields_form For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;id&#x60;: &#x60;any&#x60;, &#x60;equals&#x60; (string)&lt;br&gt;&#x60;name&#x60;: &#x60;any&#x60;, &#x60;contains&#x60;, &#x60;equals&#x60; (string)&lt;br&gt;&#x60;ab_test&#x60;: &#x60;equals&#x60; (boolean)&lt;br&gt;&#x60;updated_at&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60; (date-time)&lt;br&gt;&#x60;created_at&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60; (date-time)&lt;br&gt;&#x60;status&#x60;: &#x60;equals&#x60; (allowed values: &#x60;&#39;live&#39;&#x60;, &#x60;&#39;draft&#39;&#x60;) (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#pagination (optional)
      * @param  int|null $page_size Default: 20. Min: 1. Max: 100. (optional, default to 20)
-     * @param  string|null $sort For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sorting (optional)
+     * @param  string|null $sort For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sorting (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getForms'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -2154,11 +2163,11 @@ class FormsApi
      *
      * Get Forms
      *
-     * @param  string[]|null $fields_form For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;id&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;name&#x60;: &#x60;any&#x60;, &#x60;contains&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;ab_test&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;updated_at&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60;&lt;br&gt;&#x60;created_at&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60;&lt;br&gt;&#x60;status&#x60;: &#x60;equals&#x60; (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination (optional)
+     * @param  string[]|null $fields_form For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;id&#x60;: &#x60;any&#x60;, &#x60;equals&#x60; (string)&lt;br&gt;&#x60;name&#x60;: &#x60;any&#x60;, &#x60;contains&#x60;, &#x60;equals&#x60; (string)&lt;br&gt;&#x60;ab_test&#x60;: &#x60;equals&#x60; (boolean)&lt;br&gt;&#x60;updated_at&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60; (date-time)&lt;br&gt;&#x60;created_at&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60; (date-time)&lt;br&gt;&#x60;status&#x60;: &#x60;equals&#x60; (allowed values: &#x60;&#39;live&#39;&#x60;, &#x60;&#39;draft&#39;&#x60;) (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#pagination (optional)
      * @param  int|null $page_size Default: 20. Min: 1. Max: 100. (optional, default to 20)
-     * @param  string|null $sort For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sorting (optional)
+     * @param  string|null $sort For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sorting (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getForms'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -2271,11 +2280,11 @@ class FormsApi
      *
      * Get Forms
      *
-     * @param  string[]|null $fields_form For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;id&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;name&#x60;: &#x60;any&#x60;, &#x60;contains&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;ab_test&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;updated_at&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60;&lt;br&gt;&#x60;created_at&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60;&lt;br&gt;&#x60;status&#x60;: &#x60;equals&#x60; (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination (optional)
+     * @param  string[]|null $fields_form For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;id&#x60;: &#x60;any&#x60;, &#x60;equals&#x60; (string)&lt;br&gt;&#x60;name&#x60;: &#x60;any&#x60;, &#x60;contains&#x60;, &#x60;equals&#x60; (string)&lt;br&gt;&#x60;ab_test&#x60;: &#x60;equals&#x60; (boolean)&lt;br&gt;&#x60;updated_at&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60; (date-time)&lt;br&gt;&#x60;created_at&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60; (date-time)&lt;br&gt;&#x60;status&#x60;: &#x60;equals&#x60; (allowed values: &#x60;&#39;live&#39;&#x60;, &#x60;&#39;draft&#39;&#x60;) (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#pagination (optional)
      * @param  int|null $page_size Default: 20. Min: 1. Max: 100. (optional, default to 20)
-     * @param  string|null $sort For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sorting (optional)
+     * @param  string|null $sort For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sorting (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getForms'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -2296,11 +2305,11 @@ class FormsApi
      *
      * Get Forms
      *
-     * @param  string[]|null $fields_form For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;id&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;name&#x60;: &#x60;any&#x60;, &#x60;contains&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;ab_test&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;updated_at&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60;&lt;br&gt;&#x60;created_at&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60;&lt;br&gt;&#x60;status&#x60;: &#x60;equals&#x60; (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination (optional)
+     * @param  string[]|null $fields_form For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;id&#x60;: &#x60;any&#x60;, &#x60;equals&#x60; (string)&lt;br&gt;&#x60;name&#x60;: &#x60;any&#x60;, &#x60;contains&#x60;, &#x60;equals&#x60; (string)&lt;br&gt;&#x60;ab_test&#x60;: &#x60;equals&#x60; (boolean)&lt;br&gt;&#x60;updated_at&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60; (date-time)&lt;br&gt;&#x60;created_at&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60; (date-time)&lt;br&gt;&#x60;status&#x60;: &#x60;equals&#x60; (allowed values: &#x60;&#39;live&#39;&#x60;, &#x60;&#39;draft&#39;&#x60;) (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#pagination (optional)
      * @param  int|null $page_size Default: 20. Min: 1. Max: 100. (optional, default to 20)
-     * @param  string|null $sort For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sorting (optional)
+     * @param  string|null $sort For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sorting (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getForms'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -2355,11 +2364,11 @@ class FormsApi
     /**
      * Create request for operation 'getForms'
      *
-     * @param  string[]|null $fields_form For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;id&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;name&#x60;: &#x60;any&#x60;, &#x60;contains&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;ab_test&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;updated_at&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60;&lt;br&gt;&#x60;created_at&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60;&lt;br&gt;&#x60;status&#x60;: &#x60;equals&#x60; (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination (optional)
+     * @param  string[]|null $fields_form For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;id&#x60;: &#x60;any&#x60;, &#x60;equals&#x60; (string)&lt;br&gt;&#x60;name&#x60;: &#x60;any&#x60;, &#x60;contains&#x60;, &#x60;equals&#x60; (string)&lt;br&gt;&#x60;ab_test&#x60;: &#x60;equals&#x60; (boolean)&lt;br&gt;&#x60;updated_at&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60; (date-time)&lt;br&gt;&#x60;created_at&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60; (date-time)&lt;br&gt;&#x60;status&#x60;: &#x60;equals&#x60; (allowed values: &#x60;&#39;live&#39;&#x60;, &#x60;&#39;draft&#39;&#x60;) (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#pagination (optional)
      * @param  int|null $page_size Default: 20. Min: 1. Max: 100. (optional, default to 20)
-     * @param  string|null $sort For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sorting (optional)
+     * @param  string|null $sort For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sorting (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getForms'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -2482,7 +2491,7 @@ class FormsApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2026-07-15'];
+        $defaultHeaders['revision'] = ['2026-10-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -2505,10 +2514,10 @@ class FormsApi
      * Get Version IDs for Form
      *
      * @param  string $id The ID of the form (required)
-     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;form_type&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;status&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;updated_at&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60;&lt;br&gt;&#x60;created_at&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60; (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination (optional)
+     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;form_type&#x60;: &#x60;any&#x60;, &#x60;equals&#x60; (allowed values: &#x60;&#39;popup&#39;&#x60;, &#x60;&#39;embed&#39;&#x60;, &#x60;&#39;full_page&#39;&#x60;, &#x60;&#39;flyout&#39;&#x60;, &#x60;&#39;banner&#39;&#x60;)&lt;br&gt;&#x60;status&#x60;: &#x60;equals&#x60; (allowed values: &#x60;&#39;live&#39;&#x60;, &#x60;&#39;draft&#39;&#x60;)&lt;br&gt;&#x60;updated_at&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60; (date-time)&lt;br&gt;&#x60;created_at&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60; (date-time) (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#pagination (optional)
      * @param  int|null $page_size Default: 20. Min: 1. Max: 100. (optional, default to 20)
-     * @param  string|null $sort For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sorting (optional)
+     * @param  string|null $sort For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sorting (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getVersionIdsForForm'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -2545,10 +2554,10 @@ class FormsApi
      * Get Version IDs for Form
      *
      * @param  string $id The ID of the form (required)
-     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;form_type&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;status&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;updated_at&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60;&lt;br&gt;&#x60;created_at&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60; (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination (optional)
+     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;form_type&#x60;: &#x60;any&#x60;, &#x60;equals&#x60; (allowed values: &#x60;&#39;popup&#39;&#x60;, &#x60;&#39;embed&#39;&#x60;, &#x60;&#39;full_page&#39;&#x60;, &#x60;&#39;flyout&#39;&#x60;, &#x60;&#39;banner&#39;&#x60;)&lt;br&gt;&#x60;status&#x60;: &#x60;equals&#x60; (allowed values: &#x60;&#39;live&#39;&#x60;, &#x60;&#39;draft&#39;&#x60;)&lt;br&gt;&#x60;updated_at&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60; (date-time)&lt;br&gt;&#x60;created_at&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60; (date-time) (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#pagination (optional)
      * @param  int|null $page_size Default: 20. Min: 1. Max: 100. (optional, default to 20)
-     * @param  string|null $sort For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sorting (optional)
+     * @param  string|null $sort For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sorting (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getVersionIdsForForm'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -2680,10 +2689,10 @@ class FormsApi
      * Get Version IDs for Form
      *
      * @param  string $id The ID of the form (required)
-     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;form_type&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;status&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;updated_at&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60;&lt;br&gt;&#x60;created_at&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60; (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination (optional)
+     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;form_type&#x60;: &#x60;any&#x60;, &#x60;equals&#x60; (allowed values: &#x60;&#39;popup&#39;&#x60;, &#x60;&#39;embed&#39;&#x60;, &#x60;&#39;full_page&#39;&#x60;, &#x60;&#39;flyout&#39;&#x60;, &#x60;&#39;banner&#39;&#x60;)&lt;br&gt;&#x60;status&#x60;: &#x60;equals&#x60; (allowed values: &#x60;&#39;live&#39;&#x60;, &#x60;&#39;draft&#39;&#x60;)&lt;br&gt;&#x60;updated_at&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60; (date-time)&lt;br&gt;&#x60;created_at&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60; (date-time) (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#pagination (optional)
      * @param  int|null $page_size Default: 20. Min: 1. Max: 100. (optional, default to 20)
-     * @param  string|null $sort For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sorting (optional)
+     * @param  string|null $sort For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sorting (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getVersionIdsForForm'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -2723,10 +2732,10 @@ class FormsApi
      * Get Version IDs for Form
      *
      * @param  string $id The ID of the form (required)
-     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;form_type&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;status&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;updated_at&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60;&lt;br&gt;&#x60;created_at&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60; (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination (optional)
+     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;form_type&#x60;: &#x60;any&#x60;, &#x60;equals&#x60; (allowed values: &#x60;&#39;popup&#39;&#x60;, &#x60;&#39;embed&#39;&#x60;, &#x60;&#39;full_page&#39;&#x60;, &#x60;&#39;flyout&#39;&#x60;, &#x60;&#39;banner&#39;&#x60;)&lt;br&gt;&#x60;status&#x60;: &#x60;equals&#x60; (allowed values: &#x60;&#39;live&#39;&#x60;, &#x60;&#39;draft&#39;&#x60;)&lt;br&gt;&#x60;updated_at&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60; (date-time)&lt;br&gt;&#x60;created_at&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60; (date-time) (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#pagination (optional)
      * @param  int|null $page_size Default: 20. Min: 1. Max: 100. (optional, default to 20)
-     * @param  string|null $sort For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sorting (optional)
+     * @param  string|null $sort For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sorting (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getVersionIdsForForm'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -2800,10 +2809,10 @@ class FormsApi
      * Create request for operation 'getVersionIdsForForm'
      *
      * @param  string $id The ID of the form (required)
-     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;form_type&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;status&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;updated_at&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60;&lt;br&gt;&#x60;created_at&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60; (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination (optional)
+     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;form_type&#x60;: &#x60;any&#x60;, &#x60;equals&#x60; (allowed values: &#x60;&#39;popup&#39;&#x60;, &#x60;&#39;embed&#39;&#x60;, &#x60;&#39;full_page&#39;&#x60;, &#x60;&#39;flyout&#39;&#x60;, &#x60;&#39;banner&#39;&#x60;)&lt;br&gt;&#x60;status&#x60;: &#x60;equals&#x60; (allowed values: &#x60;&#39;live&#39;&#x60;, &#x60;&#39;draft&#39;&#x60;)&lt;br&gt;&#x60;updated_at&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60; (date-time)&lt;br&gt;&#x60;created_at&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60; (date-time) (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#pagination (optional)
      * @param  int|null $page_size Default: 20. Min: 1. Max: 100. (optional, default to 20)
-     * @param  string|null $sort For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sorting (optional)
+     * @param  string|null $sort For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sorting (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getVersionIdsForForm'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -2931,7 +2940,7 @@ class FormsApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2026-07-15'];
+        $defaultHeaders['revision'] = ['2026-10-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -2972,11 +2981,11 @@ class FormsApi
      * Get Versions for Form
      *
      * @param  string $id The ID of the form (required)
-     * @param  string[]|null $fields_form_version For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;form_type&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;status&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;updated_at&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60;&lt;br&gt;&#x60;created_at&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60; (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination (optional)
+     * @param  string[]|null $fields_form_version For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;form_type&#x60;: &#x60;any&#x60;, &#x60;equals&#x60; (allowed values: &#x60;&#39;popup&#39;&#x60;, &#x60;&#39;embed&#39;&#x60;, &#x60;&#39;full_page&#39;&#x60;, &#x60;&#39;flyout&#39;&#x60;, &#x60;&#39;banner&#39;&#x60;)&lt;br&gt;&#x60;status&#x60;: &#x60;equals&#x60; (allowed values: &#x60;&#39;live&#39;&#x60;, &#x60;&#39;draft&#39;&#x60;)&lt;br&gt;&#x60;updated_at&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60; (date-time)&lt;br&gt;&#x60;created_at&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60; (date-time) (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#pagination (optional)
      * @param  int|null $page_size Default: 20. Min: 1. Max: 100. (optional, default to 20)
-     * @param  string|null $sort For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sorting (optional)
+     * @param  string|null $sort For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sorting (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getVersionsForForm'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -3013,11 +3022,11 @@ class FormsApi
      * Get Versions for Form
      *
      * @param  string $id The ID of the form (required)
-     * @param  string[]|null $fields_form_version For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;form_type&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;status&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;updated_at&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60;&lt;br&gt;&#x60;created_at&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60; (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination (optional)
+     * @param  string[]|null $fields_form_version For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;form_type&#x60;: &#x60;any&#x60;, &#x60;equals&#x60; (allowed values: &#x60;&#39;popup&#39;&#x60;, &#x60;&#39;embed&#39;&#x60;, &#x60;&#39;full_page&#39;&#x60;, &#x60;&#39;flyout&#39;&#x60;, &#x60;&#39;banner&#39;&#x60;)&lt;br&gt;&#x60;status&#x60;: &#x60;equals&#x60; (allowed values: &#x60;&#39;live&#39;&#x60;, &#x60;&#39;draft&#39;&#x60;)&lt;br&gt;&#x60;updated_at&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60; (date-time)&lt;br&gt;&#x60;created_at&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60; (date-time) (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#pagination (optional)
      * @param  int|null $page_size Default: 20. Min: 1. Max: 100. (optional, default to 20)
-     * @param  string|null $sort For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sorting (optional)
+     * @param  string|null $sort For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sorting (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getVersionsForForm'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -3149,11 +3158,11 @@ class FormsApi
      * Get Versions for Form
      *
      * @param  string $id The ID of the form (required)
-     * @param  string[]|null $fields_form_version For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;form_type&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;status&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;updated_at&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60;&lt;br&gt;&#x60;created_at&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60; (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination (optional)
+     * @param  string[]|null $fields_form_version For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;form_type&#x60;: &#x60;any&#x60;, &#x60;equals&#x60; (allowed values: &#x60;&#39;popup&#39;&#x60;, &#x60;&#39;embed&#39;&#x60;, &#x60;&#39;full_page&#39;&#x60;, &#x60;&#39;flyout&#39;&#x60;, &#x60;&#39;banner&#39;&#x60;)&lt;br&gt;&#x60;status&#x60;: &#x60;equals&#x60; (allowed values: &#x60;&#39;live&#39;&#x60;, &#x60;&#39;draft&#39;&#x60;)&lt;br&gt;&#x60;updated_at&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60; (date-time)&lt;br&gt;&#x60;created_at&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60; (date-time) (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#pagination (optional)
      * @param  int|null $page_size Default: 20. Min: 1. Max: 100. (optional, default to 20)
-     * @param  string|null $sort For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sorting (optional)
+     * @param  string|null $sort For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sorting (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getVersionsForForm'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -3193,11 +3202,11 @@ class FormsApi
      * Get Versions for Form
      *
      * @param  string $id The ID of the form (required)
-     * @param  string[]|null $fields_form_version For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;form_type&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;status&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;updated_at&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60;&lt;br&gt;&#x60;created_at&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60; (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination (optional)
+     * @param  string[]|null $fields_form_version For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;form_type&#x60;: &#x60;any&#x60;, &#x60;equals&#x60; (allowed values: &#x60;&#39;popup&#39;&#x60;, &#x60;&#39;embed&#39;&#x60;, &#x60;&#39;full_page&#39;&#x60;, &#x60;&#39;flyout&#39;&#x60;, &#x60;&#39;banner&#39;&#x60;)&lt;br&gt;&#x60;status&#x60;: &#x60;equals&#x60; (allowed values: &#x60;&#39;live&#39;&#x60;, &#x60;&#39;draft&#39;&#x60;)&lt;br&gt;&#x60;updated_at&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60; (date-time)&lt;br&gt;&#x60;created_at&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60; (date-time) (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#pagination (optional)
      * @param  int|null $page_size Default: 20. Min: 1. Max: 100. (optional, default to 20)
-     * @param  string|null $sort For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sorting (optional)
+     * @param  string|null $sort For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sorting (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getVersionsForForm'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -3271,11 +3280,11 @@ class FormsApi
      * Create request for operation 'getVersionsForForm'
      *
      * @param  string $id The ID of the form (required)
-     * @param  string[]|null $fields_form_version For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;form_type&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;status&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;updated_at&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60;&lt;br&gt;&#x60;created_at&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60; (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination (optional)
+     * @param  string[]|null $fields_form_version For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;form_type&#x60;: &#x60;any&#x60;, &#x60;equals&#x60; (allowed values: &#x60;&#39;popup&#39;&#x60;, &#x60;&#39;embed&#39;&#x60;, &#x60;&#39;full_page&#39;&#x60;, &#x60;&#39;flyout&#39;&#x60;, &#x60;&#39;banner&#39;&#x60;)&lt;br&gt;&#x60;status&#x60;: &#x60;equals&#x60; (allowed values: &#x60;&#39;live&#39;&#x60;, &#x60;&#39;draft&#39;&#x60;)&lt;br&gt;&#x60;updated_at&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60; (date-time)&lt;br&gt;&#x60;created_at&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60; (date-time) (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#pagination (optional)
      * @param  int|null $page_size Default: 20. Min: 1. Max: 100. (optional, default to 20)
-     * @param  string|null $sort For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sorting (optional)
+     * @param  string|null $sort For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sorting (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getVersionsForForm'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -3413,7 +3422,7 @@ class FormsApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2026-07-15'];
+        $defaultHeaders['revision'] = ['2026-10-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -3446,6 +3455,1091 @@ class FormsApi
      */
     public function getFormVersionsRequest(...$args) {
         return $this->getVersionsForFormRequest(...$args);
+    }
+
+    /**
+     * Operation publishForm
+     *
+     * Publish Form
+     *
+     * @param  \KlaviyoAPI\Model\FormPublishJobCreateQuery $form_publish_job_create_query Publish the draft version of a form. (required)
+     * @param  string[]|null $fields_form_publish_job For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['publishForm'] to see the possible values for this operation
+     *
+     * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array<string,mixed>|\KlaviyoAPI\Model\GetAccounts400Response|\KlaviyoAPI\Model\GetAccounts400Response
+     */
+    public function publishForm($form_publish_job_create_query, $fields_form_publish_job = null, $apiKey = null, string $contentType = self::contentTypes['publishForm'][0])
+    {
+        list($response) = $this->publishFormWithHttpInfo($form_publish_job_create_query, $fields_form_publish_job, $apiKey, $contentType);
+        return $response;
+    }
+
+    /**
+     * Alias of `publishForm`
+     *
+     * @deprecated use `publishForm` instead
+     */
+    public function createFormPublishJob(...$args) {
+        return $this->publishForm(...$args);
+    }
+
+    /**
+     * Operation publishFormWithHttpInfo
+     *
+     * Publish Form
+     *
+     * @param  \KlaviyoAPI\Model\FormPublishJobCreateQuery $form_publish_job_create_query Publish the draft version of a form. (required)
+     * @param  string[]|null $fields_form_publish_job For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['publishForm'] to see the possible values for this operation
+     *
+     * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of array<string,mixed>|\KlaviyoAPI\Model\GetAccounts400Response|\KlaviyoAPI\Model\GetAccounts400Response, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function publishFormWithHttpInfo($form_publish_job_create_query, $fields_form_publish_job = null, $apiKey = null, string $contentType = self::contentTypes['publishForm'][0])
+    {
+        $request = $this->publishFormRequest($form_publish_job_create_query, $fields_form_publish_job, $apiKey, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            switch($statusCode) {
+                case 202:
+                    return $this->handleResponseWithDataType(
+                        'array<string,mixed>',
+                        $request,
+                        $response,
+                    );
+                case 400:
+                    return $this->handleResponseWithDataType(
+                        '\KlaviyoAPI\Model\GetAccounts400Response',
+                        $request,
+                        $response,
+                    );
+                case 500:
+                    return $this->handleResponseWithDataType(
+                        '\KlaviyoAPI\Model\GetAccounts400Response',
+                        $request,
+                        $response,
+                    );
+            }
+
+            
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            return $this->handleResponseWithDataType(
+                'array<string,mixed>',
+                $request,
+                $response,
+            );
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 202:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        'array<string,mixed>',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\KlaviyoAPI\Model\GetAccounts400Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 500:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\KlaviyoAPI\Model\GetAccounts400Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+            }
+        
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Alias of `publishFormWithHttpInfo`
+     *
+     * @deprecated use `publishFormWithHttpInfo` instead
+     */
+    public function createFormPublishJobWithHttpInfo(...$args) {
+        return $this->publishFormWithHttpInfo(...$args);
+    }
+
+    /**
+     * Operation publishFormAsync
+     *
+     * Publish Form
+     *
+     * @param  \KlaviyoAPI\Model\FormPublishJobCreateQuery $form_publish_job_create_query Publish the draft version of a form. (required)
+     * @param  string[]|null $fields_form_publish_job For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['publishForm'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function publishFormAsync($form_publish_job_create_query, $fields_form_publish_job = null, $apiKey = null, string $contentType = self::contentTypes['publishForm'][0])
+    {
+        return $this->publishFormAsyncWithHttpInfo($form_publish_job_create_query, $fields_form_publish_job, $apiKey, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Alias of `publishFormAsync`
+     *
+     * @deprecated use `publishFormAsync` instead
+     */
+    public function createFormPublishJobAsync(...$args) {
+        return $this->publishFormAsync(...$args);
+    }
+
+    /**
+     * Operation publishFormAsyncWithHttpInfo
+     *
+     * Publish Form
+     *
+     * @param  \KlaviyoAPI\Model\FormPublishJobCreateQuery $form_publish_job_create_query Publish the draft version of a form. (required)
+     * @param  string[]|null $fields_form_publish_job For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['publishForm'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function publishFormAsyncWithHttpInfo($form_publish_job_create_query, $fields_form_publish_job = null, $apiKey = null, string $contentType = self::contentTypes['publishForm'][0])
+    {
+        $returnType = 'array<string,mixed>';
+        $request = $this->publishFormRequest($form_publish_job_create_query, $fields_form_publish_job, $apiKey, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    $parsed_content = json_decode(json_encode($content), TRUE);
+                    if (json_last_error() != JSON_ERROR_NONE) {
+                        $parsed_content = $content;
+                    }
+
+                    return [
+                        $parsed_content,
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Alias of `publishFormAsyncWithHttpInfo`
+     *
+     * @deprecated use `publishFormAsyncWithHttpInfo` instead
+     */
+    public function createFormPublishJobAsyncWithHttpInfo(...$args) {
+        return $this->publishFormAsyncWithHttpInfo(...$args);
+    }
+
+    /**
+     * Create request for operation 'publishForm'
+     *
+     * @param  \KlaviyoAPI\Model\FormPublishJobCreateQuery $form_publish_job_create_query Publish the draft version of a form. (required)
+     * @param  string[]|null $fields_form_publish_job For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['publishForm'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function publishFormRequest($form_publish_job_create_query, $fields_form_publish_job = null, $apiKey = null, string $contentType = self::contentTypes['publishForm'][0])
+    {
+
+        // verify the required parameter 'form_publish_job_create_query' is set
+        if ($form_publish_job_create_query === null || (is_array($form_publish_job_create_query) && count($form_publish_job_create_query) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $form_publish_job_create_query when calling publishForm'
+            );
+        }
+
+
+
+        $resourcePath = '/api/form-publish-jobs';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $fields_form_publish_job,
+            'fields[form-publish-job]', // param base name
+            'array', // openApiType
+            'form', // style
+            false, // explode
+            false // required
+        ) ?? []);
+
+
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/vnd.api+json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (isset($form_publish_job_create_query)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false || stripos($headers['Content-Type'], 'application/vnd.api+json') !== false) {
+                # if Content-Type contains "application/json" or "application/vnd.api+json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($form_publish_job_create_query));
+            } else {
+                $httpBody = $form_publish_job_create_query;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false || stripos($headers['Content-Type'], 'application/vnd.api+json') !== false) {
+                # if Content-Type contains "application/json" or "application/vnd.api+json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        if ($apiKey == null) {
+            $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        } else {
+            $apiKey = 'Klaviyo-API-Key '.$apiKey;
+        }
+
+        $headers['Authorization'] = $apiKey;
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $defaultHeaders['revision'] = ['2026-10-15'];
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'POST',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Alias of `publishFormRequest`
+     *
+     * @deprecated use `publishFormRequest` instead
+     */
+    public function createFormPublishJobRequest(...$args) {
+        return $this->publishFormRequest(...$args);
+    }
+
+    /**
+     * Operation unpublishForm
+     *
+     * Unpublish Form
+     *
+     * @param  \KlaviyoAPI\Model\FormUnpublishJobCreateQuery $form_unpublish_job_create_query Unpublish the live version of a form. (required)
+     * @param  string[]|null $fields_form_unpublish_job For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['unpublishForm'] to see the possible values for this operation
+     *
+     * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array<string,mixed>|\KlaviyoAPI\Model\GetAccounts400Response|\KlaviyoAPI\Model\GetAccounts400Response
+     */
+    public function unpublishForm($form_unpublish_job_create_query, $fields_form_unpublish_job = null, $apiKey = null, string $contentType = self::contentTypes['unpublishForm'][0])
+    {
+        list($response) = $this->unpublishFormWithHttpInfo($form_unpublish_job_create_query, $fields_form_unpublish_job, $apiKey, $contentType);
+        return $response;
+    }
+
+    /**
+     * Alias of `unpublishForm`
+     *
+     * @deprecated use `unpublishForm` instead
+     */
+    public function createFormUnpublishJob(...$args) {
+        return $this->unpublishForm(...$args);
+    }
+
+    /**
+     * Operation unpublishFormWithHttpInfo
+     *
+     * Unpublish Form
+     *
+     * @param  \KlaviyoAPI\Model\FormUnpublishJobCreateQuery $form_unpublish_job_create_query Unpublish the live version of a form. (required)
+     * @param  string[]|null $fields_form_unpublish_job For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['unpublishForm'] to see the possible values for this operation
+     *
+     * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of array<string,mixed>|\KlaviyoAPI\Model\GetAccounts400Response|\KlaviyoAPI\Model\GetAccounts400Response, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function unpublishFormWithHttpInfo($form_unpublish_job_create_query, $fields_form_unpublish_job = null, $apiKey = null, string $contentType = self::contentTypes['unpublishForm'][0])
+    {
+        $request = $this->unpublishFormRequest($form_unpublish_job_create_query, $fields_form_unpublish_job, $apiKey, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            switch($statusCode) {
+                case 202:
+                    return $this->handleResponseWithDataType(
+                        'array<string,mixed>',
+                        $request,
+                        $response,
+                    );
+                case 400:
+                    return $this->handleResponseWithDataType(
+                        '\KlaviyoAPI\Model\GetAccounts400Response',
+                        $request,
+                        $response,
+                    );
+                case 500:
+                    return $this->handleResponseWithDataType(
+                        '\KlaviyoAPI\Model\GetAccounts400Response',
+                        $request,
+                        $response,
+                    );
+            }
+
+            
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            return $this->handleResponseWithDataType(
+                'array<string,mixed>',
+                $request,
+                $response,
+            );
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 202:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        'array<string,mixed>',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\KlaviyoAPI\Model\GetAccounts400Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 500:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\KlaviyoAPI\Model\GetAccounts400Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+            }
+        
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Alias of `unpublishFormWithHttpInfo`
+     *
+     * @deprecated use `unpublishFormWithHttpInfo` instead
+     */
+    public function createFormUnpublishJobWithHttpInfo(...$args) {
+        return $this->unpublishFormWithHttpInfo(...$args);
+    }
+
+    /**
+     * Operation unpublishFormAsync
+     *
+     * Unpublish Form
+     *
+     * @param  \KlaviyoAPI\Model\FormUnpublishJobCreateQuery $form_unpublish_job_create_query Unpublish the live version of a form. (required)
+     * @param  string[]|null $fields_form_unpublish_job For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['unpublishForm'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function unpublishFormAsync($form_unpublish_job_create_query, $fields_form_unpublish_job = null, $apiKey = null, string $contentType = self::contentTypes['unpublishForm'][0])
+    {
+        return $this->unpublishFormAsyncWithHttpInfo($form_unpublish_job_create_query, $fields_form_unpublish_job, $apiKey, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Alias of `unpublishFormAsync`
+     *
+     * @deprecated use `unpublishFormAsync` instead
+     */
+    public function createFormUnpublishJobAsync(...$args) {
+        return $this->unpublishFormAsync(...$args);
+    }
+
+    /**
+     * Operation unpublishFormAsyncWithHttpInfo
+     *
+     * Unpublish Form
+     *
+     * @param  \KlaviyoAPI\Model\FormUnpublishJobCreateQuery $form_unpublish_job_create_query Unpublish the live version of a form. (required)
+     * @param  string[]|null $fields_form_unpublish_job For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['unpublishForm'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function unpublishFormAsyncWithHttpInfo($form_unpublish_job_create_query, $fields_form_unpublish_job = null, $apiKey = null, string $contentType = self::contentTypes['unpublishForm'][0])
+    {
+        $returnType = 'array<string,mixed>';
+        $request = $this->unpublishFormRequest($form_unpublish_job_create_query, $fields_form_unpublish_job, $apiKey, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    $parsed_content = json_decode(json_encode($content), TRUE);
+                    if (json_last_error() != JSON_ERROR_NONE) {
+                        $parsed_content = $content;
+                    }
+
+                    return [
+                        $parsed_content,
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Alias of `unpublishFormAsyncWithHttpInfo`
+     *
+     * @deprecated use `unpublishFormAsyncWithHttpInfo` instead
+     */
+    public function createFormUnpublishJobAsyncWithHttpInfo(...$args) {
+        return $this->unpublishFormAsyncWithHttpInfo(...$args);
+    }
+
+    /**
+     * Create request for operation 'unpublishForm'
+     *
+     * @param  \KlaviyoAPI\Model\FormUnpublishJobCreateQuery $form_unpublish_job_create_query Unpublish the live version of a form. (required)
+     * @param  string[]|null $fields_form_unpublish_job For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['unpublishForm'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function unpublishFormRequest($form_unpublish_job_create_query, $fields_form_unpublish_job = null, $apiKey = null, string $contentType = self::contentTypes['unpublishForm'][0])
+    {
+
+        // verify the required parameter 'form_unpublish_job_create_query' is set
+        if ($form_unpublish_job_create_query === null || (is_array($form_unpublish_job_create_query) && count($form_unpublish_job_create_query) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $form_unpublish_job_create_query when calling unpublishForm'
+            );
+        }
+
+
+
+        $resourcePath = '/api/form-unpublish-jobs';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $fields_form_unpublish_job,
+            'fields[form-unpublish-job]', // param base name
+            'array', // openApiType
+            'form', // style
+            false, // explode
+            false // required
+        ) ?? []);
+
+
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/vnd.api+json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (isset($form_unpublish_job_create_query)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false || stripos($headers['Content-Type'], 'application/vnd.api+json') !== false) {
+                # if Content-Type contains "application/json" or "application/vnd.api+json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($form_unpublish_job_create_query));
+            } else {
+                $httpBody = $form_unpublish_job_create_query;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false || stripos($headers['Content-Type'], 'application/vnd.api+json') !== false) {
+                # if Content-Type contains "application/json" or "application/vnd.api+json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        if ($apiKey == null) {
+            $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        } else {
+            $apiKey = 'Klaviyo-API-Key '.$apiKey;
+        }
+
+        $headers['Authorization'] = $apiKey;
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $defaultHeaders['revision'] = ['2026-10-15'];
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'POST',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Alias of `unpublishFormRequest`
+     *
+     * @deprecated use `unpublishFormRequest` instead
+     */
+    public function createFormUnpublishJobRequest(...$args) {
+        return $this->unpublishFormRequest(...$args);
+    }
+
+    /**
+     * Operation updateForm
+     *
+     * Update Form
+     *
+     * @param  string $id The ID of the form. (required)
+     * @param  \KlaviyoAPI\Model\FormPartialUpdateQuery $form_partial_update_query Update a form. Omitted attributes keep their current values. (required)
+     * @param  string[]|null $fields_form For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateForm'] to see the possible values for this operation
+     *
+     * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array<string,mixed>|\KlaviyoAPI\Model\GetAccounts400Response|\KlaviyoAPI\Model\GetAccounts400Response
+     */
+    public function updateForm($id, $form_partial_update_query, $fields_form = null, $apiKey = null, string $contentType = self::contentTypes['updateForm'][0])
+    {
+        list($response) = $this->updateFormWithHttpInfo($id, $form_partial_update_query, $fields_form, $apiKey, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation updateFormWithHttpInfo
+     *
+     * Update Form
+     *
+     * @param  string $id The ID of the form. (required)
+     * @param  \KlaviyoAPI\Model\FormPartialUpdateQuery $form_partial_update_query Update a form. Omitted attributes keep their current values. (required)
+     * @param  string[]|null $fields_form For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateForm'] to see the possible values for this operation
+     *
+     * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of array<string,mixed>|\KlaviyoAPI\Model\GetAccounts400Response|\KlaviyoAPI\Model\GetAccounts400Response, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function updateFormWithHttpInfo($id, $form_partial_update_query, $fields_form = null, $apiKey = null, string $contentType = self::contentTypes['updateForm'][0])
+    {
+        $request = $this->updateFormRequest($id, $form_partial_update_query, $fields_form, $apiKey, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            switch($statusCode) {
+                case 200:
+                    return $this->handleResponseWithDataType(
+                        'array<string,mixed>',
+                        $request,
+                        $response,
+                    );
+                case 400:
+                    return $this->handleResponseWithDataType(
+                        '\KlaviyoAPI\Model\GetAccounts400Response',
+                        $request,
+                        $response,
+                    );
+                case 500:
+                    return $this->handleResponseWithDataType(
+                        '\KlaviyoAPI\Model\GetAccounts400Response',
+                        $request,
+                        $response,
+                    );
+            }
+
+            
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            return $this->handleResponseWithDataType(
+                'array<string,mixed>',
+                $request,
+                $response,
+            );
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        'array<string,mixed>',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\KlaviyoAPI\Model\GetAccounts400Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 500:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\KlaviyoAPI\Model\GetAccounts400Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+            }
+        
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation updateFormAsync
+     *
+     * Update Form
+     *
+     * @param  string $id The ID of the form. (required)
+     * @param  \KlaviyoAPI\Model\FormPartialUpdateQuery $form_partial_update_query Update a form. Omitted attributes keep their current values. (required)
+     * @param  string[]|null $fields_form For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateForm'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function updateFormAsync($id, $form_partial_update_query, $fields_form = null, $apiKey = null, string $contentType = self::contentTypes['updateForm'][0])
+    {
+        return $this->updateFormAsyncWithHttpInfo($id, $form_partial_update_query, $fields_form, $apiKey, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation updateFormAsyncWithHttpInfo
+     *
+     * Update Form
+     *
+     * @param  string $id The ID of the form. (required)
+     * @param  \KlaviyoAPI\Model\FormPartialUpdateQuery $form_partial_update_query Update a form. Omitted attributes keep their current values. (required)
+     * @param  string[]|null $fields_form For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateForm'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function updateFormAsyncWithHttpInfo($id, $form_partial_update_query, $fields_form = null, $apiKey = null, string $contentType = self::contentTypes['updateForm'][0])
+    {
+        $returnType = 'array<string,mixed>';
+        $request = $this->updateFormRequest($id, $form_partial_update_query, $fields_form, $apiKey, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    $parsed_content = json_decode(json_encode($content), TRUE);
+                    if (json_last_error() != JSON_ERROR_NONE) {
+                        $parsed_content = $content;
+                    }
+
+                    return [
+                        $parsed_content,
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'updateForm'
+     *
+     * @param  string $id The ID of the form. (required)
+     * @param  \KlaviyoAPI\Model\FormPartialUpdateQuery $form_partial_update_query Update a form. Omitted attributes keep their current values. (required)
+     * @param  string[]|null $fields_form For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateForm'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function updateFormRequest($id, $form_partial_update_query, $fields_form = null, $apiKey = null, string $contentType = self::contentTypes['updateForm'][0])
+    {
+
+        // verify the required parameter 'id' is set
+        if ($id === null || (is_array($id) && count($id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $id when calling updateForm'
+            );
+        }
+
+        // verify the required parameter 'form_partial_update_query' is set
+        if ($form_partial_update_query === null || (is_array($form_partial_update_query) && count($form_partial_update_query) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $form_partial_update_query when calling updateForm'
+            );
+        }
+
+
+
+        $resourcePath = '/api/forms/{id}';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $fields_form,
+            'fields[form]', // param base name
+            'array', // openApiType
+            'form', // style
+            false, // explode
+            false // required
+        ) ?? []);
+
+
+        // path params
+        if ($id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'id' . '}',
+                ObjectSerializer::toPathValue($id),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/vnd.api+json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (isset($form_partial_update_query)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false || stripos($headers['Content-Type'], 'application/vnd.api+json') !== false) {
+                # if Content-Type contains "application/json" or "application/vnd.api+json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($form_partial_update_query));
+            } else {
+                $httpBody = $form_partial_update_query;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false || stripos($headers['Content-Type'], 'application/vnd.api+json') !== false) {
+                # if Content-Type contains "application/json" or "application/vnd.api+json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        if ($apiKey == null) {
+            $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        } else {
+            $apiKey = 'Klaviyo-API-Key '.$apiKey;
+        }
+
+        $headers['Authorization'] = $apiKey;
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $defaultHeaders['revision'] = ['2026-10-15'];
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'PATCH',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
     }
 
     /**

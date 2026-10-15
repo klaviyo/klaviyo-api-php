@@ -58,7 +58,8 @@ class PhoneNumberStyles implements ModelInterface, ArrayAccess, \JsonSerializabl
       */
     protected static $openAPITypes = [
         'padding' => '\KlaviyoAPI\Model\Padding',
-        'background_color' => 'string'
+        'background_color' => 'string',
+        'input_styles' => '\KlaviyoAPI\Model\InputStyleOverrides'
     ];
 
     /**
@@ -70,7 +71,8 @@ class PhoneNumberStyles implements ModelInterface, ArrayAccess, \JsonSerializabl
       */
     protected static $openAPIFormats = [
         'padding' => null,
-        'background_color' => null
+        'background_color' => null,
+        'input_styles' => null
     ];
 
     /**
@@ -80,7 +82,8 @@ class PhoneNumberStyles implements ModelInterface, ArrayAccess, \JsonSerializabl
       */
     protected static array $openAPINullables = [
         'padding' => false,
-        'background_color' => true
+        'background_color' => true,
+        'input_styles' => false
     ];
 
     /**
@@ -170,7 +173,8 @@ class PhoneNumberStyles implements ModelInterface, ArrayAccess, \JsonSerializabl
      */
     protected static $attributeMap = [
         'padding' => 'padding',
-        'background_color' => 'background_color'
+        'background_color' => 'background_color',
+        'input_styles' => 'input_styles'
     ];
 
     /**
@@ -180,7 +184,8 @@ class PhoneNumberStyles implements ModelInterface, ArrayAccess, \JsonSerializabl
      */
     protected static $setters = [
         'padding' => 'setPadding',
-        'background_color' => 'setBackgroundColor'
+        'background_color' => 'setBackgroundColor',
+        'input_styles' => 'setInputStyles'
     ];
 
     /**
@@ -190,7 +195,8 @@ class PhoneNumberStyles implements ModelInterface, ArrayAccess, \JsonSerializabl
      */
     protected static $getters = [
         'padding' => 'getPadding',
-        'background_color' => 'getBackgroundColor'
+        'background_color' => 'getBackgroundColor',
+        'input_styles' => 'getInputStyles'
     ];
 
     /**
@@ -252,6 +258,7 @@ class PhoneNumberStyles implements ModelInterface, ArrayAccess, \JsonSerializabl
     {
         $this->setIfExists('padding', $data ?? [], null);
         $this->setIfExists('background_color', $data ?? [], null);
+        $this->setIfExists('input_styles', $data ?? [], null);
     }
 
     /**
@@ -353,6 +360,33 @@ class PhoneNumberStyles implements ModelInterface, ArrayAccess, \JsonSerializabl
             }
         }
         $this->container['background_color'] = $background_color;
+
+        return $this;
+    }
+
+    /**
+     * Gets input_styles
+     *
+     * @return \KlaviyoAPI\Model\InputStyleOverrides|null
+     */
+    public function getInputStyles()
+    {
+        return $this->container['input_styles'];
+    }
+
+    /**
+     * Sets input_styles
+     *
+     * @param \KlaviyoAPI\Model\InputStyleOverrides|null $input_styles input_styles
+     *
+     * @return self
+     */
+    public function setInputStyles($input_styles)
+    {
+        if (is_null($input_styles)) {
+            throw new \InvalidArgumentException('non-nullable input_styles cannot be null');
+        }
+        $this->container['input_styles'] = $input_styles;
 
         return $this;
     }

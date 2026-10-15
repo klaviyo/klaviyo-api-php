@@ -59,7 +59,8 @@ class CouponCreateQueryResourceObjectAttributes implements ModelInterface, Array
     protected static $openAPITypes = [
         'external_id' => 'string',
         'description' => 'string',
-        'monitor_configuration' => 'object'
+        'monitor_configuration' => 'object',
+        'assigner_configuration' => '\KlaviyoAPI\Model\CouponAssignerConfiguration'
     ];
 
     /**
@@ -72,7 +73,8 @@ class CouponCreateQueryResourceObjectAttributes implements ModelInterface, Array
     protected static $openAPIFormats = [
         'external_id' => null,
         'description' => null,
-        'monitor_configuration' => null
+        'monitor_configuration' => null,
+        'assigner_configuration' => null
     ];
 
     /**
@@ -83,7 +85,8 @@ class CouponCreateQueryResourceObjectAttributes implements ModelInterface, Array
     protected static array $openAPINullables = [
         'external_id' => false,
         'description' => true,
-        'monitor_configuration' => true
+        'monitor_configuration' => true,
+        'assigner_configuration' => false
     ];
 
     /**
@@ -174,7 +177,8 @@ class CouponCreateQueryResourceObjectAttributes implements ModelInterface, Array
     protected static $attributeMap = [
         'external_id' => 'external_id',
         'description' => 'description',
-        'monitor_configuration' => 'monitor_configuration'
+        'monitor_configuration' => 'monitor_configuration',
+        'assigner_configuration' => 'assigner_configuration'
     ];
 
     /**
@@ -185,7 +189,8 @@ class CouponCreateQueryResourceObjectAttributes implements ModelInterface, Array
     protected static $setters = [
         'external_id' => 'setExternalId',
         'description' => 'setDescription',
-        'monitor_configuration' => 'setMonitorConfiguration'
+        'monitor_configuration' => 'setMonitorConfiguration',
+        'assigner_configuration' => 'setAssignerConfiguration'
     ];
 
     /**
@@ -196,7 +201,8 @@ class CouponCreateQueryResourceObjectAttributes implements ModelInterface, Array
     protected static $getters = [
         'external_id' => 'getExternalId',
         'description' => 'getDescription',
-        'monitor_configuration' => 'getMonitorConfiguration'
+        'monitor_configuration' => 'getMonitorConfiguration',
+        'assigner_configuration' => 'getAssignerConfiguration'
     ];
 
     /**
@@ -259,6 +265,7 @@ class CouponCreateQueryResourceObjectAttributes implements ModelInterface, Array
         $this->setIfExists('external_id', $data ?? [], null);
         $this->setIfExists('description', $data ?? [], null);
         $this->setIfExists('monitor_configuration', $data ?? [], null);
+        $this->setIfExists('assigner_configuration', $data ?? [], null);
     }
 
     /**
@@ -397,6 +404,33 @@ class CouponCreateQueryResourceObjectAttributes implements ModelInterface, Array
             }
         }
         $this->container['monitor_configuration'] = $monitor_configuration;
+
+        return $this;
+    }
+
+    /**
+     * Gets assigner_configuration
+     *
+     * @return \KlaviyoAPI\Model\CouponAssignerConfiguration|null
+     */
+    public function getAssignerConfiguration()
+    {
+        return $this->container['assigner_configuration'];
+    }
+
+    /**
+     * Sets assigner_configuration
+     *
+     * @param \KlaviyoAPI\Model\CouponAssignerConfiguration|null $assigner_configuration assigner_configuration
+     *
+     * @return self
+     */
+    public function setAssignerConfiguration($assigner_configuration)
+    {
+        if (is_null($assigner_configuration)) {
+            throw new \InvalidArgumentException('non-nullable assigner_configuration cannot be null');
+        }
+        $this->container['assigner_configuration'] = $assigner_configuration;
 
         return $this;
     }

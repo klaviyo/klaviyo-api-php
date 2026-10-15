@@ -59,6 +59,7 @@ class CheckboxesStyles implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $openAPITypes = [
         'padding' => '\KlaviyoAPI\Model\Padding',
         'background_color' => 'string',
+        'input_styles' => '\KlaviyoAPI\Model\InputStyleOverrides',
         'arrangement' => 'string',
         'alignment' => 'string'
     ];
@@ -73,6 +74,7 @@ class CheckboxesStyles implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $openAPIFormats = [
         'padding' => null,
         'background_color' => null,
+        'input_styles' => null,
         'arrangement' => null,
         'alignment' => null
     ];
@@ -85,6 +87,7 @@ class CheckboxesStyles implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static array $openAPINullables = [
         'padding' => false,
         'background_color' => true,
+        'input_styles' => false,
         'arrangement' => false,
         'alignment' => false
     ];
@@ -177,6 +180,7 @@ class CheckboxesStyles implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $attributeMap = [
         'padding' => 'padding',
         'background_color' => 'background_color',
+        'input_styles' => 'input_styles',
         'arrangement' => 'arrangement',
         'alignment' => 'alignment'
     ];
@@ -189,6 +193,7 @@ class CheckboxesStyles implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $setters = [
         'padding' => 'setPadding',
         'background_color' => 'setBackgroundColor',
+        'input_styles' => 'setInputStyles',
         'arrangement' => 'setArrangement',
         'alignment' => 'setAlignment'
     ];
@@ -201,6 +206,7 @@ class CheckboxesStyles implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $getters = [
         'padding' => 'getPadding',
         'background_color' => 'getBackgroundColor',
+        'input_styles' => 'getInputStyles',
         'arrangement' => 'getArrangement',
         'alignment' => 'getAlignment'
     ];
@@ -296,6 +302,7 @@ class CheckboxesStyles implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $this->setIfExists('padding', $data ?? [], null);
         $this->setIfExists('background_color', $data ?? [], null);
+        $this->setIfExists('input_styles', $data ?? [], null);
         $this->setIfExists('arrangement', $data ?? [], 'vertical');
         $this->setIfExists('alignment', $data ?? [], 'left');
     }
@@ -417,6 +424,33 @@ class CheckboxesStyles implements ModelInterface, ArrayAccess, \JsonSerializable
             }
         }
         $this->container['background_color'] = $background_color;
+
+        return $this;
+    }
+
+    /**
+     * Gets input_styles
+     *
+     * @return \KlaviyoAPI\Model\InputStyleOverrides|null
+     */
+    public function getInputStyles()
+    {
+        return $this->container['input_styles'];
+    }
+
+    /**
+     * Sets input_styles
+     *
+     * @param \KlaviyoAPI\Model\InputStyleOverrides|null $input_styles input_styles
+     *
+     * @return self
+     */
+    public function setInputStyles($input_styles)
+    {
+        if (is_null($input_styles)) {
+            throw new \InvalidArgumentException('non-nullable input_styles cannot be null');
+        }
+        $this->container['input_styles'] = $input_styles;
 
         return $this;
     }

@@ -247,6 +247,7 @@ class CampaignTrackingSettingDynamicParam implements ModelInterface, ArrayAccess
     public const VALUE_MESSAGE_TYPE = 'message_type';
     public const VALUE_PROFILE_EXTERNAL_ID = 'profile_external_id';
     public const VALUE_PROFILE_ID = 'profile_id';
+    public const VALUE_VARIATION_NAME = 'variation_name';
 
     /**
      * Gets allowable values of the enum
@@ -280,6 +281,7 @@ class CampaignTrackingSettingDynamicParam implements ModelInterface, ArrayAccess
             self::VALUE_MESSAGE_TYPE,
             self::VALUE_PROFILE_EXTERNAL_ID,
             self::VALUE_PROFILE_ID,
+            self::VALUE_VARIATION_NAME,
         ];
     }
 

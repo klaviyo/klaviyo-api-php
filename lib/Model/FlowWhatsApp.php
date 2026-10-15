@@ -63,7 +63,9 @@ class FlowWhatsApp implements ModelInterface, ArrayAccess, \JsonSerializable
         'smart_sending_enabled' => 'bool',
         'transactional' => 'bool',
         'add_tracking_params' => 'bool',
-        'additional_filters' => '\KlaviyoAPI\Model\ConditionalBranchActionDataProfileFilter'
+        'additional_filters' => '\KlaviyoAPI\Model\ConditionalBranchActionDataProfileFilter',
+        'automation_id' => 'string',
+        'expiry_hours' => 'int'
     ];
 
     /**
@@ -80,7 +82,9 @@ class FlowWhatsApp implements ModelInterface, ArrayAccess, \JsonSerializable
         'smart_sending_enabled' => null,
         'transactional' => null,
         'add_tracking_params' => null,
-        'additional_filters' => null
+        'additional_filters' => null,
+        'automation_id' => null,
+        'expiry_hours' => null
     ];
 
     /**
@@ -95,7 +99,9 @@ class FlowWhatsApp implements ModelInterface, ArrayAccess, \JsonSerializable
         'smart_sending_enabled' => false,
         'transactional' => false,
         'add_tracking_params' => false,
-        'additional_filters' => true
+        'additional_filters' => true,
+        'automation_id' => true,
+        'expiry_hours' => true
     ];
 
     /**
@@ -190,7 +196,9 @@ class FlowWhatsApp implements ModelInterface, ArrayAccess, \JsonSerializable
         'smart_sending_enabled' => 'smart_sending_enabled',
         'transactional' => 'transactional',
         'add_tracking_params' => 'add_tracking_params',
-        'additional_filters' => 'additional_filters'
+        'additional_filters' => 'additional_filters',
+        'automation_id' => 'automation_id',
+        'expiry_hours' => 'expiry_hours'
     ];
 
     /**
@@ -205,7 +213,9 @@ class FlowWhatsApp implements ModelInterface, ArrayAccess, \JsonSerializable
         'smart_sending_enabled' => 'setSmartSendingEnabled',
         'transactional' => 'setTransactional',
         'add_tracking_params' => 'setAddTrackingParams',
-        'additional_filters' => 'setAdditionalFilters'
+        'additional_filters' => 'setAdditionalFilters',
+        'automation_id' => 'setAutomationId',
+        'expiry_hours' => 'setExpiryHours'
     ];
 
     /**
@@ -220,7 +230,9 @@ class FlowWhatsApp implements ModelInterface, ArrayAccess, \JsonSerializable
         'smart_sending_enabled' => 'getSmartSendingEnabled',
         'transactional' => 'getTransactional',
         'add_tracking_params' => 'getAddTrackingParams',
-        'additional_filters' => 'getAdditionalFilters'
+        'additional_filters' => 'getAdditionalFilters',
+        'automation_id' => 'getAutomationId',
+        'expiry_hours' => 'getExpiryHours'
     ];
 
     /**
@@ -287,6 +299,8 @@ class FlowWhatsApp implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('transactional', $data ?? [], false);
         $this->setIfExists('add_tracking_params', $data ?? [], false);
         $this->setIfExists('additional_filters', $data ?? [], null);
+        $this->setIfExists('automation_id', $data ?? [], null);
+        $this->setIfExists('expiry_hours', $data ?? [], null);
     }
 
     /**
@@ -544,6 +558,74 @@ class FlowWhatsApp implements ModelInterface, ArrayAccess, \JsonSerializable
             }
         }
         $this->container['additional_filters'] = $additional_filters;
+
+        return $this;
+    }
+
+    /**
+     * Gets automation_id
+     *
+     * @return string|null
+     */
+    public function getAutomationId()
+    {
+        return $this->container['automation_id'];
+    }
+
+    /**
+     * Sets automation_id
+     *
+     * @param string|null $automation_id automation_id
+     *
+     * @return self
+     */
+    public function setAutomationId($automation_id)
+    {
+        if (is_null($automation_id)) {
+            array_push($this->openAPINullablesSetToNull, 'automation_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('automation_id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['automation_id'] = $automation_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets expiry_hours
+     *
+     * @return int|null
+     */
+    public function getExpiryHours()
+    {
+        return $this->container['expiry_hours'];
+    }
+
+    /**
+     * Sets expiry_hours
+     *
+     * @param int|null $expiry_hours expiry_hours
+     *
+     * @return self
+     */
+    public function setExpiryHours($expiry_hours)
+    {
+        if (is_null($expiry_hours)) {
+            array_push($this->openAPINullablesSetToNull, 'expiry_hours');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('expiry_hours', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['expiry_hours'] = $expiry_hours;
 
         return $this;
     }
