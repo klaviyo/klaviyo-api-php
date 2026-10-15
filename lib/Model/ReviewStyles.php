@@ -62,6 +62,7 @@ class ReviewStyles implements ModelInterface, ArrayAccess, \JsonSerializable
         'rating_style' => '\KlaviyoAPI\Model\RatingStyle',
         'quote_style' => '\KlaviyoAPI\Model\QuoteStyle',
         'reviewer_name_style' => '\KlaviyoAPI\Model\ReviewerNameStyle',
+        'verified_badge_style' => '\KlaviyoAPI\Model\VerifiedBadgeStyle',
         'block_background_color' => 'string'
     ];
 
@@ -78,6 +79,7 @@ class ReviewStyles implements ModelInterface, ArrayAccess, \JsonSerializable
         'rating_style' => null,
         'quote_style' => null,
         'reviewer_name_style' => null,
+        'verified_badge_style' => null,
         'block_background_color' => null
     ];
 
@@ -92,6 +94,7 @@ class ReviewStyles implements ModelInterface, ArrayAccess, \JsonSerializable
         'rating_style' => false,
         'quote_style' => false,
         'reviewer_name_style' => false,
+        'verified_badge_style' => false,
         'block_background_color' => false
     ];
 
@@ -186,6 +189,7 @@ class ReviewStyles implements ModelInterface, ArrayAccess, \JsonSerializable
         'rating_style' => 'rating_style',
         'quote_style' => 'quote_style',
         'reviewer_name_style' => 'reviewer_name_style',
+        'verified_badge_style' => 'verified_badge_style',
         'block_background_color' => 'block_background_color'
     ];
 
@@ -200,6 +204,7 @@ class ReviewStyles implements ModelInterface, ArrayAccess, \JsonSerializable
         'rating_style' => 'setRatingStyle',
         'quote_style' => 'setQuoteStyle',
         'reviewer_name_style' => 'setReviewerNameStyle',
+        'verified_badge_style' => 'setVerifiedBadgeStyle',
         'block_background_color' => 'setBlockBackgroundColor'
     ];
 
@@ -214,6 +219,7 @@ class ReviewStyles implements ModelInterface, ArrayAccess, \JsonSerializable
         'rating_style' => 'getRatingStyle',
         'quote_style' => 'getQuoteStyle',
         'reviewer_name_style' => 'getReviewerNameStyle',
+        'verified_badge_style' => 'getVerifiedBadgeStyle',
         'block_background_color' => 'getBlockBackgroundColor'
     ];
 
@@ -279,6 +285,7 @@ class ReviewStyles implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('rating_style', $data ?? [], null);
         $this->setIfExists('quote_style', $data ?? [], null);
         $this->setIfExists('reviewer_name_style', $data ?? [], null);
+        $this->setIfExists('verified_badge_style', $data ?? [], null);
         $this->setIfExists('block_background_color', $data ?? [], 'rgba(255, 255, 255, 0)');
     }
 
@@ -462,6 +469,33 @@ class ReviewStyles implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable reviewer_name_style cannot be null');
         }
         $this->container['reviewer_name_style'] = $reviewer_name_style;
+
+        return $this;
+    }
+
+    /**
+     * Gets verified_badge_style
+     *
+     * @return \KlaviyoAPI\Model\VerifiedBadgeStyle|null
+     */
+    public function getVerifiedBadgeStyle()
+    {
+        return $this->container['verified_badge_style'];
+    }
+
+    /**
+     * Sets verified_badge_style
+     *
+     * @param \KlaviyoAPI\Model\VerifiedBadgeStyle|null $verified_badge_style verified_badge_style
+     *
+     * @return self
+     */
+    public function setVerifiedBadgeStyle($verified_badge_style)
+    {
+        if (is_null($verified_badge_style)) {
+            throw new \InvalidArgumentException('non-nullable verified_badge_style cannot be null');
+        }
+        $this->container['verified_badge_style'] = $verified_badge_style;
 
         return $this;
     }

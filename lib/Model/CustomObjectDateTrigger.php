@@ -63,6 +63,7 @@ class CustomObjectDateTrigger implements ModelInterface, ArrayAccess, \JsonSeria
         'custom_object_property_id' => 'int',
         'object_type_id' => 'string',
         'object_type_relationship_id' => 'string',
+        'trigger_filter' => '\KlaviyoAPI\Model\CustomObjectDateTriggerTriggerFilter',
         'timedelta_unit_before_date' => 'string',
         'timedelta_value_before_date' => 'int',
         'recurrence_frequency' => 'string',
@@ -85,6 +86,7 @@ class CustomObjectDateTrigger implements ModelInterface, ArrayAccess, \JsonSeria
         'custom_object_property_id' => null,
         'object_type_id' => null,
         'object_type_relationship_id' => null,
+        'trigger_filter' => null,
         'timedelta_unit_before_date' => null,
         'timedelta_value_before_date' => null,
         'recurrence_frequency' => null,
@@ -105,6 +107,7 @@ class CustomObjectDateTrigger implements ModelInterface, ArrayAccess, \JsonSeria
         'custom_object_property_id' => false,
         'object_type_id' => false,
         'object_type_relationship_id' => false,
+        'trigger_filter' => true,
         'timedelta_unit_before_date' => false,
         'timedelta_value_before_date' => false,
         'recurrence_frequency' => false,
@@ -205,6 +208,7 @@ class CustomObjectDateTrigger implements ModelInterface, ArrayAccess, \JsonSeria
         'custom_object_property_id' => 'custom_object_property_id',
         'object_type_id' => 'object_type_id',
         'object_type_relationship_id' => 'object_type_relationship_id',
+        'trigger_filter' => 'trigger_filter',
         'timedelta_unit_before_date' => 'timedelta_unit_before_date',
         'timedelta_value_before_date' => 'timedelta_value_before_date',
         'recurrence_frequency' => 'recurrence_frequency',
@@ -225,6 +229,7 @@ class CustomObjectDateTrigger implements ModelInterface, ArrayAccess, \JsonSeria
         'custom_object_property_id' => 'setCustomObjectPropertyId',
         'object_type_id' => 'setObjectTypeId',
         'object_type_relationship_id' => 'setObjectTypeRelationshipId',
+        'trigger_filter' => 'setTriggerFilter',
         'timedelta_unit_before_date' => 'setTimedeltaUnitBeforeDate',
         'timedelta_value_before_date' => 'setTimedeltaValueBeforeDate',
         'recurrence_frequency' => 'setRecurrenceFrequency',
@@ -245,6 +250,7 @@ class CustomObjectDateTrigger implements ModelInterface, ArrayAccess, \JsonSeria
         'custom_object_property_id' => 'getCustomObjectPropertyId',
         'object_type_id' => 'getObjectTypeId',
         'object_type_relationship_id' => 'getObjectTypeRelationshipId',
+        'trigger_filter' => 'getTriggerFilter',
         'timedelta_unit_before_date' => 'getTimedeltaUnitBeforeDate',
         'timedelta_value_before_date' => 'getTimedeltaValueBeforeDate',
         'recurrence_frequency' => 'getRecurrenceFrequency',
@@ -1282,6 +1288,7 @@ class CustomObjectDateTrigger implements ModelInterface, ArrayAccess, \JsonSeria
         $this->setIfExists('custom_object_property_id', $data ?? [], null);
         $this->setIfExists('object_type_id', $data ?? [], null);
         $this->setIfExists('object_type_relationship_id', $data ?? [], null);
+        $this->setIfExists('trigger_filter', $data ?? [], null);
         $this->setIfExists('timedelta_unit_before_date', $data ?? [], 'weeks');
         $this->setIfExists('timedelta_value_before_date', $data ?? [], null);
         $this->setIfExists('recurrence_frequency', $data ?? [], 'monthly');
@@ -1579,6 +1586,40 @@ class CustomObjectDateTrigger implements ModelInterface, ArrayAccess, \JsonSeria
             throw new \InvalidArgumentException('non-nullable object_type_relationship_id cannot be null');
         }
         $this->container['object_type_relationship_id'] = $object_type_relationship_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets trigger_filter
+     *
+     * @return \KlaviyoAPI\Model\CustomObjectDateTriggerTriggerFilter|null
+     */
+    public function getTriggerFilter()
+    {
+        return $this->container['trigger_filter'];
+    }
+
+    /**
+     * Sets trigger_filter
+     *
+     * @param \KlaviyoAPI\Model\CustomObjectDateTriggerTriggerFilter|null $trigger_filter trigger_filter
+     *
+     * @return self
+     */
+    public function setTriggerFilter($trigger_filter)
+    {
+        if (is_null($trigger_filter)) {
+            array_push($this->openAPINullablesSetToNull, 'trigger_filter');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('trigger_filter', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['trigger_filter'] = $trigger_filter;
 
         return $this;
     }

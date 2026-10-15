@@ -384,7 +384,7 @@ class ProfilePropertyCondition implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets property
      *
-     * @param string $property property
+     * @param string $property The profile property to check. Use one of the well-known property names (e.g. `email`, `first_name`) or, for custom profile properties, the form `properties['property name']`.
      *
      * @return self
      */

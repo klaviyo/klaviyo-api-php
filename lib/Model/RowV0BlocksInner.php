@@ -59,8 +59,8 @@ class RowV0BlocksInner implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $openAPITypes = [
         'id' => 'string',
         'type' => 'string',
-        'styles' => 'object',
-        'properties' => '\KlaviyoAPI\Model\CustomHTMLProperties',
+        'styles' => '\KlaviyoAPI\Model\MarketingTrackingConsentCheckboxStyles',
+        'properties' => '\KlaviyoAPI\Model\MarketingTrackingConsentCheckboxProperties',
         'action' => '\KlaviyoAPI\Model\ImageAction',
         'display_device' => 'string[]'
     ];
@@ -279,6 +279,8 @@ class RowV0BlocksInner implements ModelInterface, ArrayAccess, \JsonSerializable
     public const TYPE_BIS_PROMOTIONAL_EMAIL_CHECKBOX = 'bis_promotional_email_checkbox';
     public const TYPE_REVIEW = 'review';
     public const TYPE_CUSTOM_HTML = 'custom_html';
+    public const TYPE_CONTINUE_WITH_SHOP = 'continue_with_shop';
+    public const TYPE_MARKETING_TRACKING_CONSENT_CHECKBOX = 'marketing_tracking_consent_checkbox';
     public const DISPLAY_DEVICE_BOTH = 'both';
     public const DISPLAY_DEVICE_DESKTOP = 'desktop';
     public const DISPLAY_DEVICE_MOBILE = 'mobile';
@@ -312,6 +314,8 @@ class RowV0BlocksInner implements ModelInterface, ArrayAccess, \JsonSerializable
             self::TYPE_BIS_PROMOTIONAL_EMAIL_CHECKBOX,
             self::TYPE_REVIEW,
             self::TYPE_CUSTOM_HTML,
+            self::TYPE_CONTINUE_WITH_SHOP,
+            self::TYPE_MARKETING_TRACKING_CONSENT_CHECKBOX,
         ];
     }
 
@@ -483,7 +487,7 @@ class RowV0BlocksInner implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets styles
      *
-     * @return object|null
+     * @return \KlaviyoAPI\Model\MarketingTrackingConsentCheckboxStyles|null
      */
     public function getStyles()
     {
@@ -493,7 +497,7 @@ class RowV0BlocksInner implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets styles
      *
-     * @param object|null $styles styles
+     * @param \KlaviyoAPI\Model\MarketingTrackingConsentCheckboxStyles|null $styles styles
      *
      * @return self
      */
@@ -502,8 +506,6 @@ class RowV0BlocksInner implements ModelInterface, ArrayAccess, \JsonSerializable
         if (is_null($styles)) {
             throw new \InvalidArgumentException('non-nullable styles cannot be null');
         }
-
-
         $this->container['styles'] = $styles;
 
         return $this;
@@ -512,7 +514,7 @@ class RowV0BlocksInner implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets properties
      *
-     * @return \KlaviyoAPI\Model\CustomHTMLProperties
+     * @return \KlaviyoAPI\Model\MarketingTrackingConsentCheckboxProperties
      */
     public function getProperties()
     {
@@ -522,7 +524,7 @@ class RowV0BlocksInner implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets properties
      *
-     * @param \KlaviyoAPI\Model\CustomHTMLProperties $properties properties
+     * @param \KlaviyoAPI\Model\MarketingTrackingConsentCheckboxProperties $properties properties
      *
      * @return self
      */

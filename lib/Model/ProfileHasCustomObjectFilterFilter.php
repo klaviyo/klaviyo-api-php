@@ -59,7 +59,7 @@ class ProfileHasCustomObjectFilterFilter implements ModelInterface, ArrayAccess,
     protected static $openAPITypes = [
         'type' => 'string',
         'operator' => 'string',
-        'value' => 'bool',
+        'value' => 'int',
         'start' => 'int',
         'end' => 'int',
         'date' => '\DateTime',
@@ -274,6 +274,7 @@ class ProfileHasCustomObjectFilterFilter implements ModelInterface, ArrayAccess,
     public const TYPE_NUMERIC = 'numeric';
     public const TYPE_BOOLEAN = 'boolean';
     public const TYPE_DATE = 'date';
+    public const TYPE__LIST = 'list';
     public const TYPE_EXISTENCE = 'existence';
     public const OPERATOR_IS_SET = 'is-set';
     public const OPERATOR_NOT_SET = 'not-set';
@@ -293,6 +294,7 @@ class ProfileHasCustomObjectFilterFilter implements ModelInterface, ArrayAccess,
             self::TYPE_NUMERIC,
             self::TYPE_BOOLEAN,
             self::TYPE_DATE,
+            self::TYPE__LIST,
             self::TYPE_EXISTENCE,
         ];
     }
@@ -519,7 +521,7 @@ class ProfileHasCustomObjectFilterFilter implements ModelInterface, ArrayAccess,
     /**
      * Gets value
      *
-     * @return bool
+     * @return int
      */
     public function getValue()
     {
@@ -529,7 +531,7 @@ class ProfileHasCustomObjectFilterFilter implements ModelInterface, ArrayAccess,
     /**
      * Sets value
      *
-     * @param bool $value value
+     * @param int $value value
      *
      * @return self
      */

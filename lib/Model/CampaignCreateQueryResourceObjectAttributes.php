@@ -57,12 +57,9 @@ class CampaignCreateQueryResourceObjectAttributes implements ModelInterface, Arr
       * @var string[]
       */
     protected static $openAPITypes = [
-        'name' => 'string',
-        'audiences' => '\KlaviyoAPI\Model\Audiences',
-        'send_strategy' => '\KlaviyoAPI\Model\CampaignCreateQueryResourceObjectAttributesSendStrategy',
-        'send_options' => '\KlaviyoAPI\Model\CampaignCreateQueryResourceObjectAttributesSendOptions',
-        'tracking_options' => '\KlaviyoAPI\Model\CampaignCreateQueryResourceObjectAttributesTrackingOptions',
-        'campaign_messages' => '\KlaviyoAPI\Model\CampaignCreateQueryResourceObjectAttributesCampaignMessages'
+        'definition' => '\KlaviyoAPI\Model\CampaignDefinition',
+        'messages' => '\KlaviyoAPI\Model\MessageInlineCreate[]',
+        'audiences' => '\KlaviyoAPI\Model\AudienceInlineCreate[]'
     ];
 
     /**
@@ -73,12 +70,9 @@ class CampaignCreateQueryResourceObjectAttributes implements ModelInterface, Arr
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'name' => null,
-        'audiences' => null,
-        'send_strategy' => null,
-        'send_options' => null,
-        'tracking_options' => null,
-        'campaign_messages' => null
+        'definition' => null,
+        'messages' => null,
+        'audiences' => null
     ];
 
     /**
@@ -87,12 +81,9 @@ class CampaignCreateQueryResourceObjectAttributes implements ModelInterface, Arr
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'name' => false,
-        'audiences' => false,
-        'send_strategy' => true,
-        'send_options' => true,
-        'tracking_options' => true,
-        'campaign_messages' => false
+        'definition' => false,
+        'messages' => true,
+        'audiences' => true
     ];
 
     /**
@@ -181,12 +172,9 @@ class CampaignCreateQueryResourceObjectAttributes implements ModelInterface, Arr
      * @var string[]
      */
     protected static $attributeMap = [
-        'name' => 'name',
-        'audiences' => 'audiences',
-        'send_strategy' => 'send_strategy',
-        'send_options' => 'send_options',
-        'tracking_options' => 'tracking_options',
-        'campaign_messages' => 'campaign-messages'
+        'definition' => 'definition',
+        'messages' => 'messages',
+        'audiences' => 'audiences'
     ];
 
     /**
@@ -195,12 +183,9 @@ class CampaignCreateQueryResourceObjectAttributes implements ModelInterface, Arr
      * @var string[]
      */
     protected static $setters = [
-        'name' => 'setName',
-        'audiences' => 'setAudiences',
-        'send_strategy' => 'setSendStrategy',
-        'send_options' => 'setSendOptions',
-        'tracking_options' => 'setTrackingOptions',
-        'campaign_messages' => 'setCampaignMessages'
+        'definition' => 'setDefinition',
+        'messages' => 'setMessages',
+        'audiences' => 'setAudiences'
     ];
 
     /**
@@ -209,12 +194,9 @@ class CampaignCreateQueryResourceObjectAttributes implements ModelInterface, Arr
      * @var string[]
      */
     protected static $getters = [
-        'name' => 'getName',
-        'audiences' => 'getAudiences',
-        'send_strategy' => 'getSendStrategy',
-        'send_options' => 'getSendOptions',
-        'tracking_options' => 'getTrackingOptions',
-        'campaign_messages' => 'getCampaignMessages'
+        'definition' => 'getDefinition',
+        'messages' => 'getMessages',
+        'audiences' => 'getAudiences'
     ];
 
     /**
@@ -274,12 +256,9 @@ class CampaignCreateQueryResourceObjectAttributes implements ModelInterface, Arr
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('name', $data ?? [], null);
+        $this->setIfExists('definition', $data ?? [], null);
+        $this->setIfExists('messages', $data ?? [], null);
         $this->setIfExists('audiences', $data ?? [], null);
-        $this->setIfExists('send_strategy', $data ?? [], null);
-        $this->setIfExists('send_options', $data ?? [], null);
-        $this->setIfExists('tracking_options', $data ?? [], null);
-        $this->setIfExists('campaign_messages', $data ?? [], null);
     }
 
     /**
@@ -309,14 +288,8 @@ class CampaignCreateQueryResourceObjectAttributes implements ModelInterface, Arr
     {
         $invalidProperties = [];
 
-        if ($this->container['name'] === null) {
-            $invalidProperties[] = "'name' can't be null";
-        }
-        if ($this->container['audiences'] === null) {
-            $invalidProperties[] = "'audiences' can't be null";
-        }
-        if ($this->container['campaign_messages'] === null) {
-            $invalidProperties[] = "'campaign_messages' can't be null";
+        if ($this->container['definition'] === null) {
+            $invalidProperties[] = "'definition' can't be null";
         }
         return $invalidProperties;
     }
@@ -334,28 +307,62 @@ class CampaignCreateQueryResourceObjectAttributes implements ModelInterface, Arr
 
 
     /**
-     * Gets name
+     * Gets definition
      *
-     * @return string
+     * @return \KlaviyoAPI\Model\CampaignDefinition
      */
-    public function getName()
+    public function getDefinition()
     {
-        return $this->container['name'];
+        return $this->container['definition'];
     }
 
     /**
-     * Sets name
+     * Sets definition
      *
-     * @param string $name The campaign name
+     * @param \KlaviyoAPI\Model\CampaignDefinition $definition definition
      *
      * @return self
      */
-    public function setName($name)
+    public function setDefinition($definition)
     {
-        if (is_null($name)) {
-            throw new \InvalidArgumentException('non-nullable name cannot be null');
+        if (is_null($definition)) {
+            throw new \InvalidArgumentException('non-nullable definition cannot be null');
         }
-        $this->container['name'] = $name;
+        $this->container['definition'] = $definition;
+
+        return $this;
+    }
+
+    /**
+     * Gets messages
+     *
+     * @return \KlaviyoAPI\Model\MessageInlineCreate[]|null
+     */
+    public function getMessages()
+    {
+        return $this->container['messages'];
+    }
+
+    /**
+     * Sets messages
+     *
+     * @param \KlaviyoAPI\Model\MessageInlineCreate[]|null $messages Messages to create on this campaign. Each references an audience via audience_temporary_id.
+     *
+     * @return self
+     */
+    public function setMessages($messages)
+    {
+        if (is_null($messages)) {
+            array_push($this->openAPINullablesSetToNull, 'messages');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('messages', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['messages'] = $messages;
 
         return $this;
     }
@@ -363,7 +370,7 @@ class CampaignCreateQueryResourceObjectAttributes implements ModelInterface, Arr
     /**
      * Gets audiences
      *
-     * @return \KlaviyoAPI\Model\Audiences
+     * @return \KlaviyoAPI\Model\AudienceInlineCreate[]|null
      */
     public function getAudiences()
     {
@@ -373,145 +380,23 @@ class CampaignCreateQueryResourceObjectAttributes implements ModelInterface, Arr
     /**
      * Sets audiences
      *
-     * @param \KlaviyoAPI\Model\Audiences $audiences audiences
+     * @param \KlaviyoAPI\Model\AudienceInlineCreate[]|null $audiences Audiences to create on this campaign. Each references a message via audience_temporary_id.
      *
      * @return self
      */
     public function setAudiences($audiences)
     {
         if (is_null($audiences)) {
-            throw new \InvalidArgumentException('non-nullable audiences cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'audiences');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('audiences', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['audiences'] = $audiences;
-
-        return $this;
-    }
-
-    /**
-     * Gets send_strategy
-     *
-     * @return \KlaviyoAPI\Model\CampaignCreateQueryResourceObjectAttributesSendStrategy|null
-     */
-    public function getSendStrategy()
-    {
-        return $this->container['send_strategy'];
-    }
-
-    /**
-     * Sets send_strategy
-     *
-     * @param \KlaviyoAPI\Model\CampaignCreateQueryResourceObjectAttributesSendStrategy|null $send_strategy send_strategy
-     *
-     * @return self
-     */
-    public function setSendStrategy($send_strategy)
-    {
-        if (is_null($send_strategy)) {
-            array_push($this->openAPINullablesSetToNull, 'send_strategy');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('send_strategy', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['send_strategy'] = $send_strategy;
-
-        return $this;
-    }
-
-    /**
-     * Gets send_options
-     *
-     * @return \KlaviyoAPI\Model\CampaignCreateQueryResourceObjectAttributesSendOptions|null
-     */
-    public function getSendOptions()
-    {
-        return $this->container['send_options'];
-    }
-
-    /**
-     * Sets send_options
-     *
-     * @param \KlaviyoAPI\Model\CampaignCreateQueryResourceObjectAttributesSendOptions|null $send_options send_options
-     *
-     * @return self
-     */
-    public function setSendOptions($send_options)
-    {
-        if (is_null($send_options)) {
-            array_push($this->openAPINullablesSetToNull, 'send_options');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('send_options', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['send_options'] = $send_options;
-
-        return $this;
-    }
-
-    /**
-     * Gets tracking_options
-     *
-     * @return \KlaviyoAPI\Model\CampaignCreateQueryResourceObjectAttributesTrackingOptions|null
-     */
-    public function getTrackingOptions()
-    {
-        return $this->container['tracking_options'];
-    }
-
-    /**
-     * Sets tracking_options
-     *
-     * @param \KlaviyoAPI\Model\CampaignCreateQueryResourceObjectAttributesTrackingOptions|null $tracking_options tracking_options
-     *
-     * @return self
-     */
-    public function setTrackingOptions($tracking_options)
-    {
-        if (is_null($tracking_options)) {
-            array_push($this->openAPINullablesSetToNull, 'tracking_options');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('tracking_options', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['tracking_options'] = $tracking_options;
-
-        return $this;
-    }
-
-    /**
-     * Gets campaign_messages
-     *
-     * @return \KlaviyoAPI\Model\CampaignCreateQueryResourceObjectAttributesCampaignMessages
-     */
-    public function getCampaignMessages()
-    {
-        return $this->container['campaign_messages'];
-    }
-
-    /**
-     * Sets campaign_messages
-     *
-     * @param \KlaviyoAPI\Model\CampaignCreateQueryResourceObjectAttributesCampaignMessages $campaign_messages campaign_messages
-     *
-     * @return self
-     */
-    public function setCampaignMessages($campaign_messages)
-    {
-        if (is_null($campaign_messages)) {
-            throw new \InvalidArgumentException('non-nullable campaign_messages cannot be null');
-        }
-        $this->container['campaign_messages'] = $campaign_messages;
 
         return $this;
     }

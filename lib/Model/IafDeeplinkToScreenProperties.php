@@ -57,7 +57,10 @@ class IafDeeplinkToScreenProperties implements ModelInterface, ArrayAccess, \Jso
       * @var string[]
       */
     protected static $openAPITypes = [
-        'deep_link_url' => 'string'
+        'deep_link_url' => 'string',
+        'deep_link_url_ios' => 'string',
+        'deep_link_url_android' => 'string',
+        'use_separate_deep_link_urls' => 'bool'
     ];
 
     /**
@@ -68,7 +71,10 @@ class IafDeeplinkToScreenProperties implements ModelInterface, ArrayAccess, \Jso
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'deep_link_url' => null
+        'deep_link_url' => null,
+        'deep_link_url_ios' => null,
+        'deep_link_url_android' => null,
+        'use_separate_deep_link_urls' => null
     ];
 
     /**
@@ -77,7 +83,10 @@ class IafDeeplinkToScreenProperties implements ModelInterface, ArrayAccess, \Jso
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'deep_link_url' => false
+        'deep_link_url' => false,
+        'deep_link_url_ios' => false,
+        'deep_link_url_android' => false,
+        'use_separate_deep_link_urls' => true
     ];
 
     /**
@@ -166,7 +175,10 @@ class IafDeeplinkToScreenProperties implements ModelInterface, ArrayAccess, \Jso
      * @var string[]
      */
     protected static $attributeMap = [
-        'deep_link_url' => 'deep_link_url'
+        'deep_link_url' => 'deep_link_url',
+        'deep_link_url_ios' => 'deep_link_url_ios',
+        'deep_link_url_android' => 'deep_link_url_android',
+        'use_separate_deep_link_urls' => 'use_separate_deep_link_urls'
     ];
 
     /**
@@ -175,7 +187,10 @@ class IafDeeplinkToScreenProperties implements ModelInterface, ArrayAccess, \Jso
      * @var string[]
      */
     protected static $setters = [
-        'deep_link_url' => 'setDeepLinkUrl'
+        'deep_link_url' => 'setDeepLinkUrl',
+        'deep_link_url_ios' => 'setDeepLinkUrlIos',
+        'deep_link_url_android' => 'setDeepLinkUrlAndroid',
+        'use_separate_deep_link_urls' => 'setUseSeparateDeepLinkUrls'
     ];
 
     /**
@@ -184,7 +199,10 @@ class IafDeeplinkToScreenProperties implements ModelInterface, ArrayAccess, \Jso
      * @var string[]
      */
     protected static $getters = [
-        'deep_link_url' => 'getDeepLinkUrl'
+        'deep_link_url' => 'getDeepLinkUrl',
+        'deep_link_url_ios' => 'getDeepLinkUrlIos',
+        'deep_link_url_android' => 'getDeepLinkUrlAndroid',
+        'use_separate_deep_link_urls' => 'getUseSeparateDeepLinkUrls'
     ];
 
     /**
@@ -245,6 +263,9 @@ class IafDeeplinkToScreenProperties implements ModelInterface, ArrayAccess, \Jso
     public function __construct(?array $data = null)
     {
         $this->setIfExists('deep_link_url', $data ?? [], '');
+        $this->setIfExists('deep_link_url_ios', $data ?? [], '');
+        $this->setIfExists('deep_link_url_android', $data ?? [], '');
+        $this->setIfExists('use_separate_deep_link_urls', $data ?? [], null);
     }
 
     /**
@@ -312,6 +333,94 @@ class IafDeeplinkToScreenProperties implements ModelInterface, ArrayAccess, \Jso
             throw new \InvalidArgumentException('non-nullable deep_link_url cannot be null');
         }
         $this->container['deep_link_url'] = $deep_link_url;
+
+        return $this;
+    }
+
+    /**
+     * Gets deep_link_url_ios
+     *
+     * @return string|null
+     */
+    public function getDeepLinkUrlIos()
+    {
+        return $this->container['deep_link_url_ios'];
+    }
+
+    /**
+     * Sets deep_link_url_ios
+     *
+     * @param string|null $deep_link_url_ios deep_link_url_ios
+     *
+     * @return self
+     */
+    public function setDeepLinkUrlIos($deep_link_url_ios)
+    {
+        if (is_null($deep_link_url_ios)) {
+            throw new \InvalidArgumentException('non-nullable deep_link_url_ios cannot be null');
+        }
+        $this->container['deep_link_url_ios'] = $deep_link_url_ios;
+
+        return $this;
+    }
+
+    /**
+     * Gets deep_link_url_android
+     *
+     * @return string|null
+     */
+    public function getDeepLinkUrlAndroid()
+    {
+        return $this->container['deep_link_url_android'];
+    }
+
+    /**
+     * Sets deep_link_url_android
+     *
+     * @param string|null $deep_link_url_android deep_link_url_android
+     *
+     * @return self
+     */
+    public function setDeepLinkUrlAndroid($deep_link_url_android)
+    {
+        if (is_null($deep_link_url_android)) {
+            throw new \InvalidArgumentException('non-nullable deep_link_url_android cannot be null');
+        }
+        $this->container['deep_link_url_android'] = $deep_link_url_android;
+
+        return $this;
+    }
+
+    /**
+     * Gets use_separate_deep_link_urls
+     *
+     * @return bool|null
+     */
+    public function getUseSeparateDeepLinkUrls()
+    {
+        return $this->container['use_separate_deep_link_urls'];
+    }
+
+    /**
+     * Sets use_separate_deep_link_urls
+     *
+     * @param bool|null $use_separate_deep_link_urls use_separate_deep_link_urls
+     *
+     * @return self
+     */
+    public function setUseSeparateDeepLinkUrls($use_separate_deep_link_urls)
+    {
+        if (is_null($use_separate_deep_link_urls)) {
+            array_push($this->openAPINullablesSetToNull, 'use_separate_deep_link_urls');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('use_separate_deep_link_urls', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['use_separate_deep_link_urls'] = $use_separate_deep_link_urls;
 
         return $this;
     }

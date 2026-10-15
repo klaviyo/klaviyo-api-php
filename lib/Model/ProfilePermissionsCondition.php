@@ -241,6 +241,8 @@ class ProfilePermissionsCondition implements ModelInterface, ArrayAccess, \JsonS
     }
 
     public const TYPE_PROFILE_PERMISSIONS = 'profile-permissions';
+    public const CHANNEL_EMAIL_CLICK_TRACKING = 'email_click_tracking';
+    public const CHANNEL_EMAIL_OPEN_TRACKING = 'email_open_tracking';
     public const CHANNEL_WHATSAPP_MARKETING = 'whatsapp_marketing';
     public const CHANNEL_WHATSAPP_TRANSACTIONAL = 'whatsapp_transactional';
 
@@ -264,6 +266,8 @@ class ProfilePermissionsCondition implements ModelInterface, ArrayAccess, \JsonS
     public function getChannelAllowableValues()
     {
         return [
+            self::CHANNEL_EMAIL_CLICK_TRACKING,
+            self::CHANNEL_EMAIL_OPEN_TRACKING,
             self::CHANNEL_WHATSAPP_MARKETING,
             self::CHANNEL_WHATSAPP_TRANSACTIONAL,
         ];

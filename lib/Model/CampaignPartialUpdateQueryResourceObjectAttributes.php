@@ -57,11 +57,7 @@ class CampaignPartialUpdateQueryResourceObjectAttributes implements ModelInterfa
       * @var string[]
       */
     protected static $openAPITypes = [
-        'name' => 'string',
-        'audiences' => '\KlaviyoAPI\Model\AudiencesUpdate',
-        'send_options' => '\KlaviyoAPI\Model\CampaignCreateQueryResourceObjectAttributesSendOptions',
-        'tracking_options' => '\KlaviyoAPI\Model\CampaignCreateQueryResourceObjectAttributesTrackingOptions',
-        'send_strategy' => '\KlaviyoAPI\Model\CampaignPartialUpdateQueryResourceObjectAttributesSendStrategy'
+        'definition' => '\KlaviyoAPI\Model\CampaignDefinition'
     ];
 
     /**
@@ -72,11 +68,7 @@ class CampaignPartialUpdateQueryResourceObjectAttributes implements ModelInterfa
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'name' => null,
-        'audiences' => null,
-        'send_options' => null,
-        'tracking_options' => null,
-        'send_strategy' => null
+        'definition' => null
     ];
 
     /**
@@ -85,11 +77,7 @@ class CampaignPartialUpdateQueryResourceObjectAttributes implements ModelInterfa
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'name' => true,
-        'audiences' => false,
-        'send_options' => true,
-        'tracking_options' => true,
-        'send_strategy' => true
+        'definition' => false
     ];
 
     /**
@@ -178,11 +166,7 @@ class CampaignPartialUpdateQueryResourceObjectAttributes implements ModelInterfa
      * @var string[]
      */
     protected static $attributeMap = [
-        'name' => 'name',
-        'audiences' => 'audiences',
-        'send_options' => 'send_options',
-        'tracking_options' => 'tracking_options',
-        'send_strategy' => 'send_strategy'
+        'definition' => 'definition'
     ];
 
     /**
@@ -191,11 +175,7 @@ class CampaignPartialUpdateQueryResourceObjectAttributes implements ModelInterfa
      * @var string[]
      */
     protected static $setters = [
-        'name' => 'setName',
-        'audiences' => 'setAudiences',
-        'send_options' => 'setSendOptions',
-        'tracking_options' => 'setTrackingOptions',
-        'send_strategy' => 'setSendStrategy'
+        'definition' => 'setDefinition'
     ];
 
     /**
@@ -204,11 +184,7 @@ class CampaignPartialUpdateQueryResourceObjectAttributes implements ModelInterfa
      * @var string[]
      */
     protected static $getters = [
-        'name' => 'getName',
-        'audiences' => 'getAudiences',
-        'send_options' => 'getSendOptions',
-        'tracking_options' => 'getTrackingOptions',
-        'send_strategy' => 'getSendStrategy'
+        'definition' => 'getDefinition'
     ];
 
     /**
@@ -268,11 +244,7 @@ class CampaignPartialUpdateQueryResourceObjectAttributes implements ModelInterfa
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('name', $data ?? [], null);
-        $this->setIfExists('audiences', $data ?? [], null);
-        $this->setIfExists('send_options', $data ?? [], null);
-        $this->setIfExists('tracking_options', $data ?? [], null);
-        $this->setIfExists('send_strategy', $data ?? [], null);
+        $this->setIfExists('definition', $data ?? [], null);
     }
 
     /**
@@ -302,6 +274,9 @@ class CampaignPartialUpdateQueryResourceObjectAttributes implements ModelInterfa
     {
         $invalidProperties = [];
 
+        if ($this->container['definition'] === null) {
+            $invalidProperties[] = "'definition' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -318,164 +293,28 @@ class CampaignPartialUpdateQueryResourceObjectAttributes implements ModelInterfa
 
 
     /**
-     * Gets name
+     * Gets definition
      *
-     * @return string|null
+     * @return \KlaviyoAPI\Model\CampaignDefinition
      */
-    public function getName()
+    public function getDefinition()
     {
-        return $this->container['name'];
+        return $this->container['definition'];
     }
 
     /**
-     * Sets name
+     * Sets definition
      *
-     * @param string|null $name The campaign name
+     * @param \KlaviyoAPI\Model\CampaignDefinition $definition definition
      *
      * @return self
      */
-    public function setName($name)
+    public function setDefinition($definition)
     {
-        if (is_null($name)) {
-            array_push($this->openAPINullablesSetToNull, 'name');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('name', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+        if (is_null($definition)) {
+            throw new \InvalidArgumentException('non-nullable definition cannot be null');
         }
-        $this->container['name'] = $name;
-
-        return $this;
-    }
-
-    /**
-     * Gets audiences
-     *
-     * @return \KlaviyoAPI\Model\AudiencesUpdate|null
-     */
-    public function getAudiences()
-    {
-        return $this->container['audiences'];
-    }
-
-    /**
-     * Sets audiences
-     *
-     * @param \KlaviyoAPI\Model\AudiencesUpdate|null $audiences audiences
-     *
-     * @return self
-     */
-    public function setAudiences($audiences)
-    {
-        if (is_null($audiences)) {
-            throw new \InvalidArgumentException('non-nullable audiences cannot be null');
-        }
-        $this->container['audiences'] = $audiences;
-
-        return $this;
-    }
-
-    /**
-     * Gets send_options
-     *
-     * @return \KlaviyoAPI\Model\CampaignCreateQueryResourceObjectAttributesSendOptions|null
-     */
-    public function getSendOptions()
-    {
-        return $this->container['send_options'];
-    }
-
-    /**
-     * Sets send_options
-     *
-     * @param \KlaviyoAPI\Model\CampaignCreateQueryResourceObjectAttributesSendOptions|null $send_options send_options
-     *
-     * @return self
-     */
-    public function setSendOptions($send_options)
-    {
-        if (is_null($send_options)) {
-            array_push($this->openAPINullablesSetToNull, 'send_options');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('send_options', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['send_options'] = $send_options;
-
-        return $this;
-    }
-
-    /**
-     * Gets tracking_options
-     *
-     * @return \KlaviyoAPI\Model\CampaignCreateQueryResourceObjectAttributesTrackingOptions|null
-     */
-    public function getTrackingOptions()
-    {
-        return $this->container['tracking_options'];
-    }
-
-    /**
-     * Sets tracking_options
-     *
-     * @param \KlaviyoAPI\Model\CampaignCreateQueryResourceObjectAttributesTrackingOptions|null $tracking_options tracking_options
-     *
-     * @return self
-     */
-    public function setTrackingOptions($tracking_options)
-    {
-        if (is_null($tracking_options)) {
-            array_push($this->openAPINullablesSetToNull, 'tracking_options');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('tracking_options', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['tracking_options'] = $tracking_options;
-
-        return $this;
-    }
-
-    /**
-     * Gets send_strategy
-     *
-     * @return \KlaviyoAPI\Model\CampaignPartialUpdateQueryResourceObjectAttributesSendStrategy|null
-     */
-    public function getSendStrategy()
-    {
-        return $this->container['send_strategy'];
-    }
-
-    /**
-     * Sets send_strategy
-     *
-     * @param \KlaviyoAPI\Model\CampaignPartialUpdateQueryResourceObjectAttributesSendStrategy|null $send_strategy send_strategy
-     *
-     * @return self
-     */
-    public function setSendStrategy($send_strategy)
-    {
-        if (is_null($send_strategy)) {
-            array_push($this->openAPINullablesSetToNull, 'send_strategy');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('send_strategy', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['send_strategy'] = $send_strategy;
+        $this->container['definition'] = $definition;
 
         return $this;
     }

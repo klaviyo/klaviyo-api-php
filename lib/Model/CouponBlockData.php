@@ -83,7 +83,7 @@ class CouponBlockData implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'content' => false,
+        'content' => true,
         'properties' => false,
         'display_options' => false,
         'styles' => false
@@ -342,7 +342,14 @@ class CouponBlockData implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setContent($content)
     {
         if (is_null($content)) {
-            throw new \InvalidArgumentException('non-nullable content cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'content');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('content', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['content'] = $content;
 

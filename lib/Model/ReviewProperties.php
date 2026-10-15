@@ -59,6 +59,7 @@ class ReviewProperties implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $openAPITypes = [
         'display_device' => 'string[]',
         'classname' => 'string',
+        'block_animation' => '\KlaviyoAPI\Model\Animation',
         'author' => 'string',
         'content' => 'string',
         'rating' => 'int',
@@ -79,6 +80,7 @@ class ReviewProperties implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $openAPIFormats = [
         'display_device' => null,
         'classname' => null,
+        'block_animation' => null,
         'author' => null,
         'content' => null,
         'rating' => null,
@@ -97,6 +99,7 @@ class ReviewProperties implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static array $openAPINullables = [
         'display_device' => false,
         'classname' => true,
+        'block_animation' => false,
         'author' => true,
         'content' => true,
         'rating' => false,
@@ -195,6 +198,7 @@ class ReviewProperties implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $attributeMap = [
         'display_device' => 'display_device',
         'classname' => 'classname',
+        'block_animation' => 'block_animation',
         'author' => 'author',
         'content' => 'content',
         'rating' => 'rating',
@@ -213,6 +217,7 @@ class ReviewProperties implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $setters = [
         'display_device' => 'setDisplayDevice',
         'classname' => 'setClassname',
+        'block_animation' => 'setBlockAnimation',
         'author' => 'setAuthor',
         'content' => 'setContent',
         'rating' => 'setRating',
@@ -231,6 +236,7 @@ class ReviewProperties implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $getters = [
         'display_device' => 'getDisplayDevice',
         'classname' => 'getClassname',
+        'block_animation' => 'getBlockAnimation',
         'author' => 'getAuthor',
         'content' => 'getContent',
         'rating' => 'getRating',
@@ -317,6 +323,7 @@ class ReviewProperties implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $this->setIfExists('display_device', $data ?? [], null);
         $this->setIfExists('classname', $data ?? [], null);
+        $this->setIfExists('block_animation', $data ?? [], null);
         $this->setIfExists('author', $data ?? [], null);
         $this->setIfExists('content', $data ?? [], null);
         $this->setIfExists('rating', $data ?? [], 5);
@@ -435,6 +442,33 @@ class ReviewProperties implements ModelInterface, ArrayAccess, \JsonSerializable
             }
         }
         $this->container['classname'] = $classname;
+
+        return $this;
+    }
+
+    /**
+     * Gets block_animation
+     *
+     * @return \KlaviyoAPI\Model\Animation|null
+     */
+    public function getBlockAnimation()
+    {
+        return $this->container['block_animation'];
+    }
+
+    /**
+     * Sets block_animation
+     *
+     * @param \KlaviyoAPI\Model\Animation|null $block_animation block_animation
+     *
+     * @return self
+     */
+    public function setBlockAnimation($block_animation)
+    {
+        if (is_null($block_animation)) {
+            throw new \InvalidArgumentException('non-nullable block_animation cannot be null');
+        }
+        $this->container['block_animation'] = $block_animation;
 
         return $this;
     }

@@ -68,7 +68,6 @@ class PushProfileUpsertQueryResourceObjectAttributes implements ModelInterface, 
         'image' => 'string',
         'location' => '\KlaviyoAPI\Model\ProfileLocation',
         'properties' => 'object',
-        'meta' => '\KlaviyoAPI\Model\ProfileMeta',
         'email' => 'string'
     ];
 
@@ -91,7 +90,6 @@ class PushProfileUpsertQueryResourceObjectAttributes implements ModelInterface, 
         'image' => null,
         'location' => null,
         'properties' => null,
-        'meta' => null,
         'email' => null
     ];
 
@@ -112,7 +110,6 @@ class PushProfileUpsertQueryResourceObjectAttributes implements ModelInterface, 
         'image' => true,
         'location' => false,
         'properties' => true,
-        'meta' => false,
         'email' => true
     ];
 
@@ -213,7 +210,6 @@ class PushProfileUpsertQueryResourceObjectAttributes implements ModelInterface, 
         'image' => 'image',
         'location' => 'location',
         'properties' => 'properties',
-        'meta' => 'meta',
         'email' => 'email'
     ];
 
@@ -234,7 +230,6 @@ class PushProfileUpsertQueryResourceObjectAttributes implements ModelInterface, 
         'image' => 'setImage',
         'location' => 'setLocation',
         'properties' => 'setProperties',
-        'meta' => 'setMeta',
         'email' => 'setEmail'
     ];
 
@@ -255,7 +250,6 @@ class PushProfileUpsertQueryResourceObjectAttributes implements ModelInterface, 
         'image' => 'getImage',
         'location' => 'getLocation',
         'properties' => 'getProperties',
-        'meta' => 'getMeta',
         'email' => 'getEmail'
     ];
 
@@ -327,7 +321,6 @@ class PushProfileUpsertQueryResourceObjectAttributes implements ModelInterface, 
         $this->setIfExists('image', $data ?? [], null);
         $this->setIfExists('location', $data ?? [], null);
         $this->setIfExists('properties', $data ?? [], null);
-        $this->setIfExists('meta', $data ?? [], null);
         $this->setIfExists('email', $data ?? [], null);
     }
 
@@ -736,33 +729,6 @@ class PushProfileUpsertQueryResourceObjectAttributes implements ModelInterface, 
             }
         }
         $this->container['properties'] = $properties;
-
-        return $this;
-    }
-
-    /**
-     * Gets meta
-     *
-     * @return \KlaviyoAPI\Model\ProfileMeta|null
-     */
-    public function getMeta()
-    {
-        return $this->container['meta'];
-    }
-
-    /**
-     * Sets meta
-     *
-     * @param \KlaviyoAPI\Model\ProfileMeta|null $meta meta
-     *
-     * @return self
-     */
-    public function setMeta($meta)
-    {
-        if (is_null($meta)) {
-            throw new \InvalidArgumentException('non-nullable meta cannot be null');
-        }
-        $this->container['meta'] = $meta;
 
         return $this;
     }

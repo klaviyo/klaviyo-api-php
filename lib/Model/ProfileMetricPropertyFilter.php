@@ -80,7 +80,7 @@ class ProfileMetricPropertyFilter implements ModelInterface, ArrayAccess, \JsonS
       */
     protected static array $openAPINullables = [
         'property' => false,
-        'filter' => true
+        'filter' => false
     ];
 
     /**
@@ -284,6 +284,9 @@ class ProfileMetricPropertyFilter implements ModelInterface, ArrayAccess, \JsonS
         if ($this->container['property'] === null) {
             $invalidProperties[] = "'property' can't be null";
         }
+        if ($this->container['filter'] === null) {
+            $invalidProperties[] = "'filter' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -329,7 +332,7 @@ class ProfileMetricPropertyFilter implements ModelInterface, ArrayAccess, \JsonS
     /**
      * Gets filter
      *
-     * @return \KlaviyoAPI\Model\ProfileMetricPropertyFilterFilter|null
+     * @return \KlaviyoAPI\Model\ProfileMetricPropertyFilterFilter
      */
     public function getFilter()
     {
@@ -339,21 +342,14 @@ class ProfileMetricPropertyFilter implements ModelInterface, ArrayAccess, \JsonS
     /**
      * Sets filter
      *
-     * @param \KlaviyoAPI\Model\ProfileMetricPropertyFilterFilter|null $filter filter
+     * @param \KlaviyoAPI\Model\ProfileMetricPropertyFilterFilter $filter filter
      *
      * @return self
      */
     public function setFilter($filter)
     {
         if (is_null($filter)) {
-            array_push($this->openAPINullablesSetToNull, 'filter');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('filter', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable filter cannot be null');
         }
         $this->container['filter'] = $filter;
 

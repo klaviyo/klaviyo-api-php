@@ -60,7 +60,7 @@ class FlowSms implements ModelInterface, ArrayAccess, \JsonSerializable
         'body' => 'string',
         'image_id' => 'string',
         'dynamic_image' => 'string',
-        'message_hierarchy' => 'object[]',
+        'message_hierarchy' => '\KlaviyoAPI\Model\FlowSmsMessageHierarchyInner[]',
         'shorten_links' => 'bool',
         'include_contact_card' => 'bool',
         'add_org_prefix' => 'bool',
@@ -509,7 +509,7 @@ class FlowSms implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets message_hierarchy
      *
-     * @return object[]|null
+     * @return \KlaviyoAPI\Model\FlowSmsMessageHierarchyInner[]|null
      */
     public function getMessageHierarchy()
     {
@@ -519,7 +519,7 @@ class FlowSms implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets message_hierarchy
      *
-     * @param object[]|null $message_hierarchy The RCS/SMS message hierarchy (fallback chain). Each item contains a message_format ('RCS' or 'SMS'), message body, and optional rich content.
+     * @param \KlaviyoAPI\Model\FlowSmsMessageHierarchyInner[]|null $message_hierarchy The message hierarchy (fallback chain): exactly one RCS entry followed by one SMS entry, in priority order. Rendering selects the first entry whose format the recipient supports.
      *
      * @return self
      */

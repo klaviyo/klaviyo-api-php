@@ -262,6 +262,7 @@ class FlowDefinitionActionsInner implements ModelInterface, ArrayAccess, \JsonSe
     public const TYPE_SEND_WEBHOOK = 'send-webhook';
     public const TYPE_SEND_INTERNAL_ALERT = 'send-internal-alert';
     public const TYPE_SEND_WHATSAPP = 'send-whatsapp';
+    public const TYPE_SEND_WHATSAPP_WITH_AC = 'send-whatsapp-with-ac';
     public const TYPE_TIME_DELAY = 'time-delay';
     public const TYPE_TRIGGER_SPLIT = 'trigger-split';
     public const TYPE_UPDATE_PROFILE = 'update-profile';
@@ -291,6 +292,7 @@ class FlowDefinitionActionsInner implements ModelInterface, ArrayAccess, \JsonSe
             self::TYPE_SEND_WEBHOOK,
             self::TYPE_SEND_INTERNAL_ALERT,
             self::TYPE_SEND_WHATSAPP,
+            self::TYPE_SEND_WHATSAPP_WITH_AC,
             self::TYPE_TIME_DELAY,
             self::TYPE_TRIGGER_SPLIT,
             self::TYPE_UPDATE_PROFILE,

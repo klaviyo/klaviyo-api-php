@@ -62,7 +62,8 @@ class CloseButtonStyle implements ModelInterface, ArrayAccess, \JsonSerializable
         'color' => 'string',
         'stroke' => 'float',
         'size' => 'int',
-        'margin' => '\KlaviyoAPI\Model\Margin'
+        'margin' => '\KlaviyoAPI\Model\Margin',
+        'position' => 'string'
     ];
 
     /**
@@ -78,7 +79,8 @@ class CloseButtonStyle implements ModelInterface, ArrayAccess, \JsonSerializable
         'color' => null,
         'stroke' => null,
         'size' => null,
-        'margin' => null
+        'margin' => null,
+        'position' => null
     ];
 
     /**
@@ -92,7 +94,8 @@ class CloseButtonStyle implements ModelInterface, ArrayAccess, \JsonSerializable
         'color' => false,
         'stroke' => false,
         'size' => false,
-        'margin' => false
+        'margin' => false,
+        'position' => true
     ];
 
     /**
@@ -186,7 +189,8 @@ class CloseButtonStyle implements ModelInterface, ArrayAccess, \JsonSerializable
         'color' => 'color',
         'stroke' => 'stroke',
         'size' => 'size',
-        'margin' => 'margin'
+        'margin' => 'margin',
+        'position' => 'position'
     ];
 
     /**
@@ -200,7 +204,8 @@ class CloseButtonStyle implements ModelInterface, ArrayAccess, \JsonSerializable
         'color' => 'setColor',
         'stroke' => 'setStroke',
         'size' => 'setSize',
-        'margin' => 'setMargin'
+        'margin' => 'setMargin',
+        'position' => 'setPosition'
     ];
 
     /**
@@ -214,7 +219,8 @@ class CloseButtonStyle implements ModelInterface, ArrayAccess, \JsonSerializable
         'color' => 'getColor',
         'stroke' => 'getStroke',
         'size' => 'getSize',
-        'margin' => 'getMargin'
+        'margin' => 'getMargin',
+        'position' => 'getPosition'
     ];
 
     /**
@@ -258,6 +264,21 @@ class CloseButtonStyle implements ModelInterface, ArrayAccess, \JsonSerializable
         return self::$openAPIModelName;
     }
 
+    public const POSITION_LEFT = 'left';
+    public const POSITION_RIGHT = 'right';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getPositionAllowableValues()
+    {
+        return [
+            self::POSITION_LEFT,
+            self::POSITION_RIGHT,
+        ];
+    }
 
     /**
      * Associative array for storing property values
@@ -280,6 +301,7 @@ class CloseButtonStyle implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('stroke', $data ?? [], 2);
         $this->setIfExists('size', $data ?? [], 20);
         $this->setIfExists('margin', $data ?? [], null);
+        $this->setIfExists('position', $data ?? [], null);
     }
 
     /**
@@ -308,6 +330,15 @@ class CloseButtonStyle implements ModelInterface, ArrayAccess, \JsonSerializable
     public function listInvalidProperties()
     {
         $invalidProperties = [];
+
+        $allowedValues = $this->getPositionAllowableValues();
+        if (!is_null($this->container['position']) && !in_array($this->container['position'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'position', must be one of '%s'",
+                $this->container['position'],
+                implode("', '", $allowedValues)
+            );
+        }
 
         return $invalidProperties;
     }
@@ -482,6 +513,50 @@ class CloseButtonStyle implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable margin cannot be null');
         }
         $this->container['margin'] = $margin;
+
+        return $this;
+    }
+
+    /**
+     * Gets position
+     *
+     * @return string|null
+     */
+    public function getPosition()
+    {
+        return $this->container['position'];
+    }
+
+    /**
+     * Sets position
+     *
+     * @param string|null $position Horizontal position of the close button.
+     *
+     * @return self
+     */
+    public function setPosition($position)
+    {
+        if (is_null($position)) {
+            array_push($this->openAPINullablesSetToNull, 'position');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('position', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $allowedValues = $this->getPositionAllowableValues();
+        if (!is_null($position) && !in_array($position, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'position', must be one of '%s'",
+                    $position,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['position'] = $position;
 
         return $this;
     }

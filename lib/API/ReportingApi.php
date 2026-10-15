@@ -149,8 +149,8 @@ class ReportingApi
      * Query Campaign Values
      *
      * @param  \KlaviyoAPI\Model\CampaignValuesRequestDTO $campaign_values_request_dto campaign_values_request_dto (required)
-     * @param  string[]|null $fields_campaign_values_report For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination (optional)
+     * @param  string[]|null $fields_campaign_values_report For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#pagination (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['queryCampaignValues'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -187,8 +187,8 @@ class ReportingApi
      * Query Campaign Values
      *
      * @param  \KlaviyoAPI\Model\CampaignValuesRequestDTO $campaign_values_request_dto (required)
-     * @param  string[]|null $fields_campaign_values_report For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination (optional)
+     * @param  string[]|null $fields_campaign_values_report For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#pagination (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['queryCampaignValues'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -320,8 +320,8 @@ class ReportingApi
      * Query Campaign Values
      *
      * @param  \KlaviyoAPI\Model\CampaignValuesRequestDTO $campaign_values_request_dto (required)
-     * @param  string[]|null $fields_campaign_values_report For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination (optional)
+     * @param  string[]|null $fields_campaign_values_report For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#pagination (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['queryCampaignValues'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -361,8 +361,8 @@ class ReportingApi
      * Query Campaign Values
      *
      * @param  \KlaviyoAPI\Model\CampaignValuesRequestDTO $campaign_values_request_dto (required)
-     * @param  string[]|null $fields_campaign_values_report For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination (optional)
+     * @param  string[]|null $fields_campaign_values_report For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#pagination (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['queryCampaignValues'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -436,8 +436,8 @@ class ReportingApi
      * Create request for operation 'queryCampaignValues'
      *
      * @param  \KlaviyoAPI\Model\CampaignValuesRequestDTO $campaign_values_request_dto (required)
-     * @param  string[]|null $fields_campaign_values_report For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination (optional)
+     * @param  string[]|null $fields_campaign_values_report For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#pagination (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['queryCampaignValues'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -538,7 +538,7 @@ class ReportingApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2026-07-15'];
+        $defaultHeaders['revision'] = ['2026-10-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -579,8 +579,8 @@ class ReportingApi
      * Query Flow Series
      *
      * @param  \KlaviyoAPI\Model\FlowSeriesRequestDTO $flow_series_request_dto flow_series_request_dto (required)
-     * @param  string[]|null $fields_flow_series_report For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination (optional)
+     * @param  string[]|null $fields_flow_series_report For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#pagination (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['queryFlowSeries'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -617,8 +617,8 @@ class ReportingApi
      * Query Flow Series
      *
      * @param  \KlaviyoAPI\Model\FlowSeriesRequestDTO $flow_series_request_dto (required)
-     * @param  string[]|null $fields_flow_series_report For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination (optional)
+     * @param  string[]|null $fields_flow_series_report For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#pagination (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['queryFlowSeries'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -750,8 +750,8 @@ class ReportingApi
      * Query Flow Series
      *
      * @param  \KlaviyoAPI\Model\FlowSeriesRequestDTO $flow_series_request_dto (required)
-     * @param  string[]|null $fields_flow_series_report For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination (optional)
+     * @param  string[]|null $fields_flow_series_report For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#pagination (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['queryFlowSeries'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -791,8 +791,8 @@ class ReportingApi
      * Query Flow Series
      *
      * @param  \KlaviyoAPI\Model\FlowSeriesRequestDTO $flow_series_request_dto (required)
-     * @param  string[]|null $fields_flow_series_report For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination (optional)
+     * @param  string[]|null $fields_flow_series_report For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#pagination (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['queryFlowSeries'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -866,8 +866,8 @@ class ReportingApi
      * Create request for operation 'queryFlowSeries'
      *
      * @param  \KlaviyoAPI\Model\FlowSeriesRequestDTO $flow_series_request_dto (required)
-     * @param  string[]|null $fields_flow_series_report For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination (optional)
+     * @param  string[]|null $fields_flow_series_report For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#pagination (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['queryFlowSeries'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -968,7 +968,7 @@ class ReportingApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2026-07-15'];
+        $defaultHeaders['revision'] = ['2026-10-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -1009,8 +1009,8 @@ class ReportingApi
      * Query Flow Values
      *
      * @param  \KlaviyoAPI\Model\FlowValuesRequestDTO $flow_values_request_dto flow_values_request_dto (required)
-     * @param  string[]|null $fields_flow_values_report For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination (optional)
+     * @param  string[]|null $fields_flow_values_report For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#pagination (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['queryFlowValues'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -1047,8 +1047,8 @@ class ReportingApi
      * Query Flow Values
      *
      * @param  \KlaviyoAPI\Model\FlowValuesRequestDTO $flow_values_request_dto (required)
-     * @param  string[]|null $fields_flow_values_report For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination (optional)
+     * @param  string[]|null $fields_flow_values_report For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#pagination (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['queryFlowValues'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -1180,8 +1180,8 @@ class ReportingApi
      * Query Flow Values
      *
      * @param  \KlaviyoAPI\Model\FlowValuesRequestDTO $flow_values_request_dto (required)
-     * @param  string[]|null $fields_flow_values_report For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination (optional)
+     * @param  string[]|null $fields_flow_values_report For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#pagination (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['queryFlowValues'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1221,8 +1221,8 @@ class ReportingApi
      * Query Flow Values
      *
      * @param  \KlaviyoAPI\Model\FlowValuesRequestDTO $flow_values_request_dto (required)
-     * @param  string[]|null $fields_flow_values_report For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination (optional)
+     * @param  string[]|null $fields_flow_values_report For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#pagination (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['queryFlowValues'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1296,8 +1296,8 @@ class ReportingApi
      * Create request for operation 'queryFlowValues'
      *
      * @param  \KlaviyoAPI\Model\FlowValuesRequestDTO $flow_values_request_dto (required)
-     * @param  string[]|null $fields_flow_values_report For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination (optional)
+     * @param  string[]|null $fields_flow_values_report For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#pagination (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['queryFlowValues'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1398,7 +1398,7 @@ class ReportingApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2026-07-15'];
+        $defaultHeaders['revision'] = ['2026-10-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -1439,7 +1439,7 @@ class ReportingApi
      * Query Form Series
      *
      * @param  \KlaviyoAPI\Model\FormSeriesRequestDTO $form_series_request_dto form_series_request_dto (required)
-     * @param  string[]|null $fields_form_series_report For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_form_series_report For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['queryFormSeries'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -1476,7 +1476,7 @@ class ReportingApi
      * Query Form Series
      *
      * @param  \KlaviyoAPI\Model\FormSeriesRequestDTO $form_series_request_dto (required)
-     * @param  string[]|null $fields_form_series_report For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_form_series_report For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['queryFormSeries'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -1608,7 +1608,7 @@ class ReportingApi
      * Query Form Series
      *
      * @param  \KlaviyoAPI\Model\FormSeriesRequestDTO $form_series_request_dto (required)
-     * @param  string[]|null $fields_form_series_report For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_form_series_report For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['queryFormSeries'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1648,7 +1648,7 @@ class ReportingApi
      * Query Form Series
      *
      * @param  \KlaviyoAPI\Model\FormSeriesRequestDTO $form_series_request_dto (required)
-     * @param  string[]|null $fields_form_series_report For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_form_series_report For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['queryFormSeries'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1722,7 +1722,7 @@ class ReportingApi
      * Create request for operation 'queryFormSeries'
      *
      * @param  \KlaviyoAPI\Model\FormSeriesRequestDTO $form_series_request_dto (required)
-     * @param  string[]|null $fields_form_series_report For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_form_series_report For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['queryFormSeries'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1813,7 +1813,7 @@ class ReportingApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2026-07-15'];
+        $defaultHeaders['revision'] = ['2026-10-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -1854,7 +1854,7 @@ class ReportingApi
      * Query Form Values
      *
      * @param  \KlaviyoAPI\Model\FormValuesRequestDTO $form_values_request_dto form_values_request_dto (required)
-     * @param  string[]|null $fields_form_values_report For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_form_values_report For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['queryFormValues'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -1891,7 +1891,7 @@ class ReportingApi
      * Query Form Values
      *
      * @param  \KlaviyoAPI\Model\FormValuesRequestDTO $form_values_request_dto (required)
-     * @param  string[]|null $fields_form_values_report For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_form_values_report For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['queryFormValues'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -2023,7 +2023,7 @@ class ReportingApi
      * Query Form Values
      *
      * @param  \KlaviyoAPI\Model\FormValuesRequestDTO $form_values_request_dto (required)
-     * @param  string[]|null $fields_form_values_report For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_form_values_report For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['queryFormValues'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -2063,7 +2063,7 @@ class ReportingApi
      * Query Form Values
      *
      * @param  \KlaviyoAPI\Model\FormValuesRequestDTO $form_values_request_dto (required)
-     * @param  string[]|null $fields_form_values_report For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_form_values_report For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['queryFormValues'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -2137,7 +2137,7 @@ class ReportingApi
      * Create request for operation 'queryFormValues'
      *
      * @param  \KlaviyoAPI\Model\FormValuesRequestDTO $form_values_request_dto (required)
-     * @param  string[]|null $fields_form_values_report For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_form_values_report For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['queryFormValues'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -2228,7 +2228,7 @@ class ReportingApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2026-07-15'];
+        $defaultHeaders['revision'] = ['2026-10-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -2269,7 +2269,7 @@ class ReportingApi
      * Query Segment Series
      *
      * @param  \KlaviyoAPI\Model\SegmentSeriesRequestDTO $segment_series_request_dto segment_series_request_dto (required)
-     * @param  string[]|null $fields_segment_series_report For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_segment_series_report For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['querySegmentSeries'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -2306,7 +2306,7 @@ class ReportingApi
      * Query Segment Series
      *
      * @param  \KlaviyoAPI\Model\SegmentSeriesRequestDTO $segment_series_request_dto (required)
-     * @param  string[]|null $fields_segment_series_report For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_segment_series_report For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['querySegmentSeries'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -2438,7 +2438,7 @@ class ReportingApi
      * Query Segment Series
      *
      * @param  \KlaviyoAPI\Model\SegmentSeriesRequestDTO $segment_series_request_dto (required)
-     * @param  string[]|null $fields_segment_series_report For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_segment_series_report For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['querySegmentSeries'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -2478,7 +2478,7 @@ class ReportingApi
      * Query Segment Series
      *
      * @param  \KlaviyoAPI\Model\SegmentSeriesRequestDTO $segment_series_request_dto (required)
-     * @param  string[]|null $fields_segment_series_report For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_segment_series_report For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['querySegmentSeries'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -2552,7 +2552,7 @@ class ReportingApi
      * Create request for operation 'querySegmentSeries'
      *
      * @param  \KlaviyoAPI\Model\SegmentSeriesRequestDTO $segment_series_request_dto (required)
-     * @param  string[]|null $fields_segment_series_report For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_segment_series_report For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['querySegmentSeries'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -2643,7 +2643,7 @@ class ReportingApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2026-07-15'];
+        $defaultHeaders['revision'] = ['2026-10-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -2684,7 +2684,7 @@ class ReportingApi
      * Query Segment Values
      *
      * @param  \KlaviyoAPI\Model\SegmentValuesRequestDTO $segment_values_request_dto segment_values_request_dto (required)
-     * @param  string[]|null $fields_segment_values_report For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_segment_values_report For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['querySegmentValues'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -2721,7 +2721,7 @@ class ReportingApi
      * Query Segment Values
      *
      * @param  \KlaviyoAPI\Model\SegmentValuesRequestDTO $segment_values_request_dto (required)
-     * @param  string[]|null $fields_segment_values_report For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_segment_values_report For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['querySegmentValues'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -2853,7 +2853,7 @@ class ReportingApi
      * Query Segment Values
      *
      * @param  \KlaviyoAPI\Model\SegmentValuesRequestDTO $segment_values_request_dto (required)
-     * @param  string[]|null $fields_segment_values_report For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_segment_values_report For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['querySegmentValues'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -2893,7 +2893,7 @@ class ReportingApi
      * Query Segment Values
      *
      * @param  \KlaviyoAPI\Model\SegmentValuesRequestDTO $segment_values_request_dto (required)
-     * @param  string[]|null $fields_segment_values_report For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_segment_values_report For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['querySegmentValues'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -2967,7 +2967,7 @@ class ReportingApi
      * Create request for operation 'querySegmentValues'
      *
      * @param  \KlaviyoAPI\Model\SegmentValuesRequestDTO $segment_values_request_dto (required)
-     * @param  string[]|null $fields_segment_values_report For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_segment_values_report For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['querySegmentValues'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -3058,7 +3058,7 @@ class ReportingApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2026-07-15'];
+        $defaultHeaders['revision'] = ['2026-10-15'];
 
         $headers = array_merge(
             $defaultHeaders,

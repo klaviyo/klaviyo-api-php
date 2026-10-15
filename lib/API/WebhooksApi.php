@@ -149,7 +149,7 @@ class WebhooksApi
      * Create Webhook
      *
      * @param  \KlaviyoAPI\Model\WebhookCreateQuery $webhook_create_query webhook_create_query (required)
-     * @param  string[]|null $fields_webhook For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_webhook For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createWebhook'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -168,7 +168,7 @@ class WebhooksApi
      * Create Webhook
      *
      * @param  \KlaviyoAPI\Model\WebhookCreateQuery $webhook_create_query (required)
-     * @param  string[]|null $fields_webhook For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_webhook For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createWebhook'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -282,7 +282,7 @@ class WebhooksApi
      * Create Webhook
      *
      * @param  \KlaviyoAPI\Model\WebhookCreateQuery $webhook_create_query (required)
-     * @param  string[]|null $fields_webhook For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_webhook For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createWebhook'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -304,7 +304,7 @@ class WebhooksApi
      * Create Webhook
      *
      * @param  \KlaviyoAPI\Model\WebhookCreateQuery $webhook_create_query (required)
-     * @param  string[]|null $fields_webhook For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_webhook For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createWebhook'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -360,7 +360,7 @@ class WebhooksApi
      * Create request for operation 'createWebhook'
      *
      * @param  \KlaviyoAPI\Model\WebhookCreateQuery $webhook_create_query (required)
-     * @param  string[]|null $fields_webhook For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_webhook For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createWebhook'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -451,7 +451,7 @@ class WebhooksApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2026-07-15'];
+        $defaultHeaders['revision'] = ['2026-10-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -695,7 +695,7 @@ class WebhooksApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2026-07-15'];
+        $defaultHeaders['revision'] = ['2026-10-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -718,9 +718,9 @@ class WebhooksApi
      * Get Webhook
      *
      * @param  string $id The ID of the webhook. (required)
-     * @param  string[]|null $fields_webhook_topic For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_webhook For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#relationships (optional)
+     * @param  string[]|null $fields_webhook_topic For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_webhook For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#relationships (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWebhook'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -739,9 +739,9 @@ class WebhooksApi
      * Get Webhook
      *
      * @param  string $id The ID of the webhook. (required)
-     * @param  string[]|null $fields_webhook_topic For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_webhook For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#relationships (optional)
+     * @param  string[]|null $fields_webhook_topic For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_webhook For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#relationships (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWebhook'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -855,9 +855,9 @@ class WebhooksApi
      * Get Webhook
      *
      * @param  string $id The ID of the webhook. (required)
-     * @param  string[]|null $fields_webhook_topic For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_webhook For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#relationships (optional)
+     * @param  string[]|null $fields_webhook_topic For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_webhook For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#relationships (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWebhook'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -879,9 +879,9 @@ class WebhooksApi
      * Get Webhook
      *
      * @param  string $id The ID of the webhook. (required)
-     * @param  string[]|null $fields_webhook_topic For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_webhook For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#relationships (optional)
+     * @param  string[]|null $fields_webhook_topic For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_webhook For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#relationships (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWebhook'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -937,9 +937,9 @@ class WebhooksApi
      * Create request for operation 'getWebhook'
      *
      * @param  string $id The ID of the webhook. (required)
-     * @param  string[]|null $fields_webhook_topic For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_webhook For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#relationships (optional)
+     * @param  string[]|null $fields_webhook_topic For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_webhook For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#relationships (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWebhook'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1051,7 +1051,7 @@ class WebhooksApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2026-07-15'];
+        $defaultHeaders['revision'] = ['2026-10-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -1074,7 +1074,7 @@ class WebhooksApi
      * Get Webhook Topic
      *
      * @param  string $id The ID of the webhook topic. (required)
-     * @param  string[]|null $fields_webhook_topic For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_webhook_topic For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWebhookTopic'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -1093,7 +1093,7 @@ class WebhooksApi
      * Get Webhook Topic
      *
      * @param  string $id The ID of the webhook topic. (required)
-     * @param  string[]|null $fields_webhook_topic For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_webhook_topic For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWebhookTopic'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -1207,7 +1207,7 @@ class WebhooksApi
      * Get Webhook Topic
      *
      * @param  string $id The ID of the webhook topic. (required)
-     * @param  string[]|null $fields_webhook_topic For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_webhook_topic For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWebhookTopic'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1229,7 +1229,7 @@ class WebhooksApi
      * Get Webhook Topic
      *
      * @param  string $id The ID of the webhook topic. (required)
-     * @param  string[]|null $fields_webhook_topic For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_webhook_topic For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWebhookTopic'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1285,7 +1285,7 @@ class WebhooksApi
      * Create request for operation 'getWebhookTopic'
      *
      * @param  string $id The ID of the webhook topic. (required)
-     * @param  string[]|null $fields_webhook_topic For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_webhook_topic For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWebhookTopic'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1377,7 +1377,7 @@ class WebhooksApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2026-07-15'];
+        $defaultHeaders['revision'] = ['2026-10-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -1399,7 +1399,7 @@ class WebhooksApi
      *
      * Get Webhook Topics
      *
-     * @param  string[]|null $fields_webhook_topic For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_webhook_topic For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWebhookTopics'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -1417,7 +1417,7 @@ class WebhooksApi
      *
      * Get Webhook Topics
      *
-     * @param  string[]|null $fields_webhook_topic For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_webhook_topic For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWebhookTopics'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -1530,7 +1530,7 @@ class WebhooksApi
      *
      * Get Webhook Topics
      *
-     * @param  string[]|null $fields_webhook_topic For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_webhook_topic For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWebhookTopics'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1551,7 +1551,7 @@ class WebhooksApi
      *
      * Get Webhook Topics
      *
-     * @param  string[]|null $fields_webhook_topic For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_webhook_topic For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWebhookTopics'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1606,7 +1606,7 @@ class WebhooksApi
     /**
      * Create request for operation 'getWebhookTopics'
      *
-     * @param  string[]|null $fields_webhook_topic For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_webhook_topic For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWebhookTopics'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1683,7 +1683,7 @@ class WebhooksApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2026-07-15'];
+        $defaultHeaders['revision'] = ['2026-10-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -1705,9 +1705,9 @@ class WebhooksApi
      *
      * Get Webhooks
      *
-     * @param  string[]|null $fields_webhook_topic For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_webhook For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#relationships (optional)
+     * @param  string[]|null $fields_webhook_topic For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_webhook For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#relationships (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWebhooks'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -1725,9 +1725,9 @@ class WebhooksApi
      *
      * Get Webhooks
      *
-     * @param  string[]|null $fields_webhook_topic For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_webhook For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#relationships (optional)
+     * @param  string[]|null $fields_webhook_topic For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_webhook For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#relationships (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWebhooks'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -1840,9 +1840,9 @@ class WebhooksApi
      *
      * Get Webhooks
      *
-     * @param  string[]|null $fields_webhook_topic For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_webhook For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#relationships (optional)
+     * @param  string[]|null $fields_webhook_topic For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_webhook For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#relationships (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWebhooks'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1863,9 +1863,9 @@ class WebhooksApi
      *
      * Get Webhooks
      *
-     * @param  string[]|null $fields_webhook_topic For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_webhook For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#relationships (optional)
+     * @param  string[]|null $fields_webhook_topic For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_webhook For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#relationships (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWebhooks'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1920,9 +1920,9 @@ class WebhooksApi
     /**
      * Create request for operation 'getWebhooks'
      *
-     * @param  string[]|null $fields_webhook_topic For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $fields_webhook For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#relationships (optional)
+     * @param  string[]|null $fields_webhook_topic For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_webhook For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $include For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#relationships (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWebhooks'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -2019,7 +2019,7 @@ class WebhooksApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2026-07-15'];
+        $defaultHeaders['revision'] = ['2026-10-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -2043,7 +2043,7 @@ class WebhooksApi
      *
      * @param  string $id The ID of the webhook. (required)
      * @param  \KlaviyoAPI\Model\WebhookPartialUpdateQuery $webhook_partial_update_query webhook_partial_update_query (required)
-     * @param  string[]|null $fields_webhook For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_webhook For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateWebhook'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -2063,7 +2063,7 @@ class WebhooksApi
      *
      * @param  string $id The ID of the webhook. (required)
      * @param  \KlaviyoAPI\Model\WebhookPartialUpdateQuery $webhook_partial_update_query (required)
-     * @param  string[]|null $fields_webhook For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_webhook For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateWebhook'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -2178,7 +2178,7 @@ class WebhooksApi
      *
      * @param  string $id The ID of the webhook. (required)
      * @param  \KlaviyoAPI\Model\WebhookPartialUpdateQuery $webhook_partial_update_query (required)
-     * @param  string[]|null $fields_webhook For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_webhook For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateWebhook'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -2201,7 +2201,7 @@ class WebhooksApi
      *
      * @param  string $id The ID of the webhook. (required)
      * @param  \KlaviyoAPI\Model\WebhookPartialUpdateQuery $webhook_partial_update_query (required)
-     * @param  string[]|null $fields_webhook For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_webhook For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateWebhook'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -2258,7 +2258,7 @@ class WebhooksApi
      *
      * @param  string $id The ID of the webhook. (required)
      * @param  \KlaviyoAPI\Model\WebhookPartialUpdateQuery $webhook_partial_update_query (required)
-     * @param  string[]|null $fields_webhook For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_webhook For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateWebhook'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -2364,7 +2364,7 @@ class WebhooksApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2026-07-15'];
+        $defaultHeaders['revision'] = ['2026-10-15'];
 
         $headers = array_merge(
             $defaultHeaders,

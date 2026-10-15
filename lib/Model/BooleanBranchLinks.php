@@ -281,12 +281,6 @@ class BooleanBranchLinks implements ModelInterface, ArrayAccess, \JsonSerializab
     {
         $invalidProperties = [];
 
-        if ($this->container['next_if_true'] === null) {
-            $invalidProperties[] = "'next_if_true' can't be null";
-        }
-        if ($this->container['next_if_false'] === null) {
-            $invalidProperties[] = "'next_if_false' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -305,7 +299,7 @@ class BooleanBranchLinks implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Gets next_if_true
      *
-     * @return string
+     * @return string|null
      */
     public function getNextIfTrue()
     {
@@ -315,7 +309,7 @@ class BooleanBranchLinks implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets next_if_true
      *
-     * @param string $next_if_true next_if_true
+     * @param string|null $next_if_true next_if_true
      *
      * @return self
      */
@@ -339,7 +333,7 @@ class BooleanBranchLinks implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Gets next_if_false
      *
-     * @return string
+     * @return string|null
      */
     public function getNextIfFalse()
     {
@@ -349,7 +343,7 @@ class BooleanBranchLinks implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets next_if_false
      *
-     * @param string $next_if_false next_if_false
+     * @param string|null $next_if_false next_if_false
      *
      * @return self
      */

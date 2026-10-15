@@ -60,6 +60,7 @@ class ButtonStyles implements ModelInterface, ArrayAccess, \JsonSerializable
         'padding' => '\KlaviyoAPI\Model\Padding',
         'background_color' => 'string',
         'width' => 'string',
+        'inner_padding' => '\KlaviyoAPI\Model\Padding',
         'height' => '\KlaviyoAPI\Model\ButtonStylesHeight',
         'alignment' => 'string',
         'hover_background_color' => 'string',
@@ -81,6 +82,7 @@ class ButtonStyles implements ModelInterface, ArrayAccess, \JsonSerializable
         'padding' => null,
         'background_color' => null,
         'width' => null,
+        'inner_padding' => null,
         'height' => null,
         'alignment' => null,
         'hover_background_color' => null,
@@ -100,6 +102,7 @@ class ButtonStyles implements ModelInterface, ArrayAccess, \JsonSerializable
         'padding' => false,
         'background_color' => true,
         'width' => false,
+        'inner_padding' => false,
         'height' => false,
         'alignment' => false,
         'hover_background_color' => true,
@@ -199,6 +202,7 @@ class ButtonStyles implements ModelInterface, ArrayAccess, \JsonSerializable
         'padding' => 'padding',
         'background_color' => 'background_color',
         'width' => 'width',
+        'inner_padding' => 'inner_padding',
         'height' => 'height',
         'alignment' => 'alignment',
         'hover_background_color' => 'hover_background_color',
@@ -218,6 +222,7 @@ class ButtonStyles implements ModelInterface, ArrayAccess, \JsonSerializable
         'padding' => 'setPadding',
         'background_color' => 'setBackgroundColor',
         'width' => 'setWidth',
+        'inner_padding' => 'setInnerPadding',
         'height' => 'setHeight',
         'alignment' => 'setAlignment',
         'hover_background_color' => 'setHoverBackgroundColor',
@@ -237,6 +242,7 @@ class ButtonStyles implements ModelInterface, ArrayAccess, \JsonSerializable
         'padding' => 'getPadding',
         'background_color' => 'getBackgroundColor',
         'width' => 'getWidth',
+        'inner_padding' => 'getInnerPadding',
         'height' => 'getHeight',
         'alignment' => 'getAlignment',
         'hover_background_color' => 'getHoverBackgroundColor',
@@ -339,6 +345,7 @@ class ButtonStyles implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('padding', $data ?? [], null);
         $this->setIfExists('background_color', $data ?? [], null);
         $this->setIfExists('width', $data ?? [], 'fill');
+        $this->setIfExists('inner_padding', $data ?? [], null);
         $this->setIfExists('height', $data ?? [], null);
         $this->setIfExists('alignment', $data ?? [], 'center');
         $this->setIfExists('hover_background_color', $data ?? [], null);
@@ -503,6 +510,33 @@ class ButtonStyles implements ModelInterface, ArrayAccess, \JsonSerializable
             );
         }
         $this->container['width'] = $width;
+
+        return $this;
+    }
+
+    /**
+     * Gets inner_padding
+     *
+     * @return \KlaviyoAPI\Model\Padding|null
+     */
+    public function getInnerPadding()
+    {
+        return $this->container['inner_padding'];
+    }
+
+    /**
+     * Sets inner_padding
+     *
+     * @param \KlaviyoAPI\Model\Padding|null $inner_padding inner_padding
+     *
+     * @return self
+     */
+    public function setInnerPadding($inner_padding)
+    {
+        if (is_null($inner_padding)) {
+            throw new \InvalidArgumentException('non-nullable inner_padding cannot be null');
+        }
+        $this->container['inner_padding'] = $inner_padding;
 
         return $this;
     }

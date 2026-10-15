@@ -59,6 +59,7 @@ class BackInStockEmailConsentCheckboxStyles implements ModelInterface, ArrayAcce
     protected static $openAPITypes = [
         'padding' => '\KlaviyoAPI\Model\Padding',
         'background_color' => 'string',
+        'input_styles' => '\KlaviyoAPI\Model\InputStyleOverrides',
         'horizontal_alignment' => 'string'
     ];
 
@@ -72,6 +73,7 @@ class BackInStockEmailConsentCheckboxStyles implements ModelInterface, ArrayAcce
     protected static $openAPIFormats = [
         'padding' => null,
         'background_color' => null,
+        'input_styles' => null,
         'horizontal_alignment' => null
     ];
 
@@ -83,6 +85,7 @@ class BackInStockEmailConsentCheckboxStyles implements ModelInterface, ArrayAcce
     protected static array $openAPINullables = [
         'padding' => false,
         'background_color' => true,
+        'input_styles' => false,
         'horizontal_alignment' => false
     ];
 
@@ -174,6 +177,7 @@ class BackInStockEmailConsentCheckboxStyles implements ModelInterface, ArrayAcce
     protected static $attributeMap = [
         'padding' => 'padding',
         'background_color' => 'background_color',
+        'input_styles' => 'input_styles',
         'horizontal_alignment' => 'horizontal_alignment'
     ];
 
@@ -185,6 +189,7 @@ class BackInStockEmailConsentCheckboxStyles implements ModelInterface, ArrayAcce
     protected static $setters = [
         'padding' => 'setPadding',
         'background_color' => 'setBackgroundColor',
+        'input_styles' => 'setInputStyles',
         'horizontal_alignment' => 'setHorizontalAlignment'
     ];
 
@@ -196,6 +201,7 @@ class BackInStockEmailConsentCheckboxStyles implements ModelInterface, ArrayAcce
     protected static $getters = [
         'padding' => 'getPadding',
         'background_color' => 'getBackgroundColor',
+        'input_styles' => 'getInputStyles',
         'horizontal_alignment' => 'getHorizontalAlignment'
     ];
 
@@ -275,6 +281,7 @@ class BackInStockEmailConsentCheckboxStyles implements ModelInterface, ArrayAcce
     {
         $this->setIfExists('padding', $data ?? [], null);
         $this->setIfExists('background_color', $data ?? [], null);
+        $this->setIfExists('input_styles', $data ?? [], null);
         $this->setIfExists('horizontal_alignment', $data ?? [], 'left');
     }
 
@@ -386,6 +393,33 @@ class BackInStockEmailConsentCheckboxStyles implements ModelInterface, ArrayAcce
             }
         }
         $this->container['background_color'] = $background_color;
+
+        return $this;
+    }
+
+    /**
+     * Gets input_styles
+     *
+     * @return \KlaviyoAPI\Model\InputStyleOverrides|null
+     */
+    public function getInputStyles()
+    {
+        return $this->container['input_styles'];
+    }
+
+    /**
+     * Sets input_styles
+     *
+     * @param \KlaviyoAPI\Model\InputStyleOverrides|null $input_styles input_styles
+     *
+     * @return self
+     */
+    public function setInputStyles($input_styles)
+    {
+        if (is_null($input_styles)) {
+            throw new \InvalidArgumentException('non-nullable input_styles cannot be null');
+        }
+        $this->container['input_styles'] = $input_styles;
 
         return $this;
     }

@@ -391,6 +391,8 @@ class FlowDefinitionProfileFilterConditionGroupsInnerConditionsInner implements 
     public const PREDICTED_CHANNEL_PUSH = 'push';
     public const PREDICTED_CHANNEL_SMS = 'sms';
     public const PREDICTED_CHANNEL_WHATSAPP = 'whatsapp';
+    public const CHANNEL_EMAIL_CLICK_TRACKING = 'email_click_tracking';
+    public const CHANNEL_EMAIL_OPEN_TRACKING = 'email_open_tracking';
     public const CHANNEL_WHATSAPP_MARKETING = 'whatsapp_marketing';
     public const CHANNEL_WHATSAPP_TRANSACTIONAL = 'whatsapp_transactional';
 
@@ -493,6 +495,8 @@ class FlowDefinitionProfileFilterConditionGroupsInnerConditionsInner implements 
     public function getChannelAllowableValues()
     {
         return [
+            self::CHANNEL_EMAIL_CLICK_TRACKING,
+            self::CHANNEL_EMAIL_OPEN_TRACKING,
             self::CHANNEL_WHATSAPP_MARKETING,
             self::CHANNEL_WHATSAPP_TRANSACTIONAL,
         ];
@@ -763,7 +767,7 @@ class FlowDefinitionProfileFilterConditionGroupsInnerConditionsInner implements 
     /**
      * Sets property
      *
-     * @param string $property property
+     * @param string $property The profile property to check. Use one of the well-known property names (e.g. `email`, `first_name`) or, for custom profile properties, the form `properties['property name']`.
      *
      * @return self
      */

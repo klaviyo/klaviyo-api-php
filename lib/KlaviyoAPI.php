@@ -6,6 +6,8 @@ use KlaviyoAPI\ApiException;
 use KlaviyoAPI\Configuration;
 
 use KlaviyoAPI\API\AccountsApi;
+use KlaviyoAPI\API\BillingApi;
+use KlaviyoAPI\API\BrandsApi;
 use KlaviyoAPI\API\CampaignsApi;
 use KlaviyoAPI\API\CatalogsApi;
 use KlaviyoAPI\API\ClientApi;
@@ -25,7 +27,9 @@ use KlaviyoAPI\API\ReviewsApi;
 use KlaviyoAPI\API\SegmentsApi;
 use KlaviyoAPI\API\TagsApi;
 use KlaviyoAPI\API\TemplatesApi;
+use KlaviyoAPI\API\TextMessagingApi;
 use KlaviyoAPI\API\TrackingSettingsApi;
+use KlaviyoAPI\API\TranslationsApi;
 use KlaviyoAPI\API\WebFeedsApi;
 use KlaviyoAPI\API\WebhooksApi;
 
@@ -45,6 +49,10 @@ class KlaviyoAPI {
     public $guzzle_options;
     /** @var Subclient<AccountsApi> */
     public $Accounts;
+    /** @var Subclient<BillingApi> */
+    public $Billing;
+    /** @var Subclient<BrandsApi> */
+    public $Brands;
     /** @var Subclient<CampaignsApi> */
     public $Campaigns;
     /** @var Subclient<CatalogsApi> */
@@ -83,8 +91,12 @@ class KlaviyoAPI {
     public $Tags;
     /** @var Subclient<TemplatesApi> */
     public $Templates;
+    /** @var Subclient<TextMessagingApi> */
+    public $TextMessaging;
     /** @var Subclient<TrackingSettingsApi> */
     public $TrackingSettings;
+    /** @var Subclient<TranslationsApi> */
+    public $Translations;
     /** @var Subclient<WebFeedsApi> */
     public $WebFeeds;
     /** @var Subclient<WebhooksApi> */
@@ -122,6 +134,18 @@ class KlaviyoAPI {
         
         $this->Accounts = new Subclient(
                 new AccountsApi(new GuzzleClient($this->guzzle_options),$this->config),
+                $wait_seconds = $this->wait_seconds,
+                $num_retries = $this->num_retries,
+            );
+        
+        $this->Billing = new Subclient(
+                new BillingApi(new GuzzleClient($this->guzzle_options),$this->config),
+                $wait_seconds = $this->wait_seconds,
+                $num_retries = $this->num_retries,
+            );
+        
+        $this->Brands = new Subclient(
+                new BrandsApi(new GuzzleClient($this->guzzle_options),$this->config),
                 $wait_seconds = $this->wait_seconds,
                 $num_retries = $this->num_retries,
             );
@@ -240,8 +264,20 @@ class KlaviyoAPI {
                 $num_retries = $this->num_retries,
             );
         
+        $this->TextMessaging = new Subclient(
+                new TextMessagingApi(new GuzzleClient($this->guzzle_options),$this->config),
+                $wait_seconds = $this->wait_seconds,
+                $num_retries = $this->num_retries,
+            );
+        
         $this->TrackingSettings = new Subclient(
                 new TrackingSettingsApi(new GuzzleClient($this->guzzle_options),$this->config),
+                $wait_seconds = $this->wait_seconds,
+                $num_retries = $this->num_retries,
+            );
+        
+        $this->Translations = new Subclient(
+                new TranslationsApi(new GuzzleClient($this->guzzle_options),$this->config),
                 $wait_seconds = $this->wait_seconds,
                 $num_retries = $this->num_retries,
             );

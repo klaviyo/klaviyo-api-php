@@ -59,7 +59,8 @@ class EventProfileCreateQueryResourceObject implements ModelInterface, ArrayAcce
     protected static $openAPITypes = [
         'type' => '\KlaviyoAPI\Model\ProfileEnum',
         'id' => 'string',
-        'attributes' => '\KlaviyoAPI\Model\EventProfileCreateQueryResourceObjectAttributes'
+        'attributes' => '\KlaviyoAPI\Model\EventProfileCreateQueryResourceObjectAttributes',
+        'meta' => '\KlaviyoAPI\Model\OnsiteProfileMeta'
     ];
 
     /**
@@ -72,7 +73,8 @@ class EventProfileCreateQueryResourceObject implements ModelInterface, ArrayAcce
     protected static $openAPIFormats = [
         'type' => null,
         'id' => null,
-        'attributes' => null
+        'attributes' => null,
+        'meta' => null
     ];
 
     /**
@@ -83,7 +85,8 @@ class EventProfileCreateQueryResourceObject implements ModelInterface, ArrayAcce
     protected static array $openAPINullables = [
         'type' => false,
         'id' => true,
-        'attributes' => false
+        'attributes' => false,
+        'meta' => false
     ];
 
     /**
@@ -174,7 +177,8 @@ class EventProfileCreateQueryResourceObject implements ModelInterface, ArrayAcce
     protected static $attributeMap = [
         'type' => 'type',
         'id' => 'id',
-        'attributes' => 'attributes'
+        'attributes' => 'attributes',
+        'meta' => 'meta'
     ];
 
     /**
@@ -185,7 +189,8 @@ class EventProfileCreateQueryResourceObject implements ModelInterface, ArrayAcce
     protected static $setters = [
         'type' => 'setType',
         'id' => 'setId',
-        'attributes' => 'setAttributes'
+        'attributes' => 'setAttributes',
+        'meta' => 'setMeta'
     ];
 
     /**
@@ -196,7 +201,8 @@ class EventProfileCreateQueryResourceObject implements ModelInterface, ArrayAcce
     protected static $getters = [
         'type' => 'getType',
         'id' => 'getId',
-        'attributes' => 'getAttributes'
+        'attributes' => 'getAttributes',
+        'meta' => 'getMeta'
     ];
 
     /**
@@ -259,6 +265,7 @@ class EventProfileCreateQueryResourceObject implements ModelInterface, ArrayAcce
         $this->setIfExists('type', $data ?? [], null);
         $this->setIfExists('id', $data ?? [], null);
         $this->setIfExists('attributes', $data ?? [], null);
+        $this->setIfExists('meta', $data ?? [], null);
     }
 
     /**
@@ -393,6 +400,33 @@ class EventProfileCreateQueryResourceObject implements ModelInterface, ArrayAcce
             throw new \InvalidArgumentException('non-nullable attributes cannot be null');
         }
         $this->container['attributes'] = $attributes;
+
+        return $this;
+    }
+
+    /**
+     * Gets meta
+     *
+     * @return \KlaviyoAPI\Model\OnsiteProfileMeta|null
+     */
+    public function getMeta()
+    {
+        return $this->container['meta'];
+    }
+
+    /**
+     * Sets meta
+     *
+     * @param \KlaviyoAPI\Model\OnsiteProfileMeta|null $meta meta
+     *
+     * @return self
+     */
+    public function setMeta($meta)
+    {
+        if (is_null($meta)) {
+            throw new \InvalidArgumentException('non-nullable meta cannot be null');
+        }
+        $this->container['meta'] = $meta;
 
         return $this;
     }

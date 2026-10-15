@@ -57,7 +57,7 @@ class CampaignCloneQueryResourceObjectAttributes implements ModelInterface, Arra
       * @var string[]
       */
     protected static $openAPITypes = [
-        'new_name' => 'string'
+        'name' => 'string'
     ];
 
     /**
@@ -68,7 +68,7 @@ class CampaignCloneQueryResourceObjectAttributes implements ModelInterface, Arra
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'new_name' => null
+        'name' => null
     ];
 
     /**
@@ -77,7 +77,7 @@ class CampaignCloneQueryResourceObjectAttributes implements ModelInterface, Arra
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'new_name' => true
+        'name' => true
     ];
 
     /**
@@ -166,7 +166,7 @@ class CampaignCloneQueryResourceObjectAttributes implements ModelInterface, Arra
      * @var string[]
      */
     protected static $attributeMap = [
-        'new_name' => 'new_name'
+        'name' => 'name'
     ];
 
     /**
@@ -175,7 +175,7 @@ class CampaignCloneQueryResourceObjectAttributes implements ModelInterface, Arra
      * @var string[]
      */
     protected static $setters = [
-        'new_name' => 'setNewName'
+        'name' => 'setName'
     ];
 
     /**
@@ -184,7 +184,7 @@ class CampaignCloneQueryResourceObjectAttributes implements ModelInterface, Arra
      * @var string[]
      */
     protected static $getters = [
-        'new_name' => 'getNewName'
+        'name' => 'getName'
     ];
 
     /**
@@ -244,7 +244,7 @@ class CampaignCloneQueryResourceObjectAttributes implements ModelInterface, Arra
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('new_name', $data ?? [], null);
+        $this->setIfExists('name', $data ?? [], null);
     }
 
     /**
@@ -290,35 +290,35 @@ class CampaignCloneQueryResourceObjectAttributes implements ModelInterface, Arra
 
 
     /**
-     * Gets new_name
+     * Gets name
      *
      * @return string|null
      */
-    public function getNewName()
+    public function getName()
     {
-        return $this->container['new_name'];
+        return $this->container['name'];
     }
 
     /**
-     * Sets new_name
+     * Sets name
      *
-     * @param string|null $new_name The name for the new cloned campaign
+     * @param string|null $name Name for the cloned campaign. Defaults to 'Copy of {source name}'.
      *
      * @return self
      */
-    public function setNewName($new_name)
+    public function setName($name)
     {
-        if (is_null($new_name)) {
-            array_push($this->openAPINullablesSetToNull, 'new_name');
+        if (is_null($name)) {
+            array_push($this->openAPINullablesSetToNull, 'name');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('new_name', $nullablesSetToNull);
+            $index = array_search('name', $nullablesSetToNull);
             if ($index !== FALSE) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
-        $this->container['new_name'] = $new_name;
+        $this->container['name'] = $name;
 
         return $this;
     }

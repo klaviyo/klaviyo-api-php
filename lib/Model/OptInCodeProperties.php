@@ -58,6 +58,7 @@ class OptInCodeProperties implements ModelInterface, ArrayAccess, \JsonSerializa
       */
     protected static $openAPITypes = [
         'classname' => 'string',
+        'block_animation' => '\KlaviyoAPI\Model\Animation',
         'label' => 'string',
         'show_label' => 'bool',
         'placeholder' => 'string',
@@ -76,6 +77,7 @@ class OptInCodeProperties implements ModelInterface, ArrayAccess, \JsonSerializa
       */
     protected static $openAPIFormats = [
         'classname' => null,
+        'block_animation' => null,
         'label' => null,
         'show_label' => null,
         'placeholder' => null,
@@ -92,6 +94,7 @@ class OptInCodeProperties implements ModelInterface, ArrayAccess, \JsonSerializa
       */
     protected static array $openAPINullables = [
         'classname' => true,
+        'block_animation' => false,
         'label' => true,
         'show_label' => false,
         'placeholder' => true,
@@ -188,6 +191,7 @@ class OptInCodeProperties implements ModelInterface, ArrayAccess, \JsonSerializa
      */
     protected static $attributeMap = [
         'classname' => 'classname',
+        'block_animation' => 'block_animation',
         'label' => 'label',
         'show_label' => 'show_label',
         'placeholder' => 'placeholder',
@@ -204,6 +208,7 @@ class OptInCodeProperties implements ModelInterface, ArrayAccess, \JsonSerializa
      */
     protected static $setters = [
         'classname' => 'setClassname',
+        'block_animation' => 'setBlockAnimation',
         'label' => 'setLabel',
         'show_label' => 'setShowLabel',
         'placeholder' => 'setPlaceholder',
@@ -220,6 +225,7 @@ class OptInCodeProperties implements ModelInterface, ArrayAccess, \JsonSerializa
      */
     protected static $getters = [
         'classname' => 'getClassname',
+        'block_animation' => 'getBlockAnimation',
         'label' => 'getLabel',
         'show_label' => 'getShowLabel',
         'placeholder' => 'getPlaceholder',
@@ -317,6 +323,7 @@ class OptInCodeProperties implements ModelInterface, ArrayAccess, \JsonSerializa
     public function __construct(?array $data = null)
     {
         $this->setIfExists('classname', $data ?? [], null);
+        $this->setIfExists('block_animation', $data ?? [], null);
         $this->setIfExists('label', $data ?? [], null);
         $this->setIfExists('show_label', $data ?? [], false);
         $this->setIfExists('placeholder', $data ?? [], null);
@@ -407,6 +414,33 @@ class OptInCodeProperties implements ModelInterface, ArrayAccess, \JsonSerializa
             }
         }
         $this->container['classname'] = $classname;
+
+        return $this;
+    }
+
+    /**
+     * Gets block_animation
+     *
+     * @return \KlaviyoAPI\Model\Animation|null
+     */
+    public function getBlockAnimation()
+    {
+        return $this->container['block_animation'];
+    }
+
+    /**
+     * Sets block_animation
+     *
+     * @param \KlaviyoAPI\Model\Animation|null $block_animation block_animation
+     *
+     * @return self
+     */
+    public function setBlockAnimation($block_animation)
+    {
+        if (is_null($block_animation)) {
+            throw new \InvalidArgumentException('non-nullable block_animation cannot be null');
+        }
+        $this->container['block_animation'] = $block_animation;
 
         return $this;
     }

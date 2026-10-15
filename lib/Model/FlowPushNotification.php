@@ -74,7 +74,7 @@ class FlowPushNotification implements ModelInterface, ArrayAccess, \JsonSerializ
         'conversion_metric_id' => 'string',
         'smart_sending_enabled' => 'bool',
         'additional_filters' => '\KlaviyoAPI\Model\ConditionalBranchActionDataProfileFilter',
-        'action_buttons' => '\KlaviyoAPI\Model\PushActionButton[]',
+        'action_buttons' => '\KlaviyoAPI\Model\PushActionButtonV2[]',
         'name' => 'string',
         'id' => 'string'
     ];
@@ -1034,7 +1034,7 @@ class FlowPushNotification implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Gets action_buttons
      *
-     * @return \KlaviyoAPI\Model\PushActionButton[]|null
+     * @return \KlaviyoAPI\Model\PushActionButtonV2[]|null
      */
     public function getActionButtons()
     {
@@ -1044,7 +1044,7 @@ class FlowPushNotification implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Sets action_buttons
      *
-     * @param \KlaviyoAPI\Model\PushActionButton[]|null $action_buttons action_buttons
+     * @param \KlaviyoAPI\Model\PushActionButtonV2[]|null $action_buttons action_buttons
      *
      * @return self
      */

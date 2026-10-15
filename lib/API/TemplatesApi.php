@@ -77,7 +77,13 @@ class TemplatesApi
         'cloneTemplate' => [
             'application/vnd.api+json',
         ],
+        'cloneUniversalContent' => [
+            'application/vnd.api+json',
+        ],
         'createTemplate' => [
+            'application/vnd.api+json',
+        ],
+        'createTemplatePreviewSendJob' => [
             'application/vnd.api+json',
         ],
         'createUniversalContent' => [
@@ -164,7 +170,7 @@ class TemplatesApi
      * Clone Template
      *
      * @param  \KlaviyoAPI\Model\TemplateCloneQuery $template_clone_query template_clone_query (required)
-     * @param  string[]|null $fields_template For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_template For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloneTemplate'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -192,7 +198,7 @@ class TemplatesApi
      * Clone Template
      *
      * @param  \KlaviyoAPI\Model\TemplateCloneQuery $template_clone_query (required)
-     * @param  string[]|null $fields_template For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_template For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloneTemplate'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -315,7 +321,7 @@ class TemplatesApi
      * Clone Template
      *
      * @param  \KlaviyoAPI\Model\TemplateCloneQuery $template_clone_query (required)
-     * @param  string[]|null $fields_template For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_template For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloneTemplate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -346,7 +352,7 @@ class TemplatesApi
      * Clone Template
      *
      * @param  \KlaviyoAPI\Model\TemplateCloneQuery $template_clone_query (required)
-     * @param  string[]|null $fields_template For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_template For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloneTemplate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -411,7 +417,7 @@ class TemplatesApi
      * Create request for operation 'cloneTemplate'
      *
      * @param  \KlaviyoAPI\Model\TemplateCloneQuery $template_clone_query (required)
-     * @param  string[]|null $fields_template For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_template For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloneTemplate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -502,7 +508,7 @@ class TemplatesApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2026-07-15'];
+        $defaultHeaders['revision'] = ['2026-10-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -529,13 +535,383 @@ class TemplatesApi
     }
 
     /**
+     * Operation cloneUniversalContent
+     *
+     * Clone Universal Content
+     *
+     * @param  \KlaviyoAPI\Model\UniversalContentCloneQuery $universal_content_clone_query Create a clone of a universal content by ID (required)
+     * @param  string[]|null $fields_template_universal_content For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloneUniversalContent'] to see the possible values for this operation
+     *
+     * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array<string,mixed>|\KlaviyoAPI\Model\GetAccounts400Response|\KlaviyoAPI\Model\GetAccounts400Response
+     */
+    public function cloneUniversalContent($universal_content_clone_query, $fields_template_universal_content = null, $apiKey = null, string $contentType = self::contentTypes['cloneUniversalContent'][0])
+    {
+        list($response) = $this->cloneUniversalContentWithHttpInfo($universal_content_clone_query, $fields_template_universal_content, $apiKey, $contentType);
+        return $response;
+    }
+
+    /**
+     * Alias of `cloneUniversalContent`
+     *
+     * @deprecated use `cloneUniversalContent` instead
+     */
+    public function createTemplateUniversalContentClone(...$args) {
+        return $this->cloneUniversalContent(...$args);
+    }
+
+    /**
+     * Operation cloneUniversalContentWithHttpInfo
+     *
+     * Clone Universal Content
+     *
+     * @param  \KlaviyoAPI\Model\UniversalContentCloneQuery $universal_content_clone_query Create a clone of a universal content by ID (required)
+     * @param  string[]|null $fields_template_universal_content For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloneUniversalContent'] to see the possible values for this operation
+     *
+     * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of array<string,mixed>|\KlaviyoAPI\Model\GetAccounts400Response|\KlaviyoAPI\Model\GetAccounts400Response, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function cloneUniversalContentWithHttpInfo($universal_content_clone_query, $fields_template_universal_content = null, $apiKey = null, string $contentType = self::contentTypes['cloneUniversalContent'][0])
+    {
+        $request = $this->cloneUniversalContentRequest($universal_content_clone_query, $fields_template_universal_content, $apiKey, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            switch($statusCode) {
+                case 201:
+                    return $this->handleResponseWithDataType(
+                        'array<string,mixed>',
+                        $request,
+                        $response,
+                    );
+                case 400:
+                    return $this->handleResponseWithDataType(
+                        '\KlaviyoAPI\Model\GetAccounts400Response',
+                        $request,
+                        $response,
+                    );
+                case 500:
+                    return $this->handleResponseWithDataType(
+                        '\KlaviyoAPI\Model\GetAccounts400Response',
+                        $request,
+                        $response,
+                    );
+            }
+
+            
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            return $this->handleResponseWithDataType(
+                'array<string,mixed>',
+                $request,
+                $response,
+            );
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 201:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        'array<string,mixed>',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\KlaviyoAPI\Model\GetAccounts400Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 500:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\KlaviyoAPI\Model\GetAccounts400Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+            }
+        
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Alias of `cloneUniversalContentWithHttpInfo`
+     *
+     * @deprecated use `cloneUniversalContentWithHttpInfo` instead
+     */
+    public function createTemplateUniversalContentCloneWithHttpInfo(...$args) {
+        return $this->cloneUniversalContentWithHttpInfo(...$args);
+    }
+
+    /**
+     * Operation cloneUniversalContentAsync
+     *
+     * Clone Universal Content
+     *
+     * @param  \KlaviyoAPI\Model\UniversalContentCloneQuery $universal_content_clone_query Create a clone of a universal content by ID (required)
+     * @param  string[]|null $fields_template_universal_content For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloneUniversalContent'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function cloneUniversalContentAsync($universal_content_clone_query, $fields_template_universal_content = null, $apiKey = null, string $contentType = self::contentTypes['cloneUniversalContent'][0])
+    {
+        return $this->cloneUniversalContentAsyncWithHttpInfo($universal_content_clone_query, $fields_template_universal_content, $apiKey, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Alias of `cloneUniversalContentAsync`
+     *
+     * @deprecated use `cloneUniversalContentAsync` instead
+     */
+    public function createTemplateUniversalContentCloneAsync(...$args) {
+        return $this->cloneUniversalContentAsync(...$args);
+    }
+
+    /**
+     * Operation cloneUniversalContentAsyncWithHttpInfo
+     *
+     * Clone Universal Content
+     *
+     * @param  \KlaviyoAPI\Model\UniversalContentCloneQuery $universal_content_clone_query Create a clone of a universal content by ID (required)
+     * @param  string[]|null $fields_template_universal_content For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloneUniversalContent'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function cloneUniversalContentAsyncWithHttpInfo($universal_content_clone_query, $fields_template_universal_content = null, $apiKey = null, string $contentType = self::contentTypes['cloneUniversalContent'][0])
+    {
+        $returnType = 'array<string,mixed>';
+        $request = $this->cloneUniversalContentRequest($universal_content_clone_query, $fields_template_universal_content, $apiKey, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    $parsed_content = json_decode(json_encode($content), TRUE);
+                    if (json_last_error() != JSON_ERROR_NONE) {
+                        $parsed_content = $content;
+                    }
+
+                    return [
+                        $parsed_content,
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Alias of `cloneUniversalContentAsyncWithHttpInfo`
+     *
+     * @deprecated use `cloneUniversalContentAsyncWithHttpInfo` instead
+     */
+    public function createTemplateUniversalContentCloneAsyncWithHttpInfo(...$args) {
+        return $this->cloneUniversalContentAsyncWithHttpInfo(...$args);
+    }
+
+    /**
+     * Create request for operation 'cloneUniversalContent'
+     *
+     * @param  \KlaviyoAPI\Model\UniversalContentCloneQuery $universal_content_clone_query Create a clone of a universal content by ID (required)
+     * @param  string[]|null $fields_template_universal_content For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloneUniversalContent'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function cloneUniversalContentRequest($universal_content_clone_query, $fields_template_universal_content = null, $apiKey = null, string $contentType = self::contentTypes['cloneUniversalContent'][0])
+    {
+
+        // verify the required parameter 'universal_content_clone_query' is set
+        if ($universal_content_clone_query === null || (is_array($universal_content_clone_query) && count($universal_content_clone_query) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $universal_content_clone_query when calling cloneUniversalContent'
+            );
+        }
+
+
+
+        $resourcePath = '/api/template-universal-content-clone';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $fields_template_universal_content,
+            'fields[template-universal-content]', // param base name
+            'array', // openApiType
+            'form', // style
+            false, // explode
+            false // required
+        ) ?? []);
+
+
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/vnd.api+json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (isset($universal_content_clone_query)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false || stripos($headers['Content-Type'], 'application/vnd.api+json') !== false) {
+                # if Content-Type contains "application/json" or "application/vnd.api+json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($universal_content_clone_query));
+            } else {
+                $httpBody = $universal_content_clone_query;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false || stripos($headers['Content-Type'], 'application/vnd.api+json') !== false) {
+                # if Content-Type contains "application/json" or "application/vnd.api+json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        if ($apiKey == null) {
+            $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        } else {
+            $apiKey = 'Klaviyo-API-Key '.$apiKey;
+        }
+
+        $headers['Authorization'] = $apiKey;
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $defaultHeaders['revision'] = ['2026-10-15'];
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'POST',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Alias of `cloneUniversalContentRequest`
+     *
+     * @deprecated use `cloneUniversalContentRequest` instead
+     */
+    public function createTemplateUniversalContentCloneRequest(...$args) {
+        return $this->cloneUniversalContentRequest(...$args);
+    }
+
+    /**
      * Operation createTemplate
      *
      * Create Template
      *
      * @param  \KlaviyoAPI\Model\TemplateCreateHtmlOrDndQuery $template_create_html_or_dnd_query template_create_html_or_dnd_query (required)
      * @param  string[]|null $additional_fields_template Request additional fields not included by default in the response. Supported values: &#39;definition&#39; (optional)
-     * @param  string[]|null $fields_template For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_template For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createTemplate'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -555,7 +931,7 @@ class TemplatesApi
      *
      * @param  \KlaviyoAPI\Model\TemplateCreateHtmlOrDndQuery $template_create_html_or_dnd_query (required)
      * @param  string[]|null $additional_fields_template Request additional fields not included by default in the response. Supported values: &#39;definition&#39; (optional)
-     * @param  string[]|null $fields_template For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_template For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createTemplate'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -670,7 +1046,7 @@ class TemplatesApi
      *
      * @param  \KlaviyoAPI\Model\TemplateCreateHtmlOrDndQuery $template_create_html_or_dnd_query (required)
      * @param  string[]|null $additional_fields_template Request additional fields not included by default in the response. Supported values: &#39;definition&#39; (optional)
-     * @param  string[]|null $fields_template For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_template For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createTemplate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -693,7 +1069,7 @@ class TemplatesApi
      *
      * @param  \KlaviyoAPI\Model\TemplateCreateHtmlOrDndQuery $template_create_html_or_dnd_query (required)
      * @param  string[]|null $additional_fields_template Request additional fields not included by default in the response. Supported values: &#39;definition&#39; (optional)
-     * @param  string[]|null $fields_template For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_template For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createTemplate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -750,7 +1126,7 @@ class TemplatesApi
      *
      * @param  \KlaviyoAPI\Model\TemplateCreateHtmlOrDndQuery $template_create_html_or_dnd_query (required)
      * @param  string[]|null $additional_fields_template Request additional fields not included by default in the response. Supported values: &#39;definition&#39; (optional)
-     * @param  string[]|null $fields_template For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_template For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createTemplate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -851,7 +1227,332 @@ class TemplatesApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2026-07-15'];
+        $defaultHeaders['revision'] = ['2026-10-15'];
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'POST',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation createTemplatePreviewSendJob
+     *
+     * Create Template Preview Send Job
+     *
+     * @param  \KlaviyoAPI\Model\TemplatePreviewSendJobCreateQuery $template_preview_send_job_create_query Send a test email of a template to the given recipients. (required)
+     * @param  string[]|null $fields_template_preview_send_job For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createTemplatePreviewSendJob'] to see the possible values for this operation
+     *
+     * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array<string,mixed>|\KlaviyoAPI\Model\GetAccounts400Response|\KlaviyoAPI\Model\GetAccounts400Response
+     */
+    public function createTemplatePreviewSendJob($template_preview_send_job_create_query, $fields_template_preview_send_job = null, $apiKey = null, string $contentType = self::contentTypes['createTemplatePreviewSendJob'][0])
+    {
+        list($response) = $this->createTemplatePreviewSendJobWithHttpInfo($template_preview_send_job_create_query, $fields_template_preview_send_job, $apiKey, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation createTemplatePreviewSendJobWithHttpInfo
+     *
+     * Create Template Preview Send Job
+     *
+     * @param  \KlaviyoAPI\Model\TemplatePreviewSendJobCreateQuery $template_preview_send_job_create_query Send a test email of a template to the given recipients. (required)
+     * @param  string[]|null $fields_template_preview_send_job For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createTemplatePreviewSendJob'] to see the possible values for this operation
+     *
+     * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of array<string,mixed>|\KlaviyoAPI\Model\GetAccounts400Response|\KlaviyoAPI\Model\GetAccounts400Response, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function createTemplatePreviewSendJobWithHttpInfo($template_preview_send_job_create_query, $fields_template_preview_send_job = null, $apiKey = null, string $contentType = self::contentTypes['createTemplatePreviewSendJob'][0])
+    {
+        $request = $this->createTemplatePreviewSendJobRequest($template_preview_send_job_create_query, $fields_template_preview_send_job, $apiKey, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            switch($statusCode) {
+                case 202:
+                    return $this->handleResponseWithDataType(
+                        'array<string,mixed>',
+                        $request,
+                        $response,
+                    );
+                case 400:
+                    return $this->handleResponseWithDataType(
+                        '\KlaviyoAPI\Model\GetAccounts400Response',
+                        $request,
+                        $response,
+                    );
+                case 500:
+                    return $this->handleResponseWithDataType(
+                        '\KlaviyoAPI\Model\GetAccounts400Response',
+                        $request,
+                        $response,
+                    );
+            }
+
+            
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            return $this->handleResponseWithDataType(
+                'array<string,mixed>',
+                $request,
+                $response,
+            );
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 202:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        'array<string,mixed>',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\KlaviyoAPI\Model\GetAccounts400Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 500:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\KlaviyoAPI\Model\GetAccounts400Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+            }
+        
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation createTemplatePreviewSendJobAsync
+     *
+     * Create Template Preview Send Job
+     *
+     * @param  \KlaviyoAPI\Model\TemplatePreviewSendJobCreateQuery $template_preview_send_job_create_query Send a test email of a template to the given recipients. (required)
+     * @param  string[]|null $fields_template_preview_send_job For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createTemplatePreviewSendJob'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function createTemplatePreviewSendJobAsync($template_preview_send_job_create_query, $fields_template_preview_send_job = null, $apiKey = null, string $contentType = self::contentTypes['createTemplatePreviewSendJob'][0])
+    {
+        return $this->createTemplatePreviewSendJobAsyncWithHttpInfo($template_preview_send_job_create_query, $fields_template_preview_send_job, $apiKey, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation createTemplatePreviewSendJobAsyncWithHttpInfo
+     *
+     * Create Template Preview Send Job
+     *
+     * @param  \KlaviyoAPI\Model\TemplatePreviewSendJobCreateQuery $template_preview_send_job_create_query Send a test email of a template to the given recipients. (required)
+     * @param  string[]|null $fields_template_preview_send_job For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createTemplatePreviewSendJob'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function createTemplatePreviewSendJobAsyncWithHttpInfo($template_preview_send_job_create_query, $fields_template_preview_send_job = null, $apiKey = null, string $contentType = self::contentTypes['createTemplatePreviewSendJob'][0])
+    {
+        $returnType = 'array<string,mixed>';
+        $request = $this->createTemplatePreviewSendJobRequest($template_preview_send_job_create_query, $fields_template_preview_send_job, $apiKey, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    $parsed_content = json_decode(json_encode($content), TRUE);
+                    if (json_last_error() != JSON_ERROR_NONE) {
+                        $parsed_content = $content;
+                    }
+
+                    return [
+                        $parsed_content,
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'createTemplatePreviewSendJob'
+     *
+     * @param  \KlaviyoAPI\Model\TemplatePreviewSendJobCreateQuery $template_preview_send_job_create_query Send a test email of a template to the given recipients. (required)
+     * @param  string[]|null $fields_template_preview_send_job For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createTemplatePreviewSendJob'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function createTemplatePreviewSendJobRequest($template_preview_send_job_create_query, $fields_template_preview_send_job = null, $apiKey = null, string $contentType = self::contentTypes['createTemplatePreviewSendJob'][0])
+    {
+
+        // verify the required parameter 'template_preview_send_job_create_query' is set
+        if ($template_preview_send_job_create_query === null || (is_array($template_preview_send_job_create_query) && count($template_preview_send_job_create_query) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $template_preview_send_job_create_query when calling createTemplatePreviewSendJob'
+            );
+        }
+
+
+
+        $resourcePath = '/api/template-preview-send-jobs';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $fields_template_preview_send_job,
+            'fields[template-preview-send-job]', // param base name
+            'array', // openApiType
+            'form', // style
+            false, // explode
+            false // required
+        ) ?? []);
+
+
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/vnd.api+json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (isset($template_preview_send_job_create_query)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false || stripos($headers['Content-Type'], 'application/vnd.api+json') !== false) {
+                # if Content-Type contains "application/json" or "application/vnd.api+json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($template_preview_send_job_create_query));
+            } else {
+                $httpBody = $template_preview_send_job_create_query;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false || stripos($headers['Content-Type'], 'application/vnd.api+json') !== false) {
+                # if Content-Type contains "application/json" or "application/vnd.api+json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        if ($apiKey == null) {
+            $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        } else {
+            $apiKey = 'Klaviyo-API-Key '.$apiKey;
+        }
+
+        $headers['Authorization'] = $apiKey;
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $defaultHeaders['revision'] = ['2026-10-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -873,17 +1574,17 @@ class TemplatesApi
      *
      * Create Universal Content
      *
-     * @param  \KlaviyoAPI\Model\UniversalContentCreateQuery $universal_content_create_query Create a template universal content (required)
-     * @param  string[]|null $fields_template_universal_content For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  \KlaviyoAPI\Model\UniversalContentCreateQueryV1 $universal_content_create_query_v1 Create a template universal content, with full v1 write parity (every block/subblock type, plus Section) (required)
+     * @param  string[]|null $fields_template_universal_content For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createUniversalContent'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array<string,mixed>|\KlaviyoAPI\Model\GetAccounts400Response|\KlaviyoAPI\Model\GetAccounts400Response
      */
-    public function createUniversalContent($universal_content_create_query, $fields_template_universal_content = null, $apiKey = null, string $contentType = self::contentTypes['createUniversalContent'][0])
+    public function createUniversalContent($universal_content_create_query_v1, $fields_template_universal_content = null, $apiKey = null, string $contentType = self::contentTypes['createUniversalContent'][0])
     {
-        list($response) = $this->createUniversalContentWithHttpInfo($universal_content_create_query, $fields_template_universal_content, $apiKey, $contentType);
+        list($response) = $this->createUniversalContentWithHttpInfo($universal_content_create_query_v1, $fields_template_universal_content, $apiKey, $contentType);
         return $response;
     }
 
@@ -901,17 +1602,17 @@ class TemplatesApi
      *
      * Create Universal Content
      *
-     * @param  \KlaviyoAPI\Model\UniversalContentCreateQuery $universal_content_create_query Create a template universal content (required)
-     * @param  string[]|null $fields_template_universal_content For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  \KlaviyoAPI\Model\UniversalContentCreateQueryV1 $universal_content_create_query_v1 Create a template universal content, with full v1 write parity (every block/subblock type, plus Section) (required)
+     * @param  string[]|null $fields_template_universal_content For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createUniversalContent'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of array<string,mixed>|\KlaviyoAPI\Model\GetAccounts400Response|\KlaviyoAPI\Model\GetAccounts400Response, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createUniversalContentWithHttpInfo($universal_content_create_query, $fields_template_universal_content = null, $apiKey = null, string $contentType = self::contentTypes['createUniversalContent'][0])
+    public function createUniversalContentWithHttpInfo($universal_content_create_query_v1, $fields_template_universal_content = null, $apiKey = null, string $contentType = self::contentTypes['createUniversalContent'][0])
     {
-        $request = $this->createUniversalContentRequest($universal_content_create_query, $fields_template_universal_content, $apiKey, $contentType);
+        $request = $this->createUniversalContentRequest($universal_content_create_query_v1, $fields_template_universal_content, $apiKey, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1024,16 +1725,16 @@ class TemplatesApi
      *
      * Create Universal Content
      *
-     * @param  \KlaviyoAPI\Model\UniversalContentCreateQuery $universal_content_create_query Create a template universal content (required)
-     * @param  string[]|null $fields_template_universal_content For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  \KlaviyoAPI\Model\UniversalContentCreateQueryV1 $universal_content_create_query_v1 Create a template universal content, with full v1 write parity (every block/subblock type, plus Section) (required)
+     * @param  string[]|null $fields_template_universal_content For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createUniversalContent'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createUniversalContentAsync($universal_content_create_query, $fields_template_universal_content = null, $apiKey = null, string $contentType = self::contentTypes['createUniversalContent'][0])
+    public function createUniversalContentAsync($universal_content_create_query_v1, $fields_template_universal_content = null, $apiKey = null, string $contentType = self::contentTypes['createUniversalContent'][0])
     {
-        return $this->createUniversalContentAsyncWithHttpInfo($universal_content_create_query, $fields_template_universal_content, $apiKey, $contentType)
+        return $this->createUniversalContentAsyncWithHttpInfo($universal_content_create_query_v1, $fields_template_universal_content, $apiKey, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1055,17 +1756,17 @@ class TemplatesApi
      *
      * Create Universal Content
      *
-     * @param  \KlaviyoAPI\Model\UniversalContentCreateQuery $universal_content_create_query Create a template universal content (required)
-     * @param  string[]|null $fields_template_universal_content For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  \KlaviyoAPI\Model\UniversalContentCreateQueryV1 $universal_content_create_query_v1 Create a template universal content, with full v1 write parity (every block/subblock type, plus Section) (required)
+     * @param  string[]|null $fields_template_universal_content For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createUniversalContent'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createUniversalContentAsyncWithHttpInfo($universal_content_create_query, $fields_template_universal_content = null, $apiKey = null, string $contentType = self::contentTypes['createUniversalContent'][0])
+    public function createUniversalContentAsyncWithHttpInfo($universal_content_create_query_v1, $fields_template_universal_content = null, $apiKey = null, string $contentType = self::contentTypes['createUniversalContent'][0])
     {
         $returnType = 'array<string,mixed>';
-        $request = $this->createUniversalContentRequest($universal_content_create_query, $fields_template_universal_content, $apiKey, $contentType);
+        $request = $this->createUniversalContentRequest($universal_content_create_query_v1, $fields_template_universal_content, $apiKey, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1120,20 +1821,20 @@ class TemplatesApi
     /**
      * Create request for operation 'createUniversalContent'
      *
-     * @param  \KlaviyoAPI\Model\UniversalContentCreateQuery $universal_content_create_query Create a template universal content (required)
-     * @param  string[]|null $fields_template_universal_content For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  \KlaviyoAPI\Model\UniversalContentCreateQueryV1 $universal_content_create_query_v1 Create a template universal content, with full v1 write parity (every block/subblock type, plus Section) (required)
+     * @param  string[]|null $fields_template_universal_content For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createUniversalContent'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function createUniversalContentRequest($universal_content_create_query, $fields_template_universal_content = null, $apiKey = null, string $contentType = self::contentTypes['createUniversalContent'][0])
+    public function createUniversalContentRequest($universal_content_create_query_v1, $fields_template_universal_content = null, $apiKey = null, string $contentType = self::contentTypes['createUniversalContent'][0])
     {
 
-        // verify the required parameter 'universal_content_create_query' is set
-        if ($universal_content_create_query === null || (is_array($universal_content_create_query) && count($universal_content_create_query) === 0)) {
+        // verify the required parameter 'universal_content_create_query_v1' is set
+        if ($universal_content_create_query_v1 === null || (is_array($universal_content_create_query_v1) && count($universal_content_create_query_v1) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $universal_content_create_query when calling createUniversalContent'
+                'Missing the required parameter $universal_content_create_query_v1 when calling createUniversalContent'
             );
         }
 
@@ -1166,12 +1867,12 @@ class TemplatesApi
         );
 
         // for model (json/xml)
-        if (isset($universal_content_create_query)) {
+        if (isset($universal_content_create_query_v1)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false || stripos($headers['Content-Type'], 'application/vnd.api+json') !== false) {
                 # if Content-Type contains "application/json" or "application/vnd.api+json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($universal_content_create_query));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($universal_content_create_query_v1));
             } else {
-                $httpBody = $universal_content_create_query;
+                $httpBody = $universal_content_create_query_v1;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -1212,7 +1913,7 @@ class TemplatesApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2026-07-15'];
+        $defaultHeaders['revision'] = ['2026-10-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -1465,7 +2166,7 @@ class TemplatesApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2026-07-15'];
+        $defaultHeaders['revision'] = ['2026-10-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -1745,7 +2446,7 @@ class TemplatesApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2026-07-15'];
+        $defaultHeaders['revision'] = ['2026-10-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -1776,11 +2477,11 @@ class TemplatesApi
      *
      * Get All Universal Content
      *
-     * @param  string[]|null $fields_template_universal_content For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;id&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;name&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;created&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60;&lt;br&gt;&#x60;updated&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60;&lt;br&gt;&#x60;definition.content_type&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;definition.type&#x60;: &#x60;equals&#x60; (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination (optional)
+     * @param  string[]|null $fields_template_universal_content For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;id&#x60;: &#x60;any&#x60;, &#x60;equals&#x60; (string)&lt;br&gt;&#x60;name&#x60;: &#x60;any&#x60;, &#x60;equals&#x60; (string)&lt;br&gt;&#x60;created&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60; (date-time)&lt;br&gt;&#x60;updated&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60; (date-time)&lt;br&gt;&#x60;definition.content_type&#x60;: &#x60;equals&#x60; (allowed values: &#x60;&#39;block&#39;&#x60;, &#x60;&#39;section&#39;&#x60;)&lt;br&gt;&#x60;definition.type&#x60;: &#x60;equals&#x60; (allowed values: &#x60;&#39;button&#39;&#x60;, &#x60;&#39;coupon&#39;&#x60;, &#x60;&#39;drop_shadow&#39;&#x60;, &#x60;&#39;header&#39;&#x60;, &#x60;&#39;horizontal_rule&#39;&#x60;, &#x60;&#39;html&#39;&#x60;, &#x60;&#39;image&#39;&#x60;, &#x60;&#39;product&#39;&#x60;, &#x60;&#39;review&#39;&#x60;, &#x60;&#39;social&#39;&#x60;, &#x60;&#39;spacer&#39;&#x60;, &#x60;&#39;split&#39;&#x60;, &#x60;&#39;table&#39;&#x60;, &#x60;&#39;text&#39;&#x60;, &#x60;&#39;unsupported&#39;&#x60;, &#x60;&#39;video&#39;&#x60;) (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#pagination (optional)
      * @param  int|null $page_size Default: 20. Min: 1. Max: 100. (optional, default to 20)
-     * @param  string|null $sort For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sorting (optional)
+     * @param  string|null $sort For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sorting (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAllUniversalContent'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -1807,11 +2508,11 @@ class TemplatesApi
      *
      * Get All Universal Content
      *
-     * @param  string[]|null $fields_template_universal_content For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;id&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;name&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;created&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60;&lt;br&gt;&#x60;updated&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60;&lt;br&gt;&#x60;definition.content_type&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;definition.type&#x60;: &#x60;equals&#x60; (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination (optional)
+     * @param  string[]|null $fields_template_universal_content For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;id&#x60;: &#x60;any&#x60;, &#x60;equals&#x60; (string)&lt;br&gt;&#x60;name&#x60;: &#x60;any&#x60;, &#x60;equals&#x60; (string)&lt;br&gt;&#x60;created&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60; (date-time)&lt;br&gt;&#x60;updated&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60; (date-time)&lt;br&gt;&#x60;definition.content_type&#x60;: &#x60;equals&#x60; (allowed values: &#x60;&#39;block&#39;&#x60;, &#x60;&#39;section&#39;&#x60;)&lt;br&gt;&#x60;definition.type&#x60;: &#x60;equals&#x60; (allowed values: &#x60;&#39;button&#39;&#x60;, &#x60;&#39;coupon&#39;&#x60;, &#x60;&#39;drop_shadow&#39;&#x60;, &#x60;&#39;header&#39;&#x60;, &#x60;&#39;horizontal_rule&#39;&#x60;, &#x60;&#39;html&#39;&#x60;, &#x60;&#39;image&#39;&#x60;, &#x60;&#39;product&#39;&#x60;, &#x60;&#39;review&#39;&#x60;, &#x60;&#39;social&#39;&#x60;, &#x60;&#39;spacer&#39;&#x60;, &#x60;&#39;split&#39;&#x60;, &#x60;&#39;table&#39;&#x60;, &#x60;&#39;text&#39;&#x60;, &#x60;&#39;unsupported&#39;&#x60;, &#x60;&#39;video&#39;&#x60;) (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#pagination (optional)
      * @param  int|null $page_size Default: 20. Min: 1. Max: 100. (optional, default to 20)
-     * @param  string|null $sort For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sorting (optional)
+     * @param  string|null $sort For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sorting (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAllUniversalContent'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -1933,11 +2634,11 @@ class TemplatesApi
      *
      * Get All Universal Content
      *
-     * @param  string[]|null $fields_template_universal_content For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;id&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;name&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;created&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60;&lt;br&gt;&#x60;updated&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60;&lt;br&gt;&#x60;definition.content_type&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;definition.type&#x60;: &#x60;equals&#x60; (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination (optional)
+     * @param  string[]|null $fields_template_universal_content For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;id&#x60;: &#x60;any&#x60;, &#x60;equals&#x60; (string)&lt;br&gt;&#x60;name&#x60;: &#x60;any&#x60;, &#x60;equals&#x60; (string)&lt;br&gt;&#x60;created&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60; (date-time)&lt;br&gt;&#x60;updated&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60; (date-time)&lt;br&gt;&#x60;definition.content_type&#x60;: &#x60;equals&#x60; (allowed values: &#x60;&#39;block&#39;&#x60;, &#x60;&#39;section&#39;&#x60;)&lt;br&gt;&#x60;definition.type&#x60;: &#x60;equals&#x60; (allowed values: &#x60;&#39;button&#39;&#x60;, &#x60;&#39;coupon&#39;&#x60;, &#x60;&#39;drop_shadow&#39;&#x60;, &#x60;&#39;header&#39;&#x60;, &#x60;&#39;horizontal_rule&#39;&#x60;, &#x60;&#39;html&#39;&#x60;, &#x60;&#39;image&#39;&#x60;, &#x60;&#39;product&#39;&#x60;, &#x60;&#39;review&#39;&#x60;, &#x60;&#39;social&#39;&#x60;, &#x60;&#39;spacer&#39;&#x60;, &#x60;&#39;split&#39;&#x60;, &#x60;&#39;table&#39;&#x60;, &#x60;&#39;text&#39;&#x60;, &#x60;&#39;unsupported&#39;&#x60;, &#x60;&#39;video&#39;&#x60;) (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#pagination (optional)
      * @param  int|null $page_size Default: 20. Min: 1. Max: 100. (optional, default to 20)
-     * @param  string|null $sort For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sorting (optional)
+     * @param  string|null $sort For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sorting (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAllUniversalContent'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1967,11 +2668,11 @@ class TemplatesApi
      *
      * Get All Universal Content
      *
-     * @param  string[]|null $fields_template_universal_content For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;id&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;name&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;created&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60;&lt;br&gt;&#x60;updated&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60;&lt;br&gt;&#x60;definition.content_type&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;definition.type&#x60;: &#x60;equals&#x60; (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination (optional)
+     * @param  string[]|null $fields_template_universal_content For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;id&#x60;: &#x60;any&#x60;, &#x60;equals&#x60; (string)&lt;br&gt;&#x60;name&#x60;: &#x60;any&#x60;, &#x60;equals&#x60; (string)&lt;br&gt;&#x60;created&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60; (date-time)&lt;br&gt;&#x60;updated&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60; (date-time)&lt;br&gt;&#x60;definition.content_type&#x60;: &#x60;equals&#x60; (allowed values: &#x60;&#39;block&#39;&#x60;, &#x60;&#39;section&#39;&#x60;)&lt;br&gt;&#x60;definition.type&#x60;: &#x60;equals&#x60; (allowed values: &#x60;&#39;button&#39;&#x60;, &#x60;&#39;coupon&#39;&#x60;, &#x60;&#39;drop_shadow&#39;&#x60;, &#x60;&#39;header&#39;&#x60;, &#x60;&#39;horizontal_rule&#39;&#x60;, &#x60;&#39;html&#39;&#x60;, &#x60;&#39;image&#39;&#x60;, &#x60;&#39;product&#39;&#x60;, &#x60;&#39;review&#39;&#x60;, &#x60;&#39;social&#39;&#x60;, &#x60;&#39;spacer&#39;&#x60;, &#x60;&#39;split&#39;&#x60;, &#x60;&#39;table&#39;&#x60;, &#x60;&#39;text&#39;&#x60;, &#x60;&#39;unsupported&#39;&#x60;, &#x60;&#39;video&#39;&#x60;) (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#pagination (optional)
      * @param  int|null $page_size Default: 20. Min: 1. Max: 100. (optional, default to 20)
-     * @param  string|null $sort For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sorting (optional)
+     * @param  string|null $sort For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sorting (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAllUniversalContent'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -2035,11 +2736,11 @@ class TemplatesApi
     /**
      * Create request for operation 'getAllUniversalContent'
      *
-     * @param  string[]|null $fields_template_universal_content For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;id&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;name&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;created&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60;&lt;br&gt;&#x60;updated&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60;&lt;br&gt;&#x60;definition.content_type&#x60;: &#x60;equals&#x60;&lt;br&gt;&#x60;definition.type&#x60;: &#x60;equals&#x60; (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination (optional)
+     * @param  string[]|null $fields_template_universal_content For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;id&#x60;: &#x60;any&#x60;, &#x60;equals&#x60; (string)&lt;br&gt;&#x60;name&#x60;: &#x60;any&#x60;, &#x60;equals&#x60; (string)&lt;br&gt;&#x60;created&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60; (date-time)&lt;br&gt;&#x60;updated&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60; (date-time)&lt;br&gt;&#x60;definition.content_type&#x60;: &#x60;equals&#x60; (allowed values: &#x60;&#39;block&#39;&#x60;, &#x60;&#39;section&#39;&#x60;)&lt;br&gt;&#x60;definition.type&#x60;: &#x60;equals&#x60; (allowed values: &#x60;&#39;button&#39;&#x60;, &#x60;&#39;coupon&#39;&#x60;, &#x60;&#39;drop_shadow&#39;&#x60;, &#x60;&#39;header&#39;&#x60;, &#x60;&#39;horizontal_rule&#39;&#x60;, &#x60;&#39;html&#39;&#x60;, &#x60;&#39;image&#39;&#x60;, &#x60;&#39;product&#39;&#x60;, &#x60;&#39;review&#39;&#x60;, &#x60;&#39;social&#39;&#x60;, &#x60;&#39;spacer&#39;&#x60;, &#x60;&#39;split&#39;&#x60;, &#x60;&#39;table&#39;&#x60;, &#x60;&#39;text&#39;&#x60;, &#x60;&#39;unsupported&#39;&#x60;, &#x60;&#39;video&#39;&#x60;) (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#pagination (optional)
      * @param  int|null $page_size Default: 20. Min: 1. Max: 100. (optional, default to 20)
-     * @param  string|null $sort For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sorting (optional)
+     * @param  string|null $sort For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sorting (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAllUniversalContent'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -2162,7 +2863,7 @@ class TemplatesApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2026-07-15'];
+        $defaultHeaders['revision'] = ['2026-10-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -2195,7 +2896,7 @@ class TemplatesApi
      *
      * @param  string $id The ID of template (required)
      * @param  string[]|null $additional_fields_template Request additional fields not included by default in the response. Supported values: &#39;definition&#39; (optional)
-     * @param  string[]|null $fields_template For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_template For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTemplate'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -2215,7 +2916,7 @@ class TemplatesApi
      *
      * @param  string $id The ID of template (required)
      * @param  string[]|null $additional_fields_template Request additional fields not included by default in the response. Supported values: &#39;definition&#39; (optional)
-     * @param  string[]|null $fields_template For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_template For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTemplate'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -2330,7 +3031,7 @@ class TemplatesApi
      *
      * @param  string $id The ID of template (required)
      * @param  string[]|null $additional_fields_template Request additional fields not included by default in the response. Supported values: &#39;definition&#39; (optional)
-     * @param  string[]|null $fields_template For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_template For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTemplate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -2353,7 +3054,7 @@ class TemplatesApi
      *
      * @param  string $id The ID of template (required)
      * @param  string[]|null $additional_fields_template Request additional fields not included by default in the response. Supported values: &#39;definition&#39; (optional)
-     * @param  string[]|null $fields_template For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_template For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTemplate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -2410,7 +3111,7 @@ class TemplatesApi
      *
      * @param  string $id The ID of template (required)
      * @param  string[]|null $additional_fields_template Request additional fields not included by default in the response. Supported values: &#39;definition&#39; (optional)
-     * @param  string[]|null $fields_template For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_template For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTemplate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -2512,7 +3213,7 @@ class TemplatesApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2026-07-15'];
+        $defaultHeaders['revision'] = ['2026-10-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -2535,11 +3236,11 @@ class TemplatesApi
      * Get Templates
      *
      * @param  string[]|null $additional_fields_template Request additional fields not included by default in the response. Supported values: &#39;definition&#39; (optional)
-     * @param  string[]|null $fields_template For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;id&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;name&#x60;: &#x60;any&#x60;, &#x60;contains&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;created&#x60;: &#x60;equals&#x60;, &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60;&lt;br&gt;&#x60;updated&#x60;: &#x60;equals&#x60;, &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60; (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination (optional)
+     * @param  string[]|null $fields_template For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;id&#x60;: &#x60;any&#x60;, &#x60;equals&#x60; (string)&lt;br&gt;&#x60;name&#x60;: &#x60;any&#x60;, &#x60;contains&#x60;, &#x60;equals&#x60; (string)&lt;br&gt;&#x60;created&#x60;: &#x60;equals&#x60;, &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60; (date-time)&lt;br&gt;&#x60;updated&#x60;: &#x60;equals&#x60;, &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60; (date-time) (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#pagination (optional)
      * @param  int|null $page_size Default: 10. Min: 1. Max: 10. (optional, default to 10)
-     * @param  string|null $sort For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sorting (optional)
+     * @param  string|null $sort For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sorting (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTemplates'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -2558,11 +3259,11 @@ class TemplatesApi
      * Get Templates
      *
      * @param  string[]|null $additional_fields_template Request additional fields not included by default in the response. Supported values: &#39;definition&#39; (optional)
-     * @param  string[]|null $fields_template For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;id&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;name&#x60;: &#x60;any&#x60;, &#x60;contains&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;created&#x60;: &#x60;equals&#x60;, &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60;&lt;br&gt;&#x60;updated&#x60;: &#x60;equals&#x60;, &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60; (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination (optional)
+     * @param  string[]|null $fields_template For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;id&#x60;: &#x60;any&#x60;, &#x60;equals&#x60; (string)&lt;br&gt;&#x60;name&#x60;: &#x60;any&#x60;, &#x60;contains&#x60;, &#x60;equals&#x60; (string)&lt;br&gt;&#x60;created&#x60;: &#x60;equals&#x60;, &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60; (date-time)&lt;br&gt;&#x60;updated&#x60;: &#x60;equals&#x60;, &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60; (date-time) (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#pagination (optional)
      * @param  int|null $page_size Default: 10. Min: 1. Max: 10. (optional, default to 10)
-     * @param  string|null $sort For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sorting (optional)
+     * @param  string|null $sort For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sorting (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTemplates'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -2676,11 +3377,11 @@ class TemplatesApi
      * Get Templates
      *
      * @param  string[]|null $additional_fields_template Request additional fields not included by default in the response. Supported values: &#39;definition&#39; (optional)
-     * @param  string[]|null $fields_template For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;id&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;name&#x60;: &#x60;any&#x60;, &#x60;contains&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;created&#x60;: &#x60;equals&#x60;, &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60;&lt;br&gt;&#x60;updated&#x60;: &#x60;equals&#x60;, &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60; (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination (optional)
+     * @param  string[]|null $fields_template For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;id&#x60;: &#x60;any&#x60;, &#x60;equals&#x60; (string)&lt;br&gt;&#x60;name&#x60;: &#x60;any&#x60;, &#x60;contains&#x60;, &#x60;equals&#x60; (string)&lt;br&gt;&#x60;created&#x60;: &#x60;equals&#x60;, &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60; (date-time)&lt;br&gt;&#x60;updated&#x60;: &#x60;equals&#x60;, &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60; (date-time) (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#pagination (optional)
      * @param  int|null $page_size Default: 10. Min: 1. Max: 10. (optional, default to 10)
-     * @param  string|null $sort For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sorting (optional)
+     * @param  string|null $sort For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sorting (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTemplates'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -2702,11 +3403,11 @@ class TemplatesApi
      * Get Templates
      *
      * @param  string[]|null $additional_fields_template Request additional fields not included by default in the response. Supported values: &#39;definition&#39; (optional)
-     * @param  string[]|null $fields_template For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;id&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;name&#x60;: &#x60;any&#x60;, &#x60;contains&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;created&#x60;: &#x60;equals&#x60;, &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60;&lt;br&gt;&#x60;updated&#x60;: &#x60;equals&#x60;, &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60; (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination (optional)
+     * @param  string[]|null $fields_template For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;id&#x60;: &#x60;any&#x60;, &#x60;equals&#x60; (string)&lt;br&gt;&#x60;name&#x60;: &#x60;any&#x60;, &#x60;contains&#x60;, &#x60;equals&#x60; (string)&lt;br&gt;&#x60;created&#x60;: &#x60;equals&#x60;, &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60; (date-time)&lt;br&gt;&#x60;updated&#x60;: &#x60;equals&#x60;, &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60; (date-time) (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#pagination (optional)
      * @param  int|null $page_size Default: 10. Min: 1. Max: 10. (optional, default to 10)
-     * @param  string|null $sort For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sorting (optional)
+     * @param  string|null $sort For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sorting (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTemplates'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -2762,11 +3463,11 @@ class TemplatesApi
      * Create request for operation 'getTemplates'
      *
      * @param  string[]|null $additional_fields_template Request additional fields not included by default in the response. Supported values: &#39;definition&#39; (optional)
-     * @param  string[]|null $fields_template For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
-     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;id&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;name&#x60;: &#x60;any&#x60;, &#x60;contains&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;created&#x60;: &#x60;equals&#x60;, &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60;&lt;br&gt;&#x60;updated&#x60;: &#x60;equals&#x60;, &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60; (optional)
-     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination (optional)
+     * @param  string[]|null $fields_template For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string|null $filter For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;id&#x60;: &#x60;any&#x60;, &#x60;equals&#x60; (string)&lt;br&gt;&#x60;name&#x60;: &#x60;any&#x60;, &#x60;contains&#x60;, &#x60;equals&#x60; (string)&lt;br&gt;&#x60;created&#x60;: &#x60;equals&#x60;, &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60; (date-time)&lt;br&gt;&#x60;updated&#x60;: &#x60;equals&#x60;, &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60; (date-time) (optional)
+     * @param  string|null $page_cursor For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#pagination (optional)
      * @param  int|null $page_size Default: 10. Min: 1. Max: 10. (optional, default to 10)
-     * @param  string|null $sort For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sorting (optional)
+     * @param  string|null $sort For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sorting (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTemplates'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -2899,7 +3600,7 @@ class TemplatesApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2026-07-15'];
+        $defaultHeaders['revision'] = ['2026-10-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -2922,7 +3623,7 @@ class TemplatesApi
      * Get Universal Content
      *
      * @param  string $id The ID of the universal content (required)
-     * @param  string[]|null $fields_template_universal_content For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_template_universal_content For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getUniversalContent'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -2941,7 +3642,7 @@ class TemplatesApi
      * Get Universal Content
      *
      * @param  string $id The ID of the universal content (required)
-     * @param  string[]|null $fields_template_universal_content For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_template_universal_content For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getUniversalContent'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -3055,7 +3756,7 @@ class TemplatesApi
      * Get Universal Content
      *
      * @param  string $id The ID of the universal content (required)
-     * @param  string[]|null $fields_template_universal_content For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_template_universal_content For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getUniversalContent'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -3077,7 +3778,7 @@ class TemplatesApi
      * Get Universal Content
      *
      * @param  string $id The ID of the universal content (required)
-     * @param  string[]|null $fields_template_universal_content For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_template_universal_content For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getUniversalContent'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -3133,7 +3834,7 @@ class TemplatesApi
      * Create request for operation 'getUniversalContent'
      *
      * @param  string $id The ID of the universal content (required)
-     * @param  string[]|null $fields_template_universal_content For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_template_universal_content For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getUniversalContent'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -3225,7 +3926,7 @@ class TemplatesApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2026-07-15'];
+        $defaultHeaders['revision'] = ['2026-10-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -3248,7 +3949,7 @@ class TemplatesApi
      * Render Template
      *
      * @param  \KlaviyoAPI\Model\TemplateRenderQuery $template_render_query template_render_query (required)
-     * @param  string[]|null $fields_template For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_template For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['renderTemplate'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -3276,7 +3977,7 @@ class TemplatesApi
      * Render Template
      *
      * @param  \KlaviyoAPI\Model\TemplateRenderQuery $template_render_query (required)
-     * @param  string[]|null $fields_template For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_template For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['renderTemplate'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -3399,7 +4100,7 @@ class TemplatesApi
      * Render Template
      *
      * @param  \KlaviyoAPI\Model\TemplateRenderQuery $template_render_query (required)
-     * @param  string[]|null $fields_template For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_template For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['renderTemplate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -3430,7 +4131,7 @@ class TemplatesApi
      * Render Template
      *
      * @param  \KlaviyoAPI\Model\TemplateRenderQuery $template_render_query (required)
-     * @param  string[]|null $fields_template For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_template For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['renderTemplate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -3495,7 +4196,7 @@ class TemplatesApi
      * Create request for operation 'renderTemplate'
      *
      * @param  \KlaviyoAPI\Model\TemplateRenderQuery $template_render_query (required)
-     * @param  string[]|null $fields_template For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_template For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['renderTemplate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -3586,7 +4287,7 @@ class TemplatesApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2026-07-15'];
+        $defaultHeaders['revision'] = ['2026-10-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -3620,7 +4321,7 @@ class TemplatesApi
      * @param  string $id The ID of template (required)
      * @param  \KlaviyoAPI\Model\TemplateUpdateHtmlOrDndQuery $template_update_html_or_dnd_query template_update_html_or_dnd_query (required)
      * @param  string[]|null $additional_fields_template Request additional fields not included by default in the response. Supported values: &#39;definition&#39; (optional)
-     * @param  string[]|null $fields_template For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_template For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateTemplate'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -3641,7 +4342,7 @@ class TemplatesApi
      * @param  string $id The ID of template (required)
      * @param  \KlaviyoAPI\Model\TemplateUpdateHtmlOrDndQuery $template_update_html_or_dnd_query (required)
      * @param  string[]|null $additional_fields_template Request additional fields not included by default in the response. Supported values: &#39;definition&#39; (optional)
-     * @param  string[]|null $fields_template For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_template For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateTemplate'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
@@ -3757,7 +4458,7 @@ class TemplatesApi
      * @param  string $id The ID of template (required)
      * @param  \KlaviyoAPI\Model\TemplateUpdateHtmlOrDndQuery $template_update_html_or_dnd_query (required)
      * @param  string[]|null $additional_fields_template Request additional fields not included by default in the response. Supported values: &#39;definition&#39; (optional)
-     * @param  string[]|null $fields_template For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_template For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateTemplate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -3781,7 +4482,7 @@ class TemplatesApi
      * @param  string $id The ID of template (required)
      * @param  \KlaviyoAPI\Model\TemplateUpdateHtmlOrDndQuery $template_update_html_or_dnd_query (required)
      * @param  string[]|null $additional_fields_template Request additional fields not included by default in the response. Supported values: &#39;definition&#39; (optional)
-     * @param  string[]|null $fields_template For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_template For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateTemplate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -3839,7 +4540,7 @@ class TemplatesApi
      * @param  string $id The ID of template (required)
      * @param  \KlaviyoAPI\Model\TemplateUpdateHtmlOrDndQuery $template_update_html_or_dnd_query (required)
      * @param  string[]|null $additional_fields_template Request additional fields not included by default in the response. Supported values: &#39;definition&#39; (optional)
-     * @param  string[]|null $fields_template For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  string[]|null $fields_template For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateTemplate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -3955,7 +4656,7 @@ class TemplatesApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2026-07-15'];
+        $defaultHeaders['revision'] = ['2026-10-15'];
 
         $headers = array_merge(
             $defaultHeaders,
@@ -3978,17 +4679,17 @@ class TemplatesApi
      * Update Universal Content
      *
      * @param  string $id The ID of the template universal content (required)
-     * @param  \KlaviyoAPI\Model\UniversalContentPartialUpdateQuery $universal_content_partial_update_query Update a universal content by ID (required)
-     * @param  string[]|null $fields_template_universal_content For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  \KlaviyoAPI\Model\UniversalContentPartialUpdateQueryV1 $universal_content_partial_update_query_v1 Update a universal content by ID, with full v1 write parity (every block/subblock type, plus Section) (required)
+     * @param  string[]|null $fields_template_universal_content For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateUniversalContent'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array<string,mixed>|\KlaviyoAPI\Model\GetAccounts400Response|\KlaviyoAPI\Model\GetAccounts400Response
      */
-    public function updateUniversalContent($id, $universal_content_partial_update_query, $fields_template_universal_content = null, $apiKey = null, string $contentType = self::contentTypes['updateUniversalContent'][0])
+    public function updateUniversalContent($id, $universal_content_partial_update_query_v1, $fields_template_universal_content = null, $apiKey = null, string $contentType = self::contentTypes['updateUniversalContent'][0])
     {
-        list($response) = $this->updateUniversalContentWithHttpInfo($id, $universal_content_partial_update_query, $fields_template_universal_content, $apiKey, $contentType);
+        list($response) = $this->updateUniversalContentWithHttpInfo($id, $universal_content_partial_update_query_v1, $fields_template_universal_content, $apiKey, $contentType);
         return $response;
     }
 
@@ -4007,17 +4708,17 @@ class TemplatesApi
      * Update Universal Content
      *
      * @param  string $id The ID of the template universal content (required)
-     * @param  \KlaviyoAPI\Model\UniversalContentPartialUpdateQuery $universal_content_partial_update_query Update a universal content by ID (required)
-     * @param  string[]|null $fields_template_universal_content For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  \KlaviyoAPI\Model\UniversalContentPartialUpdateQueryV1 $universal_content_partial_update_query_v1 Update a universal content by ID, with full v1 write parity (every block/subblock type, plus Section) (required)
+     * @param  string[]|null $fields_template_universal_content For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateUniversalContent'] to see the possible values for this operation
      *
      * @throws \KlaviyoAPI\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of array<string,mixed>|\KlaviyoAPI\Model\GetAccounts400Response|\KlaviyoAPI\Model\GetAccounts400Response, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updateUniversalContentWithHttpInfo($id, $universal_content_partial_update_query, $fields_template_universal_content = null, $apiKey = null, string $contentType = self::contentTypes['updateUniversalContent'][0])
+    public function updateUniversalContentWithHttpInfo($id, $universal_content_partial_update_query_v1, $fields_template_universal_content = null, $apiKey = null, string $contentType = self::contentTypes['updateUniversalContent'][0])
     {
-        $request = $this->updateUniversalContentRequest($id, $universal_content_partial_update_query, $fields_template_universal_content, $apiKey, $contentType);
+        $request = $this->updateUniversalContentRequest($id, $universal_content_partial_update_query_v1, $fields_template_universal_content, $apiKey, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -4131,16 +4832,16 @@ class TemplatesApi
      * Update Universal Content
      *
      * @param  string $id The ID of the template universal content (required)
-     * @param  \KlaviyoAPI\Model\UniversalContentPartialUpdateQuery $universal_content_partial_update_query Update a universal content by ID (required)
-     * @param  string[]|null $fields_template_universal_content For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  \KlaviyoAPI\Model\UniversalContentPartialUpdateQueryV1 $universal_content_partial_update_query_v1 Update a universal content by ID, with full v1 write parity (every block/subblock type, plus Section) (required)
+     * @param  string[]|null $fields_template_universal_content For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateUniversalContent'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateUniversalContentAsync($id, $universal_content_partial_update_query, $fields_template_universal_content = null, $apiKey = null, string $contentType = self::contentTypes['updateUniversalContent'][0])
+    public function updateUniversalContentAsync($id, $universal_content_partial_update_query_v1, $fields_template_universal_content = null, $apiKey = null, string $contentType = self::contentTypes['updateUniversalContent'][0])
     {
-        return $this->updateUniversalContentAsyncWithHttpInfo($id, $universal_content_partial_update_query, $fields_template_universal_content, $apiKey, $contentType)
+        return $this->updateUniversalContentAsyncWithHttpInfo($id, $universal_content_partial_update_query_v1, $fields_template_universal_content, $apiKey, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -4163,17 +4864,17 @@ class TemplatesApi
      * Update Universal Content
      *
      * @param  string $id The ID of the template universal content (required)
-     * @param  \KlaviyoAPI\Model\UniversalContentPartialUpdateQuery $universal_content_partial_update_query Update a universal content by ID (required)
-     * @param  string[]|null $fields_template_universal_content For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  \KlaviyoAPI\Model\UniversalContentPartialUpdateQueryV1 $universal_content_partial_update_query_v1 Update a universal content by ID, with full v1 write parity (every block/subblock type, plus Section) (required)
+     * @param  string[]|null $fields_template_universal_content For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateUniversalContent'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateUniversalContentAsyncWithHttpInfo($id, $universal_content_partial_update_query, $fields_template_universal_content = null, $apiKey = null, string $contentType = self::contentTypes['updateUniversalContent'][0])
+    public function updateUniversalContentAsyncWithHttpInfo($id, $universal_content_partial_update_query_v1, $fields_template_universal_content = null, $apiKey = null, string $contentType = self::contentTypes['updateUniversalContent'][0])
     {
         $returnType = 'array<string,mixed>';
-        $request = $this->updateUniversalContentRequest($id, $universal_content_partial_update_query, $fields_template_universal_content, $apiKey, $contentType);
+        $request = $this->updateUniversalContentRequest($id, $universal_content_partial_update_query_v1, $fields_template_universal_content, $apiKey, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -4229,14 +4930,14 @@ class TemplatesApi
      * Create request for operation 'updateUniversalContent'
      *
      * @param  string $id The ID of the template universal content (required)
-     * @param  \KlaviyoAPI\Model\UniversalContentPartialUpdateQuery $universal_content_partial_update_query Update a universal content by ID (required)
-     * @param  string[]|null $fields_template_universal_content For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets (optional)
+     * @param  \KlaviyoAPI\Model\UniversalContentPartialUpdateQueryV1 $universal_content_partial_update_query_v1 Update a universal content by ID, with full v1 write parity (every block/subblock type, plus Section) (required)
+     * @param  string[]|null $fields_template_universal_content For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateUniversalContent'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function updateUniversalContentRequest($id, $universal_content_partial_update_query, $fields_template_universal_content = null, $apiKey = null, string $contentType = self::contentTypes['updateUniversalContent'][0])
+    public function updateUniversalContentRequest($id, $universal_content_partial_update_query_v1, $fields_template_universal_content = null, $apiKey = null, string $contentType = self::contentTypes['updateUniversalContent'][0])
     {
 
         // verify the required parameter 'id' is set
@@ -4246,10 +4947,10 @@ class TemplatesApi
             );
         }
 
-        // verify the required parameter 'universal_content_partial_update_query' is set
-        if ($universal_content_partial_update_query === null || (is_array($universal_content_partial_update_query) && count($universal_content_partial_update_query) === 0)) {
+        // verify the required parameter 'universal_content_partial_update_query_v1' is set
+        if ($universal_content_partial_update_query_v1 === null || (is_array($universal_content_partial_update_query_v1) && count($universal_content_partial_update_query_v1) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $universal_content_partial_update_query when calling updateUniversalContent'
+                'Missing the required parameter $universal_content_partial_update_query_v1 when calling updateUniversalContent'
             );
         }
 
@@ -4290,12 +4991,12 @@ class TemplatesApi
         );
 
         // for model (json/xml)
-        if (isset($universal_content_partial_update_query)) {
+        if (isset($universal_content_partial_update_query_v1)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false || stripos($headers['Content-Type'], 'application/vnd.api+json') !== false) {
                 # if Content-Type contains "application/json" or "application/vnd.api+json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($universal_content_partial_update_query));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($universal_content_partial_update_query_v1));
             } else {
-                $httpBody = $universal_content_partial_update_query;
+                $httpBody = $universal_content_partial_update_query_v1;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -4336,7 +5037,7 @@ class TemplatesApi
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
 
-        $defaultHeaders['revision'] = ['2026-07-15'];
+        $defaultHeaders['revision'] = ['2026-10-15'];
 
         $headers = array_merge(
             $defaultHeaders,

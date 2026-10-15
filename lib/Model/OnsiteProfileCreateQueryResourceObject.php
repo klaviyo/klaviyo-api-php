@@ -59,7 +59,7 @@ class OnsiteProfileCreateQueryResourceObject implements ModelInterface, ArrayAcc
     protected static $openAPITypes = [
         'type' => '\KlaviyoAPI\Model\ProfileEnum',
         'id' => 'string',
-        'attributes' => '\KlaviyoAPI\Model\OnsiteProfileCreateQueryResourceObjectAttributes',
+        'attributes' => '\KlaviyoAPI\Model\EventProfileCreateQueryResourceObjectAttributes',
         'meta' => '\KlaviyoAPI\Model\OnsiteProfileMeta'
     ];
 
@@ -380,7 +380,7 @@ class OnsiteProfileCreateQueryResourceObject implements ModelInterface, ArrayAcc
     /**
      * Gets attributes
      *
-     * @return \KlaviyoAPI\Model\OnsiteProfileCreateQueryResourceObjectAttributes
+     * @return \KlaviyoAPI\Model\EventProfileCreateQueryResourceObjectAttributes
      */
     public function getAttributes()
     {
@@ -390,7 +390,7 @@ class OnsiteProfileCreateQueryResourceObject implements ModelInterface, ArrayAcc
     /**
      * Sets attributes
      *
-     * @param \KlaviyoAPI\Model\OnsiteProfileCreateQueryResourceObjectAttributes $attributes attributes
+     * @param \KlaviyoAPI\Model\EventProfileCreateQueryResourceObjectAttributes $attributes attributes
      *
      * @return self
      */

@@ -352,7 +352,7 @@ class CampaignPartialUpdateQueryResourceObject implements ModelInterface, ArrayA
     /**
      * Sets id
      *
-     * @param string $id The campaign ID to be retrieved
+     * @param string $id The campaign ID to be updated
      *
      * @return self
      */
